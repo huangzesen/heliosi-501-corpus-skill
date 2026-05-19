@@ -24,7 +24,7 @@
     ]
   },
   "four_layer_model": {
-    "framing": "Each paper-skill is authored as a stack of four conceptual layers. The corpus itself is runtime-neutral; specific skills, MCPs, and Python adapters are runtime-supplied and substitutable. The paper-skill must be loadable by LingTai, Claude Code, Codex, or any future agent harness.",
+    "framing": "Each paper-skill is authored against a stack of up to four conceptual layers. Layer 1 (scientific invariant) is universal; Layers 2/3/4 are populated as the entry matures (stub -> method-ready -> reproduced). The corpus itself is runtime-neutral; specific skills, MCPs, and Python adapters are runtime-supplied and substitutable. The paper-skill must be loadable by LingTai, Claude Code, Codex, or any future agent harness.",
     "layers": {
       "layer_1_scientific_invariant": "Narrow-form claim, claim_boundary, methods/equations as assumptions, failure modes, figure/numerical targets. Load-bearing for reproducibility.",
       "layer_2_executable_protocol": "Capability-typed procedure naming abstract capabilities (e.g. pfss.solve, magnetogram.fetch_synoptic_br, kappa_fit.tail) and validation targets. Names protocols, not products.",
@@ -32,11 +32,11 @@
       "layer_4_research_generation_affordance": "Gaps, tensions, hypothesis opportunities, minimal experiments enabled by combining this skill with siblings. Powers the 'generate new ideas' end of the discovery loop."
     },
     "layer_population_across_501": {
-      "scientific_invariant": 45,
-      "executable_protocol": 0,
+      "scientific_invariant": 225,
+      "executable_protocol": 90,
       "adapter_binding_examples": 0,
-      "research_generation_affordance": 0,
-      "note": "Counts reflect entries that EXPLICITLY author a layers={} block in metadata.yaml or the batch manifest. Many baseline-batch skills predate the layers field; their layer coverage is described prose-side in SKILL.md and is not double-counted here."
+      "research_generation_affordance": 135,
+      "note": "Counts reflect entries that EXPLICITLY author a layers:{} block on the SKILL.md frontmatter (225/501 entries). Many baseline-batch skills predate the booleans; their layer coverage is described prose-side and audited by scripts/audit_layer_schemas.py instead. See references/corpus_qa_report_v2.md S9 for the fully-populated vs partially-populated breakdown (issue #58) and the metadata.yaml-side counts (90/501 entries: 45 fully populated, 45 partially populated). Recompute with `python3 scripts/audit_layer_population.py --json`; pinned by `tests/test_layer_population.py`."
     },
     "compilation_table": {
       "claims": "Layer 1 narrow-form claim + claim_boundary",

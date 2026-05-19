@@ -96,12 +96,14 @@ alone is not evidence of hallucination — the audit-trail block is.
 
 ## What this is
 
-A single Claude Code aggregator skill that exposes a curated corpus of **501 harness-agnostic paper-skills** across **18 batches** of heliophysics literature (PFSS / open flux, PSP & Solar Orbiter inner heliosphere, SEPs & shocks, turbulence & heating, solar-wind classification & ML, instruments & data products, coronal CME/flares, waves/instabilities/reconnection, agent-runtime & evaluation design, plus pilots). The corpus follows a four-layer authoring model:
+A single Claude Code aggregator skill that exposes a curated corpus of **501 harness-agnostic paper-skills** across **18 batches** of heliophysics literature (PFSS / open flux, PSP & Solar Orbiter inner heliosphere, SEPs & shocks, turbulence & heating, solar-wind classification & ML, instruments & data products, coronal CME/flares, waves/instabilities/reconnection, agent-runtime & evaluation design, plus pilots). The corpus is authored against an **up-to-four-layer model**, populated as each entry matures:
 
-1. **Scientific invariant** (claim, assumptions, failure modes, validation targets)
-2. **Executable protocol** against *abstract* capabilities (Layer-2 contract)
-3. **Adapter / runtime notes** (Layer-3 example bindings only)
-4. **Research-generation affordances** (gaps, tensions, composable experiments)
+1. **Scientific invariant** (claim, assumptions, failure modes, validation targets) — present on every entry.
+2. **Executable protocol** against *abstract* capabilities (Layer-2 contract) — populated at method-ready promotion.
+3. **Adapter / runtime notes** (Layer-3 example bindings only) — optional; populated when a runtime binding is documented.
+4. **Research-generation affordances** (gaps, tensions, composable experiments) — populated when the entry exposes hypothesis seeds.
+
+The "four-layer model" is the **authoring spec**, not a per-entry invariant: stub and scaffold entries deliberately ship with Layers 2/3/4 marked `false` in their `layers:` frontmatter block until they are promoted. See `references/corpus_qa_report_v2.md` §9 for the current fully-populated vs partially-populated breakdown (issue #58), and `scripts/audit_layer_population.py` to recompute it.
 
 The corpus is structural and bibliographic. It is **not** 501 reproduced experiments.
 
@@ -293,7 +295,7 @@ user — they should either (i) pick a different entry, (ii) author the
 missing Layer-2 first, or (iii) run `--ready-for verify` to find the
 verification-target subset and read the paper before designing anything.
 
-a. Read the entry's `SKILL.md` (all four layers) and `metadata.yaml`.
+a. Read the entry's `SKILL.md` (whichever of the up-to-four layers are populated — check the `layers:` frontmatter block when present) and `metadata.yaml`.
 b. Map each abstract Layer-2 capability to a concrete adapter the user actually has (their MCPs, scripts, datasets). When the capability is SPICE-shaped (ephemeris, orbit geometry, frame transform), the companion MCP `xhelio-spice` is the recommended Layer-3 binding *if* the consumer has it installed. When the capability is CDAWeb-shaped (FIELDS / SWEAP / IS☉IS / SWA / MAG / EPD time-series fetch), `xhelio-cdaweb` is the recommended binding *if* installed. Verify availability before issuing tool calls; if neither MCP is configured, surface the binding gap as a prerequisite — do not invent a fallback.
 c. Reproduce the entry's Layer-1 *Validation target* verbatim; keep tolerance numbers as the paper / reproduction stated them.
 d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen scope when porting to a runtime.
@@ -304,7 +306,7 @@ d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen 
 
 - The bundle contains exactly **501** paper-skill directories across **18** batches with cross-matched filesystem + manifest counts (see `corpus_qa_report_v2.md` §1).
 - Slugs are globally unique across batches (`totals.duplicate_slugs == {}` in `references/corpus_manifest_v2.json`; the top-level `duplicate_slugs` key is `null`).
-- The corpus is authored under the harness-agnostic four-layer model.
+- The corpus is authored under the harness-agnostic four-layer model as an **authoring spec** — every entry has Layer 1 (scientific invariant); Layers 2/3/4 are populated as the entry matures (stub → method-ready → reproduced). For entries that ship an explicit `layers:` boolean frontmatter block (225 / 501 entries — see `references/corpus_qa_report_v2.md` §9), the booleans are authoritative: `false` means that layer is intentionally not yet populated and the entry must not be cited as if it were.
 - Exactly **one** entry (`wu-2026-nonspherical-coronal-magnetic-field-open-flux`, in `batch_pfss_source_mapping`) has a documented local numerical reproduction (open flux 9.09 vs paper 9.19 G·R²_sun, 1.1 % error, GONG CR 2282, R_init = 2.5).
 
 **Unsafe to assert (do NOT claim):**
@@ -317,7 +319,7 @@ d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen 
 - That the research-generation map is an externally validated agenda; it is corpus-internal seed material.
 - That `wave500_agent_runtime_eval_design_045` (45 entries) is heliophysics-executable science — those are design-pattern transplants.
 
-Preserve the **four-layer separation** when summarizing: never collapse Layer-3 examples into Layer-2 contracts, never widen Layer-1 claim boundaries during synthesis.
+Preserve the **four-layer separation** when summarizing: never collapse Layer-3 examples into Layer-2 contracts, never widen Layer-1 claim boundaries during synthesis. Where an entry's `layers:` frontmatter block marks a layer `false`, treat that layer as not authored — do not synthesize content for it.
 
 ## Maturity tiers (T1–T7) — exact distribution
 

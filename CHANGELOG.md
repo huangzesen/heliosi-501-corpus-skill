@@ -12,7 +12,7 @@ Hygiene + critical/high-priority bug-fix batch. Targets the load-bearing
 defects flagged in the public issue tracker (#1, #3, #4, #6, #10, #12, #17)
 plus the docs/script UX, corpus-integrity, authorship-hygiene,
 arXiv-provenance, layer-2-stub-audit, workflow-gating, authorship-parity,
-and research-generation-affordance batches that landed on top. Per-entry
+research-generation-affordance, and layer-population-honesty batches that landed on top. Per-entry
 surface changes are limited to the per-entry hygiene fixes called out in
 each section below (minimal `SKILL.md` frontmatter on 222 entries, 5
 metadata.yaml parse fixes, authorship-placeholder canonicalization on the
@@ -269,6 +269,28 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   `backfill_layer4_affordances.py` heuristic, and a re-run command is
   documented in case the field gets reset on a fresh checkout.
 
+### Issue #58 — four-layer model is now documented as maturity-dependent
+
+- `SKILL.md`, `README.md`, and `references/corpus_index_v2.md` now describe
+  the corpus as authored against an **up-to-four-layer** model: Layer 1 is
+  universal, while Layers 2/3/4 are populated as an entry matures. Consumers
+  are explicitly told that an entry-level `layers.<key>: false` boolean is
+  authoritative and must not be cited as if that layer were authored.
+- `references/corpus_qa_report_v2.md` adds a layer-population audit section:
+  225 / 501 per-entry `SKILL.md` frontmatter blocks carry explicit `layers:`
+  booleans, with 0 fully populated and 225 partially populated on that surface
+  (90 at 1/4, 45 at 2/4, 90 at 3/4); `metadata.yaml` carries 90 explicit
+  blocks, with 45 fully populated and 45 partially populated; the 90 entries
+  where both surfaces carry the block have 0 parity mismatches.
+- `references/corpus_manifest_v2.json` refreshes
+  `four_layer_model.layer_population_across_501` from stale 45/0/0/0 values
+  to the live SKILL.md-frontmatter counts: `scientific_invariant=225`,
+  `executable_protocol=90`, `adapter_binding_examples=0`,
+  `research_generation_affordance=135`.
+- `scripts/audit_layer_population.py` and `tests/test_layer_population.py`
+  provide the reproducible audit (`--json`, `--strict`) and pin the doc ↔
+  corpus consistency checks. Closes #58.
+
 ### Added
 - `LICENSE` (MIT for the bundle code; explanatory note that the per-entry
   corpus content paraphrases third-party papers whose copyright remains
@@ -358,8 +380,8 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   are intentionally **out of scope** for this batch and remain open.
   They need a security-focused review.
 - The remaining non-security docs / corpus-curation issues (#18–#22,
-  #33, #34, #39, #41, #44, #55–#59, #61) are NOT addressed here — they
-  require curatorial or roadmap decisions about the corpus itself
+  #33, #34, #39, #41, #44, #55–#57, #59, #61) are NOT addressed here —
+  they require curatorial or roadmap decisions about the corpus itself
   (unifying per-batch manifest schemas, populating Layer-2 contracts,
   reconciling `quality` vs `quality_level`, deciding the next roadmap,
   etc.) rather than the mechanical / audit hygiene this batch covers.

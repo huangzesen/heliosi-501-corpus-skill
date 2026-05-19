@@ -129,9 +129,16 @@ ID has been independently checked.
 ## What this is (and is not)
 
 - It **is** an aggregator skill that lets Claude search a curated corpus of
-  501 harness-agnostic heliophysics paper-skills authored under a four-layer
-  model: (1) scientific invariant, (2) abstract executable contract,
-  (3) example adapter / runtime notes, (4) research-generation affordances.
+  501 harness-agnostic heliophysics paper-skills authored under an
+  **up-to-four-layer model**: (1) scientific invariant — present on every
+  entry, (2) abstract executable contract, (3) example adapter / runtime
+  notes, (4) research-generation affordances. Layers 2/3/4 are populated as
+  each entry matures (stub → method-ready → reproduced); 225 / 501 entries
+  ship an explicit `layers:` boolean frontmatter block on their per-entry
+  `SKILL.md` and **0 of those carry all four layers populated** as of the
+  current snapshot. See `references/corpus_qa_report_v2.md` §9 for the full
+  fully-populated vs partially-populated breakdown (issue #58), and
+  `scripts/audit_layer_population.py` to recompute.
 - It **is not** 501 reproduced experiments. The corpus is structural and
   bibliographic. Most entries are at maturity tier T3
   (`paper-grounded-pending-full-text`) — a Layer-2 contract and Layer-1 claim
@@ -402,7 +409,9 @@ The aggregator `SKILL.md` instructs Claude to:
 3. Read at most a handful of per-entry `SKILL.md` files.
 4. Preserve the four-layer separation when composing answers — never collapse
    Layer-3 example adapters into Layer-2 contracts, and never widen Layer-1
-   claim boundaries.
+   claim boundaries. Where an entry's `layers:` frontmatter block marks a
+   layer `false`, treat that layer as not authored — do not synthesize
+   content for it.
 
 ## Updating
 

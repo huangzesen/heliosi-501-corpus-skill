@@ -268,7 +268,92 @@ unclassified. The classifier is regex-based and stdlib-only; the test
 suite (`tests/test_layer_schemas.py`) pins the per-batch distribution so
 any drift surfaces as a test failure in CI.
 
-## 9. Acceptance summary
+## 9. Layer-population audit (issue #58)
+
+Issue #58 flagged that the aggregator headline ("the corpus follows a
+four-layer authoring model") reads as a structural invariant, while in
+practice some entries carry a `layers:` frontmatter block with one or
+more layers marked `false` (e.g. `paper-orbiter-fno-autoregressive-spherical`,
+`paper-astropy-2022-collaboration-community-package`,
+`paper-opie-2024-temperature-anisotropy-velocity-shears`). The fix is
+two-sided: (a) the aggregator `SKILL.md`, `README.md`, and
+`corpus_index_v2.md` §2 now describe the model as "up to four layers,
+populated as the entry matures"; (b) this section publishes the actual
+fully-populated vs partially-populated counts so the headline cannot
+drift from reality silently. The numbers below are computed by
+`scripts/audit_layer_population.py` and pinned by
+`tests/test_layer_population.py`.
+
+**SKILL.md frontmatter `layers:` block — 225 / 501 entries:**
+
+| Status | Entries | Notes |
+|---|---:|---|
+| Fully populated (all 4 layers `true`) | **0** | No entry on this surface currently advertises full population. |
+| Partially populated (1–3 layers `true`) | **225** | All 225 SKILL.md `layers:` blocks have at least one `false`. |
+| No explicit block | 276 | Layer coverage is encoded prose-side (see §8); not a failure. |
+
+**SKILL.md frontmatter — distribution by number of layers `true`:**
+
+| # layers `true` | Entries | Batches |
+|---:|---:|---|
+| 1 / 4 | 90 | `wave500_instruments_data_software_045` (45), `wave500_sw_classification_ml_foundation_045` (45) |
+| 2 / 4 | 45 | `wave500_turbulence_intermit_heating_045` (45) |
+| 3 / 4 | 90 | `wave500_agent_runtime_eval_design_045` (45), `wave500_sep_shocks_space_weather_045` (45) |
+| 4 / 4 | 0 | (none on this surface) |
+| **TOTAL with block** | **225** | |
+
+**SKILL.md frontmatter — per-layer `true` counts (among the 225):**
+
+| Layer key | Entries with `true` |
+|---|---:|
+| `scientific_invariant` | 225 |
+| `executable_protocol` | 90 |
+| `adapter_binding_examples` | 0 |
+| `research_generation_affordance` | 135 |
+
+**`metadata.yaml` top-level `layers:` block — 90 / 501 entries:**
+
+| Status | Entries | Notes |
+|---|---:|---|
+| Fully populated (all 4 layers `true`) | **45** | `wave500_solar_corona_cme_flares_045` (45 entries). |
+| Partially populated (1–3 layers `true`) | **45** | `wave500_sw_classification_ml_foundation_045` (45 entries, 1/4). |
+| No explicit block | 411 | Layer coverage is on the SKILL.md side or prose-side. |
+
+`metadata.yaml ↔ SKILL.md frontmatter` parity: **0** mismatches on the
+90 entries where both surfaces ship the block. `audit_layer_population.py
+--strict` exits non-zero if that ever drifts.
+
+**How to read these numbers:**
+
+- The booleans are an **additional machine-readable signal where present**,
+  not a per-entry requirement. The corpus deliberately ships heterogeneous
+  rendering families (issue #13 / §8); entries without the boolean block
+  are not failing the four-layer model — their layer coverage is
+  classified by `scripts/audit_layer_schemas.py` instead.
+- Where an entry **does** ship the boolean block, the `false` values are
+  authoritative: the consumer must treat that layer as not authored and
+  must not synthesize content for it. This is the rule that the
+  aggregator `SKILL.md` and `README.md` now state explicitly.
+- The single load-bearing **scientific invariant** (Layer 1) is universal
+  in spirit (every paper has a narrow-form claim) but is only declared as
+  a boolean on the 225 SKILL.md frontmatter entries that ship the block.
+  For the remaining 276 entries the Layer-1 content lives in the prose
+  body; do not confuse "no boolean block" with "no Layer 1".
+
+**Reproducibility:**
+
+```bash
+python3 scripts/audit_layer_population.py            # human-readable
+python3 scripts/audit_layer_population.py --json     # machine-readable
+python3 scripts/audit_layer_population.py --strict   # CI: non-zero on parity drift
+```
+
+`tests/test_layer_population.py` runs the script in `--json --strict`
+mode and asserts the numbers in this section match what the corpus
+actually contains, so any future change to the underlying entries
+surfaces as a test failure in CI rather than silent doc drift.
+
+## 10. Acceptance summary
 
 | Requirement | Status |
 |---|---|
@@ -280,6 +365,7 @@ any drift surfaces as a test failure in CI.
 | (6) Claim boundaries with safe/unsafe lists; MCP caution | ✓ — §3 + §5 here + `corpus_index_v2.md` §3 |
 | (7) Weak entries / TODO classes by batch | ✓ — §6 + per-batch manifests (unchanged) |
 | (8) Validate JSON parses; counts match 501; duplicate slugs zero; three v2 files exist | ✓ — §1–2; one-liner provided |
+| (9) Publish fully/partially-populated `layers:` counts; reword aggregator headline (issue #58) | ✓ — §9 here + `SKILL.md` / `README.md` / `corpus_index_v2.md` §2 |
 | Do not touch `.library/custom/` or live skill catalog | ✓ — only writes are under `paper_skill_corpus/` |
 | Do not overwrite v1 roll-up files | ✓ — `corpus_manifest.json`, `corpus_index.md`, `corpus_qa_report.md` preserved unchanged; v2 files are new |
 | Do not rewrite existing paper-skills | ✓ — only the three v2 roll-up files were written |

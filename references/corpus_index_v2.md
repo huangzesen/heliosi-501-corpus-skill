@@ -29,9 +29,11 @@ HelioSI restructures heliophysics-domain knowledge into harness-agnostic, agent-
 - .library/custom/* is NOT modified by this roll-up.
 - Domain MCPs (sunkit-magex, pfss-tracing, sw-scanner, lingtai xhelio-spice, ...) are Layer-3 example adapters, not requirements. Only xhelio-spice has an implemented contract; other domain MCP contracts in batches are proposed/abstract.
 
-## 2. Harness-agnostic four-layer model
+## 2. Harness-agnostic four-layer model (up to four layers, populated as the entry matures)
 
-Each paper-skill is authored as a stack of four conceptual layers. The corpus itself is runtime-neutral; specific skills, MCPs, and Python adapters are runtime-supplied and substitutable. The paper-skill must be loadable by LingTai, Claude Code, Codex, or any future agent harness.
+Each paper-skill is authored against a stack of **up to four** conceptual layers. The corpus itself is runtime-neutral; specific skills, MCPs, and Python adapters are runtime-supplied and substitutable. The paper-skill must be loadable by LingTai, Claude Code, Codex, or any future agent harness.
+
+The "four-layer model" is the **authoring spec**, not a per-entry invariant — Layer 1 (scientific invariant) is present on every entry, but Layers 2/3/4 are populated as each entry matures (stub → method-ready → reproduced). Entries that author an explicit `layers:` boolean frontmatter block declare per-layer presence directly; entries without that block encode layer coverage prose-side (numbered sections or `## Layer N — …` headers, audited by `scripts/audit_layer_schemas.py`). See `corpus_qa_report_v2.md` §9 for the fully-populated vs partially-populated breakdown (issue #58).
 
 | Layer | Role |
 |---|---|
@@ -52,16 +54,32 @@ Each paper-skill is authored as a stack of four conceptual layers. The corpus it
 | citations | depends_on edges at end of SKILL.md |
 | generative_implications | Layer 4 research-generation affordance |
 
-**Explicit `layers={}` authoring across all 501 entries** (counts entries that authored an inline layers block; many baseline-batch skills express layer content as prose in SKILL.md and are not counted here):
+**Explicit `layers:` boolean authoring across all 501 entries** (counts entries that author the inline `layers:` block on the SKILL.md frontmatter; many baseline-batch skills express layer content as prose in SKILL.md / metadata.yaml and are not counted here. Live numbers via `python3 scripts/audit_layer_population.py`; consistency pinned by `tests/test_layer_population.py`):
+
+| Surface | Entries with explicit block | Fully populated (4/4) | Partially populated (<4/4) |
+|---|---:|---:|---:|
+| SKILL.md frontmatter `layers:` | 225 / 501 | 0 | 225 |
+| metadata.yaml top-level `layers:` | 90 / 501 | 45 | 45 |
+
+**SKILL.md frontmatter — distribution of partial-population (issue #58):**
+
+| # layers true | Entries | Batches |
+|---:|---:|---|
+| 1 / 4 | 90 | `wave500_instruments_data_software_045` (45), `wave500_sw_classification_ml_foundation_045` (45) |
+| 2 / 4 | 45 | `wave500_turbulence_intermit_heating_045` (45) |
+| 3 / 4 | 90 | `wave500_agent_runtime_eval_design_045` (45), `wave500_sep_shocks_space_weather_045` (45) |
+| 4 / 4 | 0 | (none on this surface) |
+
+**Per-layer `true` counts (SKILL.md frontmatter, among the 225 entries with the block):**
 
 | Layer | Entries with `layers.<key>: true` |
-|---|---|
-| scientific_invariant | 45 |
-| executable_protocol | 0 |
+|---|---:|
+| scientific_invariant | 225 |
+| executable_protocol | 90 |
 | adapter_binding_examples | 0 |
-| research_generation_affordance | 0 |
+| research_generation_affordance | 135 |
 
-> Counts reflect entries that EXPLICITLY author a layers={} block in metadata.yaml or the batch manifest. Many baseline-batch skills predate the layers field; their layer coverage is described prose-side in SKILL.md and is not double-counted here.
+> Counts reflect entries that EXPLICITLY author a `layers:` block in the SKILL.md frontmatter (or metadata.yaml). Many baseline-batch skills predate the booleans; their layer coverage is described prose-side and is audited by `scripts/audit_layer_schemas.py` instead (see `corpus_qa_report_v2.md` §8). The two surfaces agree on every entry where both are present (0 parity mismatches; verified by `audit_layer_population.py --strict`).
 
 ## 3. Claim boundaries (read before quoting any skill)
 
