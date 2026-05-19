@@ -43,3 +43,15 @@ algorithms:
   - name: Conditional prevalence statistics
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §5
+# --- arXiv ID provenance (managed by scripts/verify_arxiv_ids.py) ---
+provenance:
+  id_verifications:
+    - arxiv_id: "2603.11329"
+      url: "https://arxiv.org/abs/2603.11329"
+      http_status: 200
+      fetched_title: Strong Prevalence of Hammerhead Velocity Distributions Close to the Heliospheric Current Sheet
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T07:20:21Z"
+      source: live
+# --- end arXiv ID provenance ---

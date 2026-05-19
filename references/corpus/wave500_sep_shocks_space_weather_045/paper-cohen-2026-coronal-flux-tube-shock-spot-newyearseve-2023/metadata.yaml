@@ -23,3 +23,15 @@ weak_entries:
   - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.24749
+# --- arXiv ID provenance (managed by scripts/verify_arxiv_ids.py) ---
+provenance:
+  id_verifications:
+    - arxiv_id: "2512.24749"
+      url: "https://arxiv.org/abs/2512.24749"
+      http_status: 200
+      fetched_title: "Coronal flux tube illuminated by strong shock spot: New Year&#39;s Eve solar eruption of 2023-Dec-31"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T07:20:21Z"
+      source: live
+# --- end arXiv ID provenance ---

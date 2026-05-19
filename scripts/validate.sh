@@ -336,6 +336,241 @@ print('authorship hygiene ok (no TODO/TBD placeholders in '
       'metadata.first_author/authors or SKILL.md paper.first_author/authors)')
 PY
 
+# -- S4e arXiv ID provenance hygiene (issue #9) ------------------------------
+# For every per-entry metadata.yaml that advertises a structured arXiv ID
+# under `arxiv:` (and every per-entry SKILL.md whose frontmatter advertises
+# `paper.arxiv_id:` / top-level `arxiv_id:`), this section enforces:
+#
+#   (a) the arXiv ID has a plausible format (YYMM.NNNNN or old-style
+#       <category>/YYMMNNN);
+#   (b) if the entry carries a `provenance.id_verifications[]` block (added
+#       by scripts/verify_arxiv_ids.py), every record must be structurally
+#       valid:
+#         - `url` is exactly `https://arxiv.org/abs/<arxiv_id>`;
+#         - the `arxiv_id` inside the record matches the URL's ID;
+#         - `http_status` is an integer;
+#         - `status` is one of a known set (e.g. arxiv-http-title-match,
+#           title-mismatch, http-non-200, network-error, no-title-tag,
+#           invalid-id-format, no-recorded-title);
+#         - when `status == arxiv-http-title-match`, `title_match` is True;
+#   (c) an entry MUST NOT claim verification it does not have: a record
+#       with `status == arxiv-http-title-match` requires `http_status: 200`
+#       and `title_match: true` and a non-empty `fetched_title`.
+#
+# CI does NOT make any live HTTP call to arxiv.org -- the live verifier is
+# scripts/verify_arxiv_ids.py, run on demand. The check below is structural
+# only and stays green for entries that have no provenance block yet (those
+# IDs are treated as `unverified` and must NOT be presented as verified by
+# any other field). The right framing for issue #9 is provenance honesty,
+# not deletion: high arXiv numeric suffix alone is not evidence of
+# hallucination.
+section "S4e arXiv ID provenance hygiene (PyYAML if available)"
+
+python3 - <<'PY'
+import re
+import sys
+from pathlib import Path
+
+try:
+    import yaml  # PyYAML
+except ImportError:
+    print('SKIP: PyYAML not installed -- arXiv provenance hygiene check skipped.')
+    print('      Install with `pip install pyyaml` to enable strict parsing.')
+    sys.exit(0)
+
+ARXIV_ID_RE = re.compile(
+    r'^(?:\d{4}\.\d{4,6}|[a-z\-]+/\d{7})(?:v\d+)?$',
+    re.IGNORECASE,
+)
+ARXIV_URL_RE = re.compile(
+    r'^https://arxiv\.org/abs/(?P<id>(?:\d{4}\.\d{4,6}|[a-z\-]+/\d{7})(?:v\d+)?)$',
+    re.IGNORECASE,
+)
+KNOWN_STATUSES = {
+    'arxiv-http-title-match',
+    'title-mismatch',
+    'http-non-200',
+    'network-error',
+    'no-title-tag',
+    'invalid-id-format',
+    'no-recorded-title',
+    'unverified',
+}
+
+# Known non-ID sentinel strings that some entries use to mean "this paper
+# does not have an arXiv preprint we can point at". They are NOT arXiv IDs
+# and the provenance check must not try to verify them.
+NON_ID_SENTINELS = {'not-in-local-inventory', 'none', 'n/a', 'na'}
+
+
+def looks_like_todo(s):
+    return isinstance(s, str) and bool(re.match(r'^\s*(?:TODO|TBD)', s, re.IGNORECASE))
+
+
+def is_non_id_sentinel(s):
+    return isinstance(s, str) and s.strip().lower() in NON_ID_SENTINELS
+
+
+def collect_ids_for_entry(entry_dir):
+    """Yield (source_label, arxiv_id) tuples advertised by this entry."""
+    meta = entry_dir / 'metadata.yaml'
+    if meta.is_file():
+        try:
+            with open(meta) as f:
+                data = yaml.safe_load(f)
+        except Exception:
+            data = None
+        if isinstance(data, dict):
+            ax = data.get('arxiv')
+            if (isinstance(ax, str) and ax.strip() and not looks_like_todo(ax)
+                    and not is_non_id_sentinel(ax)):
+                yield 'metadata.yaml:arxiv', ax.strip()
+
+    skill = entry_dir / 'SKILL.md'
+    if skill.is_file():
+        text = skill.read_text()
+        if text.startswith('---\n'):
+            try:
+                end = text.index('\n---', 4)
+            except ValueError:
+                end = None
+            if end is not None:
+                try:
+                    fm = yaml.safe_load(text[4:end])
+                except Exception:
+                    fm = None
+                if isinstance(fm, dict):
+                    paper = fm.get('paper') if isinstance(fm.get('paper'), dict) else None
+                    if paper is not None:
+                        ax = paper.get('arxiv_id')
+                        if (isinstance(ax, str) and ax.strip() and not looks_like_todo(ax)
+                    and not is_non_id_sentinel(ax)):
+                            yield 'SKILL.md:paper.arxiv_id', ax.strip()
+                    else:
+                        ax = fm.get('arxiv_id')
+                        if (isinstance(ax, str) and ax.strip() and not looks_like_todo(ax)
+                    and not is_non_id_sentinel(ax)):
+                            yield 'SKILL.md:arxiv_id', ax.strip()
+
+
+ROOT = Path('references/corpus')
+violations = []
+total_entries = 0
+total_ids = 0
+total_verified = 0
+
+for meta in sorted(ROOT.glob('*/*/metadata.yaml')):
+    entry_dir = meta.parent
+    total_entries += 1
+    advertised = list(collect_ids_for_entry(entry_dir))
+    advertised_ids = sorted({i for _, i in advertised})
+    for source, ax in advertised:
+        total_ids += 1
+        if not ARXIV_ID_RE.match(ax):
+            violations.append(
+                f'{entry_dir}: '
+                f'{source} value {ax!r} does not look like an arXiv ID'
+            )
+
+    # Now structural validation of any provenance.id_verifications[] block.
+    try:
+        with open(meta) as f:
+            data = yaml.safe_load(f)
+    except Exception:
+        continue
+    if not isinstance(data, dict):
+        continue
+    prov = data.get('provenance')
+    if not isinstance(prov, dict):
+        continue
+    ivs = prov.get('id_verifications')
+    if ivs is None:
+        continue
+    if not isinstance(ivs, list) or not ivs:
+        violations.append(
+            f'{meta}: provenance.id_verifications must be a non-empty list when present'
+        )
+        continue
+    for i, rec in enumerate(ivs):
+        if not isinstance(rec, dict):
+            violations.append(
+                f'{meta}: id_verifications[{i}] must be a mapping, got {type(rec).__name__}'
+            )
+            continue
+        url = rec.get('url')
+        rec_id = rec.get('arxiv_id')
+        status = rec.get('status')
+        http_status = rec.get('http_status')
+        title_match = rec.get('title_match')
+        fetched_title = rec.get('fetched_title')
+
+        if not isinstance(url, str) or not ARXIV_URL_RE.match(url):
+            violations.append(
+                f'{meta}: id_verifications[{i}].url must be '
+                f'https://arxiv.org/abs/<id>, got {url!r}'
+            )
+            continue
+        url_id = ARXIV_URL_RE.match(url).group('id')
+        if not isinstance(rec_id, str) or rec_id != url_id:
+            violations.append(
+                f'{meta}: id_verifications[{i}].arxiv_id ({rec_id!r}) does not '
+                f'match URL id ({url_id!r})'
+            )
+        if status not in KNOWN_STATUSES:
+            violations.append(
+                f'{meta}: id_verifications[{i}].status {status!r} not in '
+                f'{sorted(KNOWN_STATUSES)}'
+            )
+        if not (http_status is None or isinstance(http_status, int)):
+            violations.append(
+                f'{meta}: id_verifications[{i}].http_status must be int or null, '
+                f'got {type(http_status).__name__}'
+            )
+        if status == 'arxiv-http-title-match':
+            total_verified += 1
+            if http_status != 200:
+                violations.append(
+                    f'{meta}: id_verifications[{i}].status=arxiv-http-title-match '
+                    f'requires http_status=200, got {http_status!r}'
+                )
+            if title_match is not True:
+                violations.append(
+                    f'{meta}: id_verifications[{i}].status=arxiv-http-title-match '
+                    f'requires title_match=true, got {title_match!r}'
+                )
+            if not (isinstance(fetched_title, str) and fetched_title.strip()):
+                violations.append(
+                    f'{meta}: id_verifications[{i}].status=arxiv-http-title-match '
+                    f'requires non-empty fetched_title'
+                )
+        # If the entry advertises an arXiv ID, at least one record should
+        # match it. This is informational only -- we don't fail on it,
+        # because an entry might verify a different version (e.g. v2).
+        if rec_id not in advertised_ids and advertised_ids:
+            # Strip a trailing version tag for the comparison.
+            stripped = re.sub(r'v\d+$', '', rec_id, flags=re.IGNORECASE)
+            if stripped not in advertised_ids:
+                violations.append(
+                    f'{meta}: id_verifications[{i}].arxiv_id ({rec_id!r}) is not '
+                    f'one of the IDs the entry advertises ({advertised_ids!r})'
+                )
+
+if violations:
+    print(f'validate.sh: FAIL -- {len(violations)} arXiv-provenance hygiene violations:',
+          file=sys.stderr)
+    for v in violations[:10]:
+        print('  - ' + v, file=sys.stderr)
+    if len(violations) > 10:
+        print(f'  ... and {len(violations) - 10} more', file=sys.stderr)
+    sys.exit(1)
+
+print(
+    f'arXiv provenance hygiene ok ({total_entries} entries scanned, '
+    f'{total_ids} advertised arXiv-ID slots, '
+    f'{total_verified} verified via id_verifications[])'
+)
+PY
+
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"
 

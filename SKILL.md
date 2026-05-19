@@ -52,6 +52,43 @@ placeholder strings as data:
 **Do not cite `first_author` / `authors` from this corpus without
 independent verification.**
 
+### arXiv IDs specifically (issue #9 hygiene)
+
+Per-entry `metadata.yaml` carries an arXiv ID at top-level `arxiv:` and
+per-entry `SKILL.md` frontmatter mirrors it at `paper.arxiv_id:` (or
+top-level `arxiv_id:` for the minimal-frontmatter schema). The presence
+of an ID is **not** a verification claim. To distinguish verified from
+merely advertised IDs the entry must carry an
+`provenance.id_verifications[]` record in `metadata.yaml`, for example:
+
+```yaml
+provenance:
+  id_verifications:
+    - arxiv_id: "2601.20624"
+      url: "https://arxiv.org/abs/2601.20624"
+      http_status: 200
+      fetched_title: "..."
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T07:20:21Z"
+      source: live
+```
+
+A record with `status: arxiv-http-title-match` means a one-shot HTTP GET
+of `https://arxiv.org/abs/<id>` returned HTTP 200 *and* the live page's
+`<title>` matched the entry's recorded title after normalization. CI
+checks this block **structurally** (`scripts/validate.sh` S4e and
+`tests/test_arxiv_provenance.py`) without doing any live network call;
+live verification is the responsibility of `scripts/verify_arxiv_ids.py`.
+
+**Without a `provenance.id_verifications[]` record, treat an arXiv ID as
+unverified, regardless of how plausible its numeric suffix looks.** Issue
+#9 originally hypothesized that six 2025/2026 IDs with high numeric
+suffix (`2511.03905`, `2512.24749`, `2601.08999`, `2601.20624`,
+`2603.11329`, `2604.21639`) might be hallucinated; live verification
+confirmed all six resolve to HTTP 200 with matching titles. High suffix
+alone is not evidence of hallucination — the audit-trail block is.
+
 ## What this is
 
 A single Claude Code aggregator skill that exposes a curated corpus of **501 harness-agnostic paper-skills** across **18 batches** of heliophysics literature (PFSS / open flux, PSP & Solar Orbiter inner heliosphere, SEPs & shocks, turbulence & heating, solar-wind classification & ML, instruments & data products, coronal CME/flares, waves/instabilities/reconnection, agent-runtime & evaluation design, plus pilots). The corpus follows a four-layer authoring model:
@@ -79,7 +116,9 @@ heliosi-501-corpus/
 ├── README.md                                 install + smoke test
 ├── VALIDATION.md                             bundle integrity report
 ├── scripts/
-│   └── search_corpus.py                      stdlib helper
+│   ├── search_corpus.py                      stdlib helper
+│   ├── validate.sh                           structural validation
+│   └── verify_arxiv_ids.py                   live arXiv-ID provenance verifier (opt-in)
 └── references/
     ├── corpus_index_v2.md                    human-readable index
     ├── corpus_qa_report_v2.md                count audit + claim boundaries
@@ -173,6 +212,7 @@ d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen 
 - That any Layer-3 example MCP (sunkit-magex, sw-scanner, kglobal, ENLIL, EUHFORIA, MAS, Surya foundation-model loader, pyspedas/HAPI/CDAWeb loaders) is bound and runnable on the consumer's harness. The only implemented LingTai domain MCP cited in the corpus is **xhelio-spice** (PSP/SO ephemeris).
 - That `executable_status` values like `pipeline-specified-not-yet-runnable`, `contract-spec-only-not-yet-runnable`, `scaffold`, `stub`, `design-pattern-extractor`, `manuscript-checklist-only`, `architecture-template-only`, `benchmark-design-template`, `review-routing-not-runnable` imply runnable code.
 - That DOIs / arXiv IDs / ADS bibcodes marked `TODO_verify_with_full_text` are verified.
+- That an arXiv ID without a `provenance.id_verifications[].status: arxiv-http-title-match` record has been independently checked against arxiv.org. See the *arXiv IDs specifically (issue #9 hygiene)* subsection above.
 - That the research-generation map is an externally validated agenda; it is corpus-internal seed material.
 - That `wave500_agent_runtime_eval_design_045` (45 entries) is heliophysics-executable science — those are design-pattern transplants.
 
