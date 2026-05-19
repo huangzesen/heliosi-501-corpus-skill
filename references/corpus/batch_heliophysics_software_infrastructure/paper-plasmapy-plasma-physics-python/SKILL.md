@@ -12,6 +12,7 @@ quality: stub
 paper:
   title: "PlasmaPy: an open-source Python package for plasma physics"
   first_author: "PlasmaPy contributors"
+  authors_verified: false
   year: 2018
   venue: "software package (no dedicated paper located in local inventory)"
   doi: null

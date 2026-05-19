@@ -1,6 +1,8 @@
 ---
 name: jiang-2024-nested-active-regions-hcs-reversal
 description: Per-entry paper-skill in wave500_coronal_source_mapping_pfss_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+paper:
+  authors_verified: false
 ---
 
 # jiang-2024-nested-active-regions-hcs-reversal

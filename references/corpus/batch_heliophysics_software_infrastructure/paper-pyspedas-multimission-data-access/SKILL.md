@@ -12,6 +12,7 @@ quality: method-ready
 paper:
   title: "pySPEDAS: Python port of SPEDAS for multi-mission space-physics data"
   first_author: "pySPEDAS contributors"
+  authors_verified: false
   year: 2022
   venue: "software package (Python port of SPEDAS-IDL); no dedicated paper located in local inventory"
   doi: null

@@ -1,6 +1,8 @@
 ---
 name: lapenta-2026-magnetic-connectivity-time-dependent-corona
 description: Per-entry paper-skill in wave500_coronal_source_mapping_pfss_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+paper:
+  authors_verified: false
 ---
 
 # lapenta-2026-magnetic-connectivity-time-dependent-corona

@@ -45,6 +45,11 @@ placeholder strings as data:
   local source. Entries where authorship is unknown carry an explicit
   `authors_verified: false` flag; entries with a partial author list
   carry `authors_complete: false`.
+- The `authors_verified: false` flag is kept in bidirectional parity
+  between `metadata.yaml` (top-level) and `SKILL.md` frontmatter
+  (`paper.authors_verified`): a consumer reading either surface alone
+  sees the same disclosure (enforced by `scripts/validate.sh` section
+  S4f and `tests/test_authorship_flag_parity.py`).
 - The surname embedded in a slug (e.g. `paper-mason-2026-…`) is **not**
   asserted as the verified first author. Do not promote it to
   `first_author` without independent confirmation.

@@ -571,6 +571,103 @@ print(
 )
 PY
 
+# -- S4f authors_verified parity (issue #62) ---------------------------------
+# Asserts bidirectional parity of the ``authors_verified: false`` flag
+# between per-entry metadata.yaml (top-level) and the per-entry SKILL.md
+# YAML frontmatter (under the ``paper:`` block). The forward direction
+# ("metadata flagged ==> SKILL flagged") guards against consumers reading
+# only the SKILL.md frontmatter silently citing unverified authors; the
+# reverse direction ("SKILL flagged ==> metadata flagged") guards against
+# the two surfaces disagreeing in the other sense. After d4799bf and the
+# issue-#62 fixup the expected steady-state count is identical on both
+# sides (currently 173 / 501). Uses PyYAML; SKIPs cleanly without it.
+section "S4f authors_verified parity (PyYAML if available)"
+
+python3 - <<'PY'
+import sys
+from pathlib import Path
+
+try:
+    import yaml  # PyYAML
+except ImportError:
+    print('SKIP: PyYAML not installed -- authors_verified parity check skipped.')
+    print('      Install with `pip install pyyaml` to enable strict parsing.')
+    sys.exit(0)
+
+ROOT = Path('references/corpus')
+meta_false = set()
+skill_false = set()
+
+for p in sorted(ROOT.glob('*/*/metadata.yaml')):
+    entry = str(p.parent.relative_to(ROOT))
+    try:
+        with open(p) as f:
+            data = yaml.safe_load(f)
+    except Exception:
+        # YAML parse failures are caught by S4c above; parity check
+        # treats them as not-flagged here.
+        continue
+    if isinstance(data, dict) and data.get('authors_verified') is False:
+        meta_false.add(entry)
+
+for p in sorted(ROOT.glob('*/*/SKILL.md')):
+    entry = str(p.parent.relative_to(ROOT))
+    text = p.read_text()
+    if not text.startswith('---\n'):
+        continue
+    try:
+        end = text.index('\n---', 4)
+    except ValueError:
+        continue
+    try:
+        data = yaml.safe_load(text[4:end])
+    except Exception:
+        continue
+    if not isinstance(data, dict):
+        continue
+    paper = data.get('paper')
+    if not isinstance(paper, dict):
+        continue
+    if paper.get('authors_verified') is False:
+        skill_false.add(entry)
+
+meta_only = sorted(meta_false - skill_false)
+skill_only = sorted(skill_false - meta_false)
+
+problems = []
+if meta_only:
+    problems.append(
+        f'{len(meta_only)} entries have metadata.yaml authors_verified: '
+        f'false but SKILL.md frontmatter does NOT have '
+        f'paper.authors_verified: false'
+    )
+    for e in meta_only[:5]:
+        problems.append(f'  - {e}')
+if skill_only:
+    problems.append(
+        f'{len(skill_only)} entries have SKILL.md '
+        f'paper.authors_verified: false but metadata.yaml does NOT have '
+        f'top-level authors_verified: false'
+    )
+    for e in skill_only[:5]:
+        problems.append(f'  - {e}')
+
+if problems:
+    print(
+        f'validate.sh: FAIL -- authors_verified parity violations '
+        f'(meta_false={len(meta_false)}, skill_false={len(skill_false)}):',
+        file=sys.stderr,
+    )
+    for prob in problems:
+        print('  ' + prob, file=sys.stderr)
+    sys.exit(1)
+
+print(
+    f'authors_verified parity ok '
+    f'(metadata.yaml false = SKILL.md paper.false = {len(meta_false)}/501)'
+)
+PY
+
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"
 

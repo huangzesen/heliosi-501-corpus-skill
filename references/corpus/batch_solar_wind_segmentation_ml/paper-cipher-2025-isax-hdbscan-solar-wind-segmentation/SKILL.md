@@ -11,6 +11,8 @@ version: 0.1.0
 tags: [machine-learning, unsupervised, time-series-mining, isax, hdbscan, hitl, solar-wind, segmentation, scalable]
 quality_level: pilot
 executable_status: scaffold
+paper:
+  authors_verified: false
 ---
 
 # CIPHER 2025 — iSAX + HDBSCAN + HITL Solar-Wind Time-Series Mining

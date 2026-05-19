@@ -10,6 +10,8 @@ version: 0.1.0
 tags: [machine-learning, cnn, few-shot, solar-wind, discontinuity, current-sheet, classification]
 quality_level: pilot
 executable_status: scaffold
+paper:
+  authors_verified: false
 ---
 
 # Deep-SWIM (Hu et al.) 2022 — Few-Shot CNN for Solar-Wind B-Field Discontinuities

@@ -1,6 +1,8 @@
 ---
 name: jian-2025-backmapping-high-low-latitude-pfss
 description: Per-entry paper-skill in wave500_coronal_source_mapping_pfss_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+paper:
+  authors_verified: false
 ---
 
 # jian-2025-backmapping-high-low-latitude-pfss

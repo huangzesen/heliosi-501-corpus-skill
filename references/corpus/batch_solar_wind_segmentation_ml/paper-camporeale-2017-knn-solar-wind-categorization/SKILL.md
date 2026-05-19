@@ -10,6 +10,8 @@ version: 0.1.0
 tags: [machine-learning, supervised, knn, solar-wind-classification, 1au, ace, wind, four-class, xu-borovsky]
 quality_level: pilot
 executable_status: scaffold
+paper:
+  authors_verified: false
 ---
 
 # Camporeale-style 2017/2018 — Supervised 4-Class Solar-Wind Categorization at 1 au (KNN)

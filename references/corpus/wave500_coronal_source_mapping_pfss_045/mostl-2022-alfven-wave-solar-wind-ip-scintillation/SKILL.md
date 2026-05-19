@@ -1,6 +1,8 @@
 ---
 name: mostl-2022-alfven-wave-solar-wind-ip-scintillation
 description: Per-entry paper-skill in wave500_coronal_source_mapping_pfss_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+paper:
+  authors_verified: false
 ---
 
 # mostl-2022-alfven-wave-solar-wind-ip-scintillation

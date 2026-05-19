@@ -11,6 +11,8 @@ version: 0.1.0
 tags: [machine-learning, neural-network, solar-wind-classification, uncertainty-quantification, four-class, 1au]
 quality_level: pilot
 executable_status: scaffold
+paper:
+  authors_verified: false
 ---
 
 # Bloch-style 2024 — Uncertainty-Aware NN Classification of 1-au Solar-Wind Types

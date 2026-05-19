@@ -1,6 +1,8 @@
 ---
 name: anti-equilibrium-alfven-ion-cyclotron-effects-2023
 description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+paper:
+  authors_verified: false
 ---
 
 # anti-equilibrium-alfven-ion-cyclotron-effects-2023

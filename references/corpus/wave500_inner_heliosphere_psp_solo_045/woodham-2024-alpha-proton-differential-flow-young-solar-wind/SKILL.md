@@ -1,6 +1,8 @@
 ---
 name: woodham-2024-alpha-proton-differential-flow-young-solar-wind
 description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+paper:
+  authors_verified: false
 ---
 
 # woodham-2024-alpha-proton-differential-flow-young-solar-wind

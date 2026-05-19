@@ -12,6 +12,7 @@ quality: method-ready
 paper:
   title: "sunkit-magex: SunPy-affiliated magnetic-field extrapolation package"
   first_author: "sunkit-magex contributors"
+  authors_verified: false
   year: 2023
   venue: "sunpy-affiliated software package (no standalone publication in local inventory)"
   doi: null

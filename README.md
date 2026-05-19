@@ -48,9 +48,14 @@ ship placeholder strings as data:
   `tests/test_authorship_hygiene.py`).
 - Where authorship could not be verified from the local source, the value
   is `null` (scalar) or `[]` (list) and the entry carries an explicit
-  `authors_verified: false` flag. Currently **173 / 501** `metadata.yaml`
-  entries and **59 / 501** `SKILL.md` frontmatter blocks are stamped
-  `authors_verified: false`.
+  `authors_verified: false` flag. The two surfaces are kept in
+  bidirectional parity: if `metadata.yaml` top-level
+  `authors_verified: false`, the per-entry `SKILL.md` frontmatter
+  `paper.authors_verified: false` is required (and vice versa). Currently
+  **173 / 501** `metadata.yaml` entries and **173 / 501** `SKILL.md`
+  frontmatter blocks are stamped `authors_verified: false` (enforced by
+  `scripts/validate.sh` section S4f and
+  `tests/test_authorship_flag_parity.py`).
 - Where a partial author list was recoverable from the local source, the
   surviving real authors are kept and the entry carries
   `authors_complete: false` to flag that the list is not exhaustive.

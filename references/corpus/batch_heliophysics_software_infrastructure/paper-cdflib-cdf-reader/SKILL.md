@@ -11,6 +11,7 @@ quality: method-ready
 paper:
   title: "cdflib: a pure-Python CDF reader/writer"
   first_author: "MAVENSDC contributors"
+  authors_verified: false
   year: 2018
   venue: "software package (no dedicated paper located in local inventory)"
   doi: null

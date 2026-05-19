@@ -18,6 +18,7 @@ paper:
   title: "Prospective multi-pathogen disease forecasting using autonomous LLM-guided tree search"
   first_author: "Anonymous (2026 arXiv preprint)"
   authors: []
+  authors_verified: false
   year: 2026
   venue: "arXiv preprint"
   doi: null
