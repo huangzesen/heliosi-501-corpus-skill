@@ -80,7 +80,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "Landau-damping partition matches empirical Q_p, Q_e at PSP E1–E2" becomes the per-interval CSV + ratio scalar.
 - **Methods / equations → executable workflows**: linear-Vlasov γ(k) + quasilinear cascade transport + integration over k are workflow steps 4–6.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2, SPC / SPAN-I / SPAN-e L3 plus an external linear-Vlasov solver appear as combined `psp-data-mcp` + `vlasov-solver-mcp` contracts (the latter is a **proposed** interface, not an existing runtime MCP).
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 and SWEAP SPC / SPAN-I / SPAN-e L3 time series at the required cadence, plus a linear-Vlasov dispersion-solver capability (PLUME / NHDS / LEOPARD-class); runtimes bind concrete adapters (see Layer 3 for example bindings — the Vlasov-solver surface in particular is a proposed interface, not an existing runtime adapter).
 - **Caveats → skill memory**: β sensitivity, angle assumption, SPAN-e photoelectron bias, and the cascade-rate normalisation requirement are skill memory.
 - **Figures / results → benchmark artifacts**: per-interval Q_p / Q_e CSV + γ(k) panel form the exported reproducibility set.
 

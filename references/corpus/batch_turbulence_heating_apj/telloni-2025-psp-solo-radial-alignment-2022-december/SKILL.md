@@ -80,7 +80,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "structure-function and σ_c evolve between PSP and SO during 2022-12 alignment" becomes the matched-window CSV + Δσ_c scalar.
 - **Methods / equations → executable workflows**: conjunction identification + ballistic mapping + per-spacecraft structure functions + σ_c comparison are steps 1–5.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS / SWEAP + SO MAG / SWA-PAS as `psp-data-mcp` and `solar-orbiter-data-mcp` (proposed; SOAR retrieval via WebFetch is the guaranteed surface).
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS + SWEAP and Solar Orbiter MAG + SWA-PAS time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings, which remain proposed surfaces — SOAR retrieval via WebFetch is the guaranteed fallback).
 - **Caveats → skill memory**: mapping ambiguity, separation tolerance, RTN-frame convention, single-event statistical caveat.
 - **Figures / results → benchmark artifacts**: matched-window CSV + PSP/SO PSD overlay.
 

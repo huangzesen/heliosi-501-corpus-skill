@@ -83,7 +83,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "Alfvénic vs non-Alfvénic PSP streams have distinct spectral indices and distinct radial / stream-context dependencies" becomes the validation target — distinct regions in the σ_c–slope plane.
 - **Methods / equations → executable workflows**: Elsässer construction, σ_c / σ_R definitions, thresholding by |σ_c|, and inertial-range slope fitting become workflow steps 2–6, each a callable unit.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2 + SWEAP L3 surfaced via `psp-data-mcp`; the Alfvénicity-based segmentation can lean on the `sw-scanner` interface.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 and SWEAP L3 CDF time series (RTN frame, common cadence) and a capability to perform Alfvénicity-based stream segmentation; the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: threshold sensitivity, σ_c estimator-window convention, density-gap handling, stream-interface contamination, and encounter-mix weighting are persistent memory consulted before reporting a class-stratified slope.
 - **Figures / results → benchmark artifacts**: the stratification CSV (`damicis2021_stratification.csv`) and the σ_c–slope scatter are the exported benchmark artifacts; the table is intended to be a canonical covariate for downstream turbulence paper-skills.
 

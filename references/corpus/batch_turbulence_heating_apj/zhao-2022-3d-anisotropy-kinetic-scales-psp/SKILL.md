@@ -82,7 +82,7 @@ This paper is compiled into an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "kinetic-scale 3D anisotropy on PSP" becomes the per-axis slope CSV and the α_⊥ / α_∥ scalar.
 - **Methods / equations → executable workflows**: scale-dependent local mean field + three-axis decomposition + second-order structure functions become workflow steps 2–5.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2 (survey and Burst-mode) + SWEAP plasma moments appear as `psp-data-mcp` contracts; named MCPs remain proposed surfaces — the harness uses Read/Bash/WebFetch + cdflib as the guaranteed substrate.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 (survey and Burst-mode) and SWEAP plasma-moment time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings, which remain proposed surfaces — the harness uses Read/Bash/WebFetch + cdflib as the guaranteed substrate).
 - **Caveats → skill memory**: Taylor breakdown, scale-dependent B₀ requirement, and the cadence/Nyquist constraint are persistent skill memory.
 - **Figures / results → benchmark artifacts**: per-axis slopes per distance bin form the exported reproducibility scalar set.
 

@@ -80,7 +80,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "anisotropy ratio and spectral index evolve with heliocentric distance" becomes the validation target — per-bin S_2^∥/S_2^⊥(ℓ_ref) and slopes with a reproduced radial trend.
 - **Methods / equations → executable workflows**: local-mean-field decomposition, angle binning, and multi-order structure-function evaluation are the workflow steps 2–6, each callable on the data contract below.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG, PSP SWEAP, SO MAG, and SO SWA/PAS are surfaced as `psp-data-mcp` and `solar-orbiter-data-mcp` contracts with a uniform RTN-frame, common-cadence interface.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG, PSP SWEAP, Solar Orbiter MAG, and Solar Orbiter SWA/PAS time series exposed in a uniform RTN frame on a shared common cadence; the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: local-mean-field window convention, sampling-direction bias, cross-spacecraft systematics, radial sparsity, and wind-type mixing form the persistent memory the harness consults before trusting a radial trend.
 - **Figures / results → benchmark artifacts**: the radial-bin CSV (`sioulas2023_radial_anisotropy.csv`) and the overview figure (anisotropy ratio + slope vs r) are the exported benchmark artifacts.
 

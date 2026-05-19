@@ -112,7 +112,7 @@ style Skill loadable by the HelioSI runtime:
 |---|---|
 | Claim — "MESSENGER MAG at 0.31–0.47 au exhibits inertial + kinetic ranges with a radial trend in the kinetic-range slope" | **Verifiable task:** `survey_messenger_turbulence(r_bin) -> {slope_inertial, slope_kinetic, f_break, count}` per bin + regression vs `r_au` |
 | Methods / equations — trace PSD via Welch; broken-power-law fit; per-`r_au` aggregation + regression | **Executable workflow:** §"Algorithm / workflow steps" 1–7 with chunk length, window, break-frequency prior, and `r_au` bin edges as explicit parameters |
-| Data / instruments / code — MESSENGER MAG L2 from PDS-PPI; solar-wind interval catalog | **MCP / tool contracts:** `pds-ppi-mcp.get_messenger_mag(...)`, `pds-ppi-mcp.get_sw_catalog(...)`, optional `cdaweb-mcp` mirror |
+| Data / instruments / code — MESSENGER MAG L2 from PDS-PPI; solar-wind interval catalog | **Capability contracts:** retrieval of MESSENGER MAG L2 time series from a PDS-PPI-class archive; retrieval of a curated solar-wind interval catalog; optional CDAWeb-class mirror as fallback. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — magnetosphere contamination; Nyquist; stationarity; orbital sampling bias; no plasma moments | **Skill memory:** §"Known pitfalls / failure modes" — runtime rejects intervals failing the SW filter and reports stationarity-test failures |
 | Figures / results — slope-distribution histograms + slope-vs-`r_au` regression | **Benchmark artifacts:** per-bin slope histograms, regression plot, `metrics.json` with `(slope_inertial, slope_kinetic, β_r)` |
 

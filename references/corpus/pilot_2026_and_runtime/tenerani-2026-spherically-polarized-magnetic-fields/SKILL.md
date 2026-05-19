@@ -115,7 +115,7 @@ style Skill loadable by the HelioSI runtime:
 |---|---|
 | Claim — "exactly spherically polarized 3D `B`-fields are constructible but require RDs to tile a volume" | **Verifiable task:** `construct_spherically_polarized_field(geometry, params) -> B(x,y,z)` with `std(|B|)/mean(|B|) < 1e-10`; `find_rotational_discontinuities(B) -> mask` |
 | Methods / equations — constructive numerical scheme (TODO verify equations from full text) | **Executable workflow:** §"Algorithm / workflow steps" 1–6 with domain, boundary conditions, and projection-preserving integrator as explicit parameters |
-| Data / instruments / code — theoretical only; `numpy`/`scipy`/PDE integrator; optional PSP FIELDS for downstream validation | **MCP / tool contracts:** none required for construction; optional `cdaweb-mcp.get_psp_fields_mag(...)` for projection-to-spacecraft validation; visualization via `matplotlib`/`pyvista` |
+| Data / instruments / code — theoretical only; `numpy`/`scipy`/PDE integrator; optional PSP FIELDS for downstream validation | **Capability contracts:** none required for the constructive step; optional retrieval of PSP FIELDS MAG time series for projection-to-spacecraft validation; a 3D-field visualization capability. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — drift off the `|B|=const` manifold; BC dependence; RD vs TD confusion | **Skill memory:** §"Known pitfalls / failure modes" — runtime monitors `|B|` drift each integration step and re-projects if needed |
 | Figures / results — 3D constant-|B| field with embedded RDs (TODO verify figure ID) | **Benchmark artifacts:** 3D rendering, `metrics.json` (`std|B|/mean|B|, RD count`), 1D-traversal `B_RTN` time series |
 

@@ -80,7 +80,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "1/f at outer scales, inertial slope ~−3/2 near the Sun, break shifts with r" becomes the validation target on a magnetically-incompressible interval set.
 - **Methods / equations → executable workflows**: the magnetic-incompressibility filter, Welch/multitaper trace-PSD, and double-power-law-with-break fitter become workflow steps 2–5, each a callable unit.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2 and SWEAP L3 are surfaced via the `psp-data-mcp` contract; the spectral estimator is the `scipy.signal` Welch/multitaper interface.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 and SWEAP L3 CDF time series (RTN frame, common cadence) and a Welch / multitaper spectral-estimator capability; the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: incompressibility-threshold choice, window-length vs outer-scale resolution, spectral-estimator bias, joint break detection, and encounter-mix weighting are persistent memory consulted before accepting a 1/f detection.
 - **Figures / results → benchmark artifacts**: the intervals CSV (`huang2023_intervals.csv`) and the compensated-spectrum panel are the benchmark artifacts.
 

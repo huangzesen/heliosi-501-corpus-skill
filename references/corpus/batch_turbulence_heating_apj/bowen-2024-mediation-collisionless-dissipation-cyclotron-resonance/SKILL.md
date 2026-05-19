@@ -78,7 +78,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "cyclotron resonance mediates collisionless dissipation" becomes the per-interval CSV + Q_p,cyc / Q_p,Landau scalar.
 - **Methods / equations → executable workflows**: mean-field frame + reduced helicity + ellipticity + resonance overlap + quasilinear Q_p,cyc are steps 2–6.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2 Burst + SWEAP moments as `psp-data-mcp`; named MCPs remain proposed surfaces.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 Burst and SWEAP plasma-moment time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings, which remain proposed surfaces).
 - **Caveats → skill memory**: convention sensitivity, reduced-vs-full helicity caveat, wave-vs-structure ambiguity.
 - **Figures / results → benchmark artifacts**: σ_m / ellipticity diagnostic panel + per-interval CSV.
 

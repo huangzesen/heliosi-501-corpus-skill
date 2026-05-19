@@ -80,7 +80,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "ζ_n^a discriminates CB from SDDA in imbalanced Alfvénic turbulence, with two sub-inertial segments and an anomalous-coherence regime" becomes the validation target — ζ_n^a curves and a side-by-side CB / SDDA template overlay.
 - **Methods / equations → executable workflows**: imbalanced-Alfvénic filter, local-mean-field-frame construction, 3D axis decomposition, higher-order S_n^a computation, and CB / SDDA template comparison become workflow steps 1–7, each a callable unit.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG and SWEAP/SPAN-I (optionally augmented by Solar Orbiter) are surfaced via `psp-data-mcp` and `solar-orbiter-data-mcp` contracts; the imbalanced filter shares its σ_c implementation with [[damicis-2021-alfvenic-nonalfvenic-psp]].
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG and SWEAP/SPAN-I (optionally augmented by Solar Orbiter MAG + SWA/PAS) time series in the RTN frame on a shared common cadence, plus an imbalanced-stream σ_c filter (shared with [[damicis-2021-alfvenic-nonalfvenic-psp]]); the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: high-n moment convergence, local-frame definition, imbalance threshold, axis-bin contamination, and template parameterisation are persistent memory consulted before declaring a CB-vs-SDDA verdict.
 - **Figures / results → benchmark artifacts**: the ζ_n CSV (`sioulas2024_zeta_n.csv`) and the multi-panel ζ_n vs n figure with CB / SDDA overlays are the exported benchmark artifacts.
 

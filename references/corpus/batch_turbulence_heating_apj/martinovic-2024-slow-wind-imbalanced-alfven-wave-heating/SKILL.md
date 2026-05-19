@@ -81,7 +81,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "Q_AW ≈ Q_p in slow wind from 0.06 to 1 au" becomes the per-interval CSV + median Q_AW / Q_p scalar.
 - **Methods / equations → executable workflows**: Elsässer amplitudes + correlation length + reflection-driven AW model evaluation + empirical Q_p from T_p gradient are steps 2–5.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS / SWEAP + SO MAG / SWA-PAS as `psp-data-mcp` + `solar-orbiter-data-mcp`; the AW cascade model is an external code — `aw-cascade-mcp` is a proposed interface, not an existing runtime MCP.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS + SWEAP and Solar Orbiter MAG + SWA-PAS time series at the required cadence, plus an external reflection-driven Alfvén-wave cascade-model evaluator; runtimes bind concrete adapters (see Layer 3 for example bindings — the cascade-model evaluator in particular is a proposed surface, not an existing runtime adapter).
 - **Caveats → skill memory**: slow-wind class mixing, correlation-length convention, adiabatic baseline.
 - **Figures / results → benchmark artifacts**: Q_AW vs Q_p scatter + per-interval CSV.
 

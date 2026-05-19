@@ -81,7 +81,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "intermittency increases with decreasing heliocentric distance" becomes the validation target — κ vs r monotonic, PVI PDF tails fatter near the Sun.
 - **Methods / equations → executable workflows**: increment computation, PVI definition, higher-order moments, and kurtosis-scaling fits are workflow steps 3–7, each a callable unit.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG and Solar Orbiter MAG (with optional ion moments) are surfaced via `psp-data-mcp` and `solar-orbiter-data-mcp` contracts with a common-cadence interface.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG and Solar Orbiter MAG L2 RTN time series (with optional ion moments) and to resample them onto a shared common-cadence grid; the runtime is responsible for binding these abstract capabilities to whatever concrete adapters it ships (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: cadence harmonisation, PVI window τ, moment-order convergence on finite intervals, wind-type stratification, and outlier policy are persistent memory the harness consults before trusting κ.
 - **Figures / results → benchmark artifacts**: the intermittency CSV (`sioulas2022_intermittency.csv`) and the PVI PDF comparison panel are the benchmark artifacts.
 

@@ -130,7 +130,7 @@ grounded end-to-end benchmark items.
 |---|---|
 | Claim — "co-scientist evaluation needs realistic, end-to-end, paper+repo+data+expected-finding items" | **Verifiable task:** `build_bench_item(paper_skill_slug) -> {anchor, repo, data_product, expected_finding, verification_pipeline}` |
 | Methods / arguments — 5-part item structure + semi-automated workflow extraction | **Executable workflow:** §"Algorithm / workflow steps" 1–6 — enumerate paper-skills, construct items, sort by feasibility, run, score |
-| Data / sources / code — the HelioSI skill catalog and each skill's `validation_targets` *are* the input data | **MCP / tool contracts:** filesystem reader for the skill corpus; `cdaweb-mcp`/`soar-mcp`/`pds-ppi-mcp` for data fetching; `hpc-runner-mcp` for compute; `git-mcp` for artifact versioning |
+| Data / sources / code — the HelioSI skill catalog and each skill's `validation_targets` *are* the input data | **Capability contracts:** filesystem read of the skill corpus; heliophysics-archive retrieval (e.g. CDAWeb-class, SOAR-class, PDS-PPI-class); HPC / compute execution; version-control / artifact versioning. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — reproducing numbers ≠ reproducing science; reviewer-grade artifacts; cherry-picked items; throughput vs rigor | **Skill memory:** §"Known pitfalls / failure modes" — runtime rejects bench items lacking commit-hash + data-version + tolerance |
 | Figures / results — benchmark score tables / item dashboards | **Benchmark artifacts:** per-item `metrics.json`, top-level `summary.json`, reproducibility manifest |
 

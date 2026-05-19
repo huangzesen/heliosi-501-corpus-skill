@@ -80,7 +80,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "α_B steepens from ~-3/2 to ~-5/3 between 0.1 and 0.6 au" becomes the multi-mission α_B(r) CSV + the piecewise-fit scalar.
 - **Methods / equations → executable workflows**: trace PSD + inertial-range bound determination + slope fit + radial binning are steps 2–5.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG + Helios MAG + Wind MFI as `psp-data-mcp` + `helios-archive-mcp` + `wind-data-mcp` (all proposed surfaces; the Helios reprocessed archive in particular has no guaranteed MCP — use WebFetch + custom readers).
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG, Helios MAG, and Wind MFI time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings, which remain proposed surfaces — the Helios reprocessed archive in particular has no guaranteed adapter and falls back to WebFetch + custom readers).
 - **Caveats → skill memory**: f_low / f_high sensitivity, outer-scale and ion-break contamination, Helios calibration version pinning.
 - **Figures / results → benchmark artifacts**: multi-mission PSD overlay + α_B vs r curve.
 

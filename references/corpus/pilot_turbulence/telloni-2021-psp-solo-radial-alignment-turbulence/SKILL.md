@@ -78,7 +78,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "σ_c, σ_R, and ε evolve radially between PSP (~0.1 au) and SO (~1 au) during the first alignment" becomes the validation target — direction-of-evolution agreement with the published figure.
 - **Methods / equations → executable workflows**: Elsässer construction, σ_c / σ_R definitions, and Politano–Pouquet ε become workflow steps 2–4, each a callable unit and intentionally shared with [[bandyopadhyay-2020-energy-transfer-psp]].
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS + SWEAP and SO MAG + SWA/PAS are surfaced via `psp-data-mcp` and `solar-orbiter-data-mcp`; orbit ephemerides for conjunction selection use an `SSCWeb`-style MCP contract.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS + SWEAP and Solar Orbiter MAG + SWA/PAS time series in the RTN frame on a shared common cadence, plus a spacecraft-ephemeris capability for radial-conjunction selection; the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: parcel-mapping uncertainty, stream-context mismatch, estimator-consistency across spacecraft, density-gap handling, and single-event statistics are persistent memory consulted before quoting a radial trend.
 - **Figures / results → benchmark artifacts**: the conjunction CSV (`telloni2021_conjunction.csv`) and the PSP-vs-SO Elsässer-spectrum side-by-side figure are the benchmark artifacts; both are designed to be re-consumed by the 2025 follow-up paper-skill.
 

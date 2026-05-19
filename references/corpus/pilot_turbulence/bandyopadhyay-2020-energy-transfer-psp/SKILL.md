@@ -85,7 +85,7 @@ This paper is compiled into an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "ε near the Sun ~100× the 1-au value" becomes the validation target in the section above (ε_PSP / ε_1AU ~ 10²; PP and vK consistent).
 - **Methods / equations → executable workflows**: the Politano–Pouquet third-order law and the von Kármán decay law are encoded as the workflow steps 4–6; each step is a callable unit operating on the data contract below.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2, SWEAP/SPC L3, and (optionally) SPAN-I appear as `psp-data-mcp` contracts (CDF retrieval, RTN frame, common cadence resampling).
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2, PSP SWEAP/SPC L3 (and optionally SPAN-I) CDF time series in the RTN frame and to resample them onto a shared common cadence; the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: the "Known pitfalls" section is persistent skill memory — stationarity, density-gap handling, integration-limit conventions, compressibility, and aliasing — and is the first thing the harness consults when a downstream skill reports an out-of-range ε.
 - **Figures / results → benchmark artifacts**: the per-interval CSV (`bandyopadhyay2020_e1_pp_vs_vk.csv`), the ε_PP vs ε_vK scatter, and the single-number ratio ε_PSP / ε_1AU are the exported benchmark artifacts that the harness checks for reproducibility.
 

@@ -82,7 +82,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "compressibility evolves between 0.17 and 1.5 au" becomes the multi-mission radial-evolution CSV + the C_n vs r slope.
 - **Methods / equations → executable workflows**: density PSD + compressibility metric + radial binning are steps 3–5.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS / SWEAP, THEMIS FGM / ESA, MAVEN MAG / SWIA as `psp-data-mcp` + `themis-data-mcp` + `maven-data-mcp` contracts (all proposed surfaces — only general-purpose Read/Bash/WebFetch + CDF / PDS tooling is guaranteed).
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS + SWEAP, THEMIS FGM + ESA, and MAVEN MAG + SWIA time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings, which remain proposed surfaces — only general-purpose Read/Bash/WebFetch + CDF / PDS tooling is guaranteed).
 - **Caveats → skill memory**: bow-shock exclusion, inter-instrument cadence, density-moment biases.
 - **Figures / results → benchmark artifacts**: multi-mission PSD comparison + C_n vs r curve.
 

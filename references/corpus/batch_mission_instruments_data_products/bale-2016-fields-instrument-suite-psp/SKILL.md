@@ -159,7 +159,7 @@ source.
 |---|---|
 | Claim — FIELDS sensor inventory + nominal contracts | **Verifiable task:** `fields_contract(question, encounter, interval) -> JSON` |
 | Methods — sensor selection, level/frame mapping | **Executable workflow:** §"Algorithm / workflow steps" 1–6 |
-| Data / instruments — MAG, SCM, V1–V5, DFB, RFS | **MCP / tool contracts:** `cdaweb-mcp.get_psp_fld_*` or harness fallback `cdflib`+SPDF URL |
+| Data / instruments — MAG, SCM, V1–V5, DFB, RFS | **Capability contracts:** retrieval of PSP FIELDS L2 products (MAG, SCM, V1–V5, DFB, RFS) from an SPDF/CDAWeb-class archive, with a guaranteed harness fallback to `cdflib`+SPDF URL. (See Layer 3 for example adapter bindings.) |
 | Caveats — spin tone, shadow geometry, gain switches, SCM rolloff | **Skill memory:** §"Known pitfalls / failure modes" |
 | Figures — instrument block diagram (Fig 1, Fig 2) | **Benchmark artifacts:** contract-JSON + headers-comparison report |
 

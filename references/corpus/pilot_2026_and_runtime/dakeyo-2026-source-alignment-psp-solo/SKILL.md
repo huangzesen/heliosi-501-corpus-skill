@@ -123,7 +123,7 @@ style Skill loadable by the HelioSI runtime:
 |---|---|
 | Claim — "PSP × SO source alignment recovers same-parcel evolution; significant acceleration above ~15 R_s" | **Verifiable task:** `align_psp_so(window) -> {PSP_sub, SO_sub, alignment_score, Δv, Δn, Δσc}` |
 | Methods / equations — magnetic-footpoint mapping + ballistic + Parker-spiral propagation + cross-correlation | **Executable workflow:** §"Algorithm / workflow steps" 1–7 with PFSS source-surface radius, propagation mode, and SIR-rejection rule as explicit parameters |
-| Data / instruments / code — PSP SWEAP+FIELDS, SO SWA-PAS+MAG, ADAPT/HMI, SPICE | **MCP / tool contracts:** `cdaweb-mcp.get_psp_*`, `soar-mcp.get_so_*`, `pfsspy-mcp.extrapolate(...)`, `spice-mcp.get_ephemeris(...)` |
+| Data / instruments / code — PSP SWEAP+FIELDS, SO SWA-PAS+MAG, ADAPT/HMI, SPICE | **Capability contracts:** retrieval of PSP SWEAP + FIELDS time series; retrieval of Solar Orbiter SWA-PAS + MAG time series; ADAPT/HMI synoptic-map ingestion + PFSS extrapolation onto a chosen source-surface radius; PSP/SO ephemeris lookup. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — PFSS height choice; ballistic vs spiral; SIR contamination; sign convention; frame mixing | **Skill memory:** §"Known pitfalls / failure modes" — runtime enforces single sign convention and rejects SIR-spanning windows |
 | Figures / results — matched-pair time-series overlays + radial-evolution table | **Benchmark artifacts:** matched-pair PNG, `metrics.json` (`Δv, Δn, ΔT, Δσc`), quality-flag JSON |
 

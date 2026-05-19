@@ -80,7 +80,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "extended cyclotron-resonant heating channel in PSP fast streams over 15–55 R☉" becomes the per-interval CSV + the radial Q_p,ICW(r) curve.
 - **Methods / equations → executable workflows**: spectral-break detection + magnetic helicity/polarisation analysis + cyclotron resonance condition + quasilinear heating estimate are steps 2–6.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2 (+ optional DFB AC) and SWEAP plasma moments as `psp-data-mcp` contracts.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 (+ optional DFB AC) and SWEAP plasma-moment time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings).
 - **Caveats → skill memory**: handedness convention, Doppler-shift caveat, spin-tone leakage are persistent skill memory.
 - **Figures / results → benchmark artifacts**: σ_m(f, t) spectrogram + radial Q_p,ICW curve.
 

@@ -80,7 +80,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "RPW n_e turbulence + ICW at ~0.5 au" becomes the per-interval CSV + ICW occurrence-rate scalar.
 - **Methods / equations → executable workflows**: V_sc → n_e calibration + density PSD/intermittency + wavelet ICW detection are steps 2–6.
-- **Data / instruments → MCP / tool contracts**: SO RPW + MAG + SWA-PAS as `solar-orbiter-data-mcp` (proposed); the only guaranteed runtime is general-purpose WebFetch + CDF readers.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve Solar Orbiter RPW, MAG, and SWA-PAS time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings, which remain proposed surfaces).
 - **Caveats → skill memory**: V_sc calibration version dependency, wavelet edge effects, Doppler shift, cadence requirement.
 - **Figures / results → benchmark artifacts**: wavelet σ_m panel + per-interval CSV.
 

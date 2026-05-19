@@ -80,7 +80,7 @@ Recommended check artifacts:
 
 - **Claims → verifiable tasks**: "preferential proton heating at coherent structures in PSP E1" becomes the conditional-averaging CSV + ΔT_p / ΔT_e scalar.
 - **Methods / equations → executable workflows**: PVI computation + thresholding + conditional averaging are steps 2–5.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2, SWEAP SPC + SPAN-e L3 as `psp-data-mcp` contract.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 and SWEAP SPC + SPAN-e L3 time series at the required cadence; runtimes bind concrete adapters (see Layer 3 for example bindings).
 - **Caveats → skill memory**: θ + L sensitivity, SPAN-e bias, SPC non-radial-flow issue.
 - **Figures / results → benchmark artifacts**: per-interval CSV + superposed-epoch plot.
 

@@ -77,7 +77,7 @@ Compiled as an agent-native Anthropic-style Skill:
 
 - **Claims → verifiable tasks**: "inbound vs outbound legs of PSP E4 streamer-belt wind show distinct turbulence signatures linked to acceleration" becomes the validation target — distinguishable per-leg PSDs and σ_c / σ_R.
 - **Methods / equations → executable workflows**: HCS-crossing identification, leg splitting, trace PSD estimation, inertial-range slope fitting, Elsässer construction, and σ_c / σ_R computation become workflow steps 1–5, each a callable unit.
-- **Data / instruments → MCP / tool contracts**: PSP FIELDS MAG L2 and SWEAP/SPC L3 are surfaced via the `psp-data-mcp` contract specialised to Encounter 4.
+- **Data / instruments → capability contracts**: the protocol requires capabilities to retrieve PSP FIELDS MAG L2 and SWEAP/SPC L3 CDF time series scoped to the Encounter-4 interval (RTN frame, common cadence); the runtime supplies concrete adapters bound to those capabilities (see Layer 3 for example bindings).
 - **Caveats / failure modes → skill memory**: HCS-crossing ambiguity, SPC data quality, leg-length stationarity, acceleration interpretation, and density-gap handling are persistent memory consulted before quoting a leg-to-leg difference.
 - **Figures / results → benchmark artifacts**: the per-leg CSV (`chen2021_e4_legs.csv`) and the two-panel PSD figure are the exported benchmark artifacts.
 

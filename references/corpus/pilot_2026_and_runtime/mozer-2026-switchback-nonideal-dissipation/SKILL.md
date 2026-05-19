@@ -120,7 +120,7 @@ style Skill loadable by the HelioSI runtime:
 |---|---|
 | Claim — "non-ideal `E`-field residuals at switchback boundaries are consistent with Hall-MHD between 13–40 R_s" | **Verifiable task:** `classify_boundary(interval) -> {ideal, Hall-consistent, ambiguous}` plus residual statistics |
 | Methods / equations — `E_ideal = −U×B`, `E_Hall = (J×B)/(n_e e)`, single-spacecraft `J` via Taylor | **Executable workflow:** §"Algorithm / workflow steps" 1–7 with `n_e` source, antenna calibration, and bandpass as explicit parameters |
-| Data / instruments / code — PSP FIELDS DC+AC, MAG, SWEAP, density proxy | **MCP / tool contracts:** `cdaweb-mcp.get_psp_fields_efield(...)`, `cdaweb-mcp.get_psp_fields_mag(...)`, `cdaweb-mcp.get_psp_sweap(...)`, optional `pspfields-mcp.l3_calibrated(...)` |
+| Data / instruments / code — PSP FIELDS DC+AC, MAG, SWEAP, density proxy | **Capability contracts:** retrieval of PSP FIELDS DC+AC E-field time series; retrieval of PSP FIELDS MAG and SWEAP time series; optional retrieval of an L3-calibrated FIELDS product as an upgrade path; provision of a density proxy. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — Taylor-hypothesis bias; antenna calibration; `n_e` proxy; wave aliasing; threshold choice | **Skill memory:** §"Known pitfalls / failure modes" — runtime checks each guard before emitting a classification |
 | Figures / results — boundary-classification + residual distributions | **Benchmark artifacts:** per-boundary `metrics.json`, aggregate distribution PNG, classification-confusion table |
 

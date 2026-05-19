@@ -143,7 +143,7 @@ compilation mapping is:
 |---|---|
 | Claim — "MHD reconnection + Parker transport reproduce per-species PSP HCS spectra" | **Verifiable task:** `validate_per_species_spectra(hcs_crossing) -> {γ_species, E_max_species, residual}` |
 | Methods / equations — 2D MHD reconnection + Parker transport equation | **Executable workflow:** §"Algorithm / workflow steps" steps 1–6 with `κ`, seed-spectrum, `Q/A` as explicit parameters |
-| Data / instruments / code — PSP ISʘIS, SWEAP, FIELDS; MHD solver; SDE integrator | **MCP / tool contracts:** `cdaweb-mcp.get_psp_isois(...)`, `cdaweb-mcp.get_psp_fields_mag(...)`, `hpc-runner-mcp.run_mhd_2d(...)`, `pyspedas-mcp.fit_power_law(...)` |
+| Data / instruments / code — PSP ISʘIS, SWEAP, FIELDS; MHD solver; SDE integrator | **Capability contracts:** retrieval of PSP ISʘIS, SWEAP, and FIELDS MAG time series; a 2D MHD-solver execution capability; a power-law fitting capability for spectra. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — 2D under-resolves kinetic; IC sensitivity; HCS misID | **Skill memory:** §"Known pitfalls / failure modes" persists across runs; each pitfall is a guard the runtime invokes before accepting a result |
 | Figures / results — multi-species power-law spectra figure (TODO verify figure ID) | **Benchmark artifacts:** log-log spectrum figure + `metrics.json` (`{γ_species, E_max_species, residual}`) emitted by §"Minimal executable benchmark or validation target" |
 

@@ -130,7 +130,7 @@ generate architecture coverage maps and figure specs.
 |---|---|
 | Claim — "domain-specific co-scientist = hypothesis → in-silico experiment → debate validation → modular extension loop" | **Verifiable task:** `audit_architecture(heliosi_arch_doc) -> {step1_components, step2_components, step3_components, step4_components, gap_list}` |
 | Methods / arguments — four-step loop + ML-IP verifier role | **Executable workflow:** §"Algorithm / workflow steps" 1–5 — coverage map generator + figure spec emitter, using the MIND↔HelioSI mapping table |
-| Data / sources / code — HelioSI architecture description, skill catalog, benchmark spec | **MCP / tool contracts:** filesystem reader for the HelioSI architecture/manuscript repo; figure-spec emitter targeting Figure 2 |
+| Data / sources / code — HelioSI architecture description, skill catalog, benchmark spec | **Capability contracts:** filesystem read of the HelioSI architecture/manuscript repo and the skill catalog; a figure-spec emitter targeting Figure 2. (See Layer 3 for example adapter bindings.) |
 | Caveats / failure modes — direct domain transfer; over-claiming debate validation; borrowing the loop without a verifier | **Skill memory:** §"Known pitfalls / failure modes" — runtime refuses to label a single benchmark-agent pass as "debate validation" |
 | Figures / results — MIND four-step architecture figure | **Benchmark artifacts:** HelioSI Figure-2 spec (JSON) + coverage-map markdown + per-step TODO list |
 
