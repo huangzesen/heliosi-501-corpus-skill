@@ -1,0 +1,197 @@
+{
+  "_comment": "Curation-debt allowlist for scripts/audit_numeric_claims.py (issue #39). Each entry pins an unflagged numeric tolerance / factor / ratio token in a per-entry SKILL.md body that the audit currently reports. Landing this allowlist with issue #39 documents the existing curation debt explicitly so subsequent PRs cannot add NEW unflagged numerics silently. Drain by adding a TODO_verify (or TBD / provisional / unverified) marker directly attached to the numeric claim in the source SKILL.md, then remove the row from this file. The two issue-#39 named examples (Dresing-2025 widespread ESP, open-flux 1.5-2x discrepancy) are deliberately NOT on this allowlist because they were fixed in the same PR that adds the audit.",
+  "expected": [
+    {
+      "path": "batch_heliophysics_software_infrastructure/paper-gieseler-2022-solar-mach-magnetic-connection/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±5°",
+      "body_line": 85
+    },
+    {
+      "path": "batch_heliophysics_software_infrastructure/paper-sioulas-sw-scanner-js-segmentation/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1 wavelet",
+      "body_line": 89
+    },
+    {
+      "path": "batch_heliophysics_software_infrastructure/paper-sioulas-sw-scanner-js-segmentation/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1 minute",
+      "body_line": 89
+    },
+    {
+      "path": "batch_mission_instruments_data_products/fox-2016-psp-mission-design-orbit-encounters/SKILL.md",
+      "pattern": "within-N-unit",
+      "match": "within 1 day",
+      "body_line": 103
+    },
+    {
+      "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±10 percentage",
+      "body_line": 155
+    },
+    {
+      "path": "batch_pfss_source_mapping/wu-2026-nonspherical-coronal-magnetic-field-open-flux/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±5%",
+      "body_line": 154
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/agapitov-2023-structure-origin-switchbacks-psp/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1",
+      "body_line": 55
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/agapitov-2023-structure-origin-switchbacks-psp/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1",
+      "body_line": 66
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/agapitov-2023-structure-origin-switchbacks-psp/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1 for",
+      "body_line": 93
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/bale-2021-solar-source-switchbacks-magnetic-funnels/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 82
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/perrone-2022-coronal-hole-wind-psp-solo-conjunction/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±30%",
+      "body_line": 86
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/phan-2022-switchback-boundary-reconnection-psp/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1 with",
+      "body_line": 80
+    },
+    {
+      "path": "batch_psp_switchbacks_magnetic/wang-2020-magnetic-holes-psp-solar-wind/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±25%",
+      "body_line": 75
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-cuesta-2024-kappa-distributions-energetic-protons/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 79
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-desai-2024-hcs-reconnection-400kev-protons/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 81
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-desai-2024-hcs-reconnection-400kev-protons/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±0.3",
+      "body_line": 81
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-kouloumvakos-2026-iva-shock-properties/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 80
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-laitinen-2026-vda-turbulent-heliosphere/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 124
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-murtas-2024-compression-acceleration-hcs/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±0.1 for",
+      "body_line": 79
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-trotta-2025-ip-shock-variability-multi-spacecraft/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±0.1 in",
+      "body_line": 82
+    },
+    {
+      "path": "batch_sep_energetic_particles/paper-walker-2026-icme-radial-particle-acceleration-statistics/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 83
+    },
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1",
+      "body_line": 49
+    },
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±2%",
+      "body_line": 92
+    },
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±2 percentage",
+      "body_line": 93
+    },
+    {
+      "path": "pilot_2026_and_runtime/dakeyo-2026-source-alignment-psp-solo/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 96
+    },
+    {
+      "path": "pilot_2026_and_runtime/li-2026-mercury-orbit-solar-wind-turbulence/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±0.1 in",
+      "body_line": 81
+    },
+    {
+      "path": "wave500_instruments_data_software_045/paper-case-2020-psp-sweap-spc-faraday-cup-data-product/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±30°",
+      "body_line": 17
+    },
+    {
+      "path": "wave500_instruments_data_software_045/paper-lepping-1995-wind-mfi-magnetometer/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±4 to",
+      "body_line": 22
+    },
+    {
+      "path": "wave500_instruments_data_software_045/paper-lepping-1995-wind-mfi-magnetometer/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±65536 nT",
+      "body_line": 22
+    },
+    {
+      "path": "wave500_instruments_data_software_045/paper-ogilvie-1995-wind-swe-faraday-cup/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±15°",
+      "body_line": 22
+    },
+    {
+      "path": "wave500_waves_instabilities_reconnection_045/helicity-barrier-evidence-transition-range-2024/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1",
+      "body_line": 20
+    },
+    {
+      "path": "wave500_waves_instabilities_reconnection_045/suprathermal-electron-whistler-scattering-2024/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±20%",
+      "body_line": 57
+    }
+  ]
+}

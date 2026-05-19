@@ -232,9 +232,11 @@ better.
 
 **Verifiable task.** A reproduction succeeds when an agent, for the
 2023-03-13 event window, (a) catalogs the shock + ESP onsets at all six
-observers within ±15 min of paper times, (b) runs both MHD scenarios
-(TODO verify code), and (c) reproduces the qualitative ordering
-(blast-wave ≳ multi-CME) within the paper's stated tolerance.
+observers within ±15 min (TODO_verify — provisional until the
+paper-side tolerance is cited to a specific line or table of Dresing+
+2025; see issue #39), (b) runs both MHD scenarios (TODO verify code),
+and (c) reproduces the qualitative ordering (blast-wave ≳ multi-CME)
+within the paper's stated tolerance.
 
 ## 3. Methods / equations → executable workflow
 

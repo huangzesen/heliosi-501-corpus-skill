@@ -678,6 +678,17 @@ section "S4g consumer-facing authorship-prose hygiene"
 python3 scripts/audit_authorship_prose.py --strict || \
   fail "audit_authorship_prose.py reported unresolved violations"
 
+# -- S4h unflagged numeric claims (issue #39) --------------------------------
+# Audits per-entry SKILL.md bodies for numeric tolerances / factors / ratios
+# that are NOT directly attached to a TODO_verify / TBD / provisional /
+# unverified marker. The current curation debt is pinned in
+# references/numeric_claims_expected.json; any NEW unflagged token (or any
+# stale row on the allowlist) makes the audit exit non-zero. Stdlib only.
+section "S4h unflagged numeric claims (issue #39)"
+
+python3 scripts/audit_numeric_claims.py --strict >/dev/null
+log "numeric-claims audit ok (no new unflagged tokens; allowlist clean)"
+
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"
 

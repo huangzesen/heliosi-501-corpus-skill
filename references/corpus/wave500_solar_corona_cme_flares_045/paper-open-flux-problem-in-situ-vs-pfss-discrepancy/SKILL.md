@@ -31,11 +31,15 @@ open flux across the cycle.
 
 ### Claim (narrow form)
 
-In-situ unsigned magnetic-flux integrals (Ulysses, ACE/Wind) yield
-**factor 1.5–2× more open flux** than PFSS reconstructions using HMI/
-GONG synoptic maps with standard `R_ss = 2.5 R_sun`, in solar
-minimum. The discrepancy persists across multiple PFSS solvers and
-input magnetogram products.
+In-situ unsigned magnetic-flux integrals (Ulysses, ACE/Wind) yield a
+**factor 1.5–2× (TODO_verify — provisional) more open flux** than
+PFSS reconstructions using HMI/GONG synoptic maps with standard
+`R_ss = 2.5 R_sun`, in solar minimum. This is the conventional
+headline of the open-flux problem and must be cited to a specific
+Linker+ 2017 / Wallace+ 2019 / Riley+ 2019 line/table before any
+downstream skill treats it as a load-bearing quantitative claim.
+The discrepancy persists across multiple PFSS solvers and input
+magnetogram products.
 
 ### Method assumptions
 
