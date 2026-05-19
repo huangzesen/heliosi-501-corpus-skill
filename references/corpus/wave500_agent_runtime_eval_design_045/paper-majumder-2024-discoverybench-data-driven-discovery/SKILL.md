@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-majumder-2024-discoverybench-data-driven-discovery
 description: >-
-  Use when the agent is positioning HelioSI against benchmark literature, borrowing a scientific-discovery-data-driven-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "DiscoveryBench is a benchmark of data-driven scientific-discovery tasks where an LLM must propose, test, and refine hypotheses against curated datasets, scored " (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark literature, borrowing a scientific-discovery-data-driven-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "DiscoveryBench is a benchmark of data-driven scientific-discovery tasks where an LLM must propose, test, and refine hypotheses against curated datasets, scored " (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

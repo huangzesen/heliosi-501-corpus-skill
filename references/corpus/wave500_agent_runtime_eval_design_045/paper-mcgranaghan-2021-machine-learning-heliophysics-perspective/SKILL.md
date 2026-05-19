@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-mcgranaghan-2021-machine-learning-heliophysics-perspective
 description: >-
-  Use when the agent is positioning HelioSI against heliophysics-evaluation-design literature, borrowing a heliophysics-machine-learning-design-review design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Machine-learning adoption in heliophysics + space-weather forecasting requires modeler-aware design: data quality + provenance, mission-specific instrument cali" (Frontiers in Astronomy and Space Sciences (proxy) 2021).
+  Use when the agent is positioning the consuming agent/manuscript against heliophysics-evaluation-design literature, borrowing a heliophysics-machine-learning-design-review design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Machine-learning adoption in heliophysics + space-weather forecasting requires modeler-aware design: data quality + provenance, mission-specific instrument cali" (Frontiers in Astronomy and Space Sciences (proxy) 2021).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

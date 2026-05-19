@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-goel-2025-rubric-rewards-training-ai-co-scientists
 description: >-
-  Use when the agent is positioning HelioSI against training-methodology literature, borrowing a agent-runtime-training-rubric-rewards design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Research-plan generation can be improved by training LMs on rubric-reward signals extracted automatically from existing research papers, using a scalable, diver" (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against training-methodology literature, borrowing a agent-runtime-training-rubric-rewards design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Research-plan generation can be improved by training LMs on rubric-reward signals extracted automatically from existing research papers, using a scalable, diver" (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

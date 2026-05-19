@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-shinn-2023-reflexion-verbal-reinforcement-agents
 description: >-
-  Use when the agent is positioning HelioSI against foundational-method literature, borrowing a agent-runtime-self-reflection-loop design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Reflexion adds verbal self-reflection on past failures to an LLM agent loop, improving performance on coding (HumanEval), web navigation (AlfWorld), and reasoni" (arXiv preprint / NeurIPS 2023 2023).
+  Use when the agent is positioning the consuming agent/manuscript against foundational-method literature, borrowing a agent-runtime-self-reflection-loop design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Reflexion adds verbal self-reflection on past failures to an LLM agent loop, improving performance on coding (HumanEval), web navigation (AlfWorld), and reasoni" (arXiv preprint / NeurIPS 2023 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

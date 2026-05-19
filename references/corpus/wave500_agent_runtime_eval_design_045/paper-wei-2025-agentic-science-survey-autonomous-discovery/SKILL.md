@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-wei-2025-agentic-science-survey-autonomous-discovery
 description: >-
-  Use when the agent is positioning HelioSI against survey literature, borrowing a agent-runtime-survey design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Agentic Science is a pivotal stage in AI-for-Science; the survey unifies process-, autonomy-, and mechanism-oriented perspectives, identifies five core capabili" (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against survey literature, borrowing a agent-runtime-survey design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Agentic Science is a pivotal stage in AI-for-Science; the survey unifies process-, autonomy-, and mechanism-oriented perspectives, identifies five core capabili" (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

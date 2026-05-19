@@ -470,7 +470,7 @@
       "weak_attribution": true
     },
     {
-      "slug": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "slug": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
       "title": "Coronal flux tube illuminated by strong shock spot: New Year's Eve solar eruption of 2023-Dec-31",
       "authors": [
         "TODO verify"
@@ -484,8 +484,8 @@
       "quality_level": "paper-grounded-pending-full-text",
       "executable_status": "pipeline-specified-not-yet-runnable",
       "core_claim": "The 2023-12-31 eruption produced a localized 'shock spot' that illuminated a coronal flux tube, identified through coordinated remote-sensing and in-situ + radio diagnostics.",
-      "skill_md": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023/SKILL.md",
-      "metadata_yaml": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023/metadata.yaml",
+      "skill_md": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023/SKILL.md",
+      "metadata_yaml": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023/metadata.yaml",
       "source_inventory": [
         "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.24749"
       ],
@@ -1252,7 +1252,7 @@
       ]
     },
     {
-      "slug": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "slug": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
       "todos": [
         "DOI / final venue",
         "Full author list",
@@ -1657,12 +1657,12 @@
       "type": "depends_on"
     },
     {
-      "from": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "from": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
       "to": "paper-jebaraj-2024-synchrotron-electrons-near-sun-shocks",
       "type": "depends_on"
     },
     {
-      "from": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "from": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
       "to": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
       "type": "depends_on"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "from": "paper-jebaraj-2025-localized-particle-global-coronal-shock",
-      "to": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "to": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
       "type": "depends_on"
     },
     {

@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-schmidgall-2025-agent-laboratory-research-assistants
 description: >-
-  Use when the agent is positioning HelioSI against ai-scientist-system literature, borrowing a agent-runtime-human-in-loop design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Agent Laboratory completes the literature-review -> experiment -> report-writing loop with human feedback at each stage; the o1-preview driver produces the best" (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against ai-scientist-system literature, borrowing a agent-runtime-human-in-loop design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Agent Laboratory completes the literature-review -> experiment -> report-writing loop with human feedback at each stage; the o1-preview driver produces the best" (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-jumper-2021-alphafold2-protein-structure-prediction
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-foundation-model literature, borrowing a domain-knowledge-compilation-foundation-model design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "AlphaFold predicts protein structures at near-experimental accuracy on CASP14, by compiling evolutionary + geometric domain knowledge into a single neural model" (Nature 2021).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-foundation-model literature, borrowing a domain-knowledge-compilation-foundation-model design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "AlphaFold predicts protein structures at near-experimental accuracy on CASP14, by compiling evolutionary + geometric domain knowledge into a single neural model" (Nature 2021).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

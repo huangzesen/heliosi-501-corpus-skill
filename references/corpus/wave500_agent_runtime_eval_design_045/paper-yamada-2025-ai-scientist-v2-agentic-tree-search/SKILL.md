@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-yamada-2025-ai-scientist-v2-agentic-tree-search
 description: >-
-  Use when the agent is positioning HelioSI against ai-scientist-system literature, borrowing a agent-runtime-tree-search design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Removing v1's reliance on human-authored code templates and adding a progressive agentic-tree-search managed by an experiment-manager agent enables one workshop" (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against ai-scientist-system literature, borrowing a agent-runtime-tree-search design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Removing v1's reliance on human-authored code templates and adding a progressive agentic-tree-search managed by an experiment-manager agent enables one workshop" (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

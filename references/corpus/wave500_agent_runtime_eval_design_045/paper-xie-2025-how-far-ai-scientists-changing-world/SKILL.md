@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-xie-2025-how-far-ai-scientists-changing-world
 description: >-
-  Use when the agent is positioning HelioSI against survey literature, borrowing a agent-runtime-survey design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A prospect-driven review of AI Scientist systems argues the field is closer to narrow-replication than to world-changing discovery; the survey lists capability " (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against survey literature, borrowing a agent-runtime-survey design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A prospect-driven review of AI Scientist systems argues the field is closer to narrow-replication than to world-changing discovery; the survey lists capability " (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

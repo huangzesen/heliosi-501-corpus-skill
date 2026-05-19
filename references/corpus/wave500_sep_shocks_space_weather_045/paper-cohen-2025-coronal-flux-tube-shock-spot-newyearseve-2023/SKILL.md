@@ -1,5 +1,5 @@
 ---
-name: paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023
+name: paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023
 description: >-
   Use when 2023-12-31 eruption or related diagnostics surface in a SEP / shock / space-weather workflow — central claim: The 2023-12-31 eruption produced a localized 'shock spot' that illuminated a coronal flux tube, identified through coordinated remote-sensing and in-situ + radio diagnostics. (arXiv:2512.24749, 2025).
 version: 0.1.0

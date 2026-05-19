@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-jimenez-2024-swebench-resolving-github-issues
 description: >-
-  Use when the agent is positioning HelioSI against benchmark literature, borrowing a agent-runtime-real-world-engineering-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "SWE-bench evaluates LMs on resolving real GitHub issues + PRs with patch-passing the original test suite; SOTA LMs (without scaffolding) resolve only a single-d" (arXiv preprint / ICLR 2024 2024).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark literature, borrowing a agent-runtime-real-world-engineering-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "SWE-bench evaluates LMs on resolving real GitHub issues + PRs with patch-passing the original test suite; SOTA LMs (without scaffolding) resolve only a single-d" (arXiv preprint / ICLR 2024 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

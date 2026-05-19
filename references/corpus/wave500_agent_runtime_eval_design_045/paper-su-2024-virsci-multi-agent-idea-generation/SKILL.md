@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-su-2024-virsci-multi-agent-idea-generation
 description: >-
-  Use when the agent is positioning HelioSI against ai-scientist-system literature, borrowing a agent-runtime-team-roles design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A virtual team of specialist LLM agents (VirSci) outperforms single-agent baselines on scientific idea generation in benchmarked novelty metrics; collaboration " (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against ai-scientist-system literature, borrowing a agent-runtime-team-roles design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A virtual team of specialist LLM agents (VirSci) outperforms single-agent baselines on scientific idea generation in benchmarked novelty metrics; collaboration " (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

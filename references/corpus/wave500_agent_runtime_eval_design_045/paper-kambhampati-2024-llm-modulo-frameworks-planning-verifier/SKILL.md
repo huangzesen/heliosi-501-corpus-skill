@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-kambhampati-2024-llm-modulo-frameworks-planning-verifier
 description: >-
-  Use when the agent is positioning HelioSI against critique literature, borrowing a agent-runtime-llm-plus-external-verifier design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "LLMs cannot generate executable plans on their own at acceptable correctness; they CAN help in 'LLM-Modulo' frameworks where the LLM proposes + critiques and ex" (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against critique literature, borrowing a agent-runtime-llm-plus-external-verifier design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "LLMs cannot generate executable plans on their own at acceptable correctness; they CAN help in 'LLM-Modulo' frameworks where the LLM proposes + critiques and ex" (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

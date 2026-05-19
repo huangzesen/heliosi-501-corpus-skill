@@ -85,7 +85,7 @@ failure_modes:
   - "Localized vs global distinction depends on instrumental resolution"
 
 depends_on:
-  - "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023"
+  - "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023"
   - "paper-liu-2026-3d-coronal-shock-longitudinal-sep"
 
 adapter_notes: []
@@ -247,7 +247,7 @@ No adapter examples on file yet.
 following sibling paper-skills (one line of justification each).
 Unresolved links remain as `[[slug]]` until they exist in the corpus.
 
-- `[[paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023]]` — assumed for context (see linked skill).
+- `[[paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023]]` — assumed for context (see linked skill).
 - `[[paper-liu-2026-3d-coronal-shock-longitudinal-sep]]` — assumed for context (see linked skill).
 
 **Research-generation affordances** (also in

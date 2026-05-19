@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-boiko-2023-coscientist-autonomous-chemistry-nature
 description: >-
-  Use when the agent is positioning HelioSI against ai-scientist-system literature, borrowing a agent-runtime-domain-tools design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Coscientist (GPT-4 + tool harness: internet search, documentation search, code execution, experimental automation) accomplishes six diverse chemistry tasks incl" (Nature 2023).
+  Use when the agent is positioning the consuming agent/manuscript against ai-scientist-system literature, borrowing a agent-runtime-domain-tools design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Coscientist (GPT-4 + tool harness: internet search, documentation search, code execution, experimental automation) accomplishes six diverse chemistry tasks incl" (Nature 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

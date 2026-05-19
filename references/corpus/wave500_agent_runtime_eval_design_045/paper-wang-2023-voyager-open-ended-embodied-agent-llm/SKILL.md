@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-wang-2023-voyager-open-ended-embodied-agent-llm
 description: >-
-  Use when the agent is positioning HelioSI against foundational-method literature, borrowing a agent-runtime-skill-library-acquisition design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Voyager continuously acquires, refines, and stores executable skills in Minecraft via a self-improving curriculum, an iterative prompting mechanism, and a skill" (arXiv preprint 2023).
+  Use when the agent is positioning the consuming agent/manuscript against foundational-method literature, borrowing a agent-runtime-skill-library-acquisition design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Voyager continuously acquires, refines, and stores executable skills in Minecraft via a self-improving curriculum, an iterative prompting mechanism, and a skill" (arXiv preprint 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-panigrahi-2026-heurekabench-pipeline-construction-method
 description: >-
-  Use when the agent is positioning HelioSI against benchmark-construction-method literature, borrowing a scientific-discovery-end-to-end-benchmark-pipeline design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A semi-automated pipeline (multi-LLM insight extraction + workflow generation + verification against reported findings) constructs end-to-end benchmark items gr" (arXiv preprint 2026).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark-construction-method literature, borrowing a scientific-discovery-end-to-end-benchmark-pipeline design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A semi-automated pipeline (multi-LLM insight extraction + workflow generation + verification against reported findings) constructs end-to-end benchmark items gr" (arXiv preprint 2026).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

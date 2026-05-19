@@ -215,7 +215,7 @@ class TestIssue9SixIdsHaveProvenance(_ArxivProvenanceBase):
     ISSUE_9 = {
         "2601.20624": "wave500_sep_shocks_space_weather_045/paper-mason-2026-sunward-3he-rich-sep-solo-psp",
         "2601.08999": "wave500_sep_shocks_space_weather_045/paper-sun-2026-counterfactual-sep-prediction-ml",
-        "2512.24749": "wave500_sep_shocks_space_weather_045/paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+        "2512.24749": "wave500_sep_shocks_space_weather_045/paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
         "2604.21639": "wave500_coronal_source_mapping_pfss_045/mackay-2026-tracking-magnetic-topology-change-corona",
         "2603.11329": "wave500_inner_heliosphere_psp_solo_045/das-2026-hammerhead-vdf-prevalence-hcs-psp",
         "2511.03905": "wave500_sep_shocks_space_weather_045/paper-clark-2025-may2024-superstorm-sep-feo",

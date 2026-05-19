@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-yang-2024-swe-agent-language-model-software-engineer
 description: >-
-  Use when the agent is positioning HelioSI against agent-system literature, borrowing a agent-runtime-agent-computer-interface design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Designing the agent-computer interface (file viewer, edit, search, run commands tailored for LM consumption) is a first-class lever for SWE-bench performance; S" (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against agent-system literature, borrowing a agent-runtime-agent-computer-interface design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Designing the agent-computer interface (file viewer, edit, search, run commands tailored for LM consumption) is a first-class lever for SWE-bench performance; S" (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

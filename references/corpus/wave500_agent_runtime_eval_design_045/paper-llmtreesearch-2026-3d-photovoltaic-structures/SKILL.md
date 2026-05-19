@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-llmtreesearch-2026-3d-photovoltaic-structures
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-ai-scientist literature, borrowing a agent-runtime-tree-search-coding-agent design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Combining a generic coding agent with an LLM-driven tree-search algorithm enables autonomous generation of high-efficiency three-dimensional photovoltaic struct" (arXiv preprint 2026).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-ai-scientist literature, borrowing a agent-runtime-tree-search-coding-agent design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Combining a generic coding agent with an LLM-driven tree-search algorithm enables autonomous generation of high-efficiency three-dimensional photovoltaic struct" (arXiv preprint 2026).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

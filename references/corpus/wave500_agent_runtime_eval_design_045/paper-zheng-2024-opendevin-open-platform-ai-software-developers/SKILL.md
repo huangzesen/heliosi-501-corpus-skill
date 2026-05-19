@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-zheng-2024-opendevin-open-platform-ai-software-developers
 description: >-
-  Use when the agent is positioning HelioSI against agent-system literature, borrowing a agent-runtime-open-platform-agent-engineering design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "OpenDevin (now OpenHands) is an open-source platform for generalist software-engineering agents: sandboxed runtime, browser + terminal + file tools, multi-agent" (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against agent-system literature, borrowing a agent-runtime-open-platform-agent-engineering design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "OpenDevin (now OpenHands) is an open-source platform for generalist software-engineering agents: sandboxed runtime, browser + terminal + file tools, multi-agent" (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

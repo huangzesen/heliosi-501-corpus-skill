@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-romera-paredes-2024-funsearch-mathematical-program-search
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-ai-scientist literature, borrowing a agent-runtime-program-search-discovery design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "FunSearch pairs an LLM (proposes programs) with an evaluator (runs the program) in an evolutionary loop; discovers new mathematical constructions (improved cap-" (Nature 2024).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-ai-scientist literature, borrowing a agent-runtime-program-search-discovery design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "FunSearch pairs an LLM (proposes programs) with an evaluator (runs the program) in an evolutionary loop; discovers new mathematical constructions (improved cap-" (Nature 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

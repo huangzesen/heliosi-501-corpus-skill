@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-tian-2024-scicode-research-coding-benchmark
 description: >-
-  Use when the agent is positioning HelioSI against benchmark literature, borrowing a scientific-research-coding-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "SciCode is a benchmark of research coding problems curated by domain scientists (physics, chemistry, biology, materials), with executable tests; SOTA LLMs solve" (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark literature, borrowing a scientific-research-coding-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "SciCode is a benchmark of research coding problems curated by domain scientists (physics, chemistry, biology, materials), with executable tests; SOTA LLMs solve" (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

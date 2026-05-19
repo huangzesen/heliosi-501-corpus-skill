@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-son-2025-spot-benchmark-verification-scientific
 description: >-
-  Use when the agent is positioning HelioSI against benchmark literature, borrowing a scientific-discovery-verification-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "SPOT (83 published papers paired with 91 errors significant enough to prompt errata or retraction, cross-validated by authors + human annotators) shows that no " (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark literature, borrowing a scientific-discovery-verification-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "SPOT (83 published papers paired with 91 errors significant enough to prompt errata or retraction, cross-validated by authors + human annotators) shows that no " (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

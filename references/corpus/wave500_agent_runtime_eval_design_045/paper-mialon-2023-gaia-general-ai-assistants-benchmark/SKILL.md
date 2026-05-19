@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-mialon-2023-gaia-general-ai-assistants-benchmark
 description: >-
-  Use when the agent is positioning HelioSI against benchmark literature, borrowing a general-agent-assistant-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "GAIA is a benchmark of real-world assistant questions that are simple for humans but hard for state-of-the-art LLMs; intended to evaluate fundamental abilities " (arXiv preprint 2023).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark literature, borrowing a general-agent-assistant-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "GAIA is a benchmark of real-world assistant questions that are simple for humans but hard for state-of-the-art LLMs; intended to evaluate fundamental abilities " (arXiv preprint 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

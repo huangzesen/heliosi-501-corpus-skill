@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-yao-2022-react-reasoning-acting-language-models
 description: >-
-  Use when the agent is positioning HelioSI against foundational-method literature, borrowing a agent-runtime-reason-act-loop design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Interleaving chain-of-thought reasoning and action steps (ReAct) outperforms pure reasoning or pure acting on HotpotQA, FEVER, and ALFWorld decision-making benc" (arXiv preprint / ICLR 2023 2022).
+  Use when the agent is positioning the consuming agent/manuscript against foundational-method literature, borrowing a agent-runtime-reason-act-loop design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Interleaving chain-of-thought reasoning and action steps (ReAct) outperforms pure reasoning or pure acting on HotpotQA, FEVER, and ALFWorld decision-making benc" (arXiv preprint / ICLR 2023 2022).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

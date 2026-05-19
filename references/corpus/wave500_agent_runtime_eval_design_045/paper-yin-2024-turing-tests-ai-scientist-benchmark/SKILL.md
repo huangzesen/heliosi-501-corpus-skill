@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-yin-2024-turing-tests-ai-scientist-benchmark
 description: >-
-  Use when the agent is positioning HelioSI against benchmark literature, borrowing a scientific-discovery-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Seven historically-inspired Turing-style benchmark tests (heliocentric model from celestial observations, laws of motion, vibrating-string ODE, Maxwell's equati" (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against benchmark literature, borrowing a scientific-discovery-benchmark design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Seven historically-inspired Turing-style benchmark tests (heliocentric model from celestial observations, laws of motion, vibrating-string ODE, Maxwell's equati" (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-hong-2023-metagpt-meta-programming-multi-agent
 description: >-
-  Use when the agent is positioning HelioSI against agent-system literature, borrowing a agent-runtime-role-based-multi-agent design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "MetaGPT encodes SOPs (standard operating procedures) into LLM-agent role prompts (product manager, architect, engineer, QA), producing structured intermediate a" (arXiv preprint / ICLR 2024 2023).
+  Use when the agent is positioning the consuming agent/manuscript against agent-system literature, borrowing a agent-runtime-role-based-multi-agent design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "MetaGPT encodes SOPs (standard operating procedures) into LLM-agent role prompts (product manager, architect, engineer, QA), producing structured intermediate a" (arXiv preprint / ICLR 2024 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

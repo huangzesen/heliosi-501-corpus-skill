@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-trinh-2024-alphageometry-neuro-symbolic-olympiad
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-ai-scientist literature, borrowing a agent-runtime-neuro-symbolic-discovery design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "AlphaGeometry pairs a neural language model with a symbolic deduction engine; trained on synthetic data only, reaches near-IMO-gold-medalist performance on olym" (Nature 2024).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-ai-scientist literature, borrowing a agent-runtime-neuro-symbolic-discovery design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "AlphaGeometry pairs a neural language model with a symbolic deduction engine; trained on synthetic data only, reaches near-IMO-gold-medalist performance on olym" (Nature 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-bommasani-2021-foundation-models-opportunities-risks
 description: >-
-  Use when the agent is positioning HelioSI against survey literature, borrowing a domain-knowledge-compilation-position design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Foundation models constitute a paradigm shift: a single model trained at scale becomes the substrate for many downstream tasks; opportunities + risks must be an" (arXiv preprint 2021).
+  Use when the agent is positioning the consuming agent/manuscript against survey literature, borrowing a domain-knowledge-compilation-position design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Foundation models constitute a paradigm shift: a single model trained at scale becomes the substrate for many downstream tasks; opportunities + risks must be an" (arXiv preprint 2021).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

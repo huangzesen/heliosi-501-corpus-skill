@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-liweiwu-2026-ai-co-scientist-ranking-search-models
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-ai-scientist literature, borrowing a agent-runtime-full-pipeline-cloud design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "An AI Co-Scientist framework automates the full search-ranking research pipeline (idea -> code -> GPU training -> analysis) with single-LLM agents for routine t" (arXiv preprint 2026).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-ai-scientist literature, borrowing a agent-runtime-full-pipeline-cloud design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "An AI Co-Scientist framework automates the full search-ranking research pipeline (idea -> code -> GPU training -> analysis) with single-LLM agents for routine t" (arXiv preprint 2026).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

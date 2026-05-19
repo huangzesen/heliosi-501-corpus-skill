@@ -18,8 +18,8 @@ quality_level: positioning-skill-not-executable-science
 executable_status: design-pattern-extractor
 harness_agnostic: true
 required_data:
-  - HelioSI manuscript draft (or any agent-runtime manuscript target)
-  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - the consuming agent's manuscript draft
+  - the consuming agent's benchmark spec
   - Sibling paper-skills from this corpus
 methods:
   - "Idea-generation prompt loop with novelty checks"

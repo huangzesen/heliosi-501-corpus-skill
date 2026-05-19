@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-lu-2024-ai-scientist-fully-automated-discovery
 description: >-
-  Use when the agent is positioning HelioSI against ai-scientist-system literature, borrowing a agent-runtime-full-pipeline design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A general LLM-driven framework can execute the full open-ended ML-research loop (idea -> code -> experiment -> visualization -> paper -> simulated review) at <U" (arXiv preprint 2024).
+  Use when the agent is positioning the consuming agent/manuscript against ai-scientist-system literature, borrowing a agent-runtime-full-pipeline design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A general LLM-driven framework can execute the full open-ended ML-research loop (idea -> code -> experiment -> visualization -> paper -> simulated review) at <U" (arXiv preprint 2024).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

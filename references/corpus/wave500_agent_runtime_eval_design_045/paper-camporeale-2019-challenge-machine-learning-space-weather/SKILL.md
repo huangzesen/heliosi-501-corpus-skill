@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-camporeale-2019-challenge-machine-learning-space-weather
 description: >-
-  Use when the agent is positioning HelioSI against heliophysics-evaluation-design literature, borrowing a heliophysics-machine-learning-design-review design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Space-weather ML applications must address: (1) class imbalance (rare events), (2) physical interpretability, (3) data quality + heterogeneity, (4) operational " (Space Weather 2019).
+  Use when the agent is positioning the consuming agent/manuscript against heliophysics-evaluation-design literature, borrowing a heliophysics-machine-learning-design-review design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Space-weather ML applications must address: (1) class imbalance (rare events), (2) physical interpretability, (3) data quality + heterogeneity, (4) operational " (Space Weather 2019).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

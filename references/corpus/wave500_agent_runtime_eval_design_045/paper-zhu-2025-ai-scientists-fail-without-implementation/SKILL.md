@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-zhu-2025-ai-scientists-fail-without-implementation
 description: >-
-  Use when the agent is positioning HelioSI against critique literature, borrowing a agent-runtime-critique-implementation design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Quantitative evidence shows that current AI Scientist systems' headline outputs are dominated by writing/idea-quality scores rather than implementation rigor; w" (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against critique literature, borrowing a agent-runtime-critique-implementation design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Quantitative evidence shows that current AI Scientist systems' headline outputs are dominated by writing/idea-quality scores rather than implementation rigor; w" (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

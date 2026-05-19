@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-merchant-2023-gnome-graph-networks-materials-discovery
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-foundation-model literature, borrowing a domain-knowledge-compilation-foundation-model design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "GNoME (graph networks for materials exploration) discovers >2.2M new crystal structures predicted to be stable, by scaling graph-neural-network training + activ" (Nature 2023).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-foundation-model literature, borrowing a domain-knowledge-compilation-foundation-model design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "GNoME (graph networks for materials exploration) discovers >2.2M new crystal structures predicted to be stable, by scaling graph-neural-network training + activ" (Nature 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

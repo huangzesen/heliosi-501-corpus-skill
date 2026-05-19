@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-xi-2023-rise-potential-llm-agents-survey
 description: >-
-  Use when the agent is positioning HelioSI against survey literature, borrowing a agent-runtime-survey design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Survey of LLM-based agents covering perception, brain, action; agent construction patterns; single + multi-agent topologies; evaluation. Argues LLM agents are a" (arXiv preprint 2023).
+  Use when the agent is positioning the consuming agent/manuscript against survey literature, borrowing a agent-runtime-survey design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Survey of LLM-based agents covering perception, brain, action; agent construction patterns; single + multi-agent topologies; evaluation. Argues LLM agents are a" (arXiv preprint 2023).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

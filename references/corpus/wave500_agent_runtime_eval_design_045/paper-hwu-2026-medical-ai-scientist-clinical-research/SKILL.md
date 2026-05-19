@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-hwu-2026-medical-ai-scientist-clinical-research
 description: >-
-  Use when the agent is positioning HelioSI against domain-specific-ai-scientist literature, borrowing a agent-runtime-domain-specific-pattern-transfer design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Medical AI Scientist is the first autonomous research framework tailored to clinical research, providing clinically-grounded ideation by transforming surveyed l" (arXiv preprint 2026).
+  Use when the agent is positioning the consuming agent/manuscript against domain-specific-ai-scientist literature, borrowing a agent-runtime-domain-specific-pattern-transfer design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "Medical AI Scientist is the first autonomous research framework tailored to clinical research, providing clinically-grounded ideation by transforming surveyed l" (arXiv preprint 2026).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science

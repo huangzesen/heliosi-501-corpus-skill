@@ -53,7 +53,7 @@ These appear only as `depends_on` cross-batch links from this batch (verified at
 | 16 | `paper-sun-2026-counterfactual-sep-prediction-ml` | 2026 | (TODO_verify) | 2601.08999 | Physics-guided counterfactual explanations make multivariate-time-series SEP-prediction models interpretable. |
 | 17 | `paper-meng-2025-sepnet-multi-task-ml` | 2025 | (TODO_verify) | 2512.12786 | SEPNET multi-task deep learning jointly predicts SEP occurrence, peak flux, and spectral index. |
 | 18 | `paper-rab-2025-sep-protoplanetary-disk-irradiation` | 2025 | (TODO_verify) | 2512.03184 | Young-Sun SEP irradiation extent in the protoplanetary disk constrains isotopic-anomaly origins. |
-| 19 | `paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023` | 2025 | (TODO_verify) | 2512.24749 | The 2023-12-31 eruption shows a localized shock spot illuminating a coronal flux tube. |
+| 19 | `paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023` | 2025 | (TODO_verify) | 2512.24749 | The 2023-12-31 eruption shows a localized shock spot illuminating a coronal flux tube. |
 | 20 | `paper-malandraki-2025-perp-diffusion-near-sun` | 2025 | (TODO_verify) | 2509.10648 | PSP IS☉IS energetic-particle observations constrain κ_par and κ_perp in the near-Sun wind. |
 | 21 | `paper-clark-2025-may2024-superstorm-sep-feo` | 2025 | (TODO_verify) | 2511.03905 | May-2024 superstorm SEP Fe/O abundance ratios show characteristic energy dependence consistent with compound-event acceleration. |
 | 22 | `paper-allen-2025-shock-evolution-2023-march-13-event` | 2025 | (TODO_verify) | 2511.03496 | Time-resolved Rankine-Hugoniot fit of 2023-03-13 shock from in-situ + remote sensing across observers. |

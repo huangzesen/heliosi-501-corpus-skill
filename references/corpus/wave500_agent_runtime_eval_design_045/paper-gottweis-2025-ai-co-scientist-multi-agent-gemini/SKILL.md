@@ -2,7 +2,7 @@
 # === PaperSkill frontmatter (v0.2 - wave500 harness-agnostic batch) ===
 name: paper-gottweis-2025-ai-co-scientist-multi-agent-gemini
 description: >-
-  Use when the agent is positioning HelioSI against ai-scientist-system literature, borrowing a agent-runtime-async-tournament design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A multi-agent system on Gemini 2.0 implementing a generate-debate-evolve loop with asynchronous task execution and tournament-style hypothesis evolution improve" (arXiv preprint 2025).
+  Use when the agent is positioning the consuming agent/manuscript against ai-scientist-system literature, borrowing a agent-runtime-async-tournament design pattern, or auditing a benchmark/manuscript claim related to it - central claim is "A multi-agent system on Gemini 2.0 implementing a generate-debate-evolve loop with asynchronous task execution and tournament-style hypothesis evolution improve" (arXiv preprint 2025).
 version: 0.1.0
 kind: paper-skill
 quality: positioning-skill-not-executable-science
