@@ -31,3 +31,4 @@ weak_entries:
   - Exact photon-emission diagnostic and event list
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.15933
+research_generation_affordances_present: true

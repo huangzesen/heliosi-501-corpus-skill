@@ -53,3 +53,4 @@ provenance:
       status: arxiv-http-title-match
       fetched_at: "2026-05-19T07:20:21Z"
       source: live
+research_generation_affordances_present: true

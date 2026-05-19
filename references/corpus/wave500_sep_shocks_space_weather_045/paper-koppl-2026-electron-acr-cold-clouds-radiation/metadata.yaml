@@ -22,3 +22,4 @@ weak_entries:
   - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.11785
+research_generation_affordances_present: true

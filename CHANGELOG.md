@@ -15,6 +15,57 @@ plus the previously-batched docs/script UX issues. No corpus content
 the manifest. Slug uniqueness and structural counts are unchanged
 (501 entries, 18 batches, `totals.duplicate_slugs == {}`).
 
+### Issue #63 — `--ready-for hypothesis` no longer collapses to `experiment`
+
+- `scripts/backfill_layer4_affordances.py` — new audit/backfill tool that
+  scans every per-entry `SKILL.md` for a substantive Layer 4 /
+  research-generation-affordances section and writes
+  `research_generation_affordances_present: true` to the corresponding
+  `metadata.yaml` *and* to `references/corpus_manifest_v2.json` (the
+  manifest is what `scripts/search_corpus.py` actually reads for the
+  gate). Heuristic is deliberately conservative: requires a Layer 4
+  header (`Layer 4` or `Research-generation affordance[s]`), ≥ 300
+  non-blank chars of body, ≥ 2 bullets, ≥ 250 chars after stripping
+  empty-section sentinels (`No affordances identified yet`, `TBD`,
+  `TODO`), and at least one of `Gap:` / `Hypothesis:` / `Tension:` /
+  `Minimal_experiment` / `compose with` / `open question` markers. The
+  metadata splice is file-level idempotent; use `--tier T3 --apply` for
+  the issue-#63 scoped no-op rerun.
+- 168 T3 entries now carry
+  `research_generation_affordances_present: true` in both their
+  `metadata.yaml` and `corpus_manifest_v2.json` records: 45 were already
+  `true` in the manifest from a prior QA pass, and 123 are net-new T3
+  manifest flips. Of those 168, exactly 123 are non-stub T3 entries that
+  promote into `--ready-for hypothesis`; the other 45 are Layer-2 stubs
+  and remain intentionally excluded from the hypothesis bucket. To
+  prevent another split-brain surface, the 45 pre-existing non-T3
+  manifest-true entries (T5 positioning skills) were also mirrored into
+  their per-entry `metadata.yaml` without changing the manifest. The
+  final true-set is therefore consistent: manifest true = metadata true
+  = 213. Resulting `--ready-for` counts: hypothesis = 146 (was 23),
+  experiment = 23 (unchanged), verify = 433 (unchanged), discovery = 501
+  (unchanged). Hypothesis is now a strict superset of experiment, as the
+  SKILL.md table always claimed.
+- `tests/test_workflow_gating.py` — added three regression tests:
+  `test_hypothesis_is_strict_superset_of_experiment` (asserts
+  `len(hypothesis) - len(experiment)` equals the number of T3 manifest
+  entries with `research_generation_affordances_present: true` and no
+  Layer-2 stub flag — both directions, so a future drop in the field
+  count surfaces here in CI), `test_hypothesis_contains_t3_entries`
+  (the affirmative counterpart: the bucket must contain at least one
+  T3 entry once the field is populated), and
+  `test_research_generation_affordance_flags_match_manifest` (metadata
+  true-set must equal manifest true-set, currently 213 == 213).
+- `tests/test_layer4_backfill.py` — new unit-level suite covering the
+  substantive-content heuristic (positive + negative cases), the
+  metadata splice (append, idempotent, no-overwrite on hand-curated
+  `false`, trailing-newline safety), and tier derivation parity with
+  `search_corpus.py`.
+- `README.md`, `SKILL.md` — `--ready-for` table updated: hypothesis row
+  now shows 146 with a note that the count derives from the
+  `backfill_layer4_affordances.py` heuristic, and a re-run command is
+  documented in case the field gets reset on a fresh checkout.
+
 ### Added
 - `LICENSE` (MIT for the bundle code; explanatory note that the per-entry
   corpus content paraphrases third-party papers whose copyright remains

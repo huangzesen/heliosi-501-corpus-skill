@@ -198,7 +198,7 @@ subset for each downstream use case:
 | `--ready-for` | Meaning | Eligibility | Count |
 |---|---|---|---:|
 | `discovery` | open browsing / triage | all entries | **501** |
-| `hypothesis` | Layer-1 + Layer-4 input for cross-skill tension generation | T1/T2, or T3 with `research_generation_affordances_present == true`, and NOT a Layer-2 stub | **23** |
+| `hypothesis` | Layer-1 + Layer-4 input for cross-skill tension generation | T1/T2, or T3 with `research_generation_affordances_present == true`, and NOT a Layer-2 stub | **146** |
 | `experiment` | the Layer-2 contract is method-ready or runnable from real data | T1 + T2 only, NOT a Layer-2 stub | **23** |
 | `verify` | next-curation-pass verification targets | T3/T4/T7, or Layer-2 stub, or `weak_flag_count > 0`, or DOI marked `TODO_verify` (T1 and T6 excluded) | **433** |
 
@@ -206,8 +206,12 @@ Counts are the current snapshot — re-derive any time with
 `python3 scripts/search_corpus.py --ready-for <intent> --json`. The 55
 Layer-2 stub entries flagged by issue #14 (`layer2_stub: true`) are
 explicitly excluded from `experiment` and `hypothesis`, regardless of
-their `quality` field. **Do not present `discovery` as a synonym for
-"workflow-ready" — it only means "every entry can be browsed."**
+their `quality` field. The 123 T3 entries that promote into `hypothesis`
+beyond the 23 T1/T2 entries are the ones whose per-entry `SKILL.md`
+authors a substantive Layer 4 / research-generation-affordances block;
+the flag is derived by `scripts/backfill_layer4_affordances.py` (issue
+#63). **Do not present `discovery` as a synonym for "workflow-ready" —
+it only means "every entry can be browsed."**
 
 The CLI also supports `--maturity-tier T1|T2|...|T7` (repeatable) for
 plain tier filtering, and either filter can be combined with `--query`

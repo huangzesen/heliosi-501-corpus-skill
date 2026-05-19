@@ -36,3 +36,4 @@ weak_entries:
   - Full event list
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.13962
+research_generation_affordances_present: true

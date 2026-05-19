@@ -32,3 +32,4 @@ weak_entries:
   - Full IVA event list with dates
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.12475
+research_generation_affordances_present: true

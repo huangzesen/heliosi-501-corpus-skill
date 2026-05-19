@@ -150,6 +150,169 @@ class TestReadyForBuckets(unittest.TestCase):
             "hypothesis-ready cannot be smaller than experiment-ready"
         )
 
+    def test_hypothesis_is_strict_superset_of_experiment(self):
+        """Issue #63 audit fence.
+
+        When *any* T3 entry in the manifest carries
+        ``research_generation_affordances_present: true``, the hypothesis
+        bucket must contain *strictly more* entries than the experiment
+        bucket -- not the same 23. The original
+        ``test_hypothesis_is_at_least_experiment_size`` used a non-strict
+        ``>=`` and silently passed when the gating field was never
+        written (issue #63), making the two buckets identical.
+
+        This test guards both directions:
+
+          1. We compute the hypothesis-eligible T3 set directly from the
+             manifest (tier == T3, affordances flag true, not Layer-2
+             stub). If non-empty, hypothesis_total - experiment_total
+             must equal that count -- the gating function and the
+             manifest must agree on every entry.
+          2. If the eligible T3 set is empty (corpus is in pre-backfill
+             state) we fail loudly: the test name advertises a strict
+             superset, and an all-false manifest violates the premise of
+             issue #63 even if the assertion would otherwise pass
+             vacuously.
+        """
+        rc1, out1, _ = run(
+            "--ready-for", "experiment", "--limit", "1", "--json"
+        )
+        rc2, out2, _ = run(
+            "--ready-for", "hypothesis", "--limit", "1", "--json"
+        )
+        self.assertEqual(rc1, 0)
+        self.assertEqual(rc2, 0)
+        exp_total = json.loads(out1)["total"]
+        hyp_total = json.loads(out2)["total"]
+
+        # Direct manifest read so the test does not depend on the same
+        # script paths it is testing.
+        manifest = json.loads(
+            (BUNDLE / "references" / "corpus_manifest_v2.json").read_text()
+        )
+        # Inline tier derivation to avoid importing the script under test.
+        stub_t5 = {
+            "historical-citation-only",
+            "ecosystem-diff-procedure-only",
+            "review-routing-not-runnable",
+            "design-pattern-extractor",
+            "manuscript-checklist-only",
+            "architecture-template-only",
+            "benchmark-design-template",
+            "benchmark-protocol-template",
+        }
+        stub_t3 = {
+            "contract-specified-not-yet-benchmarked",
+            "examples-only-not-yet-benchmarked",
+            "pipeline-specified-not-yet-runnable",
+        }
+
+        def tier_of(e):
+            q = (e.get("quality") or "").strip()
+            es = (e.get("executable_status") or "").strip()
+            if q == "paper-grounded-locally-reproduced":
+                return "T1"
+            if q == "link-only-cross-batch":
+                return "T6"
+            if q == "pilot_weak_attribution":
+                return "T7"
+            if q == "positioning-skill-not-executable-science":
+                return "T5"
+            if q == "method-ready":
+                return "T2"
+            if q == "pilot":
+                return "T2" if "runnable" in es else "T4"
+            if q == "paper-grounded-pending-full-text":
+                return (
+                    "T2" if es == "constructive-pipeline-specified" else "T3"
+                )
+            if q == "stub":
+                if es in stub_t5:
+                    return "T5"
+                if es == "pipeline-specified-not-yet-benchmarked":
+                    return "T2"
+                if es in stub_t3:
+                    return "T3"
+                return "T4"
+            return "T?"
+
+        stub_batches = {
+            "wave500_inner_heliosphere_psp_solo_045",
+            "wave500_waves_instabilities_reconnection_045",
+        }
+        import re as _re
+        layer2_stub_line = _re.compile(
+            r"^layer2_stub\s*:\s*true\s*(?:#.*)?$", _re.MULTILINE
+        )
+
+        def has_layer2_stub(e):
+            if e.get("batch") not in stub_batches:
+                return False
+            p = BUNDLE / "references" / "corpus" / e.get("path", "") / (
+                "metadata.yaml"
+            )
+            if not p.is_file():
+                return False
+            return bool(
+                layer2_stub_line.search(
+                    p.read_text(encoding="utf-8", errors="replace")
+                )
+            )
+
+        eligible_t3 = [
+            e
+            for e in manifest["entries"]
+            if tier_of(e) == "T3"
+            and bool(e.get("research_generation_affordances_present"))
+            and not has_layer2_stub(e)
+        ]
+
+        if not eligible_t3:
+            self.fail(
+                "Zero T3 entries carry research_generation_affordances_present "
+                "in the manifest -- the hypothesis bucket has silently "
+                "collapsed to experiment. Run "
+                "`python3 scripts/backfill_layer4_affordances.py --tier T3 "
+                "--apply` (issue #63)."
+            )
+
+        self.assertGreater(
+            hyp_total,
+            exp_total,
+            f"hypothesis bucket ({hyp_total}) must be strictly larger "
+            f"than experiment bucket ({exp_total}) when T3 entries with "
+            f"affordances exist (got {len(eligible_t3)} eligible T3 "
+            f"entries from manifest). Issue #63 regression."
+        )
+        self.assertEqual(
+            hyp_total - exp_total,
+            len(eligible_t3),
+            f"hypothesis - experiment ({hyp_total - exp_total}) must "
+            f"equal the count of T3 entries with affordances and no "
+            f"Layer-2 stub flag ({len(eligible_t3)}). The gating "
+            f"function and the manifest disagree."
+        )
+
+    def test_hypothesis_contains_t3_entries(self):
+        """The hypothesis bucket must contain at least one T3 entry once
+        the affordances field is populated. This is the affirmative
+        counterpart to ``test_hypothesis_is_strict_superset_of_experiment``:
+        an empty T3-substantive set is silent; a mistakenly-T1/T2-only
+        bucket is the bug.
+        """
+        rc, out, _ = run(
+            "--ready-for", "hypothesis", "--limit", "500", "--json"
+        )
+        self.assertEqual(rc, 0)
+        doc = json.loads(out)
+        t3_in_hyp = [m for m in doc["matches"] if m["tier"] == "T3"]
+        self.assertGreater(
+            len(t3_in_hyp),
+            0,
+            "hypothesis bucket has no T3 entries -- the T3 affordance "
+            "path is dead. See issue #63."
+        )
+
     def test_hypothesis_does_not_include_layer2_stubs(self):
         rc, out, _ = run(
             "--ready-for", "hypothesis", "--limit", "100", "--json"
@@ -188,6 +351,50 @@ class TestReadyForBuckets(unittest.TestCase):
                 m["tier"], "T1",
                 f"verify bucket should not include T1; found {m['slug']}"
             )
+
+
+class TestResearchGenerationAffordanceParity(unittest.TestCase):
+    """Per-entry metadata must mirror the manifest affordance roll-up.
+
+    ``scripts/search_corpus.py`` gates ``--ready-for hypothesis`` from
+    ``references/corpus_manifest_v2.json``, while authors and auditors
+    inspect per-entry ``metadata.yaml``. Issue #63 depends on these two
+    surfaces not drifting: if the manifest says an entry has substantive
+    research-generation affordances, the metadata file should say the
+    same, and vice versa.
+    """
+
+    def test_research_generation_affordance_flags_match_manifest(self):
+        import re
+
+        manifest = json.loads(
+            (BUNDLE / "references" / "corpus_manifest_v2.json").read_text()
+        )
+        true_line = re.compile(
+            r"^research_generation_affordances_present\s*:\s*true\s*(?:#.*)?$",
+            re.MULTILINE,
+        )
+
+        manifest_true = set()
+        metadata_true = set()
+        for entry in manifest["entries"]:
+            slug = entry["slug"]
+            if entry.get("research_generation_affordances_present") is True:
+                manifest_true.add(slug)
+            meta_path = (
+                BUNDLE / "references" / "corpus" / entry.get("path", "") /
+                "metadata.yaml"
+            )
+            self.assertTrue(meta_path.is_file(), f"missing metadata for {slug}")
+            if true_line.search(meta_path.read_text(encoding="utf-8")):
+                metadata_true.add(slug)
+
+        self.assertEqual(
+            metadata_true,
+            manifest_true,
+            "research_generation_affordances_present true-set drift between "
+            "metadata.yaml and corpus_manifest_v2.json",
+        )
 
 
 class TestQueryComposition(unittest.TestCase):

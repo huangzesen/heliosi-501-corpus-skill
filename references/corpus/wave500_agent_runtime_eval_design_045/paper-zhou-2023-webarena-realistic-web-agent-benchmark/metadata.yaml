@@ -45,3 +45,4 @@ source_inventory:
   - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
   - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
   - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"
+research_generation_affordances_present: true

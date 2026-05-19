@@ -220,12 +220,20 @@ stub/scaffold). Earlier workflow documentation overpromised by advertising
 "hypothesis generation" and "experiment design" as if every entry were
 ready for them. `--ready-for` makes that selection explicit and queryable.
 
-| Intent | Definition | Live count (issue #60 cutoff) |
+| Intent | Definition | Live count (issue #63 backfill) |
 |---|---|---:|
 | `discovery` | every entry — useful for scripted callers that always pass `--ready-for`. | 501 |
-| `hypothesis` | T1/T2 entries, plus T3 entries with a populated Layer 4 (`research_generation_affordances_present == true`), and not flagged `layer2_stub: true`. Conservative: most T3 entries do NOT yet author Layer 4 inline (see `corpus_qa_report_v2.md` §6 class C7), so the bucket is small until Layer 4 is backfilled. | 23 |
+| `hypothesis` | T1/T2 entries, plus T3 entries with a populated Layer 4 (`research_generation_affordances_present == true`), and not flagged `layer2_stub: true`. The Layer-4 affordances flag was backfilled by `scripts/backfill_layer4_affordances.py` on a conservative substantive-content heuristic; T3 entries whose Layer-4 section is empty / `No affordances identified yet` / `TBD` are NOT in this bucket. | 146 |
 | `experiment` | **Strictly T1/T2 and not Layer-2 stub.** T1 has a documented local reproduction (1 entry); T2 has method-ready or runnable-pilot quality (22 entries). A T3 entry is NOT experiment-ready under the corpus's own taxonomy because its full-text verification is still pending. | 23 |
 | `verify` | T3/T4/T7 entries that still carry a verification TODO (`weak_flag_count > 0`, DOI starting `TODO`/`TBD`, or `layer2_stub: true`). This is the inverse of experiment-ready: it surfaces what to spend full-text-verification budget on next. | 433 |
+
+`hypothesis` is a **strict superset** of `experiment` once the Layer-4
+affordances flag is backfilled — 23 T1/T2 entries plus 123 T3 entries
+with a substantive Layer 4 and no Layer-2 stub. If you observe
+`hypothesis == experiment` on a fresh checkout, run
+`python3 scripts/backfill_layer4_affordances.py --tier T3 --apply` to
+re-derive the flag from per-entry SKILL.md (issue #63). The backfill is
+idempotent.
 
 The 55 entries flagged `layer2_stub: true` in `metadata.yaml` (issue #14:
 45 in `wave500_inner_heliosphere_psp_solo_045` + 10 in

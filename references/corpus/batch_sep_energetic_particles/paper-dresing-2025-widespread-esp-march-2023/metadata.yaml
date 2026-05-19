@@ -38,3 +38,4 @@ weak_entries:
   - Full pre-event + simultaneous CME injection list
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.06332
+research_generation_affordances_present: true

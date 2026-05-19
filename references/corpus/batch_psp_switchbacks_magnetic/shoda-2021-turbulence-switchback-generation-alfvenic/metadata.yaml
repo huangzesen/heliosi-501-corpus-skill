@@ -32,3 +32,4 @@ validation_targets:
   - Resolution-sensitivity sweep documented
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.4
+research_generation_affordances_present: true

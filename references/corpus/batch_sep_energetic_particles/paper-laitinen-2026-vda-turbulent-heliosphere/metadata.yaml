@@ -27,3 +27,4 @@ weak_entries:
   - Onset-threshold prescription
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.06433
+research_generation_affordances_present: true

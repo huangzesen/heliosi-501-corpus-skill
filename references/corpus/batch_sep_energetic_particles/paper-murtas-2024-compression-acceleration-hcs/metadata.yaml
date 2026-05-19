@@ -28,3 +28,4 @@ weak_entries:
   - Exact species list and default plasma parameters — TODO verify
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2408.10445
+research_generation_affordances_present: true

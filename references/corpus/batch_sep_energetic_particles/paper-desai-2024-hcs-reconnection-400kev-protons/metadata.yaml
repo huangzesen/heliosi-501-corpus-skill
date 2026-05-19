@@ -34,3 +34,4 @@ weak_entries:
   - kglobal repository handle — TODO verify
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.16539
+research_generation_affordances_present: true

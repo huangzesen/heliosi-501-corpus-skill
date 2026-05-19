@@ -35,3 +35,4 @@ weak_entries:
   - Full 39-event list with multipoint observer pairings
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2605.00163
+research_generation_affordances_present: true
