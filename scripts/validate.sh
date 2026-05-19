@@ -227,6 +227,115 @@ if bad:
 print(f'metadata.yaml parse ok ({total}/{total} parsed with PyYAML)')
 PY
 
+# -- S4d authorship-field hygiene (issue #8) --------------------------------
+# Asserts that no metadata.yaml `first_author` / `authors[]` value and no
+# per-entry SKILL.md `paper.first_author` / `paper.authors[]` frontmatter
+# value is a TODO/TBD placeholder string. Allowed:
+#   - first_author: null (or absent)
+#   - authors: null / [] / list of real (non-placeholder) strings
+# Forbidden:
+#   - a string that starts (after optional whitespace) with TODO or TBD
+#     (case-insensitive), e.g. "TODO verify", "TODO_verify_with_full_text"
+#   - a string containing a parenthetical (... TODO/TBD ...) marker, e.g.
+#     "Mason, G. M. (TODO verify)", "+ co-authors (TODO verify full list)"
+#   - any element of a list matching the above (so a mixed list like
+#     ["Zhiheng Xi", "TODO_verify_with_full_text"] also fails)
+# Uses PyYAML; SKIPs cleanly when PyYAML is not installed, same as S4c.
+section "S4d authorship-field hygiene (PyYAML if available)"
+
+python3 - <<'PY'
+import re
+import sys
+from pathlib import Path
+
+try:
+    import yaml  # PyYAML
+except ImportError:
+    print('SKIP: PyYAML not installed -- authorship hygiene check skipped.')
+    print('      Install with `pip install pyyaml` to enable strict parsing.')
+    sys.exit(0)
+
+STARTS_TODO = re.compile(r'^\s*(?:TODO|TBD)', re.IGNORECASE)
+PAREN_TODO = re.compile(r'\((?:[^)]*\b)?(?:TODO|TBD)\b[^)]*\)', re.IGNORECASE)
+
+
+def is_todo(s):
+    if not isinstance(s, str):
+        return False
+    return bool(STARTS_TODO.search(s) or PAREN_TODO.search(s))
+
+
+def check_authors_field(value, label, path, violations):
+    if value is None:
+        return  # null is allowed
+    if isinstance(value, list):
+        for i, elem in enumerate(value):
+            if is_todo(elem):
+                violations.append(
+                    f'{path}: {label}[{i}] is a TODO/TBD placeholder: {elem!r}'
+                )
+        return
+    # Scalar string: forbid TODO/TBD.
+    if is_todo(value):
+        violations.append(
+            f'{path}: {label} is a TODO/TBD placeholder: {value!r}'
+        )
+
+
+ROOT = Path('references/corpus')
+violations = []
+
+for p in sorted(ROOT.glob('*/*/metadata.yaml')):
+    try:
+        with open(p) as f:
+            data = yaml.safe_load(f)
+    except Exception as e:
+        violations.append(f'{p}: YAML parse failure: {e}')
+        continue
+    if not isinstance(data, dict):
+        continue
+    if 'first_author' in data:
+        check_authors_field(data['first_author'], 'first_author', p, violations)
+    if 'authors' in data:
+        check_authors_field(data['authors'], 'authors', p, violations)
+
+for p in sorted(ROOT.glob('*/*/SKILL.md')):
+    text = p.read_text()
+    if not text.startswith('---\n'):
+        continue
+    try:
+        end = text.index('\n---', 4)
+    except ValueError:
+        continue
+    fm = text[4:end]
+    try:
+        data = yaml.safe_load(fm)
+    except Exception as e:
+        violations.append(f'{p}: SKILL.md frontmatter YAML parse failure: {e}')
+        continue
+    if not isinstance(data, dict):
+        continue
+    paper = data.get('paper') or {}
+    if not isinstance(paper, dict):
+        continue
+    if 'first_author' in paper:
+        check_authors_field(paper['first_author'], 'paper.first_author', p, violations)
+    if 'authors' in paper:
+        check_authors_field(paper['authors'], 'paper.authors', p, violations)
+
+if violations:
+    print(f'validate.sh: FAIL -- {len(violations)} authorship-hygiene violations:',
+          file=sys.stderr)
+    for v in violations[:10]:
+        print('  - ' + v, file=sys.stderr)
+    if len(violations) > 10:
+        print(f'  ... and {len(violations) - 10} more', file=sys.stderr)
+    sys.exit(1)
+
+print('authorship hygiene ok (no TODO/TBD placeholders in '
+      'metadata.first_author/authors or SKILL.md paper.first_author/authors)')
+PY
+
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"
 

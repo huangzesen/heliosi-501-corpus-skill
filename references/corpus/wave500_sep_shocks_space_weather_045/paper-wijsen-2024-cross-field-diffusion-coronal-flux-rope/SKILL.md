@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Cross-Field Diffusion Effects on Particle Transport in a Solar Coronal Flux Rope"
-  first_author: "Wijsen, N. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -96,7 +96,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Cross-Field Diffusion Effects on Particle Transport in a Solar Coronal Flux Rope — paper-skill
 
-> Compiled from arXiv:2411.00738 (2024), Wijsen, N. (TODO verify) et al.
+> Compiled from arXiv:2411.00738 (2024), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

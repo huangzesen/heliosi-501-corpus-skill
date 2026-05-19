@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Unusual Circumstances of the 2024 June 8 GLE"
-  first_author: "Mason, G. M. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -120,7 +120,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Unusual Circumstances of the 2024 June 8 GLE — paper-skill
 
-> Compiled from arXiv:2602.12507 (2026), Mason, G. M. (TODO verify) et al.
+> Compiled from arXiv:2602.12507 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

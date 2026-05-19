@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Solar-cycle-spanning validation of CH segmentation across instrument generations"
-  first_author: "TODO verify (Jarolim et al. cycle-validation lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "TODO verify"
   doi: null

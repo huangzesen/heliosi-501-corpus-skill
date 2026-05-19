@@ -15,7 +15,7 @@ layers:
 paper:
   title: "sktime — abstract time-series classification capability for heliophysics workflows"
   first_author: "M. Löning et al."
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2022
   venue: "TODO verify (JMLR or sktime documentation)"
   doi: null

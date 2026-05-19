@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Early-deep-learning classification of solar-wind regimes (1505.02563 mirror lineage)"
-  first_author: "V. Heidrich-Meisner (TODO verify)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2018
   venue: "TODO verify (arXiv:1505.02563 lineage)"
   doi: null

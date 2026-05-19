@@ -4,7 +4,7 @@ title: >-
   (with companion test-problem paper Stansby et al. 2022)
 authors:
   - "Stansby, D."
-  - "+ pfsspy contributors (TODO verify full list)"
+authors_complete: false
 year: 2020
 journal: software package (JOSS / sunpy affiliated); companion arXiv 2201.07783 (2022)
 doi: null

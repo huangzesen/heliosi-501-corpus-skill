@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "ML detection of CIR / stream-interaction-region boundaries at 1 au"
-  first_author: "TODO verify (Pal / CIR-ML lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "TODO verify"
   doi: null

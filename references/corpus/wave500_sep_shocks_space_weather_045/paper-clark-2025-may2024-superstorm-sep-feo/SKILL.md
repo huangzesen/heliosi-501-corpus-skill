@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Energy-dependent SEP Fe/O abundances during the May 2024 superstorm"
-  first_author: "TODO verify"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -121,7 +121,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Energy-dependent SEP Fe/O abundances during the May 2024 superstorm — paper-skill
 
-> Compiled from arXiv:2511.03905 (2025), TODO verify et al.
+> Compiled from arXiv:2511.03905 (2025), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

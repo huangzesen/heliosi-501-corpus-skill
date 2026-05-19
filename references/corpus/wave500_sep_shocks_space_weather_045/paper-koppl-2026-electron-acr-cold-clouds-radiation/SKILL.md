@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Increased and Varied Radiation during the Sun's Encounters with Cold Clouds in the last 10 million years"
-  first_author: "TODO verify"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -107,7 +107,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Increased and Varied Radiation during the Sun's Encounters with Cold Clouds in the last 10 million years — paper-skill
 
-> Compiled from arXiv:2601.11785 (2026), TODO verify et al.
+> Compiled from arXiv:2601.11785 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

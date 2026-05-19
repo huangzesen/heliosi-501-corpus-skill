@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Three-stage Acceleration of Solar Energetic Particles Detected by Parker Solar Probe"
-  first_author: "Leske, R. A. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -108,7 +108,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Three-stage Acceleration of Solar Energetic Particles Detected by Parker Solar Probe — paper-skill
 
-> Compiled from arXiv:2405.19680 (2024), Leske, R. A. (TODO verify) et al.
+> Compiled from arXiv:2405.19680 (2024), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

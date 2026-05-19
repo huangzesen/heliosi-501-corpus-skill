@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Energetic Particles from Quasi-Separatrix Layers and Current Sheets at the Sun"
-  first_author: "TODO verify"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -95,7 +95,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Energetic Particles from Quasi-Separatrix Layers and Current Sheets at the Sun — paper-skill
 
-> Compiled from arXiv:2410.07420 (2024), TODO verify et al.
+> Compiled from arXiv:2410.07420 (2024), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

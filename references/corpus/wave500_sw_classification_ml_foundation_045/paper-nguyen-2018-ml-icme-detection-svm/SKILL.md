@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Support-vector-machine classical ICME detection baseline at 1 au"
-  first_author: "TODO verify (Nguyen / ML-ICME-baseline lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2018
   venue: "TODO verify"
   doi: null

@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Calibrated-uncertainty NN extension for 1-au solar-wind class assignment"
-  first_author: "TODO verify (Bloch et al. successor)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "TODO verify"
   doi: null

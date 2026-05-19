@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Sunward Streaming 3He-rich SEP Events Observed by Solar Orbiter and Parker Solar Probe during Perihelion Passage"
-  first_author: "Mason, G. M. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -117,7 +117,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Sunward Streaming 3He-rich SEP Events Observed by Solar Orbiter and Parker Solar Probe during Perihelion Passage — paper-skill
 
-> Compiled from arXiv:2601.20624 (2026), Mason, G. M. (TODO verify) et al.
+> Compiled from arXiv:2601.20624 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

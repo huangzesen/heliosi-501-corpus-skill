@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Autoregressive spherical Fourier neural operator for solar-wind forecasting"
-  first_author: "TODO verify (Autoregressive spherical FNO authors)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "TODO verify"
   doi: null

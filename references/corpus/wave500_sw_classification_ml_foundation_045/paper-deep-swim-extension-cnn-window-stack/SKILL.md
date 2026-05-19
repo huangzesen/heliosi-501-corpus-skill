@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Window-stacked CNN extension of Deep-SWIM for solar-wind magnetic-discontinuity classification"
-  first_author: "TODO verify (Hu / Deep-SWIM successor)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2023
   venue: "TODO verify"
   doi: null

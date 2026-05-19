@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Coronal flux tube illuminated by strong shock spot: New Year's Eve solar eruption of 2023-Dec-31"
-  first_author: "TODO verify"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -111,7 +111,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Coronal flux tube illuminated by strong shock spot: New Year's Eve solar eruption of 2023-Dec-31 — paper-skill
 
-> Compiled from arXiv:2512.24749 (2025), TODO verify et al.
+> Compiled from arXiv:2512.24749 (2025), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Numerical investigation of particle acceleration at interplanetary shocks: diffusive and superdiffusive scenarios"
-  first_author: "TODO verify"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -96,7 +96,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Numerical investigation of particle acceleration at interplanetary shocks: diffusive and superdiffusive scenarios — paper-skill
 
-> Compiled from arXiv:2604.14819 (2026), TODO verify et al.
+> Compiled from arXiv:2604.14819 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

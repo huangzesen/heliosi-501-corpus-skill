@@ -12,10 +12,10 @@ allowed-tools: Read, Grep, Glob, Bash
 This corpus is a **scaffold / triage substrate**, not a fully verified
 reproduction corpus. Concretely, as of the current snapshot:
 
-- **417 / 501 entries (83 %)** carry one or more `TODO_verify_with_full_text`
-  / `TODO verify` markers in their `metadata.yaml` (a further 32 entries
-  carry them only in `SKILL.md`, for a total of 449 / 501 = 90 % of entries
-  with at least one TODO_verify token somewhere in their per-entry files).
+- A large fraction of entries still carry one or more
+  `TODO_verify_with_full_text` / `TODO verify` markers in non-authorship
+  prose fields of their `metadata.yaml` / `SKILL.md` (venue, DOI, numerical
+  targets, etc.). These are intentional triage markers, **not** claims.
 - **T3 + T4 = 424 / 501 entries (85 %)** are in the
   `paper-grounded-pending-full-text` (T3, 260) or `stub` / `scaffold` (T4, 164)
   maturity tiers — i.e. the Layer-1 claim and Layer-2 contract are authored
@@ -29,6 +29,28 @@ When citing or composing from this corpus, treat every entry's identifiers
 (DOI, arXiv, ADS), numerical targets, and author lists as **provisional
 until the full paper has been read**. Surface the TODO_verify gap to the
 user — do not paper over it.
+
+### Authorship fields specifically (issue #8 hygiene)
+
+Authorship is the **only** dimension on which the corpus refuses to ship
+placeholder strings as data:
+
+- `metadata.yaml` `first_author` / `authors[]` and the per-entry
+  `SKILL.md` frontmatter `paper.first_author` / `paper.authors[]` are
+  guaranteed to contain **no** `TODO` / `TBD` placeholder strings
+  (enforced by `scripts/validate.sh` section S4d and
+  `tests/test_authorship_hygiene.py`).
+- Unverified author scalars are `null`; unverified author lists are `[]`
+  or a list of only the real authors that were recoverable from the
+  local source. Entries where authorship is unknown carry an explicit
+  `authors_verified: false` flag; entries with a partial author list
+  carry `authors_complete: false`.
+- The surname embedded in a slug (e.g. `paper-mason-2026-…`) is **not**
+  asserted as the verified first author. Do not promote it to
+  `first_author` without independent confirmation.
+
+**Do not cite `first_author` / `authors` from this corpus without
+independent verification.**
 
 ## What this is
 

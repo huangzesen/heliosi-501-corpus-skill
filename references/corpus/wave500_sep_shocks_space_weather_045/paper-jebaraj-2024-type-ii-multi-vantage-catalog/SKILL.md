@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "A catalog of multi-vantage point observations of type-II bursts: Statistics and correlations"
-  first_author: "Jebaraj, I. C. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -100,7 +100,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # A catalog of multi-vantage point observations of type-II bursts: Statistics and correlations — paper-skill
 
-> Compiled from arXiv:2410.00814 (2024), Jebaraj, I. C. (TODO verify) et al.
+> Compiled from arXiv:2410.00814 (2024), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

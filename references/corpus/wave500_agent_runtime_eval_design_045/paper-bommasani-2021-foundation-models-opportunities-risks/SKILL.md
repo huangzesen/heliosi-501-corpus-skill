@@ -17,7 +17,8 @@ layers:
 paper:
   title: "On the Opportunities and Risks of Foundation Models"
   first_author: "Bommasani, R."
-  authors: ["Rishi Bommasani", "TODO_verify_with_full_text — Stanford CRFM"]
+  authors: ["Rishi Bommasani"]
+  authors_complete: false
   year: 2021
   venue: "arXiv preprint"
   doi: null

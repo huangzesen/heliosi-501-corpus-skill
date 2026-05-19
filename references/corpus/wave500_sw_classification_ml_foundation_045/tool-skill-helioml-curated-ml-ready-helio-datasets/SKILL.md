@@ -15,7 +15,7 @@ layers:
 paper:
   title: "HelioML — curated catalog of ML-ready heliophysics datasets and notebooks"
   first_author: "M. Bobra et al. (HelioML editorial collective)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2019
   venue: "TODO verify (book / online resource)"
   doi: null

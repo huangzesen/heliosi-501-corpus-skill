@@ -17,7 +17,8 @@ layers:
 paper:
   title: "Mathematical discoveries from program search with large language models (FunSearch)"
   first_author: "Romera-Paredes, B."
-  authors: ["Bernardino Romera-Paredes", "TODO_verify_with_full_text"]
+  authors: ["Bernardino Romera-Paredes"]
+  authors_complete: false
   year: 2024
   venue: "Nature"
   doi: "10.1038/s41586-023-06924-6"

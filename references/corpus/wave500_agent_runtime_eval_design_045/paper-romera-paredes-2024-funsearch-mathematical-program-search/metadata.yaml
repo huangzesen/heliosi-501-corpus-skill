@@ -2,7 +2,7 @@ slug: paper-romera-paredes-2024-funsearch-mathematical-program-search
 title: "Mathematical discoveries from program search with large language models (FunSearch)"
 authors:
   - "Bernardino Romera-Paredes"
-  - "TODO_verify_with_full_text"
+authors_complete: false
 year: 2024
 journal: "Nature"
 doi: "10.1038/s41586-023-06924-6"

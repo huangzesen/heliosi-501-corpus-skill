@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Radial Evolution of ICME-Associated Particle Acceleration Observed by Solar Orbiter and ACE"
-  first_author: "Allen, R. C. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -106,7 +106,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Radial Evolution of ICME-Associated Particle Acceleration Observed by Solar Orbiter and ACE — paper-skill
 
-> Compiled from arXiv:2410.01885 (2024), Allen, R. C. (TODO verify) et al.
+> Compiled from arXiv:2410.01885 (2024), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

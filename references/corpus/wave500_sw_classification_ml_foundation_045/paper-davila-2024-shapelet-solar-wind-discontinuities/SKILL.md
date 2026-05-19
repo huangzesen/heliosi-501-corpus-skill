@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Shapelet-based time-series classification of solar-wind discontinuities"
-  first_author: "TODO verify (Davila / shapelet lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2024
   venue: "TODO verify"
   doi: null

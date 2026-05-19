@@ -15,7 +15,7 @@ layers:
 paper:
   title: "QRaFT — adaptive segmentation of the open-flux solar corona"
   first_author: "V. M. Uritsky"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify (likely ApJ)"
   doi: null

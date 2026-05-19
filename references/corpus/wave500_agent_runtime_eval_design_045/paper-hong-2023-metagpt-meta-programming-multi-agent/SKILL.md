@@ -17,7 +17,8 @@ layers:
 paper:
   title: "MetaGPT: Meta Programming for a Multi-Agent Collaborative Framework"
   first_author: "Hong, S."
-  authors: ["Sirui Hong", "TODO_verify_with_full_text"]
+  authors: ["Sirui Hong"]
+  authors_complete: false
   year: 2023
   venue: "arXiv preprint / ICLR 2024"
   doi: null

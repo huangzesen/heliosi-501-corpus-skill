@@ -15,7 +15,7 @@ layers:
 paper:
   title: "ML-assisted multi-spacecraft IP-shock detection extending Trotta 2025"
   first_author: "D. Trotta (extension lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Anomalous cosmic rays within the inner heliosphere: Observations of helium by the High Energy Telescope onboard Solar Orbiter"
-  first_author: "Kollhoff, A. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -111,7 +111,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Anomalous cosmic rays within the inner heliosphere: Observations of helium by the High Energy Telescope onboard Solar Orbiter — paper-skill
 
-> Compiled from arXiv:2602.22418 (2026), Kollhoff, A. (TODO verify) et al.
+> Compiled from arXiv:2602.22418 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

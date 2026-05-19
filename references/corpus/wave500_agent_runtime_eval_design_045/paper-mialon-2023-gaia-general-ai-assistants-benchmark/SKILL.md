@@ -17,7 +17,8 @@ layers:
 paper:
   title: "GAIA: a benchmark for General AI Assistants"
   first_author: "Mialon, G."
-  authors: ["Gregoire Mialon", "TODO_verify_with_full_text"]
+  authors: ["Gregoire Mialon"]
+  authors_complete: false
   year: 2023
   venue: "arXiv preprint"
   doi: null

@@ -17,7 +17,8 @@ layers:
 paper:
   title: "Scaling deep learning for materials discovery (GNoME)"
   first_author: "Merchant, A."
-  authors: ["Amil Merchant", "TODO_verify_with_full_text"]
+  authors: ["Amil Merchant"]
+  authors_complete: false
   year: 2023
   venue: "Nature"
   doi: "10.1038/s41586-023-06735-9"

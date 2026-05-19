@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "K-Means / GMM clustering of solar-wind streams across solar cycles"
-  first_author: "TODO verify (Fung / clustering lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2019
   venue: "TODO verify"
   doi: null

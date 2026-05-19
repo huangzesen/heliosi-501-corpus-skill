@@ -2,7 +2,7 @@ slug: paper-trinh-2024-alphageometry-neuro-symbolic-olympiad
 title: "Solving olympiad geometry without human demonstrations (AlphaGeometry)"
 authors:
   - "Trieu H. Trinh"
-  - "TODO_verify_with_full_text"
+authors_complete: false
 year: 2024
 journal: "Nature"
 doi: "10.1038/s41586-023-06747-5"

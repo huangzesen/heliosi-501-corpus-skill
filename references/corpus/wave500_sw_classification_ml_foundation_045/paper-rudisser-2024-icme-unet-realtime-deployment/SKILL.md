@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Real-time deployment of a U-Net ICME detector on Wind / STEREO / Solar Orbiter telemetry"
   first_author: "H. T. Rüdisser (successor lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2024
   venue: "TODO verify (likely Space Weather)"
   doi: null

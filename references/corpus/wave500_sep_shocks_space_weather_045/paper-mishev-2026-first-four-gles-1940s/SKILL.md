@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "The First Four Ground-Level Enhancements in the 1940s: Investigation, Digitisation, and Analysis of Forgotten Data"
-  first_author: "Mishev, A. (TODO verify)"
-  authors:
-    - "TODO verify author list"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -114,7 +114,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # The First Four Ground-Level Enhancements in the 1940s: Investigation, Digitisation, and Analysis of Forgotten Data — paper-skill
 
-> Compiled from arXiv:2602.24250 (2026), Mishev, A. (TODO verify) et al.
+> Compiled from arXiv:2602.24250 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

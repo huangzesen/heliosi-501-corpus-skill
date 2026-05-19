@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Spherical Fourier neural operator surrogate for solar-wind simulation"
-  first_author: "TODO verify (Spherical FNO solar-wind authors)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "TODO verify"
   doi: null

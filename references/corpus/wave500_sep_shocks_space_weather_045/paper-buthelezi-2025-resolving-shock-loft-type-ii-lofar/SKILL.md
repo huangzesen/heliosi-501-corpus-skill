@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Resolving spatial and temporal shock structures using LOFAR observations of type II radio bursts"
-  first_author: "TODO verify"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -107,7 +107,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Resolving spatial and temporal shock structures using LOFAR observations of type II radio bursts — paper-skill
 
-> Compiled from arXiv:2502.16934 (2025), TODO verify et al.
+> Compiled from arXiv:2502.16934 (2025), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

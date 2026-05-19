@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Extension and operational refinement of the Xu–Borovsky 4-class 1-au solar-wind labelling"
-  first_author: "TODO verify (Xu / Borovsky collaboration)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2020
   venue: "TODO verify (likely J. Geophys. Res. Space Phys.)"
   doi: null

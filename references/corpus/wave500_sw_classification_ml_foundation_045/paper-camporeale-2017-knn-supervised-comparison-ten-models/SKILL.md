@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Ten-model supervised benchmark comparison for solar-wind classification (Camporeale 2017 companion)"
   first_author: "E. Camporeale"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2017
   venue: "TODO verify (J. Geophys. Res. Space Phys. or companion paper)"
   doi: null

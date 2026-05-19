@@ -17,7 +17,8 @@ layers:
 paper:
   title: "Highly accurate protein structure prediction with AlphaFold"
   first_author: "Jumper, J."
-  authors: ["John Jumper", "TODO_verify_with_full_text"]
+  authors: ["John Jumper"]
+  authors_complete: false
   year: 2021
   venue: "Nature"
   doi: "10.1038/s41586-021-03819-2"

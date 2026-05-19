@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Threshold-and-morphology baseline coronal-hole detection (Rotter 2014 baseline lineage)"
   first_author: "T. Rotter"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2014
   venue: "TODO verify (Solar Physics or JGR Space Physics)"
   doi: null

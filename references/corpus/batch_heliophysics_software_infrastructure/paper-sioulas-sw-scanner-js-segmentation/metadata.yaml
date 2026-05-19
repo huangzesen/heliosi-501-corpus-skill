@@ -2,7 +2,7 @@ slug: paper-sioulas-sw-scanner-js-segmentation
 title: "sw-scanner: solar-wind regime segmentation via Jensen-Shannon-divergence scalograms"
 authors:
   - "Sioulas, N."
-  - "+ contributors (TODO verify full list)"
+authors_complete: false
 year: 2023
 journal: software package (companion to Sioulas et al. solar-wind segmentation papers)
 doi: null

@@ -17,7 +17,8 @@ layers:
 paper:
   title: "OpenDevin: An Open Platform for AI Software Developers as Generalist Agents"
   first_author: "Zheng, X."
-  authors: ["Xingyao Wang", "TODO_verify_with_full_text — OpenHands team"]
+  authors: ["Xingyao Wang"]
+  authors_complete: false
   year: 2024
   venue: "arXiv preprint"
   doi: null

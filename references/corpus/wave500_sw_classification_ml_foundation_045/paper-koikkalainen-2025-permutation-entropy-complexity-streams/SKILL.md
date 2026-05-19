@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Permutation-entropy variant of Koikkalainen-2025 complexity analysis of solar-wind streams"
   first_author: "V. Koikkalainen"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

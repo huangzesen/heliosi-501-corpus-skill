@@ -15,7 +15,7 @@ layers:
 paper:
   title: "ICMECAT / HELCATS ICME catalog as ML training-set baseline"
   first_author: "C. Möstl"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2022
   venue: "TODO verify (Space Weather; or HELCATS dataset paper)"
   doi: null

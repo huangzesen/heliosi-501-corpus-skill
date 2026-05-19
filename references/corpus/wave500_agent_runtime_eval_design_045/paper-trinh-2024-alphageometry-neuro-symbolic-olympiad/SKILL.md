@@ -17,7 +17,8 @@ layers:
 paper:
   title: "Solving olympiad geometry without human demonstrations (AlphaGeometry)"
   first_author: "Trinh, T. H."
-  authors: ["Trieu H. Trinh", "TODO_verify_with_full_text"]
+  authors: ["Trieu H. Trinh"]
+  authors_complete: false
   year: 2024
   venue: "Nature"
   doi: "10.1038/s41586-023-06747-5"

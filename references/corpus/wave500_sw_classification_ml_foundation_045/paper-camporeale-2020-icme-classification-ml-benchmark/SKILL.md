@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Cross-mission ML benchmark for ICME vs sheath vs ambient classification"
   first_author: "E. Camporeale (extension lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2020
   venue: "TODO verify"
   doi: null

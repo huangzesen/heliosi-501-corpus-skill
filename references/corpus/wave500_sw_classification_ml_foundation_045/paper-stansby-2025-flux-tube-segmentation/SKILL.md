@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Flux-tube segmentation of solar-wind streams from B-field topology"
   first_author: "D. Stansby (extension lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

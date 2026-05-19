@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "A study of solar energetic particle transport on 30 March 2022 using multi-spacecraft data assimilation"
-  first_author: "Bian, N. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -124,7 +124,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # A study of solar energetic particle transport on 30 March 2022 using multi-spacecraft data assimilation — paper-skill
 
-> Compiled from arXiv:2602.00765 (2026), Bian, N. (TODO verify) et al.
+> Compiled from arXiv:2602.00765 (2026), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

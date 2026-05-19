@@ -2,7 +2,7 @@ slug: paper-spacepy-2022-twelve-years
 title: "The SpacePy space science package at 12 years"
 authors:
   - "Morley, S. K."
-  - "+ SpacePy contributors (TODO verify full list)"
+authors_complete: false
 year: 2022
 journal: arXiv preprint (Frontiers in Astronomy and Space Sciences software paper)
 doi: null

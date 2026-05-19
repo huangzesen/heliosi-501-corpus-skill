@@ -17,7 +17,8 @@ layers:
 paper:
   title: "DiscoveryWorld: A Virtual Environment for Developing and Evaluating Automated Scientific Discovery Agents"
   first_author: "Jansen, P."
-  authors: ["Peter Jansen", "TODO_verify_with_full_text"]
+  authors: ["Peter Jansen"]
+  authors_complete: false
   year: 2024
   venue: "arXiv preprint"
   doi: null

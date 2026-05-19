@@ -15,7 +15,7 @@ layers:
 paper:
   title: "SuryaBench — EUV spectra forecasting benchmark task"
   first_author: "S. Roy"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

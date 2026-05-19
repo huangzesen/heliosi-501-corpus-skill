@@ -17,8 +17,8 @@ paper:
   title: "New insights from cross-correlation studies between solar activity indices and cosmic-ray flux during Forbush decrease events"
   first_author: "Stoffel, T."
   authors:
-    - "Stoffel, T. (TODO verify list)"
     - "et al."
+  authors_complete: false
   year: 2026
   venue: "Journal — TODO_verify_with_full_text"
   doi: null

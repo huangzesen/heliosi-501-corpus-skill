@@ -17,7 +17,8 @@ layers:
 paper:
   title: "LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks"
   first_author: "Kambhampati, S."
-  authors: ["Subbarao Kambhampati", "TODO_verify_with_full_text"]
+  authors: ["Subbarao Kambhampati"]
+  authors_complete: false
   year: 2024
   venue: "arXiv preprint"
   doi: null

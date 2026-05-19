@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Ensemble image segmentation of coronal holes constrained by photospheric magnetic-field data"
-  first_author: "TODO verify (Reiss / Magnetic-constrained-ensemble lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2022
   venue: "TODO verify"
   doi: null

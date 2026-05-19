@@ -19,9 +19,11 @@ reads only when needed.
 This corpus is a **scaffold / triage substrate**, not a fully verified
 reproduction corpus.
 
-- **417 / 501 entries (83 %)** carry one or more `TODO_verify_with_full_text`
-  / `TODO verify` markers in their `metadata.yaml`. Counting `SKILL.md` as
-  well raises this to **449 / 501 (90 %)**.
+- A large fraction of entries still carry one or more
+  `TODO_verify_with_full_text` / `TODO verify` markers in non-authorship
+  prose fields of their `metadata.yaml` (venue, DOI, numerical targets,
+  etc.). These markers were intentionally retained for triage and are
+  **not** authorship claims.
 - **T3 + T4 = 424 / 501 entries (85 %)** are
   `paper-grounded-pending-full-text` (T3, 260) or `stub` / `scaffold`
   (T4, 164) — i.e. the Layer-1 claim and Layer-2 contract are authored but
@@ -33,6 +35,33 @@ DOIs / arXiv IDs / author lists / numerical targets should be treated as
 **provisional** for any entry that carries a TODO_verify marker or that
 sits in T3 / T4. The bundle is designed for triage and hypothesis
 generation, not as an oracle on the literature.
+
+### Authorship fields are intentionally null / unverified
+
+Authorship metadata is the **only** dimension on which we now refuse to
+ship placeholder strings as data:
+
+- `metadata.yaml` `first_author` and `authors[]`, and the corresponding
+  `paper.first_author` / `paper.authors[]` in each per-entry `SKILL.md`
+  frontmatter, are guaranteed to contain **no** `TODO` / `TBD` placeholder
+  strings (enforced by `scripts/validate.sh` section S4d and
+  `tests/test_authorship_hygiene.py`).
+- Where authorship could not be verified from the local source, the value
+  is `null` (scalar) or `[]` (list) and the entry carries an explicit
+  `authors_verified: false` flag. Currently **173 / 501** `metadata.yaml`
+  entries and **59 / 501** `SKILL.md` frontmatter blocks are stamped
+  `authors_verified: false`.
+- Where a partial author list was recoverable from the local source, the
+  surviving real authors are kept and the entry carries
+  `authors_complete: false` to flag that the list is not exhaustive.
+- Slugs of the form `paper-<surname>-<year>-…` are stable identifiers; the
+  surname embedded in the slug is **not** asserted as the verified first
+  author. It must be confirmed against the live arXiv / DOI / ADS record
+  before being cited.
+
+**Consumers must not cite the corpus's `first_author` / `authors` fields
+without independent confirmation.** Treat any `null` / `[]` /
+`authors_verified: false` entry as "authorship unknown to the corpus."
 
 ## What this is (and is not)
 

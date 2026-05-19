@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Transformer with Maxwell-equation physical constraints for Tianwen-1 magnetometer calibration"
   first_author: "B. Li"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

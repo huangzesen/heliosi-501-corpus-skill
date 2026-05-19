@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "CNN-based automatic segmentation of coronal holes in EUV imagery"
-  first_author: "TODO verify (Illarionov / Automatic-CH-segmentation lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2020
   venue: "TODO verify"
   doi: null

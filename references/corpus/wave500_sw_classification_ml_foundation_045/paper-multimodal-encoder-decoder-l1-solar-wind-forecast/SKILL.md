@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Multi-modal encoder–decoder neural network for L1 solar-wind speed forecasting"
-  first_author: "TODO verify (multi-modal encoder-decoder authors)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "TODO verify"
   doi: null

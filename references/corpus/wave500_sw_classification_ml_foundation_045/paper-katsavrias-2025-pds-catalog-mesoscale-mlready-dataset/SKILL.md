@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Katsavrias 2025 PDS catalog as an ML-ready mesoscale-structure dataset"
   first_author: "C. Katsavrias"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

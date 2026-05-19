@@ -17,7 +17,8 @@ layers:
 paper:
   title: "Machine Learning in Heliophysics and Space Weather Forecasting: A Modeler's Perspective"
   first_author: "McGranaghan, R. M."
-  authors: ["Ryan M. McGranaghan", "TODO_verify_with_full_text"]
+  authors: ["Ryan M. McGranaghan"]
+  authors_complete: false
   year: 2021
   venue: "Frontiers in Astronomy and Space Sciences (proxy)"
   doi: null

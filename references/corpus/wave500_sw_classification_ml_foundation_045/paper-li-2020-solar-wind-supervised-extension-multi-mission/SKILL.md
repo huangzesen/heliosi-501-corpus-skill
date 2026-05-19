@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Multi-mission extension of supervised solar-wind classification (Wind + ACE + STEREO)"
-  first_author: "TODO verify (Li et al.)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2020
   venue: "TODO verify"
   doi: null

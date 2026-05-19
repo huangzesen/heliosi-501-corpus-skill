@@ -2,7 +2,7 @@ slug: paper-merchant-2023-gnome-graph-networks-materials-discovery
 title: "Scaling deep learning for materials discovery (GNoME)"
 authors:
   - "Amil Merchant"
-  - "TODO_verify_with_full_text"
+authors_complete: false
 year: 2023
 journal: "Nature"
 doi: "10.1038/s41586-023-06735-9"

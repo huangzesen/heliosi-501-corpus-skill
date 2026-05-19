@@ -2,7 +2,7 @@ slug: paper-gieseler-2022-solar-mach-magnetic-connection
 title: "Solar-MACH: An open-source tool to analyze solar magnetic connection configurations"
 authors:
   - "Gieseler, J."
-  - "+ Solar-MACH contributors (TODO verify full list)"
+authors_complete: false
 year: 2022
 journal: arXiv preprint / Frontiers in Astronomy and Space Sciences (companion software paper)
 doi: null

@@ -15,7 +15,7 @@ layers:
 paper:
   title: "SuryaBench — coronal-field extrapolation benchmark task"
   first_author: "S. Roy"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

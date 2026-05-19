@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Self-organizing-map clustering of 1-au solar-wind regimes"
-  first_author: "TODO verify (Li / SOM lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2018
   venue: "TODO verify"
   doi: null

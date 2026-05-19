@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Large-language-model agentic discovery system for heliophysics tasks"
-  first_author: "TODO verify (helio-LLM-agent lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "TODO verify"
   doi: null

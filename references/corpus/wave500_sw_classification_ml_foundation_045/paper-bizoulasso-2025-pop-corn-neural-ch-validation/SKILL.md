@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "POP-CORN — neural-network coronal-hole detection tool with cross-instrument validation"
-  first_author: "TODO verify (POP-CORN authors)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "TODO verify"
   doi: null

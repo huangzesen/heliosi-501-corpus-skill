@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Consistency and confidence quantification of ACWE coronal-hole segmentation"
-  first_author: "TODO verify (Jarolim / consistency study lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2023
   venue: "TODO verify"
   doi: null

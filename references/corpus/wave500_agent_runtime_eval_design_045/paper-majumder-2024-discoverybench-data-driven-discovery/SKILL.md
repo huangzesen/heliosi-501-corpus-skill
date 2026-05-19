@@ -17,7 +17,8 @@ layers:
 paper:
   title: "DiscoveryBench: Towards Data-Driven Discovery with Large Language Models"
   first_author: "Majumder, B. P."
-  authors: ["Bodhisattwa Prasad Majumder", "TODO_verify_with_full_text"]
+  authors: ["Bodhisattwa Prasad Majumder"]
+  authors_complete: false
   year: 2024
   venue: "arXiv preprint"
   doi: null

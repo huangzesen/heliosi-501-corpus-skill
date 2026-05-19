@@ -17,7 +17,8 @@ layers:
 paper:
   title: "The Rise and Potential of Large Language Model Based Agents: A Survey"
   first_author: "Xi, Z."
-  authors: ["Zhiheng Xi", "TODO_verify_with_full_text"]
+  authors: ["Zhiheng Xi"]
+  authors_complete: false
   year: 2023
   venue: "arXiv preprint"
   doi: null

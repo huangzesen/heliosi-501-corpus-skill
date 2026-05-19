@@ -1,7 +1,7 @@
 slug: paper-pyspedas-multimission-data-access
 title: "pySPEDAS: Python port of SPEDAS for multi-mission space-physics data"
-authors:
-  - pySPEDAS contributors (TODO enumerate from repo)
+authors: []
+authors_verified: false
 year: 2022
 journal: software package (no dedicated paper located in local inventory)
 doi: null

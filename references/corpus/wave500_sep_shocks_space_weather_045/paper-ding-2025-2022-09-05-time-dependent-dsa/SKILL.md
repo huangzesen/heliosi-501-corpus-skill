@@ -15,9 +15,9 @@ layers:
 
 paper:
   title: "Evidence of Time-Dependent Diffusive Shock Acceleration in the 2022 September 5 Solar Energetic Particle Event"
-  first_author: "Ding, Z. (TODO verify)"
-  authors:
-    - "TODO verify"
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2025
   venue: "Journal — TODO_verify_with_full_text"
   doi: null
@@ -106,7 +106,7 @@ tags: ['heliophysics', 'paper-skill', 'sep', 'shocks', 'space-weather']
 
 # Evidence of Time-Dependent Diffusive Shock Acceleration in the 2022 September 5 Solar Energetic Particle Event — paper-skill
 
-> Compiled from arXiv:2506.20322 (2025), Ding, Z. (TODO verify) et al.
+> Compiled from arXiv:2506.20322 (2025), unverified author et al.
 > **Quality tier**: `stub`. All numeric specifics not present in the
 > arXiv-inventory abstract are marked `TODO_verify_with_full_text`.
 

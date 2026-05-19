@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Microwave / radio extension of magnetic-constrained ACWE coronal-hole segmentation"
   first_author: "J. A. Grajeda (extension lineage)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null

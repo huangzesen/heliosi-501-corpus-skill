@@ -8,8 +8,8 @@ layers:
   executable_protocol: false
   adapter_binding_examples: false
   research_generation_affordance: false
-authors:
-  - "TODO verify (helio-LLM-agent lineage)"
+authors: []
+authors_verified: false
 year: 2025
 venue: "TODO verify"
 doi: null

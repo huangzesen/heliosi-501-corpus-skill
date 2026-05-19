@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Cross-validation extension of supervised k-NN solar wind classification at 1 au"
   first_author: "E. Camporeale"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2018
   venue: "TODO verify (J. Geophys. Res. Space Phys. or arXiv:1811.02323 successor)"
   doi: null

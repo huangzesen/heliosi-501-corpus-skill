@@ -17,7 +17,8 @@ layers:
 paper:
   title: "SciCode: A Research Coding Benchmark Curated by Scientists"
   first_author: "Tian, M."
-  authors: ["Minyang Tian", "TODO_verify_with_full_text"]
+  authors: ["Minyang Tian"]
+  authors_complete: false
   year: 2024
   venue: "arXiv preprint"
   doi: null

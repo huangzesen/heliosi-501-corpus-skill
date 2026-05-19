@@ -14,8 +14,9 @@ layers:
   research_generation_affordance: false
 paper:
   title: "Bayesian-NN variant for solar-wind classification with epistemic-uncertainty estimates"
-  first_author: "TODO verify (Bloch et al. earlier draft)"
-  authors: []  # TODO verify against the primary source listed in `links`
+  first_author: null
+  authors: []
+  authors_verified: false
   year: 2022
   venue: "TODO verify"
   doi: null

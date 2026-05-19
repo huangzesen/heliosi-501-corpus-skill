@@ -15,7 +15,7 @@ layers:
 paper:
   title: "Surya foundation-model fine-tune for solar flare forecasting"
   first_author: "S. Roy"
-  authors: []  # TODO verify against the primary source listed in `links`
+  authors: []
   year: 2025
   venue: "TODO verify"
   doi: null
