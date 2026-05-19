@@ -5,6 +5,15 @@ description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (He
 
 # rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions
 
+<!-- layer2-stub-banner: issue-14 -->
+> **Layer 2 not populated — read paper before use.** This entry's
+> executable-protocol layer is a stub: the algorithm sub-sections name
+> capabilities but do not specify the procedure end-to-end. Treat
+> Layer 2 as `pending`; do not present this skill as workflow-ready or
+> use it as the basis for an experiment without first verifying the
+> paper's methods section.
+
+
 A paper-skill compiled from Y. J. Rivera et al. 2024 (arXiv preprint, arXiv:2409.03645).
 
 Paper-skills are **harness-agnostic** — they describe what a paper enables an

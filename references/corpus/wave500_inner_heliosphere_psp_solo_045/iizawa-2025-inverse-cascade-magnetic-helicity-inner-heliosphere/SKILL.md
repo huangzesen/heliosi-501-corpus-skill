@@ -5,6 +5,15 @@ description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (He
 
 # iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere
 
+<!-- layer2-stub-banner: issue-14 -->
+> **Layer 2 not populated — read paper before use.** This entry's
+> executable-protocol layer is a stub: the algorithm sub-sections name
+> capabilities but do not specify the procedure end-to-end. Treat
+> Layer 2 as `pending`; do not present this skill as workflow-ready or
+> use it as the basis for an experiment without first verifying the
+> paper's methods section.
+
+
 A paper-skill compiled from M. Iizawa et al. 2025 (arXiv preprint, arXiv:2507.13213).
 
 Paper-skills are **harness-agnostic** — they describe what a paper enables an

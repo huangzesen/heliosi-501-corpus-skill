@@ -151,9 +151,11 @@ ID has been independently checked.
 
 - That any other entry is full-text verified.
 - That any Layer-3 example adapter (sunkit-magex, sw-scanner, ENLIL, EUHFORIA,
-  MAS, Surya, pyspedas/HAPI/CDAWeb loaders, …) is bound and runnable on a
-  consumer's harness. The only LingTai domain MCP cited in the corpus is
-  **xhelio-spice** (PSP/Solar Orbiter ephemeris).
+  MAS, Surya, pyspedas/HAPI/CDAWeb Python loaders, …) is bound and runnable
+  on a consumer's harness. The two first-class companion MCPs are
+  **xhelio-spice** (SPICE/ephemeris/orbit geometry) and **xhelio-cdaweb**
+  (CDAWeb/SPDF data access) — both shipped as external GitHub repositories
+  (see *Companion MCP adapters* above), neither bundled in this skill.
 - That DOIs / arXiv IDs / ADS bibcodes marked `TODO_verify_with_full_text`
   are verified.
 - That an arXiv ID without a `provenance.id_verifications[].status:
@@ -178,6 +180,64 @@ safe/unsafe lists.
 | T6 | link-only / routing hub | 1 |
 | T7 | weak attribution / citation TODO | 1 |
 |    | **Total** | **501** |
+
+### Workflow eligibility (`--ready-for`, issue #60)
+
+Earlier docs advertised "hypothesis generation" and "experiment design"
+without explicit gating, which created the impression that all 501
+entries were workflow-ready. They aren't — most are T3/T4 with
+verification pending, and 55 of them are Layer-2 stubs (issue #14).
+`scripts/search_corpus.py --ready-for <intent>` exposes the honest
+subset for each downstream use case:
+
+| `--ready-for` | Meaning | Eligibility | Count |
+|---|---|---|---:|
+| `discovery` | open browsing / triage | all entries | **501** |
+| `hypothesis` | Layer-1 + Layer-4 input for cross-skill tension generation | T1/T2, or T3 with `research_generation_affordances_present == true`, and NOT a Layer-2 stub | **23** |
+| `experiment` | the Layer-2 contract is method-ready or runnable from real data | T1 + T2 only, NOT a Layer-2 stub | **23** |
+| `verify` | next-curation-pass verification targets | T3/T4/T7, or Layer-2 stub, or `weak_flag_count > 0`, or DOI marked `TODO_verify` (T1 and T6 excluded) | **433** |
+
+Counts are the current snapshot — re-derive any time with
+`python3 scripts/search_corpus.py --ready-for <intent> --json`. The 55
+Layer-2 stub entries flagged by issue #14 (`layer2_stub: true`) are
+explicitly excluded from `experiment` and `hypothesis`, regardless of
+their `quality` field. **Do not present `discovery` as a synonym for
+"workflow-ready" — it only means "every entry can be browsed."**
+
+The CLI also supports `--maturity-tier T1|T2|...|T7` (repeatable) for
+plain tier filtering, and either filter can be combined with `--query`
+or used standalone (no separate command needed).
+
+## Companion MCP adapters (external, not bundled)
+
+Two domain MCPs are first-class companions to this skill. They live in
+**separate GitHub repositories** and are **not** bundled in
+`heliosi-501-corpus-skill`; install them only if your runtime needs the
+capabilities they provide.
+
+| MCP | Domain | Repository |
+|---|---|---|
+| `xhelio-spice` | SPICE-based ephemeris, orbit geometry, and frame transforms for PSP / Solar Orbiter / SDO / ACE etc. | <https://github.com/huangzesen/xhelio-spice> |
+| `xhelio-cdaweb` | CDAWeb / SPDF heliophysics data access (FIELDS, SWEAP, IS☉IS, SWA, MAG, EPD, …) | <https://github.com/huangzesen/xhelio-cdaweb> |
+
+These are the only two domain MCPs that the corpus treats as first-class
+companions. Every other named adapter mentioned in per-entry
+`adapter_notes[]` (`sunkit-magex`, `sw-scanner`, `kglobal`, `ENLIL`,
+`EUHFORIA`, `MAS`, `Surya`, `pyspedas`/`HAPI`/`CDAWeb` Python loaders,
+…) appears only as a Layer-3 *example* binding.
+
+Important reminders when invoking these MCPs from a runtime:
+
+- The aggregator skill itself remains **Python stdlib only** at runtime;
+  the two MCPs add capabilities on top when present.
+- Check the user's MCP inventory before issuing tool calls against
+  `xhelio-spice` or `xhelio-cdaweb`. If a Layer-2 capability requires
+  SPICE/CDAWeb access and neither MCP is configured, surface the
+  binding gap as a prerequisite instead of inventing a fallback.
+- Citing `xhelio-spice` or `xhelio-cdaweb` is **not** a verification
+  claim about the underlying paper-skill — a corpus entry's
+  `TODO_verify_with_full_text` markers are unaffected by which MCPs the
+  consumer has installed.
 
 ## Installation
 
@@ -250,7 +310,23 @@ python3 scripts/search_corpus.py --batches
 python3 scripts/search_corpus.py --maturity
 python3 scripts/search_corpus.py --query "open flux" --limit 5
 python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-field-open-flux
+# Workflow gating (issue #60):
+python3 scripts/search_corpus.py --ready-for experiment --limit 10
+python3 scripts/search_corpus.py --ready-for verify --query alfven --limit 5
+python3 scripts/search_corpus.py --maturity-tier T1 --maturity-tier T2
 ```
+
+### Workflow gating in one paragraph (issue #60)
+
+The bundle's helper script gates the four common agent workflows
+(`discovery`, `hypothesis`, `experiment`, `verify`) on the corpus's
+*own* maturity-tier + Layer-2-stub markers, rather than letting an agent
+treat all 501 entries as workflow-ready. Concretely, **only 23 / 501
+entries** (T1 + T2, excluding the 55 Layer-2 stubs identified in issue
+#14) qualify for `--ready-for experiment`; **433 / 501** entries land in
+the `verify` bucket and should be read against the source paper before
+any composition. See `SKILL.md` → *Workflow eligibility filter* for the
+exact rule, or run `python3 scripts/search_corpus.py --help`.
 
 These four commands also work from the cloned repo root **before
 installation** — `search_corpus.py` resolves paths relative to itself, so

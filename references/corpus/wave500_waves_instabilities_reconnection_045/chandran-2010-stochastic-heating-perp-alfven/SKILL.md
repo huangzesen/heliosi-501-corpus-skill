@@ -5,6 +5,15 @@ description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_0
 
 # chandran-2010-stochastic-heating-perp-alfven
 
+<!-- layer2-stub-banner: issue-14 -->
+> **Layer 2 not populated — read paper before use.** This entry's
+> executable-protocol layer is a stub: the algorithm sub-sections name
+> capabilities but do not specify the procedure end-to-end. Treat
+> Layer 2 as `pending`; do not present this skill as workflow-ready or
+> use it as the basis for an experiment without first verifying the
+> paper's methods section.
+
+
 A paper-skill compiled from B. D. G. Chandran, + co-authors (TODO verify full list) et al. 2010 (TODO_verify_journal; arXiv:TODO_verify_with_full_text).
 
 Paper-skills are **harness-agnostic**. They describe what a paper

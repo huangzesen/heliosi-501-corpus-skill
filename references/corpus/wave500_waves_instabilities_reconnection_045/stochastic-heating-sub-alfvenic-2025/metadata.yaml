@@ -18,3 +18,6 @@ validation_targets:
   - Q_⊥ closure within stated fraction (TODO verify)
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.20654
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

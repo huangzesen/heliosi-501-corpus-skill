@@ -55,3 +55,6 @@ provenance:
       fetched_at: "2026-05-19T07:20:21Z"
       source: live
 # --- end arXiv ID provenance ---
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

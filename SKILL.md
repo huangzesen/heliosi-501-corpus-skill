@@ -126,6 +126,45 @@ heliosi-501-corpus/
     └── corpus/                               18 batches × per-entry SKILL.md + metadata.yaml
 ```
 
+## Companion MCP adapters (external, not bundled)
+
+The corpus's Layer-2 contracts are runtime-neutral by design, but two
+first-class MCP adapters exist as **separate repositories** that a
+consumer may install to satisfy common Layer-2 capabilities:
+
+| MCP | Domain | Repository |
+|---|---|---|
+| `xhelio-spice` | SPICE-based ephemeris, orbit geometry, frame transforms (PSP / Solar Orbiter / SDO / ACE etc.) | <https://github.com/huangzesen/xhelio-spice> |
+| `xhelio-cdaweb` | CDAWeb / SPDF heliophysics data access (FIELDS / SWEAP / IS☉IS / SWA / MAG / EPD / ...) | <https://github.com/huangzesen/xhelio-cdaweb> |
+
+These are the only domain MCPs that this skill treats as **first-class
+companions** — the rest of the named adapters in the corpus
+(`sunkit-magex`, `sw-scanner`, `ENLIL`, `EUHFORIA`, `MAS`, `Surya`,
+`pyspedas` / `HAPI` loaders, …) appear only as Layer-3 *example*
+bindings.
+
+Important constraints — **none of these are bundled in this repository**:
+
+- Neither MCP ships inside `heliosi-501-corpus-skill`. The aggregator
+  skill is **self-contained at runtime** (Python stdlib only); the two
+  MCPs add capabilities on top when present.
+- Treat both as **optional consumer-side adapters**. Do not assume a
+  given runtime has `xhelio-spice` or `xhelio-cdaweb` installed — check
+  the user's MCP inventory before issuing tool calls against them. If a
+  Layer-2 capability needs SPICE or CDAWeb access and neither MCP is
+  configured, surface the binding gap as a prerequisite rather than
+  inventing a fallback.
+- Citing one of these MCPs is **not** a verification claim about the
+  underlying paper-skill. A corpus entry that lists "loads MAG via
+  CDAWeb" still has its Layer-1 `TODO_verify_with_full_text` markers
+  unaffected by the MCP being available.
+
+The corpus's `metadata.yaml` `adapter_notes[]` entries point at these
+MCPs where a binding example is appropriate, but the Layer-2 contract
+itself never names them — the contract is the abstract capability
+(`C-FETCH-DATA`, `C-EPHEMERIS`, …), and the MCP is one possible
+fulfilment.
+
 ## How to use this skill (do NOT bulk-load)
 
 The corpus is ~8 MB of structured text. **Never read all 501 SKILL.md files into context.** Always start from the roll-ups and narrow down.
@@ -147,6 +186,9 @@ python3 scripts/search_corpus.py --query "open flux" --limit 10 --in skill
 python3 scripts/search_corpus.py --batches
 python3 scripts/search_corpus.py --maturity
 python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-field-open-flux
+python3 scripts/search_corpus.py --ready-for experiment --limit 10
+python3 scripts/search_corpus.py --query PFSS --ready-for hypothesis
+python3 scripts/search_corpus.py --maturity-tier T1 --maturity-tier T2
 ```
 
 | Flag | Effect |
@@ -157,12 +199,38 @@ python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-fi
 | `--batches` | list 18 batches with three columns: name, manifest skill count, theme |
 | `--maturity` | print T1–T7 tier counts |
 | `--show SLUG` | print absolute path(s) of the entry's SKILL.md + metadata.yaml |
+| `--ready-for {experiment,hypothesis,verify,discovery}` | workflow-eligibility filter (issue #60). Used standalone to list eligible entries or paired with `--query`. See *Workflow eligibility filter* below. |
+| `--maturity-tier T1..T7` | filter to one or more derived maturity tiers (repeatable). Tier is derived from `(quality, executable_status)`; counts match `--maturity`. |
 | `--version` | print the bundle version (matches `version:` in this file's frontmatter) and exit |
 
 `--query` is **literal substring only** — `re.escape` is applied internally,
 so a query like `'open.*flux'` matches the literal six-character sequence,
 not the regex. For regex or multi-field filters use `Grep` directly over
 `references/corpus/`.
+
+### Workflow eligibility filter (`--ready-for`, issue #60)
+
+The corpus is overwhelmingly T3/T4 (paper-grounded-pending-full-text or
+stub/scaffold). Earlier workflow documentation overpromised by advertising
+"hypothesis generation" and "experiment design" as if every entry were
+ready for them. `--ready-for` makes that selection explicit and queryable.
+
+| Intent | Definition | Live count (issue #60 cutoff) |
+|---|---|---:|
+| `discovery` | every entry — useful for scripted callers that always pass `--ready-for`. | 501 |
+| `hypothesis` | T1/T2 entries, plus T3 entries with a populated Layer 4 (`research_generation_affordances_present == true`), and not flagged `layer2_stub: true`. Conservative: most T3 entries do NOT yet author Layer 4 inline (see `corpus_qa_report_v2.md` §6 class C7), so the bucket is small until Layer 4 is backfilled. | 23 |
+| `experiment` | **Strictly T1/T2 and not Layer-2 stub.** T1 has a documented local reproduction (1 entry); T2 has method-ready or runnable-pilot quality (22 entries). A T3 entry is NOT experiment-ready under the corpus's own taxonomy because its full-text verification is still pending. | 23 |
+| `verify` | T3/T4/T7 entries that still carry a verification TODO (`weak_flag_count > 0`, DOI starting `TODO`/`TBD`, or `layer2_stub: true`). This is the inverse of experiment-ready: it surfaces what to spend full-text-verification budget on next. | 433 |
+
+The 55 entries flagged `layer2_stub: true` in `metadata.yaml` (issue #14:
+45 in `wave500_inner_heliosphere_psp_solo_045` + 10 in
+`wave500_waves_instabilities_reconnection_045`) are intentionally excluded
+from `experiment` and `hypothesis` even when their `quality` would
+otherwise qualify them; they appear in `verify` instead.
+
+**Do not advertise `discovery` as a synonym for "every entry is workflow-
+ready".** It only means *every entry can be browsed*. Use `experiment` for
+the honest workflow-ready set.
 
 ## Workflows
 
@@ -176,25 +244,45 @@ Run `search_corpus.py --query <topic> --limit 10`. If <10 hits, optionally rerun
 
 ### 3. Generate a hypothesis from cross-skill tensions
 
-a. Find 2–3 skills via search whose Layer-2 contracts overlap (e.g. PFSS + multi-constraint + AI-farside synoptic).  
+**Workflow gating**: only hypothesis-ready entries qualify.
+Run `python3 scripts/search_corpus.py --ready-for hypothesis --query <topic>`
+first; restrict the candidate set to its output. The bucket excludes the
+55 Layer-2 stub entries (issue #14) and the wide T4 stub tier; if a
+candidate slug does not appear in `--ready-for hypothesis` output, do not
+use it as a hypothesis seed without first reading the paper.
+
+a. Find 2–3 hypothesis-ready skills via search whose Layer-2 contracts overlap (e.g. PFSS + multi-constraint + AI-farside synoptic).
 b. Read their Layer-1 (invariant) and Layer-4 (research-generation affordances) sections.  
 c. Articulate the *tension*: where do the papers disagree on cause, parameter regime, or composition?  
 d. Propose a **minimal experiment** that resolves the tension using the abstract capabilities listed in Layer-2 (do not bind to any specific MCP unless the user asks).
 
 ### 4. Choose candidates for full-text verification
 
-Prefer entries where:
+Use `python3 scripts/search_corpus.py --ready-for verify` to enumerate
+the verification-target set (433 entries). Then narrow further by:
+
 - `quality == paper-grounded-pending-full-text` (T3) **and** the user's downstream task depends on the numerical target,
 - the entry sits on a `depends_on` edge cited by another high-priority skill,
-- the slug appears in the v1 research-generation map's tensions T1–T9 or gaps G1–G6 (see `corpus_index_v2.md`).
+- the slug appears in the v1 research-generation map's tensions T1–T9 or gaps G1–G6 (see `corpus_index_v2.md`),
+- the entry carries `layer2_stub: true` (issue #14, 55 entries) — its
+  Layer-2 protocol is a placeholder and reading the paper is the only way
+  to authorize using it for experiment design.
 
-Avoid spending verification budget on T5 (agent-runtime / design-precedent) entries unless the user is doing runtime evolution work.
+Avoid spending verification budget on T5 (agent-runtime / design-precedent) entries unless the user is doing runtime evolution work. The `verify` bucket already excludes T1 (reproduced) and T6 (link-only); restrict tier further with `--maturity-tier T3 --maturity-tier T4` if needed.
 
 ### 5. Convert a selected corpus entry into a runtime-specific experiment plan
 
-a. Read the entry's `SKILL.md` (all four layers) and `metadata.yaml`.  
-b. Map each abstract Layer-2 capability to a concrete adapter the user actually has (their MCPs, scripts, datasets). If a binding is missing, surface it as a prerequisite — do not invent one.  
-c. Reproduce the entry's Layer-1 *Validation target* verbatim; keep tolerance numbers as the paper / reproduction stated them.  
+**Workflow gating**: only experiment-ready entries qualify. Run
+`python3 scripts/search_corpus.py --show <slug>` and confirm the entry is
+in the output of `--ready-for experiment` (23 entries total). If the slug
+is *not* experiment-ready, refuse the request and surface the gap to the
+user — they should either (i) pick a different entry, (ii) author the
+missing Layer-2 first, or (iii) run `--ready-for verify` to find the
+verification-target subset and read the paper before designing anything.
+
+a. Read the entry's `SKILL.md` (all four layers) and `metadata.yaml`.
+b. Map each abstract Layer-2 capability to a concrete adapter the user actually has (their MCPs, scripts, datasets). When the capability is SPICE-shaped (ephemeris, orbit geometry, frame transform), the companion MCP `xhelio-spice` is the recommended Layer-3 binding *if* the consumer has it installed. When the capability is CDAWeb-shaped (FIELDS / SWEAP / IS☉IS / SWA / MAG / EPD time-series fetch), `xhelio-cdaweb` is the recommended binding *if* installed. Verify availability before issuing tool calls; if neither MCP is configured, surface the binding gap as a prerequisite — do not invent a fallback.
+c. Reproduce the entry's Layer-1 *Validation target* verbatim; keep tolerance numbers as the paper / reproduction stated them.
 d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen scope when porting to a runtime.
 
 ## Claim boundaries (load-bearing — do not relax)
@@ -209,7 +297,7 @@ d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen 
 **Unsafe to assert (do NOT claim):**
 
 - That any other entry is full-text verified. Most are `paper-grounded-pending-full-text`, `stub`, `scaffold`, `pilot`, or `positioning-skill-not-executable-science`.
-- That any Layer-3 example MCP (sunkit-magex, sw-scanner, kglobal, ENLIL, EUHFORIA, MAS, Surya foundation-model loader, pyspedas/HAPI/CDAWeb loaders) is bound and runnable on the consumer's harness. The only implemented LingTai domain MCP cited in the corpus is **xhelio-spice** (PSP/SO ephemeris).
+- That any Layer-3 example MCP (sunkit-magex, sw-scanner, kglobal, ENLIL, EUHFORIA, MAS, Surya foundation-model loader, pyspedas/HAPI/CDAWeb loaders) is bound and runnable on the consumer's harness. The corpus has two first-class companion MCPs (**xhelio-spice** for SPICE/ephemeris/orbit geometry and **xhelio-cdaweb** for CDAWeb data access — see *Companion MCP adapters* above) but both are external repositories that the consumer must install; neither is bundled in this skill.
 - That `executable_status` values like `pipeline-specified-not-yet-runnable`, `contract-spec-only-not-yet-runnable`, `scaffold`, `stub`, `design-pattern-extractor`, `manuscript-checklist-only`, `architecture-template-only`, `benchmark-design-template`, `review-routing-not-runnable` imply runnable code.
 - That DOIs / arXiv IDs / ADS bibcodes marked `TODO_verify_with_full_text` are verified.
 - That an arXiv ID without a `provenance.id_verifications[].status: arxiv-http-title-match` record has been independently checked against arxiv.org. See the *arXiv IDs specifically (issue #9 hygiene)* subsection above.

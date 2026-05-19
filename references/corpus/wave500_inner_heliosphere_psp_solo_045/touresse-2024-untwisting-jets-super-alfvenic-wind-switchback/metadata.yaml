@@ -38,3 +38,6 @@ algorithms:
   - name: Synthetic single-spacecraft sampling of jet propagation
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §9
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

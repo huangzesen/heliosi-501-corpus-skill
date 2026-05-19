@@ -46,3 +46,6 @@ algorithms:
   - name: Alpha-proton drift speed estimation per species moment
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/extended_search.md §4.7
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

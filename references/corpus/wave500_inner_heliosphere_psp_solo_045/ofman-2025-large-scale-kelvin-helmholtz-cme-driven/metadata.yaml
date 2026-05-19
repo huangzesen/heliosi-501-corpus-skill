@@ -47,3 +47,6 @@ algorithms:
   - name: Alfvénic-threshold (KH criterion) computation along flank
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §4
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

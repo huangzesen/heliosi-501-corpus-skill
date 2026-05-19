@@ -5,6 +5,15 @@ description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (He
 
 # yogesh-2026-solar-wind-heating-radial-evolution-psp
 
+<!-- layer2-stub-banner: issue-14 -->
+> **Layer 2 not populated — read paper before use.** This entry's
+> executable-protocol layer is a stub: the algorithm sub-sections name
+> capabilities but do not specify the procedure end-to-end. Treat
+> Layer 2 as `pending`; do not present this skill as workflow-ready or
+> use it as the basis for an experiment without first verifying the
+> paper's methods section.
+
+
 A paper-skill compiled from Yogesh et al. 2026 (arXiv preprint, arXiv:2602.10275).
 
 Paper-skills are **harness-agnostic** — they describe what a paper enables an

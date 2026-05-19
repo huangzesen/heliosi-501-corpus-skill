@@ -42,3 +42,6 @@ algorithms:
   - name: Free-energy source attribution per species
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.6
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

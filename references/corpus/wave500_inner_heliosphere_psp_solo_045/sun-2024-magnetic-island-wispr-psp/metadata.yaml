@@ -36,3 +36,6 @@ algorithms:
   - name: Magnetic-island flux-rope geometric fit
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.10
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"

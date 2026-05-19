@@ -64,7 +64,7 @@ python3 -c "import json; m=json.load(open('corpus_manifest_v2.json')); t=m['tota
 This v2 roll-up is a structural and metadata aggregate across 18 batches (9 baseline + 9 wave500). It re-states what each batch manifest already asserts and adds a corpus-wide maturity taxonomy. It does NOT verify any paper-grounded claim against full text.
 
 - Do NOT treat any paper-skill in this corpus as full-text verified. Most entries are 'paper-grounded-pending-full-text', 'stub', 'scaffold', 'pilot', or 'positioning-skill-not-executable-science'.
-- Do NOT assume the abstract capabilities in Layer 2 are bound to a working MCP. Named tools (sunkit-magex, lingtai mcp xhelio-spice, scripts/) appear only as example Layer-3 adapters that may or may not exist on a given runtime.
+- Do NOT assume the abstract capabilities in Layer 2 are bound to a working MCP. Named tools (sunkit-magex, sw-scanner, scripts/, ...) appear only as example Layer-3 adapters that may or may not exist on a given runtime. The two first-class companion MCPs — `xhelio-spice` (ephemeris) and `xhelio-cdaweb` (CDAWeb data access) — live in external repositories (see SKILL.md / README.md `Companion MCP adapters`) and must still be installed by the consumer; mentioning them is not a runtime claim.
 - Do NOT treat executable_status values that include 'scaffold', 'pipeline-specified-not-yet-runnable', 'contract-spec-only-not-yet-runnable', 'design-pattern-extractor', 'manuscript-checklist-only', 'architecture-template-only', 'benchmark-design-template', 'review-routing-not-runnable' as a claim that any workflow has been run end-to-end.
 - Do NOT treat the research_generation_map as a publication-ready research agenda. Tensions/gaps/hypotheses are corpus-internal seeds.
 - Do NOT propagate identifiers (DOIs, arXiv IDs, ADS bibcodes) marked TODO_verify_with_full_text, TODO verify, or null as if they were verified — many manifests carry these tokens explicitly.
@@ -77,15 +77,18 @@ This v2 roll-up is a structural and metadata aggregate across 18 batches (9 base
 - Result: Local NSPF-FEM reproduction (.library/custom/nspf-fem/) — open flux 9.09 vs paper 9.19 G·R^2_sun (1.1% error) on GONG CR 2282 Rini=2.5
 - Note: This remains the only batch-claimed numerical reproduction across all 501 skills.
 
-**Domain-MCP caution (LingTai-specific examples):**
-- *Implemented*: xhelio-spice (LingTai MCP) — implemented and exercised on PSP/SO ephemeris.
+**Domain-MCP caution (first-class companion MCPs vs Layer-3 examples):**
+- *First-class companion MCPs (external repositories, NOT bundled in this skill — see SKILL.md / README.md `Companion MCP adapters`)*:
+  - `xhelio-spice` — SPICE-based ephemeris, orbit geometry, frame transforms for PSP / Solar Orbiter / SDO / ACE etc. Repository: https://github.com/huangzesen/xhelio-spice
+  - `xhelio-cdaweb` — CDAWeb / SPDF heliophysics data access (FIELDS, SWEAP, IS☉IS, SWA, MAG, EPD, ...). Repository: https://github.com/huangzesen/xhelio-cdaweb
+  - Both must still be installed and configured by the consumer; their presence on a given runtime is **not** guaranteed and **not** a verification claim about any paper-skill.
 - *Proposed / abstract (Layer-3 example only — do not assume runnable)*:
   - sunkit-magex / pfsspy adapters for pfss.solve
   - sw-scanner for solar-wind segmentation
-  - pyspedas/cdaweb/HAPI loaders
+  - pyspedas / HAPI / cdaweb Python loaders (note: `xhelio-cdaweb` is the recommended MCP binding for CDAWeb fetches, but these loaders may still be cited in entries that predate the MCP)
   - kglobal / ENLIL / EUHFORIA / MAS bindings for SEP/CME shock modelling
   - Surya foundation-model loaders
-- *Caution*: When the corpus mentions any of the proposed adapters above, treat as Layer-3 example only. The Layer-2 capability is the contract; the named tool is a placeholder until a runtime owner certifies it.
+- *Caution*: When the corpus mentions any of the proposed adapters above, treat as Layer-3 example only. The Layer-2 capability is the contract; the named tool is a placeholder until a runtime owner certifies it. The two companion MCPs are recommended bindings when available but never required by Layer-2.
 
 ## 4. Maturity / evidence taxonomy across the 501 skills
 
@@ -140,7 +143,7 @@ Buckets are derived deterministically from `quality` + `executable_status` per t
 **Unsafe to assert (do NOT claim):**
 
 - That all 501 skills are full-text verified. Most are `paper-grounded-pending-full-text` (217), `stub` (184), `pilot` (29), `positioning-skill-not-executable-science` (48), or `method-ready` (20). Only the Wu 2026 NSPF entry is locally reproduced.
-- That any specific MCP (sunkit-magex, sw-scanner, kglobal, ENLIL, EUHFORIA, Surya foundation model) is bound and runnable in the consumer harness. Those names are Layer-3 example adapters. Only **xhelio-spice** has an implemented LingTai contract.
+- That any specific MCP (sunkit-magex, sw-scanner, kglobal, ENLIL, EUHFORIA, Surya foundation model) is bound and runnable in the consumer harness. Those names are Layer-3 example adapters. The two first-class companion MCPs (`xhelio-spice` for SPICE/ephemeris and `xhelio-cdaweb` for CDAWeb data access) are external GitHub repositories that the consumer must install separately — neither is bundled in this skill, and listing them is not a runtime guarantee.
 - That `executable_status` values like `pipeline-specified-not-yet-runnable`, `contract-spec-only-not-yet-runnable`, `scaffold`, `stub`, `design-pattern-extractor`, `manuscript-checklist-only`, `architecture-template-only`, `benchmark-design-template`, `review-routing-not-runnable`, `historical-citation-only`, `ecosystem-diff-procedure-only` mean *runnable*. They explicitly mean *not yet run end-to-end*.
 - That DOIs / arXiv IDs / ADS bibcodes marked `TODO_verify_with_full_text`, `TODO verify`, or null are verified. Many are placeholders for the next curation pass.
 - That the research-generation map describes an externally validated research agenda. It is corpus-internal seed material.
@@ -196,7 +199,76 @@ Listed in order of expected value-per-effort. None require new data acquisition;
 7. **Slug-collision regression test**. Add a CI-style check that re-runs the v2 aggregator and asserts `duplicate_slugs == {}` whenever a new skill or batch is added. The current `duplicate_slugs={}` invariant is the load-bearing identity guarantee for cross-batch reference (`depends_on` edges).
 8. **Adapter-binding inventory under `.library/custom/`** (curation-side, NOT inside this corpus). For each wave500 capability mentioned in Layer 2 (e.g. `pfss.solve`, `gcs.fit`, `kappa_fit.tail`, `swa.load`), record whether a real adapter exists, where, and under which runtime. The single existing implemented contract (xhelio-spice) should be the template.
 
-## 8. Acceptance summary
+## 8. Layer-rendering schemas per batch (issue #13)
+
+The 501 per-entry `SKILL.md` files do **not** share a single layer-
+rendering schema. Three independent authoring passes (96-baseline →
+wave500 → factory-template iterations) produced six distinct H2-header
+families across 18 batches. Full corpus regeneration to unify the
+schema was judged too risky for this hygiene batch; instead we **document
+the six families honestly** and ship a reproducible classifier
+(`scripts/audit_layer_schemas.py`) so the table below stays in sync
+with the actual filesystem.
+
+The six families are:
+
+- `numbered_layer_v0_2_explicit` — `## 1. Trigger *(Layer 1)*`, `## 2. Paper claim → verifiable task *(Layer 1)*`, … `## 9. Skill graph + research-generation affordances *(Layer 4)*`. Layer membership is annotated *inline* in the H2. Used by the v0.2 factory wave500 batches that explicitly tag every section with its layer.
+- `numbered_layer_v0_2_abbreviated` — same nine-section spine as `numbered_layer_v0_2_explicit` but with the inline `*(Layer N)*` tags stripped (`## 1. Trigger` / `## 9. Skill graph + affordances`). Appears as a minor variant inside `wave500_turbulence_intermit_heating_045`.
+- `numbered_executable_workflow_v1` — `## 1. Trigger`, `## 2. Paper claim → verifiable task`, … `## 9. Skill graph → depends_on`. Executable-workflow framing rather than four-layer framing; this is the older 96-baseline rendering. Some batches additionally have `## 10. Research-generation affordances (harness-agnostic)`.
+- `five_layer_scientific_invariant` — `## 1. Trigger and claim boundary`, `## 2. Scientific invariant layer`, `## 3. Executable protocol layer`, `## 4. Adapter / runtime notes`, `## 5. Research-generation affordance`. A more compact five-section schema; this is also the rendering whose Layer-3 algorithm sub-sections contain the issue #14 placeholder phrase for the 45 psp_solo entries.
+- `prose_engineering_instrument` — prose H2s `## When to use this paper-skill`, `## Paper identity and claim boundary`, `## Scientific or methodological claim to operationalize`, … rather than numbered Layer-N headers. Used for instrument and software papers where the "Layer-2 executable protocol" framing is a poor fit (FIELDS suite, CDAWeb, etc.).
+- `prose_pfss_layered` — `> Runtime-neutral paper-skill` blockquote + prose `## Trigger` followed by `## Layer 1 — Scientific invariant`, `## Layer 2 — Executable protocol`, … . A hybrid that uses prose section names but explicit Layer-N headers; common in the PFSS/CME batches.
+
+Per-batch rendering distribution (auto-generated via
+`python3 scripts/audit_layer_schemas.py --json --strict`):
+
+| Batch | Skills | Rendering family/families | Notes |
+|---|---:|---|---|
+| `batch_heliophysics_software_infrastructure` | 12 | `numbered_executable_workflow_v1` × 12 |  |
+| `batch_mission_instruments_data_products` | 12 | `prose_engineering_instrument` × 12 |  |
+| `batch_pfss_source_mapping` | 10 | `prose_pfss_layered` × 10 |  |
+| `batch_psp_switchbacks_magnetic` | 12 | `five_layer_scientific_invariant` × 12 |  |
+| `batch_sep_energetic_particles` | 12 | `numbered_executable_workflow_v1` × 12 |  |
+| `batch_solar_wind_segmentation_ml` | 12 | `numbered_executable_workflow_v1` × 12 |  |
+| `batch_turbulence_heating_apj` | 10 | `prose_engineering_instrument` × 10 |  |
+| `pilot_2026_and_runtime` | 8 | `prose_engineering_instrument` × 8 |  |
+| `pilot_turbulence` | 8 | `prose_engineering_instrument` × 8 |  |
+| `wave500_agent_runtime_eval_design_045` | 45 | `numbered_layer_v0_2_explicit` × 45 |  |
+| `wave500_coronal_source_mapping_pfss_045` | 45 | `prose_pfss_layered` × 45 |  |
+| `wave500_inner_heliosphere_psp_solo_045` | 45 | `five_layer_scientific_invariant` × 45 | all 45 are Layer-2 stubs (issue #14) |
+| `wave500_instruments_data_software_045` | 45 | `numbered_layer_v0_2_explicit` × 45 |  |
+| `wave500_sep_shocks_space_weather_045` | 45 | `numbered_layer_v0_2_explicit` × 45 |  |
+| `wave500_solar_corona_cme_flares_045` | 45 | `prose_pfss_layered` × 45 |  |
+| `wave500_sw_classification_ml_foundation_045` | 45 | `numbered_layer_v0_2_explicit` × 45 |  |
+| `wave500_turbulence_intermit_heating_045` | 45 | `numbered_layer_v0_2_explicit` × 41 + `numbered_layer_v0_2_abbreviated` × 4 | mixed: 41 entries carry the inline `*(Layer N)*` tag, 4 use the abbreviated form |
+| `wave500_waves_instabilities_reconnection_045` | 45 | `five_layer_scientific_invariant` × 45 | includes 10 curated short Layer-2 stubs (issue #14) |
+
+**How to read this table:**
+
+- The six family labels are stable across reads; re-running the
+  classifier should produce the same per-batch distribution until the
+  underlying SKILL.md headers change.
+- A "mixed" row lists every family present; agents that grep against H2
+  headers must handle each variant.
+- The `prose_engineering_instrument` family does NOT carry numbered
+  Layer-N headers; "Layer 2" content lives in *Scientific or methodological
+  claim to operationalize* + *Data assumptions and tool contracts*
+  sub-sections. Tooling that depends on `## 2.` / `## 3.` headers to
+  locate Layer-2 content will miss it for those four batches.
+- Three families (`numbered_layer_v0_2_explicit`, `numbered_layer_v0_2_abbreviated`,
+  `numbered_executable_workflow_v1`) share the nine-section
+  `## 1.`–`## 9.` spine but differ in their inline-layer-tag wording;
+  two families (`five_layer_scientific_invariant`,
+  `prose_pfss_layered`) use a five-section / Layer-N spine;
+  one family (`prose_engineering_instrument`) uses prose headers only.
+
+**Reproducibility:** `python3 scripts/audit_layer_schemas.py --strict`
+re-emits the rendering distribution and exits non-zero if any entry is
+unclassified. The classifier is regex-based and stdlib-only; the test
+suite (`tests/test_layer_schemas.py`) pins the per-batch distribution so
+any drift surfaces as a test failure in CI.
+
+## 9. Acceptance summary
 
 | Requirement | Status |
 |---|---|

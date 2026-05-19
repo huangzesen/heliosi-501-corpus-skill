@@ -56,3 +56,6 @@ algorithms:
   - name: Alfvenicity-corrected turbulence-age formula
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §9
+layer2_stub: true
+layer2_status: stub
+layer2_banner_reason: "issue-14: placeholder executable protocol"
