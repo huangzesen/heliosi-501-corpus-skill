@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Autoregressive spherical Fourier neural operator for solar-wind forecasting — paper-skill (stub)
 
-> Compiled from TODO verify (Autoregressive spherical FNO authors) (2025), "Autoregressive spherical Fourier neural operator for solar-wind forecasting", TODO verify, arXiv:2511.20830.
+> Compiled from the primary source (authorship pending verification) (2025), "Autoregressive spherical Fourier neural operator for solar-wind forecasting", TODO verify, arXiv:2511.20830.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

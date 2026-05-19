@@ -7,7 +7,7 @@ paper:
 
 # torsional-alfven-firehose-plasma-heating-2024
 
-A paper-skill compiled from + co-authors (TODO verify full list) et al. 2024 (TODO_verify_journal; arXiv:2412.07451).
+A paper-skill compiled from the primary source (author list pending verification), 2024 (TODO_verify_journal; arXiv:2412.07451).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

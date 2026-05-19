@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # POP-CORN — neural-network coronal-hole detection tool with cross-instrument vali — paper-skill (stub)
 
-> Compiled from TODO verify (POP-CORN authors) (2025), "POP-CORN — neural-network coronal-hole detection tool with cross-instrument validation", TODO verify, arXiv:2603.25591.
+> Compiled from the primary source (authorship pending verification) (2025), "POP-CORN — neural-network coronal-hole detection tool with cross-instrument validation", TODO verify, arXiv:2603.25591.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

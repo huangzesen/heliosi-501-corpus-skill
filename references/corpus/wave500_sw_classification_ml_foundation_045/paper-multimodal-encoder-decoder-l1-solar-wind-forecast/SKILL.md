@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Multi-modal encoder–decoder neural network for L1 solar-wind speed forecasting — paper-skill (stub)
 
-> Compiled from TODO verify (multi-modal encoder-decoder authors) (2025), "Multi-modal encoder–decoder neural network for L1 solar-wind speed forecasting", TODO verify, arXiv:2507.17298.
+> Compiled from the primary source (authorship pending verification) (2025), "Multi-modal encoder–decoder neural network for L1 solar-wind speed forecasting", TODO verify, arXiv:2507.17298.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

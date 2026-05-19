@@ -7,7 +7,7 @@ paper:
 
 # hcs-reconnection-statistics-psp-encounter-2025
 
-A paper-skill compiled from + co-authors (TODO verify full list) et al. 2025 (TODO_verify_journal; arXiv:TODO_verify_with_full_text).
+A paper-skill compiled from the primary source (author list pending verification), 2025 (TODO_verify_journal; arXiv:TODO_verify_with_full_text).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

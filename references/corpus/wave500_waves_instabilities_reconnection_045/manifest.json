@@ -287,8 +287,7 @@
       "title": "Ion-Scale Turbulence and Energy Cascade Rate in the Solar Corona and Inner Heliosphere",
       "authors": [
         "E. P. Kontar",
-        "A. G. Emslie",
-        "+ co-authors (TODO verify full list)"
+        "A. G. Emslie"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -312,7 +311,6 @@
       "slug": "alfven-surface-wind-braking-torque-psp-2025",
       "title": "Reconstructing the Sun's Alfv\u00e9n Surface and Wind Braking Torque with Parker Solar Probe",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -337,7 +335,6 @@
       "slug": "stationary-power-law-kinetic-alfven-turbulence-2025",
       "title": "Stationary Power-Law Solutions of Kinetic-Alfv\u00e9nic Turbulence",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -361,7 +358,6 @@
       "slug": "alfven-wave-propagation-reflection-trapping-2025",
       "title": "Alfv\u00e9n Wave Propagation, Reflection and Trapping in the Solar Wind",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -386,7 +382,6 @@
       "slug": "parametric-instability-alfven-wave-packets-2025",
       "title": "Parametric Instability of Alfv\u00e9n Wave Packets",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -410,7 +405,6 @@
       "slug": "khabarova-2025-kinetic-inertial-alfven-coronal-heating",
       "title": "Solar Coronal Heating: Role of Kinetic and Inertial Alfv\u00e9n Waves in Heating and Charged-Particle Energization",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -435,7 +429,6 @@
       "slug": "poynting-flux-alfven-polar-coronal-holes-cycle24-2025",
       "title": "Estimating the Poynting Flux of Alfv\u00e9nic Waves in Polar Coronal Holes Across Solar Cycle 24",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -460,7 +453,6 @@
       "slug": "firehose-thermodynamics-high-beta-2025",
       "title": "Thermodynamics and Collisionality in Firehose-Susceptible High-\u03b2 Plasmas",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -485,7 +477,6 @@
       "slug": "expansion-instability-young-solar-wind-thermo-2026",
       "title": "The Effect of Expansion and Instabilities in the Thermodynamic Regulation of the Young Solar Wind",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2026,
       "journal": "TODO_verify_journal",
@@ -509,7 +500,6 @@
       "slug": "ion-driven-instabilities-classification-2023",
       "title": "Ion-Driven Instabilities in the Inner Heliosphere II: Classification and Multi-Dimensional Stability",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2023,
       "journal": "TODO_verify_journal",
@@ -558,7 +548,6 @@
       "slug": "electron-driven-instabilities-solar-wind-2022",
       "title": "Electron-Driven Instabilities in the Solar Wind",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2022,
       "journal": "TODO_verify_journal",
@@ -582,7 +571,6 @@
       "slug": "kinetic-turbulence-collisionless-high-beta-2022",
       "title": "Kinetic Turbulence in Collisionless High-Beta Plasmas",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2022,
       "journal": "TODO_verify_journal",
@@ -606,7 +594,6 @@
       "slug": "helicity-barrier-evidence-transition-range-2024",
       "title": "Evidence for the Helicity Barrier from Measurements of the Turbulence Transition Range",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -630,8 +617,7 @@
       "slug": "bowen-2024-cyclotron-heating-rates-ion-scale-waves",
       "title": "Estimated Heating Rates Due to Cyclotron Damping of Ion-Scale Waves Observed by Parker Solar Probe",
       "authors": [
-        "T. A. Bowen",
-        "+ co-authors (TODO verify full list)"
+        "T. A. Bowen"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -655,7 +641,6 @@
       "slug": "extreme-minor-ion-heating-imbalanced-turbulence-2024",
       "title": "Extreme Heating of Minor Ions in Imbalanced Solar-Wind Turbulence",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -679,7 +664,6 @@
       "slug": "torsional-alfven-firehose-plasma-heating-2024",
       "title": "Torsional Alfv\u00e9n Oscillation in the Regime of Firehose Instability as a Mechanism of Plasma Heating",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -703,7 +687,6 @@
       "slug": "suprathermal-anisotropy-instabilities-stimulated-2024",
       "title": "Numerical Simulations of Temperature Anisotropy Instabilities Stimulated by Suprathermal Populations",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -727,7 +710,6 @@
       "slug": "regulation-proton-alpha-flow-compressive-2023",
       "title": "Regulation of Proton-\u03b1 Differential Flow by Compressive Fluctuations and Ion-Scale Instabilities",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2023,
       "journal": "TODO_verify_journal",
@@ -751,7 +733,6 @@
       "slug": "anti-equilibrium-alfven-ion-cyclotron-effects-2023",
       "title": "The Effects of Non-Equilibrium Velocity Distributions on Alfv\u00e9n Ion-Cyclotron Waves in the Solar Wind",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2023,
       "journal": "TODO_verify_journal",
@@ -775,7 +756,6 @@
       "slug": "proton-alpha-aic-driven-instabilities-2023",
       "title": "Proton and Alpha Driven Instabilities in an Ion Cyclotron Wave Event",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2023,
       "journal": "TODO_verify_journal",
@@ -799,7 +779,6 @@
       "slug": "whistler-young-solar-wind-statistics-2024",
       "title": "Whistler Waves in the Young Solar Wind: Statistics of Amplitude and Propagation Direction",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -824,7 +803,6 @@
       "slug": "suprathermal-electron-whistler-scattering-2024",
       "title": "Quantifying the Diffusion of Suprathermal Electrons by Whistler Waves Between 0.2 and 1 AU",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2024,
       "journal": "TODO_verify_journal",
@@ -848,7 +826,6 @@
       "slug": "whistler-counter-propagating-encounter1-2023",
       "title": "Whistler Wave Observations by Parker Solar Probe During Encounter 1: Counter-Propagating Sources",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2023,
       "journal": "TODO_verify_journal",
@@ -872,7 +849,6 @@
       "slug": "ion-acoustic-damping-instability-solo-2026",
       "title": "The Damping and Instability of Ion-Acoustic Waves in the Solar Wind: Solar Orbiter Observations",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2026,
       "journal": "TODO_verify_journal",
@@ -896,7 +872,6 @@
       "slug": "ion-acoustic-velocity-space-signatures-2026",
       "title": "Velocity-Space Signatures of Energy Transfer for Ion-Acoustic Instabilities",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2026,
       "journal": "TODO_verify_journal",
@@ -920,7 +895,6 @@
       "slug": "free-energy-sources-ion-scale-waves-psp-2025",
       "title": "Free Energy Sources of Ion-Scale Waves Observed by Parker Solar Probe",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -944,7 +918,6 @@
       "slug": "oblique-drift-instability-solar-wind-heating-2025",
       "title": "How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -968,7 +941,6 @@
       "slug": "kelvin-helmholtz-cme-large-scale-2025",
       "title": "Observation of Large-Scale Kelvin\u2013Helmholtz Instability Wave Driven by a Coronal Mass Ejection",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -992,7 +964,6 @@
       "slug": "hcs-reconnection-statistics-psp-encounter-2025",
       "title": "Statistical Properties of Heliospheric Current-Sheet Reconnection Events in PSP Encounter Data",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -1017,7 +988,6 @@
       "slug": "interchange-reconnection-pseudostreamer-metis-2025",
       "title": "Metis Observations of Alfv\u00e9nic Outflows Driven by Interchange Reconnection in a Pseudostreamer",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -1041,7 +1011,6 @@
       "slug": "rotational-discontinuity-proton-beam-generation-2025",
       "title": "Generation of Proton Beams at Switchback-Boundary-like Rotational Discontinuities in the Solar Wind",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -1065,7 +1034,6 @@
       "slug": "surface-waves-switchback-boundaries-psp-2025",
       "title": "Surface Waves at Switchback Boundaries in the Young Solar Wind from Parker Solar Probe Observations",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -1089,7 +1057,6 @@
       "slug": "stochastic-heating-sub-alfvenic-2025",
       "title": "Stochastic Heating in the Sub-Alfv\u00e9nic Solar Wind",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2025,
       "journal": "TODO_verify_journal",
@@ -1113,8 +1080,7 @@
       "slug": "chandran-2010-stochastic-heating-perp-alfven",
       "title": "Stochastic Perpendicular Ion Heating from Large-Amplitude Alfv\u00e9nic Turbulence",
       "authors": [
-        "B. D. G. Chandran",
-        "+ co-authors (TODO verify full list)"
+        "B. D. G. Chandran"
       ],
       "year": 2010,
       "journal": "TODO_verify_journal",
@@ -1138,7 +1104,6 @@
       "slug": "wave-particle-equilibria-heavy-ions-2026",
       "title": "Wave-Particle Equilibria with Heavy Ions in Weakly Collisional Space Plasmas",
       "authors": [
-        "+ co-authors (TODO verify full list)"
       ],
       "year": 2026,
       "journal": "TODO_verify_journal",

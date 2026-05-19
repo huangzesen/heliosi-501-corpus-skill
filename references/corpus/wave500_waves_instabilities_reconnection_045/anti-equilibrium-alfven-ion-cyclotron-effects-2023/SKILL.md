@@ -16,7 +16,7 @@ paper:
 > paper's methods section.
 
 
-A paper-skill compiled from + co-authors (TODO verify full list) et al. 2023 (TODO_verify_journal; arXiv:2308.14944).
+A paper-skill compiled from the primary source (author list pending verification), 2023 (TODO_verify_journal; arXiv:2308.14944).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

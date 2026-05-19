@@ -5,7 +5,7 @@ description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_0
 
 # kontar-2025-ion-scale-turbulence-cascade-rate-corona
 
-A paper-skill compiled from E. P. Kontar, A. G. Emslie, + co-authors (TODO verify full list) et al. 2025 (TODO_verify_journal; arXiv:2509.17861).
+A paper-skill compiled from E. P. Kontar, A. G. Emslie, et al., 2025 (full author list pending verification) (TODO_verify_journal; arXiv:2509.17861).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

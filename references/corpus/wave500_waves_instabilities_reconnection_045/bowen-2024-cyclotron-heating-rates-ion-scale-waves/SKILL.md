@@ -5,7 +5,7 @@ description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_0
 
 # bowen-2024-cyclotron-heating-rates-ion-scale-waves
 
-A paper-skill compiled from T. A. Bowen, + co-authors (TODO verify full list) et al. 2024 (TODO_verify_journal; arXiv:2407.02708).
+A paper-skill compiled from T. A. Bowen, et al., 2024 (full author list pending verification) (TODO_verify_journal; arXiv:2407.02708).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

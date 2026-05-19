@@ -7,7 +7,7 @@ paper:
 
 # kinetic-turbulence-collisionless-high-beta-2022
 
-A paper-skill compiled from + co-authors (TODO verify full list) et al. 2022 (TODO_verify_journal; arXiv:2207.05189).
+A paper-skill compiled from the primary source (author list pending verification), 2022 (TODO_verify_journal; arXiv:2207.05189).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

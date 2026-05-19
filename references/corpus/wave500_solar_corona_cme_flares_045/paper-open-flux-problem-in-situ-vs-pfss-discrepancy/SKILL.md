@@ -1,6 +1,7 @@
 ---
 name: paper-open-flux-problem-in-situ-vs-pfss-discrepancy
-description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+description: Per-entry topic-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). Aggregate of multiple representative papers (Linker+ 2017; Wallace+ 2019; Riley+ 2019); see body and metadata.yaml.
+kind: topic-skill
 paper:
   authors_verified: false
 ---
@@ -8,6 +9,12 @@ paper:
 # paper-open-flux-problem-in-situ-vs-pfss-discrepancy
 
 > Runtime-neutral paper-skill (four layers).
+>
+> **Note (issue #55):** this entry is classified `kind: topic-skill` in
+> its metadata.yaml because it intentionally aggregates multiple
+> representative papers (Linker+ 2017; Wallace+ 2019; Riley+ 2019)
+> rather than compiling a single primary source. Single-author /
+> single-arXiv-ID paper-skill invariants do not apply.
 
 ## Trigger
 

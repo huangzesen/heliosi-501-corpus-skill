@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # CIPHER iSAX+HDBSCAN extension — clustering-run reproducibility study — paper-skill (stub)
 
-> Compiled from TODO verify (CIPHER authors) (2025), "CIPHER iSAX+HDBSCAN extension — clustering-run reproducibility study", TODO verify, arXiv:2510.21022.
+> Compiled from the primary source (authorship pending verification) (2025), "CIPHER iSAX+HDBSCAN extension — clustering-run reproducibility study", TODO verify, arXiv:2510.21022.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

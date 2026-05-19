@@ -1,7 +1,17 @@
 slug: paper-open-flux-problem-in-situ-vs-pfss-discrepancy
 title: "Open-Flux Problem: In-Situ vs PFSS Discrepancy"
+kind: topic-skill
+# topic-skill rationale (issue #55): this entry is an aggregate of multiple
+# representative papers (Linker+ 2017; Wallace+ 2019; Riley+ 2019) and is
+# intentionally not a single-paper compilation. Consumers and CI rules that
+# enforce paper-skill authorship invariants must exclude entries where
+# `kind` is not `paper-skill`.
 authors: []
 authors_verified: false
+representative_papers:
+  - "Linker et al. 2017"
+  - "Wallace et al. 2019"
+  - "Riley et al. 2019"
 year: 2019
 journal: TODO_verify_with_full_text
 doi: TODO_verify_with_full_text

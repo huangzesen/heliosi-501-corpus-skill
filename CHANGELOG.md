@@ -101,6 +101,46 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   users who `cd` into the clone before symlinking don't end up with a
   doubled-up `heliosi-501-corpus-skill/heliosi-501-corpus-skill` path.
 
+### Issue #55 — consumer-facing authorship-prose hygiene + topic-skill kind
+
+- Two templated phrases inherited from the paper-to-skill factory
+  surfaced in rendered `SKILL.md` bodies and looked like author lists
+  to consuming agents:
+  - `> Compiled from TODO verify (<X> authors) (YYYY), ...` (21
+    occurrences under `wave500_sw_classification_ml_foundation_045/`)
+  - `A paper-skill compiled from [<real names>, ] + co-authors (TODO
+    verify full list) et al. YYYY (...)` (36 occurrences under
+    `wave500_waves_instabilities_reconnection_045/`)
+  Both are now rewritten to non-author wording that preserves the rest
+  of the sentence (year, arXiv ID, journal placeholder, real co-author
+  names if any). Where no real authors were named the prose now reads
+  `compiled from the primary source (author list pending verification)`;
+  where a real prefix existed (e.g. `T. A. Bowen,`) the rewrite
+  preserves it and appends `, et al., YYYY (full author list pending
+  verification)`. The honesty story is unchanged — `authors: []` and
+  `authors_verified: false` continue to encode the unverified state in
+  YAML.
+- The same placeholder element (`"+ co-authors (TODO verify full list)"`)
+  is stripped from per-batch `manifest.json` `authors[]` arrays
+  (3 manifests, 37 entries). The stripping is line-based to keep the
+  diff minimal and JSON-valid.
+- `references/corpus/wave500_solar_corona_cme_flares_045/
+  paper-open-flux-problem-in-situ-vs-pfss-discrepancy/` is now
+  classified `kind: topic-skill` in its `metadata.yaml` and tagged in
+  its `SKILL.md` as an intentional aggregate across multiple
+  representative papers (Linker+ 2017; Wallace+ 2019; Riley+ 2019).
+  This is the canonical exemplar for the topic-skill / paper-skill
+  distinction called out in issue #55.
+- `scripts/audit_authorship_prose.py` — new stdlib-only audit + fixer
+  (`--apply` rewrites, `--strict` exits non-zero on remaining
+  violations). Idempotent: re-running on a clean tree is a no-op.
+- `scripts/validate.sh` — new section `S4g consumer-facing
+  authorship-prose hygiene` invokes the audit script with `--strict`.
+- `tests/test_authorship_prose.py` — new unittest suite covering both
+  patterns in SKILL.md bodies, the manifest `authors[]` placeholder,
+  the `kind` enum (`paper-skill | topic-skill | tool-skill`), and the
+  topic-skill exemplar declaration. Closes #55.
+
 ### Issue #8 — authorship-field hygiene
 
 - All `metadata.yaml` `first_author` / `authors[]` and all per-entry

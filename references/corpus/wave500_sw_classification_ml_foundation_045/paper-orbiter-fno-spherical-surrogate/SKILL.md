@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Spherical Fourier neural operator surrogate for solar-wind simulation — paper-skill (stub)
 
-> Compiled from TODO verify (Spherical FNO solar-wind authors) (2025), "Spherical Fourier neural operator surrogate for solar-wind simulation", TODO verify, arXiv:2511.22112.
+> Compiled from the primary source (authorship pending verification) (2025), "Spherical Fourier neural operator surrogate for solar-wind simulation", TODO verify, arXiv:2511.22112.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

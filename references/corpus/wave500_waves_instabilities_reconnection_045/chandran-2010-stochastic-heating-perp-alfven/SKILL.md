@@ -14,7 +14,7 @@ description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_0
 > paper's methods section.
 
 
-A paper-skill compiled from B. D. G. Chandran, + co-authors (TODO verify full list) et al. 2010 (TODO_verify_journal; arXiv:TODO_verify_with_full_text).
+A paper-skill compiled from B. D. G. Chandran, et al., 2010 (full author list pending verification) (TODO_verify_journal; arXiv:TODO_verify_with_full_text).
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

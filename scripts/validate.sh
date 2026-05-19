@@ -668,6 +668,16 @@ print(
 )
 PY
 
+# -- S4g consumer-facing authorship-prose hygiene (issue #55) ----------------
+# Mirrors tests/test_authorship_prose.py: forbids two templated phrases
+# that look like author lists in the rendered SKILL.md body and in
+# per-batch manifest.json authors[] arrays. The script is stdlib-only;
+# `--strict` makes it exit non-zero on any remaining violation.
+section "S4g consumer-facing authorship-prose hygiene"
+
+python3 scripts/audit_authorship_prose.py --strict || \
+  fail "audit_authorship_prose.py reported unresolved violations"
+
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"
 
