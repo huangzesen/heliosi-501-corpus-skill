@@ -2,7 +2,7 @@
   "schema_version": "rollup-2.0",
   "generated_at": "2026-05-18",
   "generated_by": "HelioSI paper-to-skill factory (Claude Opus 4.7) — corpus_manifest_v2 aggregator",
-  "corpus_root": "sioulas-reproduction/results/paper_skill_corpus/",
+  "corpus_root": "references/corpus/",
   "framing": {
     "headline": "HelioSI restructures heliophysics-domain knowledge into harness-agnostic, agent-native scientific objects to industrialize the open discovery loop 'generate new ideas -> propose hypotheses -> execute discoveries'. Skills are the load-bearing objects; LingTai, Claude Code, Python, MCP servers, and .library/custom adapters are runtime examples, not the essence of the corpus.",
     "open_discovery_loop": [
@@ -211,7 +211,7 @@
   "batches": [
     {
       "batch": "batch_heliophysics_software_infrastructure",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_heliophysics_software_infrastructure/",
+      "path": "references/corpus/batch_heliophysics_software_infrastructure/",
       "manifest_skill_count": 12,
       "fs_subdirs": 12,
       "fs_SKILL_md": 12,
@@ -252,7 +252,7 @@
     },
     {
       "batch": "batch_mission_instruments_data_products",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_mission_instruments_data_products/",
+      "path": "references/corpus/batch_mission_instruments_data_products/",
       "manifest_skill_count": 12,
       "fs_subdirs": 12,
       "fs_SKILL_md": 12,
@@ -284,7 +284,7 @@
     },
     {
       "batch": "batch_pfss_source_mapping",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_pfss_source_mapping/",
+      "path": "references/corpus/batch_pfss_source_mapping/",
       "manifest_skill_count": 10,
       "fs_subdirs": 10,
       "fs_SKILL_md": 10,
@@ -319,7 +319,7 @@
     },
     {
       "batch": "batch_psp_switchbacks_magnetic",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_psp_switchbacks_magnetic/",
+      "path": "references/corpus/batch_psp_switchbacks_magnetic/",
       "manifest_skill_count": 12,
       "fs_subdirs": 12,
       "fs_SKILL_md": 12,
@@ -348,7 +348,7 @@
     },
     {
       "batch": "batch_sep_energetic_particles",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_sep_energetic_particles/",
+      "path": "references/corpus/batch_sep_energetic_particles/",
       "manifest_skill_count": 12,
       "fs_subdirs": 12,
       "fs_SKILL_md": 12,
@@ -383,7 +383,7 @@
     },
     {
       "batch": "batch_solar_wind_segmentation_ml",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_solar_wind_segmentation_ml/",
+      "path": "references/corpus/batch_solar_wind_segmentation_ml/",
       "manifest_skill_count": 12,
       "fs_subdirs": 12,
       "fs_SKILL_md": 12,
@@ -412,7 +412,7 @@
     },
     {
       "batch": "batch_turbulence_heating_apj",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/batch_turbulence_heating_apj/",
+      "path": "references/corpus/batch_turbulence_heating_apj/",
       "manifest_skill_count": 10,
       "fs_subdirs": 10,
       "fs_SKILL_md": 10,
@@ -441,7 +441,7 @@
     },
     {
       "batch": "pilot_2026_and_runtime",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/pilot_2026_and_runtime/",
+      "path": "references/corpus/pilot_2026_and_runtime/",
       "manifest_skill_count": 8,
       "fs_subdirs": 8,
       "fs_SKILL_md": 8,
@@ -472,7 +472,7 @@
     },
     {
       "batch": "pilot_turbulence",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/pilot_turbulence/",
+      "path": "references/corpus/pilot_turbulence/",
       "manifest_skill_count": 8,
       "fs_subdirs": 8,
       "fs_SKILL_md": 8,
@@ -502,7 +502,7 @@
     },
     {
       "batch": "wave500_agent_runtime_eval_design_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/",
+      "path": "references/corpus/wave500_agent_runtime_eval_design_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -537,7 +537,7 @@
     },
     {
       "batch": "wave500_coronal_source_mapping_pfss_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_coronal_source_mapping_pfss_045/",
+      "path": "references/corpus/wave500_coronal_source_mapping_pfss_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -566,7 +566,7 @@
     },
     {
       "batch": "wave500_inner_heliosphere_psp_solo_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_inner_heliosphere_psp_solo_045/",
+      "path": "references/corpus/wave500_inner_heliosphere_psp_solo_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -595,7 +595,7 @@
     },
     {
       "batch": "wave500_instruments_data_software_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/",
+      "path": "references/corpus/wave500_instruments_data_software_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -640,7 +640,7 @@
     },
     {
       "batch": "wave500_sep_shocks_space_weather_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_sep_shocks_space_weather_045/",
+      "path": "references/corpus/wave500_sep_shocks_space_weather_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -675,7 +675,7 @@
     },
     {
       "batch": "wave500_solar_corona_cme_flares_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_solar_corona_cme_flares_045/",
+      "path": "references/corpus/wave500_solar_corona_cme_flares_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -714,7 +714,7 @@
     },
     {
       "batch": "wave500_sw_classification_ml_foundation_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_sw_classification_ml_foundation_045/",
+      "path": "references/corpus/wave500_sw_classification_ml_foundation_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -747,7 +747,7 @@
     },
     {
       "batch": "wave500_turbulence_intermit_heating_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_turbulence_intermit_heating_045/",
+      "path": "references/corpus/wave500_turbulence_intermit_heating_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,
@@ -778,7 +778,7 @@
     },
     {
       "batch": "wave500_waves_instabilities_reconnection_045",
-      "path": "sioulas-reproduction/results/paper_skill_corpus/wave500_waves_instabilities_reconnection_045/",
+      "path": "references/corpus/wave500_waves_instabilities_reconnection_045/",
       "manifest_skill_count": 45,
       "fs_subdirs": 45,
       "fs_SKILL_md": 45,

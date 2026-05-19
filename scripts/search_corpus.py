@@ -7,28 +7,59 @@ relocatable. Operates on:
   ../references/corpus_manifest_v2.json   (machine roll-up of 501 entries)
   ../references/corpus/<batch>/<slug>/    (per-entry SKILL.md + metadata.yaml)
 
-Usage examples:
+Search semantics (hygiene batch — addresses GitHub issues #46-#54):
+  - --query is a case-insensitive, accent-folded LITERAL SUBSTRING match
+    over the manifest haystack (or, with --in skill, over the SKILL.md
+    body of every entry). Regex metacharacters are NOT interpreted
+    (re.escape is applied). For regex or multi-field filters use the
+    Grep tool.
+  - Manifest haystack fields searched by --query:
+    slug, title, batch, theme, first_author, year, venue, source_type,
+    quality, executable_status, arxiv, doi.
+
+Usage examples (also surfaced via --help epilog):
   python3 scripts/search_corpus.py --query PFSS --limit 5
   python3 scripts/search_corpus.py --query "open flux" --in both --limit 10
   python3 scripts/search_corpus.py --batches
   python3 scripts/search_corpus.py --maturity
   python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-field-open-flux
+  python3 scripts/search_corpus.py --version
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import sys
+import unicodedata
 from pathlib import Path
+
+__version__ = "0.1.0"
 
 HERE = Path(__file__).resolve().parent
 BUNDLE = HERE.parent
 REFERENCES = BUNDLE / "references"
 MANIFEST = REFERENCES / "corpus_manifest_v2.json"
 CORPUS = REFERENCES / "corpus"
+
+EPILOG = """\
+Examples:
+  python3 scripts/search_corpus.py --query PFSS --limit 5
+  python3 scripts/search_corpus.py --query "open flux" --in both --limit 10
+  python3 scripts/search_corpus.py --batches
+  python3 scripts/search_corpus.py --maturity
+  python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-field-open-flux
+  python3 scripts/search_corpus.py --version
+
+Notes:
+  - --query is a literal substring match (regex metacharacters are escaped).
+    For regex / multi-field filters use `grep` directly over references/corpus/.
+  - --query matching is case-insensitive and accent-folded (NFKD), so
+    'Alfven' and 'Alfveń' (combining acute) return the same results.
+  - Under --in both, each row is tagged [manifest], [skill], or [both]
+    so callers can tell which source matched.
+"""
 
 
 def _load_manifest():
@@ -38,8 +69,39 @@ def _load_manifest():
         return json.load(f)
 
 
+def _positive_int(s: str) -> int:
+    """argparse type for --limit: must be a positive integer (>= 1).
+
+    Rejects 0 (which used to silently disable the cap due to Python
+    truthiness — issue #3) and negative values (which used to silently drop
+    the last N results via slice semantics — issue #4).
+    """
+    try:
+        n = int(s)
+    except (TypeError, ValueError):
+        raise argparse.ArgumentTypeError(f"--limit must be an integer, got {s!r}")
+    if n <= 0:
+        raise argparse.ArgumentTypeError(f"--limit must be >= 1, got {n}")
+    return n
+
+
+def _fold(s) -> str:
+    """Lowercase + strip combining marks (NFKD then drop Mn).
+
+    Always-on for both haystack and query so 'alfven' and 'Alfven' (combining
+    acute on the 'e') match identically. Pure ASCII inputs are unchanged.
+    """
+    if s is None or s == "":
+        return ""
+    if not isinstance(s, str):
+        s = str(s)
+    nfkd = unicodedata.normalize("NFKD", s)
+    no_marks = "".join(ch for ch in nfkd if not unicodedata.combining(ch))
+    return no_marks.lower()
+
+
 def _entry_haystack(entry: dict) -> str:
-    """Concatenate searchable fields from a manifest entry."""
+    """Concatenate searchable fields from a manifest entry (accent-folded)."""
     parts = [
         entry.get("slug", ""),
         entry.get("title", ""),
@@ -54,7 +116,7 @@ def _entry_haystack(entry: dict) -> str:
         entry.get("arxiv", "") or "",
         entry.get("doi", "") or "",
     ]
-    return " ".join(p for p in parts if p).lower()
+    return _fold(" ".join(p for p in parts if p))
 
 
 def _skill_md_path(entry: dict) -> Path:
@@ -67,10 +129,22 @@ def _metadata_yaml_path(entry: dict) -> Path:
     return CORPUS / rel / "metadata.yaml"
 
 
-def _grep_skill_bodies(query_lower: str, entries: list) -> set:
-    """Return slugs whose SKILL.md body contains query_lower."""
+def _grep_skill_bodies(tokens_folded, entries: list) -> set:
+    """Return slugs whose folded SKILL.md body contains ALL folded tokens.
+
+    Multi-token queries are AND-matched (each token must appear somewhere
+    in the body). Single-token queries reduce to the previous behavior.
+    Accepts either a list of tokens or a single pre-folded string for
+    backward compatibility.
+    """
+    if isinstance(tokens_folded, str):
+        tokens = [tokens_folded] if tokens_folded else []
+    else:
+        tokens = [t for t in tokens_folded if t]
+    if not tokens:
+        return set()
+    patterns = [re.compile(re.escape(t)) for t in tokens]
     hits = set()
-    pat = re.compile(re.escape(query_lower), re.IGNORECASE)
     for e in entries:
         p = _skill_md_path(e)
         if not p.is_file():
@@ -80,7 +154,8 @@ def _grep_skill_bodies(query_lower: str, entries: list) -> set:
                 text = f.read()
         except OSError:
             continue
-        if pat.search(text):
+        folded = _fold(text)
+        if all(pat.search(folded) for pat in patterns):
             hits.add(e.get("slug"))
     return hits
 
@@ -90,16 +165,27 @@ def cmd_query(args, manifest):
     q = args.query.strip()
     if not q:
         sys.exit("--query is empty")
-    q_lower = q.lower()
+    # Whitespace-separated tokens are AND-matched against the haystack
+    # (issue #12). Single-token queries reduce to the previous behavior.
+    # Quoting is the shell's job: `--query "open flux"` arrives as one
+    # argv element which splits into two tokens, while
+    # `--query "PFSS open flux"` splits into three.
+    tokens_folded = [_fold(t) for t in q.split() if t]
+    if not tokens_folded:
+        sys.exit("--query is empty")
 
-    matched = []
+    manifest_hits = set()
+    matched = []  # preserve manifest order
     if args.search_in in ("manifest", "both"):
         for e in entries:
-            if q_lower in _entry_haystack(e):
+            hay = _entry_haystack(e)
+            if all(t in hay for t in tokens_folded):
+                manifest_hits.add(e.get("slug"))
                 matched.append(e)
 
+    body_hits = set()
     if args.search_in in ("skill", "both"):
-        body_hits = _grep_skill_bodies(q_lower, entries)
+        body_hits = _grep_skill_bodies(tokens_folded, entries)
         if args.search_in == "skill":
             matched = [e for e in entries if e.get("slug") in body_hits]
         else:
@@ -109,14 +195,25 @@ def cmd_query(args, manifest):
                     matched.append(e)
 
     if not matched:
-        print(f"no matches for: {q!r} (searched in: {args.search_in})")
-        return 0
+        # Exit non-zero so shell pipelines / CI can detect zero hits
+        # (issue #10; matches grep / git grep / the existing cmd_show
+        # convention).
+        print(
+            f"no matches for: {q!r} (searched in: {args.search_in})",
+            file=sys.stderr,
+        )
+        return 1
 
     total = len(matched)
-    if args.limit and total > args.limit:
+    capped = bool(args.limit) and total > args.limit
+    if capped:
         matched = matched[: args.limit]
 
-    print(f"matches: {total} (showing {len(matched)})  query={q!r}  in={args.search_in}")
+    header = f"matches: {total}"
+    if capped:
+        header += f" (showing {len(matched)})"
+    header += f"  query={q!r}  in={args.search_in}"
+    print(header)
     print("-" * 80)
     for e in matched:
         slug = e.get("slug", "")
@@ -127,7 +224,19 @@ def cmd_query(args, manifest):
         title = (e.get("title") or "").strip().replace("\n", " ")
         if len(title) > 90:
             title = title[:87] + "..."
-        print(f"{slug}")
+
+        prov = ""
+        if args.search_in == "both":
+            in_m = slug in manifest_hits
+            in_b = slug in body_hits
+            if in_m and in_b:
+                prov = " [both]"
+            elif in_m:
+                prov = " [manifest]"
+            elif in_b:
+                prov = " [skill]"
+
+        print(f"{slug}{prov}")
         print(f"  batch: {batch}  year: {year}")
         print(f"  quality: {qual}  status: {exe}")
         print(f"  title: {title}")
@@ -188,7 +297,9 @@ def cmd_maturity(manifest):
 
 
 def cmd_show(args, manifest):
-    slug = args.show.strip()
+    slug = (args.show or "").strip()
+    if not slug:
+        sys.exit("--show requires a non-empty slug (got empty string)")
     entries = manifest.get("entries", [])
     matches = [e for e in entries if e.get("slug") == slug]
     if not matches:
@@ -200,19 +311,28 @@ def cmd_show(args, manifest):
         for e in sub[:20]:
             print(f"  {e.get('slug')}  (batch: {e.get('batch')})")
         return 1
-    for e in matches:
+    if len(matches) > 1:
+        print(
+            f"WARNING: {len(matches)} entries share slug {slug!r}. "
+            f"Slugs are documented as globally unique — manifest may be corrupt."
+        )
+        print("-" * 80)
+    label_w = 9  # widest label is 'metadata:' (9 chars)
+    for i, e in enumerate(matches):
+        if i > 0:
+            print("-" * 80)
         skill_p = _skill_md_path(e)
         meta_p = _metadata_yaml_path(e)
-        print(f"slug:     {e.get('slug')}")
-        print(f"batch:    {e.get('batch')}")
-        print(f"title:    {e.get('title')}")
-        print(f"year:     {e.get('year')}")
-        print(f"quality:  {e.get('quality')}")
-        print(f"status:   {e.get('executable_status')}")
-        print(f"arxiv:    {e.get('arxiv')}")
-        print(f"doi:      {e.get('doi')}")
-        print(f"skill:    {skill_p}  (exists={skill_p.is_file()})")
-        print(f"metadata: {meta_p}   (exists={meta_p.is_file()})")
+        print(f"{'slug:':<{label_w}} {e.get('slug')}")
+        print(f"{'batch:':<{label_w}} {e.get('batch')}")
+        print(f"{'title:':<{label_w}} {e.get('title')}")
+        print(f"{'year:':<{label_w}} {e.get('year')}")
+        print(f"{'quality:':<{label_w}} {e.get('quality')}")
+        print(f"{'status:':<{label_w}} {e.get('executable_status')}")
+        print(f"{'arxiv:':<{label_w}} {e.get('arxiv')}")
+        print(f"{'doi:':<{label_w}} {e.get('doi')}")
+        print(f"{'skill:':<{label_w}} {skill_p} (exists={skill_p.is_file()})")
+        print(f"{'metadata:':<{label_w}} {meta_p} (exists={meta_p.is_file()})")
     return 0
 
 
@@ -220,11 +340,18 @@ def main(argv=None):
     p = argparse.ArgumentParser(
         prog="search_corpus.py",
         description="Deterministic helper for heliosi-501-corpus skill bundle.",
+        epilog=EPILOG,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    p.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
     )
     g = p.add_mutually_exclusive_group(required=True)
-    g.add_argument("--query", "-q", type=str, help="substring search over manifest fields")
-    g.add_argument("--batches", action="store_true", help="list batches with counts")
-    g.add_argument("--maturity", action="store_true", help="print T1–T7 tier counts")
+    g.add_argument("--query", "-q", type=str, help="literal-substring search over manifest fields")
+    g.add_argument("--batches", action="store_true", help="list batches with count + theme columns")
+    g.add_argument("--maturity", action="store_true", help="print T1-T7 tier counts")
     g.add_argument("--show", type=str, help="print paths for a given slug")
     p.add_argument(
         "--in",
@@ -233,7 +360,13 @@ def main(argv=None):
         default="manifest",
         help="where to search when using --query (default: manifest)",
     )
-    p.add_argument("--limit", "-n", type=int, default=20, help="cap result count (default 20)")
+    p.add_argument(
+        "--limit",
+        "-n",
+        type=_positive_int,
+        default=20,
+        help="cap result count (must be >= 1; default 20)",
+    )
 
     args = p.parse_args(argv)
     manifest = _load_manifest()
@@ -242,7 +375,7 @@ def main(argv=None):
         return cmd_batches(manifest)
     if args.maturity:
         return cmd_maturity(manifest)
-    if args.show:
+    if args.show is not None:
         return cmd_show(args, manifest)
     if args.query is not None:
         return cmd_query(args, manifest)

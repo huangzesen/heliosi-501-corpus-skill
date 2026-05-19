@@ -3,6 +3,22 @@
 Generated: 2026-05-18  
 Bundle root: this repository (`heliosi-501-corpus-skill/`).
 
+## 0. Reproducing this report
+
+Every check below is also wrapped in a single reproducible entry point
+(see GitHub issue #38):
+
+```bash
+bash scripts/validate.sh        # quiet on success, non-zero on first failure
+bash scripts/validate.sh -v     # verbose: echo each individual check
+```
+
+The script asserts §1 filesystem counts, the §2 manifest cross-check,
+§3 v2 roll-up file presence, and the §4a–§4d helper-script smoke commands
+(plus a §4e `--version` consistency check). It uses Python 3 stdlib + bash
+only and resolves paths relative to itself, so it can be run from any cwd
+as long as the bundle layout is intact.
+
 ## 1. Structural counts
 
 | Check | Expected | Actual | Pass |

@@ -1,5 +1,6 @@
 ---
 name: heliosi-501-corpus
+version: 0.1.0
 description: Use when the user asks about HelioSI, the heliophysics paper-skill corpus, the 501-skill corpus, paper-to-skill compilation, generating hypotheses or experiments from heliophysics literature, selecting corpus entries by topic (PFSS, open flux, PSP switchbacks, SEPs, turbulence, solar-wind classification, instruments, MHD, agent-runtime design), or deciding which papers to verify against full text.
 allowed-tools: Read, Grep, Glob, Bash
 ---
@@ -66,14 +67,18 @@ python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-fi
 
 | Flag | Effect |
 |------|--------|
-| `--query STR` | case-insensitive substring search over manifest entries (slug, title, theme, keywords, batch) |
-| `--in {manifest,skill,both}` | where to search (default `manifest`; `skill` greps Layer-1 SKILL.md body) |
+| `--query STR` | case-insensitive, accent-folded **literal substring** search over manifest fields: `slug`, `title`, `batch`, `theme`, `first_author`, `year`, `venue`, `source_type`, `quality`, `executable_status`, `arxiv`, `doi`. Regex metacharacters are escaped — see note below. |
+| `--in {manifest,skill,both}` | where to search (default `manifest`; `skill` greps Layer-1 SKILL.md body; `both` tags each row `[manifest]` / `[skill]` / `[both]`) |
 | `--limit N` | cap hits (default 20) |
-| `--batches` | list 18 batches with skill counts |
+| `--batches` | list 18 batches with three columns: name, manifest skill count, theme |
 | `--maturity` | print T1–T7 tier counts |
 | `--show SLUG` | print absolute path(s) of the entry's SKILL.md + metadata.yaml |
+| `--version` | print the bundle version (matches `version:` in this file's frontmatter) and exit |
 
-For anything more advanced (regex, multi-field filters), use `Grep` directly over `references/corpus/`.
+`--query` is **literal substring only** — `re.escape` is applied internally,
+so a query like `'open.*flux'` matches the literal six-character sequence,
+not the regex. For regex or multi-field filters use `Grep` directly over
+`references/corpus/`.
 
 ## Workflows
 
@@ -113,7 +118,7 @@ d. Preserve the entry's *Claim boundary* (in-scope / out-of-scope). Never widen 
 **Safe to assert:**
 
 - The bundle contains exactly **501** paper-skill directories across **18** batches with cross-matched filesystem + manifest counts (see `corpus_qa_report_v2.md` §1).
-- Slugs are globally unique across batches (`duplicate_slugs == {}`).
+- Slugs are globally unique across batches (`totals.duplicate_slugs == {}` in `references/corpus_manifest_v2.json`; the top-level `duplicate_slugs` key is `null`).
 - The corpus is authored under the harness-agnostic four-layer model.
 - Exactly **one** entry (`wu-2026-nonspherical-coronal-magnetic-field-open-flux`, in `batch_pfss_source_mapping`) has a documented local numerical reproduction (open flux 9.09 vs paper 9.19 G·R²_sun, 1.1 % error, GONG CR 2282, R_init = 2.5).
 

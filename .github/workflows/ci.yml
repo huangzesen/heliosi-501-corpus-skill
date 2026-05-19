@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: validate.sh + unittest (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Sanity — Python is stdlib-only here
+        run: |
+          python3 --version
+          python3 -c "import json, re, unicodedata, argparse, pathlib"
+
+      - name: Compile the helper script
+        run: python3 -m py_compile scripts/search_corpus.py
+
+      - name: Run scripts/validate.sh
+        run: bash scripts/validate.sh -v
+
+      - name: Run the unittest suite
+        run: python3 -m unittest discover -s tests -v

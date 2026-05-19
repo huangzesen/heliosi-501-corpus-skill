@@ -94,12 +94,41 @@ unchanged or only had pattern-level scrubs applied (`manual:…` →
 
 ## 5. Pre-release checklist (run before any new tag)
 
-- [ ] Re-run all six structural checks in §1; all must pass.
+> The `[ ]` boxes below are intentionally blank — this section is the
+> **template to re-tick at each new tag**. The current snapshot's record
+> lives in §1 above (where the boxes are `✓`). An empty box here means
+> "not yet re-verified for the *next* release," **not** "the current
+> snapshot is unchecked."
+
+- [ ] Re-run all six structural checks in §1; all must pass. The single
+      entry point is `bash scripts/validate.sh` (added in 0.2.0; see
+      `CHANGELOG.md`); it executes each check and exits non-zero on the
+      first failure.
 - [ ] Re-run the forbidden-string scan in §2; all must return zero hits.
 - [ ] Diff `README.md`, `VALIDATION.md`, `PUBLICATION_CHECKLIST.md`,
-      `.gitignore` for anything that re-introduces local paths or
-      PI-personal references.
+      `.gitignore`, `CHANGELOG.md` for anything that re-introduces local
+      paths or PI-personal references.
 - [ ] Confirm the helper script still runs stdlib-only on the target
       Python 3 version.
 - [ ] Confirm `SKILL.md` frontmatter `name:` field still equals
-      `heliosi-501-corpus`.
+      `heliosi-501-corpus`, and that the `version:` field has been bumped
+      consistently with `CHANGELOG.md`.
+- [ ] Update `CHANGELOG.md` — move `[Unreleased]` entries under the new
+      tag heading and create a fresh `[Unreleased]` section.
+- [ ] Run the test suite (`python3 -m unittest discover -s tests` or
+      `python3 -m pytest tests/`); all must pass on the target Python 3
+      versions. The GitHub Actions workflow at `.github/workflows/ci.yml`
+      runs the same suite on every push / PR.
+
+## 6. Licensing
+
+- The repository includes a top-level `LICENSE` file. The MIT license
+  covers the bundle code (helper scripts, validation scripts, aggregator
+  `SKILL.md`, roll-up files, CI workflow). The per-entry `SKILL.md` /
+  `metadata.yaml` files summarize third-party heliophysics papers; the
+  underlying papers remain under their original authors' / publishers'
+  copyright. When reproducing scientific claims, cite the **original
+  papers** (via the DOI / arXiv / ADS identifiers in each entry's
+  metadata), not this corpus.
+- Pre-release: confirm the `LICENSE` file is still present and has not
+  been altered without an accompanying `CHANGELOG.md` entry.

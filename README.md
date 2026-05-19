@@ -33,7 +33,7 @@ reads only when needed.
 **Safe to assert** (verified by `VALIDATION.md`):
 
 - 501 per-entry directories across 18 batches.
-- Globally unique slugs (`duplicate_slugs == {}` in the manifest).
+- Globally unique slugs (`totals.duplicate_slugs == {}` in the manifest; the top-level `duplicate_slugs` key is `null`).
 - Exactly **one** entry, `wu-2026-nonspherical-coronal-magnetic-field-open-flux`
   (in `batch_pfss_source_mapping`), has a documented local numerical
   reproduction (open flux 9.09 vs paper 9.19 G·R²_sun, 1.1 % error,
@@ -126,6 +126,18 @@ python3 scripts/search_corpus.py --batches
 python3 scripts/search_corpus.py --maturity
 python3 scripts/search_corpus.py --query "open flux" --limit 5
 python3 scripts/search_corpus.py --show wu-2026-nonspherical-coronal-magnetic-field-open-flux
+```
+
+These four commands also work from the cloned repo root **before
+installation** — `search_corpus.py` resolves paths relative to itself, so
+the `cd ~/.claude/skills/heliosi-501-corpus` step is only necessary if you
+have already installed the skill there. From a fresh clone you can simply
+`cd heliosi-501-corpus-skill` and run the same commands.
+
+To re-run every validation check from `VALIDATION.md` in one shot, use:
+
+```bash
+bash scripts/validate.sh
 ```
 
 The helper is stdlib-only and resolves paths relative to itself, so it works

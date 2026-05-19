@@ -31,6 +31,15 @@ env/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+._*
+
+# --- Secrets / credential files ---
+.env
+.env.*
+
+# --- Local agent / harness state (defense-in-depth) ---
+.remember/
+.claude/
 
 # --- Logs and runtime output ---
 *.log
@@ -44,3 +53,7 @@ tmp/
 *.tgz
 *.zip
 *.7z
+*.bz2
+*.xz
+*.rar
+*.dmg
