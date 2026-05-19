@@ -10,6 +10,7 @@ Stdlib only — uses the unittest module so it runs under both pytest and
 - Accent folding (issue #49).
 - --version (issue #47).
 - The four documented smoke commands return 0 and reasonable output.
+- Script-UX batch (issues #11/#23/#24/#25/#26/#27/#28/#29/#30/#32).
 
 Tests shell out to the script so they exercise the real argparse + exit
 codes; no internal imports are required.
@@ -17,9 +18,11 @@ codes; no internal imports are required.
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
+import time
 import unittest
 from pathlib import Path
 
@@ -218,6 +221,224 @@ class TestHelp(unittest.TestCase):
         # The epilog should include at least one runnable example.
         self.assertIn("--query", out)
         self.assertIn("--show", out)
+
+
+class TestShowCaseInsensitive(unittest.TestCase):
+    """Issue #23 — exact --show match is case-insensitive."""
+
+    SLUG = "wu-2026-nonspherical-coronal-magnetic-field-open-flux"
+
+    def test_uppercase_slug_matches_exactly(self):
+        rc, out, _ = run("--show", self.SLUG.upper())
+        self.assertEqual(rc, 0, "uppercase slug should still match")
+        self.assertIn("exists=True", out)
+        self.assertNotIn("no exact slug match", out)
+
+    def test_mixedcase_slug_matches_exactly(self):
+        mixed = "Wu-2026-Nonspherical-Coronal-Magnetic-Field-Open-Flux"
+        rc, out, _ = run("--show", mixed)
+        self.assertEqual(rc, 0)
+        self.assertIn("exists=True", out)
+
+
+class TestShowPartialRanking(unittest.TestCase):
+    """Issue #24 — partial --show ranks prefix/token above weak substring."""
+
+    def test_wu_2026_prefix_ranks_above_hwu(self):
+        rc, out, _ = run("--show", "wu-2026")
+        # Exact match is absent (slug is longer), so we fall into partial.
+        self.assertEqual(rc, 1)
+        lines = [ln.strip() for ln in out.splitlines() if ln.startswith("  ")]
+        # First listed candidate is the canonical wu-2026 entry.
+        self.assertTrue(
+            lines[0].startswith("wu-2026-nonspherical-coronal"),
+            f"unexpected first partial: {lines[0]!r}",
+        )
+
+    def test_substring_matches_are_marked_weak(self):
+        rc, out, _ = run("--show", "wu-2026")
+        self.assertEqual(rc, 1)
+        # The 'hwu-2026' and 'liweiwu-2026' candidates should be tagged.
+        self.assertIn("(weak match)", out)
+        # The canonical 'wu-2026-...' entry should NOT be tagged weak.
+        for ln in out.splitlines():
+            if "wu-2026-nonspherical-coronal" in ln:
+                self.assertNotIn("(weak match)", ln)
+
+
+class TestNullFieldRendering(unittest.TestCase):
+    """Issue #25 — null fields render as `n/a`, not Python `None`."""
+
+    def test_show_renders_null_doi_as_na(self):
+        rc, out, _ = run("--show", "paper-stansby-2020-pfsspy-python-pfss")
+        self.assertEqual(rc, 0)
+        # This entry has doi: null in the manifest.
+        self.assertNotIn("doi:      None", out)
+        self.assertIn("doi:      n/a", out)
+
+
+class TestBatchesThemeSynthesis(unittest.TestCase):
+    """Issue #26 — blank batch themes are synthesized; truncation uses '…'."""
+
+    def test_blank_theme_batches_get_synthesized_label(self):
+        rc, out, _ = run("--batches")
+        self.assertEqual(rc, 0)
+        # batch_pfss_source_mapping has theme: null in the manifest but every
+        # entry tags theme: pfss_source_mapping, so synthesis should fire.
+        row = [
+            ln for ln in out.splitlines()
+            if ln.startswith("batch_pfss_source_mapping")
+        ][0]
+        self.assertIn("pfss_source_mapping", row)
+        self.assertIn("(synth)", row)
+
+    def test_long_themes_are_ellipsized(self):
+        rc, out, _ = run("--batches")
+        self.assertEqual(rc, 0)
+        # At least one batch's theme exceeds 60 chars and must end in '…'.
+        ellipsized = [
+            ln for ln in out.splitlines()
+            if "…" in ln
+        ]
+        self.assertGreaterEqual(
+            len(ellipsized), 1,
+            "expected at least one ellipsized theme cell",
+        )
+
+
+class TestEmptyQueryShortCircuit(unittest.TestCase):
+    """Issue #27 — empty --query errors via argparse before manifest load."""
+
+    def test_empty_query_errors_via_argparse(self):
+        rc, _, err = run("--query", "")
+        # argparse p.error() exits with status 2, not 1, and writes 'usage:'.
+        self.assertEqual(rc, 2)
+        self.assertIn("--query is empty", err)
+        self.assertIn("usage:", err)
+
+
+class TestIgnoredFlagWarning(unittest.TestCase):
+    """Issue #28 — --in/--limit on non-query commands warn to stderr."""
+
+    def test_batches_with_in_warns(self):
+        rc, _, err = run("--batches", "--in", "skill")
+        self.assertEqual(rc, 0)
+        self.assertIn("warning", err)
+        self.assertIn("--batches", err)
+        self.assertIn("--in skill", err)
+
+    def test_show_with_limit_warns(self):
+        rc, _, err = run(
+            "--show", "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+            "--limit", "5",
+        )
+        self.assertEqual(rc, 0)
+        self.assertIn("--limit 5", err)
+
+    def test_maturity_with_defaults_no_warning(self):
+        rc, _, err = run("--maturity")
+        self.assertEqual(rc, 0)
+        self.assertNotIn("warning:", err)
+
+    def test_query_with_in_does_not_warn(self):
+        rc, _, err = run("--query", "PFSS", "--in", "manifest", "--limit", "1")
+        self.assertEqual(rc, 0)
+        # Sanity: no spurious ignored-flag warning for the only command that
+        # actually consumes --in / --limit.
+        self.assertNotIn("ignores --in", err)
+
+
+class TestInSkillEarlyExit(unittest.TestCase):
+    """Issue #11 — --in skill short-circuits at --limit and announces."""
+
+    def test_in_skill_emits_scan_notice(self):
+        rc, _, err = run("--query", "PFSS", "--in", "skill", "--limit", "1")
+        self.assertEqual(rc, 0)
+        self.assertIn("scanning", err)
+        self.assertIn("SKILL.md files", err)
+
+    def test_in_skill_limit_one_is_fast(self):
+        # With early-exit this should finish well under a second; without it
+        # it has to read all 501 files. Use a generous ceiling (3s) so the
+        # test is robust on slow CI runners but still catches the
+        # 501-file-walk regression.
+        t0 = time.monotonic()
+        rc, _, _ = run("--query", "PFSS", "--in", "skill", "--limit", "1")
+        elapsed = time.monotonic() - t0
+        self.assertEqual(rc, 0)
+        self.assertLess(
+            elapsed, 3.0,
+            f"--in skill --limit 1 took {elapsed:.2f}s; early-exit may "
+            "have regressed (issue #11)",
+        )
+
+
+class TestJsonOutput(unittest.TestCase):
+    """Issue #32 — --json emits machine-readable output for every command."""
+
+    def test_query_json_is_parseable(self):
+        rc, out, _ = run("--query", "PFSS", "--limit", "3", "--json")
+        self.assertEqual(rc, 0)
+        doc = json.loads(out)
+        self.assertEqual(doc["command"], "query")
+        self.assertEqual(doc["total"], 60)
+        self.assertEqual(doc["returned"], 3)
+        self.assertTrue(doc["capped"])
+        self.assertEqual(len(doc["matches"]), 3)
+        first = doc["matches"][0]
+        for key in ("slug", "batch", "year", "quality", "skill_path"):
+            self.assertIn(key, first)
+
+    def test_query_json_no_match_is_parseable(self):
+        rc, out, _ = run(
+            "--query", "definitely-no-such-term-xyz-zz",
+            "--json",
+        )
+        self.assertEqual(rc, 1)
+        doc = json.loads(out)
+        self.assertEqual(doc["total"], 0)
+        self.assertEqual(doc["matches"], [])
+
+    def test_show_json_exact_match(self):
+        rc, out, _ = run(
+            "--show",
+            "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+            "--json",
+        )
+        self.assertEqual(rc, 0)
+        doc = json.loads(out)
+        self.assertTrue(doc["exact_match"])
+        self.assertEqual(len(doc["matches"]), 1)
+        self.assertTrue(doc["matches"][0]["skill_exists"])
+
+    def test_show_json_partial_includes_match_kind(self):
+        rc, out, _ = run("--show", "wu-2026", "--json")
+        self.assertEqual(rc, 1)
+        doc = json.loads(out)
+        self.assertFalse(doc["exact_match"])
+        kinds = {p["match_kind"] for p in doc["partial"]}
+        # At least one strong and one weak partial expected.
+        self.assertTrue(kinds & {"prefix", "token"})
+        self.assertIn("weak", kinds)
+
+    def test_batches_json_totals(self):
+        rc, out, _ = run("--batches", "--json")
+        self.assertEqual(rc, 0)
+        doc = json.loads(out)
+        self.assertEqual(doc["command"], "batches")
+        self.assertEqual(len(doc["batches"]), 18)
+        self.assertEqual(doc["total_skills"], 501)
+        # At least one batch has synthesized theme; at least one is original.
+        synth = [b for b in doc["batches"] if b["theme_synthesized"]]
+        self.assertGreaterEqual(len(synth), 1)
+
+    def test_maturity_json_totals(self):
+        rc, out, _ = run("--maturity", "--json")
+        self.assertEqual(rc, 0)
+        doc = json.loads(out)
+        self.assertEqual(doc["command"], "maturity")
+        self.assertEqual(doc["total"], 501)
+        self.assertIn("T1_locally_reproduced", doc["counts"])
 
 
 if __name__ == "__main__":
