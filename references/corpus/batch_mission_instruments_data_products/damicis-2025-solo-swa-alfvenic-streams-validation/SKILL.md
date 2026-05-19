@@ -1,3 +1,8 @@
+---
+name: damicis-2025-solo-swa-alfvenic-streams-validation
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # damicis-2025-solo-swa-alfvenic-streams-validation
 
 ## When to use this paper-skill

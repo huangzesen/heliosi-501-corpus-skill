@@ -1,3 +1,8 @@
+---
+name: verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event
 
 A paper-skill compiled from J. L. Verniero et al. 2023 (arXiv preprint, arXiv:2310.14136).

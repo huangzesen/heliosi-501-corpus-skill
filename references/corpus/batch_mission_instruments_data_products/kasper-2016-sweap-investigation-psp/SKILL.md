@@ -1,3 +1,8 @@
+---
+name: kasper-2016-sweap-investigation-psp
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # kasper-2016-sweap-investigation-psp
 
 ## When to use this paper-skill

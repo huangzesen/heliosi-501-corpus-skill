@@ -28,6 +28,9 @@ jobs:
           python3 --version
           python3 -c "import json, re, unicodedata, argparse, pathlib"
 
+      - name: Install PyYAML (for metadata.yaml parse check; runtime is still stdlib-only)
+        run: python3 -m pip install --quiet pyyaml
+
       - name: Compile the helper script
         run: python3 -m py_compile scripts/search_corpus.py
 

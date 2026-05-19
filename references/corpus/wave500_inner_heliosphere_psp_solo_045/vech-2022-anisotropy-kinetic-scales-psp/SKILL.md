@@ -1,3 +1,8 @@
+---
+name: vech-2022-anisotropy-kinetic-scales-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # vech-2022-anisotropy-kinetic-scales-psp
 
 A paper-skill compiled from D. Vech et al. 2022 (arXiv preprint, arXiv:2203.10475).

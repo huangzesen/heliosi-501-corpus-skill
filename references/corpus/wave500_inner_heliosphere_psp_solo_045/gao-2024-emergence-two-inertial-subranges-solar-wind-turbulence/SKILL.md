@@ -1,3 +1,8 @@
+---
+name: gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence
 
 A paper-skill compiled from A. Gao (TODO verify first author) et al. 2024 (arXiv preprint, arXiv:2409.03090).

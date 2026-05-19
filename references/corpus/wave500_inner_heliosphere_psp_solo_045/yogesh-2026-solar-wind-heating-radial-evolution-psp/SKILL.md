@@ -1,3 +1,8 @@
+---
+name: yogesh-2026-solar-wind-heating-radial-evolution-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # yogesh-2026-solar-wind-heating-radial-evolution-psp
 
 A paper-skill compiled from Yogesh et al. 2026 (arXiv preprint, arXiv:2602.10275).

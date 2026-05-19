@@ -26,7 +26,7 @@ methods:
   - PFSSE is spectrum-preserving up to truncation.
   - Modal-power-vs-degree is a meaningful summary statistic.
 validation_targets:
-  - >80% modal power at low l and monotonic effective-degree decrease with height.
+  - ">80% modal power at low l and monotonic effective-degree decrease with height."
 trigger_keywords:
   - spherical harmonics
   - modal decomposition

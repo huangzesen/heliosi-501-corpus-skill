@@ -1,3 +1,8 @@
+---
+name: li-2026-mercury-orbit-solar-wind-turbulence
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # li-2026-mercury-orbit-solar-wind-turbulence
 
 ## When to use this paper-skill

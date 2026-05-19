@@ -1,3 +1,8 @@
+---
+name: saguchi-2026-parametric-decay-temperature-anisotropy-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # saguchi-2026-parametric-decay-temperature-anisotropy-psp
 
 A paper-skill compiled from H. Saguchi et al. 2026 (arXiv preprint, arXiv:2604.22489).

@@ -1,3 +1,8 @@
+---
+name: raouafi-2023-psp-four-years-discoveries-solar-minimum
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # raouafi-2023-psp-four-years-discoveries-solar-minimum
 
 A paper-skill compiled from N. Raouafi et al. 2023 (Space Science Reviews 219, 8, arXiv:2301.02727).

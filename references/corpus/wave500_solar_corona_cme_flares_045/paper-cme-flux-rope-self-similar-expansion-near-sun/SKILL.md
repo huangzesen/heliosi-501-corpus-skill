@@ -1,3 +1,8 @@
+---
+name: paper-cme-flux-rope-self-similar-expansion-near-sun
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-cme-flux-rope-self-similar-expansion-near-sun
 
 > Runtime-neutral paper-skill (four layers).

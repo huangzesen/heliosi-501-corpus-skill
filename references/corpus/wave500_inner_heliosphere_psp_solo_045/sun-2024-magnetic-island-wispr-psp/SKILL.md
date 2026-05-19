@@ -1,3 +1,8 @@
+---
+name: sun-2024-magnetic-island-wispr-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # sun-2024-magnetic-island-wispr-psp
 
 A paper-skill compiled from W. Sun (et al., TODO verify) et al. 2024 (arXiv preprint, arXiv:2407.07216).

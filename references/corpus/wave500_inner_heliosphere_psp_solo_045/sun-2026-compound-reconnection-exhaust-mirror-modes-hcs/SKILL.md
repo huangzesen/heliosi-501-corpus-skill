@@ -1,3 +1,8 @@
+---
+name: sun-2026-compound-reconnection-exhaust-mirror-modes-hcs
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # sun-2026-compound-reconnection-exhaust-mirror-modes-hcs
 
 A paper-skill compiled from W. Sun et al. 2026 (arXiv preprint, arXiv:2604.26137).

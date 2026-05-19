@@ -1,3 +1,8 @@
+---
+name: dakeyo-2026-source-alignment-psp-solo
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # dakeyo-2026-source-alignment-psp-solo
 
 ## When to use this paper-skill

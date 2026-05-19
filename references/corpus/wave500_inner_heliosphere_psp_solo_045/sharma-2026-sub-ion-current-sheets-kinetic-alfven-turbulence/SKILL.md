@@ -1,3 +1,8 @@
+---
+name: sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence
 
 A paper-skill compiled from J. Sharma et al. 2026 (arXiv preprint, arXiv:2601.18131).

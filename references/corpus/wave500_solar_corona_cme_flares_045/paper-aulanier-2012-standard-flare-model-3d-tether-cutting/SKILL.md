@@ -1,3 +1,8 @@
+---
+name: paper-aulanier-2012-standard-flare-model-3d-tether-cutting
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-aulanier-2012-standard-flare-model-3d-tether-cutting
 
 > Runtime-neutral paper-skill (four layers).

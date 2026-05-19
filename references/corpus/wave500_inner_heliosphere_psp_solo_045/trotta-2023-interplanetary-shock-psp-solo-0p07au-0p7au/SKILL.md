@@ -1,3 +1,8 @@
+---
+name: trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au
 
 A paper-skill compiled from D. Trotta et al. 2023 (arXiv preprint, arXiv:2312.05983).

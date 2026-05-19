@@ -1,3 +1,8 @@
+---
+name: pfss-test-problems-solar-stellar-magnetic-fields
+description: Per-entry paper-skill in batch_pfss_source_mapping (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # pfss-test-problems-solar-stellar-magnetic-fields
 
 > Runtime-neutral paper-skill. The body below is layered: (1) scientific

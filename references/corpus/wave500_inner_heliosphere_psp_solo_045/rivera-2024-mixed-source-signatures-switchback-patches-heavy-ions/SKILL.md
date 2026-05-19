@@ -1,3 +1,8 @@
+---
+name: rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions
 
 A paper-skill compiled from Y. J. Rivera et al. 2024 (arXiv preprint, arXiv:2409.03645).

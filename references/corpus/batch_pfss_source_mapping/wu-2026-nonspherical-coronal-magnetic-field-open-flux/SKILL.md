@@ -1,3 +1,8 @@
+---
+name: wu-2026-nonspherical-coronal-magnetic-field-open-flux
+description: Per-entry paper-skill in batch_pfss_source_mapping (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # wu-2026-nonspherical-coronal-magnetic-field-open-flux
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants,

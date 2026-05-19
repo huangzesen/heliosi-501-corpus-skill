@@ -1,3 +1,8 @@
+---
+name: bowen-2024-cyclotron-heating-rates-ion-scale-waves
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # bowen-2024-cyclotron-heating-rates-ion-scale-waves
 
 A paper-skill compiled from T. A. Bowen, + co-authors (TODO verify full list) et al. 2024 (TODO_verify_journal; arXiv:2407.02708).

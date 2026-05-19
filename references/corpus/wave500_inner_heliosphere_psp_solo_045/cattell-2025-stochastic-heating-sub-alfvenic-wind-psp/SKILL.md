@@ -1,3 +1,8 @@
+---
+name: cattell-2025-stochastic-heating-sub-alfvenic-wind-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # cattell-2025-stochastic-heating-sub-alfvenic-wind-psp
 
 A paper-skill compiled from C. Cattell (et al., PSP team) et al. 2025 (Physical Review Letters, arXiv:2509.20654).

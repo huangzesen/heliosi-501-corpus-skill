@@ -1,3 +1,8 @@
+---
+name: tenerani-2026-spherically-polarized-magnetic-fields
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # tenerani-2026-spherically-polarized-magnetic-fields
 
 ## When to use this paper-skill

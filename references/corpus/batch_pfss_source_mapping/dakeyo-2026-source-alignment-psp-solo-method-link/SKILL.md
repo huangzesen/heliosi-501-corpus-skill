@@ -1,3 +1,8 @@
+---
+name: dakeyo-2026-source-alignment-psp-solo-method-link
+description: Per-entry paper-skill in batch_pfss_source_mapping (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # dakeyo-2026-source-alignment-psp-solo-method-link
 
 > Runtime-neutral paper-skill **link entry**. The canonical paper-skill

@@ -1,3 +1,8 @@
+---
+name: phan-2022-switchback-boundary-reconnection-psp
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # phan-2022-switchback-boundary-reconnection-psp
 
 A paper-skill compiled from Phan, Lavraud, Halekas, Zhang, Bale,

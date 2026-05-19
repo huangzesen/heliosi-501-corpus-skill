@@ -1,3 +1,8 @@
+---
+name: gonzalez-2023-local-proton-heating-discontinuities-alfvenic
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # gonzalez-2023-local-proton-heating-discontinuities-alfvenic
 
 A paper-skill compiled from C. A. Gonzalez et al. 2023 (arXiv preprint, arXiv:2309.07862).

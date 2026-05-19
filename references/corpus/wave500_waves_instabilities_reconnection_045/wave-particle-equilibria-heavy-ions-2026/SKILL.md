@@ -1,3 +1,8 @@
+---
+name: wave-particle-equilibria-heavy-ions-2026
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # wave-particle-equilibria-heavy-ions-2026
 
 A paper-skill compiled from + co-authors (TODO verify full list) et al. 2026 (TODO_verify_journal; arXiv:2603.22613).

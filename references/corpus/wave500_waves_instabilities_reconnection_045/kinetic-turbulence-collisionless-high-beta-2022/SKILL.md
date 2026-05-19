@@ -1,3 +1,8 @@
+---
+name: kinetic-turbulence-collisionless-high-beta-2022
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # kinetic-turbulence-collisionless-high-beta-2022
 
 A paper-skill compiled from + co-authors (TODO verify full list) et al. 2022 (TODO_verify_journal; arXiv:2207.05189).

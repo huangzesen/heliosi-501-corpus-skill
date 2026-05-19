@@ -1,3 +1,8 @@
+---
+name: brooks-2025-active-region-upflows-coronal-coupling
+description: Per-entry paper-skill in wave500_coronal_source_mapping_pfss_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # brooks-2025-active-region-upflows-coronal-coupling
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants, (2) executable protocol against abstract capabilities, (3) adapter notes (optional examples only), (4) research-generation affordances.

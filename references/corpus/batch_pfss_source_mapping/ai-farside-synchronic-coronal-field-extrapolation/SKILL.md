@@ -1,3 +1,8 @@
+---
+name: ai-farside-synchronic-coronal-field-extrapolation
+description: Per-entry paper-skill in batch_pfss_source_mapping (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # ai-farside-synchronic-coronal-field-extrapolation
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants,

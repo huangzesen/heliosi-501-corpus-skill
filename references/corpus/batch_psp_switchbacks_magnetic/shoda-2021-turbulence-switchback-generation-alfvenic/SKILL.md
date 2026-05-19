@@ -1,3 +1,8 @@
+---
+name: shoda-2021-turbulence-switchback-generation-alfvenic
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # shoda-2021-turbulence-switchback-generation-alfvenic
 
 A paper-skill compiled from Shoda, Chandran, & Cranmer 2021 (ApJ 915, 52;

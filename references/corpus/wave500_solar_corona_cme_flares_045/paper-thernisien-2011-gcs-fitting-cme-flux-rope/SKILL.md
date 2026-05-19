@@ -1,3 +1,8 @@
+---
+name: paper-thernisien-2011-gcs-fitting-cme-flux-rope
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-thernisien-2011-gcs-fitting-cme-flux-rope
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants,

@@ -1,3 +1,8 @@
+---
+name: kavtaradze-2026-mhd-imbalance-leveling-shear-flows
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # kavtaradze-2026-mhd-imbalance-leveling-shear-flows
 
 A paper-skill compiled from M. Kavtaradze, G. Mamatsashvili, G. Chagelishvili et al. 2026 (TODO_verify_journal; arXiv:2602.13528).

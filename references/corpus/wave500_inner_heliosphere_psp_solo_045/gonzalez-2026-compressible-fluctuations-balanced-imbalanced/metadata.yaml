@@ -43,8 +43,8 @@ data_products:
     interval: PSP–SolO conjunction set
     archive: SOAR
 algorithms:
-  - name: Mode-decomposition: Alfvén/slow/fast partitioning
-  - name: σ_c imbalance classifier
-  - name: Local heating-rate contribution from compressible modes
+  - name: "Mode-decomposition: Alfvén/slow/fast partitioning"
+  - name: "σ_c imbalance classifier"
+  - name: "Local heating-rate contribution from compressible modes"
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §3

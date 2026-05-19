@@ -7,6 +7,29 @@ allowed-tools: Read, Grep, Glob, Bash
 
 # HelioSI 501-Skill Corpus (aggregator)
 
+## Verification status (read first)
+
+This corpus is a **scaffold / triage substrate**, not a fully verified
+reproduction corpus. Concretely, as of the current snapshot:
+
+- **417 / 501 entries (83 %)** carry one or more `TODO_verify_with_full_text`
+  / `TODO verify` markers in their `metadata.yaml` (a further 32 entries
+  carry them only in `SKILL.md`, for a total of 449 / 501 = 90 % of entries
+  with at least one TODO_verify token somewhere in their per-entry files).
+- **T3 + T4 = 424 / 501 entries (85 %)** are in the
+  `paper-grounded-pending-full-text` (T3, 260) or `stub` / `scaffold` (T4, 164)
+  maturity tiers — i.e. the Layer-1 claim and Layer-2 contract are authored
+  but the paper has not been verified end-to-end against full text and no
+  end-to-end run has been recorded against the bundled corpus.
+- **Only 1 / 501 entries** (T1: `wu-2026-nonspherical-coronal-magnetic-field-open-flux`)
+  carries a documented local numerical reproduction; that reproduction's
+  code lives in a separate internal repository and is **not** shipped here.
+
+When citing or composing from this corpus, treat every entry's identifiers
+(DOI, arXiv, ADS), numerical targets, and author lists as **provisional
+until the full paper has been read**. Surface the TODO_verify gap to the
+user — do not paper over it.
+
 ## What this is
 
 A single Claude Code aggregator skill that exposes a curated corpus of **501 harness-agnostic paper-skills** across **18 batches** of heliophysics literature (PFSS / open flux, PSP & Solar Orbiter inner heliosphere, SEPs & shocks, turbulence & heating, solar-wind classification & ML, instruments & data products, coronal CME/flares, waves/instabilities/reconnection, agent-runtime & evaluation design, plus pilots). The corpus follows a four-layer authoring model:

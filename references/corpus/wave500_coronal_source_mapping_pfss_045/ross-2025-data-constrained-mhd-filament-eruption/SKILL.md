@@ -1,3 +1,8 @@
+---
+name: ross-2025-data-constrained-mhd-filament-eruption
+description: Per-entry paper-skill in wave500_coronal_source_mapping_pfss_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # ross-2025-data-constrained-mhd-filament-eruption
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants, (2) executable protocol against abstract capabilities, (3) adapter notes (optional examples only), (4) research-generation affordances.

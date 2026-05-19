@@ -24,10 +24,10 @@ required_data:
   - Reference PFSS-OSF time series.
 methods:
   - SFT linearizes into propagators over a fixed synoptic basis.
-  - Compression ratio <1e-4 preserves dipole accuracy.
-  - |dipole| ≈ OSF empirically over Cycle 24.
+  - "Compression ratio <1e-4 preserves dipole accuracy."
+  - "|dipole| ≈ OSF empirically over Cycle 24."
 validation_targets:
-  - ≤1% disagreement on dipole vs SFT; tight |dipole|–OSF rank-correlation.
+  - "≤1% disagreement on dipole vs SFT; tight |dipole|–OSF rank-correlation."
 trigger_keywords:
   - DFT
   - SFT

@@ -1,3 +1,8 @@
+---
+name: coronal-hole-loop-statistics-potential-field-modeling
+description: Per-entry paper-skill in batch_pfss_source_mapping (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # coronal-hole-loop-statistics-potential-field-modeling
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants,

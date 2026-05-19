@@ -1,3 +1,8 @@
+---
+name: phan-2023-switchback-boundaries-closed
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # phan-2023-switchback-boundaries-closed
 
 A paper-skill compiled from Phan et al. 2023 (arXiv:2310.12134; ApJ-

@@ -1,3 +1,8 @@
+---
+name: saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun
 
 A paper-skill compiled from H. Saguchi, Y. Kawazura, M. Shoda et al. 2026 (ApJ (TODO verify venue); arXiv:2604.22489).

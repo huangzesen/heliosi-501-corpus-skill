@@ -1,3 +1,8 @@
+---
+name: mozer-2026-switchback-nonideal-dissipation
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mozer-2026-switchback-nonideal-dissipation
 
 ## When to use this paper-skill

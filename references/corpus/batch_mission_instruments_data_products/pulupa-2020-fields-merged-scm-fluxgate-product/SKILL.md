@@ -1,3 +1,8 @@
+---
+name: pulupa-2020-fields-merged-scm-fluxgate-product
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # pulupa-2020-fields-merged-scm-fluxgate-product
 
 ## When to use this paper-skill

@@ -1,3 +1,8 @@
+---
+name: sharma-2026-kaw-subion-current-sheets-pic
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # sharma-2026-kaw-subion-current-sheets-pic
 
 A paper-skill compiled from J. Sharma, C. Akshath Kumar, K. D. Makwana et al. 2026 (TODO_verify_journal; arXiv:2601.18131).

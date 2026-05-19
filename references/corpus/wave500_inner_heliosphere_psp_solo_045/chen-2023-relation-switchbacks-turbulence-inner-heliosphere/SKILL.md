@@ -1,3 +1,8 @@
+---
+name: chen-2023-relation-switchbacks-turbulence-inner-heliosphere
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # chen-2023-relation-switchbacks-turbulence-inner-heliosphere
 
 A paper-skill compiled from C. H. K. Chen (et al.) et al. 2023 (arXiv preprint, arXiv:2312.16521).

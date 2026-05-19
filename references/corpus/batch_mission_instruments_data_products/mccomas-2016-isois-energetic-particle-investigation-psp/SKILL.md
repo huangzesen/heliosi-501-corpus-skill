@@ -1,3 +1,8 @@
+---
+name: mccomas-2016-isois-energetic-particle-investigation-psp
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mccomas-2016-isois-energetic-particle-investigation-psp
 
 ## When to use this paper-skill

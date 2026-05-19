@@ -1,3 +1,8 @@
+---
+name: mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac
 
 A paper-skill compiled from M. McMurdo, T. Van Doorsselaere, N. Magyar et al. 2025 (TODO_verify_journal; arXiv:2510.27553).

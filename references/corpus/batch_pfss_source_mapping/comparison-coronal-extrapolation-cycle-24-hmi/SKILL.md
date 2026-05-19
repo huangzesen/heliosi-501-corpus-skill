@@ -1,3 +1,8 @@
+---
+name: comparison-coronal-extrapolation-cycle-24-hmi
+description: Per-entry paper-skill in batch_pfss_source_mapping (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # comparison-coronal-extrapolation-cycle-24-hmi
 
 > Runtime-neutral paper-skill. Layered: (1) scientific invariants,

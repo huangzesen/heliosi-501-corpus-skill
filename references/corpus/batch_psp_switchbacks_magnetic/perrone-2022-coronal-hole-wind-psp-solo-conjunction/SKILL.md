@@ -1,3 +1,8 @@
+---
+name: perrone-2022-coronal-hole-wind-psp-solo-conjunction
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # perrone-2022-coronal-hole-wind-psp-solo-conjunction
 
 A paper-skill compiled from Perrone, Perri, Bruno, Stansby, D'Amicis,

@@ -1,3 +1,8 @@
+---
+name: touresse-2024-untwisting-jets-super-alfvenic-wind-switchback
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # touresse-2024-untwisting-jets-super-alfvenic-wind-switchback
 
 A paper-skill compiled from J. Touresse et al. 2024 (arXiv preprint, arXiv:2412.15930).

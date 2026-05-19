@@ -21,10 +21,8 @@ required_data:
   - SDO/AIA EUV imagery for fine-scale precursor identification
   - Optional: IRIS / X-ray for confirmation of precursor activity
 methods:
-  - Coronal field extrapolation (PFSS as anchor; NLFFF as primary,
-    TODO verify which extrapolation family the paper uses)
-  - Topological analysis: null points, separators, quasi-separatrix
-    layers (QSLs), squashing factor Q
+  - "Coronal field extrapolation (PFSS as anchor; NLFFF as primary, TODO verify which extrapolation family the paper uses)"
+  - "Topological analysis: null points, separators, quasi-separatrix layers (QSLs), squashing factor Q"
   - Fine-scale (sub-MM) feature tracking pre-flare
 validation_targets:
   - Reproduce the paper's identification of null/QSL geometry during

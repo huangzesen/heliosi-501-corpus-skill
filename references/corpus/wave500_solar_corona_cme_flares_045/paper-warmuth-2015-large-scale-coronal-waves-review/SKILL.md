@@ -1,3 +1,8 @@
+---
+name: paper-warmuth-2015-large-scale-coronal-waves-review
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-warmuth-2015-large-scale-coronal-waves-review
 
 > Runtime-neutral paper-skill (four layers).

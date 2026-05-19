@@ -1,3 +1,8 @@
+---
+name: verniero-2020-psp-span-i-vdf-data-product
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # verniero-2020-psp-span-i-vdf-data-product
 
 ## When to use this paper-skill

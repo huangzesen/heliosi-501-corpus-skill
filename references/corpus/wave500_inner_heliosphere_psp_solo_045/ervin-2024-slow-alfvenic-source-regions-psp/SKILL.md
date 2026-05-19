@@ -1,3 +1,8 @@
+---
+name: ervin-2024-slow-alfvenic-source-regions-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # ervin-2024-slow-alfvenic-source-regions-psp
 
 A paper-skill compiled from T. Ervin et al. 2024 (arXiv preprint, arXiv:2407.09684).

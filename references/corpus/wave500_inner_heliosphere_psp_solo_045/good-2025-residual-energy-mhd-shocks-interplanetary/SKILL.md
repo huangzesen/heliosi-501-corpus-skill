@@ -1,3 +1,8 @@
+---
+name: good-2025-residual-energy-mhd-shocks-interplanetary
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # good-2025-residual-energy-mhd-shocks-interplanetary
 
 A paper-skill compiled from S. W. Good et al. 2025 (arXiv preprint, arXiv:2509.20096).

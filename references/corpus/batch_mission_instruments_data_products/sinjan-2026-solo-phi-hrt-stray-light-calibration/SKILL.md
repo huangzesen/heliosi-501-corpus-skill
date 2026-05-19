@@ -1,3 +1,8 @@
+---
+name: sinjan-2026-solo-phi-hrt-stray-light-calibration
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # sinjan-2026-solo-phi-hrt-stray-light-calibration
 
 ## When to use this paper-skill

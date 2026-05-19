@@ -1,3 +1,8 @@
+---
+name: stevens-2022-reconciling-psp-mhd-theory-plasma-frame
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # stevens-2022-reconciling-psp-mhd-theory-plasma-frame
 
 A paper-skill compiled from M. L. Stevens et al. 2022 (arXiv preprint, arXiv:2206.11514).

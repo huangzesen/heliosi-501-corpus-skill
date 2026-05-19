@@ -1,3 +1,8 @@
+---
+name: horbury-2020-solo-mag-vector-magnetometer
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # horbury-2020-solo-mag-vector-magnetometer
 
 ## When to use this paper-skill

@@ -1,3 +1,8 @@
+---
+name: bianco-2025-alfven-wave-proton-beam-evolution-hebox
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # bianco-2025-alfven-wave-proton-beam-evolution-hebox
 
 A paper-skill compiled from J. S. Bianco, A. Tenerani, C. Gonzalez et al. 2025 (TODO_verify_journal; arXiv:2511.02940).

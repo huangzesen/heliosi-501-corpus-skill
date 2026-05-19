@@ -1,3 +1,8 @@
+---
+name: halekas-2024-coronal-heating-switchback-budget-ruled-out
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # halekas-2024-coronal-heating-switchback-budget-ruled-out
 
 A paper-skill compiled from J. Halekas et al. 2024 (ApJ).

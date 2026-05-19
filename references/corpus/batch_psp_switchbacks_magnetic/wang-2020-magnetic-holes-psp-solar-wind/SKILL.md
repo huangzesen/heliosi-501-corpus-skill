@@ -1,3 +1,8 @@
+---
+name: wang-2020-magnetic-holes-psp-solar-wind
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # wang-2020-magnetic-holes-psp-solar-wind
 
 A paper-skill compiled from Wang et al. 2020 (ApJ; arXiv:2010.14008).

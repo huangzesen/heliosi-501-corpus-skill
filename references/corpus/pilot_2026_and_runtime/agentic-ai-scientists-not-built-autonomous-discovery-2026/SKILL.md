@@ -1,3 +1,8 @@
+---
+name: agentic-ai-scientists-not-built-autonomous-discovery-2026
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # agentic-ai-scientists-not-built-autonomous-discovery-2026
 
 > **Skill type:** *positioning / comparison* skill. This is **not** a

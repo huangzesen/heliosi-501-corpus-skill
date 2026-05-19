@@ -1,3 +1,8 @@
+---
+name: bandyopadhyay-2025-helios-mission-archival-reanalysis
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # bandyopadhyay-2025-helios-mission-archival-reanalysis
 
 A paper-skill compiled from R. Bandyopadhyay (TODO verify first author) et al. 2025 (arXiv preprint (stub)).

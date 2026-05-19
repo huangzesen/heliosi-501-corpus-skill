@@ -1,3 +1,8 @@
+---
+name: kasper-2021-psp-enters-magnetically-dominated-corona
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # kasper-2021-psp-enters-magnetically-dominated-corona
 
 A paper-skill compiled from Kasper, Klein, Lichko, Huang, et al. 2021

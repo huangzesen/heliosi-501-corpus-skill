@@ -1,3 +1,8 @@
+---
+name: verniero-2020-proton-beams-ion-scale-waves
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # verniero-2020-proton-beams-ion-scale-waves
 
 A paper-skill compiled from Verniero, Larson, Livi, Rahmati, et al.

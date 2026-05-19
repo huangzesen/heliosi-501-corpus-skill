@@ -19,6 +19,11 @@
 #   - It does NOT assert the per-batch `batches[].path` field resolves on
 #     disk -- that is a separate, open issue (#6) and is intentionally
 #     out of scope for this hygiene batch.
+#   - The S4b/S4c sections below extend the validator beyond VALIDATION.md
+#     S1-S4 to cover per-entry SKILL.md frontmatter coverage (issue #2)
+#     and per-entry metadata.yaml YAML parsing (issue #7). The YAML check
+#     requires PyYAML; when PyYAML is missing it prints SKIP and exits 0
+#     for that section so the validator still runs in a stdlib-only env.
 
 set -euo pipefail
 
@@ -124,6 +129,103 @@ for f in references/corpus_index_v2.md references/corpus_qa_report_v2.md referen
   fi
   log "${f} present"
 done
+
+# -- S4b per-entry SKILL.md frontmatter coverage ----------------------------
+# Issue #2: all 501 per-entry SKILL.md files must carry a YAML frontmatter
+# block (delimited by '---' on its own line) with a non-empty `name:` field.
+# Stdlib-only check so it works in CI without PyYAML.
+section "S4b per-entry SKILL.md frontmatter coverage"
+
+python3 - <<'PY'
+import re, sys
+from pathlib import Path
+
+ROOT = Path('references/corpus')
+missing_fm = []
+missing_name = []
+total = 0
+for p in sorted(ROOT.glob('*/*/SKILL.md')):
+    total += 1
+    text = p.read_text()
+    if not text.startswith('---\n'):
+        missing_fm.append(str(p))
+        continue
+    try:
+        end = text.index('\n---', 4)
+    except ValueError:
+        missing_fm.append(str(p))
+        continue
+    fm = text[4:end]
+    name_lines = [ln for ln in fm.splitlines() if re.match(r'^name\s*:', ln)]
+    if not name_lines:
+        missing_name.append(str(p))
+        continue
+    val = name_lines[0].split(':', 1)[1].strip().strip('"').strip("'")
+    if not val:
+        missing_name.append(str(p))
+
+problems = []
+if total != 501:
+    problems.append(f'per-entry SKILL.md count: expected 501, got {total}')
+if missing_fm:
+    problems.append(f'{len(missing_fm)} SKILL.md files missing YAML frontmatter')
+    for p in missing_fm[:5]:
+        problems.append(f'  - {p}')
+if missing_name:
+    problems.append(f'{len(missing_name)} SKILL.md frontmatter missing non-empty name:')
+    for p in missing_name[:5]:
+        problems.append(f'  - {p}')
+
+if problems:
+    print('validate.sh: FAIL -- frontmatter coverage:', file=sys.stderr)
+    for prob in problems:
+        print('  ' + prob, file=sys.stderr)
+    sys.exit(1)
+
+print(f'frontmatter coverage ok ({total}/{total} per-entry SKILL.md have name:)')
+PY
+
+# -- S4c per-entry metadata.yaml parses --------------------------------------
+# Issue #7: all 501 per-entry metadata.yaml files must parse as valid YAML.
+# Uses PyYAML when available; otherwise prints a SKIP notice (PyYAML is not
+# a runtime dependency of this bundle, but CI installs it for this check).
+section "S4c per-entry metadata.yaml parses (PyYAML if available)"
+
+python3 - <<'PY'
+import sys
+from pathlib import Path
+
+try:
+    import yaml  # PyYAML
+except ImportError:
+    print('SKIP: PyYAML not installed -- metadata.yaml parse check skipped.')
+    print('      Install with `pip install pyyaml` to enable strict parsing.')
+    sys.exit(0)
+
+ROOT = Path('references/corpus')
+bad = []
+total = 0
+for p in sorted(ROOT.glob('*/*/metadata.yaml')):
+    total += 1
+    try:
+        with open(p) as f:
+            yaml.safe_load(f)
+    except Exception as e:
+        bad.append((str(p), str(e)[:200]))
+
+if total != 501:
+    print(f'validate.sh: FAIL -- metadata.yaml count: expected 501, got {total}',
+          file=sys.stderr)
+    sys.exit(1)
+if bad:
+    print(f'validate.sh: FAIL -- {len(bad)} metadata.yaml files do not parse:',
+          file=sys.stderr)
+    for p, e in bad[:5]:
+        print(f'  - {p}: {e}', file=sys.stderr)
+    sys.exit(1)
+
+print(f'metadata.yaml parse ok ({total}/{total} parsed with PyYAML)')
+PY
 
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"

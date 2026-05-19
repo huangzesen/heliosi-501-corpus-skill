@@ -1,3 +1,8 @@
+---
+name: chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere
 
 A paper-skill compiled from R. Chhiber et al. 2026 (arXiv preprint, arXiv:2603.25989).

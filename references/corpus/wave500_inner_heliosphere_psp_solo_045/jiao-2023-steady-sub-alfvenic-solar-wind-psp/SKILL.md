@@ -1,3 +1,8 @@
+---
+name: jiao-2023-steady-sub-alfvenic-solar-wind-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # jiao-2023-steady-sub-alfvenic-solar-wind-psp
 
 A paper-skill compiled from Y. Jiao et al. 2023 (arXiv preprint, arXiv:2311.15622).

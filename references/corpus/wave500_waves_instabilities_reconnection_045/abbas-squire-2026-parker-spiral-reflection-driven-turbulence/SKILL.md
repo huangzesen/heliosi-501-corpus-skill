@@ -1,3 +1,8 @@
+---
+name: abbas-squire-2026-parker-spiral-reflection-driven-turbulence
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # abbas-squire-2026-parker-spiral-reflection-driven-turbulence
 
 A paper-skill compiled from K. Abbas, J. Squire et al. 2026 (TODO_verify_journal; arXiv:2512.07446).

@@ -1,3 +1,8 @@
+---
+name: mozer-2021-magnetic-pressure-balance-domains-psp
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mozer-2021-magnetic-pressure-balance-domains-psp
 
 A paper-skill compiled from Mozer et al. 2021 (ApJ; arXiv:2110.08506).

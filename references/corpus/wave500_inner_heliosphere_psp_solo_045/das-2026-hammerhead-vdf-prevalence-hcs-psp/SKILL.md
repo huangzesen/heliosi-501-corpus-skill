@@ -1,3 +1,8 @@
+---
+name: das-2026-hammerhead-vdf-prevalence-hcs-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # das-2026-hammerhead-vdf-prevalence-hcs-psp
 
 A paper-skill compiled from S. B. Das et al. 2026 (arXiv preprint, arXiv:2603.11329).

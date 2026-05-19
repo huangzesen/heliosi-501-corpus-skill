@@ -1,3 +1,8 @@
+---
+name: rotational-discontinuity-proton-beam-generation-2025
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # rotational-discontinuity-proton-beam-generation-2025
 
 A paper-skill compiled from + co-authors (TODO verify full list) et al. 2025 (TODO_verify_journal; arXiv:2512.10406).

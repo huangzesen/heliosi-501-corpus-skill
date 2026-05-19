@@ -1,3 +1,8 @@
+---
+name: giardetti-2025-sunward-alfven-waves-1au-switchbacks
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # giardetti-2025-sunward-alfven-waves-1au-switchbacks
 
 A paper-skill compiled from N. Giardetti, S. Bourouaine, J. C. Perez et al. 2025 (TODO_verify_journal; arXiv:2512.18806).

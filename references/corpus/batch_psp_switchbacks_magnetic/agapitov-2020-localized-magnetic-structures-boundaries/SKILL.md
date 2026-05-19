@@ -1,3 +1,8 @@
+---
+name: agapitov-2020-localized-magnetic-structures-boundaries
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # agapitov-2020-localized-magnetic-structures-boundaries
 
 A paper-skill compiled from Agapitov, Dudok de Wit, Mozer, et al. 2020

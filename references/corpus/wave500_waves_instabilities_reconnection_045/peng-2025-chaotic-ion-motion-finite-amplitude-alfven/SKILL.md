@@ -1,3 +1,8 @@
+---
+name: peng-2025-chaotic-ion-motion-finite-amplitude-alfven
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # peng-2025-chaotic-ion-motion-finite-amplitude-alfven
 
 A paper-skill compiled from J. Peng, J. He, R. Lin et al. 2025 (TODO_verify_journal; arXiv:2510.07144).

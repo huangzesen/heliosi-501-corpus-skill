@@ -1,3 +1,8 @@
+---
+name: cuesta-2023-scaling-anisotropy-stationary-background-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # cuesta-2023-scaling-anisotropy-stationary-background-psp
 
 A paper-skill compiled from M. M. Cuesta et al. 2023 (arXiv preprint, arXiv:2303.10810).

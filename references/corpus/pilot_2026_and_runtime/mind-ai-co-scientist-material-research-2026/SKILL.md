@@ -1,3 +1,8 @@
+---
+name: mind-ai-co-scientist-material-research-2026
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mind-ai-co-scientist-material-research-2026
 
 > **Skill type:** *positioning / comparison* skill. Encodes the MIND

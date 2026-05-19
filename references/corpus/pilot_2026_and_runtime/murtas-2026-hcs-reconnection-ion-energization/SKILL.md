@@ -1,3 +1,8 @@
+---
+name: murtas-2026-hcs-reconnection-ion-energization
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # murtas-2026-hcs-reconnection-ion-energization
 
 ## When to use this paper-skill

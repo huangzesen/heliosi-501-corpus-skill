@@ -1,3 +1,8 @@
+---
+name: agapitov-2023-structure-origin-switchbacks-psp
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # agapitov-2023-structure-origin-switchbacks-psp
 
 A paper-skill compiled from Agapitov, Mozer, Drake, Dudok de Wit, et al.

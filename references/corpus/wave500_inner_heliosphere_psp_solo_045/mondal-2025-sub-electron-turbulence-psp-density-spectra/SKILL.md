@@ -1,3 +1,8 @@
+---
+name: mondal-2025-sub-electron-turbulence-psp-density-spectra
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mondal-2025-sub-electron-turbulence-psp-density-spectra
 
 A paper-skill compiled from S. Mondal et al. 2025 (arXiv preprint, arXiv:2509.17061).

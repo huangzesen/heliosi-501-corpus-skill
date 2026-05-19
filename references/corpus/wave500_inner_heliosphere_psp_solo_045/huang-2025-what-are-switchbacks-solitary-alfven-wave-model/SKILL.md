@@ -1,3 +1,8 @@
+---
+name: huang-2025-what-are-switchbacks-solitary-alfven-wave-model
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # huang-2025-what-are-switchbacks-solitary-alfven-wave-model
 
 A paper-skill compiled from Z. Huang et al. 2025 (arXiv preprint, arXiv:2512.12585).

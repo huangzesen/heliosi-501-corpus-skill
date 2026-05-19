@@ -1,3 +1,8 @@
+---
+name: bowen-2022-anisotropic-turbulence-radial-evolution-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # bowen-2022-anisotropic-turbulence-radial-evolution-psp
 
 A paper-skill compiled from T. A. Bowen et al. 2022 (arXiv preprint, arXiv:2205.14096).

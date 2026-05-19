@@ -1,3 +1,8 @@
+---
+name: jiang-2025-third-order-law-angular-dependence-anisotropic-mhd
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # jiang-2025-third-order-law-angular-dependence-anisotropic-mhd
 
 A paper-skill compiled from B. Jiang et al. 2025 (arXiv preprint, arXiv:2512.16610).

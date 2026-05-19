@@ -1,3 +1,8 @@
+---
+name: heurekabench-2026-end-to-end-co-scientist-evaluation
+description: Per-entry paper-skill in pilot_2026_and_runtime (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # heurekabench-2026-end-to-end-co-scientist-evaluation
 
 > **Skill type:** *positioning / comparison* skill. Encodes the

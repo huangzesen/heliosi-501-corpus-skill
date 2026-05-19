@@ -1,3 +1,8 @@
+---
+name: schwadron-2022-switchback-deflections-beyond-early-encounters
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # schwadron-2022-switchback-deflections-beyond-early-encounters
 
 A paper-skill compiled from N. M. Schwadron et al. 2022 (MNRAS, 517, 1001).

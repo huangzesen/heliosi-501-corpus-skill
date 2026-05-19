@@ -1,3 +1,8 @@
+---
+name: magyar-2024-synthetic-modeling-plasma-frame-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # magyar-2024-synthetic-modeling-plasma-frame-psp
 
 A paper-skill compiled from N. Magyar et al. 2024 (arXiv preprint, arXiv:2405.12547).

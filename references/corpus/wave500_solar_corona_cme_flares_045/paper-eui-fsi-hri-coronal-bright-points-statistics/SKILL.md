@@ -1,3 +1,8 @@
+---
+name: paper-eui-fsi-hri-coronal-bright-points-statistics
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-eui-fsi-hri-coronal-bright-points-statistics
 
 > Runtime-neutral paper-skill (four layers).

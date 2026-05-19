@@ -1,3 +1,8 @@
+---
+name: ofman-2025-large-scale-kelvin-helmholtz-cme-driven
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # ofman-2025-large-scale-kelvin-helmholtz-cme-driven
 
 A paper-skill compiled from L. Ofman et al. 2025 (arXiv preprint, arXiv:2512.19942).

@@ -1,3 +1,8 @@
+---
+name: cranmer-2023-alfven-surface-punch-prospects-review
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # cranmer-2023-alfven-surface-punch-prospects-review
 
 A paper-skill compiled from S. R. Cranmer et al. 2023 (arXiv preprint, arXiv:2310.05887).

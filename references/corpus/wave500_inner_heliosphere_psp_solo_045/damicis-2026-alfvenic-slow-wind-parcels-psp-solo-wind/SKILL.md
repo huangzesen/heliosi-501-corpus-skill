@@ -1,3 +1,8 @@
+---
+name: damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind
 
 A paper-skill compiled from R. D'Amicis et al. 2026 (A&A).

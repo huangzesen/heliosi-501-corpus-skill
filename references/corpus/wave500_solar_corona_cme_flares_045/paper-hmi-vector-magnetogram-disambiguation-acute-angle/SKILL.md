@@ -1,3 +1,8 @@
+---
+name: paper-hmi-vector-magnetogram-disambiguation-acute-angle
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-hmi-vector-magnetogram-disambiguation-acute-angle
 
 > Runtime-neutral paper-skill (four layers).

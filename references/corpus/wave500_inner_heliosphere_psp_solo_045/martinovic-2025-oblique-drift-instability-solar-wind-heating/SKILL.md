@@ -1,3 +1,8 @@
+---
+name: martinovic-2025-oblique-drift-instability-solar-wind-heating
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # martinovic-2025-oblique-drift-instability-solar-wind-heating
 
 A paper-skill compiled from M. M. Martinović et al. 2025 (arXiv preprint, arXiv:2512.18485).

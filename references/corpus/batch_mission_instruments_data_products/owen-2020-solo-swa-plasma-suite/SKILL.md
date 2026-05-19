@@ -1,3 +1,8 @@
+---
+name: owen-2020-solo-swa-plasma-suite
+description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # owen-2020-solo-swa-plasma-suite
 
 ## When to use this paper-skill

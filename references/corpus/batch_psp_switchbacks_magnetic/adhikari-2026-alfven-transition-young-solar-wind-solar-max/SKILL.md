@@ -1,3 +1,8 @@
+---
+name: adhikari-2026-alfven-transition-young-solar-wind-solar-max
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # adhikari-2026-alfven-transition-young-solar-wind-solar-max
 
 A paper-skill compiled from Adhikari et al. 2026 (ApJ 997, 2;

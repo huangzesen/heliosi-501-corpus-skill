@@ -1,3 +1,8 @@
+---
+name: agapitov-2023-constraints-alfvenicity-switchbacks
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # agapitov-2023-constraints-alfvenicity-switchbacks
 
 A paper-skill compiled from O. V. Agapitov et al. 2023 (arXiv preprint, arXiv:2312.01011).

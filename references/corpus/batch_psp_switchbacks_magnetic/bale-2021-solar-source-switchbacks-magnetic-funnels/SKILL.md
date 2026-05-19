@@ -1,3 +1,8 @@
+---
+name: bale-2021-solar-source-switchbacks-magnetic-funnels
+description: Per-entry paper-skill in batch_psp_switchbacks_magnetic (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # bale-2021-solar-source-switchbacks-magnetic-funnels
 
 A paper-skill compiled from Bale, Horbury, Velli, Desai, Halekas, et

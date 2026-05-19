@@ -14,6 +14,26 @@ reads only when needed.
 **Runtime requirement:** Python 3 stdlib only.
 **Network:** none — the corpus is fully self-contained at runtime.
 
+## Verification status (read first)
+
+This corpus is a **scaffold / triage substrate**, not a fully verified
+reproduction corpus.
+
+- **417 / 501 entries (83 %)** carry one or more `TODO_verify_with_full_text`
+  / `TODO verify` markers in their `metadata.yaml`. Counting `SKILL.md` as
+  well raises this to **449 / 501 (90 %)**.
+- **T3 + T4 = 424 / 501 entries (85 %)** are
+  `paper-grounded-pending-full-text` (T3, 260) or `stub` / `scaffold`
+  (T4, 164) — i.e. the Layer-1 claim and Layer-2 contract are authored but
+  full-text verification and any end-to-end reproduction are pending.
+- **Only 1 / 501 entries** carries a documented local numerical
+  reproduction (the T1 entry `wu-2026-nonspherical-coronal-magnetic-field-open-flux`).
+
+DOIs / arXiv IDs / author lists / numerical targets should be treated as
+**provisional** for any entry that carries a TODO_verify marker or that
+sits in T3 / T4. The bundle is designed for triage and hypothesis
+generation, not as an oracle on the literature.
+
 ## What this is (and is not)
 
 - It **is** an aggregator skill that lets Claude search a curated corpus of
@@ -78,22 +98,35 @@ The skill directory name **must** match the `name:` field in `SKILL.md`
 # 1. Clone this repository somewhere you keep your skills.
 git clone https://github.com/huangzesen/heliosi-501-corpus-skill.git
 
-# 2. Make Claude Code see the skill. The repository root IS the skill folder
+# 2. Capture the absolute path of the clone *right now*, before any cd.
+#    Both install options below assume REPO_DIR points at the repo root
+#    (the directory that contains SKILL.md), not at its parent.
+REPO_DIR="$(pwd)/heliosi-501-corpus-skill"
+test -f "$REPO_DIR/SKILL.md" || { echo "REPO_DIR is wrong: $REPO_DIR has no SKILL.md"; exit 1; }
+
+# 3. Make Claude Code see the skill. The repository root IS the skill folder
 #    (it contains SKILL.md), so register it as `heliosi-501-corpus`:
 
 mkdir -p ~/.claude/skills
 
 # Option A — symlink (recommended; lets you `git pull` to update):
-ln -s "$(pwd)/heliosi-501-corpus-skill" ~/.claude/skills/heliosi-501-corpus
+ln -s "$REPO_DIR" ~/.claude/skills/heliosi-501-corpus
 
 # Option B — copy:
-cp -R heliosi-501-corpus-skill ~/.claude/skills/heliosi-501-corpus
+cp -R "$REPO_DIR" ~/.claude/skills/heliosi-501-corpus
+
+# 4. Sanity check — the skill must be visible at the install path.
+test -f ~/.claude/skills/heliosi-501-corpus/SKILL.md && echo OK
 ```
 
 Note the asymmetry: the cloned repository is named
 `heliosi-501-corpus-skill` (the GitHub repo name) while the symlink / copy
 target is named `heliosi-501-corpus` (matching `SKILL.md`'s `name:` field).
 Claude Code keys off the destination directory name, not the repo name.
+Setting `REPO_DIR` immediately after `git clone` (step 2) avoids the
+`$(pwd)/heliosi-501-corpus-skill` footgun where users `cd` into the clone
+before running step 3 and end up with a broken `…/heliosi-501-corpus-skill/heliosi-501-corpus-skill`
+path.
 
 ## Smoke test
 

@@ -1,3 +1,8 @@
+---
+name: iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere
 
 A paper-skill compiled from M. Iizawa et al. 2025 (arXiv preprint, arXiv:2507.13213).

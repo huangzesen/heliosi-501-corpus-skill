@@ -1,3 +1,8 @@
+---
+name: mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au
 
 A paper-skill compiled from C. Möstl et al. 2025 (arXiv preprint, arXiv:2512.04730).

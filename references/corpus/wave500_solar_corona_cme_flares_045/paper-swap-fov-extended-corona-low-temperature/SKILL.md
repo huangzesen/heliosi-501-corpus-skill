@@ -1,3 +1,8 @@
+---
+name: paper-swap-fov-extended-corona-low-temperature
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-swap-fov-extended-corona-low-temperature
 
 > Runtime-neutral paper-skill (four layers).

@@ -1,3 +1,8 @@
+---
+name: kontar-2025-ion-scale-turbulence-cascade-rate-corona
+description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # kontar-2025-ion-scale-turbulence-cascade-rate-corona
 
 A paper-skill compiled from E. P. Kontar, A. G. Emslie, + co-authors (TODO verify full list) et al. 2025 (TODO_verify_journal; arXiv:2509.17861).

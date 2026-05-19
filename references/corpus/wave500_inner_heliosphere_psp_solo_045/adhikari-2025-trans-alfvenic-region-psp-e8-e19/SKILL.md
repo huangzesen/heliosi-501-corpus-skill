@@ -1,3 +1,8 @@
+---
+name: adhikari-2025-trans-alfvenic-region-psp-e8-e19
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # adhikari-2025-trans-alfvenic-region-psp-e8-e19
 
 A paper-skill compiled from S. Adhikari et al. 2025 (arXiv preprint, arXiv:2510.07472).

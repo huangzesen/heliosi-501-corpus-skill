@@ -1,3 +1,8 @@
+---
+name: paper-kouloumvakos-2019-cme-shock-3d-pressure-coronal
+description: Per-entry paper-skill in wave500_solar_corona_cme_flares_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # paper-kouloumvakos-2019-cme-shock-3d-pressure-coronal
 
 > Runtime-neutral paper-skill (four layers).

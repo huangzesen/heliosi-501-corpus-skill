@@ -1,3 +1,8 @@
+---
+name: shankarappa-2025-free-energy-sources-ion-scale-waves-psp
+description: Per-entry paper-skill in wave500_inner_heliosphere_psp_solo_045 (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+---
+
 # shankarappa-2025-free-energy-sources-ion-scale-waves-psp
 
 A paper-skill compiled from N. Shankarappa et al. 2025 (arXiv preprint, arXiv:2512.11182).
