@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Solar-cycle-spanning validation of CH segmentation across instrument generations — paper-skill (stub)
 
-> Compiled from TODO verify (Jarolim et al. cycle-validation lineage) (2024), "Solar-cycle-spanning validation of CH segmentation across instrument generations", TODO verify, TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

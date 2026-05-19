@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # K-Means / GMM clustering of solar-wind streams across solar cycles — paper-skill (stub)
 
-> Compiled from TODO verify (Fung / clustering lineage) (2019), "K-Means / GMM clustering of solar-wind streams across solar cycles", TODO verify, TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

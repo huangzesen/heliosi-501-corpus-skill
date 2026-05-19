@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Consistency and confidence quantification of ACWE coronal-hole segmentation — paper-skill (stub)
 
-> Compiled from TODO verify (Jarolim / consistency study lineage) (2023), "Consistency and confidence quantification of ACWE coronal-hole segmentation", TODO verify, arXiv:2308.05679.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

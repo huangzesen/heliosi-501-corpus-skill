@@ -63,7 +63,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # sktime — abstract time-series classification capability for heliophysics workflo — paper-skill (stub)
 
-> Compiled from M. Löning et al. (2022), "sktime — abstract time-series classification capability for heliophysics workflows", TODO verify (JMLR or sktime documentation), TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Shapelet-based time-series classification of solar-wind discontinuities — paper-skill (stub)
 
-> Compiled from TODO verify (Davila / shapelet lineage) (2024), "Shapelet-based time-series classification of solar-wind discontinuities", TODO verify, TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

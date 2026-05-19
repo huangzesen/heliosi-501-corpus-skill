@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Large-language-model agentic discovery system for heliophysics tasks — paper-skill (stub)
 
-> Compiled from TODO verify (helio-LLM-agent lineage) (2025), "Large-language-model agentic discovery system for heliophysics tasks", TODO verify, TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # CNN-based automatic segmentation of coronal holes in EUV imagery — paper-skill (stub)
 
-> Compiled from TODO verify (Illarionov / Automatic-CH-segmentation lineage) (2020), "CNN-based automatic segmentation of coronal holes in EUV imagery", TODO verify, arXiv:2207.10070.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

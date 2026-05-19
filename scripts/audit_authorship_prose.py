@@ -39,12 +39,46 @@ This audit:
      after the audit, so CI / ``validate.sh`` can use it as a regression
      guard.
 
+Issue #55 follow-up: the original Pattern A/B above only caught lines
+whose templated parenthetical contained the literal word "authors"
+(Pattern A) or the literal "+ co-authors (TODO verify full list)"
+(Pattern B). The rendered SKILL.md body has a broader family of
+factory placeholder citation lines, e.g.::
+
+  > Compiled from TODO verify (Xu / Borovsky collaboration) (2020),
+    "...", TODO verify (likely J. Geophys. Res. Space Phys.),
+    TODO verify arXiv ID.
+  > Compiled from M. Bobra et al. (HelioML editorial collective)
+    (2019), "...", TODO verify (book / online resource),
+    TODO verify arXiv ID.
+
+These look like real citations to a consumer agent even though the
+identifiers, venue, and (sometimes) author tag are templated. This
+script rewrites them in full to a single honest scaffold sentence::
+
+  > Compiled as an unverified paper-skill scaffold from the local
+    source inventory; bibliographic identifiers and authorship remain
+    pending full-text verification.
+
+It also handles the Klein-2018 variant ("paper-skill compiled from
+<name>, + co-authors (TODO verify) et al. YYYY (...)") with a parallel
+non-blockquote scaffold sentence. The structured YAML frontmatter
+uncertainty fields (``authors_verified: false``, ``venue: "TODO
+verify ..."``, ``doi: null``, ``arxiv_id: null``) carry the same
+information honestly and are preserved byte-for-byte by the rewrite.
+
 Allowed (NOT rewritten by this script):
-  - non-authorship TODO_verify markers (e.g. ``TODO_verify_journal``,
-    ``TODO verify arXiv ID``, ``DOI: TODO verify``) — those are
-    intentional curation debt outside the issue-#55 class.
+  - non-authorship TODO_verify markers in §5 / §8 prose (e.g. ``DOI:
+    n/a — not yet resolved (TODO verify)``, ``arXiv: n/a — not yet
+    resolved (TODO verify)``) — those are intentional curation debt
+    outside the issue-#55 class and do not pose as citations.
   - ``authors: []`` / ``authors_verified: false`` in YAML — those are
     *already* honest and the right way to encode the unverified state.
+  - the turbulence-batch ``> Compiled from arXiv:<id>. Quality tier
+    ``stub`` — many numerical values are TODO verify against the full
+    text.`` form, which references a real arXiv ID and only flags the
+    numerical-value debt (the ``TODO verify`` token there is meta-
+    honesty, not a fake author / arxiv placeholder).
 
 This is stdlib-only; the rewrites are line-based to keep the diff
 minimal and review-able.
@@ -87,6 +121,168 @@ PATTERN_B_NAMED_RE = re.compile(
 # not accidentally rewrite a real author whose surname happens to include
 # substrings of the placeholder.
 MANIFEST_PLACEHOLDER = "+ co-authors (TODO verify full list)"
+
+
+# -- Issue #55 follow-up: broader rendered factory-prose detectors ----------
+#
+# After 4e1a75b a wider family of consumer-visible factory placeholder
+# prose still surfaces in the per-entry SKILL.md blockquote at the top
+# of the rendered body, e.g.
+#
+#   > Compiled from TODO verify (Xu / Borovsky collaboration) (2020),
+#     "...", TODO verify (likely J. Geophys. Res. Space Phys.),
+#     TODO verify arXiv ID.
+#   > Compiled from M. Bobra et al. (HelioML editorial collective)
+#     (2019), "...", TODO verify (book / online resource),
+#     TODO verify arXiv ID.
+#
+# These do NOT carry the literal word "authors" in the parenthetical
+# (Pattern A above misses them) and they read like real citations.
+# In the SKILL.md *body* (text after the YAML frontmatter) any blockquote
+# line that contains either ``Compiled from TODO verify`` or
+# ``TODO verify arXiv ID`` is rewritten in full to a single honest
+# scaffold sentence:
+#
+#   > Compiled as an unverified paper-skill scaffold from the local
+#     source inventory; bibliographic identifiers and authorship remain
+#     pending full-text verification.
+#
+# This deliberately discards the templated journal hint / pseudo-author
+# parenthetical / quoted-title repetition — the structured frontmatter
+# fields (``paper.title``, ``paper.venue``, ``paper.first_author``,
+# ``paper.authors``, ``paper.doi``, ``paper.arxiv_id``,
+# ``authors_verified: false``) already carry the same information
+# honestly without dressing it up as a citation.
+#
+# The Klein-2018 variant uses a "paper-skill compiled from ... + co-
+# authors (TODO verify) et al. YYYY (...)" line instead of a blockquote.
+# It is rewritten to a parallel scaffold sentence.
+#
+# Frontmatter ``venue: "TODO verify ..."`` and other YAML uncertainty
+# markers are out of scope for this rewrite (they are honest and
+# guarded by existing S4d / S4f checks).
+
+# Blockquote citation line that starts with `> Compiled from TODO verify`
+# (with optional leading whitespace inside the blockquote). Matches the
+# whole physical line up to the next newline.
+COMPILED_FROM_TODO_VERIFY_LINE_RE = re.compile(
+    r"^>[ \t]*Compiled from TODO verify\b[^\n]*$", re.MULTILINE
+)
+
+# Any blockquote citation line that carries the trailing
+# `TODO verify arXiv ID` placeholder. This catches the variants whose
+# parenthetical starts with a real-looking author surname (e.g.
+# `> Compiled from M. Bobra et al. (HelioML editorial collective) ...`)
+# but still ends with the templated arXiv placeholder.
+TODO_VERIFY_ARXIV_ID_LINE_RE = re.compile(
+    r"^>[ \t]*Compiled from[^\n]*\bTODO verify arXiv ID\b[^\n]*$",
+    re.MULTILINE,
+)
+
+# Klein-style line (not a blockquote) seen in wave500_waves_instabilities
+# _reconnection_045 / klein-2018-multispecies-stability-anisotropy:
+#   ``A paper-skill compiled from K. G. Klein, + co-authors (TODO verify)
+#     et al. 2018 (TODO_verify_journal; arXiv:TODO_verify_with_full_text).``
+# The parenthetical is ``(TODO verify)`` without "full list", so it slips
+# past PATTERN_B_BARE_RE / PATTERN_B_NAMED_RE above.
+PATTERN_B_BARE_PAREN_RE = re.compile(
+    r"^[^\n]*compiled from [^\n]+,\s*\+ co-authors \(TODO verify\)\s*"
+    r"et al\.[^\n]*$",
+    re.MULTILINE | re.IGNORECASE,
+)
+
+# Scalar replacements applied by `rewrite_broader_skill_body`.
+SCAFFOLD_BLOCKQUOTE_REPLACEMENT = (
+    "> Compiled as an unverified paper-skill scaffold from the local "
+    "source inventory; bibliographic identifiers and authorship remain "
+    "pending full-text verification."
+)
+SCAFFOLD_KLEIN_REPLACEMENT = (
+    "A paper-skill compiled as an unverified scaffold; bibliographic "
+    "identifiers and authorship remain pending full-text verification."
+)
+
+
+def _split_frontmatter(text: str) -> tuple[str, str]:
+    """Split a SKILL.md into (frontmatter_with_delims, body).
+
+    If the file has no YAML frontmatter the returned frontmatter is
+    empty and the body is the full text. The split is line-based and
+    preserves the exact original byte content on both sides so we can
+    re-join them without mutating the frontmatter.
+    """
+    if not text.startswith("---\n"):
+        return "", text
+    try:
+        end = text.index("\n---", 4)
+    except ValueError:
+        return "", text
+    delim_end = end + len("\n---")
+    # Include one trailing newline after the closing `---` in the
+    # frontmatter chunk if present, so the body starts at a logical line
+    # boundary.
+    if delim_end < len(text) and text[delim_end] == "\n":
+        delim_end += 1
+    return text[:delim_end], text[delim_end:]
+
+
+def rewrite_broader_skill_body(text: str) -> tuple[str, int]:
+    """Rewrite issue-#55-follow-up factory prose lines in a SKILL.md.
+
+    Only the body (text AFTER the YAML frontmatter) is touched; the
+    frontmatter is preserved byte-for-byte so structured uncertainty
+    markers (``authors_verified: false``, ``venue: "TODO verify ..."``,
+    ``doi: null``, ``arxiv_id: null``, …) stay intact.
+
+    Three transforms are applied (in this order; later passes operate on
+    text the earlier passes have already rewritten):
+
+      1. ``> Compiled from TODO verify ...`` blockquote line  →
+         scaffold blockquote sentence.
+
+      2. ``> Compiled from <real-or-real-looking-author> ... TODO verify
+         arXiv ID ...`` blockquote line  →  scaffold blockquote sentence.
+
+      3. ``A paper-skill compiled from <name>, + co-authors (TODO verify)
+         et al. YYYY (...)`` body line  →  scaffold non-blockquote
+         sentence.
+
+    Returns (new_text, num_lines_rewritten).
+    """
+    fm, body = _split_frontmatter(text)
+    total = 0
+
+    body2, n1 = COMPILED_FROM_TODO_VERIFY_LINE_RE.subn(
+        SCAFFOLD_BLOCKQUOTE_REPLACEMENT, body
+    )
+    total += n1
+
+    body3, n2 = TODO_VERIFY_ARXIV_ID_LINE_RE.subn(
+        SCAFFOLD_BLOCKQUOTE_REPLACEMENT, body2
+    )
+    total += n2
+
+    body4, n3 = PATTERN_B_BARE_PAREN_RE.subn(SCAFFOLD_KLEIN_REPLACEMENT, body3)
+    total += n3
+
+    return fm + body4, total
+
+
+def find_broader_skill_violations(text: str) -> list[str]:
+    """Return broader-factory-prose violations in a SKILL.md body."""
+    _fm, body = _split_frontmatter(text)
+    out: list[str] = []
+    for m in COMPILED_FROM_TODO_VERIFY_LINE_RE.finditer(body):
+        out.append(m.group(0))
+    # The arXiv-ID detector can overlap the first one when a line
+    # contains both phrases. Avoid double-reporting by stripping
+    # already-matched lines.
+    stripped, _ = COMPILED_FROM_TODO_VERIFY_LINE_RE.subn("", body)
+    for m in TODO_VERIFY_ARXIV_ID_LINE_RE.finditer(stripped):
+        out.append(m.group(0))
+    for m in PATTERN_B_BARE_PAREN_RE.finditer(body):
+        out.append(m.group(0))
+    return out
 
 
 def rewrite_pattern_a(text: str) -> tuple[str, int]:
@@ -138,14 +334,27 @@ def rewrite_pattern_b(text: str) -> tuple[str, int]:
 
 
 def rewrite_skill_body(text: str) -> tuple[str, int]:
-    """Apply both pattern rewrites to a SKILL.md body."""
+    """Apply all pattern rewrites to a SKILL.md.
+
+    Order:
+      1. Pattern A / Pattern B (original issue-#55 narrow patterns).
+      2. Broader factory-prose rewrites (issue-#55 follow-up; only the
+         body after the frontmatter is touched).
+    """
     text, na = rewrite_pattern_a(text)
     text, nb = rewrite_pattern_b(text)
-    return text, na + nb
+    text, nc = rewrite_broader_skill_body(text)
+    return text, na + nb + nc
 
 
 def find_skill_violations(text: str) -> list[str]:
-    """Return a list of violating snippets from a SKILL.md body."""
+    """Return a list of violating snippets from a SKILL.md body.
+
+    Combines the original Pattern A / Pattern B detectors (which scan
+    the whole file) with the issue-#55-follow-up broader-body detectors
+    (which scan only the body, so YAML-frontmatter uncertainty markers
+    are not double-counted).
+    """
     out: list[str] = []
     for m in PATTERN_A_RE.finditer(text):
         out.append(m.group(0))
@@ -158,6 +367,7 @@ def find_skill_violations(text: str) -> list[str]:
     stripped, _ = PATTERN_B_NAMED_RE.subn("", text)
     for m in PATTERN_B_BARE_RE.finditer(stripped):
         out.append(m.group(0))
+    out.extend(find_broader_skill_violations(text))
     return out
 
 

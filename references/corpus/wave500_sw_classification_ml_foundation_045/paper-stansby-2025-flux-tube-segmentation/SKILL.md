@@ -63,7 +63,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Flux-tube segmentation of solar-wind streams from B-field topology — paper-skill (stub)
 
-> Compiled from D. Stansby (extension lineage) (2025), "Flux-tube segmentation of solar-wind streams from B-field topology", TODO verify, TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

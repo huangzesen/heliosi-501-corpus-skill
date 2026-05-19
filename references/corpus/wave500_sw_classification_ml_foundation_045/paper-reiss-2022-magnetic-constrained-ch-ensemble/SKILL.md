@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Ensemble image segmentation of coronal holes constrained by photospheric magneti — paper-skill (stub)
 
-> Compiled from TODO verify (Reiss / Magnetic-constrained-ensemble lineage) (2022), "Ensemble image segmentation of coronal holes constrained by photospheric magnetic-field data", TODO verify, arXiv:2405.04731.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

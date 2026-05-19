@@ -64,7 +64,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Extension and operational refinement of the Xu–Borovsky 4-class 1-au solar-wind — paper-skill (stub)
 
-> Compiled from TODO verify (Xu / Borovsky collaboration) (2020), "Extension and operational refinement of the Xu–Borovsky 4-class 1-au solar-wind labelling", TODO verify (likely J. Geophys. Res. Space Phys.), TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

@@ -63,7 +63,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # HelioML — curated catalog of ML-ready heliophysics datasets and notebooks — paper-skill (stub)
 
-> Compiled from M. Bobra et al. (HelioML editorial collective) (2019), "HelioML — curated catalog of ML-ready heliophysics datasets and notebooks", TODO verify (book / online resource), TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:

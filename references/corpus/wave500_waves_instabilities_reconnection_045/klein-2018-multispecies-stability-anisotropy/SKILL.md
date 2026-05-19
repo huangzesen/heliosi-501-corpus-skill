@@ -5,7 +5,7 @@ description: Per-entry paper-skill in wave500_waves_instabilities_reconnection_0
 
 # klein-2018-multispecies-stability-anisotropy
 
-A paper-skill compiled from K. G. Klein, + co-authors (TODO verify) et al. 2018 (TODO_verify_journal; arXiv:TODO_verify_with_full_text).
+A paper-skill compiled as an unverified scaffold; bibliographic identifiers and authorship remain pending full-text verification.
 
 Paper-skills are **harness-agnostic**. They describe what a paper
 enables an agent to do via abstract *capability contracts*. Any

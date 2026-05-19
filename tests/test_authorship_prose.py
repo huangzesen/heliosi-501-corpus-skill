@@ -85,6 +85,178 @@ class TestSkillBodyAuthorshipProse(unittest.TestCase):
         )
 
 
+# -- Issue #55 follow-up: broader rendered factory-prose detectors ----------
+#
+# The patterns above (Pattern A with the literal word "authors" inside the
+# parenthetical, Pattern B with "+ co-authors (TODO verify full list)") only
+# catch a subset of the factory templating. After 4e1a75b the corpus still
+# carries a wider family of consumer-visible placeholder prose in the
+# rendered SKILL.md blockquote at the top of the body, e.g.
+#
+#   > Compiled from TODO verify (Xu / Borovsky collaboration) (2020),
+#     "...", TODO verify (likely J. Geophys. Res. Space Phys.),
+#     TODO verify arXiv ID.
+#
+# These do NOT contain the literal word "authors" in the parenthetical
+# (the placeholder phrasing varies — "collaboration", "lineage",
+# "successor", "MHD-emulator lineage", ...), and they all surface in the
+# rendered body where an agent reads them as if they were a real citation.
+#
+# The detectors below run on the SKILL.md BODY only (text after the YAML
+# frontmatter). They are intentionally NOT applied to:
+#   - the YAML frontmatter (uncertainty markers there are honest:
+#     ``authors_verified: false``, ``venue: "TODO verify ..."``, etc.);
+#   - non-corpus files (CHANGELOG, README, this test file, fixtures).
+
+
+def _skill_body(text: str) -> str:
+    """Return the body of a SKILL.md (text after the YAML frontmatter).
+
+    If no frontmatter delimiter is present the full text is returned.
+    """
+    if not text.startswith("---\n"):
+        return text
+    try:
+        end = text.index("\n---", 4)
+    except ValueError:
+        return text
+    rest = text[end + len("\n---"):]
+    # Drop the trailing newline after the closing '---' if present.
+    return rest.lstrip("\n")
+
+
+# Literal start of the templated factory citation. Anchored on the
+# blockquote prefix so we only flag the rendered citation line, not e.g.
+# an inline mention inside §8 Links or §9 affordances.
+COMPILED_FROM_TODO_VERIFY_RE = re.compile(
+    r"^>\s*Compiled from TODO verify\b", re.MULTILINE
+)
+
+# Trailing "TODO verify arXiv ID" placeholder anywhere in the body
+# (typically the last token of the same blockquote line).
+TODO_VERIFY_ARXIV_ID_RE = re.compile(r"\bTODO verify arXiv ID\b")
+
+# Klein-2018 variant: "compiled from <Name>, + co-authors (TODO verify) et al. YYYY"
+# Note the parenthetical is "(TODO verify)" without "full list", so the
+# existing PATTERN_B_BARE / PATTERN_B_NAMED above miss it.
+COMPILED_FROM_CO_AUTHORS_TODO_VERIFY_RE = re.compile(
+    r"compiled from .+?,\s*\+ co-authors \(TODO verify\)\s*et al\.\s*\d{4}",
+    re.IGNORECASE,
+)
+
+
+def _broader_body_violations(body: str) -> list[str]:
+    """Detect broader factory-prose phrases in a SKILL.md body."""
+    out: list[str] = []
+    for m in COMPILED_FROM_TODO_VERIFY_RE.finditer(body):
+        # Capture the rest of the line for the violation report.
+        line_end = body.find("\n", m.end())
+        if line_end == -1:
+            line_end = len(body)
+        out.append(body[m.start():line_end])
+    for m in TODO_VERIFY_ARXIV_ID_RE.finditer(body):
+        line_start = body.rfind("\n", 0, m.start()) + 1
+        line_end = body.find("\n", m.end())
+        if line_end == -1:
+            line_end = len(body)
+        out.append(body[line_start:line_end])
+    for m in COMPILED_FROM_CO_AUTHORS_TODO_VERIFY_RE.finditer(body):
+        out.append(m.group(0))
+    return out
+
+
+class TestSkillBodyBroaderFactoryProse(unittest.TestCase):
+    """Issue #55 follow-up: no broader factory placeholder prose in bodies.
+
+    Scope: only the per-entry SKILL.md body (text after the YAML
+    frontmatter). Frontmatter ``venue: "TODO verify ..."`` and
+    ``authors_verified: false`` are honest uncertainty markers and remain
+    in scope of the existing S4d / S4f checks.
+    """
+
+    def test_no_compiled_from_todo_verify_blockquote(self):
+        violations = []
+        for p in sorted(CORPUS.glob("*/*/SKILL.md")):
+            body = _skill_body(p.read_text())
+            for m in COMPILED_FROM_TODO_VERIFY_RE.finditer(body):
+                line_end = body.find("\n", m.end())
+                if line_end == -1:
+                    line_end = len(body)
+                violations.append(
+                    f"{p.relative_to(BUNDLE)}: {body[m.start():line_end][:140]}"
+                )
+        self.assertEqual(
+            violations, [],
+            msg=(
+                f"{len(violations)} SKILL.md bodies start a blockquote "
+                f"with the templated ``> Compiled from TODO verify ...`` "
+                f"factory prose (issue #55 follow-up) "
+                f"(first 5: {violations[:5]}). "
+                f"Run `python3 scripts/audit_authorship_prose.py --apply` "
+                f"to rewrite the citation line to non-placeholder wording."
+            ),
+        )
+
+    def test_no_todo_verify_arxiv_id_in_body(self):
+        violations = []
+        for p in sorted(CORPUS.glob("*/*/SKILL.md")):
+            body = _skill_body(p.read_text())
+            for m in TODO_VERIFY_ARXIV_ID_RE.finditer(body):
+                line_start = body.rfind("\n", 0, m.start()) + 1
+                line_end = body.find("\n", m.end())
+                if line_end == -1:
+                    line_end = len(body)
+                violations.append(
+                    f"{p.relative_to(BUNDLE)}: {body[line_start:line_end][:140]}"
+                )
+        self.assertEqual(
+            violations, [],
+            msg=(
+                f"{len(violations)} SKILL.md body lines still carry the "
+                f"templated ``TODO verify arXiv ID`` factory placeholder "
+                f"(issue #55 follow-up) (first 5: {violations[:5]}). "
+                f"Run `python3 scripts/audit_authorship_prose.py --apply`."
+            ),
+        )
+
+    def test_no_co_authors_todo_verify_bare_paren_in_body(self):
+        violations = []
+        for p in sorted(CORPUS.glob("*/*/SKILL.md")):
+            body = _skill_body(p.read_text())
+            for m in COMPILED_FROM_CO_AUTHORS_TODO_VERIFY_RE.finditer(body):
+                violations.append(
+                    f"{p.relative_to(BUNDLE)}: {m.group(0)[:140]}"
+                )
+        self.assertEqual(
+            violations, [],
+            msg=(
+                f"{len(violations)} SKILL.md body lines carry the Klein-"
+                f"style ``compiled from <name>, + co-authors (TODO verify) "
+                f"et al. YYYY`` placeholder (issue #55 follow-up) "
+                f"(first 5: {violations[:5]}). "
+                f"Run `python3 scripts/audit_authorship_prose.py --apply`."
+            ),
+        )
+
+    def test_audit_script_strict_exits_zero(self):
+        """End-to-end: scripts/audit_authorship_prose.py --strict must pass."""
+        import subprocess
+        script = BUNDLE / "scripts" / "audit_authorship_prose.py"
+        result = subprocess.run(
+            ["python3", str(script), "--strict"],
+            capture_output=True, text=True, cwd=str(BUNDLE),
+        )
+        self.assertEqual(
+            result.returncode, 0,
+            msg=(
+                f"audit_authorship_prose.py --strict exited "
+                f"{result.returncode}.\n"
+                f"stdout:\n{result.stdout}\n"
+                f"stderr:\n{result.stderr}"
+            ),
+        )
+
+
 class TestManifestAuthorsPlaceholder(unittest.TestCase):
     """No '+ co-authors (TODO verify full list)' in manifest authors[]."""
 

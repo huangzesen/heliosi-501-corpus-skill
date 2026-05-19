@@ -63,7 +63,7 @@ tags: [heliophysics, paper-skill, solar-wind-classification, stub]
 
 # Cross-mission ML benchmark for ICME vs sheath vs ambient classification — paper-skill (stub)
 
-> Compiled from E. Camporeale (extension lineage) (2020), "Cross-mission ML benchmark for ICME vs sheath vs ambient classification", TODO verify, TODO verify arXiv ID.
+> Compiled as an unverified paper-skill scaffold from the local source inventory; bibliographic identifiers and authorship remain pending full-text verification.
 > **Quality tier**: `stub` — promote per spec §7 (factory v0.2) before relying on procedure / validation.
 >
 > **Four-layer reminder (spec §4)**:
