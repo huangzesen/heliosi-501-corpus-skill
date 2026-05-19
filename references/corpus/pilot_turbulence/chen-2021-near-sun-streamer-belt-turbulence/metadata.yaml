@@ -4,11 +4,26 @@ authors:
   - "C. H. K. Chen"
   - "B. D. G. Chandran"
   - "L. D. Woodham"
-  - "S. I. Jones-Mecholsky"
+  - "S. I. Jones"
+  - "J. C. Perez"
+  - "S. Bourouaine"
+  - "T. A. Bowen"
+  - "K. G. Klein"
+  - "M. Moncuquet"
+  - "J. C. Kasper"
+  - "S. D. Bale"
 year: 2021
-journal: null
-doi: null
+journal: "Astronomy & Astrophysics"
+volume: "650"
+article_number: "L3"
+doi: "10.1051/0004-6361/202039872"
+doi_url: "https://doi.org/10.1051/0004-6361/202039872"
 arxiv: "2101.00246"
+arxiv_url: "https://arxiv.org/abs/2101.00246"
+ads_bibcode: "2021A&A...650L...3C"
+ads_url: "https://ui.adsabs.harvard.edu/abs/2021A%26A...650L...3C"
+links_verified_on: "2026-05-19"
+links_verified_method: "arxiv 2101.00246 title-author match; A&A html resolves DOI 10.1051/0004-6361/202039872"
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
@@ -25,5 +40,7 @@ methods:
   - residual-energy-sigma-R
 validation_targets:
   - "Inbound and outbound legs of PSP E4 streamer-belt wind show distinguishable trace PSDs and sigma_c / sigma_R (qualitative)"
+  - "Near the heliospheric current sheet (outbound, streamer-belt), turbulence shows lower amplitudes, increased magnetic compressibility, and steeper spectra (qualitative; abstract-verified 2026-05-19)"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #3 (2021)"
+research_generation_affordances_present: true

@@ -9,6 +9,8 @@ executable_status: scaffold
 
 # Sioulas 2023 — Anisotropic Scaling of MHD Turbulence in the Inner Heliosphere
 
+> **⚠ Identifier attribution unresolved (verified 2026-05-19).** Independent resolution shows that the DOI `10.3847/1538-4357/acd053` listed below actually points to **Yoshida, Shimizu & Toriumi 2023** (a different ApJ paper on solar magnetic-field component vs interplanetary-field evolution), and arXiv `2303.10810` points to **Wu, He, Huang, Yang, Wang & Yuan** ("Scaling anisotropy with stationary background field in the near-Sun solar wind turbulence", ApJ). The Sioulas+ 2023 paper this skill *intends* to compile has a different (still-unresolved) DOI/arXiv pair. Treat both identifiers as PENDING corrections — do not cite this entry's DOI / arXiv in a manuscript until a curator locates the canonical identifiers (e.g. via ADS author-affiliation search). The Layer-1 claim boundary about parallel/perpendicular anisotropy and its radial evolution remains *paraphrase-only* until the canonical paper is located.
+
 ## When to use this paper-skill
 
 Load this skill when you need to:
@@ -99,6 +101,7 @@ The Claude Code harness is the **general-purpose runtime**; HelioSI is its **dom
 ## References
 
 - Inventory: `sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md` §1.2.
-- DOI: 10.3847/1538-4357/acd053
-- arXiv: https://arxiv.org/abs/2303.10810
-- Cross-check: same arXiv ID appears under a different attribution in `apj_aa_heliophysics_papers.md` §3.5 (Cuesta+ 2023, "Scaling Anisotropy with Stationary Background Field") — TODO verify which paper actually corresponds to arXiv 2303.10810 before citing this skill in a manuscript.
+- DOI: 10.3847/1538-4357/acd053 — **disputed**: external resolution on 2026-05-19 shows this DOI resolves to Yoshida et al. 2023 (ApJ), not a Sioulas+ paper.
+- arXiv: https://arxiv.org/abs/2303.10810 — **disputed**: external resolution on 2026-05-19 shows this arXiv ID resolves to Wu, He, Huang, Yang, Wang & Yuan, "Scaling anisotropy with stationary background field in the near-Sun solar wind turbulence" (ApJ).
+- Cross-attribution: the apj_aa inventory §3.5 separately lists arXiv 2303.10810 under Cuesta+ 2023 ("Scaling Anisotropy with Stationary Background Field"). The independent external lookup (Wu et al.) is closer to that §3.5 title than to the Sioulas §1.2 attribution — but neither matches verbatim, so the canonical identifier set for *both* attributions in the inventory remains TODO_verify.
+- Action item: locate the canonical DOI/arXiv pair for the Sioulas+ 2023 "Evolution of the Anisotropic Scaling of MHD Turbulence in the Inner Heliosphere" paper via ADS author-affiliation search before promoting this entry past T3.

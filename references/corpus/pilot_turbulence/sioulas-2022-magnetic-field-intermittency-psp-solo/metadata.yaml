@@ -1,18 +1,28 @@
 slug: sioulas-2022-magnetic-field-intermittency-psp-solo
-title: "Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and Solar Orbiter"
+title: "Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and SolO Observations Ranging from the Alfvén Region up to 1 AU"
 authors:
   - "N. Sioulas"
   - "Z. Huang"
   - "M. Velli"
   - "R. Chhiber"
-  - "M. M. Cuesta"
+  - "M. E. Cuesta"
   - "C. Shi"
   - "W. H. Matthaeus"
   - "R. Bandyopadhyay"
+  - "L. Vlahos"
+  - "T. A. Bowen"
 year: 2022
 journal: "The Astrophysical Journal"
+volume: "934"
+article_number: "143"
 doi: "10.3847/1538-4357/ac7aa2"
-arxiv: null
+doi_url: "https://doi.org/10.3847/1538-4357/ac7aa2"
+arxiv: "2206.00871"
+arxiv_url: "https://arxiv.org/abs/2206.00871"
+ads_bibcode: "2022ApJ...934..143S"
+ads_url: "https://ui.adsabs.harvard.edu/abs/2022ApJ...934..143S"
+links_verified_on: "2026-05-19"
+links_verified_method: "IOPscience DOI resolves to ApJ 934 143; arXiv 2206.00871 abstract title-matches"
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
@@ -28,6 +38,8 @@ methods:
 validation_targets:
   - "Kurtosis-scaling exponent kappa larger at smaller heliocentric distance (intermittency increases toward the Sun) - qualitative"
   - "PVI PDF tails fatter at PSP perihelion than at SO ~0.8 au (qualitative)"
+  - "Small-scale (~20-100 d_i) intermittency strengthens radially when higher-order moments are used; no clear trend at larger scales (qualitative; abstract-verified 2026-05-19)"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.5"
   - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #5)"
+research_generation_affordances_present: true

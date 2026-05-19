@@ -1,13 +1,29 @@
 ---
 name: telloni-2025-psp-solo-radial-alignment-2022-december
-description: Use when analysing the 2022 December PSP–Solar Orbiter radial conjunction for turbulence radial evolution — central paper claim is that structure-function spectral evolution and cross-helicity radial trend in the same approximate plasma parcel are recovered between PSP and SO during the 2022 December alignment (Telloni et al. 2025, ApJS; DOI 10.3847/1538-4365/add011).
+description: Use when analysing the 2022 December PSP–Solar Orbiter radial conjunction for turbulence radial evolution — central paper claim is that structure-function spectral evolution and cross-helicity radial trend in the same approximate plasma parcel are recovered between PSP and SO during the 2022 December alignment (Silwal et al. 2025, ApJS 278; DOI 10.3847/1538-4365/add011). Slug retained for backwards compatibility; lead author of the published paper is Silwal, not Telloni (verified 2026-05-19).
 version: 0.1.0
 tags: [psp, solar-orbiter, radial-alignment, conjunction, turbulence, cross-helicity, structure-functions]
 quality_level: pilot
 executable_status: scaffold
+paper:
+  first_author: "A. Silwal"
+  authors:
+    - "A. Silwal"
+    - "L. Zhao"
+    - "X. Zhu"
+    - "L. Sorriso-Valvo"
+    - "L. Z. Hadid"
+    - "G. P. Zank"
+  authors_verified: false
+  doi: "10.3847/1538-4365/add011"
+  arxiv_id: null
+  year: 2025
+  venue: "The Astrophysical Journal Supplement Series 278 (2025)"
 ---
 
-# Telloni 2025 — PSP/SO Radial Alignment 2022 December
+# Silwal 2025 — PSP/SO Radial Alignment 2022 December (slug: telloni-2025-…)
+
+> **Attribution note (verified 2026-05-19).** The IOPscience landing page for DOI 10.3847/1538-4365/add011 lists **A. Silwal** as first author, not D. Telloni. The corpus slug is retained for backwards compatibility but the cited lead author is now A. Silwal. Inventories that name "Telloni 2025" for this DOI are *paraphrases* — use Silwal et al. 2025, ApJS 278 (2025) when citing this entry in a manuscript.
 
 ## When to use this paper-skill
 
@@ -21,16 +37,25 @@ Skip this skill if your interest is statistical multi-spacecraft compressibility
 
 ## Paper identity and claim boundary
 
-- **Citation**: Telloni, D. and collaborators (2025). *Evolution of Solar Wind Turbulence during Radial Alignment of Parker Solar Probe and Solar Orbiter in 2022 December.* **ApJS**.
-- **DOI**: 10.3847/1538-4365/add011
-- **arXiv**: TODO verify.
-- **Source inventory**: `sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md` §1.12.
+- **Citation**: Silwal, A., Zhao, L., Zhu, X., Sorriso-Valvo, L., Hadid, L. Z., Zank, G. P., et al. (2025). *Evolution of Solar Wind Turbulence during Radial Alignment of Parker Solar Probe and Solar Orbiter in 2022 December.* **ApJS 278** (2025). Full author tail beyond first 6 TODO_verify.
+- **DOI**: [10.3847/1538-4365/add011](https://doi.org/10.3847/1538-4365/add011)
+- **arXiv**: not located on 2026-05-19 (TODO_verify whether a preprint exists).
+- **Source inventory**: `sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md` §1.12 (inventory attributes lead authorship to Telloni — see attribution note above).
 
-**Claim boundary** — only the inventory-supported claim is treated as fixed:
+**Evidence boundary — what the abstract supports (verified 2026-05-19 via IOPscience DOI page):**
 
-> During the 2022 December PSP–SO radial alignment, structure-function spectral evolution and cross-helicity radial trend are observed in the approximately co-mapped plasma parcel.
+- The paper investigates radial evolution of solar wind turbulence during a PSP–SO radial alignment **on 2022 December 10**, with **PSP at ≈0.11 au and SO at ≈0.88 au** (abstract-verified absolute positions).
+- The mapping method is a **ballistic propagation model with time-constant acceleration constrained by in situ solar wind velocity at PSP and SO** (abstract-verified — this is more specific than a constant-V_sw ballistic mapping; the constant-acceleration variant accommodates a non-trivial expansion profile).
 
-Out-of-scope: collapsing this single-event result into a general statistical statement about all PSP–SO conjunctions, ignoring co-rotation timing uncertainties, or generalising the cross-helicity sign across stream classes that the alignment did not actually sample.
+**Out-of-evidence-boundary at this verification depth (still pending full-text verification):**
+
+- Per-window inertial-range slopes, σ_c radial trend direction and magnitude, and Δσ_c across the conjunction are **TODO_verify** against §3 / figures of ApJS 278.
+- The conjunction window's exact start/end times beyond the central 2022-12-10 anchor are TODO_verify.
+- Whether the abstract's "approximately the same plasma parcel" framing relies on the constant-acceleration mapping or also on co-rotation timing checks is TODO_verify.
+
+Out-of-scope (the entry deliberately refuses these): collapsing this single-event result into a general statistical statement about all PSP–SO conjunctions, ignoring co-rotation timing uncertainties, or generalising the cross-helicity sign across stream classes that the alignment did not actually sample.
+
+> **Assumptions and failure modes** (load-bearing): a single radial conjunction provides one Lagrangian sample — population claims require many events; the constant-acceleration mapping is not equivalent to a constant-V_sw mapping and the choice affects which PSP samples pair with which SO samples; RTN-frame +R / +N orientation conventions differ between SOAR / SOC delivered products and must be harmonised before pairing increments.
 
 ## Scientific claim to reproduce or operationalize
 
@@ -45,12 +70,12 @@ A radial PSP–SO conjunction in 2022 December provides a near-Lagrangian path a
 | Solar Orbiter MAG | B_RTN | L2 | SOAR / CDAWeb |
 | Solar Orbiter SWA/PAS | n_p, V_RTN, T_p | L2 | SOAR / CDAWeb |
 
-Time range: 2022-12 conjunction window (exact start/end **TODO verify** against the paper's selection).
+Time range: **2022-12-10** central conjunction anchor with PSP ≈ 0.11 au and SO ≈ 0.88 au (abstract-verified absolute positions); exact full window start/end **TODO_verify** against the paper's §2 selection.
 
 ## Algorithm/workflow steps
 
 1. **Conjunction identification** — Find the time window in 2022 December where PSP and SO are within an acceptable angular separation in heliographic longitude (radial alignment).
-2. **Plasma-parcel mapping** — Estimate the ballistic mapping τ_map = (r_SO − r_PSP)/V_sw for each PSP sample; pair PSP samples at time t with SO samples at t + τ_map.
+2. **Plasma-parcel mapping** — Apply a ballistic propagation model with a **time-constant acceleration constrained by in-situ solar-wind velocity at PSP and SO** (the paper's method, abstract-verified). Pair PSP samples at time t with SO samples at the corresponding mapped time. Also report a constant-V_sw variant as a sensitivity check, since constant-V_sw and constant-acceleration mappings can differ noticeably across a ≈0.77-au baseline.
 3. **Per-spacecraft windows** — Build matched PSP / SO sub-intervals (e.g. 1 h) with continuous MAG + plasma data.
 4. **Structure functions** — Compute S₂(τ), S₃(τ) per spacecraft on Elsässer / magnetic increments.
 5. **Cross-helicity radial trend** — Compute σ_c per matched window pair; report σ_c(PSP) → σ_c(SO).
@@ -84,6 +109,14 @@ Recommended check artifacts:
 - **Caveats → skill memory**: mapping ambiguity, separation tolerance, RTN-frame convention, single-event statistical caveat.
 - **Figures / results → benchmark artifacts**: matched-window CSV + PSP/SO PSD overlay.
 
+## Layer 4 — Research-generation affordances
+
+- **Gap:** the radial alignment is a single Lagrangian event (one date, one mapping); statistical claims about PSP→SO radial turbulence evolution cannot be drawn from this entry alone. Compose with [[telloni-2021-psp-solo-radial-alignment-turbulence]] (first PSP–SO alignment, June 2020) and [[chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] (multi-encounter radial survey) to build an event-stratified population view.
+- **Tension:** the abstract reports a *constant-acceleration* ballistic mapping; the literature standard is constant-V_sw. The two mappings can pair PSP samples with different SO samples across a 0.77-au baseline. Re-running the analysis under both mappings, on the same windows, separates "radial evolution of turbulence" from "sensitivity to the parcel-tracking model" — a result that would otherwise be ambiguous in any roll-up.
+- **Hypothesis:** the difference Δσ_c = σ_c(SO) − σ_c(PSP) across this single 2022-12-10 conjunction is dominated by *expansion* (radial decoupling of forward and backward Alfvén waves) rather than by *parametric decay* or *interaction with CIR structures*. Testable by stratifying the matched windows by the local expansion factor inferred from V_sw and by HCS-distance during the SO leg.
+- **Minimal_experiment:** rerun the matched-window structure functions with two angular-separation tolerances (e.g. ±2° vs ±5° heliographic longitude) and report (slope_B_PSP, slope_B_SO, σ_c_PSP, σ_c_SO) per tolerance; if the trend is tolerance-invariant the alignment is the dominant driver, if not, the "radial evolution" signal is partly a window-selection effect.
+- **Composable experiment:** join the matched-window table with [[bandyopadhyay-2020-energy-transfer-psp]] for ε(PSP-leg) and a 1-au cascade-rate reference for ε(SO-leg) — testing whether ε co-decays Lagrangianly with σ_c across this single radial path provides the first single-event test of whether cascade-rate decay tracks Alfvénicity decay (vs being radially decoupled).
+
 ## Relation to HelioSI harness + skills + MCPs
 
 - **Parent skill**: HelioSI `solar-wind-turbulence` + `solar_orbiter` bundles (radial-evolution / conjunction branch).
@@ -93,6 +126,8 @@ Recommended check artifacts:
 
 ## References
 
-- Inventory: `sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md` §1.12.
-- DOI: https://doi.org/10.3847/1538-4365/add011
+- Inventory: `sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md` §1.12 (lists this DOI under "Telloni 2025"; verified 2026-05-19 that the published lead author is A. Silwal — inventory paraphrase, not a verified attribution).
+- DOI: https://doi.org/10.3847/1538-4365/add011 (resolves to IOPscience ApJS 278 (2025))
+- ADS candidate bibcode: 2025ApJS..278....3S (TODO_verify bibcode against ADS listing)
+- arXiv: not located on 2026-05-19 (no verified preprint link)
 - Telloni et al. 2021 — methodological predecessor (paper-skill [[telloni-2021-psp-solo-radial-alignment-turbulence]]).

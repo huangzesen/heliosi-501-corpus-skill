@@ -21,15 +21,25 @@ Use [[damicis-2021-alfvenic-nonalfvenic-psp]] for general Alfvénicity stratific
 
 ## Paper identity and claim boundary
 
-- **Citation**: Chen, C. H. K., Chandran, B. D. G., Woodham, L. D., Jones-Mecholsky, S. I., et al. (2021). *The Near-Sun Streamer Belt Solar Wind: Turbulence and Solar Wind Acceleration*.
+- **Citation**: Chen, C. H. K., Chandran, B. D. G., Woodham, L. D., Jones, S. I., Perez, J. C., Bourouaine, S., Bowen, T. A., Klein, K. G., Moncuquet, M., Kasper, J. C., Bale, S. D. (2021). *The Near-Sun Streamer Belt Solar Wind: Turbulence and Solar Wind Acceleration*. **A&A 650, L3**.
+- **DOI**: [10.1051/0004-6361/202039872](https://doi.org/10.1051/0004-6361/202039872)
 - **arXiv**: [2101.00246](https://arxiv.org/abs/2101.00246)
+- **ADS**: [2021A&A...650L...3C](https://ui.adsabs.harvard.edu/abs/2021A%26A...650L...3C)
 - **Source inventory**: `sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md` entry #3 (2021).
 
-**Claim boundary** — supported by inventory:
+**Evidence boundary — what the abstract supports (verified 2026-05-19 via arXiv 2101.00246 + A&A 650 L3 page):**
 
-> PSP Encounter 4 (down to 27.9 R☉) in-situ MAG + SPC analysis split inbound/outbound; trace power spectra of magnetic and velocity fluctuations near the heliospheric current sheet; cross-helicity and residual-energy diagnostics linked to solar-wind acceleration mechanisms.
+- PSP Encounter 4 reached as low as 27.9 R☉; in-situ MAG + SPC are used to study turbulence in the streamer-belt slow wind near the heliospheric current sheet (HCS).
+- Verified, qualitative claim: **turbulence properties differ between inbound and outbound legs**; near the HCS (outbound, streamer-belt) the turbulence shows **lower amplitudes, increased magnetic compressibility, and steeper spectra**.
+- The paper links these turbulence properties to solar-wind acceleration mechanisms in the streamer-belt origin scenario (this linkage is an interpretation, not a directly measured causal claim).
 
-Numerical slopes, σ_c values, and exact HCS-crossing times are **TODO verify in full paper**.
+**Out-of-evidence-boundary at this verification depth (still pending full-text verification):**
+
+- Exact inertial-range slope values per leg (B and V), per-window σ_c and σ_R numerical values, and exact HCS-crossing times are **TODO_verify** against §3 / figures of A&A 650, L3.
+- Whether the leg-to-leg compressibility increase is monotonic in proximity to the HCS or a step at the crossing is TODO_verify.
+- The "linked to acceleration" framing is interpretive — the supporting evidence chain (e.g. through what specific acceleration mechanism — Alfvén-wave-driven, reflection, expansion) requires full-text inspection.
+
+> **Assumptions and failure modes** (load-bearing): SPC plasma moments degrade in the high-flux streamer belt — coverage and uncertainty must be checked before quoting σ_c; B_R sign reversals near the HCS can be multiple, so the inbound/outbound split is itself a curation step; mass density gaps in slow streamer-belt wind drive ρ-normalisation noise for the Elsässer construction.
 
 ## Scientific claim to reproduce or operationalize
 
@@ -83,6 +93,14 @@ Compiled as an agent-native Anthropic-style Skill:
 
 The Claude Code harness is the **general-purpose runtime**; HelioSI is its **domain instantiation as a skill graph**.
 
+## Layer 4 — Research-generation affordances
+
+- **Gap:** the paper anchors the inbound-vs-outbound distinction at PSP E4 only; whether the *same* streamer-belt-near-HCS signature (lower amplitude, higher compressibility, steeper spectrum) reappears at later HCS crossings (E5+, where SPAN-I replaces SPC and the data quality budget changes) is unresolved. Compose with [[damicis-2021-alfvenic-nonalfvenic-psp]] (Alfvénicity stratification across multiple encounters) to test whether E4 is a representative or atypical streamer-belt sample.
+- **Tension:** "lower amplitudes + steeper spectra" near the HCS could be read either as (a) a turbulence *state* (driven by reduced large-scale stirring of streamer-belt slow wind) or (b) a *measurement* effect (the SPC noise floor in low-amplitude regimes acts like a high-frequency filter, steepening the apparent slope). Reproducing the analysis with SPAN-I where overlap exists discriminates between these.
+- **Hypothesis:** the compressibility enhancement near the HCS is *quantitatively* tied to the local plasma β rather than to HCS proximity per se; binning E4 intervals by β at fixed |B_R|-polarity-distance from the crossing should collapse the leg-vs-leg compressibility difference onto a single β-curve.
+- **Minimal_experiment:** rerun the leg analysis with two independent HCS-crossing detectors (B_R-polarity vs sector-indicator) and report the (slope_B, slope_V, σ_c, σ_R) tuple per detector; if the inbound/outbound distinction survives both detectors, the streamer-belt signature is detector-agnostic; if not, the leg labels are partly an artefact.
+- **Composable experiment:** join the per-leg PSD table with the cascade-rate framework from [[bandyopadhyay-2020-energy-transfer-psp]] using the same E1-style methodology — does the streamer-belt slow wind sit on the *same* ε(r) curve as the fast-wind reference, or off it? This is the cleanest "is streamer-belt slow wind a separate population?" test the data support.
+
 ## Relation to HelioSI harness + skills + MCPs
 
 - **Parent skill**: HelioSI `solar-wind-turbulence` sub-graph.
@@ -96,4 +114,6 @@ The Claude Code harness is the **general-purpose runtime**; HelioSI is its **dom
 ## References
 
 - Inventory: `solar_wind_turbulence_2020_2026.md` entry #3 (2021).
-- arXiv: https://arxiv.org/abs/2101.00246
+- DOI: https://doi.org/10.1051/0004-6361/202039872 (A&A 650 L3, 2021)
+- arXiv: https://arxiv.org/abs/2101.00246 (preprint title matches journal title; verified 2026-05-19)
+- ADS: https://ui.adsabs.harvard.edu/abs/2021A%26A...650L...3C

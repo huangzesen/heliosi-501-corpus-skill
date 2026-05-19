@@ -21,17 +21,27 @@ Use [[huang-2023-psp-one-over-f-spectrum]] when you instead want the 2nd-order s
 
 ## Paper identity and claim boundary
 
-- **Citation**: Sioulas, N., Huang, Z., Velli, M., Chhiber, R., Cuesta, M. M., Shi, C., Matthaeus, W. H., Bandyopadhyay, R., et al. (2022). *Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and Solar Orbiter*. **ApJ 934, 143**.
-- **DOI**: 10.3847/1538-4357/ac7aa2
+- **Citation**: Sioulas, N., Huang, Z., Velli, M., Chhiber, R., Cuesta, M. E., Shi, C., Matthaeus, W. H., Bandyopadhyay, R., Vlahos, L., Bowen, T. A., et al. (2022). *Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and SolO Observations Ranging from the Alfvén Region up to 1 AU*. **ApJ 934, 143**.
+- **DOI**: [10.3847/1538-4357/ac7aa2](https://doi.org/10.3847/1538-4357/ac7aa2)
+- **arXiv**: [2206.00871](https://arxiv.org/abs/2206.00871)
+- **ADS**: [2022ApJ...934..143S](https://ui.adsabs.harvard.edu/abs/2022ApJ...934..143S)
 - **Source inventories**:
   - `apj_aa_heliophysics_papers.md` §1.5.
   - `.library/custom/heliophysics-skills/SKILL.md` (Solar Wind Turbulence and Heating #5).
 
-**Claim boundary** — supported by inventories:
+**Evidence boundary — what the abstract supports (verified 2026-05-19 via IOPscience DOI + arXiv 2206.00871 abs):**
 
-> Partial Variance of Increments (PVI); higher-order moments of magnetic-field increments; kurtosis scaling; cross-spacecraft (PSP + SO) comparison of intermittency between 0.1 and 1 au. **Intermittency increases with decreasing heliocentric distance.**
+- The paper uses PSP and Solar Orbiter (SolO) data spanning the Alfvén surface region out to 1 au.
+- Diagnostics: Partial Variance of Increments (PVI), higher-order moments of magnetic-field vector increments, scale-dependent kurtosis.
+- Verified claim (abstract): **small-scale intermittency at separations ~20–100 d_i strengthens with decreasing heliocentric distance when methods relying on higher-order moments are considered; no clear radial trend is observed at larger scales.**
 
-Exact intermittency exponents, exact moment orders reported, and exact bin boundaries are **TODO verify in full paper**.
+**Out-of-evidence-boundary at this verification depth (still pending full-text verification):**
+
+- The exact kurtosis-scaling exponent κ values per radial bin and the exact moment orders reported (up to which n) are **TODO_verify** against §3 / Figure-set.
+- Whether the "intermittency increases toward the Sun" framing inherited from the inventory is a scale-blind statement (it is not — the verified claim is scale-conditional) is now resolved: **scale-conditional**, i.e. only the small-scale band is radially monotonic.
+- Treatment of PVI averaging window τ (whether per-interval-stationary or fixed) is TODO_verify in full text.
+
+> **Assumptions and failure modes** (load-bearing): higher-order moments require record lengths long enough to converge S_n at the chosen n; resampling PSP and SolO to a shared cadence is *prerequisite*, not a diagnostic choice; mixing Alfvénic and non-Alfvénic streams within a radial bin can mask the small-scale monotonic trend.
 
 ## Scientific claim to reproduce or operationalize
 
@@ -60,7 +70,7 @@ Time coverage: PSP encounters with near-Sun dwell (perihelia of E1–E12+) plus 
 
 ## Minimal executable benchmark or validation target
 
-**Target**: a monotonic-trending κ (or equivalent moment-order intermittency exponent) vs heliocentric distance, with PSP near-perihelion bins showing more pronounced intermittency than 1-au SO bins, reproduced from one uniform pipeline.
+**Primary target** (verified at abstract level): at small separations (~20–100 d_i), higher-order-moment-based intermittency strengthens monotonically with decreasing heliocentric distance across PSP + SolO radial bins, when produced by one uniform pipeline. At larger separations no clear radial trend is required to appear (matching the paper's stated scope).
 
 Artifacts:
 
@@ -87,6 +97,14 @@ Compiled as an agent-native Anthropic-style Skill:
 
 The Claude Code harness is the **general-purpose runtime**; HelioSI is its **domain instantiation as a skill graph**.
 
+## Layer 4 — Research-generation affordances
+
+- **Gap:** the verified claim is *scale-conditional* (small-scale, ~20–100 d_i) but the inventory paraphrase had collapsed it to a scale-blind "intermittency increases with decreasing r" statement. The clean composable question is: *at what scale does the radial monotonicity actually break?* Compose with [[sioulas-2024-higher-order-3d-anisotropy]] (3D anisotropy) to ask whether the small-scale-only radial trend is itself a projection effect of the sampling angle distribution at small separations.
+- **Tension:** the abstract claims no clear radial trend at larger scales, but [[chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] reports systematic radial steepening of the inertial-range spectrum. Steepening (a 2nd-order statement) and absence of higher-order-moment trend (a ≥4th-order statement) are not contradictory but are often conflated — re-running both pipelines on the same intervals isolates which moment order carries the radial signal.
+- **Hypothesis:** the small-scale radial monotonicity in κ is driven primarily by the Alfvénic sub-population; stratifying intervals by σ_c using [[damicis-2021-alfvenic-nonalfvenic-psp]] before binning by r should reveal that the non-Alfvénic sub-population shows weaker or absent radial monotonicity even at small scales.
+- **Minimal_experiment:** rerun the PVI + higher-order-moment pipeline on the PSP+SolO radial bins with two PVI averaging windows τ (one short, one long relative to the local correlation length) and report κ vs r for each τ; if κ(r) shape is τ-invariant in the small-scale band, the inventory paraphrase is recovered; if it is τ-sensitive, the radial monotonicity is partly an artefact of normalisation.
+- **Composable experiment:** feed the per-interval κ table into [[bandyopadhyay-2020-energy-transfer-psp]]'s cascade-rate table — testing whether ε(r) and κ(r) co-vary at small scales would identify intermittency as either an upstream symptom of cascade-rate change or an independent radial driver.
+
 ## Relation to HelioSI harness + skills + MCPs
 
 - **Parent skill**: HelioSI `solar-wind-turbulence` sub-graph.
@@ -100,5 +118,7 @@ The Claude Code harness is the **general-purpose runtime**; HelioSI is its **dom
 ## References
 
 - Inventory: `apj_aa_heliophysics_papers.md` §1.5.
-- DOI: 10.3847/1538-4357/ac7aa2
+- DOI: https://doi.org/10.3847/1538-4357/ac7aa2 (IOPscience; resolves to ApJ 934, 143, 2022)
+- arXiv: https://arxiv.org/abs/2206.00871 (preprint title matches journal title; verified 2026-05-19)
+- ADS: https://ui.adsabs.harvard.edu/abs/2022ApJ...934..143S
 - NTRS PDF (linked from inventory): https://ntrs.nasa.gov/api/citations/20230001291/downloads/Sioulas_2022_ApJ_934_143.pdf

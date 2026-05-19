@@ -1,11 +1,25 @@
 slug: telloni-2025-psp-solo-radial-alignment-2022-december
+slug_note: "slug retained for backwards compatibility; lead author of the published paper is Silwal, not Telloni (verified 2026-05-19 via IOPscience). See first_author and authors[] for the correct attribution."
 title: "Evolution of Solar Wind Turbulence during Radial Alignment of Parker Solar Probe and Solar Orbiter in 2022 December"
+first_author: "A. Silwal"
 authors:
-  - "D. Telloni"
+  - "A. Silwal"
+  - "L. Zhao"
+  - "X. Zhu"
+  - "L. Sorriso-Valvo"
+  - "L. Z. Hadid"
+  - "G. P. Zank"
+authors_verified: false
 year: 2025
 journal: "The Astrophysical Journal Supplement Series"
+volume: "278"
 doi: "10.3847/1538-4365/add011"
+doi_url: "https://doi.org/10.3847/1538-4365/add011"
 arxiv: null
+ads_bibcode_candidate: "2025ApJS..278....3S"
+ads_url_candidate: "https://ui.adsabs.harvard.edu/abs/2025ApJS..278....3S"
+links_verified_on: "2026-05-19"
+links_verified_method: "IOPscience DOI resolves to ApJS 278 (2025); first author confirmed as A. Silwal; full author tail beyond 6 still TODO_verify; arXiv preprint not located (set null)"
 theme: solar_orbiter
 quality_level: pilot
 executable_status: scaffold
@@ -18,11 +32,14 @@ methods:
   - structure-function-spectral-evolution
   - cross-helicity-sigma-c-radial-trend
 validation_targets:
-  - "Matched PSP/SO windows recover spectral slope evolution and Delta sigma_c reported in paper"
-  - "Sign and qualitative magnitude match Telloni 2025 figure (TODO verify exact values)"
+  - "Matched PSP/SO windows on 2022-12-10 (PSP ~0.11 au, SO ~0.88 au; abstract-verified) recover spectral slope evolution and Delta sigma_c reported in paper"
+  - "Sign and qualitative magnitude match Silwal et al. 2025 figure (TODO verify exact values)"
+  - "Ballistic propagation model with time-constant acceleration (abstract-verified method) reproduces the same approximate plasma parcel at both spacecraft"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.12"
 verification_flags:
-  - "arXiv ID TODO verify (DOI given; full author list TODO verify)."
-  - "Exact conjunction time window TODO verify in full paper."
-  - "Quantitative slope and sigma_c values TODO verify."
+  - "Inventory attributes lead authorship to Telloni; IOPscience confirms first author is Silwal (verified 2026-05-19). Slug retained for backwards compatibility."
+  - "arXiv preprint ID not located on 2026-05-19; arxiv set to null until verified."
+  - "Full author tail beyond first 6 (A. Silwal, L. Zhao, X. Zhu, L. Sorriso-Valvo, L. Z. Hadid, G. P. Zank, et al.) TODO_verify."
+  - "Quantitative slope and sigma_c values TODO_verify against figures."
+research_generation_affordances_present: true

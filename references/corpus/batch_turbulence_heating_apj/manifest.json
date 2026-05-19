@@ -32,13 +32,18 @@
         "second-order-structure-functions",
         "kinetic-range-slope-fitting"
       ],
-      "instruments": ["PSP FIELDS MAG L2 (survey + burst)", "PSP SWEAP/SPC or SPAN-I L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2 (survey + burst)",
+        "PSP SWEAP/SPC or SPAN-I L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "No arXiv ID in inventory; verify against ADS 2022ApJ...924L..21Z.",
         "Per-axis numerical exponents and encounter list TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.3"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.3"
+      ]
     },
     {
       "slug": "bowen-2023-landau-damping-proton-electron-heating",
@@ -58,14 +63,20 @@
         "proton-electron-heating-partition",
         "empirical-heating-from-radial-temperature-gradient"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC L3", "PSP SWEAP/SPAN-e L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP/SPC L3",
+        "PSP SWEAP/SPAN-e L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "Publication venue / status TODO verify.",
         "Specific Vlasov solver TODO verify.",
         "Q_p/Q_e tolerance TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.6"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.6"
+      ]
     },
     {
       "slug": "pecora-2022-coherent-structures-proton-electron-heating",
@@ -85,14 +96,20 @@
         "conditional-superposed-epoch-averaging",
         "proton-vs-electron-heating-signature"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC L3", "PSP SWEAP/SPAN-e L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP/SPC L3",
+        "PSP SWEAP/SPAN-e L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "Publication venue TODO verify.",
         "PVI threshold and averaging window TODO verify.",
         "Quantitative DeltaT_p/DeltaT_e ratio TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.7"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.7"
+      ]
     },
     {
       "slug": "bowen-2024-extended-cyclotron-resonant-heating",
@@ -113,14 +130,19 @@
         "cyclotron-resonance-condition",
         "quasilinear-cyclotron-heating-estimate"
       ],
-      "instruments": ["PSP FIELDS MAG L2 (burst)", "PSP SWEAP/SPC or SPAN-I L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2 (burst)",
+        "PSP SWEAP/SPC or SPAN-I L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "Publication venue TODO verify.",
         "Quasilinear Q_p,ICW formula TODO verify.",
         "Encounter list TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.8"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.8"
+      ]
     },
     {
       "slug": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
@@ -143,13 +165,18 @@
         "quasilinear-cyclotron-heating",
         "comparison-to-landau-channel"
       ],
-      "instruments": ["PSP FIELDS MAG L2 (burst)", "PSP SWEAP/SPC, SPAN-I L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2 (burst)",
+        "PSP SWEAP/SPC, SPAN-I L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "Nature Astronomy DOI TODO verify.",
         "Encounter list and Q ratios TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.9"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.9"
+      ]
     },
     {
       "slug": "cuesta-2022-compressible-turbulence-psp-themis-maven",
@@ -182,13 +209,15 @@
         "Compressibility-metric definition TODO verify.",
         "Stream-class conditioning TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.10"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.10"
+      ]
     },
     {
       "slug": "telloni-2025-psp-solo-radial-alignment-2022-december",
       "title": "Evolution of Solar Wind Turbulence during Radial Alignment of Parker Solar Probe and Solar Orbiter in 2022 December",
       "year": 2025,
-      "lead_author": "D. Telloni",
+      "lead_author": "A. Silwal",
       "journal": "ApJS",
       "doi": "10.3847/1538-4365/add011",
       "arxiv": null,
@@ -210,11 +239,14 @@
       ],
       "weak_attribution": false,
       "verification_flags": [
+        "Inventory attributes lead authorship to Telloni; IOPscience confirms first author A. Silwal (verified 2026-05-19). Slug retained for backwards compatibility.",
         "arXiv ID and full author list TODO verify.",
         "Exact conjunction time window TODO verify.",
         "Quantitative slope and sigma_c TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.12"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.12"
+      ]
     },
     {
       "slug": "carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
@@ -246,7 +278,9 @@
         "RPW V_sc -> n_e calibration version TODO verify.",
         "Quantitative ICW occurrence rate and density slope TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.14"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.14"
+      ]
     },
     {
       "slug": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
@@ -277,7 +311,9 @@
         "Stream-class conditioning TODO verify.",
         "Per-bin alpha_B numerical values TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.15"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.15"
+      ]
     },
     {
       "slug": "martinovic-2024-slow-wind-imbalanced-alfven-wave-heating",
@@ -311,7 +347,9 @@
         "Reflection-driven AW model variant TODO verify.",
         "Q_AW / Q_p tolerance and per-bin ratios TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.16"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.16"
+      ]
     }
   ],
   "shared_building_blocks": [

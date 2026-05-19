@@ -12,7 +12,12 @@ authors:
 year: 2023
 journal: "The Astrophysical Journal"
 doi: "10.3847/1538-4357/acd053"
+doi_attribution_unresolved: true
 arxiv: "2303.10810"
+arxiv_attribution_unresolved: true
+verification_status: "identifiers-disputed-as-of-2026-05-19"
+links_verified_on: "2026-05-19"
+links_verified_method: "external resolution disputes both identifiers; see verification_flags"
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
@@ -32,4 +37,8 @@ validation_targets:
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.2"
   - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #2)"
-notes: "arXiv 2303.10810 is dual-attributed in the inventory (§1.2 Sioulas+ 2023 ApJ; §3.5 Cuesta+ 2023). TODO verify which corresponds to this arXiv ID before manuscript citation."
+notes: "Identifier attributions disputed (verified 2026-05-19). The inventory dual-attributes arXiv 2303.10810 to Sioulas+ 2023 ApJ (§1.2) and Cuesta+ 2023 (§3.5); independent verification shows arXiv 2303.10810 is actually Wu, He, Huang, Yang, Wang, Yuan, 'Scaling anisotropy with stationary background field in the near-Sun solar wind turbulence' (ApJ). Likewise, DOI 10.3847/1538-4357/acd053 resolves to Yoshida, Shimizu, Toriumi 2023 ('Which Component of Solar Magnetic Field Drives the Evolution of Interplanetary Magnetic Field over the Solar Cycle?', ApJ), not to a Sioulas paper. Both inventory-paraphrased identifiers therefore require correction before manuscript citation."
+verification_flags:
+  - "Skill's DOI 10.3847/1538-4357/acd053 does NOT resolve to a Sioulas paper (verified 2026-05-19; resolves to Yoshida et al. 2023 ApJ)."
+  - "Skill's arXiv 2303.10810 does NOT resolve to a Sioulas paper (verified 2026-05-19; resolves to Wu et al., scaling anisotropy with stationary background field)."
+  - "Correct identifiers for the Sioulas+ 2023 'Evolution of the Anisotropic Scaling of MHD Turbulence in the Inner Heliosphere' paper are unresolved at this verification depth; treat the entry's identifiers as PENDING until a curator locates the canonical DOI/arXiv via ADS author-affiliation search."

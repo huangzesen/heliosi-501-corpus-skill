@@ -137,10 +137,10 @@ class TestTitleUnicodeAudit(unittest.TestCase):
         If the corpus changes, update §11 to match the audit
         (not the other way round)."""
         m = self.summary["manifest"]
-        self.assertEqual(m["entries_with_non_ascii_title"], 95)
+        self.assertEqual(m["entries_with_non_ascii_title"], 96)
         self.assertEqual(m["unique_non_ascii_chars"], 11)
         md = self.summary["metadata_yaml"]
-        self.assertEqual(md["entries_with_non_ascii_title"], 95)
+        self.assertEqual(md["entries_with_non_ascii_title"], 96)
         self.assertEqual(md["unique_non_ascii_chars"], 11)
 
     def test_qa_report_section_10_present(self):

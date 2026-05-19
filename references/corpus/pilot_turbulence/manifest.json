@@ -26,9 +26,14 @@
         "von-karman-decay-law",
         "elsasser-variables"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP/SPC L3"
+      ],
       "weak_attribution": false,
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.1"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.1"
+      ]
     },
     {
       "slug": "sioulas-2023-anisotropic-scaling-inner-heliosphere",
@@ -46,12 +51,20 @@
         "multi-order-structure-functions",
         "parallel-perpendicular-anisotropy"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3", "Solar Orbiter MAG L2", "SO SWA/PAS L2/L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP L3",
+        "Solar Orbiter MAG L2",
+        "SO SWA/PAS L2/L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
+        "DOI 10.3847/1538-4357/acd053 and arXiv 2303.10810 both DISPUTED as of 2026-05-19: DOI resolves to Yoshida et al. 2023 (not Sioulas); arXiv resolves to Wu et al. (not Sioulas). Canonical identifiers PENDING.",
         "arXiv 2303.10810 is dual-attributed in apj_aa (§1.2 Sioulas+ 2023 ApJ; §3.5 Cuesta+ 2023). TODO verify."
       ],
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.2"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.2"
+      ]
     },
     {
       "slug": "huang-2023-psp-one-over-f-spectrum",
@@ -70,7 +83,10 @@
         "double-power-law-fit",
         "break-frequency-detection"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP L3"
+      ],
       "weak_attribution": false,
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.4",
@@ -79,12 +95,12 @@
     },
     {
       "slug": "sioulas-2022-magnetic-field-intermittency-psp-solo",
-      "title": "Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and Solar Orbiter",
+      "title": "Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and SolO Observations Ranging from the Alfvén Region up to 1 AU",
       "year": 2022,
       "lead_author": "N. Sioulas",
       "journal": "ApJ",
       "doi": "10.3847/1538-4357/ac7aa2",
-      "arxiv": null,
+      "arxiv": "2206.00871",
       "quality_level": "pilot",
       "executable_status": "scaffold",
       "core_claim": "Magnetic-field intermittency (PVI, higher-order moments, kurtosis scaling) increases with decreasing heliocentric distance between SO (~1 au) and PSP (~0.1 au).",
@@ -93,9 +109,14 @@
         "higher-order-structure-functions",
         "kurtosis-scaling"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "Solar Orbiter MAG L2"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "Solar Orbiter MAG L2"
+      ],
       "weak_attribution": false,
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.5"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.5"
+      ]
     },
     {
       "slug": "telloni-2021-psp-solo-radial-alignment-turbulence",
@@ -114,9 +135,16 @@
         "residual-energy-sigma-R",
         "politano-pouquet-cascade-rate"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3", "Solar Orbiter MAG L2", "SO SWA/PAS L2/L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP L3",
+        "Solar Orbiter MAG L2",
+        "SO SWA/PAS L2/L3"
+      ],
       "weak_attribution": false,
-      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.11"]
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.11"
+      ]
     },
     {
       "slug": "damicis-2021-alfvenic-nonalfvenic-psp",
@@ -135,7 +163,10 @@
         "alfvenic-nonalfvenic-stream-classification",
         "inertial-range-spectral-index"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP L3"
+      ],
       "weak_attribution": true,
       "verification_flags": [
         "arXiv 2101.00830 dual-attributed across inventories (D'Amicis et al. 2021, A&A vs Shi, Velli, Panasenco, Tenerani 2021). TODO verify the arXiv abstract before manuscript citation."
@@ -150,8 +181,8 @@
       "title": "The Near-Sun Streamer Belt Solar Wind: Turbulence and Solar Wind Acceleration",
       "year": 2021,
       "lead_author": "C. H. K. Chen",
-      "journal": null,
-      "doi": null,
+      "journal": "A&A",
+      "doi": "10.1051/0004-6361/202039872",
       "arxiv": "2101.00246",
       "quality_level": "pilot",
       "executable_status": "scaffold",
@@ -163,12 +194,17 @@
         "normalised-cross-helicity-sigma-c",
         "residual-energy-sigma-R"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC L3"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP/SPC L3"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "No DOI in inventory; year and venue need confirmation against ADS."
       ],
-      "source_inventory_refs": ["solar_wind_turbulence_2020_2026.md #3 (2021)"]
+      "source_inventory_refs": [
+        "solar_wind_turbulence_2020_2026.md #3 (2021)"
+      ]
     },
     {
       "slug": "sioulas-2024-higher-order-3d-anisotropy",
@@ -188,7 +224,11 @@
         "higher-order-structure-functions",
         "critical-balance-vs-scale-dependent-dynamic-alignment-test"
       ],
-      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC or SPAN-I L3", "Solar Orbiter MAG L2 (optional)"],
+      "instruments": [
+        "PSP FIELDS MAG L2",
+        "PSP SWEAP/SPC or SPAN-I L3",
+        "Solar Orbiter MAG L2 (optional)"
+      ],
       "weak_attribution": false,
       "verification_flags": [
         "No DOI in inventory; CB/SDDA template parameterisations need to be frozen against full text."

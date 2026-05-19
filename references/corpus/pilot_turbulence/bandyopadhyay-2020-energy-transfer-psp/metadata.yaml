@@ -13,8 +13,16 @@ authors:
   - "R. Qudsi"
 year: 2020
 journal: "The Astrophysical Journal Supplement Series"
+volume: "246"
+article_number: "48"
 doi: "10.3847/1538-4365/ab5dae"
 arxiv: "1912.02959"
+arxiv_url: "https://arxiv.org/abs/1912.02959"
+doi_url: "https://doi.org/10.3847/1538-4365/ab5dae"
+ads_bibcode: "2020ApJS..246...48B"
+ads_url: "https://ui.adsabs.harvard.edu/abs/2020ApJS..246...48B"
+links_verified_on: "2026-05-19"
+links_verified_method: "arxiv-abs-title-author-match + IOPscience DOI resolves"
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
@@ -32,3 +40,4 @@ validation_targets:
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.1"
   - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #1)"
+research_generation_affordances_present: true
