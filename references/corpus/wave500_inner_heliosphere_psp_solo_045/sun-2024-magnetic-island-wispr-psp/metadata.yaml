@@ -1,0 +1,38 @@
+slug: sun-2024-magnetic-island-wispr-psp
+title: >-
+  A Detailed Analysis of a Magnetic Island Observed by WISPR on Parker Solar Probe
+authors:
+  - W. Sun
+  - TODO verify co-authors
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2407.07216"
+theme: psp-wispr-magnetic-island-imaging
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+regime:
+  - corona
+  - inner-heliosphere
+trigger_keywords:
+  - magnetic island
+  - flux rope
+  - WISPR imaging
+  - near-Sun coronagraphy
+  - white-light
+data_products:
+  - instrument: PSP/WISPR-i + WISPR-o
+    level: L3 imaging
+    cadence: encounter cadence
+    interval: single near-Sun pass (TODO verify date)
+    archive: SPDF/CDAWeb / NRL WISPR archive
+algorithms:
+  - name: Thomson-scattering forward model for white-light reconstruction
+  - name: Magnetic-island flux-rope geometric fit
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.10

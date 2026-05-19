@@ -1,0 +1,45 @@
+slug: paper-aulanier-2012-standard-flare-model-3d-tether-cutting
+title: "Standard Solar Flare Model in 3-D — Tether-Cutting Reconnection (Aulanier 2012)"
+authors:
+  - "Aulanier, G."
+  - "+ co-authors (TODO verify full list)"
+year: 2012
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - flare_modeling
+  - flux_rope_dynamics
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Vector magnetogram (boundary)
+  - Observed UV ribbon morphology
+methods:
+  - Zero-β / low-β 3-D MHD
+  - Titov-Démoulin flux rope initial condition
+  - Footpoint / ribbon overlap diagnostic
+validation_targets:
+  - Area overlap or contour distance of model footpoints vs UV ribbons (TODO verify)
+trigger_keywords:
+  - standard flare model
+  - 3D tether cutting
+  - flux rope ribbon hooks
+  - Aulanier CSHKP
+  - J shape ribbons
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

@@ -1,0 +1,23 @@
+slug: klein-2018-multispecies-stability-anisotropy
+title: >-
+  Multi-Species Linear-Vlasov Stability of Anisotropic Solar-Wind Plasmas
+authors:
+  - K. G. Klein
+  - "+ co-authors (TODO verify)"
+year: 2018
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "TODO_verify_with_full_text"
+theme: multispecies-linear-vlasov-stability
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Per-species VDF moments
+  - k-grid configuration
+methods:
+  - Multi-species linear-Vlasov dispersion
+  - Polarization analysis
+validation_targets:
+  - Recovers Gary–Wang map within stated tolerance (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md (TODO verify section)

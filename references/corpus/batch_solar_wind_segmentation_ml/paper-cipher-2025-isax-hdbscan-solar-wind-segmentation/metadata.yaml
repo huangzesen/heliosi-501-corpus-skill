@@ -1,0 +1,37 @@
+slug: paper-cipher-2025-isax-hdbscan-solar-wind-segmentation
+title: "CIPHER: Scalable Time Series Analysis for Physical Sciences with Application to Solar Wind Phenomena"
+authors:
+  - "TODO verify full author list (arXiv:2510.21022)"
+year: 2025
+journal: "TODO verify (arXiv:2510.21022)"
+doi: null
+arxiv: "2510.21022"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, unsupervised, time-series-mining, human-in-the-loop]
+missions: [other]
+regime: ["1au", "inner-heliosphere"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "Solar-wind in-situ time series (mission TODO verify)"
+  - "Optional ICME / CIR catalog for HITL anchoring"
+methods:
+  - isax-symbolic-compression-with-word-length-and-cardinality
+  - hdbscan-density-clustering-on-symbolic-words
+  - human-in-the-loop-cluster-validation
+  - scalable-offline-time-series-mining
+validation_targets:
+  - "Cluster count + cluster medoids reproducible from the paper's iSAX + HDBSCAN params"
+  - "HITL acceptance rate matches the paper's reported value (TODO verify)"
+  - "Wall-clock scaling consistent with the paper's scalability claim"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.9"
+verification_flags:
+  - "Lead author surname + full author list TODO verify."
+  - "Publication venue + DOI TODO verify."
+  - "iSAX word length and cardinality TODO verify."
+  - "HDBSCAN min_cluster_size and min_samples TODO verify."
+  - "Mission(s) used in the demonstration TODO verify."
+  - "Specific solar-wind phenomena identified by the cluster output TODO verify."
+  - "HITL protocol + inter-rater agreement TODO verify."

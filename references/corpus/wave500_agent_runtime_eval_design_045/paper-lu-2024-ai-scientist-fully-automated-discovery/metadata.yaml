@@ -1,0 +1,45 @@
+slug: paper-lu-2024-ai-scientist-fully-automated-discovery
+title: "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery"
+authors:
+  - "Chris Lu"
+  - "Cong Lu"
+  - "Robert Tjarko Lange"
+  - "Jakob Foerster"
+  - "Jeff Clune"
+  - "David Ha"
+year: 2024
+journal: "arXiv preprint"
+doi: null
+arxiv: "2408.06292"
+theme: agent-runtime-full-pipeline
+category: ai-scientist-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Idea-generation prompt loop with novelty checks"
+  - "Template-based experiment code generation"
+  - "Iterative experiment execution and revision"
+  - "Paper writeup with figure insertion"
+  - "Automated reviewer scoring with score calibration against ICLR-style rubric"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[gap] AI Scientist v1 has no in-situ scientific data/instrument tools; HelioSI fills this gap with mission archives + Layer-2 capability contracts."
+  - "[minimal_experiment] Apply the v1 idea-generation prompt loop to a single heliophysics paper-skill (e.g. [[paper-sioulas-2023-anisotropic-scaling]]) and measure how many of the generated follow-up ideas survive a sibling paper-skill consistency check."
+  - "[hypothesis] If the AI Scientist loop is grounded in heliophysics paper-skills + mission MCPs, the cost-per-idea will rise relative to ML-only generation but the rate of contract-passing benchmark artifacts will be measurably higher."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

@@ -1,0 +1,28 @@
+slug: kavtaradze-2026-mhd-imbalance-leveling-shear-flows
+title: >-
+  Leveling of MHD Turbulence Imbalance in Shear Flows
+authors:
+  - M. Kavtaradze
+  - G. Mamatsashvili
+  - G. Chagelishvili
+  - E. Uchava
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2602.13528"
+theme: mhd-turbulence-imbalance-shear
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Linearized MHD shearing-wave solver
+  - Initial Elsässer-mode spectrum
+  - Shear rate S and mean-field B_0
+methods:
+  - Shearing-wave Fourier substitution
+  - Linear non-modal evolution of Alfvén waves
+  - Cross-helicity diagnostic over wave ensembles
+validation_targets:
+  - σ_c → 0 in super-Alfvénic shearing-wave ensembles
+  - Over-reflection coefficient matches analytic linear theory at reported (k_x/k_z) (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2602.13528

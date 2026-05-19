@@ -1,0 +1,36 @@
+slug: paper-desai-2024-hcs-reconnection-400kev-protons
+title: "Magnetic reconnection-driven energization of protons up to 400 keV at the near-Sun heliospheric current sheet"
+authors:
+  - "Desai, M. I."
+  - "Drake, J. F."
+  - "Phan, T."
+  - "Yin, Z."
+  - "Swisdak, M."
+  - "McComas, D. J."
+year: 2024
+journal: "ApJL (in press)"
+doi: TODO_verify_with_full_text
+arxiv: "2410.16539"
+theme: heliophysics-psp-hcs-reconnection-acceleration
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/ISʘIS EPI-Lo proton differential intensity
+  - PSP/ISʘIS EPI-Hi proton differential intensity
+  - PSP/FIELDS MAG RTN (high cadence)
+  - PSP/SWEAP SPAN-I proton moments + bulk flow
+methods:
+  - HCS reconnection-exhaust identification (sector reversal + Walen jet + heating)
+  - Trapped-proton spectral fit (single power-law)
+  - kglobal merging-islands acceleration model fit
+  - Guide-field estimate from upstream/exhaust B
+validation_targets:
+  - E_max ≈ 400 keV within ±20%
+  - Spectral index γ ≈ -5 within ±0.3
+  - Sunward propagation direction confirmed
+  - kglobal guide-field fraction 0.2-0.3
+weak_entries:
+  - DOI and exact crossing date — TODO verify from full text
+  - kglobal repository handle — TODO verify
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.16539

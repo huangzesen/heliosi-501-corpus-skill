@@ -1,0 +1,26 @@
+slug: abbas-squire-2026-parker-spiral-reflection-driven-turbulence
+title: >-
+  The Influence of Parker Spiral on the Reflection-Driven Turbulence
+authors:
+  - K. Abbas
+  - J. Squire
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2512.07446"
+theme: reflection-driven-turbulence-parker-spiral
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Expanding-box MHD code with PS background
+  - Outer-scale and cascade-flux diagnostics
+methods:
+  - Expanding-box MHD with Parker-spiral mean field
+  - Outer-scale perpendicular-to-B estimation
+  - Third-order cascade-flux heating estimate
+validation_targets:
+  - L_⊥ smaller in PS runs vs radial baseline (TODO verify magnitude)
+  - σ_c(r) larger in PS at the outer-r endpoint
+  - Heating-fraction difference quantified
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.07446

@@ -1,0 +1,48 @@
+slug: paper-rudisser-2022-icme-unet-automatic-detection
+title: "Automatic Detection of Interplanetary Coronal Mass Ejections in Solar Wind In Situ Data"
+authors:
+  - "Hannah T. Rüdisser"
+  - "Andreas Windisch"
+  - "Ute V. Amerstorfer"
+  - "Christian Möstl"
+  - "Tanja Amerstorfer"
+  - "Rachel L. Bailey"
+  - "Martin A. Reiss"
+year: 2022
+journal: "TODO verify (preprint arXiv:2205.03578, likely Space Weather)"
+doi: null
+arxiv: "2205.03578"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, icme, space-weather, event-detection]
+missions: [Wind, STEREO]
+regime: ["1au"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "Wind MFI L2 magnetic field 1997-2015"
+  - "Wind SWE L2 plasma moments 1997-2015"
+  - "STEREO-A IMPACT/MAG + PLASTIC L2 (subset)"
+  - "STEREO-B IMPACT/MAG + PLASTIC L2 (subset, pre-2014 contact loss)"
+  - "Reference ICME catalog (Richardson-Cane and/or Möstl) — exact catalog identity TODO verify"
+methods:
+  - per-sample-time-series-segmentation
+  - one-dimensional-unet-from-medical-imaging-transfer
+  - event-disjoint-train-test-split
+  - true-skill-statistic-evaluation
+  - cross-mission-transfer-with-reduced-features
+validation_targets:
+  - "TSS = 0.64 on Wind 1997-2015"
+  - "MAE on ICME start ≈ 2h 56min; on end ≈ 3h 20min"
+  - "TSS on STEREO-A / -B ≈ 0.56 / 0.57 / 0.53 (Wind reduced features / STEREO-A / STEREO-B)"
+  - "~20x faster training vs baseline (baseline identity TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2205.03578"
+verification_flags:
+  - "Publication venue TODO verify (likely Space Weather)."
+  - "Baseline architecture compared for the 20x speedup TODO verify."
+  - "Reference catalog identity (Richardson-Cane vs Möstl vs union) TODO verify."
+  - "Exact U-Net depth, channel count, and loss function TODO verify."
+  - "Feature list (which moments + derived) TODO verify."
+  - "Per-spacecraft train/val/test split definition TODO verify."
+  - "Operating threshold underpinning the headline TSS TODO verify."

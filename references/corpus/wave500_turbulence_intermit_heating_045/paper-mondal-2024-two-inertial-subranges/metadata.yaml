@@ -1,0 +1,30 @@
+slug: paper-mondal-2024-two-inertial-subranges
+title: "Emergence of two inertial sub-ranges in solar wind turbulence: dependence on heliospheric distance and solar activity"
+authors:
+  - "Shiladittya Mondal"
+  - "Supratik Banerjee"
+  - "Luca Sorriso-Valvo"
+year: 2024
+journal: "TODO verify (arXiv:2409.03090)"
+doi: null
+arxiv: "2409.03090"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [spectral-index, radial-evolution, intermittency]
+missions: [PSP, Helios, Wind, other]
+regime: [inner-heliosphere, 1au, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "Multi-mission in-situ MAG (PSP/Helios/Wind/etc.) L2 (0.3-3.16 au, eight fast-wind windows)"
+methods:
+  - trace-magnetic-psd-with-two-range-power-law-fit
+  - 4th-order-moment-kurtosis-per-sub-range
+  - break-frequency-identification
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2024 item 12"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

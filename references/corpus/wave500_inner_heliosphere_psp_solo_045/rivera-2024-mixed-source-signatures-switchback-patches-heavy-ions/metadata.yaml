@@ -1,0 +1,54 @@
+slug: rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions
+title: >-
+  Mixed Source Region Signatures Inside Magnetic Switchback Patches Inferred by Heavy Ion Diagnostics
+authors:
+  - Y. J. Rivera
+  - S. T. Badman
+  - M. L. Stevens
+  - J. M. Raines
+  - C. J. Owen
+  - K. Paulson
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2409.03645"
+theme: psp-solo-switchback-patches-heavy-ions
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+  - Solar Orbiter
+regime:
+  - inner-heliosphere
+  - super-Alfvenic
+trigger_keywords:
+  - heavy ions
+  - switchback patches
+  - source region
+  - ionic composition
+  - Solar Orbiter HIS
+  - PSP perihelion 11
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz or higher
+    interval: PSP P11 (2022 Feb)
+    archive: SPDF/CDAWeb
+  - instrument: Solar Orbiter/SWA HIS
+    level: L2
+    cadence: heavy-ion composition
+    interval: PSP P11 SolO lineup
+    archive: SOAR
+  - instrument: Solar Orbiter/MAG
+    level: L2
+    cadence: vector cadence
+    interval: PSP P11 SolO lineup
+    archive: SOAR
+algorithms:
+  - name: Patch-by-patch heavy-ion composition contrast (Q_Fe, He/H ratios)
+  - name: PFSS + ballistic mapping to compare back to photospheric source
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §10

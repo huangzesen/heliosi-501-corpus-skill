@@ -1,0 +1,25 @@
+slug: paper-leske-2024-three-stage-sep-acceleration-psp
+title: "Three-stage Acceleration of Solar Energetic Particles Detected by Parker Solar Probe"
+authors:
+  - "TODO verify"
+year: 2024
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2405.19680"
+theme: heliophysics-three-stage-sep-acceleration-psp
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo composition
+methods:
+  - Event-timeline segmentation into 3 stages
+  - Per-stage spectral fit
+  - Composition diagnostic per stage
+  - Stage-boundary sensitivity analysis
+validation_targets:
+  - Three-stage time decomposition with distinct spectral indices per stage (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2405.19680

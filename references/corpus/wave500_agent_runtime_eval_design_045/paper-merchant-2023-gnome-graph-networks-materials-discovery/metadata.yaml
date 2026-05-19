@@ -1,0 +1,38 @@
+slug: paper-merchant-2023-gnome-graph-networks-materials-discovery
+title: "Scaling deep learning for materials discovery (GNoME)"
+authors:
+  - "Amil Merchant"
+  - "TODO_verify_with_full_text"
+year: 2023
+journal: "Nature"
+doi: "10.1038/s41586-023-06735-9"
+arxiv: null
+theme: domain-knowledge-compilation-foundation-model
+category: domain-specific-foundation-model
+source_type: domain-knowledge-compilation
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Graph neural networks over crystal candidates"
+  - "Active learning + DFT-as-evaluator"
+  - "Massive candidate generation + cascade filtering"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] Heliophysics analog: scale a GNN over (magnetogram, r_ss, model-choice) candidate configurations + use PFSS/NSPF-FEM solvers as evaluators; emit a catalog of plausible coronal-field configurations matching given in-situ constraints."
+  - "[minimal_experiment] Sketch a 1000-candidate sweep of (CR magnetogram, r_ss in [1.5, 3.0]) configurations; rank by match to open-flux constraint; benchmark HelioSI's open-flux skill (wu-2026)."
+depends_on:
+  - paper-jumper-2021-alphafold2-protein-structure-prediction
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

@@ -1,0 +1,24 @@
+slug: expansion-instability-young-solar-wind-thermo-2026
+title: >-
+  The Effect of Expansion and Instabilities in the Thermodynamic Regulation of the Young Solar Wind
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2603.25443"
+theme: expansion-instability-thermodynamic-regulation-young-sw
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Hybrid expanding-box code
+  - Instability-threshold tables
+  - PSP (β_∥, ξ) envelope
+methods:
+  - Hybrid expanding-box integration
+  - Anisotropy-threshold checking
+  - PSP envelope comparison
+validation_targets:
+  - (β_∥, ξ)(r) trajectories within PSP envelope (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2603.25443

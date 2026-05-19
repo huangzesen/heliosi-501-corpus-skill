@@ -1,0 +1,43 @@
+slug: paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation
+title: "Incorporating Magnetic Field Characteristics into EUV-Based Automated Segmentation of Coronal Holes"
+authors:
+  - "Jeremy A. Grajeda"
+  - "Laura E. Boucheron"
+  - "Michael S. Kirk"
+  - "Andrew Leisner"
+  - "C. Nick Arge"
+  - "Jaime A. Landeros"
+year: 2025
+journal: "TODO verify (arXiv:2501.13211 v2 dated 2025-09-15)"
+doi: null
+arxiv: "2501.13211"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [coronal-holes, image-segmentation, magnetograms, sdo, source-mapping]
+missions: [SDO]
+regime: ["corona"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "SDO/AIA 193 Å (or 211 Å) full-disk EUV imagery"
+  - "SDO/HMI line-of-sight magnetograms at matched timestamps"
+  - "Hand-labelled CH ground-truth subset (for IoU evaluation)"
+methods:
+  - active-contours-without-edges-chan-vese
+  - magnetogram-skewness-pre-filter-for-filament-rejection
+  - magnetic-constraint-term-in-acwe-energy-functional
+  - per-image-iou-and-filament-fp-count-evaluation
+validation_targets:
+  - "Filament false-positive count reduced vs intensity-only ACWE (numerical TODO verify)"
+  - "Low-intensity CH-area recovered vs intensity-only ACWE (numerical TODO verify)"
+  - "Per-image IoU against hand-labelled ground truth (TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2501.13211"
+verification_flags:
+  - "Publication venue + DOI TODO verify."
+  - "Exact AIA channel used (193 Å vs 211 Å) TODO verify."
+  - "Magnetic-skewness threshold for pre-filter TODO verify."
+  - "Form of E_magnetic and weight lambda_B in energy functional TODO verify."
+  - "ACWE convergence rule (iterations + tolerance) TODO verify."
+  - "Hand-labelled ground-truth subset definition TODO verify."
+  - "Quantitative FP-reduction and area-gain numbers TODO verify."

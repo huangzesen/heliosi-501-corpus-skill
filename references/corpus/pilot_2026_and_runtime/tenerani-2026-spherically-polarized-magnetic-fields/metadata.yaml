@@ -1,0 +1,26 @@
+slug: tenerani-2026-spherically-polarized-magnetic-fields
+title: Three dimensional, spherically polarized magnetic fields
+authors:
+  - Anna Tenerani
+  - Marco Velli
+year: 2026
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2605.04285"
+theme: heliophysics-switchback-geometry-theory
+quality_level: paper-grounded-pending-full-text
+executable_status: constructive-pipeline-specified
+required_data:
+  - "(theoretical; no observational data required for construction)"
+  - "(optional) PSP FIELDS MAG RTN for downstream validation"
+methods:
+  - Constructive numerical scheme for constant-|B| 3D fields
+  - Detection of rotational discontinuities between polarized patches
+  - 1D spacecraft-traversal projection of 3D field
+  - Geometric diagnostics (rotation angle, curvature, helicity density)
+validation_targets:
+  - std(|B|)/mean(|B|) < 1e-10 across the constructed bulk
+  - Existence of RDs between glued patches reproduced
+  - Qualitative match to paper figure (TODO verify exact figure)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #16

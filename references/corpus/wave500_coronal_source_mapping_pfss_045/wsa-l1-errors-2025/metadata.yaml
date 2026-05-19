@@ -1,0 +1,50 @@
+slug: wsa-l1-errors-2025
+title: >-
+  What Causes Errors in Wang-Sheeley-Arge Solar Wind Modeling at L1?
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2506.09676"
+arxiv_date: "2025-06-11"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - solar_wind
+  - forecasting
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - OMNI L1 speed.
+  - Multiple synoptic Br products (GONG/HMI/ADAPT).
+  - WSA kernel parameters (paper-stated).
+methods:
+  - WSA decomposition into PFSS + expansion-factor kernel is valid.
+  - L1 speed ground truth (OMNI) is bias-free for the metric.
+  - Magnetogram-product swap is a controlled experiment.
+validation_targets:
+  - Reproduce the topology-dominant fraction of error reported by the paper.
+trigger_keywords:
+  - WSA
+  - expansion factor
+  - PFSS
+  - L1 forecast
+  - OMNI
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - WSA kernel parameters
+  - validation interval
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

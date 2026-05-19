@@ -1,0 +1,2764 @@
+{
+  "schema_version": "1.1",
+  "batch": "wave500_inner_heliosphere_psp_solo_045",
+  "wave": "wave500",
+  "wave_target": 500,
+  "wave_description": "Push the harness-agnostic paper-skill corpus toward 500 entries. This batch adds 45 PSP / Solar Orbiter / Helios / inner-heliosphere paper-skills not previously covered.",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (v0.2) — wave500 inner-heliosphere PSP/SolO batch #045",
+  "spec_version": "0.2",
+  "runtime_neutrality": {
+    "principle": "Paper-skills are harness-agnostic. LingTai, Claude Code, Codex, MCP servers, and notebook-driven workflows are adapters, not assumptions in the skill body.",
+    "skill_layers": [
+      "1. Trigger + claim boundary",
+      "2. Scientific invariant layer (claims, equations, data assumptions, failure modes, figure targets)",
+      "3. Executable protocol layer with abstract capability contracts (C-FETCH-*, C-CLASSIFIER, C-METRIC)",
+      "4. Adapter / runtime notes (optional examples only — never authoritative)",
+      "5. Research-generation affordance (gaps, tensions, hypotheses, minimal experiments)"
+    ]
+  },
+  "compilation_framing": {
+    "model": "Each paper is compiled into a runtime-neutral paper-skill describing capability contracts and scientific invariants; no MCP / plugin / harness names appear in the contract layer.",
+    "mapping": {
+      "claims": "verifiable tasks anchored by claim_boundary",
+      "methods_equations": "executable procedure stated against capability contracts",
+      "data_instruments_code": "capability contracts (no MCP names asserted)",
+      "caveats_failure_modes": "skill memory (§2.4 list)",
+      "figures_results": "benchmark targets (§2.5; TODO_verify_with_full_text)",
+      "corpus_citations": "skill graph via [[paper-...]] edges",
+      "open_questions": "research-generation affordance (§5)"
+    }
+  },
+  "scope": {
+    "focus": "PSP / Solar Orbiter / Helios / inner-heliosphere observations, switchbacks, magnetic structures, alignments, near-Sun phenomena.",
+    "deliberate_exclusions": [
+      "No skills duplicating existing slugs in batches batch_psp_switchbacks_magnetic, batch_mission_instruments_data_products, batch_pfss_source_mapping, batch_solar_wind_segmentation_ml, batch_sep_energetic_particles, batch_turbulence_heating_apj, batch_heliophysics_software_infrastructure, pilot_2026_and_runtime, pilot_turbulence.",
+      "No invented identifiers — DOIs/arXiv IDs/ADS bibcodes are either lifted from local inventories or set to TODO_verify_with_full_text.",
+      "No full-text reproductions in this batch — quality tier is 'paper-grounded-pending-full-text' across all 45 skills."
+    ]
+  },
+  "totals": {
+    "skills": 45,
+    "target": 45,
+    "all_harness_agnostic": true
+  },
+  "skills": [
+    {
+      "slug": "huang-2025-what-are-switchbacks-solitary-alfven-wave-model",
+      "title": "What are Switchbacks?",
+      "authors": [
+        "Z. Huang",
+        "M. Velli",
+        "Y. Ding"
+      ],
+      "first_author": "Z. Huang",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.12585",
+      "theme": "psp-switchback-solitary-alfven-wave-model",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale",
+        "super-Alfvenic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "huang-2025-what-are-switchbacks-solitary-alfven-wave-model/SKILL.md",
+      "metadata_yaml": "huang-2025-what-are-switchbacks-solitary-alfven-wave-model/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §6"
+      ],
+      "depends_on": [
+        "tenerani-2026-spherically-polarized-magnetic-fields",
+        "bale-2021-solar-source-switchbacks-magnetic-funnels"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Geometric interpretation vs. funnel-origin (Bale 2021) — both can be true simultaneously; mixture model needed.",
+          "related_skills": [
+            "bale-2021-solar-source-switchbacks-magnetic-funnels"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply the solitary-wave virtual-sampling method to PSP E10–E16 to test whether 1D B-magnitude flatness predicts switchback geometry class.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions",
+      "title": "Mixed Source Region Signatures Inside Magnetic Switchback Patches Inferred by Heavy Ion Diagnostics",
+      "authors": [
+        "Y. J. Rivera",
+        "S. T. Badman",
+        "M. L. Stevens",
+        "J. M. Raines",
+        "C. J. Owen",
+        "K. Paulson"
+      ],
+      "first_author": "Y. J. Rivera",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2409.03645",
+      "theme": "psp-solo-switchback-patches-heavy-ions",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP",
+        "Solar Orbiter"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "super-Alfvenic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions/SKILL.md",
+      "metadata_yaml": "rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §10"
+      ],
+      "depends_on": [
+        "bale-2021-solar-source-switchbacks-magnetic-funnels",
+        "ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+        "owen-2020-solo-swa-plasma-suite"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Composition heterogeneity inside patches challenges single-funnel origin assumption from Bale 2021.",
+          "related_skills": [
+            "bale-2021-solar-source-switchbacks-magnetic-funnels"
+          ]
+        },
+        {
+          "type": "gap",
+          "statement": "No sibling skill quantifies the heavy-ion contrast threshold above which two patches are 'different sources'.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "das-2026-hammerhead-vdf-prevalence-hcs-psp",
+      "title": "Strong Prevalence of Hammerhead Velocity Distributions Close to the Heliospheric Current Sheet",
+      "authors": [
+        "S. B. Das",
+        "J. L. Verniero",
+        "S. T. Badman"
+      ],
+      "first_author": "S. B. Das",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2603.11329",
+      "theme": "psp-hammerhead-vdf-hcs",
+      "primary_theme": "psp_data",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "ion-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "das-2026-hammerhead-vdf-prevalence-hcs-psp/SKILL.md",
+      "metadata_yaml": "das-2026-hammerhead-vdf-prevalence-hcs-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §5"
+      ],
+      "depends_on": [
+        "kasper-2016-sweap-investigation-psp",
+        "verniero-2020-psp-span-i-vdf-data-product"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill yet links hammerhead VDF prevalence to upstream/downstream wave activity in the same window.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Cross-correlate hammerhead-VDF detections with ion-cyclotron wave detections (Verniero 2020) on the same intervals.",
+          "related_skills": [
+            "verniero-2020-proton-beams-ion-scale-waves"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sun-2026-compound-reconnection-exhaust-mirror-modes-hcs",
+      "title": "Parker Solar Probe Observations of Compound Reconnection Exhaust Boundaries and Mirror-Mode Structures in the Near-Sun Heliospheric Current Sheet",
+      "authors": [
+        "W. Sun",
+        "T. Phan",
+        "J. Huang"
+      ],
+      "first_author": "W. Sun",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.26137",
+      "theme": "psp-hcs-reconnection-exhaust-mirror-modes",
+      "primary_theme": "reconnection",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale",
+        "ion-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "sun-2026-compound-reconnection-exhaust-mirror-modes-hcs/SKILL.md",
+      "metadata_yaml": "sun-2026-compound-reconnection-exhaust-mirror-modes-hcs/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §6"
+      ],
+      "depends_on": [
+        "phan-2022-switchback-boundary-reconnection-psp",
+        "paper-desai-2024-hcs-reconnection-400kev-protons"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Compound slow-shock + mirror-mode boundaries are common near the Sun but disappear by 0.3 au; testable on PSP E14–E20.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply Walén + R–H tests on all flagged HCS crossings in PSP E14–E20 burst windows.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "ofman-2025-large-scale-kelvin-helmholtz-cme-driven",
+      "title": "Observation of Large-Scale Kelvin-Helmholtz Instability Wave Driven by a Coronal Mass Ejection",
+      "authors": [
+        "L. Ofman",
+        "O. Khabarova",
+        "R.-Y. Kwon",
+        "Yogesh",
+        "E. Heifetz",
+        "K. Nykyri"
+      ],
+      "first_author": "L. Ofman",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.19942",
+      "theme": "cme-kelvin-helmholtz-upper-corona",
+      "primary_theme": "other",
+      "missions": [
+        "PSP",
+        "Solar Orbiter",
+        "other"
+      ],
+      "regime": [
+        "corona",
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "ofman-2025-large-scale-kelvin-helmholtz-cme-driven/SKILL.md",
+      "metadata_yaml": "ofman-2025-large-scale-kelvin-helmholtz-cme-driven/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §4"
+      ],
+      "depends_on": [],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No companion in-situ KHI skill at inner heliosphere; PSP/SolO flank crossings could be searched.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Search PSP MAG/SWA for KH-like B/v oscillations on the flank of catalogued CMEs (CDPP).",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "shankarappa-2025-free-energy-sources-ion-scale-waves-psp",
+      "title": "Free Energy Sources of Ion-scale Waves Observed by Parker Solar Probe",
+      "authors": [
+        "N. Shankarappa",
+        "K. G. Klein",
+        "M. M. Martinović",
+        "T. A. Bowen",
+        "D. E. Larson",
+        "R. Livi"
+      ],
+      "first_author": "N. Shankarappa",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.11182",
+      "theme": "psp-ion-scale-waves-free-energy-statistics",
+      "primary_theme": "waves_instabilities",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "ion-scale",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "shankarappa-2025-free-energy-sources-ion-scale-waves-psp/SKILL.md",
+      "metadata_yaml": "shankarappa-2025-free-energy-sources-ion-scale-waves-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §7"
+      ],
+      "depends_on": [
+        "verniero-2020-proton-beams-ion-scale-waves",
+        "kasper-2016-sweap-investigation-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Left-handed-wave fraction's radial increase reflects rising parallel beam drift — testable on E14–E20.",
+          "related_skills": []
+        },
+        {
+          "type": "gap",
+          "statement": "No skill yet quantifies the wave-particle heating rate from this LH-wave population.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "martinovic-2025-oblique-drift-instability-solar-wind-heating",
+      "title": "How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution of Solar Wind Observations",
+      "authors": [
+        "M. M. Martinović",
+        "K. G. Klein",
+        "L. Ofman",
+        "Yogesh",
+        "J. L. Verniero",
+        "P. H. Yoon"
+      ],
+      "first_author": "M. M. Martinović",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.18485",
+      "theme": "solar-wind-oblique-drift-instability-heating",
+      "primary_theme": "waves_instabilities",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "martinovic-2025-oblique-drift-instability-solar-wind-heating/SKILL.md",
+      "metadata_yaml": "martinovic-2025-oblique-drift-instability-solar-wind-heating/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §5"
+      ],
+      "depends_on": [
+        "verniero-2020-proton-beams-ion-scale-waves",
+        "shankarappa-2025-free-energy-sources-ion-scale-waves-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Oblique drift threshold may overlap with parallel-firehose threshold in low-β slow wind; competing instability attribution.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Compute both threshold contours on the same PSP low-β interval set and report which dominates by encounter.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au",
+      "title": "On the magnetic field evolution of interplanetary coronal mass ejections from 0.07 to 5.4 au",
+      "authors": [
+        "C. Möstl",
+        "E. E. Davies",
+        "E. Weiler",
+        "U. V. Amerstorfer",
+        "A. J. Weiss",
+        "H. T. Rüdisser"
+      ],
+      "first_author": "C. Möstl",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.04730",
+      "theme": "icme-magnetic-evolution-multi-mission",
+      "primary_theme": "other",
+      "missions": [
+        "PSP",
+        "Solar Orbiter",
+        "Wind",
+        "ACE",
+        "MESSENGER",
+        "STEREO"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "1au",
+        "outer-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au/SKILL.md",
+      "metadata_yaml": "mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §8"
+      ],
+      "depends_on": [
+        "paper-trotta-2025-ip-shock-variability-multi-spacecraft"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No sibling skill currently quantifies how ICME radial scaling depends on solar-cycle phase.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Restrict the fit to cycle-23 and cycle-24 maxima separately and compare exponents.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "choi-2024-whistler-waves-young-solar-wind-psp",
+      "title": "Whistler waves in the young solar wind: statistics of amplitude and propagation direction from Parker Solar Probe Encounters 1-11",
+      "authors": [
+        "K.-E. Choi",
+        "O. Agapitov",
+        "L. Colomban",
+        "J. W. Bonnell",
+        "F. Mozer",
+        "R. D. Sydora"
+      ],
+      "first_author": "K.-E. Choi",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2408.00736",
+      "theme": "psp-whistler-wave-statistics-near-sun",
+      "primary_theme": "waves_instabilities",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "electron-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "choi-2024-whistler-waves-young-solar-wind-psp/SKILL.md",
+      "metadata_yaml": "choi-2024-whistler-waves-young-solar-wind-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §11"
+      ],
+      "depends_on": [
+        "pulupa-2020-fields-merged-scm-fluxgate-product",
+        "bale-2016-fields-instrument-suite-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Counter-streaming whistler power should scale with strahl deficit — testable on encounters with strahl + whistler statistics jointly.",
+          "related_skills": []
+        },
+        {
+          "type": "gap",
+          "statement": "No companion skill maps the corresponding outer-heliospheric whistler statistic; cross-mission extension proposed.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "touresse-2024-untwisting-jets-super-alfvenic-wind-switchback",
+      "title": "Propagation of untwisting solar jets from the low-beta corona into the super-Alfvénic wind: Testing a solar origin scenario for switchbacks",
+      "authors": [
+        "J. Touresse",
+        "E. Pariat",
+        "C. Froment",
+        "V. Aslanyan",
+        "P. F. Wyper",
+        "L. Seyfritz"
+      ],
+      "first_author": "J. Touresse",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2412.15930",
+      "theme": "solar-jet-untwisting-switchback-origin",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "corona",
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "touresse-2024-untwisting-jets-super-alfvenic-wind-switchback/SKILL.md",
+      "metadata_yaml": "touresse-2024-untwisting-jets-super-alfvenic-wind-switchback/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §9"
+      ],
+      "depends_on": [
+        "shoda-2021-turbulence-switchback-generation-alfvenic",
+        "bale-2021-solar-source-switchbacks-magnetic-funnels"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Jet-origin (this work) vs in-situ turbulence-origin (Shoda 2021) — joint observables (delta-B alignment + spherical-polarisation) needed.",
+          "related_skills": [
+            "shoda-2021-turbulence-switchback-generation-alfvenic"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Run synthetic-spacecraft sampling of jet output at multiple impact parameters; compare delta-B vs spherical-polarisation to PSP catalog.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "ervin-2024-slow-alfvenic-source-regions-psp",
+      "title": "Characteristics and Source Regions of Slow Alfvenic Solar Wind Observed by Parker Solar Probe",
+      "authors": [
+        "T. Ervin",
+        "K. Jaffarove",
+        "S. T. Badman",
+        "J. Huang",
+        "Y. J. Rivera",
+        "S. D. Bale"
+      ],
+      "first_author": "T. Ervin",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2407.09684",
+      "theme": "psp-slow-alfvenic-wind-source-regions",
+      "primary_theme": "solar_orbiter",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "ervin-2024-slow-alfvenic-source-regions-psp/SKILL.md",
+      "metadata_yaml": "ervin-2024-slow-alfvenic-source-regions-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §12"
+      ],
+      "depends_on": [
+        "paper-stansby-2020-pfsspy-python-pfss",
+        "paper-sunkit-magex-magnetic-field-extrapolation",
+        "damicis-2021-alfvenic-nonalfvenic-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill maps the heavy-ion contrast inside SASW intervals to the same dual-source picture.",
+          "related_skills": [
+            "rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions"
+          ]
+        },
+        {
+          "type": "hypothesis",
+          "statement": "If low-B0 SASW dominates at solar minimum, fraction should drop at solar max — testable using late-mission PSP encounters.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "jiao-2023-steady-sub-alfvenic-solar-wind-psp",
+      "title": "Properties of Steady Sub-Alfvénic Solar Wind in Comparison with Super-Alfvénic Wind from Measurements of Parker Solar Probe",
+      "authors": [
+        "Y. Jiao",
+        "Y. D. Liu",
+        "H. Ran",
+        "W. Cheng"
+      ],
+      "first_author": "Y. Jiao",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2311.15622",
+      "theme": "psp-steady-sub-alfvenic-wind",
+      "primary_theme": "psp_data",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "sub-Alfvenic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "jiao-2023-steady-sub-alfvenic-solar-wind-psp/SKILL.md",
+      "metadata_yaml": "jiao-2023-steady-sub-alfvenic-solar-wind-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §15"
+      ],
+      "depends_on": [
+        "kasper-2021-psp-enters-magnetically-dominated-corona",
+        "adhikari-2026-alfven-transition-young-solar-wind-solar-max"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Switchback suppression in sub-Alfvénic intervals (this paper) vs presence of small-amplitude deflections in Adhikari 2026 — definition of 'switchback' affects the disagreement.",
+          "related_skills": [
+            "adhikari-2026-alfven-transition-young-solar-wind-solar-max"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply uniform amplitude threshold to both papers' interval lists and recount.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "agapitov-2023-constraints-alfvenicity-switchbacks",
+      "title": "Constraints on the Alfvénicity of Switchbacks",
+      "authors": [
+        "O. V. Agapitov",
+        "J. F. Drake",
+        "M. Swisdak",
+        "K.-E. Choi",
+        "N. Raouafi"
+      ],
+      "first_author": "O. V. Agapitov",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2312.01011",
+      "theme": "psp-switchback-alfvenicity-constraints",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "agapitov-2023-constraints-alfvenicity-switchbacks/SKILL.md",
+      "metadata_yaml": "agapitov-2023-constraints-alfvenicity-switchbacks/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §14"
+      ],
+      "depends_on": [
+        "phan-2022-switchback-boundary-reconnection-psp",
+        "agapitov-2023-structure-origin-switchbacks-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Non-Alfvenic excess at large deflection is the signature of reconnection-driven boundaries leaking inward into the event interior.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Stack PSP switchbacks by deflection-angle bin and compare delta-v residuals near vs far from documented reconnection-exhaust boundaries.",
+          "related_skills": [
+            "phan-2022-switchback-boundary-reconnection-psp"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au",
+      "title": "Properties of an interplanetary shock observed at 0.07 and 0.7 Astronomical Units by Parker Solar Probe and Solar Orbiter",
+      "authors": [
+        "D. Trotta",
+        "A. Larosa",
+        "G. Nicolaou",
+        "T. S. Horbury",
+        "L. Matteini",
+        "H. Hietala"
+      ],
+      "first_author": "D. Trotta",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2312.05983",
+      "theme": "psp-solo-radial-aligned-interplanetary-shock",
+      "primary_theme": "other",
+      "missions": [
+        "PSP",
+        "Solar Orbiter"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au/SKILL.md",
+      "metadata_yaml": "trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §13"
+      ],
+      "depends_on": [
+        "paper-trotta-2025-ip-shock-variability-multi-spacecraft",
+        "muller-2020-solar-orbiter-mission-overview"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No systematic catalog yet of dual-spacecraft shock observations under PSP–SolO radial alignment.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Build a multi-event catalog of PSP–SolO aligned shocks and fit radial evolution per shock class.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "sun-2024-magnetic-island-wispr-psp",
+      "title": "A Detailed Analysis of a Magnetic Island Observed by WISPR on Parker Solar Probe",
+      "authors": [
+        "W. Sun",
+        "TODO verify co-authors"
+      ],
+      "first_author": "W. Sun (et al., TODO verify)",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2407.07216",
+      "theme": "psp-wispr-magnetic-island-imaging",
+      "primary_theme": "other",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "corona",
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "sun-2024-magnetic-island-wispr-psp/SKILL.md",
+      "metadata_yaml": "sun-2024-magnetic-island-wispr-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.10"
+      ],
+      "depends_on": [
+        "vourlidas-2016-wispr-imaging-instrument-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill systematically pairs WISPR magnetic-island imaging with downstream PSP in-situ flux-rope catalog.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "For each WISPR-imaged structure, search PSP MAG/SWEAP for the corresponding in-situ flux-rope crossing.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "adhikari-2025-trans-alfvenic-region-psp-e8-e19",
+      "title": "Characterization of the Trans-Alfvénic Region Using Observations from Parker Solar Probe",
+      "authors": [
+        "S. Adhikari",
+        "R. Bandyopadhyay",
+        "J. Goodwill"
+      ],
+      "first_author": "S. Adhikari",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2510.07472",
+      "theme": "psp-trans-alfvenic-region-fluctuation-survey",
+      "primary_theme": "psp_data",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "sub-Alfvenic",
+        "super-Alfvenic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "adhikari-2025-trans-alfvenic-region-psp-e8-e19/SKILL.md",
+      "metadata_yaml": "adhikari-2025-trans-alfvenic-region-psp-e8-e19/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §6"
+      ],
+      "depends_on": [
+        "adhikari-2026-alfven-transition-young-solar-wind-solar-max",
+        "kasper-2021-psp-enters-magnetically-dominated-corona",
+        "jiao-2023-steady-sub-alfvenic-solar-wind-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No sibling skill measures the perpendicular-cascade timescale ratio sub/super-Alfvenic.",
+          "related_skills": []
+        },
+        {
+          "type": "hypothesis",
+          "statement": "If anisotropy contrast scales with M_A, then trans-Alfvenic boundary acts as a filter on perpendicular cascade — testable via structure-function method.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere",
+      "title": "Evidence for an Inverse Cascade of Magnetic Helicity in the Inner Heliosphere",
+      "authors": [
+        "M. Iizawa",
+        "Y. Narita",
+        "T. Alberti"
+      ],
+      "first_author": "M. Iizawa",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2507.13213",
+      "theme": "psp-magnetic-helicity-inverse-cascade",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere/SKILL.md",
+      "metadata_yaml": "iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §7"
+      ],
+      "depends_on": [
+        "huang-2023-psp-one-over-f-spectrum",
+        "sioulas-2023-anisotropic-scaling-inner-heliosphere"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Inverse cascade signature contrasts with forward-cascade turbulent-heating picture (Bandyopadhyay 2020) — both can coexist if scales are separate.",
+          "related_skills": [
+            "bandyopadhyay-2020-energy-transfer-psp"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Joint reduced-helicity + cascade-rate analysis on PSP E10 perihelion interval; check whether scale separation is real.",
+          "related_skills": [
+            "bandyopadhyay-2020-energy-transfer-psp"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "jiang-2025-third-order-law-angular-dependence-anisotropic-mhd",
+      "title": "Angular dependence of third-order law in anisotropic MHD turbulence",
+      "authors": [
+        "B. Jiang",
+        "Z. Gao",
+        "Y. Yang"
+      ],
+      "first_author": "B. Jiang",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.16610",
+      "theme": "anisotropic-mhd-third-order-law-angular-dependence",
+      "primary_theme": "turbulence",
+      "missions": [
+        "n/a"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale",
+        "fluid"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "jiang-2025-third-order-law-angular-dependence-anisotropic-mhd/SKILL.md",
+      "metadata_yaml": "jiang-2025-third-order-law-angular-dependence-anisotropic-mhd/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §4"
+      ],
+      "depends_on": [
+        "bandyopadhyay-2020-energy-transfer-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "minimal_experiment",
+          "statement": "Re-run Bandyopadhyay 2020 ε computation conditioning on flow-direction-vs-B angle; check 60° optimum holds.",
+          "related_skills": [
+            "bandyopadhyay-2020-energy-transfer-psp"
+          ]
+        },
+        {
+          "type": "hypothesis",
+          "statement": "Cascade-rate enhancement near the Sun is partly a sampling-angle artifact when sampling becomes radial-aligned at perihelion.",
+          "related_skills": [
+            "bandyopadhyay-2020-energy-transfer-psp"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "zhao-2025-mode-composition-magnetic-anisotropy-solar-wind",
+      "title": "Mode Composition Shapes Magnetic Anisotropy in Solar Wind Turbulence",
+      "authors": [
+        "S. Zhao",
+        "H. Yan",
+        "T. Z. Liu"
+      ],
+      "first_author": "S. Zhao",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2510.25636",
+      "theme": "mhd-mode-composition-anisotropy",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP",
+        "Wind"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "zhao-2025-mode-composition-magnetic-anisotropy-solar-wind/SKILL.md",
+      "metadata_yaml": "zhao-2025-mode-composition-magnetic-anisotropy-solar-wind/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §5"
+      ],
+      "depends_on": [
+        "sioulas-2023-anisotropic-scaling-inner-heliosphere",
+        "cuesta-2022-compressible-turbulence-psp-themis-maven"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Parallel-mode concentration of slow/fast should explain spectral-break angular dependence — testable on PSP angle-conditioned spectra.",
+          "related_skills": []
+        },
+        {
+          "type": "gap",
+          "statement": "No sibling skill applies kinetic-eigenmode decomposition (KAW, ICW) consistently to inner-heliosphere data.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence",
+      "title": "Sub-ion scale current sheets in kinetic Alfvén wave turbulence",
+      "authors": [
+        "J. Sharma",
+        "C. A. Kumar",
+        "K. D. Makwana"
+      ],
+      "first_author": "J. Sharma",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2601.18131",
+      "theme": "kaw-turbulence-sub-ion-current-sheets",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "kinetic",
+        "electron-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence/SKILL.md",
+      "metadata_yaml": "sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §3"
+      ],
+      "depends_on": [
+        "zhao-2022-3d-anisotropy-kinetic-scales-psp",
+        "pecora-2022-coherent-structures-proton-electron-heating"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Sub-ion current-sheet fraction (PVI > τ at sub-ion lag) increases inward — testable on PSP near-Sun burst MAG.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Compute PVI at fixed sub-ion lag (~ρ_p) across PSP E1–E20; compare to PIC distribution shape.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "mondal-2025-sub-electron-turbulence-psp-density-spectra",
+      "title": "The Nature of Turbulence at Sub-Electron Scales in the Solar Wind",
+      "authors": [
+        "S. Mondal",
+        "C. H. K. Chen",
+        "D. Manzini"
+      ],
+      "first_author": "S. Mondal",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2509.17061",
+      "theme": "psp-sub-electron-density-spectra-electrostatic",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "electron-scale",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "mondal-2025-sub-electron-turbulence-psp-density-spectra/SKILL.md",
+      "metadata_yaml": "mondal-2025-sub-electron-turbulence-psp-density-spectra/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §8"
+      ],
+      "depends_on": [
+        "zhao-2022-3d-anisotropy-kinetic-scales-psp",
+        "pulupa-2020-fields-merged-scm-fluxgate-product"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "If electrostatic dominance is universal at sub-ρ_e, then magnetic-spectrum index becomes a poor probe of electron heating — needs cross-check with electron-temperature gradient.",
+          "related_skills": []
+        },
+        {
+          "type": "gap",
+          "statement": "No paper-skill yet links sub-electron density spectrum to electron heating-rate budget.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere",
+      "title": "Dynamical Age of Alfvénic Turbulence in the Solar Wind",
+      "authors": [
+        "R. Chhiber",
+        "Y. Wang",
+        "A. V. Usmanov"
+      ],
+      "first_author": "R. Chhiber",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2603.25989",
+      "theme": "alfvenic-turbulence-age-radial-evolution",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP",
+        "Solar Orbiter",
+        "Wind",
+        "Helios"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere/SKILL.md",
+      "metadata_yaml": "chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §9"
+      ],
+      "depends_on": [
+        "sioulas-2022-magnetic-field-intermittency-psp-solo",
+        "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+        "telloni-2021-psp-solo-radial-alignment-turbulence"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No sibling skill measures the same age parameter using high-cadence kinetic-range correlation lengths.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Compute turbulence age on aligned PSP–SolO conjunction intervals; check radial trend within a single source.",
+          "related_skills": [
+            "telloni-2021-psp-solo-radial-alignment-turbulence"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "gurram-2026-mms-cme-sub-alfvenic-wind-1au",
+      "title": "MMS Insights into CME Driven Sub-Alfvénic Solar Wind at 1 AU",
+      "authors": [
+        "H. Gurram",
+        "L.-J. Chen",
+        "M. R. Argall"
+      ],
+      "first_author": "H. Gurram",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.12000",
+      "theme": "mms-cme-sub-alfvenic-wind-1au",
+      "primary_theme": "other",
+      "missions": [
+        "other"
+      ],
+      "regime": [
+        "1au"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "gurram-2026-mms-cme-sub-alfvenic-wind-1au/SKILL.md",
+      "metadata_yaml": "gurram-2026-mms-cme-sub-alfvenic-wind-1au/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §1"
+      ],
+      "depends_on": [
+        "jiao-2023-steady-sub-alfvenic-solar-wind-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Sub-Alfvénic σ_c at 1 au (≈0) contrasts with PSP near-Sun sub-Alfvénic σ_c (non-trivial) — radial vs context-driven difference.",
+          "related_skills": [
+            "jiao-2023-steady-sub-alfvenic-solar-wind-psp"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Restrict σ_c statistics to PSP sub-Alfvénic intervals inside vs outside ICME context; compare.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "gonzalez-2026-compressible-fluctuations-balanced-imbalanced",
+      "title": "Characterization of compressible fluctuations in solar wind streams dominated by balanced and imbalanced turbulence",
+      "authors": [
+        "C. A. Gonzalez",
+        "A. Tenerani"
+      ],
+      "first_author": "C. A. Gonzalez",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2602.17606",
+      "theme": "compressible-fluctuations-balanced-imbalanced-near-sun",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP",
+        "Solar Orbiter"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "gonzalez-2026-compressible-fluctuations-balanced-imbalanced/SKILL.md",
+      "metadata_yaml": "gonzalez-2026-compressible-fluctuations-balanced-imbalanced/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §3"
+      ],
+      "depends_on": [
+        "cuesta-2022-compressible-turbulence-psp-themis-maven",
+        "zhao-2025-mode-composition-magnetic-anisotropy-solar-wind"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill quantifies the imbalance threshold above which slow-mode heating dominates Alfvénic heating near the Sun.",
+          "related_skills": []
+        },
+        {
+          "type": "hypothesis",
+          "statement": "If slow-mode heating dominates the imbalanced near-Sun fraction, electron-vs-proton heating ratio should track imbalance — testable with PSP electron moments.",
+          "related_skills": [
+            "bowen-2023-landau-damping-proton-electron-heating"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "yogesh-2026-solar-wind-heating-radial-evolution-psp",
+      "title": "Solar Wind Heating Near the Sun: A Radial Evolution Approach",
+      "authors": [
+        "Yogesh",
+        "L. Ofman",
+        "K. Klein"
+      ],
+      "first_author": "Yogesh",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2602.10275",
+      "theme": "psp-radial-evolution-heating-free-energy",
+      "primary_theme": "coronal_heating",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "yogesh-2026-solar-wind-heating-radial-evolution-psp/SKILL.md",
+      "metadata_yaml": "yogesh-2026-solar-wind-heating-radial-evolution-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §4"
+      ],
+      "depends_on": [
+        "verniero-2020-proton-beams-ion-scale-waves",
+        "shankarappa-2025-free-energy-sources-ion-scale-waves-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Free-energy budget exceeds beam-generation cost by factor F(r); F should saturate near sub-Alfvenic transition.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Compute F(r) per encounter; check saturation near M_A → 1.",
+          "related_skills": [
+            "adhikari-2025-trans-alfvenic-region-psp-e8-e19"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "saguchi-2026-parametric-decay-temperature-anisotropy-psp",
+      "title": "Radial evolution of Alfvén wave Parametric Decay Instability in the near-Sun solar wind: Effects of Temperature Anisotropy",
+      "authors": [
+        "H. Saguchi",
+        "Y. Kawazura",
+        "M. Shoda"
+      ],
+      "first_author": "H. Saguchi",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.22489",
+      "theme": "alfven-pdi-temperature-anisotropy-near-sun",
+      "primary_theme": "waves_instabilities",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "saguchi-2026-parametric-decay-temperature-anisotropy-psp/SKILL.md",
+      "metadata_yaml": "saguchi-2026-parametric-decay-temperature-anisotropy-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §5"
+      ],
+      "depends_on": [
+        "shoda-2021-turbulence-switchback-generation-alfvenic"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "PDI enhancement by anisotropy explains observed compressible-fluctuation rise near the Sun (Gonzalez 2026) — testable via correlation of T_perp/T_par with slow-mode amplitude.",
+          "related_skills": [
+            "gonzalez-2026-compressible-fluctuations-balanced-imbalanced"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Bin PSP intervals by T_perp/T_par and check slow-mode amplitude correlation.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "wyper-2026-switchback-formation-mechanisms-review",
+      "title": "Magnetic switchback formation: a review of proposed mechanisms",
+      "authors": [
+        "P. F. Wyper",
+        "J. Squire",
+        "E. Pariat"
+      ],
+      "first_author": "P. F. Wyper",
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.16166",
+      "theme": "switchback-formation-review-coronal-vs-insitu",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "corona",
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "wyper-2026-switchback-formation-mechanisms-review/SKILL.md",
+      "metadata_yaml": "wyper-2026-switchback-formation-mechanisms-review/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §6"
+      ],
+      "depends_on": [
+        "bale-2021-solar-source-switchbacks-magnetic-funnels",
+        "shoda-2021-turbulence-switchback-generation-alfvenic",
+        "touresse-2024-untwisting-jets-super-alfvenic-wind-switchback",
+        "agapitov-2023-structure-origin-switchbacks-psp",
+        "huang-2025-what-are-switchbacks-solitary-alfven-wave-model"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "Review identifies untested joint observables (delta-B vs spherical-polarisation vs heavy-ion contrast) — no current skill computes the full triplet on a single interval.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "On a PSP–SolO lineup interval (P11), compute the joint (delta-B alignment, spherical-polarisation, Q_Fe contrast) triplet and locate each switchback in the discriminating matrix.",
+          "related_skills": [
+            "rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "good-2025-residual-energy-mhd-shocks-interplanetary",
+      "title": "Residual energy of magnetohydrodynamic shocks",
+      "authors": [
+        "S. W. Good",
+        "K. J. Palmunen",
+        "C. H. K. Chen"
+      ],
+      "first_author": "S. W. Good",
+      "year": 2025,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2509.20096",
+      "theme": "mhd-shock-residual-energy-signature",
+      "primary_theme": "other",
+      "missions": [
+        "PSP",
+        "Solar Orbiter",
+        "Wind"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "good-2025-residual-energy-mhd-shocks-interplanetary/SKILL.md",
+      "metadata_yaml": "good-2025-residual-energy-mhd-shocks-interplanetary/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §7"
+      ],
+      "depends_on": [
+        "paper-trotta-2025-ip-shock-variability-multi-spacecraft",
+        "trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Residual-energy step magnitude should correlate with shock Mach number — testable on dual-spacecraft catalog.",
+          "related_skills": []
+        },
+        {
+          "type": "gap",
+          "statement": "No paper-skill yet computes residual-energy steps on the PSP perihelion shock subset.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "gonzalez-2023-local-proton-heating-discontinuities-alfvenic",
+      "title": "Local proton heating at magnetic discontinuities in Alfvénic and non-Alfvénic solar wind",
+      "authors": [
+        "C. A. Gonzalez",
+        "J. L. Verniero",
+        "R. Bandyopadhyay"
+      ],
+      "first_author": "C. A. Gonzalez",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2309.07862",
+      "theme": "psp-discontinuity-local-proton-heating",
+      "primary_theme": "coronal_heating",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "gonzalez-2023-local-proton-heating-discontinuities-alfvenic/SKILL.md",
+      "metadata_yaml": "gonzalez-2023-local-proton-heating-discontinuities-alfvenic/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §9"
+      ],
+      "depends_on": [
+        "pecora-2022-coherent-structures-proton-electron-heating",
+        "damicis-2021-alfvenic-nonalfvenic-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Heating-channel split tracks σ_c continuously, not via a single Alfvenic/non-Alfvenic dichotomy.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Re-bin PSP intervals by continuous σ_c quartiles and measure conditional T-jump at discontinuities.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "magyar-2024-synthetic-modeling-plasma-frame-psp",
+      "title": "Solar wind data analysis aided by synthetic modeling: a better understanding of plasma-frame variations from temporal data",
+      "authors": [
+        "N. Magyar",
+        "J. Verniero",
+        "A. Szabo"
+      ],
+      "first_author": "N. Magyar",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2405.12547",
+      "theme": "synthetic-modeling-plasma-frame-psp",
+      "primary_theme": "other",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "magyar-2024-synthetic-modeling-plasma-frame-psp/SKILL.md",
+      "metadata_yaml": "magyar-2024-synthetic-modeling-plasma-frame-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §7"
+      ],
+      "depends_on": [
+        "stevens-2022-reconciling-psp-mhd-theory-plasma-frame"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill compares model-corrected plasma-frame spectra to ML-inferred (Bloch-style) classifications.",
+          "related_skills": [
+            "paper-bloch-2024-uncertainty-nn-solar-wind-types"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply the toolkit to a PSP–SolO conjunction interval and check that corrected spectra match across spacecraft.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "bandyopadhyay-2025-helios-mission-archival-reanalysis",
+      "title": "Helios mission archival reanalysis: cross-check of PSP turbulence radial scaling against the 0.3–1.0 au Helios baseline",
+      "authors": [
+        "TODO verify"
+      ],
+      "first_author": "R. Bandyopadhyay (TODO verify first author)",
+      "year": 2025,
+      "journal": "arXiv preprint (stub)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "helios-archival-reanalysis-baseline",
+      "primary_theme": "turbulence",
+      "missions": [
+        "Helios",
+        "PSP",
+        "Solar Orbiter"
+      ],
+      "regime": [
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "bandyopadhyay-2025-helios-mission-archival-reanalysis/SKILL.md",
+      "metadata_yaml": "bandyopadhyay-2025-helios-mission-archival-reanalysis/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.15 (PSP+Helios+Wind spectral evolution)"
+      ],
+      "depends_on": [
+        "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+        "chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No paper-skill currently rehouses Helios in modern PSP-style local-mean-field structure functions on a unified slug.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply the Sioulas 2022 PVI / structure-function pipeline to Helios E1 merged data on a 0.3-au shell and check kurtosis-scaling consistency with PSP-derived trends.",
+          "related_skills": [
+            "sioulas-2022-magnetic-field-intermittency-psp-solo"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cattell-2025-stochastic-heating-sub-alfvenic-wind-psp",
+      "title": "Stochastic Heating in the Sub-Alfvénic Solar Wind",
+      "authors": [
+        "C. Cattell",
+        "TODO verify"
+      ],
+      "first_author": "C. Cattell (et al., PSP team)",
+      "year": 2025,
+      "journal": "Physical Review Letters",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2509.20654",
+      "theme": "psp-stochastic-heating-sub-alfvenic",
+      "primary_theme": "coronal_heating",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "sub-Alfvenic",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "cattell-2025-stochastic-heating-sub-alfvenic-wind-psp/SKILL.md",
+      "metadata_yaml": "cattell-2025-stochastic-heating-sub-alfvenic-wind-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.20"
+      ],
+      "depends_on": [
+        "kasper-2021-psp-enters-magnetically-dominated-corona",
+        "jiao-2023-steady-sub-alfvenic-solar-wind-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Stochastic-heating rate should peak just inside Alfvén surface and drop deeper sub-Alfvenic.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply the diagnostic on a continuous E14 sub-Alfvenic crossing and bin by depth (1 − M_A).",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "schwadron-2022-switchback-deflections-beyond-early-encounters",
+      "title": "Switchback Deflections Beyond the Early Parker Solar Probe Encounters",
+      "authors": [
+        "N. M. Schwadron",
+        "TODO verify"
+      ],
+      "first_author": "N. M. Schwadron",
+      "year": 2022,
+      "journal": "MNRAS, 517, 1001",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "psp-switchback-radial-trend-occurrence",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "schwadron-2022-switchback-deflections-beyond-early-encounters/SKILL.md",
+      "metadata_yaml": "schwadron-2022-switchback-deflections-beyond-early-encounters/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.4"
+      ],
+      "depends_on": [
+        "bale-2021-solar-source-switchbacks-magnetic-funnels",
+        "agapitov-2023-structure-origin-switchbacks-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill extends this trend through E20 with a consistent classifier.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply Schwadron classifier verbatim to PSP E9–E20; report radial trend continuity.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "vech-2022-anisotropy-kinetic-scales-psp",
+      "title": "Anisotropy of Magnetic Field Spectra at Kinetic Scales of Solar Wind Turbulence as Revealed by Parker Solar Probe in the Inner Heliosphere",
+      "authors": [
+        "D. Vech",
+        "TODO verify"
+      ],
+      "first_author": "D. Vech",
+      "year": 2022,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2203.10475",
+      "theme": "psp-kinetic-scale-anisotropy-break",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "ion-scale",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "vech-2022-anisotropy-kinetic-scales-psp/SKILL.md",
+      "metadata_yaml": "vech-2022-anisotropy-kinetic-scales-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.14"
+      ],
+      "depends_on": [
+        "zhao-2022-3d-anisotropy-kinetic-scales-psp",
+        "sioulas-2023-anisotropic-scaling-inner-heliosphere"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Angle-dependent break may bias single-direction inertial-range slope claims.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Re-do Huang 2023 1/f spectral fit conditioned on flow-angle bin and check slope robustness.",
+          "related_skills": [
+            "huang-2023-psp-one-over-f-spectrum"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bowen-2022-anisotropic-turbulence-radial-evolution-psp",
+      "title": "Anisotropic Magnetic Turbulence in the Inner Heliosphere — Radial Evolution of Distributions Observed by Parker Solar Probe",
+      "authors": [
+        "T. A. Bowen",
+        "TODO verify"
+      ],
+      "first_author": "T. A. Bowen",
+      "year": 2022,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2205.14096",
+      "theme": "psp-anisotropy-radial-evolution-statistics",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale",
+        "ion-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "bowen-2022-anisotropic-turbulence-radial-evolution-psp/SKILL.md",
+      "metadata_yaml": "bowen-2022-anisotropic-turbulence-radial-evolution-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.15"
+      ],
+      "depends_on": [
+        "sioulas-2022-magnetic-field-intermittency-psp-solo",
+        "vech-2022-anisotropy-kinetic-scales-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill links distributional shape to source-region class via PFSS mapping.",
+          "related_skills": []
+        },
+        {
+          "type": "hypothesis",
+          "statement": "Distribution skewness should peak at the streamer-belt / coronal-hole boundary radial bin.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "cuesta-2023-scaling-anisotropy-stationary-background-psp",
+      "title": "Scaling Anisotropy with Stationary Background Field in the Near-Sun Solar Wind Turbulence",
+      "authors": [
+        "M. M. Cuesta",
+        "TODO verify"
+      ],
+      "first_author": "M. M. Cuesta",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2303.10810",
+      "theme": "psp-stationary-background-anisotropy",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "cuesta-2023-scaling-anisotropy-stationary-background-psp/SKILL.md",
+      "metadata_yaml": "cuesta-2023-scaling-anisotropy-stationary-background-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.5"
+      ],
+      "depends_on": [
+        "sioulas-2023-anisotropic-scaling-inner-heliosphere",
+        "bowen-2022-anisotropic-turbulence-radial-evolution-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Stationarity-conditioned anisotropy slopes differ from unconditioned estimates (Sioulas 2023) — methodological comparison needed.",
+          "related_skills": [
+            "sioulas-2023-anisotropic-scaling-inner-heliosphere"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Run both methods on the same intervals and report slope deltas with statistical error bars.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event",
+      "title": "Proton and Alpha Driven Instabilities in an Ion Cyclotron Wave Event",
+      "authors": [
+        "J. L. Verniero",
+        "TODO verify"
+      ],
+      "first_author": "J. L. Verniero",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2310.14136",
+      "theme": "psp-proton-alpha-instabilities-ion-cyclotron-wave",
+      "primary_theme": "waves_instabilities",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "ion-scale",
+        "kinetic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event/SKILL.md",
+      "metadata_yaml": "verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.6"
+      ],
+      "depends_on": [
+        "verniero-2020-proton-beams-ion-scale-waves",
+        "shankarappa-2025-free-energy-sources-ion-scale-waves-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "Single-event study; no skill maps proton vs alpha contribution across many ICW events.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply the same multi-species solver to the Shankarappa 2025 LH-wave event catalog.",
+          "related_skills": [
+            "shankarappa-2025-free-energy-sources-ion-scale-waves-psp"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "stevens-2022-reconciling-psp-mhd-theory-plasma-frame",
+      "title": "Reconciling Parker Solar Probe Observations and Magnetohydrodynamic Theory",
+      "authors": [
+        "M. L. Stevens",
+        "TODO verify"
+      ],
+      "first_author": "M. L. Stevens",
+      "year": 2022,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2206.11514",
+      "theme": "psp-mhd-theory-reconciliation-plasma-frame",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "stevens-2022-reconciling-psp-mhd-theory-plasma-frame/SKILL.md",
+      "metadata_yaml": "stevens-2022-reconciling-psp-mhd-theory-plasma-frame/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.2"
+      ],
+      "depends_on": [
+        "huang-2023-psp-one-over-f-spectrum",
+        "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Plasma-frame-corrected slopes differ from spacecraft-frame slopes — re-check Huang 2023 1/f scaling.",
+          "related_skills": [
+            "huang-2023-psp-one-over-f-spectrum"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply the correction to Huang 2023 intervals; report corrected slope.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "chen-2023-relation-switchbacks-turbulence-inner-heliosphere",
+      "title": "The relation between magnetic switchbacks and turbulence in the inner heliosphere",
+      "authors": [
+        "C. H. K. Chen",
+        "TODO verify"
+      ],
+      "first_author": "C. H. K. Chen (et al.)",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2312.16521",
+      "theme": "switchback-turbulence-coupling-inner-heliosphere",
+      "primary_theme": "switchbacks",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "chen-2023-relation-switchbacks-turbulence-inner-heliosphere/SKILL.md",
+      "metadata_yaml": "chen-2023-relation-switchbacks-turbulence-inner-heliosphere/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §1.7"
+      ],
+      "depends_on": [
+        "bale-2021-solar-source-switchbacks-magnetic-funnels",
+        "huang-2023-psp-one-over-f-spectrum"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Switchback-turbulence coupling sign depends on patch definition — Shoda 2021 generation hypothesis predicts one sign; Bale 2021 funnel-origin predicts another.",
+          "related_skills": [
+            "shoda-2021-turbulence-switchback-generation-alfvenic",
+            "bale-2021-solar-source-switchbacks-magnetic-funnels"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Apply both patch classifiers and compare conditional-spectrum delta-α sign.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence",
+      "title": "Emergence of two inertial sub-ranges in solar wind turbulence",
+      "authors": [
+        "TODO verify"
+      ],
+      "first_author": "A. Gao (TODO verify first author)",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2409.03090",
+      "theme": "psp-two-inertial-subranges",
+      "primary_theme": "turbulence",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "MHD-scale"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence/SKILL.md",
+      "metadata_yaml": "gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §1.10"
+      ],
+      "depends_on": [
+        "huang-2023-psp-one-over-f-spectrum",
+        "stevens-2022-reconciling-psp-mhd-theory-plasma-frame",
+        "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Sub-range breakpoint should track Alfven correlation length — testable on radial-aligned PSP–SolO conjunctions.",
+          "related_skills": [
+            "telloni-2025-psp-solo-radial-alignment-2022-december"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Re-fit PSD on E10 (0.07 au) with two-segment model; compare breakpoint to expected correlation-length value.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "woodham-2024-alpha-proton-differential-flow-young-solar-wind",
+      "title": "The Alpha-Proton Differential Flow in the Alfvénic Young Solar Wind: From Sub-Alfvénic to Super-Alfvénic",
+      "authors": [
+        "TODO verify"
+      ],
+      "first_author": "L. D. Woodham (TODO verify first author)",
+      "year": 2024,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2401.10457",
+      "theme": "alpha-proton-drift-young-solar-wind",
+      "primary_theme": "psp_data",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "sub-Alfvenic",
+        "super-Alfvenic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "woodham-2024-alpha-proton-differential-flow-young-solar-wind/SKILL.md",
+      "metadata_yaml": "woodham-2024-alpha-proton-differential-flow-young-solar-wind/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §4.7"
+      ],
+      "depends_on": [
+        "kasper-2021-psp-enters-magnetically-dominated-corona",
+        "jiao-2023-steady-sub-alfvenic-solar-wind-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "Drift suppression sub-Alfvenic is wave-driven — predicts correlation with local ion-cyclotron wave power.",
+          "related_skills": [
+            "shankarappa-2025-free-energy-sources-ion-scale-waves-psp"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Jointly bin drift speed and LH-wave occurrence across the Alfvén surface crossings.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "cranmer-2023-alfven-surface-punch-prospects-review",
+      "title": "The Sun's Alfvén Surface: Recent Insights and Prospects for the Polarimeter to Unify the Corona and Heliosphere (PUNCH)",
+      "authors": [
+        "S. R. Cranmer",
+        "R. Chhiber",
+        "C. R. Gilly"
+      ],
+      "first_author": "S. R. Cranmer",
+      "year": 2023,
+      "journal": "arXiv preprint",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2310.05887",
+      "theme": "alfven-surface-review-punch-prospects",
+      "primary_theme": "other",
+      "missions": [
+        "PSP",
+        "other"
+      ],
+      "regime": [
+        "corona",
+        "inner-heliosphere",
+        "sub-Alfvenic",
+        "super-Alfvenic"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "cranmer-2023-alfven-surface-punch-prospects-review/SKILL.md",
+      "metadata_yaml": "cranmer-2023-alfven-surface-punch-prospects-review/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §8"
+      ],
+      "depends_on": [
+        "kasper-2021-psp-enters-magnetically-dominated-corona",
+        "adhikari-2026-alfven-transition-young-solar-wind-solar-max",
+        "adhikari-2025-trans-alfvenic-region-psp-e8-e19"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No skill maps PUNCH simulation to PSP in-situ M_A < 1 catalog for one-to-one comparison.",
+          "related_skills": []
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "Build a synthetic PUNCH-style image from a PSP Alfvén-surface crossing model and check imaging-signature predictions.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "halekas-2024-coronal-heating-switchback-budget-ruled-out",
+      "title": "Parker Solar Probe Constraints on Coronal Heating — Switchback Hypothesis Ruled Out",
+      "authors": [
+        "J. Halekas",
+        "M. Velli",
+        "S. D. Bale",
+        "J. C. Kasper",
+        "M. M. Martinović"
+      ],
+      "first_author": "J. Halekas",
+      "year": 2024,
+      "journal": "ApJ",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "psp-coronal-heating-switchback-budget-ruled-out",
+      "primary_theme": "coronal_heating",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "corona"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "halekas-2024-coronal-heating-switchback-budget-ruled-out/SKILL.md",
+      "metadata_yaml": "halekas-2024-coronal-heating-switchback-budget-ruled-out/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §4.3"
+      ],
+      "depends_on": [
+        "bowen-2023-landau-damping-proton-electron-heating",
+        "bandyopadhyay-2020-energy-transfer-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "tension",
+          "statement": "Switchback ruled out for coronal-heating budget (Halekas 2024) — but Bowen 2024 cyclotron-resonant heating remains viable.",
+          "related_skills": [
+            "bowen-2024-extended-cyclotron-resonant-heating"
+          ]
+        },
+        {
+          "type": "minimal_experiment",
+          "statement": "On the same intervals, compute both cyclotron-resonant heating rate (Bowen 2024) and switchback-flux contribution; quantify the gap.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "raouafi-2023-psp-four-years-discoveries-solar-minimum",
+      "title": "NASA Parker Solar Probe: Four Years of Discoveries at Solar Cycle Minimum (Review)",
+      "authors": [
+        "N. Raouafi",
+        "TODO verify"
+      ],
+      "first_author": "N. Raouafi",
+      "year": 2023,
+      "journal": "Space Science Reviews 219, 8",
+      "doi": "10.1007/s11214-023-00952-4",
+      "arxiv": "2301.02727",
+      "theme": "psp-mission-review-solar-min-discoveries",
+      "primary_theme": "psp_data",
+      "missions": [
+        "PSP"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "corona"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "raouafi-2023-psp-four-years-discoveries-solar-minimum/SKILL.md",
+      "metadata_yaml": "raouafi-2023-psp-four-years-discoveries-solar-minimum/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §4.4"
+      ],
+      "depends_on": [
+        "fox-2016-psp-mission-design-orbit-encounters",
+        "bale-2016-fields-instrument-suite-psp",
+        "kasper-2016-sweap-investigation-psp",
+        "mccomas-2016-isois-energetic-particle-investigation-psp",
+        "vourlidas-2016-wispr-imaging-instrument-psp"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "gap",
+          "statement": "No companion review covers E13+ (approaching solar max) — update needed.",
+          "related_skills": []
+        }
+      ]
+    },
+    {
+      "slug": "damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind",
+      "title": "Evolution of Alfvénic Slow Wind Parcels Coming from the Same Solar Source: PSP, Solar Orbiter, and Wind",
+      "authors": [
+        "R. D'Amicis",
+        "TODO verify"
+      ],
+      "first_author": "R. D'Amicis",
+      "year": 2026,
+      "journal": "A&A",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "alfvenic-slow-wind-parcel-evolution-psp-solo-wind",
+      "primary_theme": "solar_orbiter",
+      "missions": [
+        "PSP",
+        "Solar Orbiter",
+        "Wind"
+      ],
+      "regime": [
+        "inner-heliosphere",
+        "1au"
+      ],
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "harness_agnostic": true,
+      "skill_md": "damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind/SKILL.md",
+      "metadata_yaml": "damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md cross-cutting refs (D'Amicis 2026 A&A)"
+      ],
+      "depends_on": [
+        "damicis-2021-alfvenic-nonalfvenic-psp",
+        "damicis-2025-solo-swa-alfvenic-streams-validation",
+        "dakeyo-2026-source-alignment-psp-solo-method-link"
+      ],
+      "research_generation_affordances": [
+        {
+          "type": "hypothesis",
+          "statement": "σ_c evolution per parcel should match the WKB-Alfvenic-amplitude radial scaling — testable on each ASW parcel.",
+          "related_skills": []
+        },
+        {
+          "type": "gap",
+          "statement": "No skill yet propagates the parcel approach to non-Alfvenic slow wind for contrast.",
+          "related_skills": []
+        }
+      ]
+    }
+  ],
+  "duplicate_check_against_corpus": {
+    "method": "Diffed candidate slug list against `find paper_skill_corpus -mindepth 2 -maxdepth 2 -type d` output from existing 96 entries.",
+    "duplicates_found": [],
+    "checked_at": "2026-05-18"
+  },
+  "weak_entries_needing_full_text_verification": [
+    {
+      "slug": "huang-2025-what-are-switchbacks-solitary-alfven-wave-model",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "rivera-2024-mixed-source-signatures-switchback-patches-heavy-ions",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "das-2026-hammerhead-vdf-prevalence-hcs-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "sun-2026-compound-reconnection-exhaust-mirror-modes-hcs",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "ofman-2025-large-scale-kelvin-helmholtz-cme-driven",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "shankarappa-2025-free-energy-sources-ion-scale-waves-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "martinovic-2025-oblique-drift-instability-solar-wind-heating",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "choi-2024-whistler-waves-young-solar-wind-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "touresse-2024-untwisting-jets-super-alfvenic-wind-switchback",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "ervin-2024-slow-alfvenic-source-regions-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "jiao-2023-steady-sub-alfvenic-solar-wind-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "agapitov-2023-constraints-alfvenicity-switchbacks",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "sun-2024-magnetic-island-wispr-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "adhikari-2025-trans-alfvenic-region-psp-e8-e19",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "jiang-2025-third-order-law-angular-dependence-anisotropic-mhd",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "zhao-2025-mode-composition-magnetic-anisotropy-solar-wind",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "mondal-2025-sub-electron-turbulence-psp-density-spectra",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "gurram-2026-mms-cme-sub-alfvenic-wind-1au",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "gonzalez-2026-compressible-fluctuations-balanced-imbalanced",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "yogesh-2026-solar-wind-heating-radial-evolution-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "saguchi-2026-parametric-decay-temperature-anisotropy-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "wyper-2026-switchback-formation-mechanisms-review",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "good-2025-residual-energy-mhd-shocks-interplanetary",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "gonzalez-2023-local-proton-heating-discontinuities-alfvenic",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "magyar-2024-synthetic-modeling-plasma-frame-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "bandyopadhyay-2025-helios-mission-archival-reanalysis",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "cattell-2025-stochastic-heating-sub-alfvenic-wind-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "schwadron-2022-switchback-deflections-beyond-early-encounters",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "vech-2022-anisotropy-kinetic-scales-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "bowen-2022-anisotropic-turbulence-radial-evolution-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "cuesta-2023-scaling-anisotropy-stationary-background-psp",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "stevens-2022-reconciling-psp-mhd-theory-plasma-frame",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "chen-2023-relation-switchbacks-turbulence-inner-heliosphere",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "woodham-2024-alpha-proton-differential-flow-young-solar-wind",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "cranmer-2023-alfven-surface-punch-prospects-review",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "halekas-2024-coronal-heating-switchback-budget-ruled-out",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "raouafi-2023-psp-four-years-discoveries-solar-minimum",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    },
+    {
+      "slug": "damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind",
+      "todos": [
+        "DOI / verified venue",
+        "Full author list",
+        "Encounter/interval list",
+        "Reproducible numerical anchor (Fig/Table → validation_target)"
+      ]
+    }
+  ]
+}

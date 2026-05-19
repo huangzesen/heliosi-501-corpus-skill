@@ -1,0 +1,54 @@
+slug: ervin-2024-slow-alfvenic-source-regions-psp
+title: >-
+  Characteristics and Source Regions of Slow Alfvenic Solar Wind Observed by Parker Solar Probe
+authors:
+  - T. Ervin
+  - K. Jaffarove
+  - S. T. Badman
+  - J. Huang
+  - Y. J. Rivera
+  - S. D. Bale
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2407.09684"
+theme: psp-slow-alfvenic-wind-source-regions
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: solar_orbiter
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+trigger_keywords:
+  - slow Alfvenic solar wind
+  - source region
+  - PFSS
+  - ballistic mapping
+  - small coronal hole
+  - low-B0
+  - heavy ion
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP E4–E14 perihelia
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPC/SPAN-I
+    level: L3 moments
+    cadence: encounter cadence
+    interval: PSP E4–E14
+    archive: SPDF/CDAWeb
+  - instrument: GONG/ADAPT synoptic magnetogram
+    level: synoptic
+    cadence: Carrington-rate
+    interval: matching CRs
+    archive: NSO/GONG, NSO/ADAPT
+algorithms:
+  - name: PFSS source-surface extrapolation
+  - name: Ballistic back-trace from PSP to source surface
+  - name: Alfvenicity classifier (σ_c, σ_r) for stream selection
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §12

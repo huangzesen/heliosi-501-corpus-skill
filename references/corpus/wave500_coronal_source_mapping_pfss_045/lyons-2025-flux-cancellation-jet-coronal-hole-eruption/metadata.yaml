@@ -1,0 +1,48 @@
+slug: lyons-2025-flux-cancellation-jet-coronal-hole-eruption
+title: >-
+  Magnetic Flux Cancellation in a Flux-Emergence MHD Simulation of Coronal-Hole Eruptions and Jets
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2505.21155"
+arxiv_date: "2025-05-27"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_jets
+  - flux_emergence
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI Br + vector at the CH-jet site.
+  - Synoptic Br for PFSS.
+  - AIA EUV for jet observation.
+methods:
+  - Flux-emergence + cancellation can be parameterized from HMI.
+  - PFSS ambient is consistent with the simulation domain.
+validation_targets:
+  - Onset-time vs cancellation-rate scaling.
+trigger_keywords:
+  - flux cancellation
+  - CH jets
+  - flux emergence
+  - PFSS ambient
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - MHD code
+  - cancellation-rate estimator
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

@@ -1,0 +1,25 @@
+slug: paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter
+title: "Bidirectional anisotropic solar energetic particle events observed by Solar Orbiter"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2507.16990"
+theme: heliophysics-bidirectional-anisotropic-sep-solar-orbiter
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Solar Orbiter/EPD STEP/EPT/HET
+  - Solar Orbiter/MAG
+methods:
+  - Pitch-angle distribution / first-order anisotropy time series
+  - Bidirectional streaming identification
+  - Local magnetic-structure (ICME / sheath) annotation
+validation_targets:
+  - Per-event identification of bidirectional anisotropy; structure-annotation table (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2507.16990

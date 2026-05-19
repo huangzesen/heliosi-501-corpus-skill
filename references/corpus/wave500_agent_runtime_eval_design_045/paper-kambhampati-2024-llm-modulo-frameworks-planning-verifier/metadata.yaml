@@ -1,0 +1,38 @@
+slug: paper-kambhampati-2024-llm-modulo-frameworks-planning-verifier
+title: "LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks"
+authors:
+  - "Subbarao Kambhampati"
+  - "TODO_verify_with_full_text"
+year: 2024
+journal: "arXiv preprint"
+doi: null
+arxiv: "2402.01817"
+theme: agent-runtime-llm-plus-external-verifier
+category: critique
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "LLM proposer + critic in a loop"
+  - "External sound verifier (model checker / simulator)"
+  - "Iterative repair until verifier accepts"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's paper-skill validation_targets ARE the sound external verifiers in the LLM-Modulo sense. The runtime should refuse plans that no validation_target accepts."
+  - "[minimal_experiment] Wire one HelioSI workflow (PFSS open flux) as LLM-Modulo: LLM proposes a (r_ss, magnetogram) configuration; PFSS solver verifies open flux; iterate until convergence."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

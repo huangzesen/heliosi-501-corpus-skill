@@ -1,0 +1,21 @@
+slug: regulation-proton-alpha-flow-compressive-2023
+title: >-
+  Regulation of Proton-α Differential Flow by Compressive Fluctuations and Ion-Scale Instabilities
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2308.02036"
+theme: proton-alpha-differential-flow-regulation
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Hybrid simulation with proton + α populations
+methods:
+  - Hybrid simulation with compressive forcing
+  - Drift-instability action
+validation_targets:
+  - Δv_pα(r) within in-situ envelope (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.02036

@@ -1,0 +1,41 @@
+slug: paper-gong-network-synoptic-magnetogram-product
+title: "GONG Network Synoptic Magnetogram Product"
+authors:
+  - "TODO verify (canonical: Harvey et al. 1996; Petrie et al. 2014)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - magnetograms
+  - synoptic_products
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - GONG synoptic Br products (NSO ISP)
+methods:
+  - Synoptic Br fetch + resampling
+  - Polar fill-in QA
+validation_targets:
+  - Unsigned-flux agreement with HMI ~10% (TODO verify)
+trigger_keywords:
+  - GONG synoptic
+  - NSO Integrated Synoptic Program
+  - Harvey 1996
+  - ground-based magnetogram
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

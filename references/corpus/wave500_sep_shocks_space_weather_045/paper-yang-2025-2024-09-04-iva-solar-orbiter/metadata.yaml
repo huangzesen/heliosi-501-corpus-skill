@@ -1,0 +1,24 @@
+slug: paper-yang-2025-2024-09-04-iva-solar-orbiter
+title: "Inverse Velocity Dispersion of Solar Energetic Protons Observed by Solar Orbiter and Its Shock Acceleration Explanation"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2507.00954"
+theme: heliophysics-iva-solar-orbiter-shock-acceleration
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Solar Orbiter/EPD HET
+  - Solar Orbiter/MAG
+methods:
+  - Contour-line-of-intensity IVA detection
+  - Time-dependent shock-acceleration fit
+validation_targets:
+  - IVA detection + acceleration-model fit (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2507.00954

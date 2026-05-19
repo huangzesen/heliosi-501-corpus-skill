@@ -1,0 +1,45 @@
+slug: paper-kouloumvakos-2019-cme-shock-3d-pressure-coronal
+title: "3-D Coronal Shock Properties from Multi-Viewpoint Modeling (Kouloumvakos 2019)"
+authors:
+  - "Kouloumvakos, A."
+  - "+ co-authors (TODO verify full list)"
+year: 2019
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - coronal_shocks
+  - sep_acceleration
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Multi-viewpoint EUV + coronagraph imagery
+  - Coronal MHD background (MAS / EUHFORIA / AWSoM)
+methods:
+  - Shock-surface parameterization
+  - Per-point Mach / compression-ratio computation
+  - Field-line connectivity tracing
+validation_targets:
+  - SEP-onset correlation with shock-normal connectivity (TODO verify)
+trigger_keywords:
+  - 3D coronal shock
+  - Kouloumvakos shock
+  - shock normal angle
+  - shock mach number map
+  - SEP shock connectivity
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

@@ -1,0 +1,30 @@
+slug: paper-good-2025-residual-energy-mhd-shocks
+title: "Residual energy of magnetohydrodynamic shocks"
+authors:
+  - "S. W. Good"
+  - "K. J. Palmunen"
+  - "C. H. K. Chen"
+year: 2025
+journal: "TODO verify (arXiv:2509.20096)"
+doi: null
+arxiv: "2509.20096"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [residual-energy, shocks, interplanetary]
+missions: [other]
+regime: [1au, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "Multi-mission MAG + plasma at IP shocks (TODO verify) L2/L3 (Catalogued IP shocks)"
+methods:
+  - mhd-shock-rankine-hugoniot-expansion-to-derive-residual-energy-signature
+  - interplanetary-shock-catalogue-cross-match
+  - observed-vs-predicted-δmagnetic-kinetic-comparison
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 item 7 / theme_turbulence.json"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

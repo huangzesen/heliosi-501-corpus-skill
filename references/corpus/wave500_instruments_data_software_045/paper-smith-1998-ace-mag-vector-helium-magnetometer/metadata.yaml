@@ -1,0 +1,25 @@
+slug: paper-smith-1998-ace-mag-vector-helium-magnetometer
+title: The ACE Magnetic Fields Experiment
+authors:
+  - "Smith, C. W."
+year: 1998
+journal: Space Science Reviews
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-ace-mag
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - ACE/MAG L2 (1 s, 16 s, 1 min, 1 hour)
+methods:
+  - ACE/MAG offset and gain calibration
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov/pub/data/ace/mag/
+weak_entries:
+  - "DOI not in local inventory; Space Sci. Rev. 86, 613 (1998)"

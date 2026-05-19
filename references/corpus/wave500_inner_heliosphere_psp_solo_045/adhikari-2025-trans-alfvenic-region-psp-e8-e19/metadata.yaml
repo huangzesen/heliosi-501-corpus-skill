@@ -1,0 +1,47 @@
+slug: adhikari-2025-trans-alfvenic-region-psp-e8-e19
+title: >-
+  Characterization of the Trans-Alfvénic Region Using Observations from Parker Solar Probe
+authors:
+  - S. Adhikari
+  - R. Bandyopadhyay
+  - J. Goodwill
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2510.07472"
+theme: psp-trans-alfvenic-region-fluctuation-survey
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: psp_data
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - sub-Alfvenic
+  - super-Alfvenic
+trigger_keywords:
+  - trans-Alfvénic region
+  - sub-Alfvenic
+  - fluctuation amplitude
+  - anisotropy
+  - PSP E8–E19
+  - polarity-reversing switchbacks absent
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: ~1 Hz / burst
+    interval: PSP E8–E19
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPC/SPAN-I
+    level: L3
+    cadence: encounter cadence
+    interval: PSP E8–E19
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Alfvén Mach number segmentation
+  - name: Normalized fluctuation amplitude (δB/B) statistics
+  - name: Switchback occurrence rate by deflection-angle bin
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §6

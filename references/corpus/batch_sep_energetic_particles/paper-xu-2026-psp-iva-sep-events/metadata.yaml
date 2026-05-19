@@ -1,0 +1,34 @@
+slug: paper-xu-2026-psp-iva-sep-events
+title: "Parker Solar Probe observations of solar energetic particle (SEP) events with inverse velocity arrival (IVA) features"
+authors:
+  - "Xu, Z."
+  - "Cohen, C. M. S."
+  - "Leske, R. A."
+  - "Muro, G. D."
+  - "Cummings, A. C."
+  - "Romeo, O. M."
+year: 2026
+journal: "Journal — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2602.12475"
+theme: heliophysics-sep-iva-psp-catalog
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/ISʘIS EPI-Lo + EPI-Hi spectrograms
+  - Coronagraph (LASCO + STEREO/SECCHI)
+  - Flare association (GOES / EOVSA / SDO)
+methods:
+  - Contour-line-of-intensity IVA detector
+  - Nose-energy classification (L < 0.5 MeV / M 0.5-5 MeV / H > 5 MeV)
+  - Parameter-correlation analysis (radial distance, CME/shock speed, θ_Bn, footpoint separation)
+validation_targets:
+  - Recover ≥ 12 of 14 IVA events through end of 2024
+  - Reproduce 11/14 medium-nose-energy ratio
+  - Reproduce Labor Day 2022-09-05 event classification
+weak_entries:
+  - DOI / final venue
+  - Smoothing parameters and contour threshold
+  - Full IVA event list with dates
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.12475

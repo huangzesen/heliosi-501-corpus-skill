@@ -1,0 +1,47 @@
+slug: martinovic-2025-oblique-drift-instability-solar-wind-heating
+title: >-
+  How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution of Solar Wind Observations
+authors:
+  - M. M. Martinović
+  - K. G. Klein
+  - L. Ofman
+  - Yogesh
+  - J. L. Verniero
+  - P. H. Yoon
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2512.18485"
+theme: solar-wind-oblique-drift-instability-heating
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: waves_instabilities
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - kinetic
+trigger_keywords:
+  - oblique drift instability
+  - proton beam
+  - alpha drift
+  - low-beta plasma
+  - instability threshold
+data_products:
+  - instrument: PSP/SWEAP SPAN-I
+    level: L3 VDF
+    cadence: encounter cadence
+    interval: low-β PSP intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: low-β PSP intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Linear Vlasov–Maxwell oblique-mode dispersion solver
+  - name: Threshold contour fit in (drift, β) plane
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §5

@@ -1,0 +1,46 @@
+# --- Python caches / build artifacts ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Virtualenvs / dependency managers ---
+.venv/
+venv/
+env/
+.envrc
+.python-version
+
+# --- Editor / IDE / OS detritus ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Logs and runtime output ---
+*.log
+logs/
+tmp/
+.tmp/
+
+# --- Archives & large blobs (release tarballs etc.) ---
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z

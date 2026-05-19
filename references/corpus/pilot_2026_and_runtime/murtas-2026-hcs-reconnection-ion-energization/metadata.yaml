@@ -1,0 +1,35 @@
+slug: murtas-2026-hcs-reconnection-ion-energization
+title: >-
+  The Role of Magnetic Reconnection in Energizing Protons and Heavier Ions
+  at the Heliospheric Current Sheet
+authors:
+  - G. Murtas
+  - X. Li
+  - F. Guo
+  - G. Arrò
+  - J. Seo
+  - C. Haggerty
+year: 2026
+journal: ApJ (in press)
+doi: TODO_verify_with_full_text
+arxiv: "2605.15068"
+theme: heliophysics-psp-energetic-particles
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP ISʘIS EPI-Lo / EPI-Hi ion spectra
+  - PSP SWEAP SPAN-I proton moments
+  - PSP FIELDS MAG (RTN, L2)
+  - Heavy-ion Q/A table (H, He, C, O, Fe)
+methods:
+  - 2D MHD reconnection simulation
+  - Parker transport equation (SDE Monte Carlo)
+  - Power-law spectral fitting
+  - Multi-species (Q/A-resolved) acceleration
+validation_targets:
+  - Per-species power-law index matches PSP HCS crossing within ±0.3
+  - Per-species E_max ordering matches paper figure (TODO verify direction)
+  - Reproduce paper Figure ~3 (multi-species spectra) qualitatively
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.1
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #1

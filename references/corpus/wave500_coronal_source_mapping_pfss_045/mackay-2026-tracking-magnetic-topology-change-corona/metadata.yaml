@@ -1,0 +1,46 @@
+slug: mackay-2026-tracking-magnetic-topology-change-corona
+title: >-
+  Tracking Magnetic Topological Change in a Time-Dependent Coronal Model
+authors:
+  - D. H. Mackay
+  - TODO_verify
+first_author: D. H. Mackay
+year: 2026
+arxiv: "2604.21639"
+arxiv_date: "2026-04-23"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - topology
+  - time_dependent_modeling
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Time-dependent coronal-field run.
+  - Validation snapshots from PFSS or NLFFF.
+methods:
+  - Skeleton extraction is converged at the chosen grid.
+  - Topology-change events can be timestamped from skeleton evolution.
+validation_targets:
+  - Match null/separator counts at validation snapshots.
+trigger_keywords:
+  - topology tracking
+  - skeleton
+  - nulls
+  - separators
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - skeleton-extraction code
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

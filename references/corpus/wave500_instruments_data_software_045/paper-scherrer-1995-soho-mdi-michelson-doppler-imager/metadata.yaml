@@ -1,0 +1,27 @@
+slug: paper-scherrer-1995-soho-mdi-michelson-doppler-imager
+title: The Solar Oscillations Investigation — Michelson Doppler Imager
+authors:
+  - "Scherrer, P. H."
+year: 1995
+journal: Solar Physics
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-soho-mdi
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SOHO/MDI LOS magnetogram L2 (96 min full-disk)
+  - SOHO/MDI synoptic map L2 synoptic (Carrington rotation)
+methods:
+  - MDI line-fit Doppler/magnetogram retrieval
+  - MDI saturation correction (Liu et al. 2012)
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: http://jsoc.stanford.edu/MDI/
+weak_entries:
+  - "DOI not in local inventory; Sol. Phys. 162, 129 (1995)"

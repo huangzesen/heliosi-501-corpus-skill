@@ -1,0 +1,46 @@
+slug: badman-2023-prediction-psp-source-13rs
+title: >-
+  Prediction and Verification of Parker Solar Probe Solar Wind Sources at 13.3 R_sun
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2023
+arxiv: "2303.04852"
+arxiv_date: "2023-03-08"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - psp
+  - prediction
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS + SWEAP for in-situ verification.
+  - Synoptic Br for the relevant CR.
+methods:
+  - Ballistic back-mapping from PSP to 13.3 R_sun is valid.
+  - PFSS source-surface at ~2.5 R_sun gives meaningful footpoints.
+validation_targets:
+  - Recover per-encounter accuracy table.
+trigger_keywords:
+  - PSP source prediction
+  - 13.3 Rs
+  - PFSS
+  - ballistic
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - encounters list
+  - accuracy metric
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

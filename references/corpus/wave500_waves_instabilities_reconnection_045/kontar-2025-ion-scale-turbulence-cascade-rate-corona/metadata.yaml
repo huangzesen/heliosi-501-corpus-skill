@@ -1,0 +1,26 @@
+slug: kontar-2025-ion-scale-turbulence-cascade-rate-corona
+title: >-
+  Ion-Scale Turbulence and Energy Cascade Rate in the Solar Corona and Inner Heliosphere
+authors:
+  - E. P. Kontar
+  - A. G. Emslie
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2509.17861"
+theme: ion-scale-cascade-rate-corona
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Remote-sensing density-spectrum data
+  - In-situ ion-scale magnetic spectrum
+  - Temperature radial profile
+methods:
+  - Ion-scale spectral-flux estimator
+  - Density-to-velocity-spectrum mapping
+  - Heating-rate inference from T(r)
+validation_targets:
+  - ε(r) ≈ Q(r) within reported bars (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.17861

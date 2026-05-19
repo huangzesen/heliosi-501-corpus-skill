@@ -1,0 +1,38 @@
+slug: paper-camporeale-2017-knn-solar-wind-categorization
+title: "Machine Learning Approach for Solar Wind Categorization"
+authors:
+  - "E. Camporeale (TODO verify full author list)"
+year: 2018
+journal: "TODO verify (likely JGR Space Physics; arXiv:1811.02323)"
+doi: null
+arxiv: "1811.02323"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, supervised-classification, xu-borovsky]
+missions: [ACE, Wind, other]
+regime: ["1au"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "ACE SWEPAM L2 (n_p, V_sw, T_p)"
+  - "ACE MAG L2 (B_GSE)"
+  - "OMNI 1-hour merged 1-au features (optional)"
+  - "Xu-Borovsky (2015) 4-class labels"
+methods:
+  - xu-borovsky-four-class-labeling-inheritance
+  - hand-engineered-feature-vector
+  - knn-supervised-classification
+  - ten-model-benchmark-comparison
+  - confusion-matrix-per-class-evaluation
+validation_targets:
+  - "KNN test accuracy ~92.8% across 4-class Xu-Borovsky labelling at 1 au"
+  - "KNN is the top-1 among ten supervised models benchmarked"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.1"
+verification_flags:
+  - "Publication venue + DOI TODO verify."
+  - "Full author list TODO verify (inventory lists 'Camporeale-style' attribution)."
+  - "Feature list TODO verify."
+  - "K, distance metric, and split convention TODO verify."
+  - "Per-class precision/recall/F1 TODO verify."
+  - "Cross-cycle generalisation TODO verify."

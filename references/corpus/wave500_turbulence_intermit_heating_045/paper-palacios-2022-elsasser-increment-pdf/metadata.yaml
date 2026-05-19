@@ -1,0 +1,33 @@
+slug: paper-palacios-2022-elsasser-increment-pdf
+title: "On the Statistics of Elsässer Increments in Solar Wind and Magnetohydrodynamic Turbulence"
+authors:
+  - "Juan C. Palacios"
+  - "Sofiane Bourouaine"
+  - "Jean C. Perez"
+year: 2022
+journal: "TODO verify (arXiv:2209.09152)"
+doi: null
+arxiv: "2209.09152"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [intermittency, statistics, simulation-comparison]
+missions: [Wind, other]
+regime: [1au, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "Wind/MFI MAG L2 (1995-2017)"
+  - "Wind/SWE plasma L2 (Same)"
+  - "2048^3 reduced-MHD simulation derived (n/a)"
+methods:
+  - elsasser-increment-pdf-construction
+  - exponential-tail-decrement-fit-alpha_ll
+  - alfvenicity-conditioned-pdf-subsamples
+  - observation-vs-simulation-overlay
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2022 item 8"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

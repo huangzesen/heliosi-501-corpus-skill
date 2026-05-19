@@ -1,0 +1,33 @@
+slug: paper-sunkit-magex-magnetic-field-extrapolation
+title: "sunkit-magex: SunPy-affiliated magnetic-field extrapolation package"
+authors:
+  - sunkit-magex contributors (TODO enumerate from repo)
+year: 2023
+journal: software package (sunpy-affiliated); no standalone publication in local inventory
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: heliophysics-pfss-python-successor
+source_type: software-package
+quality_level: method-ready
+executable_status: pipeline-specified-not-yet-benchmarked
+required_data:
+  - SDO/HMI synoptic radial magnetograms
+  - GONG synoptic radial magnetograms
+methods:
+  - PFSS solver (sunkit-magex.pfss)
+  - Schatten Current Sheet (SCS) extension
+validation_targets:
+  - PFSS on a synoptic map reproduces input B_r at r=R_sun
+  - SCS field matches Schatten construction inside [R_ss, R_cs]
+  - Side-by-side numerical agreement with pfsspy on identical inputs (discrepancy reported)
+source_inventory:
+  - .library/custom/heliophysics-skills/sub-skills/pfss-modeling.md (sunkit_magex SCS example)
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (sunkit-magex entry)
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (sunkit-magex entry)
+links:
+  code_repo: https://github.com/sunpy/sunkit-magex
+weak_entries:
+  - No companion publication located in local inventory
+  - DOI / arXiv ID / ADS bibcode unknown locally
+  - Full contributor list not enumerated

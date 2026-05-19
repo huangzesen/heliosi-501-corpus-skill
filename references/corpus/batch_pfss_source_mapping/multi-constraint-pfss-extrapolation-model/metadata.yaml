@@ -1,0 +1,52 @@
+slug: multi-constraint-pfss-extrapolation-model
+title: >-
+  A New Multi-Constraint Potential Field Source Surface (PFSS)
+  Extrapolation Model
+authors:
+  - "TODO verify first author"
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2603.20142"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic photospheric Br (GONG / HMI / ADAPT)
+  - Optional: traced coronal loop geometry (EUV / X-ray)
+  - Optional: vector magnetograms for force-free constraint terms
+methods:
+  - PFSS Laplace BVP base solution
+  - Optimization-style constraint augmentation (NLFFF-inspired)
+  - Divergence-free penalty term
+  - Loop-geometry conformity term (where loop tracings available)
+  - Force-free residual term
+  - Multi-term objective minimization (TODO verify solver)
+validation_targets:
+  - Recover the paper-defined improvement over baseline PFSS
+    (e.g., loop-conformity score; TODO verify metric & tolerance)
+  - Match the paper's Br residual on the photosphere within tolerance
+trigger_keywords:
+  - PFSS
+  - multi-constraint
+  - optimization PFSS
+  - NLFFF-style optimization
+  - loop conformity
+  - force-free residual
+  - divergence-free penalty
+  - coronal field extrapolation
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.2
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.10 (HTML mirror)
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.2
+  verified_by: null
+  verified_at: null

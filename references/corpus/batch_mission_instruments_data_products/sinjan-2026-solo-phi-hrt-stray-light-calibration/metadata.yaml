@@ -1,0 +1,37 @@
+slug: sinjan-2026-solo-phi-hrt-stray-light-calibration
+title: >-
+  A stray light analysis for SO/PHI-HRT and an updated comparison of the inferred
+  magnetic field with SDO/HMI
+authors:
+  - Jonas Sinjan
+  - Tino L. Riethmüller
+  - Achim Gandorfer
+  - Alex Feller
+  - Daniele Calchetti
+  - "+ co-authors per inventory (TODO complete full list with full text)"
+year: 2026
+journal: TODO_verify_with_full_text (likely Astronomy & Astrophysics)
+doi: TODO_verify_with_full_text
+arxiv: "2603.18744"
+theme: data-product-solar-orbiter-phi-hrt-stray-light-calibration
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SO/PHI-HRT L2 continuum + vector magnetograms (SOAR; exact product TODO verify)
+  - SDO/HMI vector + LOS magnetograms (JSOC) — 2023 March conjunction
+  - Solar-limb profile data + Mercury-transit imaging (for stray-light quantification)
+methods:
+  - PSF / stray-light quantification from solar limb + Mercury transit
+  - Stray-light correction term in image reconstruction
+  - Milne-Eddington inversion (or equivalent) for B inference
+  - Pixel-by-pixel SO/PHI-HRT vs SDO/HMI vector-field comparison
+validation_targets:
+  - Reproduce paper's correlation curves / scatter plots within published agreement bands; residual differences only at |B|>1600 G or |B_LOS|>1300 G (TODO refine tolerances with full text)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json (entry arxiv_id 2603.18744v1)
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json#arxiv_id=2603.18744v1"
+  verified_by: null
+  verified_at: null

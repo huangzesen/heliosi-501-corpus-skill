@@ -1,0 +1,25 @@
+slug: paper-ding-2025-2022-09-05-time-dependent-dsa
+title: "Evidence of Time-Dependent Diffusive Shock Acceleration in the 2022 September 5 Solar Energetic Particle Event"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2506.20322"
+theme: heliophysics-2022-09-05-time-dependent-dsa
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo
+  - Multi-mission SEP context
+methods:
+  - Per-energy onset / peak identification
+  - Spectral-index time series
+  - Time-dependent DSA fit
+validation_targets:
+  - Spectral-index time evolution consistent with time-dependent DSA (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2506.20322

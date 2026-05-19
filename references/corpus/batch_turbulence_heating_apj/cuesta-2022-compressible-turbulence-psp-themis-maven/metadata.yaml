@@ -1,0 +1,33 @@
+slug: cuesta-2022-compressible-turbulence-psp-themis-maven
+title: "Evolution of Compressible Solar Wind Turbulence in the Inner Heliosphere: PSP, THEMIS, and MAVEN Observations"
+authors:
+  - "M. M. Cuesta"
+  - "R. Chhiber"
+  - "T. N. Parashar"
+  - "W. H. Matthaeus"
+year: 2022
+journal: "The Astrophysical Journal"
+doi: "10.3847/1538-4357/ac0af5"
+arxiv: null
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 + SWEAP/SPC L3 (~0.17 au)"
+  - "THEMIS FGM + ESA L2 (~1 au)"
+  - "MAVEN MAG + SWIA L2 (upstream solar wind only, ~1.5 au)"
+methods:
+  - density-fluctuation-psd
+  - magnetic-trace-psd
+  - compressibility-metric
+  - heliocentric-radial-binning
+  - multi-spacecraft-comparison
+validation_targets:
+  - "Compressibility metric C_n shows systematic radial trend 0.17-1.5 au across PSP/THEMIS/MAVEN"
+  - "Slope of C_n vs r matches paper figure (TODO verify exact value)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.10"
+verification_flags:
+  - "arXiv ID TODO verify (DOI given but no arXiv in inventory)."
+  - "Exact compressibility-metric definition TODO verify in full paper."
+  - "Stream-class conditioning (fast/slow split) TODO verify."

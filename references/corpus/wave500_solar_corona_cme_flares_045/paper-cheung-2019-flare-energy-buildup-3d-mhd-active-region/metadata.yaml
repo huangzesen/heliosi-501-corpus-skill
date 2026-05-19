@@ -1,0 +1,46 @@
+slug: paper-cheung-2019-flare-energy-buildup-3d-mhd-active-region
+title: "Comprehensive 3-D Radiative MHD Simulation of a Solar Flare (Cheung 2019)"
+authors:
+  - "Cheung, M. C. M."
+  - "+ co-authors (TODO verify full list)"
+year: 2019
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - flare_modeling
+  - radiative_mhd
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Photospheric magnetograms (boundary forcing / comparison)
+  - AIA EUV imagery (multi-channel)
+  - RHESSI/STIX HXR time profile
+methods:
+  - 3-D radiative MHD (MURaM-class)
+  - Synthetic EUV/HXR diagnostics
+  - Free magnetic energy diagnostic
+validation_targets:
+  - Synthesized EUV light-curve agreement with observed analog (TODO verify)
+trigger_keywords:
+  - 3D radiative MHD flare
+  - MURaM flare
+  - Cheung 2019 flare simulation
+  - free magnetic energy
+  - flare EUV synthesis
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

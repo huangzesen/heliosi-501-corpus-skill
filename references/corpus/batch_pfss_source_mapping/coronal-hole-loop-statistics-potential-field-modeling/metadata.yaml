@@ -1,0 +1,49 @@
+slug: coronal-hole-loop-statistics-potential-field-modeling
+title: >-
+  Magnetic Topology and Loop Statistics in Observed Coronal Holes Using
+  Potential Field Modeling
+authors:
+  - "TODO verify first author"
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2601.11080"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - coronal_heating
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SDO/AIA observations identifying 702 coronal holes (2010-2019)
+  - Synoptic Br (HMI / GONG) for matching PFSS computations
+  - Coronal-hole catalog (TODO verify which catalog / detection)
+methods:
+  - PFSS extrapolation per coronal-hole observation epoch
+  - Field-line tracing seeded within CH boundary
+  - Classification of open vs closed field lines within CHs
+  - Loop-length statistics (closed) and expansion-factor distributions (open)
+validation_targets:
+  - Reproduce paper-reported distributions (TODO verify metrics) of
+    open/closed loop populations within the 702-CH sample
+  - Recover cycle-phase dependence of CH topology (TODO verify)
+trigger_keywords:
+  - coronal hole
+  - potential field modeling
+  - PFSS topology
+  - loop statistics
+  - expansion factor
+  - solar minimum maximum
+  - CH catalog
+  - 2010-2019
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.6
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.6
+  verified_by: null
+  verified_at: null

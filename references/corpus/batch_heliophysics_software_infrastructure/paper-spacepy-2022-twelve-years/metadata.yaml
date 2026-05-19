@@ -1,0 +1,35 @@
+slug: paper-spacepy-2022-twelve-years
+title: "The SpacePy space science package at 12 years"
+authors:
+  - "Morley, S. K."
+  - "+ SpacePy contributors (TODO verify full list)"
+year: 2022
+journal: arXiv preprint (Frontiers in Astronomy and Space Sciences software paper)
+doi: null
+arxiv: "2208.10447"
+ads_bibcode: null
+theme: heliophysics-space-physics-python-toolkit
+source_type: software-paper
+quality_level: stub-infrastructure
+executable_status: pipeline-specified-not-yet-benchmarked
+required_data:
+  - OMNI Kp/Dst/Pdyn drivers (for field models)
+  - External spacecraft ephemeris (CDF)
+methods:
+  - Time + Coords containers (Ticktock / Coords)
+  - IRBEM-based magnetic-field models (T89, T96, T01, T05)
+  - Empirical model registry (spacepy.empiricals)
+  - CDF I/O via PyCDF (alternative to cdflib)
+validation_targets:
+  - T96 field-line trace closes near Earth for known driver inputs
+  - PyCDF reads a chosen PSP / Wind CDF identically to cdflib
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.8
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.10 (mirror)
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (spacepy entry)
+links:
+  arxiv_url: https://arxiv.org/abs/2208.10447
+  code_repo: https://github.com/spacepy/spacepy
+weak_entries:
+  - DOI of Frontiers companion not in local inventory
+  - Full author list not enumerated locally

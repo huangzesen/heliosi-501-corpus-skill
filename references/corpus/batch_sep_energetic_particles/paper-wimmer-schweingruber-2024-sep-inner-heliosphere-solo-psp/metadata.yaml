@@ -1,0 +1,32 @@
+slug: paper-wimmer-schweingruber-2024-sep-inner-heliosphere-solo-psp
+title: "SEP environment in the inner heliosphere from Solar Orbiter and Parker Solar Probe"
+authors:
+  - "Wimmer-Schweingruber, R. F."
+  - "Rodriguez-Pacheco, J."
+  - "Ho, G. C."
+  - "Cohen, C. M."
+  - "Mason, G. M."
+  - "the Solar Orbiter EPD team"
+year: 2024
+journal: "Proceedings / Review — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2408.02330"
+theme: heliophysics-sep-environment-inner-heliosphere
+quality_level: paper-grounded-pending-full-text
+executable_status: review-routing-not-runnable
+required_data:
+  - SO/EPD (SIS, HET, EPT, STEP)
+  - PSP/ISʘIS EPI-Lo + EPI-Hi
+  - ACE / STEREO energetic-particle suites (cross-reference at 1 au)
+methods:
+  - Multi-source energetic-particle background decomposition
+  - SEP vs ESP vs ACR vs bow-shock-particle classifier
+  - Inner-heliosphere conjunction-window selector
+validation_targets:
+  - None at stub tier — review-only
+weak_entries:
+  - Final venue / DOI
+  - Authorship expansion of "Solar Orbiter EPD team"
+  - Conjunction-window magnetic-connectivity tolerance value
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2408.02330

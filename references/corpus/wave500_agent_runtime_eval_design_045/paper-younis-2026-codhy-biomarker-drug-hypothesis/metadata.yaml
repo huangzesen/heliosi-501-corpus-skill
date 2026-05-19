@@ -1,0 +1,41 @@
+slug: paper-younis-2026-codhy-biomarker-drug-hypothesis
+title: "From Literature to Hypotheses: An AI Co-Scientist System for Biomarker-Guided Drug Combination Hypothesis Generation (CoDHy)"
+authors:
+  - "Raneen Younis"
+  - "Suvinava Basak"
+  - "Lukas Chavez"
+  - "Zahra Ahmadi"
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2603.00612"
+theme: agent-runtime-knowledge-graph-hypothesis
+category: domain-specific-ai-scientist
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Task-specific knowledge graph construction (structured DB + literature)"
+  - "KG embedding + agent-based reasoning"
+  - "Generate-validate-rank loop"
+  - "Evidence-grounding via retrievable citations"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's paper-skill corpus IS the heliophysics analogue of CoDHy's task-specific KG. The skill-graph rollup (Stage B/C in factory spec) directly enables CoDHy-style hypothesis generation over the corpus."
+  - "[minimal_experiment] Embed every paper-skill's claim_boundary + algorithms list; cluster; emit candidate hypotheses where two clusters share a depends_on chain but no benchmark artifact links them."
+depends_on:
+  - paper-ghafarollahi-2025-sciagents-bioinspired-multi-agent-graph
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

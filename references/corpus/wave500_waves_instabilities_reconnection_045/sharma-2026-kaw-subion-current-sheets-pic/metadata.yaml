@@ -1,0 +1,31 @@
+slug: sharma-2026-kaw-subion-current-sheets-pic
+title: >-
+  Sub-ion Scale Current Sheets in Kinetic Alfvén Wave Turbulence
+authors:
+  - J. Sharma
+  - C. Akshath Kumar
+  - K. D. Makwana
+  - T. N. Parashar
+  - S. Satyasmita
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2601.18131"
+theme: kaw-subion-current-sheets-pic
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - 3D PIC field snapshots in the saturated state
+  - Two-fluid KAW eigenvector spectrum
+  - Current-density clustering toolchain
+methods:
+  - PIC integration of KAW turbulence
+  - Current-sheet object segmentation via BFS and DBSCAN
+  - Scale-dependent kurtosis estimation
+  - Mass-ratio scaling regression
+validation_targets:
+  - Thickness ∝ (m_i/m_e)^(-1/2) within ≤10% (TODO verify)
+  - Kurtosis enhancement at electron scales reproduced
+  - BFS/DBSCAN agreement on mean thickness within ≤5% (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2601.18131

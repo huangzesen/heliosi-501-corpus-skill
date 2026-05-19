@@ -1,0 +1,44 @@
+slug: paper-coronal-hole-pseudostreamer-boundary-classification
+title: "Coronal-Hole vs Pseudostreamer Boundary Classification"
+authors:
+  - "TODO verify (canonical: Wang et al. 2007/2012; Riley et al. 2015)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - coronal_holes
+  - pseudostreamers
+  - topology
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Synoptic Br map
+  - EUV CH mask
+methods:
+  - PFSS / CSSS open-closed classification
+  - Pseudostreamer cusp-pair detection
+  - Label-agreement vs EUV proxy
+validation_targets:
+  - Label agreement ~70-85% with EUV proxy (TODO verify)
+trigger_keywords:
+  - pseudostreamer
+  - coronal hole boundary classification
+  - PFSS open closed
+  - Wang Sheeley
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

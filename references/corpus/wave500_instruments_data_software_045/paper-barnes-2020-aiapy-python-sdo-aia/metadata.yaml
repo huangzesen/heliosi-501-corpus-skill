@@ -1,0 +1,28 @@
+slug: paper-barnes-2020-aiapy-python-sdo-aia
+title: "aiapy: A Python Package for Analyzing Solar EUV Image Data from AIA"
+authors:
+  - "Barnes, W. T."
+year: 2020
+journal: Journal of Open Source Software
+doi: 10.21105/joss.02801
+arxiv: null
+ads_bibcode: null
+theme: software-aiapy
+source_type: software-paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SDO/AIA L1 → L1.5 via aiapy (12 s)
+methods:
+  - "aiapy.calibrate.register (rotate, scale, recenter to standard pixel grid)"
+  - aiapy.calibrate.correct_degradation (channel time-dep response)
+  - aiapy.psf.deconvolve (Richardson-Lucy)
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.21105/joss.02801
+  code_repo: https://github.com/LM-SAL/aiapy
+weak_entries:
+  []

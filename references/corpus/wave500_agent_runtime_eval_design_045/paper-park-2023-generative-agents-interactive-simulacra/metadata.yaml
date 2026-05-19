@@ -1,0 +1,42 @@
+slug: paper-park-2023-generative-agents-interactive-simulacra
+title: "Generative Agents: Interactive Simulacra of Human Behavior"
+authors:
+  - "Joon Sung Park"
+  - "Joseph C. O'Brien"
+  - "Carrie J. Cai"
+  - "Meredith Ringel Morris"
+  - "Percy Liang"
+  - "Michael S. Bernstein"
+year: 2023
+journal: "arXiv preprint / UIST 2023"
+doi: null
+arxiv: "2304.03442"
+theme: agent-runtime-memory-reflection-planning
+category: foundational-method
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Observation memory stream with importance scoring"
+  - "Periodic reflection that synthesizes higher-order memories"
+  - "Plan-and-act loop"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's agent network is structurally similar: observation (mission data) -> memory (paper-skill corpus + LingTai durable memory) -> reflection (Stage D affordances) -> planning (Stage B/C routing)."
+  - "[minimal_experiment] Add an importance-weighted retrieval over the paper-skill corpus to the existing HelioSI planner; measure whether retrieval relevance improves on a held-out heliophysics question."
+depends_on:
+  - paper-shinn-2023-reflexion-verbal-reinforcement-agents
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

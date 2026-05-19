@@ -1,0 +1,31 @@
+slug: agentic-ai-scientists-not-built-autonomous-discovery-2026
+title: Agentic AI Scientists Are Not Built For Autonomous Scientific Discovery
+authors:
+  - Harshit Bisht
+  - Vinay Kumar
+  - Kevin Maik Jablonka
+  - Mausam
+  - N. M. Anoop Krishnan
+year: 2026
+journal: arXiv preprint (cs.AI)
+doi: null
+arxiv: "2605.08956"
+theme: agent-runtime-critique-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: manuscript-checklist-only
+required_data:
+  - HelioSI manuscript draft
+  - HelioSI benchmark spec
+  - HelioSI harness/skills/MCPs architecture description
+methods:
+  - 5-failure-mode coverage checklist
+  - 4-recommendation coverage checklist
+  - Rebuttal phrasing generator for related-work section
+validation_targets:
+  - All 5 failure modes addressed by explicit manuscript paragraphs
+  - All 4 recommendations instantiated by runtime/benchmark components
+  - Autonomy claim explicitly bounded as co-scientist with expert-in-loop
+source_inventory:
+  - sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md §1.1
+  - sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md
+  - sioulas-reproduction/results/heliosi_similar_papers_requirements_gap_plan.md §1.4

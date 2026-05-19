@@ -1,0 +1,38 @@
+slug: paper-duan-2026-sep-type-ii-radio-source-regions
+title: "Solar Energetic Particle Events and Associated Type II Radio Bursts from Different Source Regions"
+authors:
+  - "Duan, X."
+  - "Li, T."
+  - "Cui, Y."
+  - "Hou, Y."
+  - "Li, C."
+  - "Wijsen, N."
+  - "Jiang, Z."
+  - "Yan, Y."
+  - "Ma, S."
+  - "Sun, Z."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.20237"
+theme: heliophysics-sep-type-ii-source-region-statistics
+category: primary-observation-statistical
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Wind/WAVES type II
+  - GOES SEM/EPS proton intensity
+  - SOHO/LASCO halo CME catalog
+  - SDO/AIA + HMI source-region context
+methods:
+  - Halo-CME / type II joint catalog assembly
+  - Source-region classifier (single AR / multi AR / outside AR)
+  - Proton & electron spectral-index fit per event
+  - Type II start/end frequency and duration measurement
+  - Anti-correlation test: proton index vs type II starting frequency
+validation_targets:
+  - 43 SEP + 131 non-SEP event counts; near-100% SEP / ~67% non-SEP type II association rates; AR-class starting-frequency ordering; proton-index ↔ type II starting frequency anti-correlation sign.
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.20237

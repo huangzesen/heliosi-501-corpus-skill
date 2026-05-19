@@ -1,0 +1,26 @@
+slug: paper-gloeckler-1998-ace-swics-composition-spectrometer
+title: Investigation of the composition of solar and interstellar matter using SWICS and SWIMS on ACE
+authors:
+  - "Gloeckler, G."
+year: 1998
+journal: Space Science Reviews
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-ace-swics
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - ACE/SWICS L2 (1 hour (charge-state); 2 hour averages)
+methods:
+  - ToF + post-acceleration ion identification
+  - O7+/O6+ ratio for slow/fast wind classification
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov/pub/data/ace/swics/
+weak_entries:
+  - "DOI not in local inventory; Space Sci. Rev. 86, 497 (1998)"

@@ -1,0 +1,27 @@
+slug: paper-noaa-swpc-real-time-space-weather
+title: NOAA Space Weather Prediction Center (SWPC) real-time data and alerts
+authors:
+  - NOAA Space Weather Prediction Center
+year: 2024
+journal: (NOAA SWPC operational documentation; companion review Singer et al. or Onsager — TODO verify)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: archive-noaa-swpc
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - GOES XRS real-time L1 RT (1 min)
+  - ACE real-time IMF + plasma L1 RT (real-time)
+  - WSA-Enlil ensemble forecast forecast (daily / event-based)
+methods:
+  - JSON time-series fetch from services.swpc.noaa.gov
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://www.swpc.noaa.gov/
+weak_entries:
+  - No single canonical publication located; operational documentation is the primary source

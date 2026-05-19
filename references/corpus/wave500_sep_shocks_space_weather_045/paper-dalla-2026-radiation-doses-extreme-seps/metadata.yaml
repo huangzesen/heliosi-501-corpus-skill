@@ -1,0 +1,28 @@
+slug: paper-dalla-2026-radiation-doses-extreme-seps
+title: "Radiation doses during extreme solar energetic particle events"
+authors:
+  - "Dalla, S."
+  - "Herbst, K."
+  - "Muscheler, R."
+  - "Owens, M. J."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.15160"
+theme: heliophysics-extreme-sep-radiation-doses
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Cosmogenic radionuclide reconstruction
+  - Space Age SEP catalog
+methods:
+  - Per-event spectrum input
+  - Geomagnetic + atmospheric transport (TODO_verify code)
+  - Dose-at-altitude / in-space calculation
+validation_targets:
+  - Predicted dose at aviation altitudes and in space for canonical events (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.15160

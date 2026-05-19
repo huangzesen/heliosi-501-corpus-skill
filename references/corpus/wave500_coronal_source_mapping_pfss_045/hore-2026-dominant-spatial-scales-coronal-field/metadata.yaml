@@ -1,0 +1,51 @@
+slug: hore-2026-dominant-spatial-scales-coronal-field
+title: >-
+  Uncovering the Dominant Spatial Scales of the Sun's Magnetic Field in Solar Cycle 24
+authors:
+  - A. Hore
+  - P. Bhowmik
+first_author: A. Hore
+year: 2026
+arxiv: "2604.10144"
+arxiv_date: "2026-04-11"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetogram_analysis
+  - spectral_decomposition
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - MDI (pre-2010) and HMI (post-2010) synoptic Br for Cycle 24.
+  - Consistent SH grid across the mission boundary.
+methods:
+  - LoS-to-Br conversion is acceptable outside the polar cap.
+  - PFSSE is spectrum-preserving up to truncation.
+  - Modal-power-vs-degree is a meaningful summary statistic.
+validation_targets:
+  - >80% modal power at low l and monotonic effective-degree decrease with height.
+trigger_keywords:
+  - spherical harmonics
+  - modal decomposition
+  - PFSSE
+  - MDI
+  - HMI
+  - Cycle 24
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - exact 80%-degree cutoff
+  - PFSSE truncation degree
+  - polar fill-in policy
+  - DOI
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

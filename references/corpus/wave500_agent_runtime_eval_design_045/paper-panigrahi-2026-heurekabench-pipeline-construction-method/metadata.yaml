@@ -1,0 +1,40 @@
+slug: paper-panigrahi-2026-heurekabench-pipeline-construction-method
+title: "HeurekaBench: A Benchmarking Framework for AI Co-scientist (pipeline-construction method)"
+authors:
+  - "Siba Smarak Panigrahi"
+  - "Jovana Videnović"
+  - "Maria Brbić"
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2601.01678"
+theme: scientific-discovery-end-to-end-benchmark-pipeline
+category: benchmark-construction-method
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Multi-LLM insight extraction from study + repo"
+  - "Candidate workflow generation"
+  - "Verification against reported findings"
+  - "Semi-automation with human review checkpoints"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI can build a heliophysics HeurekaBench by running the construction pipeline over the 8 paper-skills with 'paper-grounded-locally-reproduced' or 'pipeline-specified-runnable-from-X' status. The wu-2026 NSPF-FEM open-flux reproduction would be the first item."
+  - "[minimal_experiment] Run the construction pipeline on [[paper-stansby-2020-pfsspy-python-pfss]] + its repo; emit one benchmark item and verify it against the wu-2026 NSPF-FEM reproduction artifact already in HelioSI."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

@@ -1,0 +1,35 @@
+slug: cranmer-2023-alfven-surface-punch-prospects-review
+title: >-
+  The Sun's Alfvén Surface: Recent Insights and Prospects for the Polarimeter to Unify the Corona and Heliosphere (PUNCH)
+authors:
+  - S. R. Cranmer
+  - R. Chhiber
+  - C. R. Gilly
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2310.05887"
+theme: alfven-surface-review-punch-prospects
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+  - other
+regime:
+  - corona
+  - inner-heliosphere
+  - sub-Alfvenic
+  - super-Alfvenic
+trigger_keywords:
+  - Alfvén surface
+  - PUNCH
+  - white-light imaging
+  - PSP sub-Alfvénic
+data_products: []
+algorithms:
+  - name: Imaging-signature catalog construction for Alfvén-surface crossings
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §8

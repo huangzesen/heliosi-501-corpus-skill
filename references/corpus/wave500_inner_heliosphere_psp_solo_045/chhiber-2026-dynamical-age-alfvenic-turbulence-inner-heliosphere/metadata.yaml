@@ -1,0 +1,58 @@
+slug: chhiber-2026-dynamical-age-alfvenic-turbulence-inner-heliosphere
+title: >-
+  Dynamical Age of Alfvénic Turbulence in the Solar Wind
+authors:
+  - R. Chhiber
+  - Y. Wang
+  - A. V. Usmanov
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2603.25989"
+theme: alfvenic-turbulence-age-radial-evolution
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+  - Solar Orbiter
+  - Wind
+  - Helios
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - turbulence age
+  - Alfvenicity
+  - radial evolution
+  - nonlinear time
+  - cross helicity
+data_products:
+  - instrument: PSP/FIELDS MAG + SWEAP
+    level: L2/L3
+    cadence: encounter cadence
+    interval: PSP E1–E20
+    archive: SPDF/CDAWeb
+  - instrument: Solar Orbiter/MAG + SWA
+    level: L2
+    cadence: vector cadence
+    interval: matching radial bins
+    archive: SOAR
+  - instrument: Wind/MFI + 3DP/SWE
+    level: L2
+    cadence: various
+    interval: 1 au comparison
+    archive: SPDF/CDAWeb
+  - instrument: Helios/E2,E3 MAG + plasma
+    level: archive (legacy)
+    cadence: archive cadence
+    interval: 0.3–0.7 au legacy bins
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Nonlinear-time computation from correlation lengths + δb amplitude
+  - name: Alfvenicity (σ_c, σ_r) classifier
+  - name: Alfvenicity-corrected turbulence-age formula
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §9

@@ -1,0 +1,22 @@
+slug: oblique-drift-instability-solar-wind-heating-2025
+title: >-
+  How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2512.18485"
+theme: oblique-drift-instability-heating
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Linear-Vlasov oblique-k solver
+  - Hybrid simulation
+methods:
+  - Oblique linear-Vlasov scan
+  - Hybrid simulation
+validation_targets:
+  - Q-oblique vs Q-parallel ratio (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.18485

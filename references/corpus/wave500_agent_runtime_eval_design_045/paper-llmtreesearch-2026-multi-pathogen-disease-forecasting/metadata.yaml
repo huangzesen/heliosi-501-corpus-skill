@@ -1,0 +1,37 @@
+slug: paper-llmtreesearch-2026-multi-pathogen-disease-forecasting
+title: "Prospective multi-pathogen disease forecasting using autonomous LLM-guided tree search"
+authors:
+  - "TODO_verify_with_full_text"
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2605.16238"
+theme: agent-runtime-tree-search-executable-software
+category: domain-specific-ai-scientist
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "LLM-guided tree search over executable forecasting software"
+  - "Per-candidate evaluation against prospective forecast metric"
+  - "Optimization loop maintained over time"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] Replace 'disease forecast accuracy' with 'PSP turbulence diagnostic recovery' and the same loop becomes a HelioSI workflow search: which combination of paper-skills + parameters best reproduces a known finding?"
+  - "[minimal_experiment] Run an LLM-guided tree search over (paper-skill, parameter) pairs to reproduce the cascade-rate enhancement claim in [[paper-bandyopadhyay-2020-energy-transfer-psp]]; measure budget vs. reproduction fidelity."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

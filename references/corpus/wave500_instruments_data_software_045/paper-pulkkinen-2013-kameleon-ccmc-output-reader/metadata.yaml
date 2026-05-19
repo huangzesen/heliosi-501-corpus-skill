@@ -1,0 +1,27 @@
+slug: paper-pulkkinen-2013-kameleon-ccmc-output-reader
+title: "Geospace Environment Modeling 2008–2009 Challenge: Ground Magnetic Field Perturbations and the Kameleon Software"
+authors:
+  - "Pulkkinen, A."
+year: 2013
+journal: Space Weather
+doi: 10.1002/swe.20098
+arxiv: null
+ads_bibcode: null
+theme: software-kameleon-ccmc
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - CCMC model outputs (SWMF/ENLIL/OpenGGCM) simulation L2 (model-specific)
+methods:
+  - Unified grid-agnostic interpolation API
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1002/swe.20098
+  code_repo: https://ccmc.gsfc.nasa.gov/Kameleon/
+  data_repo: https://ccmc.gsfc.nasa.gov/
+weak_entries:
+  - Pulkkinen 2013 is the GEM-challenge paper that cites Kameleon; no standalone Kameleon paper in local inventory

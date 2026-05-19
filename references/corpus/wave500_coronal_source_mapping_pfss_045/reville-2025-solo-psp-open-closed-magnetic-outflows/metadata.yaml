@@ -1,0 +1,49 @@
+slug: reville-2025-solo-psp-open-closed-magnetic-outflows
+title: >-
+  Investigating Solar Wind Outflows from Open–Closed Magnetic Field Structures Using Coordinated Solar Orbiter and PSP Observations
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2502.08290"
+arxiv_date: "2025-02-12"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - solar_wind_sources
+  - conjunctions
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS+SWEAP + SolO MAG+SWA over conjunction.
+  - Synoptic Br for the relevant CR.
+  - Heavy-ion composition (SWA-HIS).
+methods:
+  - PSP–SolO conjunction definition is robust.
+  - Backmapping accuracy is sufficient at ~0.3–0.5 au.
+  - Composition (heavy-ion) signatures discriminate source regions.
+validation_targets:
+  - Reproduce the conjunction-window OCB association.
+trigger_keywords:
+  - PSP-SolO conjunction
+  - OCB
+  - slow wind
+  - interchange reconnection
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - conjunction definition
+  - composition product
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

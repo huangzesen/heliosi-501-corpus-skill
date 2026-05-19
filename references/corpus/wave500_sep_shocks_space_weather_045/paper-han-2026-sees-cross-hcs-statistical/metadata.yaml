@@ -1,0 +1,37 @@
+slug: paper-han-2026-sees-cross-hcs-statistical
+title: "Do Solar Energetic Electrons cross the Heliospheric Current Sheet? — A Statistical Study"
+authors:
+  - "Han, C."
+  - "Wimmer-Schweingruber, R. F."
+  - "Kuhl, P."
+  - "Berger, L."
+  - "Ding, Z."
+  - "Kollhoff, A."
+  - "Shi, Q."
+  - "Xu, Z."
+  - "Qin, M."
+  - "Wang, M."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.19446"
+theme: heliophysics-sep-electron-hcs-transport
+category: primary-observation-statistical
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Solar Orbiter/EPD (STEP/EPT)
+  - Wind/3DP electron
+  - PFSS magnetogram
+methods:
+  - PFSS-based footpoint polarity assignment
+  - Strahl PA-based local sector identification
+  - First-order anisotropy classifier for crossing events
+  - Same-side / opposite-side binary classification
+  - HCS-distance correlation analysis
+validation_targets:
+  - Counts of same-side (60) vs opposite-side (9) events; opposite-side anisotropy distribution shifted toward isotropic; HCS distance distributions for both classes (TODO_verify numeric thresholds from full text).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.19446

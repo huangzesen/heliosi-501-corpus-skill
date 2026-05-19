@@ -1,0 +1,21 @@
+slug: torsional-alfven-firehose-plasma-heating-2024
+title: >-
+  Torsional Alfvén Oscillation in the Regime of Firehose Instability as a Mechanism of Plasma Heating
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2412.07451"
+theme: torsional-alfven-firehose-heating
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - MHD/hybrid code with torsional-AW init
+methods:
+  - Torsional-AW MHD simulation
+  - Firehose-modified dispersion
+validation_targets:
+  - Q vs (β_∥, ξ) curve reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2412.07451

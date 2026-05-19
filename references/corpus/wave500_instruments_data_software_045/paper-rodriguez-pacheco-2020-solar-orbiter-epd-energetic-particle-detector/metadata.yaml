@@ -1,0 +1,30 @@
+slug: paper-rodriguez-pacheco-2020-solar-orbiter-epd-energetic-particle-detector
+title: The Energetic Particle Detector — Energetic particle instrument suite for the Solar Orbiter mission
+authors:
+  - "Rodríguez-Pacheco, J."
+year: 2020
+journal: "Astronomy & Astrophysics"
+doi: 10.1051/0004-6361/201935287
+arxiv: null
+ads_bibcode: null
+theme: instrument-solo-epd
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SO/EPD STEP L2 (1 s - 1 min)
+  - SO/EPD EPT L2 (1 s - 1 min)
+  - SO/EPD HET L2 (~minutes)
+  - SO/EPD SIS L2 (~minutes)
+methods:
+  - EPT four-telescope pitch-angle reconstruction
+  - SIS ToF + energy heavy-ion identification
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1051/0004-6361/201935287
+  data_repo: https://soar.esac.esa.int/
+weak_entries:
+  []

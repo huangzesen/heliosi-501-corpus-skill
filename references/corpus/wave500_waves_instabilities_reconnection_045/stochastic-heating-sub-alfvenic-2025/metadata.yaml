@@ -1,0 +1,20 @@
+slug: stochastic-heating-sub-alfvenic-2025
+title: >-
+  Stochastic Heating in the Sub-Alfvénic Solar Wind
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2509.20654"
+theme: stochastic-heating-sub-alfvenic
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP MAG + plasma sub-Alfvénic intervals
+methods:
+  - Stochastic-heating prescription evaluation
+validation_targets:
+  - Q_⊥ closure within stated fraction (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.20654

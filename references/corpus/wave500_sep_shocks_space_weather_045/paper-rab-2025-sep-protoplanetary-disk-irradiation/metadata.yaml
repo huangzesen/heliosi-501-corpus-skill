@@ -1,0 +1,25 @@
+slug: paper-rab-2025-sep-protoplanetary-disk-irradiation
+title: "The Extent of Solar Energetic Particle Irradiation in the Sun's Protoplanetary Disk"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2512.03184"
+theme: heliophysics-sep-protoplanetary-disk-irradiation
+category: primary-simulation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  # theory-only
+methods:
+  - Young-Sun SEP flux scaling (T Tauri activity proxies)
+  - Disk gas/dust model + ionization / SEP propagation
+  - Isotope-yield bookkeeping (10Be, 26Al — TODO_verify)
+  - Radial / vertical penetration map
+validation_targets:
+  - Predicted 10Be radial-distribution profile; consistency with chondritic constraint (TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.03184

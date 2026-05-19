@@ -1,0 +1,27 @@
+slug: paper-bobra-2019-python-heliophysics-overview
+title: "Snakes on a Spaceship — An Overview of Python in Heliophysics"
+authors:
+  - "Bobra, M. G."
+  - "+ co-authors (TODO verify full list)"
+year: 2019
+journal: arXiv preprint (community overview)
+doi: null
+arxiv: "1901.00143"
+ads_bibcode: null
+theme: heliophysics-python-ecosystem-overview
+source_type: software-paper
+quality_level: stub-historical-ecosystem-map
+executable_status: ecosystem-diff-procedure-only
+required_data: []
+methods:
+  - Ecosystem catalog (no numerical procedure)
+validation_targets:
+  - Reproduce 2019 catalog list and diff against current package landscape
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.7
+links:
+  arxiv_url: https://arxiv.org/abs/1901.00143
+weak_entries:
+  - DOI of any published version not in local inventory
+  - Full author list not enumerated
+  - Canonical 2019 package list not in local source (abstract-only)

@@ -1,0 +1,29 @@
+slug: paper-laitinen-2026-vda-turbulent-heliosphere
+title: "Velocity dispersion of Solar Energetic Particles in turbulent heliosphere"
+authors:
+  - "Laitinen, T."
+  - "Dalla, S."
+year: 2026
+journal: "Journal — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2603.06433"
+theme: heliophysics-sep-transport-vda-bias
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - none — full-orbit simulation + analytical turbulence model
+methods:
+  - Full-orbit proton simulation in IMF + turbulence
+  - Analytical 2D-dominant + slab turbulence prescription
+  - VDA fitting with onset threshold
+  - Background-spectrum sensitivity sweep
+validation_targets:
+  - Reproduce Δt_sun ≈ 2-16 min and Δs ≈ 0.2-0.3 au for weak/moderate turbulence
+  - Reproduce Δs > 5 au for strong turbulence
+  - Reproduce 5-20 min injection-time spread under background-spectrum variation
+weak_entries:
+  - DOI / final venue
+  - Exact turbulence-model parameters (power spectrum normalization, anisotropy)
+  - Onset-threshold prescription
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.06433

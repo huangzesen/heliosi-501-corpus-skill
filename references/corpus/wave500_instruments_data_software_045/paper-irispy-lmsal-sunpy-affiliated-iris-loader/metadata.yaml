@@ -1,0 +1,26 @@
+slug: paper-irispy-lmsal-sunpy-affiliated-iris-loader
+title: irispy-lmsal — IRIS spectrograph data loading in Python
+authors:
+  - irispy-lmsal developers
+year: 2024
+journal: software package (SunPy affiliated; no dedicated paper in local inventory)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-irispy-lmsal
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - IRIS SJI (slit-jaw imager) L2 (raster-dependent)
+  - IRIS SG (spectrograph) L2 (raster-dependent)
+methods:
+  - SJI co-alignment with SG via WCS metadata
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://github.com/LM-SAL/irispy-lmsal
+weak_entries:
+  - No standalone publication located; citation TODO

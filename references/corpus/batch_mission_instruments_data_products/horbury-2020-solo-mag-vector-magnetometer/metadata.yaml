@@ -1,0 +1,37 @@
+slug: horbury-2020-solo-mag-vector-magnetometer
+title: The Solar Orbiter Magnetometer
+authors:
+  - T. S. Horbury
+  - H. O'Brien
+  - I. Carrasco Blázquez
+  - M. Bendyk
+  - P. Brown
+  - R. Hudson
+  - V. Evans
+  - "+ co-authors (TODO verify full list with primary source)"
+year: 2020
+journal: Astronomy & Astrophysics, 642, A9
+doi: "10.1051/0004-6361/201937257 — TODO_verify_with_full_text"
+arxiv: not-in-local-inventory
+theme: mission-instrumentation-solar-orbiter-mag
+quality_level: paper-grounded-pending-full-text
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - SO/MAG IBS L2 normal mode (~8 vec/s; TODO verify)
+  - SO/MAG OBS L2 normal mode (~8 vec/s; cross-check)
+  - SO/MAG burst L2 (~64 vec/s; event-triggered; TODO verify)
+methods:
+  - Sensor (IBS vs OBS) and mode selection
+  - Frame management (RTN, SRF, J2000)
+  - IBS – OBS residual for spacecraft-field flagging
+  - Burst-window gating
+validation_targets:
+  - Median |B| at 0.3 au sample interval within ~5% of published value (TODO supply with full text)
+source_inventory:
+  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "project-knowledge:Horbury-et-al-2020-SO-MAG; not-in-local-inventory"
+  verified_by: null
+  verified_at: null

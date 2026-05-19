@@ -1,0 +1,30 @@
+slug: paper-maksimovic-2020-solar-orbiter-rpw-radio-plasma-waves
+title: The Solar Orbiter Radio and Plasma Waves (RPW) instrument
+authors:
+  - "Maksimovic, M."
+year: 2020
+journal: "Astronomy & Astrophysics"
+doi: 10.1051/0004-6361/201936214
+arxiv: null
+ads_bibcode: null
+theme: instrument-solo-rpw
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SO/RPW TNR L2 (~16 s spectrum)
+  - SO/RPW HFR L2 (~7 s spectrum)
+  - SO/RPW TDS waveform L2 burst (event-based)
+  - SO/RPW LFR L2 (various)
+methods:
+  - "Quasi-thermal noise (QTN) inversion → Ne, Te"
+  - Type-III radio burst frequency-time tracking
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1051/0004-6361/201936214
+  data_repo: https://soar.esac.esa.int/
+weak_entries:
+  []

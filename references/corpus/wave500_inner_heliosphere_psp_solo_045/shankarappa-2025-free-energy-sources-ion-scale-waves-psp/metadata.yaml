@@ -1,0 +1,50 @@
+slug: shankarappa-2025-free-energy-sources-ion-scale-waves-psp
+title: >-
+  Free Energy Sources of Ion-scale Waves Observed by Parker Solar Probe
+authors:
+  - N. Shankarappa
+  - K. G. Klein
+  - M. M. Martinović
+  - T. A. Bowen
+  - D. E. Larson
+  - R. Livi
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2512.11182"
+theme: psp-ion-scale-waves-free-energy-statistics
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: waves_instabilities
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - ion-scale
+  - kinetic
+trigger_keywords:
+  - ion-scale waves
+  - left-handed
+  - right-handed
+  - free-energy
+  - Vlasov stability
+  - VDF microinstabilities
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: ~290 Sa/s burst
+    interval: PSP E1–E19
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPAN-I
+    level: L3 VDF
+    cadence: encounter cadence
+    interval: PSP E1–E19
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Circular-polarisation classifier for ion-scale waves
+  - name: Linear Vlasov–Maxwell instability solver applied to measured VDFs
+  - name: Conditional free-energy attribution (beam, anisotropy, drift)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §7

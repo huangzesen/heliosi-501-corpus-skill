@@ -1,0 +1,38 @@
+slug: bowen-2022-anisotropic-turbulence-radial-evolution-psp
+title: >-
+  Anisotropic Magnetic Turbulence in the Inner Heliosphere — Radial Evolution of Distributions Observed by Parker Solar Probe
+authors:
+  - T. A. Bowen
+  - TODO verify
+year: 2022
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2205.14096"
+theme: psp-anisotropy-radial-evolution-statistics
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+  - ion-scale
+trigger_keywords:
+  - magnetic-fluctuation anisotropy
+  - radial bins
+  - encounter statistics
+  - PSP
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz/burst
+    interval: PSP encounters (E1–E10+)
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Local-mean-field anisotropy estimator
+  - name: Radial-bin distribution-shape statistics (skewness, kurtosis)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.15

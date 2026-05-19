@@ -1,0 +1,48 @@
+slug: huang-2024-stereoscopic-coronal-loop-morphology
+title: >-
+  Stereoscopic Observations Reveal Coherent Morphology and Evolution of Solar Coronal Loops
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2024
+arxiv: "2411.16943"
+arxiv_date: "2024-11-25"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_loops
+  - stereoscopy
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - STEREO-A/B + SDO/AIA paired EUV imagery.
+  - HMI vector Br for NLFFF.
+  - Synoptic Br for PFSS background.
+methods:
+  - Stereoscopic reconstruction is geometrically valid.
+  - Loop identification across viewpoints is consistent.
+validation_targets:
+  - Reproduce angular-deviation distribution.
+trigger_keywords:
+  - stereoscopic loops
+  - STEREO
+  - PFSS comparison
+  - NLFFF
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - loop-sample identity
+  - angular-deviation tolerance
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

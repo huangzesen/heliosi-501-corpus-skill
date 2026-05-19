@@ -1,0 +1,36 @@
+slug: owen-2020-solo-swa-plasma-suite
+title: The Solar Orbiter Solar Wind Analyser (SWA) Suite
+authors:
+  - C. J. Owen
+  - R. Bruno
+  - S. Livi
+  - P. Louarn
+  - K. Al Janabi
+  - "+ co-authors (TODO verify full list with primary source)"
+year: 2020
+journal: Astronomy & Astrophysics, 642, A16
+doi: "10.1051/0004-6361/201937259 — TODO_verify_with_full_text"
+arxiv: not-in-local-inventory
+theme: mission-instrumentation-solar-orbiter-swa
+quality_level: paper-grounded-pending-full-text
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - SO/SWA PAS L2 moments (solo_L2_swa-pas-grnd-mom)
+  - SO/SWA PAS L2 VDFs (solo_L2_swa-pas-vdf)
+  - SO/SWA EAS L2 electron VDFs / PADs
+  - SO/SWA HIS L2 heavy-ion charge-state ratios (TODO verify exact products)
+methods:
+  - Sensor selection by species
+  - Product selection (moments vs VDF vs composition)
+  - Spacecraft-electron contamination cut (EAS)
+  - Pairing with SO/MAG for Alfvénicity / pitch-angle
+validation_targets:
+  - PAS proton plasma beta on a 2022 fast-stream interval within ~20% of published value (TODO supply with full text)
+source_inventory:
+  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "project-knowledge:Owen-et-al-2020-SO-SWA; not-in-local-inventory"
+  verified_by: null
+  verified_at: null

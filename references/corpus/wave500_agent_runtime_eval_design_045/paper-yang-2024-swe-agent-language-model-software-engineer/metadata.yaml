@@ -1,0 +1,43 @@
+slug: paper-yang-2024-swe-agent-language-model-software-engineer
+title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering"
+authors:
+  - "John Yang"
+  - "Carlos E. Jimenez"
+  - "Alexander Wettig"
+  - "Kilian Lieret"
+  - "Shunyu Yao"
+  - "Karthik Narasimhan"
+  - "Ofir Press"
+year: 2024
+journal: "arXiv preprint"
+doi: null
+arxiv: "2405.15793"
+theme: agent-runtime-agent-computer-interface
+category: agent-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Custom agent-computer interface (view / edit / search / run)"
+  - "LM-friendly tool output formatting"
+  - "Iterative agent loop with structured actions"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's MCP set IS the heliophysics agent-computer interface. The lesson: design the per-MCP output schema for LM consumption, not for HTML/UI."
+  - "[minimal_experiment] Compare two CDAWeb adapter designs (raw JSON dump vs. LM-friendly summary + on-demand drill-in) on a heliophysics tool-use task; report turn count + correctness delta."
+depends_on:
+  - paper-jimenez-2024-swebench-resolving-github-issues
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

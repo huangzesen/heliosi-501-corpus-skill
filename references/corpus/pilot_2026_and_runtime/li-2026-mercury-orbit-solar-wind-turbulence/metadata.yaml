@@ -1,0 +1,30 @@
+slug: li-2026-mercury-orbit-solar-wind-turbulence
+title: >-
+  Properties and Radial Evolution of Solar Wind Turbulence Near Mercury's
+  Orbit
+authors:
+  - Xinmin Li
+  - Chuanfei Dong
+  - Lina Z. Hadid
+  - "+ other authors"
+year: 2026
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2604.21196"
+theme: heliophysics-turbulence-radial-evolution
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - MESSENGER MAG L2 (PDS-PPI)
+  - MESSENGER solar-wind interval catalog
+methods:
+  - Trace power spectral density (Welch)
+  - Broken-power-law fitting (inertial + kinetic ranges)
+  - Heliocentric-distance binning and regression
+  - Solar-wind / magnetosphere filtering
+validation_targets:
+  - Reproduce inertial-range slope distribution (mean within ±0.1)
+  - Reproduce kinetic-range slope distribution (mean within ±0.1)
+  - Match sign of kinetic-range slope vs. r_au trend (TODO verify sign)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #15

@@ -1,0 +1,46 @@
+slug: gonzalez-2023-local-proton-heating-discontinuities-alfvenic
+title: >-
+  Local proton heating at magnetic discontinuities in Alfvénic and non-Alfvénic solar wind
+authors:
+  - C. A. Gonzalez
+  - J. L. Verniero
+  - R. Bandyopadhyay
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2309.07862"
+theme: psp-discontinuity-local-proton-heating
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: coronal_heating
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - kinetic
+trigger_keywords:
+  - proton heating
+  - magnetic discontinuity
+  - Alfvenic
+  - non-Alfvenic
+  - PSP intervals
+  - kinetic signatures
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst
+    interval: PSP encounter intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPAN-I
+    level: L3 VDF
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Discontinuity identification (PVI, rotation angle)
+  - name: Alfvenicity classification (σ_c)
+  - name: Conditional VDF anisotropy/temperature analysis at discontinuities
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §9

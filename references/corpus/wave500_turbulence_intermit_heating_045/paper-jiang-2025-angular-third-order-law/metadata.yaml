@@ -1,0 +1,30 @@
+slug: paper-jiang-2025-angular-third-order-law
+title: "Angular dependence of third-order law in anisotropic MHD turbulence"
+authors:
+  - "Bin Jiang"
+  - "Zhuoran Gao"
+  - "Yan Yang"
+year: 2025
+journal: "TODO verify (arXiv:2512.16610)"
+doi: null
+arxiv: "2512.16610"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [cascade-rate, exact-relation, anisotropy, simulation]
+missions: [n/a]
+regime: [MHD-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "Anisotropic MHD simulation output derived (n/a)"
+methods:
+  - anisotropic-mhd-simulation-with-controlled-mean-field-angle
+  - single-direction-pp-cascade-rate-estimator-at-varied-sampling-angles
+  - bias-vs-angle-curve
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 item 4"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

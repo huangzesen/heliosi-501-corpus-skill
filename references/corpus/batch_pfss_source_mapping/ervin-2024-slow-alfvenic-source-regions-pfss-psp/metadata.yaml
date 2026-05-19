@@ -1,0 +1,64 @@
+slug: ervin-2024-slow-alfvenic-source-regions-pfss-psp
+title: >-
+  Characteristics and Source Regions of Slow Alfvénic Solar Wind Observed
+  by Parker Solar Probe
+authors:
+  - Tamar Ervin
+  - Kai Jaffarove
+  - Samuel T. Badman
+  - Jia Huang
+  - Yeimy J. Rivera
+  - Stuart D. Bale
+year: 2024
+journal: TODO_verify_with_full_text  # published 2024-07-12; venue not stated in inventory
+doi: TODO_verify_with_full_text
+arxiv: "2407.09684"
+ads_bibcode: null
+theme: pfss_source_mapping
+secondary_themes:
+  - psp_data
+  - switchbacks
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 (RTN), Encounters 4–14, near-perihelion
+  - PSP SWEAP SPC / SPAN-I bulk moments + Alfvénicity diagnostics
+  - PSP heavy-ion composition (where available; TODO verify source / instrument)
+  - Synoptic Br for PFSS (GONG / HMI / ADAPT — TODO verify which)
+methods:
+  - Slow Alfvénic solar wind (SASW) identification per heliocentric-distance
+    classification scheme (TODO verify exact thresholds)
+  - PFSS extrapolation for source mapping (Altschuler–Newkirk)
+  - Ballistic back-mapping from spacecraft to source surface
+  - Field-line tracing from source surface to photosphere
+  - Source-region typing (low-B_0 coronal hole / overexpanded boundary;
+    high-field-strength source population)
+  - Heavy-ion composition cross-check on source typing
+validation_targets:
+  - Recover two-population SASW source-region partition (low-B_0 small
+    CHs / over-expanded boundaries vs. high-field-strength sources)
+  - Reproduce qualitative footpoint distribution for PSP encounters 4–14
+trigger_keywords:
+  - slow Alfvenic solar wind
+  - SASW
+  - PSP
+  - source mapping
+  - PFSS
+  - ballistic mapping
+  - coronal hole boundary
+  - overexpanded coronal hole
+  - heavy ion composition
+  - Ervin 2024
+  - Encounter 4
+  - Encounter 14
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §12
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+  - .library/custom/psp-data-analysis/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §12
+  verified_by: null
+  verified_at: null

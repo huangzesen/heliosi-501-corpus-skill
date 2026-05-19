@@ -1,0 +1,43 @@
+slug: paper-coronal-hole-jet-population-statistics-aia
+title: "AIA Coronal-Hole Jet Population Statistics"
+authors:
+  - "TODO verify (canonical: Savcheva et al. 2007; Pucci et al. 2013; Mulay et al. 2016)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - coronal_holes
+  - jets
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - AIA 193/211 Å imagery (high cadence)
+  - HMI LOS magnetogram (co-spatial polarity)
+methods:
+  - Automated jet detection
+  - Log-normal distribution fitting
+  - Photospheric polarity cross-reference
+validation_targets:
+  - Reproduce published log-normal parameters (TODO verify)
+trigger_keywords:
+  - coronal hole jet
+  - polar jet statistics
+  - jet recurrence
+  - AIA jet catalog
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

@@ -1,0 +1,31 @@
+slug: agapitov-2020-localized-magnetic-structures-boundaries
+title: >-
+  Localized Magnetic Field Structures and Their Boundaries in the Near-Sun
+  Solar Wind from Parker Solar Probe Measurements
+authors:
+  - O. V. Agapitov
+  - T. Dudok de Wit
+  - F. Mozer
+  - "+ co-authors (TODO verify full list)"
+year: 2020
+journal: The Astrophysical Journal Supplement Series
+doi: TODO_verify_with_full_text
+arxiv: "2003.05409"
+theme: heliophysics-psp-localized-structures-boundaries
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN (high cadence)
+  - PSP ephemeris (heliocentric distance)
+methods:
+  - Deflection-threshold event detection on B_R/|B|
+  - Boundary-gradient localization
+  - Per-event amplitude/duration/width statistics
+  - Heliocentric-distance binning
+validation_targets:
+  - Detect full-reversal structures in paper-named interval (TODO verify)
+  - Boundary-width distribution shape matches paper figure
+  - Inter-event spacing trend with heliocentric distance matches paper sign (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.13
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.2

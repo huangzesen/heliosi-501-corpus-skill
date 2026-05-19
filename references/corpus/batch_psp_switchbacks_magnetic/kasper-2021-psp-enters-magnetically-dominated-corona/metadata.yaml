@@ -1,0 +1,34 @@
+slug: kasper-2021-psp-enters-magnetically-dominated-corona
+title: >-
+  Parker Solar Probe Enters the Magnetically Dominated Solar Corona
+authors:
+  - J. C. Kasper
+  - K. G. Klein
+  - E. Lichko
+  - J. Huang
+  - "+ co-authors (TODO verify full list)"
+year: 2021
+journal: Physical Review Letters
+volume: "127"
+article: "255101"
+doi: "10.1103/PhysRevLett.127.255101"
+arxiv: TODO_verify_with_full_text
+theme: heliophysics-psp-alfven-surface-crossing
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 (Encounter 8 perihelion)
+  - PSP SWEAP bulk velocity and proton density
+  - Optional QTN-derived electron density
+  - PSP SPICE ephemeris
+methods:
+  - Alfvén-speed and Alfvén-Mach-number computation
+  - Hysteretic sub-Alfvénic interval detection
+  - β_total computation from SWEAP + FIELDS
+  - Trajectory-projected Alfvén-radius extraction
+validation_targets:
+  - Recover at least one Encounter-8 sub-Alfvénic interval within ~1 min of paper
+  - β_total < 1 during the interval, consistent with paper
+  - Alfvén-radius estimate consistent with paper at the matching heliocentric distance
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.9

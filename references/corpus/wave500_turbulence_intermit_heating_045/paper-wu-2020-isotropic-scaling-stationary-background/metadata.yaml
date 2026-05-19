@@ -1,0 +1,31 @@
+slug: paper-wu-2020-isotropic-scaling-stationary-background
+title: "Isotropic Scaling Features Measured Locally in the Solar Wind Turbulence with Stationary Background Field"
+authors:
+  - "Honghong Wu"
+  - "Chuanyi Tu"
+  - "Xin Wang"
+  - "Jiansen He"
+year: 2020
+journal: "TODO verify (arXiv:2011.10244)"
+doi: null
+arxiv: "2011.10244"
+primary_theme: turbulence
+secondary_themes: [anisotropy, structure-function]
+missions: [Wind, ACE, other]
+regime: [1au, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "In-situ MAG + plasma (mission TODO verify)"
+methods:
+  - stationary-background-field-windowing
+  - local-mean-field-structure-function
+  - sampling-angle-resolved-exponents
+validation_targets:
+  - "Collapse of zeta_n(theta_VB) under stationarity rule (exponent values TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2020 item 2"
+verification_flags:
+  - "Mission/instrument identity TODO verify."
+  - "Stationarity threshold TODO verify."
+  - "Reported isotropy tolerance TODO verify."

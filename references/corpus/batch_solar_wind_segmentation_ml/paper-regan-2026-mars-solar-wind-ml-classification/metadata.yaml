@@ -1,0 +1,45 @@
+slug: paper-regan-2026-mars-solar-wind-ml-classification
+title: "Solar Wind Classifications at Mars using Machine Learning Techniques"
+authors:
+  - "C. E. Regan"
+  - "S. Ferro"
+  - "A. M. Smith"
+  - "A. J. G. Angeles"
+  - "N. A. Gross"
+  - "F. Kamalabadi"
+  - "M. Velli"
+  - "J. S. Halekas"
+year: 2026
+journal: "Heliophysics Summer School ML Special Collection (venue TODO verify)"
+doi: null
+arxiv: "2604.08710"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, solar-cycle, mars-upstream]
+missions: [MAVEN]
+regime: ["1au", "inner-heliosphere"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "MAVEN SWIA L2 ion moments (n_p, V_RTN, T_p) over Solar Cycles 24-25"
+  - "MAVEN MAG L2 magnetic field (B_RTN) over the same window"
+  - "Upstream interval flag (bow-shock-excluded times) — exact bow-shock model TODO verify"
+  - "Solar activity proxy (F10.7 / SSN / cycle phase) — exact choice TODO verify"
+methods:
+  - principal-component-analysis-feature-reduction
+  - kmeans-clustering-k4
+  - unsupervised-solar-wind-regime-classification
+  - solar-activity-modulated-occurrence-statistics
+validation_targets:
+  - "Four-cluster K-Means solution maps to slow / fast / intermediate / compressed regimes"
+  - "Per-cluster occurrence varies with solar activity across Cycles 24-25 (numerical fractions TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2604.08710"
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.2"
+verification_flags:
+  - "Publication venue (special-collection home journal) TODO verify."
+  - "Exact feature vector used (which moments + derived quantities) TODO verify in full text."
+  - "PCA component count and explained-variance threshold TODO verify."
+  - "Bow-shock model used for upstream selection TODO verify."
+  - "Solar-activity proxy used for occurrence modulation TODO verify."
+  - "Per-cluster occurrence fractions vs. cycle phase TODO verify."

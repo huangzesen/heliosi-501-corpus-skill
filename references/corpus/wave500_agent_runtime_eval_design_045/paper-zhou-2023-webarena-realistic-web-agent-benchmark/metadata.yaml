@@ -1,0 +1,47 @@
+slug: paper-zhou-2023-webarena-realistic-web-agent-benchmark
+title: "WebArena: A Realistic Web Environment for Building Autonomous Agents"
+authors:
+  - "Shuyan Zhou"
+  - "Frank F. Xu"
+  - "Hao Zhu"
+  - "Xuhui Zhou"
+  - "Robert Lo"
+  - "Abishek Sridhar"
+  - "Xianyi Cheng"
+  - "Yonatan Bisk"
+  - "Daniel Fried"
+  - "Uri Alon"
+  - "Graham Neubig"
+year: 2023
+journal: "arXiv preprint / ICLR 2024"
+doi: null
+arxiv: "2307.13854"
+theme: agent-runtime-realistic-environment-benchmark
+category: benchmark
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Self-hostable web environments"
+  - "Functional-correctness task-success criteria"
+  - "Multi-step task instructions"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] A WebArena-style heliophysics arena could be self-hosted: locally cached CDAWeb subset + sunpy + pfsspy + sw-scanner, with functional-correctness scoring (e.g. recovered spectrum slope matches paper)."
+  - "[minimal_experiment] Stand up a self-hostable HelioArena from the existing local archives + scripts, with 5 tasks scored by functional correctness; benchmark HelioSI vs. a tool-free LLM."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

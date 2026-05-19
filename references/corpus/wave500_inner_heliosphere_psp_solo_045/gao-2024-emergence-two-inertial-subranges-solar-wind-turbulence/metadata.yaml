@@ -1,0 +1,37 @@
+slug: gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence
+title: >-
+  Emergence of two inertial sub-ranges in solar wind turbulence
+authors:
+  - TODO verify
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2409.03090"
+theme: psp-two-inertial-subranges
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - inertial range
+  - two sub-regimes
+  - −3/2 vs −5/3
+  - 0.17 au PSP
+  - spectral evolution
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst
+    interval: PSP near-perihelion intervals incl. 0.17 au
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: PSD computation per encounter window
+  - name: Two-segment power-law fit with breakpoint search
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §1.10

@@ -1,0 +1,27 @@
+slug: giardetti-2025-sunward-alfven-waves-1au-switchbacks
+title: >-
+  Energetically-Dominant Sunward-Propagating Alfvén Waves Near 1 au and Their Relation to Large-Scale Magnetic Switchbacks
+authors:
+  - N. Giardetti
+  - S. Bourouaine
+  - J. C. Perez
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2512.18806"
+theme: sunward-alfven-waves-switchback-association
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Wind MAG + plasma + strahl-electron data
+  - HMF polarity catalog
+  - Stream-type classification
+methods:
+  - Elsässer-variable cross-helicity
+  - Switchback identification from suprathermal-electron PAD
+  - Multi-decade statistical overlap analysis
+validation_targets:
+  - SAW-rate range 1–14% reproduced
+  - 17.5% SAW∩SB association at 1-h scale (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.18806

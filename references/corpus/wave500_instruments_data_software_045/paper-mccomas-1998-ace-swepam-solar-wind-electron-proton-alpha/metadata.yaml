@@ -1,0 +1,26 @@
+slug: paper-mccomas-1998-ace-swepam-solar-wind-electron-proton-alpha
+title: Solar Wind Electron Proton Alpha Monitor (SWEPAM) for the Advanced Composition Explorer
+authors:
+  - "McComas, D. J."
+year: 1998
+journal: Space Science Reviews
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-ace-swepam
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - ACE/SWEPAM-I L2 (64 s (moments))
+  - ACE/SWEPAM-E L2 (64 s (moments))
+methods:
+  - SWEPAM nonlinear ion-moment fit
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov/pub/data/ace/swepam/
+weak_entries:
+  - "DOI not in local inventory; Space Sci. Rev. 86, 563 (1998)"

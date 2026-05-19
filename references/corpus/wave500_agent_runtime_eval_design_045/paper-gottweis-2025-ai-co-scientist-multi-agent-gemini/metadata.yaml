@@ -1,0 +1,43 @@
+slug: paper-gottweis-2025-ai-co-scientist-multi-agent-gemini
+title: "Towards an AI co-scientist"
+authors:
+  - "Juraj Gottweis"
+  - "Wei-Hung Weng"
+  - "Alexander Daryin"
+  - "Tao Tu"
+  - "Anil Palepu"
+  - "Petar Sirkovic"
+year: 2025
+journal: "arXiv preprint"
+doi: null
+arxiv: "2502.18864"
+theme: agent-runtime-async-tournament
+category: ai-scientist-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Asynchronous multi-agent task execution"
+  - "Generate-debate-evolve hypothesis loop"
+  - "Tournament evolution with test-time compute scaling"
+  - "Domain validation hand-off to in-vitro / organoid experiments"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[minimal_experiment] Implement the generate-debate-evolve loop over heliophysics paper-skills: have agents propose follow-up hypotheses to [[paper-huang-2023-psp-one-over-f-spectrum]], debate them against [[paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]], and keep the surviving hypotheses for HelioSI Stage D."
+  - "[gap] Tournament evolution needs a comparability metric; heliophysics needs a 'do these hypotheses contradict the same paper-skill claim_boundary?' check."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

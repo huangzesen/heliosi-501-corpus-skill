@@ -1,0 +1,37 @@
+slug: perrone-2022-coronal-hole-wind-psp-solo-conjunction
+title: >-
+  Evolution of Coronal-Hole Solar Wind in the Inner Heliosphere: Combined
+  Observations by Solar Orbiter and Parker Solar Probe
+authors:
+  - D. Perrone
+  - S. Perri
+  - R. Bruno
+  - D. Stansby
+  - R. D'Amicis
+  - V. K. Jagarlamudi
+  - "+ co-authors (TODO verify full list)"
+year: 2022
+journal: Astronomy & Astrophysics
+volume: "668"
+article: "A189"
+doi: "10.1051/0004-6361/202243989"
+arxiv: TODO_verify_with_full_text
+theme: heliophysics-psp-solo-coronal-hole-radial-evolution
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP SWEAP bulk moments and FIELDS MAG L2
+  - Solar Orbiter SWA-PAS bulk moments and MAG
+  - EUV synoptic / coronal-hole map at conjunction date (e.g. AIA 193 Å)
+methods:
+  - Conjunction-window selection
+  - Coronal-hole footpoint confirmation
+  - Elsässer decomposition (σ_c, σ_R)
+  - Inertial-range PSD slope estimation
+  - Compressibility diagnostics (δn/n, δ|B|/|B|)
+validation_targets:
+  - Sign and magnitude of σ_c trend PSP→SO matches paper (TODO verify)
+  - Inertial-range slope at SO consistent with classical −5/3 or −3/2
+  - Density-fluctuation amplitude within ±30% of paper
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.8

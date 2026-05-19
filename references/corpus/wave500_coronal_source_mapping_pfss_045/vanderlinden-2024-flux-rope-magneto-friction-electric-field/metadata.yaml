@@ -1,0 +1,48 @@
+slug: vanderlinden-2024-flux-rope-magneto-friction-electric-field
+title: >-
+  Simulating the Formation and Eruption of Flux Rope by Magneto-Friction Model Driven by Time-Dependent Electric Field
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2024
+arxiv: "2409.14045"
+arxiv_date: "2024-09-21"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - flux_ropes
+  - data_driven_modeling
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI vector Br time series.
+  - AIA EUV for eruption observation.
+  - Synoptic Br for PFSS.
+methods:
+  - E-field inversion from B is uniquely defined up to gauge.
+  - Magneto-friction converges to the relevant force-free state.
+validation_targets:
+  - Match eruption-onset time.
+trigger_keywords:
+  - magneto-friction
+  - flux rope
+  - electric field
+  - data-driven
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - gauge convention
+  - MF code
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

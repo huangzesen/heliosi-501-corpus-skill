@@ -1,0 +1,26 @@
+slug: paper-franz-2002-heliospheric-coordinate-systems
+title: Heliospheric Coordinate Systems
+authors:
+  - "Fränz, M."
+year: 2002
+journal: Planetary and Space Science
+doi: 10.1016/S0032-0633(01)00119-2
+arxiv: null
+ads_bibcode: null
+theme: data-product-coordinate-systems
+source_type: paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  []
+methods:
+  - GSE↔GSM via dipole tilt angle
+  - HEEQ↔HCI via Carrington solar rotation
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1016/S0032-0633(01)00119-2
+weak_entries:
+  - 2007 erratum not always tracked in citing software

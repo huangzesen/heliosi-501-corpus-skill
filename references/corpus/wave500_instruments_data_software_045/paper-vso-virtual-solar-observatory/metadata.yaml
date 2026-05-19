@@ -1,0 +1,26 @@
+slug: paper-vso-virtual-solar-observatory
+title: The Virtual Solar Observatory (VSO)
+authors:
+  - "Hill, F."
+year: 2009
+journal: (VSO project paper / documentation; cite Hill et al. 2009 Earth Moon Planets for original VSO description)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: archive-vso
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SDO/AIA via VSO L1 (12 s)
+  - SOHO/EIT via VSO L1/L2 (varies)
+methods:
+  - sunpy.net.vso Fido client query/get
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://sdac.virtualsolar.org/cgi/search
+weak_entries:
+  - "Hill et al. 2009 Earth Moon Planets 104, 315 — verify DOI"

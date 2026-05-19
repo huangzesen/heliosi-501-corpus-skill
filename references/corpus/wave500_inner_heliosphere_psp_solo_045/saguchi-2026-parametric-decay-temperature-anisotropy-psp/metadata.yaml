@@ -1,0 +1,45 @@
+slug: saguchi-2026-parametric-decay-temperature-anisotropy-psp
+title: >-
+  Radial evolution of Alfvén wave Parametric Decay Instability in the near-Sun solar wind: Effects of Temperature Anisotropy
+authors:
+  - H. Saguchi
+  - Y. Kawazura
+  - M. Shoda
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2604.22489"
+theme: alfven-pdi-temperature-anisotropy-near-sun
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: waves_instabilities
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+  - kinetic
+trigger_keywords:
+  - parametric decay instability
+  - Alfvén wave PDI
+  - temperature anisotropy
+  - expanding box
+  - near-Sun
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP encounters used to constrain expansion conditions
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3 VDF + moments
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Expanding-box MHD or hybrid simulation with anisotropic-pressure closure
+  - name: PDI dispersion-relation analysis for anisotropic plasma
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §5

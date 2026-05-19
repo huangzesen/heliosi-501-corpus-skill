@@ -1,0 +1,40 @@
+slug: paper-boiko-2023-coscientist-autonomous-chemistry-nature
+title: "Autonomous chemical research with large language models (Coscientist)"
+authors:
+  - "Daniil A. Boiko"
+  - "Robert MacKnight"
+  - "Ben Kline"
+  - "Gabe Gomes"
+year: 2023
+journal: "Nature"
+doi: "10.1038/s41586-023-06792-0"
+arxiv: null
+theme: agent-runtime-domain-tools
+category: ai-scientist-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "GPT-4 LLM driver"
+  - "Tool harness: internet search, documentation search, code execution, experimental automation"
+  - "Reaction optimization loop with hardware backend"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's equivalent of Coscientist's tool list is: literature MCP, CDAWeb/SOAR/JSOC MCPs, code-execution sandbox (cdflib, pyspedas, sunpy, sunkit-magex), and simulation/notebook execution. The paper provides the Nature-tier writing template for that tool list."
+  - "[minimal_experiment] Compose a HelioSI 'Coscientist for a single open question' demo: pick one heliophysics question, fan out literature + data + execution agents, and report a single end-to-end artifact in a Coscientist-style figure layout."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

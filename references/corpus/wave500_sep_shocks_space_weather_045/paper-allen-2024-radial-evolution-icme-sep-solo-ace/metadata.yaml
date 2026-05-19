@@ -1,0 +1,25 @@
+slug: paper-allen-2024-radial-evolution-icme-sep-solo-ace
+title: "Radial Evolution of ICME-Associated Particle Acceleration Observed by Solar Orbiter and ACE"
+authors:
+  - "TODO verify"
+year: 2024
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2410.01885"
+theme: heliophysics-icme-sep-radial-evolution-solo-ace
+category: primary-observation-statistical
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Solar Orbiter EPD HET/EPT/SIS
+  - ACE EPAM + SIS + ULEIS
+methods:
+  - Cross-mission energy-channel matching
+  - Per-conjunction Rankine-Hugoniot fit
+  - Radial evolution metric (intensity / spectral index)
+validation_targets:
+  - Per-event radial evolution of intensity / spectral index (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.01885

@@ -1,0 +1,38 @@
+slug: paper-bommasani-2021-foundation-models-opportunities-risks
+title: "On the Opportunities and Risks of Foundation Models"
+authors:
+  - "Rishi Bommasani"
+  - "TODO_verify_with_full_text — Stanford CRFM"
+year: 2021
+journal: "arXiv preprint"
+doi: null
+arxiv: "2108.07258"
+theme: domain-knowledge-compilation-position
+category: survey
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: manuscript-checklist-only
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Conceptual taxonomy of capabilities + risks"
+  - "Cross-domain application survey"
+  - "Discussion of homogenization + emergence"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] Foundation-model risk taxonomy applies to HelioSI: homogenization risk if every heliophysics analysis routes through the same agent; accountability risk if Layer-2 contracts are not auditable. The HelioSI manuscript's limitations section should cite this."
+  - "[gap] Heliophysics-specific foundation models (Surya / SuryaBench) are emerging; HelioSI should explicitly differentiate paper-skill graph from foundation model substrate."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

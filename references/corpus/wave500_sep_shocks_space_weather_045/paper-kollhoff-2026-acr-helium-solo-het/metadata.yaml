@@ -1,0 +1,25 @@
+slug: paper-kollhoff-2026-acr-helium-solo-het
+title: "Anomalous cosmic rays within the inner heliosphere: Observations of helium by the High Energy Telescope onboard Solar Orbiter"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2602.22418"
+theme: heliophysics-acr-inner-heliosphere-solo-het
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Solar Orbiter/EPD HET He channel
+methods:
+  - Quiet-time selection (excluding SEP/CIR/ICME enhancements)
+  - ACR He energy spectrum fit
+  - Distance binning and modulation-trend extraction
+  - Cross-check against Voyager / IBEX boundary conditions
+validation_targets:
+  - ACR He spectrum measured at Solar Orbiter; modulation trend with heliocentric distance (numerical values TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.22418

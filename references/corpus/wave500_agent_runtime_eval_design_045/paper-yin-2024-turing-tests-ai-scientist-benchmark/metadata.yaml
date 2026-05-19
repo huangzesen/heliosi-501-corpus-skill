@@ -1,0 +1,37 @@
+slug: paper-yin-2024-turing-tests-ai-scientist-benchmark
+title: "Turing Tests For An AI Scientist"
+authors:
+  - "Xiaoxin Yin"
+year: 2024
+journal: "arXiv preprint"
+doi: null
+arxiv: "2405.13352"
+theme: scientific-discovery-benchmark
+category: benchmark
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Historical-discovery benchmark scenario design"
+  - "Per-scenario success criterion (recovery of canonical law/model)"
+  - "Knowledge-isolation protocol (no human-curated answers in context)"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[minimal_experiment] Adapt the heliocentric-discovery test to heliophysics: give an agent PSP MAG + plasma without context, and check if it independently recovers a published claim from a known paper-skill (e.g. cascade-rate enhancement near the Sun, [[paper-bandyopadhyay-2020-energy-transfer-psp]])."
+  - "[hypothesis] If HelioSI passes one heliophysics-Turing-style test under knowledge-isolation, this is stronger evidence than passing a HeurekaBench-style end-to-end test, because the canonical-law-recovery criterion is harder to game."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

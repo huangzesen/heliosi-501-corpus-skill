@@ -1,0 +1,32 @@
+slug: martinovic-2024-slow-wind-imbalanced-alfven-wave-heating
+title: "Heating of the Slow Solar Wind by Imbalanced Alfvén-Wave Turbulence from 0.06 au to 1 au: PSP and SO Observations"
+authors:
+  - "M. M. Martinović"
+year: 2024
+journal: "TODO verify (arXiv preprint per inventory)"
+doi: null
+arxiv: "2403.17352"
+theme: coronal_heating
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 + SWEAP L3 (slow-wind intervals)"
+  - "Solar Orbiter MAG L2 + SWA/PAS L2 (slow-wind intervals)"
+  - "Reflection-driven imbalanced AW cascade model (external code)"
+methods:
+  - slow-wind-interval-selection
+  - elsasser-z-plus-minus-amplitudes
+  - imbalance-z-plus-over-z-minus-ratio
+  - correlation-length-from-autocorrelation
+  - reflection-driven-aw-cascade-heating-model
+  - empirical-q-p-from-radial-temperature-gradient
+validation_targets:
+  - "Model Q_AW matches empirical Q_p in PSP + SO slow-wind bins from 0.06 to 1 au"
+  - "Median Q_AW / Q_p ratio within paper-stated tolerance (TODO verify value)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.16"
+verification_flags:
+  - "Publication venue TODO verify (arXiv-only in inventory)."
+  - "Specific reflection-driven AW model variant (Chandran-Hollweg / van Ballegooijen / other) TODO verify."
+  - "Quantitative tolerance and per-bin Q_AW / Q_p ratios TODO verify."
+  - "Full author list TODO verify."

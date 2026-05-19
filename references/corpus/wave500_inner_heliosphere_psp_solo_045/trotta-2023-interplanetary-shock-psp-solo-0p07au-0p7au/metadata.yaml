@@ -1,0 +1,59 @@
+slug: trotta-2023-interplanetary-shock-psp-solo-0p07au-0p7au
+title: >-
+  Properties of an interplanetary shock observed at 0.07 and 0.7 Astronomical Units by Parker Solar Probe and Solar Orbiter
+authors:
+  - D. Trotta
+  - A. Larosa
+  - G. Nicolaou
+  - T. S. Horbury
+  - L. Matteini
+  - H. Hietala
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2312.05983"
+theme: psp-solo-radial-aligned-interplanetary-shock
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+  - Solar Orbiter
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - interplanetary shock
+  - CME-driven shock
+  - 0.07 au PSP
+  - 0.7 au SolO
+  - shock parameters radial evolution
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst
+    interval: 2022-09-05 near-perihelion
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3
+    cadence: encounter cadence
+    interval: 2022-09-05
+    archive: SPDF/CDAWeb
+  - instrument: Solar Orbiter/MAG
+    level: L2
+    cadence: vector cadence
+    interval: 2022-09-05
+    archive: SOAR
+  - instrument: Solar Orbiter/SWA
+    level: L2
+    cadence: moments
+    interval: 2022-09-05
+    archive: SOAR
+algorithms:
+  - name: Rankine–Hugoniot fitting
+  - name: Shock-normal estimation from coplanarity/MVA
+  - name: Cross-radial shock-parameter comparison
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §13

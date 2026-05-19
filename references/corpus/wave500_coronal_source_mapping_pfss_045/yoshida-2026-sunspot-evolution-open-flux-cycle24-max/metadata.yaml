@@ -1,0 +1,55 @@
+slug: yoshida-2026-sunspot-evolution-open-flux-cycle24-max
+title: >-
+  Temporal Evolution of Sunspot Groups and Increase in the Open Flux During Solar Maximum in Cycle 24
+authors:
+  - M. Yoshida
+  - T. Shimizu
+  - S. Toriumi
+  - H. Iijima
+first_author: M. Yoshida
+year: 2026
+arxiv: "2602.24118"
+arxiv_date: "2026-02-27"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - open_flux
+  - active_regions
+  - coronal_holes
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI synoptic Br + BMR catalog for 2014 max.
+  - OMNI IMF |B| for validation.
+  - CH catalog or EUV mask for the southern-CH expansion claim.
+methods:
+  - SFT correctly evolves Br given the BMR catalog.
+  - PFSS on SFT output yields OSF consistent with synoptic PFSS.
+  - BMR emergence/decay timeline is reconstructable.
+validation_targets:
+  - Reproduce the qualitative doubling and AR-12192 ablation gap.
+trigger_keywords:
+  - OSF
+  - Cycle 24
+  - AR 12192
+  - SFT
+  - BMR
+  - coronal hole
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - journal
+  - BMR catalog identity
+  - SFT parameters
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

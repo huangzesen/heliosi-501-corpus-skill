@@ -1,0 +1,32 @@
+slug: paper-andres-2021-incompressible-cascade-anisotropic-pp
+title: "The incompressible energy cascade rate in anisotropic solar wind turbulence"
+authors:
+  - "N. Andres"
+  - "F. Sahraoui"
+  - "S. Huang"
+  - "L. Z. Hadid"
+year: 2021
+journal: "TODO verify (arXiv:2112.13748)"
+doi: null
+arxiv: "2112.13748"
+primary_theme: turbulence
+secondary_themes: [cascade-rate, anisotropy, exact-relation]
+missions: [PSP]
+regime: [inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP FIELDS MAG L2"
+  - "PSP SWEAP SPC/SPAN-I L3 moments"
+methods:
+  - politano-pouquet-third-order-law
+  - anisotropic-cascade-rate-decomposition
+  - isotropic-anisotropic-comparison
+validation_targets:
+  - "Per-direction PP cascade rate distinct from isotropic estimate (numbers TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2021 item 6"
+verification_flags:
+  - "Encounter set analysed TODO verify."
+  - "Reported per-direction epsilon numbers TODO verify."
+  - "Publication venue/DOI TODO verify."

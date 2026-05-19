@@ -1,0 +1,27 @@
+slug: paper-chiantipy-dere-1997-chianti-atomic-database-python
+title: CHIANTI — An Atomic Database for Emission Lines
+authors:
+  - "Dere, K. P."
+year: 1997
+journal: "Astronomy & Astrophysics Supplement Series"
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-chianti-chiantipy
+source_type: software-paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - CHIANTI atomic database (v11 latest) reference data (n/a)
+methods:
+  - Contribution function G(T) computation
+  - DEM-folded synthetic AIA / EIS spectra
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://github.com/chianti-atomic/ChiantiPy
+  data_repo: https://www.chiantidatabase.org/
+weak_entries:
+  - "Original 1997 ADS bibcode 1997A&AS..125..149D — verify before citing"

@@ -1,0 +1,25 @@
+slug: khabarova-2025-kinetic-inertial-alfven-coronal-heating
+title: >-
+  Solar Coronal Heating: Role of Kinetic and Inertial Alfvén Waves in Heating and Charged-Particle Energization
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2505.03267"
+theme: kinetic-inertial-alfven-coronal-heating
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - KAW/IAW dispersion+damping solver
+  - Coronal background profile
+  - Turbulence amplitude at ion scales
+methods:
+  - KAW/IAW dispersion and damping computation
+  - Parallel-acceleration efficiency model
+  - Heating/acceleration partition estimate
+validation_targets:
+  - KAW/IAW damping-rate magnitudes vs β (TODO verify)
+  - Acceleration-efficiency expressions reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2505.03267

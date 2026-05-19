@@ -1,0 +1,50 @@
+slug: eclipse-white-light-benchmark-pfss-models
+title: >-
+  Total Solar Eclipse White Light Images as a Benchmark for PFSS Coronal
+  Magnetic Field Models
+authors:
+  - "TODO verify first author"
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2408.16149"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Total solar eclipse white-light images (multiple eclipses across a cycle)
+  - Coronagraph imagery (LASCO C2/C3) as augmentation context
+  - Matched-epoch synoptic Br (HMI / GONG)
+methods:
+  - PFSS extrapolation per eclipse epoch
+  - Field-line projection onto the plane of sky
+  - Streamer / closed-field-region morphology comparison
+  - Cycle-phase stratified evaluation
+validation_targets:
+  - Reproduce paper's PFSS-vs-eclipse agreement metric across eclipses
+    (TODO verify metric — angular offset of streamer cusps, helmet shape, etc.)
+  - Recover cycle-phase dependence of PFSS performance
+trigger_keywords:
+  - eclipse
+  - white light corona
+  - PFSS benchmark
+  - streamer
+  - helmet
+  - cusp
+  - LASCO
+  - coronal model validation
+  - cycle phase
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.9
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.9
+  verified_by: null
+  verified_at: null

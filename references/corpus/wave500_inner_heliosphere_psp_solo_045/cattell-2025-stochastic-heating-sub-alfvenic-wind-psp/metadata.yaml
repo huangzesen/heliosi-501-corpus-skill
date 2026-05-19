@@ -1,0 +1,44 @@
+slug: cattell-2025-stochastic-heating-sub-alfvenic-wind-psp
+title: >-
+  Stochastic Heating in the Sub-Alfvénic Solar Wind
+authors:
+  - C. Cattell
+  - TODO verify
+year: 2025
+journal: Physical Review Letters
+doi: TODO_verify_with_full_text
+arxiv: "2509.20654"
+theme: psp-stochastic-heating-sub-alfvenic
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: coronal_heating
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - sub-Alfvenic
+  - kinetic
+trigger_keywords:
+  - stochastic heating
+  - δB_perp / B
+  - sub-Alfvenic wind
+  - PSP E14+
+  - low-β
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz/burst
+    interval: PSP E14+ sub-Alfvenic intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3 moments
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Stochastic-heating-rate formula from Chandran et al. with δB_perp / B input
+  - name: Sub-Alfvenic interval definition (M_A < 1)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.20

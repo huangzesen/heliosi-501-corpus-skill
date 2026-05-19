@@ -1,0 +1,49 @@
+slug: dingding-2025-pfss-source-surface-height-optimization
+title: >-
+  Empirical Optimization of the Source-Surface Height in the PFSS Extrapolation
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2510.05513"
+arxiv_date: "2025-10-07"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - open_flux
+  - coronal_holes
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic Br across a chosen interval (HMI/GONG/ADAPT).
+  - EUV-based CH map or in-situ polarity catalog as ground truth.
+methods:
+  - Mismatch metric is well-defined (e.g., open-field-map vs EUV CH; in-situ polarity agreement).
+  - PFSS is sufficiently fast to scan R_ss on a grid.
+  - Optimal R_ss is unique to within tolerance for a given CR.
+validation_targets:
+  - Reproduce systematic cycle-phase variation of optimal R_ss reported by the paper.
+trigger_keywords:
+  - source surface height
+  - R_ss
+  - PFSS optimization
+  - open field map
+  - EUV CH
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - full author list
+  - venue/DOI
+  - exact mismatch metric formula
+  - EUV-CH segmentation algorithm
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

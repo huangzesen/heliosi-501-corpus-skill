@@ -1,0 +1,29 @@
+slug: paper-sunpy-2015-python-solar-physics
+title: "SunPy — Python for Solar Physics"
+authors:
+  - SunPy Community
+year: 2015
+journal: arXiv preprint (Computational Science & Discovery, software paper)
+doi: null
+arxiv: "1505.02563"
+ads_bibcode: null
+theme: heliophysics-data-infrastructure-python
+source_type: software-paper
+quality_level: stub-historical-anchor
+executable_status: historical-citation-only
+required_data: []
+methods:
+  - Legacy VSO/HEK/HELIO clients
+  - sunpy.map foundation (v0.x)
+validation_targets:
+  - API diff between 2015 documented surface and current sunpy.__all__
+  - Confirm HELIO client deprecated; VSO + HEK still active under Fido
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.1
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.2-§7.5 (mirrors)
+links:
+  arxiv_url: https://arxiv.org/abs/1505.02563
+  code_repo: https://github.com/sunpy/sunpy
+weak_entries:
+  - DOI of published version (Computational Science & Discovery) not in local inventory
+  - Full author list (large community paper) not enumerated in local source

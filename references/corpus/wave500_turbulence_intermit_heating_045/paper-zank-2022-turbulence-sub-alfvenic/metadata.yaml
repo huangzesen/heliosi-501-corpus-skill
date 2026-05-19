@@ -1,0 +1,26 @@
+slug: paper-zank-2022-turbulence-sub-alfvenic
+title: "Turbulence in the Sub-Alfvénic Solar Wind"
+authors:
+  - "G. P. Zank"
+year: 2022
+journal: "TODO verify (arXiv:2202.02563)"
+doi: null
+arxiv: "2202.02563"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [sub-alfvenic, theory, NI-MHD]
+missions: [n/a]
+regime: [sub-Alfvenic, MHD-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data: []
+methods:
+  - ni-mhd-framework-for-sub-alfvenic-turbulence
+  - predicted-anisotropy-and-cross-helicity-behaviour
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2202.02563v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

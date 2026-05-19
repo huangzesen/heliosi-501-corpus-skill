@@ -1,0 +1,38 @@
+slug: muller-2020-solar-orbiter-mission-overview
+title: "The Solar Orbiter Mission: Science Overview"
+authors:
+  - D. Müller
+  - O. C. St. Cyr
+  - I. Zouganelis
+  - H. R. Gilbert
+  - R. Marsden
+  - T. Nieves-Chinchilla
+  - E. Antonucci
+  - F. Auchère
+  - "+ co-authors (TODO verify full list with primary source)"
+year: 2020
+journal: Astronomy & Astrophysics, 642, A1
+doi: "10.1051/0004-6361/202038467 — TODO_verify_with_full_text"
+arxiv: not-in-local-inventory
+theme: mission-design-solar-orbiter-orbit-ephemeris-operations
+quality_level: paper-grounded-pending-full-text
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Solar Orbiter SPICE kernels (NAIF / ESA)
+  - SOAR archive (https://soar.esac.esa.int/soar — TODO verify URL)
+  - Encounter calendar / RSW schedule from SO SOC
+methods:
+  - SPICE ephemeris queries with explicit frame
+  - Remote-Sensing-Window (RSW) gating
+  - Mission-phase resolution (cruise / nominal / extended)
+  - SOAR product-pattern selection per instrument
+validation_targets:
+  - For UTC 2022-03-26T12:00 return r ≈ 0.32 au within 0.02 au, HGI lat consistent with mission plan (TODO verify with full text)
+source_inventory:
+  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "project-knowledge:Mueller-et-al-2020-Solar-Orbiter; not-in-local-inventory"
+  verified_by: null
+  verified_at: null

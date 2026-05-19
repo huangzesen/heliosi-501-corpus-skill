@@ -1,0 +1,22 @@
+slug: surface-waves-switchback-boundaries-psp-2025
+title: >-
+  Surface Waves at Switchback Boundaries in the Young Solar Wind from Parker Solar Probe Observations
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2507.01252"
+theme: surface-waves-switchback-boundaries-psp
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP MAG + plasma at SB boundary cadence
+  - Boundary classifier rubric
+methods:
+  - Surface-wave dispersion analysis
+  - Multi-class boundary classification
+validation_targets:
+  - Surface-wave occurrence fraction at SB boundaries (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2507.01252

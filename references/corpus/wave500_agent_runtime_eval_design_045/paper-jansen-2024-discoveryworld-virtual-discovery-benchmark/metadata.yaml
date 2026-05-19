@@ -1,0 +1,38 @@
+slug: paper-jansen-2024-discoveryworld-virtual-discovery-benchmark
+title: "DiscoveryWorld: A Virtual Environment for Developing and Evaluating Automated Scientific Discovery Agents"
+authors:
+  - "Peter Jansen"
+  - "TODO_verify_with_full_text"
+year: 2024
+journal: "arXiv preprint"
+doi: null
+arxiv: "2406.06769"
+theme: scientific-discovery-virtual-environment-benchmark
+category: benchmark
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Virtual scientific-discovery task suite"
+  - "Hypothesis-generation + experiment-execution evaluation"
+  - "Standardized agent-environment interface"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] A heliophysics analog of DiscoveryWorld can be built from cached PSP/SOAR data + synthetic agent prompts: 'recover this published finding using only data and provided tools'."
+  - "[minimal_experiment] Wrap the existing peri1_scalogram_dense.pkl + sw-scanner code into a DiscoveryWorld-style task and benchmark whether a fresh agent can recover the cascade-rate enhancement claim."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

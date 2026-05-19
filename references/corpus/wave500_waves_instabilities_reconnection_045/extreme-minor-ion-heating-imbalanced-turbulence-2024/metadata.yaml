@@ -1,0 +1,21 @@
+slug: extreme-minor-ion-heating-imbalanced-turbulence-2024
+title: >-
+  Extreme Heating of Minor Ions in Imbalanced Solar-Wind Turbulence
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2408.04703"
+theme: minor-ion-extreme-heating-imbalanced
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Hybrid simulation with minor-ion populations
+methods:
+  - Hybrid simulation with passive minor ions
+  - Per-species Q_⊥ extraction
+validation_targets:
+  - Q_⊥(m_s/m_p) scaling reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2408.04703

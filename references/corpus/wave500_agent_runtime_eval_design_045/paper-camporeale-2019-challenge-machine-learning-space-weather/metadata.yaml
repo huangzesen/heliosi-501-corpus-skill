@@ -1,0 +1,37 @@
+slug: paper-camporeale-2019-challenge-machine-learning-space-weather
+title: "The Challenge of Machine Learning in Space Weather: Nowcasting and Forecasting"
+authors:
+  - "Enrico Camporeale"
+year: 2019
+journal: "Space Weather"
+doi: "10.1029/2018SW002061"
+arxiv: null
+theme: heliophysics-machine-learning-design-review
+category: heliophysics-evaluation-design
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: manuscript-checklist-only
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Method taxonomy (regression, classification, deep learning)"
+  - "Challenge enumeration (imbalance, interpretability, data quality, operations)"
+  - "Community evaluation framework proposal"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's benchmark design should explicitly score on the 4 challenges Camporeale enumerates; class-imbalance specifically maps to rare-event paper-skills like ICME / SEP / switchback detection."
+  - "[minimal_experiment] Add per-skill labels for the 4 Camporeale challenges in the ML / segmentation batch; emit a coverage table identifying under-served challenges."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

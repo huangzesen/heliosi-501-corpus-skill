@@ -1,0 +1,1985 @@
+{
+  "schema_version": "1.0",
+  "wave": "wave500_sw_classification_ml_foundation_045",
+  "batch": "wave500_sw_classification_ml_foundation_045",
+  "generated_at": "2026-05-18T00:00:00Z",
+  "generated_by": "HelioSI paper-to-skill factory (wave500 batch, 2026-05-18, Claude Code)",
+  "harness_framing": "harness-agnostic v0.2 \u2014 paper-skills + tool-skills are agent-native scientific objects; any sufficiently capable runtime (LingTai, Claude Code, MCP, Python notebook) is an adapter.",
+  "factory_spec": "sioulas-reproduction/results/paper_skill_factory/paper_to_skill_factory_spec.md (v0.2)",
+  "factory_template": "sioulas-reproduction/results/paper_skill_factory/paper_skill_template.md",
+  "compilation_framing": {
+    "model": "Each skill is a stub-tier four-layer scientific object: Layer 1 (scientific invariant) + Layer 4 (research-generation affordance) populated; Layer 2 (executable protocol, abstract contracts) and Layer 3 (adapter binding examples) left as explicit TODOs for promotion.",
+    "mapping": {
+      "claims": "verifiable tasks (claim_boundary)",
+      "methods_equations": "abstract algorithms (TODO at stub tier)",
+      "data_instruments_code": "abstract tool contracts (TODO at stub tier)",
+      "caveats_failure_modes": "skill memory",
+      "figures_results": "validation target (TODO at stub tier)",
+      "corpus_citations": "skill graph (depends_on via [[slug]])",
+      "open_questions": "research-generation affordances"
+    }
+  },
+  "theme": "solar_wind_classification_segmentation_ml_foundation_event_detection_benchmarks",
+  "secondary_themes": [
+    "machine-learning",
+    "supervised-classification",
+    "unsupervised-clustering",
+    "foundation-model",
+    "transformer",
+    "neural-operator",
+    "image-segmentation",
+    "coronal-hole-segmentation",
+    "icme-detection",
+    "shock-detection",
+    "cir-stream-interaction",
+    "benchmark-dataset",
+    "time-series-complexity",
+    "forecasting",
+    "tool-skill"
+  ],
+  "totals": {
+    "skills": 45,
+    "paper_skills": 43,
+    "tool_skills": 2
+  },
+  "source_inventories": [
+    "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json",
+    "sioulas-reproduction/results/arxiv_papers/extended_search.md",
+    "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md",
+    "sioulas-reproduction/results/arxiv_papers/all_papers_index.json"
+  ],
+  "skills": [
+    {
+      "n": 1,
+      "slug": "paper-camporeale-2018-knn-solar-wind-classification-validation",
+      "kind": "paper-skill",
+      "title": "Cross-validation extension of supervised k-NN solar wind classification at 1 au",
+      "first_author": "E. Camporeale",
+      "year": 2018,
+      "venue": "TODO verify (J. Geophys. Res. Space Phys. or arXiv:1811.02323 successor)",
+      "doi": null,
+      "arxiv": "1811.02323",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "supervised-classification",
+        "1au"
+      ],
+      "missions": [
+        "ACE",
+        "Wind"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-camporeale-2018-knn-solar-wind-classification-validation/SKILL.md",
+      "metadata_yaml": "paper-camporeale-2018-knn-solar-wind-classification-validation/metadata.yaml",
+      "depends_on": [
+        "paper-camporeale-2017-knn-solar-wind-categorization",
+        "paper-bloch-2024-uncertainty-nn-solar-wind-types"
+      ],
+      "topical_group": "A. In-situ supervised classification",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "paper-li-2020-solar-wind-supervised-extension-multi-mission",
+      "kind": "paper-skill",
+      "title": "Multi-mission extension of supervised solar-wind classification (Wind + ACE + STEREO)",
+      "first_author": "TODO verify (Li et al.)",
+      "year": 2020,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "supervised-classification",
+        "multi-mission"
+      ],
+      "missions": [
+        "Wind",
+        "ACE",
+        "STEREO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-li-2020-solar-wind-supervised-extension-multi-mission/SKILL.md",
+      "metadata_yaml": "paper-li-2020-solar-wind-supervised-extension-multi-mission/metadata.yaml",
+      "depends_on": [
+        "paper-camporeale-2017-knn-solar-wind-categorization"
+      ],
+      "topical_group": "A. In-situ supervised classification",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 3,
+      "slug": "paper-xu-borovsky-categorization-extension-1au",
+      "kind": "paper-skill",
+      "title": "Extension and operational refinement of the Xu\u2013Borovsky 4-class 1-au solar-wind labelling",
+      "first_author": "TODO verify (Xu / Borovsky collaboration)",
+      "year": 2020,
+      "venue": "TODO verify (likely J. Geophys. Res. Space Phys.)",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "labelling-rules",
+        "1au"
+      ],
+      "missions": [
+        "ACE",
+        "Wind",
+        "OMNI"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-xu-borovsky-categorization-extension-1au/SKILL.md",
+      "metadata_yaml": "paper-xu-borovsky-categorization-extension-1au/metadata.yaml",
+      "depends_on": [
+        "paper-camporeale-2017-knn-solar-wind-categorization"
+      ],
+      "topical_group": "A. In-situ supervised classification",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 4,
+      "slug": "paper-heidrich-meisner-2018-classification-of-solar-wind-ml",
+      "kind": "paper-skill",
+      "title": "Early-deep-learning classification of solar-wind regimes (1505.02563 mirror lineage)",
+      "first_author": "V. Heidrich-Meisner (TODO verify)",
+      "year": 2018,
+      "venue": "TODO verify (arXiv:1505.02563 lineage)",
+      "doi": null,
+      "arxiv": "1505.02563",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "supervised-classification",
+        "early-deep-learning"
+      ],
+      "missions": [
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-heidrich-meisner-2018-classification-of-solar-wind-ml/SKILL.md",
+      "metadata_yaml": "paper-heidrich-meisner-2018-classification-of-solar-wind-ml/metadata.yaml",
+      "depends_on": [
+        "paper-camporeale-2017-knn-solar-wind-categorization"
+      ],
+      "topical_group": "A. In-situ supervised classification",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 5,
+      "slug": "paper-deep-swim-extension-cnn-window-stack",
+      "kind": "paper-skill",
+      "title": "Window-stacked CNN extension of Deep-SWIM for solar-wind magnetic-discontinuity classification",
+      "first_author": "TODO verify (Hu / Deep-SWIM successor)",
+      "year": 2023,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "cnn",
+        "discontinuities",
+        "few-shot"
+      ],
+      "missions": [
+        "Wind",
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-deep-swim-extension-cnn-window-stack/SKILL.md",
+      "metadata_yaml": "paper-deep-swim-extension-cnn-window-stack/metadata.yaml",
+      "depends_on": [
+        "paper-hu-2022-deep-swim-cnn-discontinuities"
+      ],
+      "topical_group": "A. In-situ supervised classification",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 6,
+      "slug": "paper-bloch-2024-uncertainty-nn-extension-1au",
+      "kind": "paper-skill",
+      "title": "Calibrated-uncertainty NN extension for 1-au solar-wind class assignment",
+      "first_author": "TODO verify (Bloch et al. successor)",
+      "year": 2024,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "uncertainty-quantification",
+        "neural-network",
+        "1au"
+      ],
+      "missions": [
+        "ACE",
+        "Wind"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-bloch-2024-uncertainty-nn-extension-1au/SKILL.md",
+      "metadata_yaml": "paper-bloch-2024-uncertainty-nn-extension-1au/metadata.yaml",
+      "depends_on": [
+        "paper-bloch-2024-uncertainty-nn-solar-wind-types"
+      ],
+      "topical_group": "B. In-situ unsupervised + uncertainty",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 7,
+      "slug": "paper-camporeale-2017-knn-supervised-comparison-ten-models",
+      "kind": "paper-skill",
+      "title": "Ten-model supervised benchmark comparison for solar-wind classification (Camporeale 2017 companion)",
+      "first_author": "E. Camporeale",
+      "year": 2017,
+      "venue": "TODO verify (J. Geophys. Res. Space Phys. or companion paper)",
+      "doi": null,
+      "arxiv": "1811.02323",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "supervised-benchmark",
+        "model-comparison"
+      ],
+      "missions": [
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-camporeale-2017-knn-supervised-comparison-ten-models/SKILL.md",
+      "metadata_yaml": "paper-camporeale-2017-knn-supervised-comparison-ten-models/metadata.yaml",
+      "depends_on": [
+        "paper-camporeale-2017-knn-solar-wind-categorization"
+      ],
+      "topical_group": "B. In-situ unsupervised + uncertainty",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 8,
+      "slug": "paper-bloch-2022-bayesian-nn-solar-wind-classification",
+      "kind": "paper-skill",
+      "title": "Bayesian-NN variant for solar-wind classification with epistemic-uncertainty estimates",
+      "first_author": "TODO verify (Bloch et al. earlier draft)",
+      "year": 2022,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "bayesian-deep-learning",
+        "1au"
+      ],
+      "missions": [
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-bloch-2022-bayesian-nn-solar-wind-classification/SKILL.md",
+      "metadata_yaml": "paper-bloch-2022-bayesian-nn-solar-wind-classification/metadata.yaml",
+      "depends_on": [
+        "paper-bloch-2024-uncertainty-nn-solar-wind-types"
+      ],
+      "topical_group": "B. In-situ unsupervised + uncertainty",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 9,
+      "slug": "paper-li-2018-self-organizing-maps-solar-wind",
+      "kind": "paper-skill",
+      "title": "Self-organizing-map clustering of 1-au solar-wind regimes",
+      "first_author": "TODO verify (Li / SOM lineage)",
+      "year": 2018,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "unsupervised-classification",
+        "self-organizing-map"
+      ],
+      "missions": [
+        "ACE",
+        "Wind"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-li-2018-self-organizing-maps-solar-wind/SKILL.md",
+      "metadata_yaml": "paper-li-2018-self-organizing-maps-solar-wind/metadata.yaml",
+      "depends_on": [
+        "paper-camporeale-2017-knn-solar-wind-categorization"
+      ],
+      "topical_group": "B. In-situ unsupervised + uncertainty",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 10,
+      "slug": "paper-fung-2019-clustering-helio-streams",
+      "kind": "paper-skill",
+      "title": "K-Means / GMM clustering of solar-wind streams across solar cycles",
+      "first_author": "TODO verify (Fung / clustering lineage)",
+      "year": 2019,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "unsupervised-classification",
+        "kmeans",
+        "gaussian-mixture"
+      ],
+      "missions": [
+        "ACE",
+        "Wind"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-fung-2019-clustering-helio-streams/SKILL.md",
+      "metadata_yaml": "paper-fung-2019-clustering-helio-streams/metadata.yaml",
+      "depends_on": [
+        "paper-regan-2026-mars-solar-wind-ml-classification"
+      ],
+      "topical_group": "B. In-situ unsupervised + uncertainty",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 11,
+      "slug": "paper-roy-2025-surya-finetune-solar-wind-speed-forecast",
+      "kind": "paper-skill",
+      "title": "Surya foundation-model fine-tune for solar-wind speed forecasting at L1",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify (Surya downstream task report)",
+      "doi": null,
+      "arxiv": "2508.14112",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "foundation-model",
+        "transformer",
+        "solar-wind-forecast",
+        "lora",
+        "downstream-task"
+      ],
+      "missions": [
+        "SDO",
+        "ACE",
+        "DSCOVR"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-surya-finetune-solar-wind-speed-forecast/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-surya-finetune-solar-wind-speed-forecast/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-surya-heliophysics-foundation-model",
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "C. Foundation models & transformers",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 12,
+      "slug": "paper-roy-2025-surya-active-region-segmentation-finetune",
+      "kind": "paper-skill",
+      "title": "Surya foundation-model fine-tune for active-region segmentation on SDO AIA/HMI",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14112",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "foundation-model",
+        "active-region-segmentation",
+        "lora",
+        "downstream-task"
+      ],
+      "missions": [
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-surya-active-region-segmentation-finetune/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-surya-active-region-segmentation-finetune/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-surya-heliophysics-foundation-model",
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "C. Foundation models & transformers",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 13,
+      "slug": "paper-roy-2025-surya-flare-forecast-finetune",
+      "kind": "paper-skill",
+      "title": "Surya foundation-model fine-tune for solar flare forecasting",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14112",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "foundation-model",
+        "flare-forecast",
+        "lora",
+        "downstream-task"
+      ],
+      "missions": [
+        "SDO",
+        "GOES"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-surya-flare-forecast-finetune/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-surya-flare-forecast-finetune/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-surya-heliophysics-foundation-model",
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "C. Foundation models & transformers",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 14,
+      "slug": "paper-li-2025-tianwen1-transformer-mag-calibration",
+      "kind": "paper-skill",
+      "title": "Transformer with Maxwell-equation physical constraints for Tianwen-1 magnetometer calibration",
+      "first_author": "B. Li",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2501.00020",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "transformer",
+        "physics-informed",
+        "calibration",
+        "mars"
+      ],
+      "missions": [
+        "Tianwen-1"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-li-2025-tianwen1-transformer-mag-calibration/SKILL.md",
+      "metadata_yaml": "paper-li-2025-tianwen1-transformer-mag-calibration/metadata.yaml",
+      "depends_on": [
+        "paper-cdflib-cdf-reader"
+      ],
+      "topical_group": "C. Foundation models & transformers",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 15,
+      "slug": "paper-orbiter-fno-spherical-surrogate",
+      "kind": "paper-skill",
+      "title": "Spherical Fourier neural operator surrogate for solar-wind simulation",
+      "first_author": "TODO verify (Spherical FNO solar-wind authors)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2511.22112",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "neural-operator",
+        "surrogate",
+        "solar-wind-simulation"
+      ],
+      "missions": [
+        "SDO",
+        "OMNI"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-orbiter-fno-spherical-surrogate/SKILL.md",
+      "metadata_yaml": "paper-orbiter-fno-spherical-surrogate/metadata.yaml",
+      "depends_on": [],
+      "topical_group": "C. Foundation models & transformers",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 16,
+      "slug": "paper-orbiter-fno-autoregressive-spherical",
+      "kind": "paper-skill",
+      "title": "Autoregressive spherical Fourier neural operator for solar-wind forecasting",
+      "first_author": "TODO verify (Autoregressive spherical FNO authors)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2511.20830",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "neural-operator",
+        "autoregressive",
+        "solar-wind-forecast"
+      ],
+      "missions": [
+        "SDO",
+        "OMNI"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-orbiter-fno-autoregressive-spherical/SKILL.md",
+      "metadata_yaml": "paper-orbiter-fno-autoregressive-spherical/metadata.yaml",
+      "depends_on": [
+        "paper-orbiter-fno-spherical-surrogate"
+      ],
+      "topical_group": "C. Foundation models & transformers",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 17,
+      "slug": "paper-uritsky-2025-qraft-open-flux-segmentation",
+      "kind": "paper-skill",
+      "title": "QRaFT \u2014 adaptive segmentation of the open-flux solar corona",
+      "first_author": "V. M. Uritsky",
+      "year": 2025,
+      "venue": "TODO verify (likely ApJ)",
+      "doi": null,
+      "arxiv": "2506.14894",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "open-flux",
+        "coronagraph",
+        "field-line-tracing"
+      ],
+      "missions": [
+        "SOHO",
+        "ground-based-eclipse"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-uritsky-2025-qraft-open-flux-segmentation/SKILL.md",
+      "metadata_yaml": "paper-uritsky-2025-qraft-open-flux-segmentation/metadata.yaml",
+      "depends_on": [
+        "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 18,
+      "slug": "paper-jarolim-2023-coronal-hole-acwe-consistency",
+      "kind": "paper-skill",
+      "title": "Consistency and confidence quantification of ACWE coronal-hole segmentation",
+      "first_author": "TODO verify (Jarolim / consistency study lineage)",
+      "year": 2023,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2308.05679",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "acwe",
+        "uncertainty-quantification"
+      ],
+      "missions": [
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-jarolim-2023-coronal-hole-acwe-consistency/SKILL.md",
+      "metadata_yaml": "paper-jarolim-2023-coronal-hole-acwe-consistency/metadata.yaml",
+      "depends_on": [
+        "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 19,
+      "slug": "paper-illarionov-2020-cnn-coronal-hole-segmentation",
+      "kind": "paper-skill",
+      "title": "CNN-based automatic segmentation of coronal holes in EUV imagery",
+      "first_author": "TODO verify (Illarionov / Automatic-CH-segmentation lineage)",
+      "year": 2020,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2207.10070",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "cnn",
+        "deep-learning"
+      ],
+      "missions": [
+        "SDO",
+        "STEREO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-illarionov-2020-cnn-coronal-hole-segmentation/SKILL.md",
+      "metadata_yaml": "paper-illarionov-2020-cnn-coronal-hole-segmentation/metadata.yaml",
+      "depends_on": [
+        "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 20,
+      "slug": "paper-reiss-2022-magnetic-constrained-ch-ensemble",
+      "kind": "paper-skill",
+      "title": "Ensemble image segmentation of coronal holes constrained by photospheric magnetic-field data",
+      "first_author": "TODO verify (Reiss / Magnetic-constrained-ensemble lineage)",
+      "year": 2022,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2405.04731",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "ensemble",
+        "magnetic-constraint",
+        "chromosphere"
+      ],
+      "missions": [
+        "SDO",
+        "GONG"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-reiss-2022-magnetic-constrained-ch-ensemble/SKILL.md",
+      "metadata_yaml": "paper-reiss-2022-magnetic-constrained-ch-ensemble/metadata.yaml",
+      "depends_on": [
+        "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 21,
+      "slug": "paper-bizoulasso-2025-pop-corn-neural-ch-validation",
+      "kind": "paper-skill",
+      "title": "POP-CORN \u2014 neural-network coronal-hole detection tool with cross-instrument validation",
+      "first_author": "TODO verify (POP-CORN authors)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2603.25591",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "neural-network",
+        "validation"
+      ],
+      "missions": [
+        "SDO",
+        "STEREO",
+        "PROBA-2"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-bizoulasso-2025-pop-corn-neural-ch-validation/SKILL.md",
+      "metadata_yaml": "paper-bizoulasso-2025-pop-corn-neural-ch-validation/metadata.yaml",
+      "depends_on": [
+        "paper-jarolim-2023-coronal-hole-acwe-consistency"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 22,
+      "slug": "paper-jarolim-2024-ch-segmentation-cycle-validation",
+      "kind": "paper-skill",
+      "title": "Solar-cycle-spanning validation of CH segmentation across instrument generations",
+      "first_author": "TODO verify (Jarolim et al. cycle-validation lineage)",
+      "year": 2024,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "long-term-validation",
+        "solar-cycle"
+      ],
+      "missions": [
+        "SDO",
+        "SOHO",
+        "STEREO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-jarolim-2024-ch-segmentation-cycle-validation/SKILL.md",
+      "metadata_yaml": "paper-jarolim-2024-ch-segmentation-cycle-validation/metadata.yaml",
+      "depends_on": [
+        "paper-jarolim-2023-coronal-hole-acwe-consistency"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 23,
+      "slug": "paper-grajeda-2025-acwe-magnetic-ch-extension-radio-microwave",
+      "kind": "paper-skill",
+      "title": "Microwave / radio extension of magnetic-constrained ACWE coronal-hole segmentation",
+      "first_author": "J. A. Grajeda (extension lineage)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "radio",
+        "microwave",
+        "acwe"
+      ],
+      "missions": [
+        "Nobeyama",
+        "ALMA",
+        "EOVSA",
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-grajeda-2025-acwe-magnetic-ch-extension-radio-microwave/SKILL.md",
+      "metadata_yaml": "paper-grajeda-2025-acwe-magnetic-ch-extension-radio-microwave/metadata.yaml",
+      "depends_on": [
+        "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 24,
+      "slug": "paper-rotter-2014-coronal-hole-detection-extension",
+      "kind": "paper-skill",
+      "title": "Threshold-and-morphology baseline coronal-hole detection (Rotter 2014 baseline lineage)",
+      "first_author": "T. Rotter",
+      "year": 2014,
+      "venue": "TODO verify (Solar Physics or JGR Space Physics)",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "image-segmentation",
+        "coronal-hole",
+        "threshold-method",
+        "classical-baseline"
+      ],
+      "missions": [
+        "SOHO",
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-rotter-2014-coronal-hole-detection-extension/SKILL.md",
+      "metadata_yaml": "paper-rotter-2014-coronal-hole-detection-extension/metadata.yaml",
+      "depends_on": [
+        "paper-jarolim-2023-coronal-hole-acwe-consistency"
+      ],
+      "topical_group": "D. Coronal-hole / image segmentation",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 25,
+      "slug": "paper-rudisser-2024-icme-unet-realtime-deployment",
+      "kind": "paper-skill",
+      "title": "Real-time deployment of a U-Net ICME detector on Wind / STEREO / Solar Orbiter telemetry",
+      "first_author": "H. T. R\u00fcdisser (successor lineage)",
+      "year": 2024,
+      "venue": "TODO verify (likely Space Weather)",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "event-detection",
+        "icme",
+        "unet",
+        "real-time"
+      ],
+      "missions": [
+        "Wind",
+        "STEREO",
+        "SolO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-rudisser-2024-icme-unet-realtime-deployment/SKILL.md",
+      "metadata_yaml": "paper-rudisser-2024-icme-unet-realtime-deployment/metadata.yaml",
+      "depends_on": [
+        "paper-rudisser-2022-icme-unet-automatic-detection"
+      ],
+      "topical_group": "E. ICME / CME / shock event detection",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 26,
+      "slug": "paper-nguyen-2018-ml-icme-detection-svm",
+      "kind": "paper-skill",
+      "title": "Support-vector-machine classical ICME detection baseline at 1 au",
+      "first_author": "TODO verify (Nguyen / ML-ICME-baseline lineage)",
+      "year": 2018,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "event-detection",
+        "icme",
+        "svm",
+        "classical-baseline"
+      ],
+      "missions": [
+        "Wind",
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-nguyen-2018-ml-icme-detection-svm/SKILL.md",
+      "metadata_yaml": "paper-nguyen-2018-ml-icme-detection-svm/metadata.yaml",
+      "depends_on": [
+        "paper-rudisser-2022-icme-unet-automatic-detection"
+      ],
+      "topical_group": "E. ICME / CME / shock event detection",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 27,
+      "slug": "paper-camporeale-2020-icme-classification-ml-benchmark",
+      "kind": "paper-skill",
+      "title": "Cross-mission ML benchmark for ICME vs sheath vs ambient classification",
+      "first_author": "E. Camporeale (extension lineage)",
+      "year": 2020,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "event-detection",
+        "icme",
+        "classification",
+        "ml-benchmark"
+      ],
+      "missions": [
+        "Wind",
+        "ACE",
+        "STEREO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-camporeale-2020-icme-classification-ml-benchmark/SKILL.md",
+      "metadata_yaml": "paper-camporeale-2020-icme-classification-ml-benchmark/metadata.yaml",
+      "depends_on": [
+        "paper-rudisser-2022-icme-unet-automatic-detection"
+      ],
+      "topical_group": "E. ICME / CME / shock event detection",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 28,
+      "slug": "paper-moestl-2022-icmecat-helcats-catalog-baseline",
+      "kind": "paper-skill",
+      "title": "ICMECAT / HELCATS ICME catalog as ML training-set baseline",
+      "first_author": "C. M\u00f6stl",
+      "year": 2022,
+      "venue": "TODO verify (Space Weather; or HELCATS dataset paper)",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "event-detection",
+        "icme",
+        "catalog",
+        "dataset"
+      ],
+      "missions": [
+        "Wind",
+        "STEREO",
+        "ACE",
+        "MESSENGER",
+        "VEX",
+        "Maven"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-moestl-2022-icmecat-helcats-catalog-baseline/SKILL.md",
+      "metadata_yaml": "paper-moestl-2022-icmecat-helcats-catalog-baseline/metadata.yaml",
+      "depends_on": [
+        "paper-rudisser-2022-icme-unet-automatic-detection"
+      ],
+      "topical_group": "E. ICME / CME / shock event detection",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 29,
+      "slug": "paper-trotta-2025-shock-detection-multispacecraft-ml",
+      "kind": "paper-skill",
+      "title": "ML-assisted multi-spacecraft IP-shock detection extending Trotta 2025",
+      "first_author": "D. Trotta (extension lineage)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "event-detection",
+        "shock",
+        "interplanetary-shock",
+        "ml-assist"
+      ],
+      "missions": [
+        "SolO",
+        "PSP",
+        "Wind",
+        "STEREO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-trotta-2025-shock-detection-multispacecraft-ml/SKILL.md",
+      "metadata_yaml": "paper-trotta-2025-shock-detection-multispacecraft-ml/metadata.yaml",
+      "depends_on": [
+        "paper-trotta-2025-ip-shock-variability-multi-spacecraft"
+      ],
+      "topical_group": "E. ICME / CME / shock event detection",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 30,
+      "slug": "paper-pal-2024-cir-stream-interaction-region-ml",
+      "kind": "paper-skill",
+      "title": "ML detection of CIR / stream-interaction-region boundaries at 1 au",
+      "first_author": "TODO verify (Pal / CIR-ML lineage)",
+      "year": 2024,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "event-detection",
+        "cir",
+        "stream-interaction",
+        "machine-learning"
+      ],
+      "missions": [
+        "ACE",
+        "Wind",
+        "STEREO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-pal-2024-cir-stream-interaction-region-ml/SKILL.md",
+      "metadata_yaml": "paper-pal-2024-cir-stream-interaction-region-ml/metadata.yaml",
+      "depends_on": [
+        "paper-rudisser-2022-icme-unet-automatic-detection"
+      ],
+      "topical_group": "E. ICME / CME / shock event detection",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 31,
+      "slug": "paper-roy-2025-suryabench-active-region-segmentation-benchmark",
+      "kind": "paper-skill",
+      "title": "SuryaBench \u2014 active-region segmentation benchmark task",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14107",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "benchmark",
+        "dataset",
+        "active-region-segmentation"
+      ],
+      "missions": [
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-suryabench-active-region-segmentation-benchmark/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-suryabench-active-region-segmentation-benchmark/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "F. Benchmark / dataset infrastructure",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 32,
+      "slug": "paper-roy-2025-suryabench-solar-wind-speed-benchmark",
+      "kind": "paper-skill",
+      "title": "SuryaBench \u2014 solar-wind speed estimation benchmark task",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14107",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "benchmark",
+        "dataset",
+        "solar-wind-forecast"
+      ],
+      "missions": [
+        "SDO",
+        "OMNI"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-suryabench-solar-wind-speed-benchmark/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-suryabench-solar-wind-speed-benchmark/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "F. Benchmark / dataset infrastructure",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 33,
+      "slug": "paper-roy-2025-suryabench-flare-forecast-benchmark",
+      "kind": "paper-skill",
+      "title": "SuryaBench \u2014 solar flare forecasting benchmark task",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14107",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "benchmark",
+        "dataset",
+        "flare-forecast"
+      ],
+      "missions": [
+        "SDO",
+        "GOES"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-suryabench-flare-forecast-benchmark/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-suryabench-flare-forecast-benchmark/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "F. Benchmark / dataset infrastructure",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 34,
+      "slug": "paper-roy-2025-suryabench-coronal-field-extrapolation-benchmark",
+      "kind": "paper-skill",
+      "title": "SuryaBench \u2014 coronal-field extrapolation benchmark task",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14107",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "benchmark",
+        "dataset",
+        "coronal-field-extrapolation",
+        "pfss"
+      ],
+      "missions": [
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-suryabench-coronal-field-extrapolation-benchmark/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-suryabench-coronal-field-extrapolation-benchmark/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-suryabench-ml-benchmark-dataset",
+        "paper-stansby-2020-pfsspy-python-pfss"
+      ],
+      "topical_group": "F. Benchmark / dataset infrastructure",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 35,
+      "slug": "paper-roy-2025-suryabench-euv-spectra-benchmark",
+      "kind": "paper-skill",
+      "title": "SuryaBench \u2014 EUV spectra forecasting benchmark task",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2508.14107",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "benchmark",
+        "dataset",
+        "euv-spectra"
+      ],
+      "missions": [
+        "SDO",
+        "TIMED-SEE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-roy-2025-suryabench-euv-spectra-benchmark/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-suryabench-euv-spectra-benchmark/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "F. Benchmark / dataset infrastructure",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 36,
+      "slug": "tool-skill-helioml-curated-ml-ready-helio-datasets",
+      "kind": "tool-skill",
+      "title": "HelioML \u2014 curated catalog of ML-ready heliophysics datasets and notebooks",
+      "first_author": "M. Bobra et al. (HelioML editorial collective)",
+      "year": 2019,
+      "venue": "TODO verify (book / online resource)",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "dataset",
+        "ml-ready",
+        "curated",
+        "infrastructure"
+      ],
+      "missions": [
+        "multi-mission"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "tool-skill-helioml-curated-ml-ready-helio-datasets/SKILL.md",
+      "metadata_yaml": "tool-skill-helioml-curated-ml-ready-helio-datasets/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-suryabench-ml-benchmark-dataset"
+      ],
+      "topical_group": "F. Benchmark / dataset infrastructure",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 37,
+      "slug": "paper-koikkalainen-2025-permutation-entropy-complexity-streams",
+      "kind": "paper-skill",
+      "title": "Permutation-entropy variant of Koikkalainen-2025 complexity analysis of solar-wind streams",
+      "first_author": "V. Koikkalainen",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2510.05873",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "complexity",
+        "permutation-entropy",
+        "information-theory",
+        "stream-classification"
+      ],
+      "missions": [
+        "Wind",
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-koikkalainen-2025-permutation-entropy-complexity-streams/SKILL.md",
+      "metadata_yaml": "paper-koikkalainen-2025-permutation-entropy-complexity-streams/metadata.yaml",
+      "depends_on": [
+        "paper-koikkalainen-2025-complexity-solar-wind-streams"
+      ],
+      "topical_group": "G. Time-series complexity / anomaly methods",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 38,
+      "slug": "paper-cipher-2025-isax-extension-hdbscan-clustering-runs",
+      "kind": "paper-skill",
+      "title": "CIPHER iSAX+HDBSCAN extension \u2014 clustering-run reproducibility study",
+      "first_author": "TODO verify (CIPHER authors)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2510.21022",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "time-series",
+        "symbolic-representation",
+        "hdbscan",
+        "human-in-the-loop"
+      ],
+      "missions": [
+        "PSP",
+        "Wind"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-cipher-2025-isax-extension-hdbscan-clustering-runs/SKILL.md",
+      "metadata_yaml": "paper-cipher-2025-isax-extension-hdbscan-clustering-runs/metadata.yaml",
+      "depends_on": [
+        "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation"
+      ],
+      "topical_group": "G. Time-series complexity / anomaly methods",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 39,
+      "slug": "paper-davila-2024-shapelet-solar-wind-discontinuities",
+      "kind": "paper-skill",
+      "title": "Shapelet-based time-series classification of solar-wind discontinuities",
+      "first_author": "TODO verify (Davila / shapelet lineage)",
+      "year": 2024,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "time-series",
+        "shapelet",
+        "discontinuities",
+        "classical-ml"
+      ],
+      "missions": [
+        "Wind",
+        "ACE"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-davila-2024-shapelet-solar-wind-discontinuities/SKILL.md",
+      "metadata_yaml": "paper-davila-2024-shapelet-solar-wind-discontinuities/metadata.yaml",
+      "depends_on": [
+        "paper-hu-2022-deep-swim-cnn-discontinuities"
+      ],
+      "topical_group": "G. Time-series complexity / anomaly methods",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 40,
+      "slug": "paper-stansby-2025-flux-tube-segmentation",
+      "kind": "paper-skill",
+      "title": "Flux-tube segmentation of solar-wind streams from B-field topology",
+      "first_author": "D. Stansby (extension lineage)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "segmentation",
+        "flux-tube",
+        "topology",
+        "stream-structure"
+      ],
+      "missions": [
+        "Wind",
+        "ACE",
+        "SolO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-stansby-2025-flux-tube-segmentation/SKILL.md",
+      "metadata_yaml": "paper-stansby-2025-flux-tube-segmentation/metadata.yaml",
+      "depends_on": [
+        "paper-stansby-2020-pfsspy-python-pfss"
+      ],
+      "topical_group": "G. Time-series complexity / anomaly methods",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 41,
+      "slug": "tool-skill-sktime-time-series-classification-for-helio",
+      "kind": "tool-skill",
+      "title": "sktime \u2014 abstract time-series classification capability for heliophysics workflows",
+      "first_author": "M. L\u00f6ning et al.",
+      "year": 2022,
+      "venue": "TODO verify (JMLR or sktime documentation)",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "tool-skill",
+        "time-series",
+        "classification",
+        "infrastructure"
+      ],
+      "missions": [
+        "multi-mission"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "tool-skill-sktime-time-series-classification-for-helio/SKILL.md",
+      "metadata_yaml": "tool-skill-sktime-time-series-classification-for-helio/metadata.yaml",
+      "depends_on": [],
+      "topical_group": "G. Time-series complexity / anomaly methods",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 42,
+      "slug": "paper-multimodal-encoder-decoder-l1-solar-wind-forecast",
+      "kind": "paper-skill",
+      "title": "Multi-modal encoder\u2013decoder neural network for L1 solar-wind speed forecasting",
+      "first_author": "TODO verify (multi-modal encoder-decoder authors)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2507.17298",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "encoder-decoder",
+        "forecast",
+        "multi-modal",
+        "l1"
+      ],
+      "missions": [
+        "ACE",
+        "DSCOVR",
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-multimodal-encoder-decoder-l1-solar-wind-forecast/SKILL.md",
+      "metadata_yaml": "paper-multimodal-encoder-decoder-l1-solar-wind-forecast/metadata.yaml",
+      "depends_on": [
+        "paper-roy-2025-surya-finetune-solar-wind-speed-forecast"
+      ],
+      "topical_group": "H. Forecasting and ML pipelines",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 43,
+      "slug": "paper-collados-2024-mhd-emulator-coronal-wind",
+      "kind": "paper-skill",
+      "title": "Neural-network MHD emulator for coronal + solar-wind structure",
+      "first_author": "TODO verify (MHD-emulator lineage)",
+      "year": 2024,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "machine-learning",
+        "emulator",
+        "mhd",
+        "coronal-wind"
+      ],
+      "missions": [
+        "SDO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-collados-2024-mhd-emulator-coronal-wind/SKILL.md",
+      "metadata_yaml": "paper-collados-2024-mhd-emulator-coronal-wind/metadata.yaml",
+      "depends_on": [
+        "paper-orbiter-fno-spherical-surrogate"
+      ],
+      "topical_group": "H. Forecasting and ML pipelines",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 44,
+      "slug": "paper-helio-scientific-llm-agent-discovery",
+      "kind": "paper-skill",
+      "title": "Large-language-model agentic discovery system for heliophysics tasks",
+      "first_author": "TODO verify (helio-LLM-agent lineage)",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": null,
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "llm-agent",
+        "scientific-discovery",
+        "automation",
+        "infrastructure"
+      ],
+      "missions": [
+        "multi-mission"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-helio-scientific-llm-agent-discovery/SKILL.md",
+      "metadata_yaml": "paper-helio-scientific-llm-agent-discovery/metadata.yaml",
+      "depends_on": [
+        "agentic-ai-scientists-not-built-autonomous-discovery-2026"
+      ],
+      "topical_group": "H. Forecasting and ML pipelines",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    },
+    {
+      "n": 45,
+      "slug": "paper-katsavrias-2025-pds-catalog-mesoscale-mlready-dataset",
+      "kind": "paper-skill",
+      "title": "Katsavrias 2025 PDS catalog as an ML-ready mesoscale-structure dataset",
+      "first_author": "C. Katsavrias",
+      "year": 2025,
+      "venue": "TODO verify",
+      "doi": null,
+      "arxiv": "2511.15518",
+      "primary_theme": "solar_wind_segmentation",
+      "secondary_themes": [
+        "dataset",
+        "mesoscale-structures",
+        "ml-ready",
+        "catalog"
+      ],
+      "missions": [
+        "SolO"
+      ],
+      "quality_level": "stub",
+      "executable_status": "stub",
+      "harness_agnostic": true,
+      "layers": {
+        "scientific_invariant": true,
+        "executable_protocol": false,
+        "adapter_binding_examples": false,
+        "research_generation_affordance": false
+      },
+      "skill_md": "paper-katsavrias-2025-pds-catalog-mesoscale-mlready-dataset/SKILL.md",
+      "metadata_yaml": "paper-katsavrias-2025-pds-catalog-mesoscale-mlready-dataset/metadata.yaml",
+      "depends_on": [
+        "paper-katsavrias-2025-periodic-density-structures-solar-orbiter"
+      ],
+      "topical_group": "H. Forecasting and ML pipelines",
+      "verification_flags": [
+        "Primary citation TODO verify against the source PDF / arXiv landing page.",
+        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
+        "Adapter bindings TODO leave empty until real examples are exercised."
+      ]
+    }
+  ],
+  "topical_groups": [
+    {
+      "id": "A",
+      "label": "In-situ supervised classification at 1 AU and beyond",
+      "count": 5
+    },
+    {
+      "id": "B",
+      "label": "In-situ unsupervised classification + uncertainty",
+      "count": 5
+    },
+    {
+      "id": "C",
+      "label": "Foundation models & transformers",
+      "count": 6
+    },
+    {
+      "id": "D",
+      "label": "Coronal-hole / image segmentation",
+      "count": 8
+    },
+    {
+      "id": "E",
+      "label": "ICME / CME / shock event detection in situ",
+      "count": 6
+    },
+    {
+      "id": "F",
+      "label": "Benchmark / dataset infrastructure for ML",
+      "count": 6
+    },
+    {
+      "id": "G",
+      "label": "Time-series, complexity, anomaly methods",
+      "count": 5
+    },
+    {
+      "id": "H",
+      "label": "Forecasting and ML pipelines",
+      "count": 4
+    }
+  ]
+}

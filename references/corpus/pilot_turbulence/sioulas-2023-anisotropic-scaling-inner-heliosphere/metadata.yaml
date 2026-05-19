@@ -1,0 +1,35 @@
+slug: sioulas-2023-anisotropic-scaling-inner-heliosphere
+title: "On the Evolution of the Anisotropic Scaling of Magnetohydrodynamic Turbulence in the Inner Heliosphere"
+authors:
+  - "N. Sioulas"
+  - "M. Velli"
+  - "R. Chhiber"
+  - "L. Vlahos"
+  - "W. H. Matthaeus"
+  - "R. Bandyopadhyay"
+  - "M. L. Stevens"
+  - "R. Bale"
+year: 2023
+journal: "The Astrophysical Journal"
+doi: "10.3847/1538-4357/acd053"
+arxiv: "2303.10810"
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN across multiple encounters"
+  - "PSP SWEAP/SPC or SPAN-I L3"
+  - "Solar Orbiter MAG L2"
+  - "Solar Orbiter SWA/PAS L2/L3"
+methods:
+  - local-mean-field-decomposition
+  - multi-order-structure-functions
+  - parallel-perpendicular-anisotropy
+  - radial-binning
+validation_targets:
+  - "Radial trend of S_2^par/S_2^perp from ~0.1 au to 1 au matches published direction (TODO verify exact values)"
+  - "Inertial-range spectral indices binned by heliocentric distance reproduce the published trend (TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.2"
+  - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #2)"
+notes: "arXiv 2303.10810 is dual-attributed in the inventory (§1.2 Sioulas+ 2023 ApJ; §3.5 Cuesta+ 2023). TODO verify which corresponds to this arXiv ID before manuscript citation."

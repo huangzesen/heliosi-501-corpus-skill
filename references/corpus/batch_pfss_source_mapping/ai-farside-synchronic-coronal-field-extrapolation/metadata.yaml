@@ -1,0 +1,51 @@
+slug: ai-farside-synchronic-coronal-field-extrapolation
+title: >-
+  Solar Coronal Magnetic Field Extrapolation from Synchronic Data with
+  AI-generated Farside (Magnetograms)
+authors:
+  - "TODO verify first author"
+  - "+ co-authors (TODO verify full list)"
+year: 2020
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2010.07553"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Earthside HMI line-of-sight magnetograms
+  - STEREO EUV (if used to constrain farside training)
+  - AI-generated farside synchronic Br
+  - Reference synoptic (Carrington-rotation-averaged) maps for comparison
+methods:
+  - Deep-learning farside Br generation (TODO verify architecture)
+  - Earthside + AI-farside synchronic merge into instantaneous global Br
+  - Global PFSS extrapolation on synchronic input
+  - Comparison vs. synoptic-driven PFSS (open-flux, neutral line)
+validation_targets:
+  - Reproduce paper's synchronic-vs-synoptic PFSS comparison metric
+    (TODO verify metric and tolerance)
+  - Recover qualitative open-flux / neutral-line differences shown in
+    paper figures
+trigger_keywords:
+  - synchronic magnetogram
+  - farside magnetogram
+  - AI generated farside
+  - deep learning solar magnetogram
+  - global PFSS
+  - synchronic PFSS
+  - coronal hole boundary
+  - HMI farside
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.3
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.3
+  verified_by: null
+  verified_at: null

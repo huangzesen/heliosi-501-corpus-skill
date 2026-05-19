@@ -1,0 +1,1110 @@
+{
+  "schema_version": "1.0",
+  "batch": "wave500_instruments_data_software_045",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (HelioSI paper-to-skill factory, Opus 4.7)",
+  "harness_framing": "general-purpose harness; HelioSI = heliophysics domain instantiation; this wave adds infrastructure (instruments, data products, software, archives, open-science services) that every downstream paper-skill resolves through.",
+  "spec_version": "0.2 (harness-agnostic, four-layer)",
+  "target_count": 45,
+  "actual_count": 45,
+  "compilation_framing": {
+    "model": "Each instrument / data product / software package / archive is compiled into a v0.2 harness-agnostic paper-skill consumable by any agent runtime (Claude Code, LingTai, MCP server, plain Python).",
+    "source_type_taxonomy": {
+      "paper": "a peer-reviewed publication (instrument paper, data-product paper, method paper)",
+      "software-paper": "a paper that describes a software package",
+      "software-package": "a package without a single canonical paper in local inventory (citation TODOs flagged in weak_entries)"
+    },
+    "anti_hallucination": "Every paper.* field that is asserted has a verifiable primary source; missing fields are null + flagged in weak_entries[]; software-package stubs are allowed without DOI."
+  },
+  "skills": [
+    {
+      "slug": "paper-lepping-1995-wind-mfi-magnetometer",
+      "title": "The WIND Magnetic Field Investigation",
+      "first_author": "Lepping, R. P.",
+      "year": 1995,
+      "venue": "Space Science Reviews",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-wind-mfi",
+      "primary_theme": "magnetic_field",
+      "quality_tier": "stub",
+      "skill_md": "paper-lepping-1995-wind-mfi-magnetometer/SKILL.md",
+      "metadata_yaml": "paper-lepping-1995-wind-mfi-magnetometer/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://cdaweb.gsfc.nasa.gov/pub/data/wind/mfi/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; cite Space Sci. Rev. 71, 207 (1995) when verifying"
+      ]
+    },
+    {
+      "slug": "paper-ogilvie-1995-wind-swe-faraday-cup",
+      "title": "SWE, a comprehensive plasma instrument for the Wind spacecraft",
+      "first_author": "Ogilvie, K. W.",
+      "year": 1995,
+      "venue": "Space Science Reviews",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-wind-swe",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-ogilvie-1995-wind-swe-faraday-cup/SKILL.md",
+      "metadata_yaml": "paper-ogilvie-1995-wind-swe-faraday-cup/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://cdaweb.gsfc.nasa.gov/pub/data/wind/swe/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Space Sci. Rev. 71, 55 (1995)"
+      ]
+    },
+    {
+      "slug": "paper-lin-1995-wind-3dp-plasma-energetic-electrons",
+      "title": "A three-dimensional plasma and energetic particle investigation for the Wind spacecraft",
+      "first_author": "Lin, R. P.",
+      "year": 1995,
+      "venue": "Space Science Reviews",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-wind-3dp",
+      "primary_theme": "energetic_particles",
+      "quality_tier": "stub",
+      "skill_md": "paper-lin-1995-wind-3dp-plasma-energetic-electrons/SKILL.md",
+      "metadata_yaml": "paper-lin-1995-wind-3dp-plasma-energetic-electrons/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://cdaweb.gsfc.nasa.gov/pub/data/wind/3dp/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Space Sci. Rev. 71, 125 (1995)"
+      ]
+    },
+    {
+      "slug": "paper-smith-1998-ace-mag-vector-helium-magnetometer",
+      "title": "The ACE Magnetic Fields Experiment",
+      "first_author": "Smith, C. W.",
+      "year": 1998,
+      "venue": "Space Science Reviews",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-ace-mag",
+      "primary_theme": "magnetic_field",
+      "quality_tier": "stub",
+      "skill_md": "paper-smith-1998-ace-mag-vector-helium-magnetometer/SKILL.md",
+      "metadata_yaml": "paper-smith-1998-ace-mag-vector-helium-magnetometer/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://cdaweb.gsfc.nasa.gov/pub/data/ace/mag/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Space Sci. Rev. 86, 613 (1998)"
+      ]
+    },
+    {
+      "slug": "paper-mccomas-1998-ace-swepam-solar-wind-electron-proton-alpha",
+      "title": "Solar Wind Electron Proton Alpha Monitor (SWEPAM) for the Advanced Composition Explorer",
+      "first_author": "McComas, D. J.",
+      "year": 1998,
+      "venue": "Space Science Reviews",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-ace-swepam",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-mccomas-1998-ace-swepam-solar-wind-electron-proton-alpha/SKILL.md",
+      "metadata_yaml": "paper-mccomas-1998-ace-swepam-solar-wind-electron-proton-alpha/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://cdaweb.gsfc.nasa.gov/pub/data/ace/swepam/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Space Sci. Rev. 86, 563 (1998)"
+      ]
+    },
+    {
+      "slug": "paper-gloeckler-1998-ace-swics-composition-spectrometer",
+      "title": "Investigation of the composition of solar and interstellar matter using SWICS and SWIMS on ACE",
+      "first_author": "Gloeckler, G.",
+      "year": 1998,
+      "venue": "Space Science Reviews",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-ace-swics",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-gloeckler-1998-ace-swics-composition-spectrometer/SKILL.md",
+      "metadata_yaml": "paper-gloeckler-1998-ace-swics-composition-spectrometer/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://cdaweb.gsfc.nasa.gov/pub/data/ace/swics/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Space Sci. Rev. 86, 497 (1998)"
+      ]
+    },
+    {
+      "slug": "paper-delaboudiniere-1995-soho-eit-extreme-uv-telescope",
+      "title": "EIT: Extreme-ultraviolet Imaging Telescope for the SOHO mission",
+      "first_author": "Delaboudini\u00e8re, J.-P.",
+      "year": 1995,
+      "venue": "Solar Physics",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-soho-eit",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-delaboudiniere-1995-soho-eit-extreme-uv-telescope/SKILL.md",
+      "metadata_yaml": "paper-delaboudiniere-1995-soho-eit-extreme-uv-telescope/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://sohowww.nascom.nasa.gov/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Sol. Phys. 162, 291 (1995)"
+      ]
+    },
+    {
+      "slug": "paper-brueckner-1995-soho-lasco-coronagraph-suite",
+      "title": "The Large Angle Spectroscopic Coronagraph (LASCO)",
+      "first_author": "Brueckner, G. E.",
+      "year": 1995,
+      "venue": "Solar Physics",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-soho-lasco",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-brueckner-1995-soho-lasco-coronagraph-suite/SKILL.md",
+      "metadata_yaml": "paper-brueckner-1995-soho-lasco-coronagraph-suite/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://lasco-www.nrl.navy.mil/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Sol. Phys. 162, 357 (1995)"
+      ]
+    },
+    {
+      "slug": "paper-scherrer-1995-soho-mdi-michelson-doppler-imager",
+      "title": "The Solar Oscillations Investigation \u2014 Michelson Doppler Imager",
+      "first_author": "Scherrer, P. H.",
+      "year": 1995,
+      "venue": "Solar Physics",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-soho-mdi",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-scherrer-1995-soho-mdi-michelson-doppler-imager/SKILL.md",
+      "metadata_yaml": "paper-scherrer-1995-soho-mdi-michelson-doppler-imager/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "http://jsoc.stanford.edu/MDI/"
+      },
+      "weak_entries": [
+        "DOI not in local inventory; Sol. Phys. 162, 129 (1995)"
+      ]
+    },
+    {
+      "slug": "paper-lemen-2012-sdo-aia-atmospheric-imaging-assembly",
+      "title": "The Atmospheric Imaging Assembly (AIA) on the Solar Dynamics Observatory (SDO)",
+      "first_author": "Lemen, J. R.",
+      "year": 2012,
+      "venue": "Solar Physics",
+      "doi": "10.1007/s11207-011-9776-8",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-sdo-aia",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-lemen-2012-sdo-aia-atmospheric-imaging-assembly/SKILL.md",
+      "metadata_yaml": "paper-lemen-2012-sdo-aia-atmospheric-imaging-assembly/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1007/s11207-011-9776-8",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "http://jsoc.stanford.edu/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-scherrer-2012-sdo-hmi-helioseismic-magnetic-imager",
+      "title": "The Helioseismic and Magnetic Imager (HMI) Investigation for the Solar Dynamics Observatory",
+      "first_author": "Scherrer, P. H.",
+      "year": 2012,
+      "venue": "Solar Physics",
+      "doi": "10.1007/s11207-011-9834-2",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-sdo-hmi",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-scherrer-2012-sdo-hmi-helioseismic-magnetic-imager/SKILL.md",
+      "metadata_yaml": "paper-scherrer-2012-sdo-hmi-helioseismic-magnetic-imager/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1007/s11207-011-9834-2",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "http://jsoc.stanford.edu/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-howard-2008-stereo-secchi-imaging-suite",
+      "title": "Sun Earth Connection Coronal and Heliospheric Investigation (SECCHI)",
+      "first_author": "Howard, R. A.",
+      "year": 2008,
+      "venue": "Space Science Reviews",
+      "doi": "10.1007/s11214-008-9341-4",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-stereo-secchi",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-howard-2008-stereo-secchi-imaging-suite/SKILL.md",
+      "metadata_yaml": "paper-howard-2008-stereo-secchi-imaging-suite/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1007/s11214-008-9341-4",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://stereo-ssc.nascom.nasa.gov/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-king-2005-omni-1min-5min-solar-wind-dataset",
+      "title": "Solar wind spatial scales in and comparisons of hourly Wind and ACE plasma and magnetic field data",
+      "first_author": "King, J. H.",
+      "year": 2005,
+      "venue": "Journal of Geophysical Research",
+      "doi": "10.1029/2004JA010649",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "data-product-omni",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-king-2005-omni-1min-5min-solar-wind-dataset/SKILL.md",
+      "metadata_yaml": "paper-king-2005-omni-1min-5min-solar-wind-dataset/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1029/2004JA010649",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://omniweb.gsfc.nasa.gov/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-franz-2002-heliospheric-coordinate-systems",
+      "title": "Heliospheric Coordinate Systems",
+      "first_author": "Fr\u00e4nz, M.",
+      "year": 2002,
+      "venue": "Planetary and Space Science",
+      "doi": "10.1016/S0032-0633(01)00119-2",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "data-product-coordinate-systems",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-franz-2002-heliospheric-coordinate-systems/SKILL.md",
+      "metadata_yaml": "paper-franz-2002-heliospheric-coordinate-systems/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1016/S0032-0633(01)00119-2",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": null
+      },
+      "weak_entries": [
+        "2007 erratum not always tracked in citing software"
+      ]
+    },
+    {
+      "slug": "paper-malaspina-2016-psp-fields-dfb-digital-fields-board",
+      "title": "The Digital Fields Board for the FIELDS Instrument Suite on Parker Solar Probe",
+      "first_author": "Malaspina, D. M.",
+      "year": 2016,
+      "venue": "Journal of Geophysical Research: Space Physics",
+      "doi": "10.1002/2016JA022344",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "data-product-psp-fields-dfb",
+      "primary_theme": "psp_data",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-malaspina-2016-psp-fields-dfb-digital-fields-board/SKILL.md",
+      "metadata_yaml": "paper-malaspina-2016-psp-fields-dfb-digital-fields-board/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1002/2016JA022344",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://spdf.gsfc.nasa.gov/pub/data/psp/fields/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-case-2020-psp-sweap-spc-faraday-cup-data-product",
+      "title": "The Solar Probe Cup on the Parker Solar Probe",
+      "first_author": "Case, A. W.",
+      "year": 2020,
+      "venue": "The Astrophysical Journal Supplement Series",
+      "doi": "10.3847/1538-4365/ab5a7b",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "data-product-psp-sweap-spc",
+      "primary_theme": "psp_data",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-case-2020-psp-sweap-spc-faraday-cup-data-product/SKILL.md",
+      "metadata_yaml": "paper-case-2020-psp-sweap-spc-faraday-cup-data-product/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.3847/1538-4365/ab5a7b",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spc/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-rochus-2020-solar-orbiter-eui-imager",
+      "title": "The Solar Orbiter EUI instrument: The Extreme Ultraviolet Imager",
+      "first_author": "Rochus, P.",
+      "year": 2020,
+      "venue": "Astronomy & Astrophysics",
+      "doi": "10.1051/0004-6361/201936663",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-solo-eui",
+      "primary_theme": "solar_orbiter",
+      "quality_tier": "stub",
+      "skill_md": "paper-rochus-2020-solar-orbiter-eui-imager/SKILL.md",
+      "metadata_yaml": "paper-rochus-2020-solar-orbiter-eui-imager/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1051/0004-6361/201936663",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://soar.esac.esa.int/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-antonucci-2020-solar-orbiter-metis-coronagraph",
+      "title": "Metis: the Solar Orbiter visible light and ultraviolet coronal imager",
+      "first_author": "Antonucci, E.",
+      "year": 2020,
+      "venue": "Astronomy & Astrophysics",
+      "doi": "10.1051/0004-6361/201935338",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-solo-metis",
+      "primary_theme": "solar_orbiter",
+      "quality_tier": "stub",
+      "skill_md": "paper-antonucci-2020-solar-orbiter-metis-coronagraph/SKILL.md",
+      "metadata_yaml": "paper-antonucci-2020-solar-orbiter-metis-coronagraph/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1051/0004-6361/201935338",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://soar.esac.esa.int/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-maksimovic-2020-solar-orbiter-rpw-radio-plasma-waves",
+      "title": "The Solar Orbiter Radio and Plasma Waves (RPW) instrument",
+      "first_author": "Maksimovic, M.",
+      "year": 2020,
+      "venue": "Astronomy & Astrophysics",
+      "doi": "10.1051/0004-6361/201936214",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-solo-rpw",
+      "primary_theme": "solar_orbiter",
+      "quality_tier": "stub",
+      "skill_md": "paper-maksimovic-2020-solar-orbiter-rpw-radio-plasma-waves/SKILL.md",
+      "metadata_yaml": "paper-maksimovic-2020-solar-orbiter-rpw-radio-plasma-waves/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1051/0004-6361/201936214",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://soar.esac.esa.int/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-rodriguez-pacheco-2020-solar-orbiter-epd-energetic-particle-detector",
+      "title": "The Energetic Particle Detector \u2014 Energetic particle instrument suite for the Solar Orbiter mission",
+      "first_author": "Rodr\u00edguez-Pacheco, J.",
+      "year": 2020,
+      "venue": "Astronomy & Astrophysics",
+      "doi": "10.1051/0004-6361/201935287",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "instrument-solo-epd",
+      "primary_theme": "energetic_particles",
+      "quality_tier": "stub",
+      "skill_md": "paper-rodriguez-pacheco-2020-solar-orbiter-epd-energetic-particle-detector/SKILL.md",
+      "metadata_yaml": "paper-rodriguez-pacheco-2020-solar-orbiter-epd-energetic-particle-detector/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1051/0004-6361/201935287",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://soar.esac.esa.int/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-astropy-2022-collaboration-community-package",
+      "title": "The Astropy Project: Sustaining and Growing a Community-oriented Open-source Project and the Latest Major Release (v5.0)",
+      "first_author": "Astropy Collaboration",
+      "year": 2022,
+      "venue": "The Astrophysical Journal",
+      "doi": "10.3847/1538-4357/ac7c74",
+      "arxiv": "2206.14220",
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-astropy-ecosystem",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-astropy-2022-collaboration-community-package/SKILL.md",
+      "metadata_yaml": "paper-astropy-2022-collaboration-community-package/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.3847/1538-4357/ac7c74",
+        "arxiv_url": "https://arxiv.org/abs/2206.14220",
+        "code_repo": "https://github.com/astropy/astropy",
+        "data_repo": null
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-barnes-2020-aiapy-python-sdo-aia",
+      "title": "aiapy: A Python Package for Analyzing Solar EUV Image Data from AIA",
+      "first_author": "Barnes, W. T.",
+      "year": 2020,
+      "venue": "Journal of Open Source Software",
+      "doi": "10.21105/joss.02801",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-aiapy",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-barnes-2020-aiapy-python-sdo-aia/SKILL.md",
+      "metadata_yaml": "paper-barnes-2020-aiapy-python-sdo-aia/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.21105/joss.02801",
+        "arxiv_url": null,
+        "code_repo": "https://github.com/LM-SAL/aiapy",
+        "data_repo": null
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-glogowski-2019-drms-jsoc-data-client",
+      "title": "drms: A Python package for accessing HMI and AIA data",
+      "first_author": "Glogowski, K.",
+      "year": 2019,
+      "venue": "Journal of Open Source Software",
+      "doi": "10.21105/joss.01614",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-drms",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-glogowski-2019-drms-jsoc-data-client/SKILL.md",
+      "metadata_yaml": "paper-glogowski-2019-drms-jsoc-data-client/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.21105/joss.01614",
+        "arxiv_url": null,
+        "code_repo": "https://github.com/sunpy/drms",
+        "data_repo": null
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-annex-2020-spiceypy-naif-spice-toolkit-python",
+      "title": "SpiceyPy: a Pythonic Wrapper for the SPICE Toolkit",
+      "first_author": "Annex, A. M.",
+      "year": 2020,
+      "venue": "Journal of Open Source Software",
+      "doi": "10.21105/joss.02050",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-spiceypy",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-annex-2020-spiceypy-naif-spice-toolkit-python/SKILL.md",
+      "metadata_yaml": "paper-annex-2020-spiceypy-naif-spice-toolkit-python/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.21105/joss.02050",
+        "arxiv_url": null,
+        "code_repo": "https://github.com/AndrewAnnex/SpiceyPy",
+        "data_repo": null
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-stansby-2018-heliopy-python-heliospheric-data",
+      "title": "HelioPy: Python for heliospheric and planetary physics",
+      "first_author": "Stansby, D.",
+      "year": 2018,
+      "venue": "Journal of Open Source Software",
+      "doi": "10.21105/joss.01060",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-heliopy",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-stansby-2018-heliopy-python-heliospheric-data/SKILL.md",
+      "metadata_yaml": "paper-stansby-2018-heliopy-python-heliospheric-data/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.21105/joss.01060",
+        "arxiv_url": null,
+        "code_repo": "https://github.com/heliopython/heliopy",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "heliopy currently in maintenance mode; verify last-release status before integration"
+      ]
+    },
+    {
+      "slug": "paper-chiantipy-dere-1997-chianti-atomic-database-python",
+      "title": "CHIANTI \u2014 An Atomic Database for Emission Lines",
+      "first_author": "Dere, K. P.",
+      "year": 1997,
+      "venue": "Astronomy & Astrophysics Supplement Series",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-chianti-chiantipy",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-chiantipy-dere-1997-chianti-atomic-database-python/SKILL.md",
+      "metadata_yaml": "paper-chiantipy-dere-1997-chianti-atomic-database-python/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://github.com/chianti-atomic/ChiantiPy",
+        "data_repo": "https://www.chiantidatabase.org/"
+      },
+      "weak_entries": [
+        "Original 1997 ADS bibcode 1997A&AS..125..149D \u2014 verify before citing"
+      ]
+    },
+    {
+      "slug": "paper-freeland-1998-solarsoft-ssw-idl-ecosystem",
+      "title": "Data analysis with the SolarSoft system",
+      "first_author": "Freeland, S. L.",
+      "year": 1998,
+      "venue": "Solar Physics",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-solarsoft-ssw",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-freeland-1998-solarsoft-ssw-idl-ecosystem/SKILL.md",
+      "metadata_yaml": "paper-freeland-1998-solarsoft-ssw-idl-ecosystem/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://www.lmsal.com/solarsoft/",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "Sol. Phys. 182, 497 (1998); DOI not in local inventory"
+      ]
+    },
+    {
+      "slug": "paper-toth-2012-swmf-bats-r-us-mhd-framework",
+      "title": "Adaptive numerical algorithms in space weather modeling",
+      "first_author": "T\u00f3th, G.",
+      "year": 2012,
+      "venue": "Journal of Computational Physics",
+      "doi": "10.1016/j.jcp.2011.02.006",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-swmf-bats-r-us",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-toth-2012-swmf-bats-r-us-mhd-framework/SKILL.md",
+      "metadata_yaml": "paper-toth-2012-swmf-bats-r-us-mhd-framework/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1016/j.jcp.2011.02.006",
+        "arxiv_url": null,
+        "code_repo": "https://github.com/MSTEM-QUDA",
+        "data_repo": "https://ccmc.gsfc.nasa.gov/results/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-pulkkinen-2013-kameleon-ccmc-output-reader",
+      "title": "Geospace Environment Modeling 2008\u20132009 Challenge: Ground Magnetic Field Perturbations and the Kameleon Software",
+      "first_author": "Pulkkinen, A.",
+      "year": 2013,
+      "venue": "Space Weather",
+      "doi": "10.1002/swe.20098",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "software-kameleon-ccmc",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-pulkkinen-2013-kameleon-ccmc-output-reader/SKILL.md",
+      "metadata_yaml": "paper-pulkkinen-2013-kameleon-ccmc-output-reader/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1002/swe.20098",
+        "arxiv_url": null,
+        "code_repo": "https://ccmc.gsfc.nasa.gov/Kameleon/",
+        "data_repo": "https://ccmc.gsfc.nasa.gov/"
+      },
+      "weak_entries": [
+        "Pulkkinen 2013 is the GEM-challenge paper that cites Kameleon; no standalone Kameleon paper in local inventory"
+      ]
+    },
+    {
+      "slug": "paper-hapi-2020-heliophysics-api-time-series",
+      "title": "The Heliophysics Application Programmer's Interface (HAPI)",
+      "first_author": "Weigel, R. S.",
+      "year": 2020,
+      "venue": "Frontiers in Astronomy and Space Sciences (and JOSS specification)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-hapi",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-hapi-2020-heliophysics-api-time-series/SKILL.md",
+      "metadata_yaml": "paper-hapi-2020-heliophysics-api-time-series/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://github.com/hapi-server/client-python",
+        "data_repo": "https://hapi-server.org/"
+      },
+      "weak_entries": [
+        "DOI lookup TODO \u2014 HAPI is maintained as a community spec (hapi-server.org) with companion publications scattered"
+      ]
+    },
+    {
+      "slug": "paper-thompson-2024-heliocloud-aws-shared-archive",
+      "title": "HelioCloud: A cloud-based ecosystem for heliophysics data",
+      "first_author": "Thompson, B. J.",
+      "year": 2024,
+      "venue": "(NASA HelioCloud documentation / project paper)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-heliocloud",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-thompson-2024-heliocloud-aws-shared-archive/SKILL.md",
+      "metadata_yaml": "paper-thompson-2024-heliocloud-aws-shared-archive/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://heliocloud.org/"
+      },
+      "weak_entries": [
+        "No single canonical publication in local inventory; cite HelioCloud documentation and AGU/HelioSummit proceedings"
+      ]
+    },
+    {
+      "slug": "paper-burrell-2018-pyhc-python-heliophysics-community",
+      "title": "Snakes on a Spaceship \u2014 An Overview of Python in Heliophysics",
+      "first_author": "Burrell, A. G.",
+      "year": 2018,
+      "venue": "Journal of Geophysical Research: Space Physics",
+      "doi": "10.1029/2018JA025877",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "software-pyhc-community",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-burrell-2018-pyhc-python-heliophysics-community/SKILL.md",
+      "metadata_yaml": "paper-burrell-2018-pyhc-python-heliophysics-community/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1029/2018JA025877",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://heliopython.org/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-sunkit-image-sunpy-affiliated",
+      "title": "sunkit-image \u2014 Solar image processing for the SunPy ecosystem",
+      "first_author": "sunkit-image developers",
+      "year": 2024,
+      "venue": "software package (SunPy affiliated; no dedicated paper in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "software-sunkit-image",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-sunkit-image-sunpy-affiliated/SKILL.md",
+      "metadata_yaml": "paper-sunkit-image-sunpy-affiliated/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://github.com/sunpy/sunkit-image",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "No standalone JOSS/ApJ paper found in local inventory; citation TODO"
+      ]
+    },
+    {
+      "slug": "paper-sunkit-instruments-sunpy-affiliated",
+      "title": "sunkit-instruments \u2014 Instrument-specific I/O and prep on top of SunPy",
+      "first_author": "sunkit-instruments developers",
+      "year": 2024,
+      "venue": "software package (SunPy affiliated; no dedicated paper in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "software-sunkit-instruments",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-sunkit-instruments-sunpy-affiliated/SKILL.md",
+      "metadata_yaml": "paper-sunkit-instruments-sunpy-affiliated/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://github.com/sunpy/sunkit-instruments",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "No standalone publication located; citation TODO"
+      ]
+    },
+    {
+      "slug": "paper-sunraster-sunpy-affiliated-raster-spectra",
+      "title": "sunraster \u2014 Spectral raster handling for solar IFU/raster instruments",
+      "first_author": "sunraster developers",
+      "year": 2024,
+      "venue": "software package (SunPy affiliated; no dedicated paper in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "software-sunraster",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-sunraster-sunpy-affiliated-raster-spectra/SKILL.md",
+      "metadata_yaml": "paper-sunraster-sunpy-affiliated-raster-spectra/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://github.com/sunpy/sunraster",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "No standalone publication located; citation TODO"
+      ]
+    },
+    {
+      "slug": "paper-irispy-lmsal-sunpy-affiliated-iris-loader",
+      "title": "irispy-lmsal \u2014 IRIS spectrograph data loading in Python",
+      "first_author": "irispy-lmsal developers",
+      "year": 2024,
+      "venue": "software package (SunPy affiliated; no dedicated paper in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "software-irispy-lmsal",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-irispy-lmsal-sunpy-affiliated-iris-loader/SKILL.md",
+      "metadata_yaml": "paper-irispy-lmsal-sunpy-affiliated-iris-loader/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://github.com/LM-SAL/irispy-lmsal",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "No standalone publication located; citation TODO"
+      ]
+    },
+    {
+      "slug": "paper-pyflct-correlation-tracking-fishman",
+      "title": "pyflct / FLCT \u2014 Fourier Local Correlation Tracking for solar magnetograms",
+      "first_author": "Fisher, G. H.",
+      "year": 2008,
+      "venue": "(Fisher & Welsch 2008, ASP Conf. Ser. \u2014 FLCT method)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "software-pyflct",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-pyflct-correlation-tracking-fishman/SKILL.md",
+      "metadata_yaml": "paper-pyflct-correlation-tracking-fishman/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": "https://cgem.ssl.berkeley.edu/cgi-bin/cgem/FLCT/home",
+        "data_repo": null
+      },
+      "weak_entries": [
+        "Original Fisher & Welsch 2008 in ASP Conf. Ser. 383 \u2014 verify exact citation"
+      ]
+    },
+    {
+      "slug": "paper-soar-solar-orbiter-archive-esa",
+      "title": "The Solar Orbiter Archive (SOAR)",
+      "first_author": "ESAC Solar Orbiter Archive team",
+      "year": 2021,
+      "venue": "(ESA Solar Orbiter Archive documentation; companion paper Sanchez et al. 2024 A&A)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "archive-soar",
+      "primary_theme": "solar_orbiter",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-soar-solar-orbiter-archive-esa/SKILL.md",
+      "metadata_yaml": "paper-soar-solar-orbiter-archive-esa/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://soar.esac.esa.int/"
+      },
+      "weak_entries": [
+        "Companion paper Sanchez et al. 2024 A&A; verify exact DOI"
+      ]
+    },
+    {
+      "slug": "paper-psp-soc-science-operations-center-archive",
+      "title": "Parker Solar Probe Science Operations Center / FIELDS archive",
+      "first_author": "PSP Science Operations Center / FIELDS team",
+      "year": 2020,
+      "venue": "(PSP project documentation; companion overview Fox et al. 2016 Space Sci. Rev. \u2014 mission, and Bale et al. 2016 \u2014 FIELDS archive)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "archive-psp-soc",
+      "primary_theme": "psp_data",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-psp-soc-science-operations-center-archive/SKILL.md",
+      "metadata_yaml": "paper-psp-soc-science-operations-center-archive/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://fields.ssl.berkeley.edu/"
+      },
+      "weak_entries": [
+        "No single canonical 'archive paper' \u2014 cite mission overview + per-instrument papers"
+      ]
+    },
+    {
+      "slug": "paper-jsoc-stanford-aia-hmi-archive",
+      "title": "The Joint Science Operations Center (JSOC) \u2014 SDO data archive at Stanford",
+      "first_author": "JSOC team (Stanford / LMSAL)",
+      "year": 2010,
+      "venue": "(JSOC project documentation; companion overview Couvidat et al. 2016 for HMI processing)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "archive-jsoc",
+      "primary_theme": "other",
+      "quality_tier": "method-ready",
+      "skill_md": "paper-jsoc-stanford-aia-hmi-archive/SKILL.md",
+      "metadata_yaml": "paper-jsoc-stanford-aia-hmi-archive/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "http://jsoc.stanford.edu/"
+      },
+      "weak_entries": [
+        "No single canonical 'JSOC paper'; Couvidat et al. 2016 covers HMI processing"
+      ]
+    },
+    {
+      "slug": "paper-vso-virtual-solar-observatory",
+      "title": "The Virtual Solar Observatory (VSO)",
+      "first_author": "Hill, F.",
+      "year": 2009,
+      "venue": "(VSO project paper / documentation; cite Hill et al. 2009 Earth Moon Planets for original VSO description)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "archive-vso",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-vso-virtual-solar-observatory/SKILL.md",
+      "metadata_yaml": "paper-vso-virtual-solar-observatory/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://sdac.virtualsolar.org/cgi/search"
+      },
+      "weak_entries": [
+        "Hill et al. 2009 Earth Moon Planets 104, 315 \u2014 verify DOI"
+      ]
+    },
+    {
+      "slug": "paper-hek-heliophysics-event-knowledgebase",
+      "title": "The Heliophysics Event Knowledgebase (HEK)",
+      "first_author": "Hurlburt, N.",
+      "year": 2012,
+      "venue": "Solar Physics",
+      "doi": "10.1007/s11207-010-9624-2",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "archive-hek",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-hek-heliophysics-event-knowledgebase/SKILL.md",
+      "metadata_yaml": "paper-hek-heliophysics-event-knowledgebase/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1007/s11207-010-9624-2",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://www.lmsal.com/hek/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-ccmc-iswa-integrated-space-weather-analysis",
+      "title": "CCMC iSWA \u2014 Integrated Space Weather Analysis platform",
+      "first_author": "CCMC team (Pulkkinen et al.)",
+      "year": 2010,
+      "venue": "(CCMC iSWA project documentation; companion Pulkkinen 2011 Space Weather)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "archive-iswa-ccmc",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-ccmc-iswa-integrated-space-weather-analysis/SKILL.md",
+      "metadata_yaml": "paper-ccmc-iswa-integrated-space-weather-analysis/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://iswa.ccmc.gsfc.nasa.gov/"
+      },
+      "weak_entries": [
+        "No single canonical iSWA paper; Pulkkinen 2011 Space Weather covers GEM context"
+      ]
+    },
+    {
+      "slug": "paper-nso-gong-network-magnetograms",
+      "title": "The Global Oscillation Network Group (GONG) ground-based magnetograms",
+      "first_author": "Harvey, J. W.",
+      "year": 1996,
+      "venue": "Science",
+      "doi": "10.1126/science.272.5266.1284",
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "paper",
+      "theme": "archive-nso-gong",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-nso-gong-network-magnetograms/SKILL.md",
+      "metadata_yaml": "paper-nso-gong-network-magnetograms/metadata.yaml",
+      "links": {
+        "doi_url": "https://doi.org/10.1126/science.272.5266.1284",
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://gong.nso.edu/"
+      },
+      "weak_entries": []
+    },
+    {
+      "slug": "paper-noaa-swpc-real-time-space-weather",
+      "title": "NOAA Space Weather Prediction Center (SWPC) real-time data and alerts",
+      "first_author": "NOAA Space Weather Prediction Center",
+      "year": 2024,
+      "venue": "(NOAA SWPC operational documentation; companion review Singer et al. or Onsager \u2014 TODO verify)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "archive-noaa-swpc",
+      "primary_theme": "other",
+      "quality_tier": "stub",
+      "skill_md": "paper-noaa-swpc-real-time-space-weather/SKILL.md",
+      "metadata_yaml": "paper-noaa-swpc-real-time-space-weather/metadata.yaml",
+      "links": {
+        "doi_url": null,
+        "arxiv_url": null,
+        "code_repo": null,
+        "data_repo": "https://www.swpc.noaa.gov/"
+      },
+      "weak_entries": [
+        "No single canonical publication located; operational documentation is the primary source"
+      ]
+    }
+  ]
+}

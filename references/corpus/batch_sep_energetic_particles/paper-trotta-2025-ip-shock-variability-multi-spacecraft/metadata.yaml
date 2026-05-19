@@ -1,0 +1,28 @@
+slug: paper-trotta-2025-ip-shock-variability-multi-spacecraft
+title: "Variability in energetic particle observations at strong interplanetary shocks: Multi-spacecraft observations"
+authors:
+  - "Trotta, D."
+  - "Horbury, T. S."
+  - "Giacalone, J."
+year: 2025
+journal: "Journal — TODO verify (A&A or ApJ likely)"
+doi: TODO_verify_with_full_text
+arxiv: "2508.19812"
+theme: heliophysics-ip-shock-multi-spacecraft-variability
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Wind/3DP + EPACT
+  - ACE/EPAM + MAG + SWEPAM
+  - SO/EPD + MAG + SWA/PAS
+methods:
+  - Multi-spacecraft shock identification + Rankine-Hugoniot
+  - Cross-correlation of energetic-particle profiles per energy bin
+  - Shock-evolution attribution (radial vs spatial-irregularity)
+validation_targets:
+  - Reproduce energy-dependent correlation curves across 0.02-0.2 au separations
+  - Reproduce 0.8 au vs 1 au high-energy efficiency contrast (>0.5 MeV) qualitatively
+weak_entries:
+  - Event date, exact energy-bin scheme, figure identifier
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2508.19812

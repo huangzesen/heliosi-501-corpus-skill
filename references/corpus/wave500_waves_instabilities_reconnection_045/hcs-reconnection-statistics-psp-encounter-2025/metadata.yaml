@@ -1,0 +1,23 @@
+slug: hcs-reconnection-statistics-psp-encounter-2025
+title: >-
+  Statistical Properties of Heliospheric Current-Sheet Reconnection Events in PSP Encounter Data
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "TODO_verify_with_full_text"
+theme: hcs-reconnection-statistics-psp
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP MAG + SWEAP multi-encounter
+  - HCS crossing list
+methods:
+  - Walén-test catalog
+  - Exhaust-thickness timing
+validation_targets:
+  - Exhaust event count per encounter (TODO verify)
+  - Occurrence rate vs r reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/arxiv_id=TODO_verify

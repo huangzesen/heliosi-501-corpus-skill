@@ -1,0 +1,28 @@
+slug: paper-fu-2022-density-fluctuations-compressible-mhd-scaling
+title: "Nature and Scalings of Density Fluctuations of Compressible MHD Turbulence with Applications to the Solar Wind"
+authors:
+  - "Xiangrong Fu"
+year: 2022
+journal: "TODO verify (arXiv:2207.09490)"
+doi: null
+arxiv: "2207.09490"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [compressible, density-fluctuations, scaling-law, simulation]
+missions: [n/a]
+regime: [MHD-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "Compressible-MHD simulation output derived (n/a)"
+methods:
+  - compressible-mhd-simulation-across-ms-beta-range
+  - density-amplitude-scaling-extraction
+  - predicted-in-situ-observable-signature
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2207.09490v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

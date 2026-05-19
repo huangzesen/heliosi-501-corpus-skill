@@ -1,0 +1,52 @@
+slug: sun-2026-compound-reconnection-exhaust-mirror-modes-hcs
+title: >-
+  Parker Solar Probe Observations of Compound Reconnection Exhaust Boundaries and Mirror-Mode Structures in the Near-Sun Heliospheric Current Sheet
+authors:
+  - W. Sun
+  - T. Phan
+  - J. Huang
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2604.26137"
+theme: psp-hcs-reconnection-exhaust-mirror-modes
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: reconnection
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+  - ion-scale
+trigger_keywords:
+  - reconnection exhaust
+  - heliospheric current sheet
+  - mirror mode
+  - slow shock
+  - compound boundary
+  - PSP near-Sun
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: ~290 Sa/s burst
+    interval: near-Sun HCS event window (TODO encounter ID)
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPAN-I
+    level: L3 moments
+    cadence: encounter cadence
+    interval: same window
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS QTN
+    level: derived
+    cadence: density
+    interval: same window
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Walén test for reconnection-exhaust identification
+  - name: Rankine–Hugoniot slow-shock identification at exhaust boundary
+  - name: Mirror-mode signature detection (anti-correlated B/n)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §6

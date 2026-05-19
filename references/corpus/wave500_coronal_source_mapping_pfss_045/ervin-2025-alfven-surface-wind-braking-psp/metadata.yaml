@@ -1,0 +1,49 @@
+slug: ervin-2025-alfven-surface-wind-braking-psp
+title: >-
+  Reconstructing the Sun's Alfvén Surface and Wind-Braking Torque with Parker Solar Probe
+authors:
+  - TODO_verify (PSP/FIELDS team)
+first_author: TODO_verify
+year: 2025
+arxiv: "2509.07088"
+arxiv_date: "2025-09-08"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - solar_wind
+  - angular_momentum
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS + SWEAP for plasma + B over multiple encounters.
+  - Synoptic Br for the relevant CRs.
+methods:
+  - Sub-Alfvénic intervals are correctly identified at PSP.
+  - Alfvén surface is reconstructible by combining sub-Alfvénic boundaries with a coronal field model.
+  - PFSS provides a reliable open-flux normalization.
+validation_targets:
+  - Reproduce the paper's torque value within uncertainty.
+trigger_keywords:
+  - Alfvén surface
+  - wind braking
+  - torque
+  - PSP
+  - sub-Alfvénic
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - exact sub-Alfvénic interval list
+  - OSF normalization
+  - DOI
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

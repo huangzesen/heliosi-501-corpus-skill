@@ -1,0 +1,29 @@
+slug: paper-malaspina-2016-psp-fields-dfb-digital-fields-board
+title: The Digital Fields Board for the FIELDS Instrument Suite on Parker Solar Probe
+authors:
+  - "Malaspina, D. M."
+year: 2016
+journal: "Journal of Geophysical Research: Space Physics"
+doi: 10.1002/2016JA022344
+arxiv: null
+ads_bibcode: null
+theme: data-product-psp-fields-dfb
+source_type: paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - PSP/FIELDS DFB AC spectrum L2 (1 min)
+  - PSP/FIELDS DFB band-integrated power L2 (2 s)
+  - PSP/FIELDS DFB waveform captures L1/L2 burst (event-based)
+methods:
+  - Cascaded biquad + FFT digital filter chain
+  - Antenna effective length calibration
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1002/2016JA022344
+  data_repo: https://spdf.gsfc.nasa.gov/pub/data/psp/fields/
+weak_entries:
+  []

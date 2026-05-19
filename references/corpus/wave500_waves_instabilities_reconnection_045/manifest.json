@@ -1,0 +1,1555 @@
+{
+  "schema_version": "1.1",
+  "batch": "wave500_waves_instabilities_reconnection_045",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (HelioSI paper-to-skill factory, Opus 4.7) \u2014 waves/instabilities/reconnection/kinetic batch (corpus_step_to_500)",
+  "harness_framing": {
+    "principle": "Paper-skills are harness-agnostic. LingTai, Claude Code, Codex, Cursor, OpenAI Assistants are adapter examples, not assumptions in the skill body.",
+    "skill_layers": [
+      "1. Trigger + claim boundary",
+      "2. Scientific invariant layer (claims, equations, methods, data assumptions, failure modes, figure targets)",
+      "3. Executable protocol layer with abstract capability contracts (C-*)",
+      "4. Adapter / runtime notes (optional examples only)",
+      "5. Research-generation affordance (gaps, tensions, candidate experiments)"
+    ],
+    "research_generation_affordance": "Every SKILL.md includes a \u00a75 Research-generation affordance with at least one tension/gap/open-hypothesis seed; many also link composable sibling skills via [[slug]] edges. This is the load-bearing element that turns the corpus from a static catalog into a hypothesis-generation substrate."
+  },
+  "compilation_framing": {
+    "model": "Each paper is compiled from arXiv/ADS abstract + theme-inventory record into a runtime-neutral paper-skill describing capability contracts and scientific invariants. Most entries are STUB-tier with explicit TODO_verify_with_full_text tokens and an executable_status of contract-spec-only-not-yet-runnable.",
+    "stub_policy": "Stub allowed per HelioSI project requirement; TODOs explicitly marked in DOI/arxiv fields, numerical targets, and \u00a72.5 reproduction targets so a future full-text pass can convert stub \u2192 paper-grounded-pending-full-text \u2192 paper-grounded-locally-reproduced."
+  },
+  "claim_boundaries": {
+    "scope": "45 new paper-skills covering waves, instabilities, reconnection, kinetic plasma physics, and dissipation in heliophysics, harness-agnostic and additive to the 96-skill corpus baseline.",
+    "out_of_scope": [
+      "No skill in this batch is full-text-verified or end-to-end runnable.",
+      "All capability-contract names (C-*) are abstract; no MCP or library is asserted as a dependency.",
+      "Source attribution is via the theme_wave_analysis.json inventory record; DOIs, arXiv IDs, author lists are marked TODO_verify_with_full_text where the inventory is incomplete.",
+      "Research-generation affordances (\u00a75) are seeds, not a publication-ready research agenda."
+    ]
+  },
+  "skills": [
+    {
+      "slug": "saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun",
+      "title": "Radial Evolution of Alfv\u00e9n Wave Parametric Decay Instability in the near-Sun Solar Wind: Effects of Temperature Anisotropy",
+      "authors": [
+        "H. Saguchi",
+        "Y. Kawazura",
+        "M. Shoda",
+        "Y. Katoh"
+      ],
+      "year": 2026,
+      "journal": "ApJ (TODO verify venue)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.22489",
+      "theme": "alfven-wave-parametric-decay-instability",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun/SKILL.md",
+      "metadata_yaml": "saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2604.22489"
+      ],
+      "validation_targets": [
+        "\u03b3_max(R) enhancement \u2248 1.5 for T_\u22a5>T_\u2225 at \u03b2\u22720.1 (TODO verify exact)",
+        "Sign reversal of anisotropy effect at high \u03b2 reproduced",
+        "\u03b3_max recovered against published curves to \u226410% (TODO verify)"
+      ]
+    },
+    {
+      "slug": "kavtaradze-2026-mhd-imbalance-leveling-shear-flows",
+      "title": "Leveling of MHD Turbulence Imbalance in Shear Flows",
+      "authors": [
+        "M. Kavtaradze",
+        "G. Mamatsashvili",
+        "G. Chagelishvili",
+        "E. Uchava"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2602.13528",
+      "theme": "mhd-turbulence-imbalance-shear",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "kavtaradze-2026-mhd-imbalance-leveling-shear-flows/SKILL.md",
+      "metadata_yaml": "kavtaradze-2026-mhd-imbalance-leveling-shear-flows/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2602.13528"
+      ],
+      "validation_targets": [
+        "\u03c3_c \u2192 0 in super-Alfv\u00e9nic shearing-wave ensembles",
+        "Over-reflection coefficient matches analytic linear theory at reported (k_x/k_z) (TODO verify)"
+      ]
+    },
+    {
+      "slug": "sharma-2026-kaw-subion-current-sheets-pic",
+      "title": "Sub-ion Scale Current Sheets in Kinetic Alfv\u00e9n Wave Turbulence",
+      "authors": [
+        "J. Sharma",
+        "C. Akshath Kumar",
+        "K. D. Makwana",
+        "T. N. Parashar",
+        "S. Satyasmita"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2601.18131",
+      "theme": "kaw-subion-current-sheets-pic",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "sharma-2026-kaw-subion-current-sheets-pic/SKILL.md",
+      "metadata_yaml": "sharma-2026-kaw-subion-current-sheets-pic/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2601.18131"
+      ],
+      "validation_targets": [
+        "Thickness \u221d (m_i/m_e)^(-1/2) within \u226410% (TODO verify)",
+        "Kurtosis enhancement at electron scales reproduced",
+        "BFS/DBSCAN agreement on mean thickness within \u22645% (TODO verify)"
+      ]
+    },
+    {
+      "slug": "giardetti-2025-sunward-alfven-waves-1au-switchbacks",
+      "title": "Energetically-Dominant Sunward-Propagating Alfv\u00e9n Waves Near 1 au and Their Relation to Large-Scale Magnetic Switchbacks",
+      "authors": [
+        "N. Giardetti",
+        "S. Bourouaine",
+        "J. C. Perez"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.18806",
+      "theme": "sunward-alfven-waves-switchback-association",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "giardetti-2025-sunward-alfven-waves-1au-switchbacks/SKILL.md",
+      "metadata_yaml": "giardetti-2025-sunward-alfven-waves-1au-switchbacks/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.18806"
+      ],
+      "validation_targets": [
+        "SAW-rate range 1\u201314% reproduced",
+        "17.5% SAW\u2229SB association at 1-h scale (TODO verify)"
+      ]
+    },
+    {
+      "slug": "skalidis-2025-residual-energy-weakly-compressible-mhd",
+      "title": "Residual Energy in Weakly Compressible Turbulence with a Mean Guide Field",
+      "authors": [
+        "R. Skalidis",
+        "A. Tritsis",
+        "J. R. Beattie",
+        "P. F. Hopkins"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.11973",
+      "theme": "mhd-turbulence-residual-energy-compressible",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "skalidis-2025-residual-energy-weakly-compressible-mhd/SKILL.md",
+      "metadata_yaml": "skalidis-2025-residual-energy-weakly-compressible-mhd/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.11973"
+      ],
+      "validation_targets": [
+        "\u03b1 \u2248 \u22123/2 for magnetic forcing; \u03b1 \u2248 \u22121 for kinetic forcing",
+        "\u03b2-dependent slope trend reproduced"
+      ]
+    },
+    {
+      "slug": "abbas-squire-2026-parker-spiral-reflection-driven-turbulence",
+      "title": "The Influence of Parker Spiral on the Reflection-Driven Turbulence",
+      "authors": [
+        "K. Abbas",
+        "J. Squire"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.07446",
+      "theme": "reflection-driven-turbulence-parker-spiral",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "abbas-squire-2026-parker-spiral-reflection-driven-turbulence/SKILL.md",
+      "metadata_yaml": "abbas-squire-2026-parker-spiral-reflection-driven-turbulence/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.07446"
+      ],
+      "validation_targets": [
+        "L_\u22a5 smaller in PS runs vs radial baseline (TODO verify magnitude)",
+        "\u03c3_c(r) larger in PS at the outer-r endpoint",
+        "Heating-fraction difference quantified"
+      ]
+    },
+    {
+      "slug": "bianco-2025-alfven-wave-proton-beam-evolution-hebox",
+      "title": "Evolution of an Alfv\u00e9n Wave-Driven Proton Beam in the Expanding Solar Wind",
+      "authors": [
+        "J. S. Bianco",
+        "A. Tenerani",
+        "C. Gonzalez",
+        "L. Matteini",
+        "K. G. Klein"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2511.02940",
+      "theme": "alfven-wave-driven-proton-beams-hebox",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "bianco-2025-alfven-wave-proton-beam-evolution-hebox/SKILL.md",
+      "metadata_yaml": "bianco-2025-alfven-wave-proton-beam-evolution-hebox/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2511.02940"
+      ],
+      "validation_targets": [
+        "Mean v_d(r) profile vs Helios/PSP agreement within stated bars",
+        "Core/beam density ratio radial trend reproduced"
+      ]
+    },
+    {
+      "slug": "peng-2025-chaotic-ion-motion-finite-amplitude-alfven",
+      "title": "Chaotic Motion of Ions in Finite-Amplitude Low-Frequency Alfv\u00e9n Waves",
+      "authors": [
+        "J. Peng",
+        "J. He",
+        "R. Lin"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2510.07144",
+      "theme": "stochastic-ion-heating-wave-driven-curvature",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "peng-2025-chaotic-ion-motion-finite-amplitude-alfven/SKILL.md",
+      "metadata_yaml": "peng-2025-chaotic-ion-motion-finite-amplitude-alfven/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2510.07144"
+      ],
+      "validation_targets": [
+        "CR = 0.01 contour matches P_eff < 25 analytic prediction",
+        "\u03bb_m sign correctly identifies chaotic region"
+      ]
+    },
+    {
+      "slug": "mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac",
+      "title": "Uniturbulence and Alfv\u00e9n Wave Solar Model in MPI-AMRVAC",
+      "authors": [
+        "M. McMurdo",
+        "T. Van Doorsselaere",
+        "N. Magyar",
+        "L. Banovic",
+        "D. Lim"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2510.27553",
+      "theme": "kink-wave-driven-heating-uniturbulence",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac/SKILL.md",
+      "metadata_yaml": "mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2510.27553"
+      ],
+      "validation_targets": [
+        "Self-sustained coronal atmosphere with UAWSoM kink-driving (TODO verify T,n)",
+        "Python-vs-AMRVAC agreement within stated tolerance"
+      ]
+    },
+    {
+      "slug": "kontar-2025-ion-scale-turbulence-cascade-rate-corona",
+      "title": "Ion-Scale Turbulence and Energy Cascade Rate in the Solar Corona and Inner Heliosphere",
+      "authors": [
+        "E. P. Kontar",
+        "A. G. Emslie",
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2509.17861",
+      "theme": "ion-scale-cascade-rate-corona",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "kontar-2025-ion-scale-turbulence-cascade-rate-corona/SKILL.md",
+      "metadata_yaml": "kontar-2025-ion-scale-turbulence-cascade-rate-corona/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.17861"
+      ],
+      "validation_targets": [
+        "\u03b5(r) \u2248 Q(r) within reported bars (TODO verify)"
+      ]
+    },
+    {
+      "slug": "alfven-surface-wind-braking-torque-psp-2025",
+      "title": "Reconstructing the Sun's Alfv\u00e9n Surface and Wind Braking Torque with Parker Solar Probe",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2509.07088",
+      "theme": "alfven-surface-wind-braking-torque",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "alfven-surface-wind-braking-torque-psp-2025/SKILL.md",
+      "metadata_yaml": "alfven-surface-wind-braking-torque-psp-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.07088"
+      ],
+      "validation_targets": [
+        "Braking torque consistent with long-term spin-down within stated bars",
+        "Surface shape reproduced encounter-by-encounter"
+      ]
+    },
+    {
+      "slug": "stationary-power-law-kinetic-alfven-turbulence-2025",
+      "title": "Stationary Power-Law Solutions of Kinetic-Alfv\u00e9nic Turbulence",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2508.03478",
+      "theme": "kinetic-alfvenic-turbulence-stationary-power-law",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "stationary-power-law-kinetic-alfven-turbulence-2025/SKILL.md",
+      "metadata_yaml": "stationary-power-law-kinetic-alfven-turbulence-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2508.03478"
+      ],
+      "validation_targets": [
+        "\u03b1_\u22a5, \u03b1_\u2225 analytic vs observed match (TODO verify)"
+      ]
+    },
+    {
+      "slug": "alfven-wave-propagation-reflection-trapping-2025",
+      "title": "Alfv\u00e9n Wave Propagation, Reflection and Trapping in the Solar Wind",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2507.13809",
+      "theme": "alfven-wave-propagation-reflection-trapping",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "alfven-wave-propagation-reflection-trapping-2025/SKILL.md",
+      "metadata_yaml": "alfven-wave-propagation-reflection-trapping-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2507.13809"
+      ],
+      "validation_targets": [
+        "Reflection-coefficient curve matches analytic expectation",
+        "Trapping-region locations consistent with V_A profile geometry"
+      ]
+    },
+    {
+      "slug": "parametric-instability-alfven-wave-packets-2025",
+      "title": "Parametric Instability of Alfv\u00e9n Wave Packets",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2507.10038",
+      "theme": "alfven-wave-packet-parametric-instability",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "parametric-instability-alfven-wave-packets-2025/SKILL.md",
+      "metadata_yaml": "parametric-instability-alfven-wave-packets-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2507.10038"
+      ],
+      "validation_targets": [
+        "Analytic \u03b3_max(\u0394\u03c9/\u03c9_0) curve verified by 1D MHD"
+      ]
+    },
+    {
+      "slug": "khabarova-2025-kinetic-inertial-alfven-coronal-heating",
+      "title": "Solar Coronal Heating: Role of Kinetic and Inertial Alfv\u00e9n Waves in Heating and Charged-Particle Energization",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2505.03267",
+      "theme": "kinetic-inertial-alfven-coronal-heating",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "khabarova-2025-kinetic-inertial-alfven-coronal-heating/SKILL.md",
+      "metadata_yaml": "khabarova-2025-kinetic-inertial-alfven-coronal-heating/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2505.03267"
+      ],
+      "validation_targets": [
+        "KAW/IAW damping-rate magnitudes vs \u03b2 (TODO verify)",
+        "Acceleration-efficiency expressions reproduced"
+      ]
+    },
+    {
+      "slug": "poynting-flux-alfven-polar-coronal-holes-cycle24-2025",
+      "title": "Estimating the Poynting Flux of Alfv\u00e9nic Waves in Polar Coronal Holes Across Solar Cycle 24",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2501.13673",
+      "theme": "alfven-poynting-flux-polar-coronal-holes",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "poynting-flux-alfven-polar-coronal-holes-cycle24-2025/SKILL.md",
+      "metadata_yaml": "poynting-flux-alfven-polar-coronal-holes-cycle24-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2501.13673"
+      ],
+      "validation_targets": [
+        "F at polar CH ~10^5 erg cm^-2 s^-1 (TODO verify)",
+        "Cycle-phase trend reproduced"
+      ]
+    },
+    {
+      "slug": "firehose-thermodynamics-high-beta-2025",
+      "title": "Thermodynamics and Collisionality in Firehose-Susceptible High-\u03b2 Plasmas",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2501.13663",
+      "theme": "firehose-instability-high-beta-thermodynamics",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "firehose-thermodynamics-high-beta-2025/SKILL.md",
+      "metadata_yaml": "firehose-thermodynamics-high-beta-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2501.13663"
+      ],
+      "validation_targets": [
+        "\u03bd_eff scaling with distance from threshold (TODO verify)",
+        "Marginal-stability locus reproduced"
+      ]
+    },
+    {
+      "slug": "expansion-instability-young-solar-wind-thermo-2026",
+      "title": "The Effect of Expansion and Instabilities in the Thermodynamic Regulation of the Young Solar Wind",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2603.25443",
+      "theme": "expansion-instability-thermodynamic-regulation-young-sw",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "expansion-instability-young-solar-wind-thermo-2026/SKILL.md",
+      "metadata_yaml": "expansion-instability-young-solar-wind-thermo-2026/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2603.25443"
+      ],
+      "validation_targets": [
+        "(\u03b2_\u2225, \u03be)(r) trajectories within PSP envelope (TODO verify)"
+      ]
+    },
+    {
+      "slug": "ion-driven-instabilities-classification-2023",
+      "title": "Ion-Driven Instabilities in the Inner Heliosphere II: Classification and Multi-Dimensional Stability",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2023,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2306.06060",
+      "theme": "ion-instabilities-classification-stability-map",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "ion-driven-instabilities-classification-2023/SKILL.md",
+      "metadata_yaml": "ion-driven-instabilities-classification-2023/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2306.06060"
+      ],
+      "validation_targets": [
+        "Per-event classification reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "klein-2018-multispecies-stability-anisotropy",
+      "title": "Multi-Species Linear-Vlasov Stability of Anisotropic Solar-Wind Plasmas",
+      "authors": [
+        "K. G. Klein",
+        "+ co-authors (TODO verify)"
+      ],
+      "year": 2018,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "multispecies-linear-vlasov-stability",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "klein-2018-multispecies-stability-anisotropy/SKILL.md",
+      "metadata_yaml": "klein-2018-multispecies-stability-anisotropy/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md (TODO verify section)"
+      ],
+      "validation_targets": [
+        "Recovers Gary\u2013Wang map within stated tolerance (TODO verify)"
+      ]
+    },
+    {
+      "slug": "electron-driven-instabilities-solar-wind-2022",
+      "title": "Electron-Driven Instabilities in the Solar Wind",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2022,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2206.10403",
+      "theme": "electron-driven-instabilities-solar-wind",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "electron-driven-instabilities-solar-wind-2022/SKILL.md",
+      "metadata_yaml": "electron-driven-instabilities-solar-wind-2022/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2206.10403"
+      ],
+      "validation_targets": [
+        "Electron-instability boundary in (\u03b2_e, q_e/q_max) reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "kinetic-turbulence-collisionless-high-beta-2022",
+      "title": "Kinetic Turbulence in Collisionless High-Beta Plasmas",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2022,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2207.05189",
+      "theme": "high-beta-kinetic-turbulence",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "kinetic-turbulence-collisionless-high-beta-2022/SKILL.md",
+      "metadata_yaml": "kinetic-turbulence-collisionless-high-beta-2022/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2207.05189"
+      ],
+      "validation_targets": [
+        "Inertial-range slope shift vs low-\u03b2 (TODO verify)"
+      ]
+    },
+    {
+      "slug": "helicity-barrier-evidence-transition-range-2024",
+      "title": "Evidence for the Helicity Barrier from Measurements of the Turbulence Transition Range",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2407.10815",
+      "theme": "helicity-barrier-transition-range",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "helicity-barrier-evidence-transition-range-2024/SKILL.md",
+      "metadata_yaml": "helicity-barrier-evidence-transition-range-2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2407.10815"
+      ],
+      "validation_targets": [
+        "Pile-up vs |\u03c3_c| trend reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "bowen-2024-cyclotron-heating-rates-ion-scale-waves",
+      "title": "Estimated Heating Rates Due to Cyclotron Damping of Ion-Scale Waves Observed by Parker Solar Probe",
+      "authors": [
+        "T. A. Bowen",
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2407.02708",
+      "theme": "cyclotron-damping-heating-rate-psp",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "bowen-2024-cyclotron-heating-rates-ion-scale-waves/SKILL.md",
+      "metadata_yaml": "bowen-2024-cyclotron-heating-rates-ion-scale-waves/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2407.02708"
+      ],
+      "validation_targets": [
+        "Q_\u22a5 closure within stated fraction (TODO verify)"
+      ]
+    },
+    {
+      "slug": "extreme-minor-ion-heating-imbalanced-turbulence-2024",
+      "title": "Extreme Heating of Minor Ions in Imbalanced Solar-Wind Turbulence",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2408.04703",
+      "theme": "minor-ion-extreme-heating-imbalanced",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "extreme-minor-ion-heating-imbalanced-turbulence-2024/SKILL.md",
+      "metadata_yaml": "extreme-minor-ion-heating-imbalanced-turbulence-2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2408.04703"
+      ],
+      "validation_targets": [
+        "Q_\u22a5(m_s/m_p) scaling reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "torsional-alfven-firehose-plasma-heating-2024",
+      "title": "Torsional Alfv\u00e9n Oscillation in the Regime of Firehose Instability as a Mechanism of Plasma Heating",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2412.07451",
+      "theme": "torsional-alfven-firehose-heating",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "torsional-alfven-firehose-plasma-heating-2024/SKILL.md",
+      "metadata_yaml": "torsional-alfven-firehose-plasma-heating-2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2412.07451"
+      ],
+      "validation_targets": [
+        "Q vs (\u03b2_\u2225, \u03be) curve reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "suprathermal-anisotropy-instabilities-stimulated-2024",
+      "title": "Numerical Simulations of Temperature Anisotropy Instabilities Stimulated by Suprathermal Populations",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2409.09180",
+      "theme": "suprathermal-stimulated-anisotropy-instabilities",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "suprathermal-anisotropy-instabilities-stimulated-2024/SKILL.md",
+      "metadata_yaml": "suprathermal-anisotropy-instabilities-stimulated-2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2409.09180"
+      ],
+      "validation_targets": [
+        "Threshold-shift vs (\u03ba, n_sup/n_core) reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "regulation-proton-alpha-flow-compressive-2023",
+      "title": "Regulation of Proton-\u03b1 Differential Flow by Compressive Fluctuations and Ion-Scale Instabilities",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2023,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2308.02036",
+      "theme": "proton-alpha-differential-flow-regulation",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "regulation-proton-alpha-flow-compressive-2023/SKILL.md",
+      "metadata_yaml": "regulation-proton-alpha-flow-compressive-2023/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.02036"
+      ],
+      "validation_targets": [
+        "\u0394v_p\u03b1(r) within in-situ envelope (TODO verify)"
+      ]
+    },
+    {
+      "slug": "anti-equilibrium-alfven-ion-cyclotron-effects-2023",
+      "title": "The Effects of Non-Equilibrium Velocity Distributions on Alfv\u00e9n Ion-Cyclotron Waves in the Solar Wind",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2023,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2308.14944",
+      "theme": "aic-non-equilibrium-vdf-effects",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "anti-equilibrium-alfven-ion-cyclotron-effects-2023/SKILL.md",
+      "metadata_yaml": "anti-equilibrium-alfven-ion-cyclotron-effects-2023/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.14944"
+      ],
+      "validation_targets": [
+        "\u03b3_max ratio reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "proton-alpha-aic-driven-instabilities-2023",
+      "title": "Proton and Alpha Driven Instabilities in an Ion Cyclotron Wave Event",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2023,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2310.14136",
+      "theme": "aic-proton-alpha-instability-event",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "proton-alpha-aic-driven-instabilities-2023/SKILL.md",
+      "metadata_yaml": "proton-alpha-aic-driven-instabilities-2023/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2310.14136"
+      ],
+      "validation_targets": [
+        "\u03b3_max joint vs single-species reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "whistler-young-solar-wind-statistics-2024",
+      "title": "Whistler Waves in the Young Solar Wind: Statistics of Amplitude and Propagation Direction",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2408.00736",
+      "theme": "whistler-statistics-young-solar-wind",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "whistler-young-solar-wind-statistics-2024/SKILL.md",
+      "metadata_yaml": "whistler-young-solar-wind-statistics-2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2408.00736"
+      ],
+      "validation_targets": [
+        "Amplitude PDF reproduced (TODO verify)",
+        "Sunward/anti-sunward ratio vs r reproduced"
+      ]
+    },
+    {
+      "slug": "suprathermal-electron-whistler-scattering-2024",
+      "title": "Quantifying the Diffusion of Suprathermal Electrons by Whistler Waves Between 0.2 and 1 AU",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2402.06016",
+      "theme": "whistler-suprathermal-electron-diffusion",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "suprathermal-electron-whistler-scattering-2024/SKILL.md",
+      "metadata_yaml": "suprathermal-electron-whistler-scattering-2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2402.06016"
+      ],
+      "validation_targets": [
+        "Strahl-width within \u00b120% of obs (TODO verify)"
+      ]
+    },
+    {
+      "slug": "whistler-counter-propagating-encounter1-2023",
+      "title": "Whistler Wave Observations by Parker Solar Probe During Encounter 1: Counter-Propagating Sources",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2023,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2304.01185",
+      "theme": "whistler-counter-propagating-psp",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "whistler-counter-propagating-encounter1-2023/SKILL.md",
+      "metadata_yaml": "whistler-counter-propagating-encounter1-2023/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2304.01185"
+      ],
+      "validation_targets": [
+        "Counter-propagating event count reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "ion-acoustic-damping-instability-solo-2026",
+      "title": "The Damping and Instability of Ion-Acoustic Waves in the Solar Wind: Solar Orbiter Observations",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.14311",
+      "theme": "ion-acoustic-damping-instability-solo",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "ion-acoustic-damping-instability-solo-2026/SKILL.md",
+      "metadata_yaml": "ion-acoustic-damping-instability-solo-2026/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2604.14311"
+      ],
+      "validation_targets": [
+        "Damped/unstable split at (T_e/T_i) threshold (TODO verify)"
+      ]
+    },
+    {
+      "slug": "ion-acoustic-velocity-space-signatures-2026",
+      "title": "Velocity-Space Signatures of Energy Transfer for Ion-Acoustic Instabilities",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2601.08329",
+      "theme": "ion-acoustic-velocity-space-signature",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "ion-acoustic-velocity-space-signatures-2026/SKILL.md",
+      "metadata_yaml": "ion-acoustic-velocity-space-signatures-2026/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2601.08329"
+      ],
+      "validation_targets": [
+        "FPC dipolar pattern recovered (TODO verify)"
+      ]
+    },
+    {
+      "slug": "free-energy-sources-ion-scale-waves-psp-2025",
+      "title": "Free Energy Sources of Ion-Scale Waves Observed by Parker Solar Probe",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.11182",
+      "theme": "ion-scale-wave-free-energy-source-psp",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "free-energy-sources-ion-scale-waves-psp-2025/SKILL.md",
+      "metadata_yaml": "free-energy-sources-ion-scale-waves-psp-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.11182"
+      ],
+      "validation_targets": [
+        "Driver-fraction percentages reproduced (TODO verify)"
+      ]
+    },
+    {
+      "slug": "oblique-drift-instability-solar-wind-heating-2025",
+      "title": "How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.18485",
+      "theme": "oblique-drift-instability-heating",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "oblique-drift-instability-solar-wind-heating-2025/SKILL.md",
+      "metadata_yaml": "oblique-drift-instability-solar-wind-heating-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.18485"
+      ],
+      "validation_targets": [
+        "Q-oblique vs Q-parallel ratio (TODO verify)"
+      ]
+    },
+    {
+      "slug": "kelvin-helmholtz-cme-large-scale-2025",
+      "title": "Observation of Large-Scale Kelvin\u2013Helmholtz Instability Wave Driven by a Coronal Mass Ejection",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.19942",
+      "theme": "kelvin-helmholtz-cme-driven",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "kelvin-helmholtz-cme-large-scale-2025/SKILL.md",
+      "metadata_yaml": "kelvin-helmholtz-cme-large-scale-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.19942"
+      ],
+      "validation_targets": [
+        "KH wavelength matches linear theory (TODO verify)"
+      ]
+    },
+    {
+      "slug": "hcs-reconnection-statistics-psp-encounter-2025",
+      "title": "Statistical Properties of Heliospheric Current-Sheet Reconnection Events in PSP Encounter Data",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "hcs-reconnection-statistics-psp",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "hcs-reconnection-statistics-psp-encounter-2025/SKILL.md",
+      "metadata_yaml": "hcs-reconnection-statistics-psp-encounter-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/arxiv_id=TODO_verify"
+      ],
+      "validation_targets": [
+        "Exhaust event count per encounter (TODO verify)",
+        "Occurrence rate vs r reproduced"
+      ]
+    },
+    {
+      "slug": "interchange-reconnection-pseudostreamer-metis-2025",
+      "title": "Metis Observations of Alfv\u00e9nic Outflows Driven by Interchange Reconnection in a Pseudostreamer",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2502.08015",
+      "theme": "interchange-reconnection-pseudostreamer-metis",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "interchange-reconnection-pseudostreamer-metis-2025/SKILL.md",
+      "metadata_yaml": "interchange-reconnection-pseudostreamer-metis-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2502.08015"
+      ],
+      "validation_targets": [
+        "Outflow speed within expected range (TODO verify)"
+      ]
+    },
+    {
+      "slug": "rotational-discontinuity-proton-beam-generation-2025",
+      "title": "Generation of Proton Beams at Switchback-Boundary-like Rotational Discontinuities in the Solar Wind",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.10406",
+      "theme": "rotational-discontinuity-proton-beam-generation",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "rotational-discontinuity-proton-beam-generation-2025/SKILL.md",
+      "metadata_yaml": "rotational-discontinuity-proton-beam-generation-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.10406"
+      ],
+      "validation_targets": [
+        "Predicted beam drift within in-situ range (TODO verify)"
+      ]
+    },
+    {
+      "slug": "surface-waves-switchback-boundaries-psp-2025",
+      "title": "Surface Waves at Switchback Boundaries in the Young Solar Wind from Parker Solar Probe Observations",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2507.01252",
+      "theme": "surface-waves-switchback-boundaries-psp",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "surface-waves-switchback-boundaries-psp-2025/SKILL.md",
+      "metadata_yaml": "surface-waves-switchback-boundaries-psp-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2507.01252"
+      ],
+      "validation_targets": [
+        "Surface-wave occurrence fraction at SB boundaries (TODO verify)"
+      ]
+    },
+    {
+      "slug": "stochastic-heating-sub-alfvenic-2025",
+      "title": "Stochastic Heating in the Sub-Alfv\u00e9nic Solar Wind",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2025,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2509.20654",
+      "theme": "stochastic-heating-sub-alfvenic",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "stochastic-heating-sub-alfvenic-2025/SKILL.md",
+      "metadata_yaml": "stochastic-heating-sub-alfvenic-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.20654"
+      ],
+      "validation_targets": [
+        "Q_\u22a5 closure within stated fraction (TODO verify)"
+      ]
+    },
+    {
+      "slug": "chandran-2010-stochastic-heating-perp-alfven",
+      "title": "Stochastic Perpendicular Ion Heating from Large-Amplitude Alfv\u00e9nic Turbulence",
+      "authors": [
+        "B. D. G. Chandran",
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2010,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "stochastic-heating-foundational",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "chandran-2010-stochastic-heating-perp-alfven/SKILL.md",
+      "metadata_yaml": "chandran-2010-stochastic-heating-perp-alfven/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md (TODO verify section)"
+      ],
+      "validation_targets": [
+        "Reproduces analytic Q_\u22a5(\u03b5) curve (TODO verify)"
+      ]
+    },
+    {
+      "slug": "wave-particle-equilibria-heavy-ions-2026",
+      "title": "Wave-Particle Equilibria with Heavy Ions in Weakly Collisional Space Plasmas",
+      "authors": [
+        "+ co-authors (TODO verify full list)"
+      ],
+      "year": 2026,
+      "journal": "TODO_verify_journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2603.22613",
+      "theme": "wave-particle-equilibria-heavy-ions",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "stub",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "wave-particle-equilibria-heavy-ions-2026/SKILL.md",
+      "metadata_yaml": "wave-particle-equilibria-heavy-ions-2026/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2603.22613"
+      ],
+      "validation_targets": [
+        "F_eq locus matches in-situ (TODO verify)"
+      ]
+    }
+  ],
+  "counts": {
+    "skills_in_manifest": 45,
+    "fs_subdirectories": 45,
+    "fs_SKILL_md": 45,
+    "fs_metadata_yaml": 45,
+    "counts_match": true,
+    "duplicate_slugs": [],
+    "expected_total": 45
+  },
+  "category_distribution": {
+    "scientific-method": 45
+  },
+  "quality_distribution": {
+    "stub": 45
+  },
+  "executable_status_distribution": {
+    "contract-spec-only-not-yet-runnable": 45
+  },
+  "section_distribution": {
+    "A. Alfv\u00e9n-wave dynamics and parametric instabilities": 10,
+    "B. Kinetic dissipation, resonance, and stochastic heating": 10,
+    "C. Plasma instabilities and temperature anisotropy regulation": 10,
+    "D. Reconnection (heliospheric, switchback, HCS, pseudostreamer)": 5,
+    "E. Ion-scale & electron-scale waves and beams": 10
+  },
+  "weak_entries_needing_full_text_verification": [
+    {
+      "slug": "saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "kavtaradze-2026-mhd-imbalance-leveling-shear-flows",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "sharma-2026-kaw-subion-current-sheets-pic",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "giardetti-2025-sunward-alfven-waves-1au-switchbacks",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "skalidis-2025-residual-energy-weakly-compressible-mhd",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "abbas-squire-2026-parker-spiral-reflection-driven-turbulence",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "bianco-2025-alfven-wave-proton-beam-evolution-hebox",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "peng-2025-chaotic-ion-motion-finite-amplitude-alfven",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "kontar-2025-ion-scale-turbulence-cascade-rate-corona",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "alfven-surface-wind-braking-torque-psp-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "stationary-power-law-kinetic-alfven-turbulence-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "alfven-wave-propagation-reflection-trapping-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "parametric-instability-alfven-wave-packets-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "khabarova-2025-kinetic-inertial-alfven-coronal-heating",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "poynting-flux-alfven-polar-coronal-holes-cycle24-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "firehose-thermodynamics-high-beta-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "expansion-instability-young-solar-wind-thermo-2026",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "ion-driven-instabilities-classification-2023",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "klein-2018-multispecies-stability-anisotropy",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "electron-driven-instabilities-solar-wind-2022",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "kinetic-turbulence-collisionless-high-beta-2022",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "helicity-barrier-evidence-transition-range-2024",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "bowen-2024-cyclotron-heating-rates-ion-scale-waves",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "extreme-minor-ion-heating-imbalanced-turbulence-2024",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "torsional-alfven-firehose-plasma-heating-2024",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "suprathermal-anisotropy-instabilities-stimulated-2024",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "regulation-proton-alpha-flow-compressive-2023",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "anti-equilibrium-alfven-ion-cyclotron-effects-2023",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "proton-alpha-aic-driven-instabilities-2023",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "whistler-young-solar-wind-statistics-2024",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "suprathermal-electron-whistler-scattering-2024",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "whistler-counter-propagating-encounter1-2023",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "ion-acoustic-damping-instability-solo-2026",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "ion-acoustic-velocity-space-signatures-2026",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "free-energy-sources-ion-scale-waves-psp-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "oblique-drift-instability-solar-wind-heating-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "kelvin-helmholtz-cme-large-scale-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "hcs-reconnection-statistics-psp-encounter-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "interchange-reconnection-pseudostreamer-metis-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "rotational-discontinuity-proton-beam-generation-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "surface-waves-switchback-boundaries-psp-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "stochastic-heating-sub-alfvenic-2025",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "chandran-2010-stochastic-heating-perp-alfven",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    },
+    {
+      "slug": "wave-particle-equilibria-heavy-ions-2026",
+      "todos": [
+        "DOI",
+        "full author list",
+        "exact numerical targets in \u00a72.5"
+      ]
+    }
+  ],
+  "source_inventories": [
+    "sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json",
+    "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md",
+    "sioulas-reproduction/results/arxiv_papers/extended_search.md",
+    "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md"
+  ]
+}

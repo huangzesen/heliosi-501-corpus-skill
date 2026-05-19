@@ -1,0 +1,28 @@
+slug: paper-livadiotis-2024-kappa-tail-technique-psp
+title: "Kappa-tail technique: Modeling and application to Solar Energetic Particles observed by Parker Solar Probe"
+authors:
+  - "Livadiotis, G."
+  - "Cuesta, M. E."
+  - "Cummings, A. T."
+  - "McComas, D. J."
+year: 2024
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2407.04188"
+theme: heliophysics-kappa-tail-technique-method
+category: primary-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi
+methods:
+  - Kappa-tail closed-form derivation
+  - Spectral fit (κ, T_EP, n_EP)
+  - Residual / goodness-of-fit diagnostics
+  - Comparison against full kappa fit
+validation_targets:
+  - Closed-form vs full kappa fit consistency on PSP spectra (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2407.04188

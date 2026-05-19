@@ -1,0 +1,29 @@
+slug: paper-astropy-2022-collaboration-community-package
+title: "The Astropy Project: Sustaining and Growing a Community-oriented Open-source Project and the Latest Major Release (v5.0)"
+authors:
+  - Astropy Collaboration
+year: 2022
+journal: The Astrophysical Journal
+doi: 10.3847/1538-4357/ac7c74
+arxiv: 2206.14220
+ads_bibcode: null
+theme: software-astropy-ecosystem
+source_type: software-paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  []
+methods:
+  - astropy.units quantity arithmetic with unit safety
+  - astropy.coordinates SkyCoord/Frame transforms
+  - astropy.time multi-scale time
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.3847/1538-4357/ac7c74
+  arxiv_url: https://arxiv.org/abs/2206.14220
+  code_repo: https://github.com/astropy/astropy
+weak_entries:
+  []

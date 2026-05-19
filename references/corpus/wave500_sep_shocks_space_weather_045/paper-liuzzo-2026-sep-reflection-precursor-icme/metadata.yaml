@@ -1,0 +1,33 @@
+slug: paper-liuzzo-2026-sep-reflection-precursor-icme
+title: "Solar Energetic Particle Reflection by Precursor ICMEs: Multi-spacecraft Observations of Bi-Directional Electron Beams at 1 AU"
+authors:
+  - "Liuzzo, L."
+  - "Wei, W."
+  - "Poppe, A. R."
+  - "Lee, C. O."
+  - "Angelopoulos, V."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.25019"
+theme: heliophysics-sep-electron-reflection-precursor-icme
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - THEMIS-ARTEMIS/SST+ESA
+  - Wind/3DP electron
+  - STEREO-A/SEPT+HET
+  - Wind/MFI MAG
+methods:
+  - Anti-Sunward primary onset identification by PAD
+  - Sunward counter-streaming beam delay-vs-energy fit (path length)
+  - Inverse-velocity-dispersion (IVD) signature detection for electrons
+  - Precursor-ICME identification (sheath/leading-edge MAG+plasma signatures)
+  - 1–2 au reflection-path consistency check
+validation_targets:
+  - Inferred counter-streaming path length 1–2 au; one event shows electron IVD signature (numeric energies TODO_verify); precursor ICME found beyond 1 au for both events.
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.25019

@@ -1,0 +1,25 @@
+slug: paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023
+title: "Coronal flux tube illuminated by strong shock spot: New Year's Eve solar eruption of 2023-Dec-31"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2512.24749"
+theme: heliophysics-coronal-flux-tube-shock-spot-2023-12-31
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SDO/AIA + STEREO-A SECCHI + Solar Orbiter EUI
+  - Wind/WAVES + PSP/FIELDS LFR radio
+methods:
+  - Localized shock-spot identification from EUV/coronagraph
+  - Type II band-pair fit (fundamental + harmonic)
+  - Flux-tube geometry mapping
+validation_targets:
+  - Identified flux-tube illumination via simultaneous EUV + type II signature (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.24749

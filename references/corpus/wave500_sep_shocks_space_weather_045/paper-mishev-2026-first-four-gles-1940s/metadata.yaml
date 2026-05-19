@@ -1,0 +1,25 @@
+slug: paper-mishev-2026-first-four-gles-1940s
+title: "The First Four Ground-Level Enhancements in the 1940s: Investigation, Digitisation, and Analysis of Forgotten Data"
+authors:
+  - "TODO verify author list"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2602.24250"
+theme: heliophysics-historical-gle-archival-1940s
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Historical ionization-chamber records
+methods:
+  - Archival data digitisation pipeline
+  - Detector-response unfolding to count rate
+  - GLE spectral-index fit under standard cutoff-rigidity framework
+  - Cross-station consistency check
+validation_targets:
+  - Digitised time series for each of four GLEs; spectral indices and peak intensities (TODO_verify numbers).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.24250

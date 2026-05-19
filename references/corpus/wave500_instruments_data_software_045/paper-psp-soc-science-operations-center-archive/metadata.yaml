@@ -1,0 +1,27 @@
+slug: paper-psp-soc-science-operations-center-archive
+title: Parker Solar Probe Science Operations Center / FIELDS archive
+authors:
+  - PSP Science Operations Center / FIELDS team
+year: 2020
+journal: "(PSP project documentation; companion overview Fox et al. 2016 Space Sci. Rev. — mission, and Bale et al. 2016 — FIELDS archive)"
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: archive-psp-soc
+source_type: software-package
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - PSP/FIELDS L2 / L3 (various)
+  - PSP/SWEAP L2 / L3 (various)
+  - PSP/ISʘIS L2 / L3 (various)
+methods:
+  []
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://fields.ssl.berkeley.edu/
+weak_entries:
+  - "No single canonical 'archive paper' — cite mission overview + per-instrument papers"

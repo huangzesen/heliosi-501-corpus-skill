@@ -1,0 +1,33 @@
+slug: sioulas-2022-magnetic-field-intermittency-psp-solo
+title: "Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and Solar Orbiter"
+authors:
+  - "N. Sioulas"
+  - "Z. Huang"
+  - "M. Velli"
+  - "R. Chhiber"
+  - "M. M. Cuesta"
+  - "C. Shi"
+  - "W. H. Matthaeus"
+  - "R. Bandyopadhyay"
+year: 2022
+journal: "The Astrophysical Journal"
+doi: "10.3847/1538-4357/ac7aa2"
+arxiv: null
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN, multiple encounters"
+  - "Solar Orbiter MAG L2"
+  - "(optional) PSP / SO ion moments for Alfvenicity covariate"
+methods:
+  - partial-variance-of-increments
+  - higher-order-structure-functions
+  - kurtosis-scaling
+  - cross-spacecraft-radial-comparison
+validation_targets:
+  - "Kurtosis-scaling exponent kappa larger at smaller heliocentric distance (intermittency increases toward the Sun) - qualitative"
+  - "PVI PDF tails fatter at PSP perihelion than at SO ~0.8 au (qualitative)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.5"
+  - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #5)"

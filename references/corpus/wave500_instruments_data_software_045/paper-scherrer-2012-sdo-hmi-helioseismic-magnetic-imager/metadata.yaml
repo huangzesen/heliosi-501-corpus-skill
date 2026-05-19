@@ -1,0 +1,30 @@
+slug: paper-scherrer-2012-sdo-hmi-helioseismic-magnetic-imager
+title: The Helioseismic and Magnetic Imager (HMI) Investigation for the Solar Dynamics Observatory
+authors:
+  - "Scherrer, P. H."
+year: 2012
+journal: Solar Physics
+doi: 10.1007/s11207-011-9834-2
+arxiv: null
+ads_bibcode: null
+theme: instrument-sdo-hmi
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SDO/HMI LOS magnetogram L1.5 (45 s)
+  - SDO/HMI vector magnetogram L2 (12 min)
+  - SDO/HMI synoptic map (hmi.synoptic_*) synoptic (Carrington rotation)
+  - SDO/HMI SHARP cutouts derived (12 min)
+methods:
+  - VFISV Milne-Eddington vector inversion
+  - 180° azimuth disambiguation (minimum-energy)
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1007/s11207-011-9834-2
+  data_repo: http://jsoc.stanford.edu/
+weak_entries:
+  []

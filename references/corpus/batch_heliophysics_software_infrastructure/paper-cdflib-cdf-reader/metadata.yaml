@@ -1,0 +1,32 @@
+slug: paper-cdflib-cdf-reader
+title: "cdflib: a pure-Python CDF reader/writer"
+authors:
+  - MAVENSDC contributors (TODO enumerate from repo)
+year: 2018
+journal: software package (no dedicated paper located in local inventory)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: heliophysics-cdf-pure-python-reader
+source_type: software-package
+quality_level: method-ready
+executable_status: pipeline-specified-not-yet-benchmarked
+required_data: []
+methods:
+  - CDF v3 reader (cdflib.CDF)
+  - Epoch conversion (CDF_EPOCH / CDF_EPOCH16 / CDF_TIME_TT2000)
+  - CDF writer (cdflib.cdfwrite)
+validation_targets:
+  - Open known PSP/Wind CDF and enumerate variables
+  - Epoch conversion matches expected ISO timestamps
+  - Round-trip read/write/read on synthetic CDF
+source_inventory:
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (cdflib entry)
+  - .library/custom/heliophysics-skills/reference/databases.md (cdflib usage pattern)
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (implied cdflib mention)
+links:
+  code_repo: https://github.com/MAVENSDC/cdflib
+weak_entries:
+  - No dedicated publication located in local inventory
+  - DOI / arXiv ID unknown locally
+  - Author / contributor list not enumerated

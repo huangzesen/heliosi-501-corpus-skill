@@ -1,0 +1,29 @@
+slug: paper-plasmapy-plasma-physics-python
+title: "PlasmaPy: an open-source Python package for plasma physics"
+authors:
+  - PlasmaPy contributors (TODO enumerate from repo)
+year: 2018
+journal: software package (no dedicated publication in local inventory)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: heliophysics-plasma-formulary-python
+source_type: software-package
+quality_level: stub-infrastructure
+executable_status: examples-only-not-yet-benchmarked
+required_data: []
+methods:
+  - Plasma formulary (plasmapy.formulary)
+  - Particle utilities (plasmapy.particles)
+  - Basic dispersion solvers (plasmapy.dispersion)
+validation_targets:
+  - Formulary values match analytic identities (gyrofrequency = qB/m)
+  - Two-fluid dispersion returns analytic Alfvén-wave root in the appropriate limit
+source_inventory:
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (PlasmaPy entry)
+links:
+  code_repo: https://github.com/PlasmaPy/PlasmaPy
+weak_entries:
+  - JOSS/companion paper not in local inventory
+  - DOI / arXiv ID unknown locally
+  - Author / contributor list not enumerated

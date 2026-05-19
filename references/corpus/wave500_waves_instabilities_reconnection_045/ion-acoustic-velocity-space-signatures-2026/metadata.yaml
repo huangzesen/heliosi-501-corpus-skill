@@ -1,0 +1,21 @@
+slug: ion-acoustic-velocity-space-signatures-2026
+title: >-
+  Velocity-Space Signatures of Energy Transfer for Ion-Acoustic Instabilities
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2601.08329"
+theme: ion-acoustic-velocity-space-signature
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - High-cadence VDF + E_∥
+methods:
+  - Field-particle correlation
+  - Energy-transfer integration
+validation_targets:
+  - FPC dipolar pattern recovered (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2601.08329

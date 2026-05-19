@@ -1,0 +1,27 @@
+slug: paper-sunraster-sunpy-affiliated-raster-spectra
+title: sunraster — Spectral raster handling for solar IFU/raster instruments
+authors:
+  - sunraster developers
+year: 2024
+journal: software package (SunPy affiliated; no dedicated paper in local inventory)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-sunraster
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - Hinode/EIS rasters L1 (raster-dependent)
+  - IRIS spectral rasters L2 (raster-dependent)
+  - Solar Orbiter/SPICE rasters L2 (campaign-dependent)
+methods:
+  - Raster N-D slicing with WCS preservation
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://github.com/sunpy/sunraster
+weak_entries:
+  - No standalone publication located; citation TODO

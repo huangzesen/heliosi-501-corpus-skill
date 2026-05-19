@@ -1,0 +1,28 @@
+slug: paper-case-2020-psp-sweap-spc-faraday-cup-data-product
+title: The Solar Probe Cup on the Parker Solar Probe
+authors:
+  - "Case, A. W."
+year: 2020
+journal: The Astrophysical Journal Supplement Series
+doi: 10.3847/1538-4365/ab5a7b
+arxiv: null
+ads_bibcode: null
+theme: data-product-psp-sweap-spc
+source_type: paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - PSP/SWEAP SPC L3 moments (0.2-1 s)
+  - PSP/SWEAP SPC I-V curves L2 (0.2-1 s)
+methods:
+  - Bimaxwellian Faraday-cup fit to I(V) sweep
+  - SPC quality-flag interpretation
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.3847/1538-4365/ab5a7b
+  data_repo: https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spc/
+weak_entries:
+  []

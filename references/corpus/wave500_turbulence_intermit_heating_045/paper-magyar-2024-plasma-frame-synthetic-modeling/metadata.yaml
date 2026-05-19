@@ -1,0 +1,31 @@
+slug: paper-magyar-2024-plasma-frame-synthetic-modeling
+title: "Solar wind data analysis aided by synthetic modeling: a better understanding of plasma-frame variations from temporal data"
+authors:
+  - "Norbert Magyar"
+  - "Jaye Verniero"
+  - "Adam Szabo"
+year: 2024
+journal: "TODO verify (arXiv:2405.12547)"
+doi: null
+arxiv: "2405.12547"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [plasma-frame, synthetic-modeling, Taylor-hypothesis]
+missions: [PSP]
+regime: [inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (TODO verify intervals)"
+  - "PSP/SWEAP SPC/SPAN-I L3 (Same)"
+methods:
+  - synthetic-model-overlay-on-single-spacecraft-time-series
+  - plasma-frame-variation-reconstruction
+  - taylor-hypothesis-comparison-baseline
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2405.12547v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

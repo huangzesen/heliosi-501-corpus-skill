@@ -1,0 +1,23 @@
+slug: whistler-young-solar-wind-statistics-2024
+title: >-
+  Whistler Waves in the Young Solar Wind: Statistics of Amplitude and Propagation Direction
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2408.00736"
+theme: whistler-statistics-young-solar-wind
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP FIELDS waveform / spectrum burst
+  - B-field background
+methods:
+  - SVD polarization analysis
+  - Amplitude-PDF estimation
+validation_targets:
+  - Amplitude PDF reproduced (TODO verify)
+  - Sunward/anti-sunward ratio vs r reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2408.00736

@@ -1,0 +1,38 @@
+slug: paper-majumder-2024-discoverybench-data-driven-discovery
+title: "DiscoveryBench: Towards Data-Driven Discovery with Large Language Models"
+authors:
+  - "Bodhisattwa Prasad Majumder"
+  - "TODO_verify_with_full_text"
+year: 2024
+journal: "arXiv preprint"
+doi: null
+arxiv: "2407.01725"
+theme: scientific-discovery-data-driven-benchmark
+category: benchmark
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Curated dataset + finding pairs"
+  - "Hypothesis-propose-test-refine evaluation loop"
+  - "Recovery-rate scoring"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[minimal_experiment] Convert HelioSI's cached scalograms + benchmark artifacts into a DiscoveryBench-style heliophysics benchmark; score whether agents recover Sioulas et al. findings."
+  - "[gap] DiscoveryBench has no heliophysics tasks; HelioSI can contribute the first heliophysics task pack."
+depends_on:
+  - paper-jansen-2024-discoveryworld-virtual-discovery-benchmark
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

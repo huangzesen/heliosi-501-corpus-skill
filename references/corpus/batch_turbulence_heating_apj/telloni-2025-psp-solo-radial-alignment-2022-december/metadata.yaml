@@ -1,0 +1,28 @@
+slug: telloni-2025-psp-solo-radial-alignment-2022-december
+title: "Evolution of Solar Wind Turbulence during Radial Alignment of Parker Solar Probe and Solar Orbiter in 2022 December"
+authors:
+  - "D. Telloni"
+year: 2025
+journal: "The Astrophysical Journal Supplement Series"
+doi: "10.3847/1538-4365/add011"
+arxiv: null
+theme: solar_orbiter
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 + SWEAP L3 (2022-12 conjunction window)"
+  - "Solar Orbiter MAG L2 + SWA/PAS L2 (2022-12 conjunction window)"
+methods:
+  - psp-solo-conjunction-identification
+  - ballistic-plasma-parcel-mapping
+  - structure-function-spectral-evolution
+  - cross-helicity-sigma-c-radial-trend
+validation_targets:
+  - "Matched PSP/SO windows recover spectral slope evolution and Delta sigma_c reported in paper"
+  - "Sign and qualitative magnitude match Telloni 2025 figure (TODO verify exact values)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.12"
+verification_flags:
+  - "arXiv ID TODO verify (DOI given; full author list TODO verify)."
+  - "Exact conjunction time window TODO verify in full paper."
+  - "Quantitative slope and sigma_c values TODO verify."

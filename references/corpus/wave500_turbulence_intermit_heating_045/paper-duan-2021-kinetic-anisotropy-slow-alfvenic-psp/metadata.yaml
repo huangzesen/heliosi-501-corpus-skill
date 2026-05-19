@@ -1,0 +1,32 @@
+slug: paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp
+title: "Anisotropy of Solar-Wind Turbulence in the Inner Heliosphere at Kinetic Scales: PSP Observations"
+authors:
+  - "Die Duan"
+  - "Jiansen He"
+  - "Trevor A. Bowen"
+  - "Lloyd D. Woodham"
+year: 2021
+journal: "TODO verify (arXiv:2102.13294)"
+doi: null
+arxiv: "2102.13294"
+primary_theme: turbulence
+secondary_themes: [anisotropy, kinetic-scale, KAW]
+missions: [PSP]
+regime: [inner-heliosphere, ion-scale, kinetic]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP FIELDS MAG L2 burst-mode"
+methods:
+  - wavelet-trace-component-spectra
+  - magnetic-compressibility-c-parallel
+  - angle-binned-sub-ion-spectral-index
+validation_targets:
+  - "Sub-ion perpendicular slope and C|| consistent with paper (numbers TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2021 item 5"
+verification_flags:
+  - "Specific PSP encounters analysed TODO verify."
+  - "Reported sub-ion spectral indices TODO verify."
+  - "Compressibility numerical tolerance TODO verify."
+  - "Publication venue/DOI TODO verify."

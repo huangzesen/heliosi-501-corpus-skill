@@ -1,0 +1,51 @@
+slug: pfss-test-problems-solar-stellar-magnetic-fields
+title: >-
+  Test Problems for Potential Field Source Surface Extrapolations of Solar
+  and Stellar Magnetic Fields
+authors:
+  - D. Stansby
+  - "+ co-authors (TODO verify full list)"
+year: 2022
+journal: "Solar Physics — TODO verify final venue"
+doi: TODO_verify_with_full_text
+arxiv: "2201.07783"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Analytic synoptic Br maps (paper-defined test inputs)
+  - Reference PFSS solutions (paper-defined or community baselines)
+methods:
+  - PFSS Laplace boundary-value problem (Altschuler–Newkirk 1969)
+  - Spherical harmonic decomposition of Br
+  - Source surface as outer boundary (Br_horizontal = 0)
+  - L_inf / L_2 error norms between numerical and analytic PFSS solutions
+  - Convergence-with-resolution and convergence-with-l_max tests
+validation_targets:
+  - Reproduce each paper-defined analytic test input
+  - Recover the analytic solution within the paper-stated L_2 / L_inf tolerance
+  - Match expected convergence orders for spherical harmonic and grid-based PFSS solvers
+trigger_keywords:
+  - PFSS
+  - potential field source surface
+  - test problem
+  - verification suite
+  - Altschuler-Newkirk
+  - Schatten
+  - solver benchmark
+  - stellar magnetic field
+  - synoptic magnetogram
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.1
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+  - .library/custom/nspf-fem/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.1
+  verified_by: null
+  verified_at: null

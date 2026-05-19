@@ -1,0 +1,49 @@
+slug: macneice-2024-fisk-heliospheric-field-source-mapping
+title: >-
+  Identifying Coronal Sources of L1 Solar Wind Disturbances Using the Fisk Heliospheric Magnetic Field and Potential Field Source Surface Model
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2024
+arxiv: "2404.11219"
+arxiv_date: "2024-04-17"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - heliospheric_field
+  - source_mapping
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - OMNI L1 disturbance catalog.
+  - Synoptic Br for the studied window.
+  - AIA-derived CH boundary maps.
+methods:
+  - Fisk field can be parameterized for the studied interval.
+  - PFSS provides the source-surface topology.
+  - L1 disturbance catalog is independent of mapping.
+validation_targets:
+  - Recover Fisk-vs-Parker comparison statistic.
+trigger_keywords:
+  - Fisk field
+  - back-mapping
+  - L1 disturbances
+  - PFSS
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - Fisk parameterization
+  - disturbance catalog
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

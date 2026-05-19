@@ -1,0 +1,22 @@
+slug: proton-alpha-aic-driven-instabilities-2023
+title: >-
+  Proton and Alpha Driven Instabilities in an Ion Cyclotron Wave Event
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2310.14136"
+theme: aic-proton-alpha-instability-event
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Event-level VDF for p and α
+  - Wave-spectrum + polarization
+methods:
+  - Event-level multi-species linear-Vlasov
+  - Polarization comparison
+validation_targets:
+  - γ_max joint vs single-species reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2310.14136

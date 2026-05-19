@@ -1,0 +1,34 @@
+slug: shoda-2021-turbulence-switchback-generation-alfvenic
+title: >-
+  Turbulent Generation of Magnetic Switchbacks in the Alfvénic Solar Wind
+authors:
+  - M. Shoda
+  - B. D. G. Chandran
+  - S. R. Cranmer
+year: 2021
+journal: The Astrophysical Journal
+volume: "915"
+article: "52"
+doi: "10.3847/1538-4357/abfdbc"
+arxiv: TODO_verify_with_full_text
+theme: heliophysics-switchback-generation-turbulence
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Coronal-hole background radial profile (U, V_A, expansion factor)
+  - Alfvén-wave injection power spectrum at inner boundary
+  - PSP FIELDS MAG L2 RTN (optional, for observational comparison)
+  - Switchback catalog with documented deflection threshold (optional)
+methods:
+  - 3D expanding-box compressible MHD
+  - Alfvén-wave forcing at inner boundary
+  - Deflection-angle-based switchback detection
+  - Spherical-polarisation diagnostic std(|B|)/mean(|B|)
+  - Sim-vs-PSP statistical comparison
+validation_targets:
+  - Switchback occurrence rate monotonic in radial distance (sign of trend)
+  - Deflection-angle PDF with heavy tail beyond 90°
+  - std(|B|)/mean(|B|) ≲ 0.1 inside switchback packets
+  - Resolution-sensitivity sweep documented
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.4

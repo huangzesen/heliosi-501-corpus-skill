@@ -1,0 +1,27 @@
+slug: paper-share-2026-sol2012-06-03-late-phase-gamma-shock
+title: "Evidence that SOL2012-06-03 Late Phase gamma-Rays are Produced by >300 MeV Protons from CME-Shock Acceleration of Suprathermals from the Flare"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2602.10284"
+theme: heliophysics-late-phase-gamma-shock-cme
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Fermi/LAT gamma-ray
+  - GOES SEM proton
+  - ACE/EPAM + Wind/3DP suprathermals
+methods:
+  - Gamma-ray light-curve + spectrum fit
+  - Proton-energy threshold inversion (≥300 MeV) from gamma-ray pion-decay component
+  - Seed-population test: suprathermal flare ions vs ambient solar wind
+  - Shock kinematics from coronagraph height-time
+validation_targets:
+  - Late-phase gamma-ray flux consistent with >300 MeV proton population accelerated at the CME shock with flare suprathermals as the seed (specific numerics TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.10284

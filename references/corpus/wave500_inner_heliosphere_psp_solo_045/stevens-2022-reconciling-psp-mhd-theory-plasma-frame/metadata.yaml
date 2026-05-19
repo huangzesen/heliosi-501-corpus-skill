@@ -1,0 +1,42 @@
+slug: stevens-2022-reconciling-psp-mhd-theory-plasma-frame
+title: >-
+  Reconciling Parker Solar Probe Observations and Magnetohydrodynamic Theory
+authors:
+  - M. L. Stevens
+  - TODO verify
+year: 2022
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2206.11514"
+theme: psp-mhd-theory-reconciliation-plasma-frame
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - plasma-frame fluctuation amplitude
+  - MHD theory comparison
+  - inertial-range slope
+  - PSP reconciliation
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst
+    interval: PSP near-Sun intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3 moments
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Plasma-frame Doppler correction
+  - name: Local-mean-field-frame inertial-range slope fit
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.2

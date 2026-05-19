@@ -1,0 +1,42 @@
+slug: paper-coronal-hole-boundary-detection-suvi-segmentation
+title: "Coronal-Hole Boundary Detection from EUV Imagery (SUVI / AIA)"
+authors:
+  - "TODO verify (canonical: SPoCA / CHIMERA / Reiss et al. 2015)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - coronal_holes
+  - segmentation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - SUVI / AIA EUV imagery (193/195 Å)
+methods:
+  - Threshold + watershed segmentation
+  - Limb-darkening correction
+  - Temporal boundary smoothing
+validation_targets:
+  - IoU ≥ 0.6 vs reference catalog (TODO verify)
+trigger_keywords:
+  - coronal hole boundary
+  - CH segmentation
+  - SPoCA CHIMERA
+  - EUV CH mask
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

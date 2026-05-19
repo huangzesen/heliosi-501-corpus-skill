@@ -1,0 +1,27 @@
+slug: paper-zhang-2025-2024-09-09-backside-eruption-sgre
+title: "Multispacecraft Observations of the 2024 September 9 Backside Solar Eruption that Resulted in a Sustained Gamma Ray Emission Event"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2503.23852"
+theme: heliophysics-backside-eruption-sustained-gamma-ray-2024-09-09
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Fermi/LAT gamma-ray
+  - STEREO-A SECCHI + Solar Orbiter EUI/Metis
+  - PSP/IS☉IS EPI-Hi
+methods:
+  - Sustained gamma-ray light-curve segmentation
+  - Backside source identification via heliographic coordinates
+  - Shock kinematics + connectivity to Fermi-LOS
+  - Cross-mission timeline alignment
+validation_targets:
+  - Gamma-ray flux profile, time-integrated fluence; behind-limb source confirmation (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2503.23852

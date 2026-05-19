@@ -1,0 +1,30 @@
+slug: zhao-2022-3d-anisotropy-kinetic-scales-psp
+title: "Three-Dimensional Anisotropy and Scaling Properties of Solar Wind Turbulence at Kinetic Scales in the Inner Heliosphere: Parker Solar Probe Observations"
+authors:
+  - "L.-L. Zhao"
+  - "G. P. Zank"
+  - "L. Adhikari"
+year: 2022
+journal: "The Astrophysical Journal Letters"
+doi: "10.3847/2041-8213/ac4415"
+ads_bibcode: "2022ApJ...924L..21Z"
+arxiv: null
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN (survey + burst-mode where available)"
+  - "PSP SWEAP/SPC or SPAN-I L3 plasma moments"
+methods:
+  - scale-dependent-local-mean-field
+  - three-axis-local-frame-decomposition-parallel-perpendicular-displacement
+  - second-order-structure-functions
+  - kinetic-range-slope-fitting
+validation_targets:
+  - "Per-axis sub-ion-range slopes (alpha_parallel, alpha_disp, alpha_perp) are direction-dependent in PSP FIELDS data"
+  - "Qualitative ordering of slopes matches paper figure (TODO verify exact numerical ordering)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.3"
+verification_flags:
+  - "No arXiv ID in inventory; verify against ADS 2022ApJ...924L..21Z."
+  - "Per-axis numerical exponents and encounter list TODO verify in full paper."

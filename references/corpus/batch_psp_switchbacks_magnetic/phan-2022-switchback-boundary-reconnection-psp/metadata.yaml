@@ -1,0 +1,36 @@
+slug: phan-2022-switchback-boundary-reconnection-psp
+title: >-
+  Direct Evidence for Magnetic Reconnection at the Boundaries of Magnetic
+  Switchbacks with Parker Solar Probe
+authors:
+  - T. D. Phan
+  - B. Lavraud
+  - J. S. Halekas
+  - M. Zhang
+  - S. D. Bale
+  - J. C. Kasper
+  - "+ co-authors (TODO verify full list)"
+year: 2022
+journal: The Astrophysical Journal
+doi: TODO_verify_with_full_text
+arxiv: "2101.06279"
+theme: heliophysics-psp-switchback-boundary-reconnection
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN (high cadence)
+  - PSP SWEAP bulk velocity and proton density
+  - Switchback event catalog with boundary timestamps
+methods:
+  - Boundary-crossing localization
+  - Upstream-reference jump computation
+  - Walén relation linear regression
+  - Single-event reconnection-exhaust verdict
+  - Aggregate event-list comparison
+validation_targets:
+  - Walén slope ≈ ±1 with high correlation on at least one paper event (TODO verify)
+  - Alfvénic outflow sign agreement with paper
+  - Reconnection-exhaust classification recall ≥ 80% on paper events (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.10
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.1

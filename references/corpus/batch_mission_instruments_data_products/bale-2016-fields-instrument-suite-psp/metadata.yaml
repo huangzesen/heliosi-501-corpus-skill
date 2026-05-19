@@ -1,0 +1,45 @@
+slug: bale-2016-fields-instrument-suite-psp
+title: >-
+  The FIELDS Instrument Suite for Solar Probe Plus: Measuring the Coronal
+  Plasma and Magnetic Field, Plasma Waves and Turbulence, and Radio Signatures
+  of Solar Transients
+authors:
+  - S. D. Bale
+  - K. Goetz
+  - P. R. Harvey
+  - P. Turin
+  - J. W. Bonnell
+  - T. Dudok de Wit
+  - R. E. Ergun
+  - R. J. MacDowall
+  - M. Pulupa
+  - "+ co-authors (TODO verify full list with primary source)"
+year: 2016
+journal: Space Science Reviews (Parker Solar Probe special issue)
+doi: "10.1007/s11214-016-0244-5 — TODO_verify_with_full_text"
+arxiv: not-in-local-inventory
+theme: mission-instrumentation-psp-fields
+quality_level: paper-grounded-pending-full-text
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP/FIELDS MAG L2 (RTN; ~4 Sa/cyc default)
+  - PSP/FIELDS SCM L2 (boom-tip search-coil)
+  - PSP/FIELDS DFB L2 (electric-field spectra and bursts)
+  - PSP/FIELDS RFS L2 (radio spectrometer)
+  - PSP/FIELDS V1–V5 antenna voltages (L1/L2)
+methods:
+  - Sensor selection by physics question
+  - Level / cadence / frame contract construction
+  - Encounter / interval resolution against PSP ephemeris
+  - Caveat propagation (spin tone, shadow geometry, gain switches, SCM rolloff)
+validation_targets:
+  - Contract JSON validates against CDF headers fetched from SPDF (TODO with full text)
+  - Frame conversion SC→RTN matches metadata-declared frame on a sample interval
+source_inventory:
+  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "project-knowledge:Bale-et-al-2016-FIELDS-instrument; not-in-local-inventory"
+  verified_by: null
+  verified_at: null

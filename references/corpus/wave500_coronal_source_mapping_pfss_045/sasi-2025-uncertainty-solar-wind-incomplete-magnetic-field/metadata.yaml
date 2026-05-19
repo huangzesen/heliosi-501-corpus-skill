@@ -1,0 +1,47 @@
+slug: sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field
+title: >-
+  Quantifying Uncertainties in Solar Wind Forecasting Due to Incomplete Solar Magnetic Field Information
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2504.19534"
+arxiv_date: "2025-04-28"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - forecasting
+  - uncertainty_quantification
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Multiple synoptic Br products + AI-farside ensembles.
+  - L1 vsw + |B| ground truth.
+methods:
+  - Ensemble of magnetogram completions is representative.
+  - Forecast error is decomposable into PFSS + kernel + ensemble terms.
+validation_targets:
+  - Reproduce the cycle-phase-dependent attribution.
+trigger_keywords:
+  - forecast uncertainty
+  - polar gap
+  - AI farside
+  - ensemble PFSS
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - ensemble size
+  - AI-farside model
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

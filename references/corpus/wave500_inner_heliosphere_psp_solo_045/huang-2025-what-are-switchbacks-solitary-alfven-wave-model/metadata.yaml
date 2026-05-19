@@ -1,0 +1,48 @@
+slug: huang-2025-what-are-switchbacks-solitary-alfven-wave-model
+title: >-
+  What are Switchbacks?
+authors:
+  - Z. Huang
+  - M. Velli
+  - Y. Ding
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2512.12585"
+theme: psp-switchback-solitary-alfven-wave-model
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+  - super-Alfvenic
+trigger_keywords:
+  - switchback
+  - solitary Alfvén wave
+  - constant |B|
+  - rotational discontinuity
+  - open field line twisting
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz or higher
+    interval: PSP encounters with switchback patches
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPC/SPAN-I
+    level: L3
+    cadence: moments
+    interval: matching encounters
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: 3D solitary Alfvén wave construction with embedded RDs
+    equation_refs: ["Sec. 2–3"]
+  - name: 1D virtual spacecraft sampling of curved open field
+    equation_refs: ["Sec. 4"]
+  - name: Constant-|B| validation of synthetic time series
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §6

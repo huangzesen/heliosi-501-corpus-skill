@@ -1,0 +1,55 @@
+slug: mostl-2025-icme-magnetic-field-evolution-0p07-5p4-au
+title: >-
+  On the magnetic field evolution of interplanetary coronal mass ejections from 0.07 to 5.4 au
+authors:
+  - C. Möstl
+  - E. E. Davies
+  - E. Weiler
+  - U. V. Amerstorfer
+  - A. J. Weiss
+  - H. T. Rüdisser
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2512.04730"
+theme: icme-magnetic-evolution-multi-mission
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+  - Solar Orbiter
+  - Wind
+  - ACE
+  - MESSENGER
+  - STEREO
+regime:
+  - inner-heliosphere
+  - 1au
+  - outer-heliosphere
+trigger_keywords:
+  - ICME catalog
+  - magnetic obstacle
+  - radial evolution
+  - multi-mission
+  - magnetic cloud
+  - 0.07 au
+  - 5.4 au
+data_products:
+  - instrument: Multi-mission ICME catalogs (Möstl, Richardson–Cane, etc.)
+    level: derived
+    cadence: null
+    interval: 1990–2025
+    archive: Möstl ICMECAT, HELIO archives
+  - instrument: Mission MAG L2 products (PSP, SolO, Wind, ACE, STEREO, etc.)
+    level: L2
+    cadence: varies
+    interval: 1990–2025
+    archive: SPDF/CDAWeb / SOAR / Möstl ICMECAT
+algorithms:
+  - name: Magnetic-obstacle boundary identification
+  - name: Power-law radial scaling fit (peak |B|, duration vs r)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §8

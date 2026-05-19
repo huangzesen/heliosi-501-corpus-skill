@@ -1,0 +1,32 @@
+slug: paper-adhikari-2025-trans-alfvenic-turbulence
+title: "Characterization of the Trans-Alfvénic Region Using Observations from Parker Solar Probe"
+authors:
+  - "Subash Adhikari"
+  - "Riddhi Bandyopadhyay"
+  - "Joshua Goodwill"
+year: 2025
+journal: "TODO verify (arXiv:2510.07472)"
+doi: null
+arxiv: "2510.07472"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [sub-alfvenic, anisotropy, switchbacks]
+missions: [PSP]
+regime: [sub-Alfvenic, super-Alfvenic, inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (PSP E8-E19)"
+  - "PSP/SWEAP SPC/SPAN-I L3 (Same)"
+methods:
+  - sub-super-alfvenic-interval-selection-by-mach-number
+  - normalised-magnetic-fluctuation-amplitude-statistics
+  - anisotropy-diagnostics-per-direction-structure-function-or-spectrum
+  - switchback-deflection-angle-catalogue-cross-match
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 item 6"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

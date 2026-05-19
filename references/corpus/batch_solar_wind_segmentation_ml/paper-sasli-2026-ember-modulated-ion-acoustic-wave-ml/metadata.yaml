@@ -1,0 +1,40 @@
+slug: paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml
+title: "EMBER: Machine-Learning Detection of Modulated Ion Acoustic Waves and Associated Core-Electron Heating in the Solar Wind with Parker Solar Probe"
+authors:
+  - "Argyro Sasli"
+  - "Karish Seebaluck"
+  - "Chris Colpitts"
+year: 2026
+journal: "TODO verify (preprint arXiv:2605.00162)"
+doi: null
+arxiv: "2605.00162"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, waves-instabilities, psp_data, electron-heating]
+missions: [PSP]
+regime: ["inner-heliosphere", "kinetic", "electron-scale"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS DFB/TDS burst-mode E-field waveforms (L2)"
+  - "PSP SWEAP/SPAN-e core-electron moments (T_e_core, anisotropy, q_e)"
+  - "PSP SWEAP/SPC + SPAN-i proton moments (n_p, V_RTN, T_p)"
+  - "Auxiliary FIELDS MAG L2 for context"
+methods:
+  - waveform-window-labeling
+  - spectrogram-or-raw-waveform-representation
+  - supervised-ml-event-detector
+  - event-level-train-test-split
+  - mIAW-electron-heating-association-statistics
+validation_targets:
+  - "Recall ~93% on held-out PSP burst-mode test set (TODO verify exact metric)"
+  - "Statistically significant anomalous core-electron heating in mIAW-positive windows"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 entry #4"
+verification_flags:
+  - "Publication venue TODO verify."
+  - "Model architecture (CNN / transformer / other) TODO verify."
+  - "Training-set definition + label rule (modulation criterion) TODO verify."
+  - "Exact metric reported as 93% (recall vs accuracy vs F1) TODO verify."
+  - "Encounter list and TDS / DFB burst-capture source TODO verify."
+  - "SPAN-e T_e calibration version TODO verify."

@@ -1,0 +1,22 @@
+slug: ion-driven-instabilities-classification-2023
+title: >-
+  Ion-Driven Instabilities in the Inner Heliosphere II: Classification and Multi-Dimensional Stability
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2306.06060"
+theme: ion-instabilities-classification-stability-map
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Multi-species linear-Vlasov solver
+  - In-situ VDF data
+methods:
+  - Linear-Vlasov dispersion scan
+  - γ_max-based classification
+validation_targets:
+  - Per-event classification reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2306.06060

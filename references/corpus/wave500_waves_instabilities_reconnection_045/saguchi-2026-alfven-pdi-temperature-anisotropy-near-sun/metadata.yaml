@@ -1,0 +1,30 @@
+slug: saguchi-2026-alfven-pdi-temperature-anisotropy-near-sun
+title: >-
+  Radial Evolution of Alfvén Wave Parametric Decay Instability in the near-Sun Solar Wind: Effects of Temperature Anisotropy
+authors:
+  - H. Saguchi
+  - Y. Kawazura
+  - M. Shoda
+  - Y. Katoh
+year: 2026
+journal: ApJ (TODO verify venue)
+doi: TODO_verify_with_full_text
+arxiv: "2604.22489"
+theme: alfven-wave-parametric-decay-instability
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Expanding-background profile for (B_0,n_0,T_∥,T_⊥)
+  - CGL linear dispersion solver
+  - Parent Alfvén-wave amplitude and frequency
+methods:
+  - CGL linear-dispersion solution for PDI
+  - Sideband growth-rate maximization over k‖a_0
+  - Comparison against isotropic MHD reference
+  - Sensitivity sweep over (β_∥, ξ, a_0, profile)
+validation_targets:
+  - γ_max(R) enhancement ≈ 1.5 for T_⊥>T_∥ at β≲0.1 (TODO verify exact)
+  - Sign reversal of anisotropy effect at high β reproduced
+  - γ_max recovered against published curves to ≤10% (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2604.22489

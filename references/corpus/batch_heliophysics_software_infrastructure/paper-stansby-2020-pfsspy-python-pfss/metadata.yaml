@@ -1,0 +1,38 @@
+slug: paper-stansby-2020-pfsspy-python-pfss
+title: >-
+  pfsspy: a Python package for Potential Field Source Surface extrapolations
+  (with companion test-problem paper Stansby et al. 2022)
+authors:
+  - "Stansby, D."
+  - "+ pfsspy contributors (TODO verify full list)"
+year: 2020
+journal: software package (JOSS / sunpy affiliated); companion arXiv 2201.07783 (2022)
+doi: null
+arxiv: "2201.07783"
+ads_bibcode: null
+theme: heliophysics-pfss-python-solver
+source_type: software-package
+quality_level: method-ready
+executable_status: pipeline-specified-runnable-from-cached-magnetogram
+required_data:
+  - SDO/HMI synoptic radial magnetograms (JSOC)
+  - GONG synoptic radial magnetograms (NSO/GONG)
+methods:
+  - Spherical-harmonic PFSS solver
+  - Open/closed field-line classification
+  - Field-line tracer (Fortran or pure-Python backend)
+validation_targets:
+  - pfsspy reproduces dipole/multipole analytic PFSS test problems within tolerance (Stansby 2022)
+  - Open/closed footpoint map for a known Carrington rotation
+source_inventory:
+  - .library/custom/heliophysics-skills/sub-skills/pfss-modeling.md
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (pfsspy entry)
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.1 (Stansby 2022 test problems)
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (pfsspy entry)
+links:
+  arxiv_url: https://arxiv.org/abs/2201.07783
+  code_repo: https://github.com/sunpy/pfsspy
+weak_entries:
+  - Original pfsspy JOSS DOI not in local inventory
+  - Stansby 2022 exact numerical tolerance not in local source (abstract-only)
+  - Full author list for both refs not enumerated locally

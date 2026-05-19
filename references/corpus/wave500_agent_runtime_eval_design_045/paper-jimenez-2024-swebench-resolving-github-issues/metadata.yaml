@@ -1,0 +1,43 @@
+slug: paper-jimenez-2024-swebench-resolving-github-issues
+title: "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+authors:
+  - "Carlos E. Jimenez"
+  - "John Yang"
+  - "Alexander Wettig"
+  - "Shunyu Yao"
+  - "Kexin Pei"
+  - "Ofir Press"
+  - "Karthik Narasimhan"
+year: 2024
+journal: "arXiv preprint / ICLR 2024"
+doi: null
+arxiv: "2310.06770"
+theme: agent-runtime-real-world-engineering-benchmark
+category: benchmark
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Real-issue + PR scraping"
+  - "Test-passing scoring"
+  - "Repo-context evaluation harness"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] A 'HeliSWE-bench' could be constructed from real issues in sunpy / pfsspy / pyspedas / spacepy / sw-scanner repos. HelioSI's executable contracts give an alternative scoring axis beyond test-passing."
+  - "[minimal_experiment] Scrape 10 closed sunpy issues with PR + test diff; benchmark HelioSI agent's patch generation against a tool-free LLM on test-passing rate."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

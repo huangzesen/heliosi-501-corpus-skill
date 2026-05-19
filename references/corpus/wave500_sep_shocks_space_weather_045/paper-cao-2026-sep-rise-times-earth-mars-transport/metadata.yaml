@@ -1,0 +1,32 @@
+slug: paper-cao-2026-sep-rise-times-earth-mars-transport
+title: "Statistical analysis of solar energetic particle rise times using Earth and Mars observations and constraints on particle transport parameters"
+authors:
+  - "Cao, Y."
+  - "Guo, J."
+  - "Wang, Y."
+  - "Zou, Z."
+  - "Zhang, Y."
+  - "Li, C."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2605.01437"
+theme: heliophysics-sep-rise-time-transport-earth-mars
+category: primary-observation-statistical
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SOHO/ERNE
+  - Tianwen-1/MEPA
+methods:
+  - Onset-time linear fit (per energy channel)
+  - Peak-time sliding median + Savitzky–Golay smoothing
+  - Rise-time = peak − onset extraction
+  - Power-law fit of rise time vs energy
+  - Rigidity-dependence inversion under parallel-diffusion model
+validation_targets:
+  - Power-law exponent of rise time vs energy at Earth and Mars; flatter exponent at Mars; rigidity-independence trend at Mars (signs/order of magnitude per abstract; numeric TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2605.01437

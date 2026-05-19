@@ -1,0 +1,24 @@
+slug: paper-chen-2024-energetic-particles-quasi-separatrix-layers
+title: "Energetic Particles from Quasi-Separatrix Layers and Current Sheets at the Sun"
+authors:
+  - "TODO verify"
+year: 2024
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2410.07420"
+theme: heliophysics-energetic-particles-qsl-current-sheets
+category: primary-simulation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  # theory-only
+methods:
+  - QSL identification in coronal field
+  - Test-particle acceleration along QSL
+  - Spectrum + composition signatures
+validation_targets:
+  - Predicted spectrum / composition vs impulsive-event observations (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.07420

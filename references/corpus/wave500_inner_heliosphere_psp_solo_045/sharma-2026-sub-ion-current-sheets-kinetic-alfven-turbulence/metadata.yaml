@@ -1,0 +1,36 @@
+slug: sharma-2026-sub-ion-current-sheets-kinetic-alfven-turbulence
+title: >-
+  Sub-ion scale current sheets in kinetic Alfvén wave turbulence
+authors:
+  - J. Sharma
+  - C. A. Kumar
+  - K. D. Makwana
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2601.18131"
+theme: kaw-turbulence-sub-ion-current-sheets
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - kinetic
+  - electron-scale
+trigger_keywords:
+  - kinetic Alfvén wave
+  - sub-ion current sheet
+  - PIC simulation
+  - intermittent dissipation
+  - electron-scale
+data_products: []
+algorithms:
+  - name: Particle-in-cell simulation of KAW turbulence
+  - name: Current-sheet identification at sub-ion scales
+  - name: PVI/coherent-structure statistics in synthetic data
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §3

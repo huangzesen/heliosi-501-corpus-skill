@@ -1,0 +1,29 @@
+slug: mcmurdo-2025-uniturbulence-kink-wave-heating-amrvac
+title: >-
+  Uniturbulence and Alfvén Wave Solar Model in MPI-AMRVAC
+authors:
+  - M. McMurdo
+  - T. Van Doorsselaere
+  - N. Magyar
+  - L. Banovic
+  - D. Lim
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2510.27553"
+theme: kink-wave-driven-heating-uniturbulence
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - MHD code with multi-wave energy equations
+  - Radiative-cooling module
+  - Photospheric wave-injection boundary condition
+methods:
+  - Multi-wave MHD with kink + Alfvén energy budgets
+  - Reflection-rate parameter sweep
+  - Self-sustained coronal-atmosphere benchmark
+validation_targets:
+  - Self-sustained coronal atmosphere with UAWSoM kink-driving (TODO verify T,n)
+  - Python-vs-AMRVAC agreement within stated tolerance
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2510.27553

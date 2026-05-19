@@ -1,0 +1,24 @@
+slug: paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope
+title: "Cross-Field Diffusion Effects on Particle Transport in a Solar Coronal Flux Rope"
+authors:
+  - "TODO verify"
+year: 2024
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2411.00738"
+theme: heliophysics-cross-field-diffusion-coronal-flux-rope
+category: primary-simulation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  # theory-only
+methods:
+  - Flux-rope-geometry test-particle / Fokker-Planck solver
+  - Cross-field diffusion coefficient parametrization
+  - Comparison of intensity-vs-time across field lines
+validation_targets:
+  - Cross-field spread vs κ_perp / κ_par scaling (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2411.00738

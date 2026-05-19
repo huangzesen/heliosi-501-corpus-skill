@@ -1,0 +1,24 @@
+slug: paper-niemiec-2025-numerical-superdiffusive-particle-acceleration
+title: "Numerical investigation of particle acceleration at interplanetary shocks: diffusive and superdiffusive scenarios"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.14819"
+theme: heliophysics-ip-shock-particle-acceleration-diffusive-superdiffusive
+category: primary-simulation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  # theory-only
+methods:
+  - Standard DSA Fokker-Planck solver
+  - Superdiffusive / fractional transport solver
+  - Diagnostics that distinguish the two regimes
+validation_targets:
+  - Numerical-experiment intensity / spectrum signatures distinguishing scenarios (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.14819

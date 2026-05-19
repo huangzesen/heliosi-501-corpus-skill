@@ -1,0 +1,34 @@
+slug: paper-shankarappa-2025-ion-scale-waves-free-energy-survey
+title: "Free Energy Sources of Ion-scale Waves Observed by Parker Solar Probe"
+authors:
+  - "Niranjana Shankarappa"
+  - "Kristopher G. Klein"
+  - "Mihailo M. Martinović"
+  - "Trevor A. Bowen"
+  - "Davin E. Larson"
+  - "Roberto Livi"
+year: 2025
+journal: "TODO verify (arXiv:2512.11182)"
+doi: null
+arxiv: "2512.11182"
+ads_bibcode: null
+primary_theme: waves_instabilities
+secondary_themes: [ion-scale-waves, free-energy, turbulence, heating]
+missions: [PSP]
+regime: [inner-heliosphere, ion-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (Mission-wide PSP)"
+  - "PSP/SWEAP SPAN-I L3 (Same)"
+methods:
+  - mission-wide-psp-ion-scale-wave-identification
+  - per-wave-type-free-energy-source-attribution-using-span-i-vdfs
+  - radial-distance-occurrence-rate
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md item 7"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

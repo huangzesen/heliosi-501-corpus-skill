@@ -1,0 +1,45 @@
+slug: paper-mas-mhd-global-coronal-thermodynamic-model
+title: "MAS Thermodynamic Global Coronal MHD Model"
+authors:
+  - "Mikić, Z."
+  - "Lionello, R."
+  - "+ co-authors (TODO verify)"
+year: 2009
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - coronal_mhd
+  - thermodynamic_model
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Synoptic Br
+  - White-light / EUV observables (eclipse, LASCO, AIA)
+methods:
+  - Resistive MHD + thermal conduction + radiative losses
+  - Empirical or wave heating
+  - White-light / EUV synthesis
+validation_targets:
+  - Eclipse-streamer agreement (TODO verify)
+trigger_keywords:
+  - MAS MHD
+  - PSI predictive science
+  - Mikic Lionello
+  - thermodynamic corona
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

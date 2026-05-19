@@ -1,0 +1,27 @@
+slug: paper-stoffel-2025-rerunaway-Forbush-cross-correlation
+title: "New insights from cross-correlation studies between solar activity indices and cosmic-ray flux during Forbush decrease events"
+authors:
+  - "Stoffel, T. (TODO verify list)"
+  - "et al."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.06383"
+theme: heliophysics-forbush-decrease-cross-correlation
+category: primary-observation-statistical
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - NMDB neutron monitor
+  - OMNI solar activity / geomagnetic indices
+methods:
+  - Forbush-decrease event identification (threshold on GCR flux deficit)
+  - Cross-correlation function: CR flux vs each index
+  - Lag-extremum tabulation per event class
+  - ICME-driven vs CIR-driven sub-classification
+validation_targets:
+  - Per-class lag distributions; statistically significant negative correlation peaks (TODO_verify numerical lag values from full text).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.06383

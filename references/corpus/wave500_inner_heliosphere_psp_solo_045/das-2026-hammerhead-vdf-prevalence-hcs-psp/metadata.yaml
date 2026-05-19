@@ -1,0 +1,45 @@
+slug: das-2026-hammerhead-vdf-prevalence-hcs-psp
+title: >-
+  Strong Prevalence of Hammerhead Velocity Distributions Close to the Heliospheric Current Sheet
+authors:
+  - S. B. Das
+  - J. L. Verniero
+  - S. T. Badman
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2603.11329"
+theme: psp-hammerhead-vdf-hcs
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: psp_data
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - ion-scale
+trigger_keywords:
+  - hammerhead VDF
+  - proton velocity distribution
+  - heliospheric current sheet
+  - PSP SPAN-I
+  - near-Sun
+data_products:
+  - instrument: PSP/SWEAP SPAN-I
+    level: L2/L3 VDF
+    cadence: ~7 s cadence (encounter mode)
+    interval: PSP E1–E20
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP E1–E20
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Hammerhead VDF shape classifier (anisotropy + secondary lobe geometry)
+  - name: HCS-adjacent interval definition from polarity reversal in MAG
+  - name: Conditional prevalence statistics
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §5

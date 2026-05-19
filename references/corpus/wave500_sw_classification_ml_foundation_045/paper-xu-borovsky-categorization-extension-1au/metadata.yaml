@@ -1,0 +1,45 @@
+slug: paper-xu-borovsky-categorization-extension-1au
+title: "Extension and operational refinement of the Xu–Borovsky 4-class 1-au solar-wind labelling"
+kind: paper-skill
+quality: stub
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: false
+  adapter_binding_examples: false
+  research_generation_affordance: false
+authors:
+  - "TODO verify (Xu / Borovsky collaboration)"
+year: 2020
+venue: "TODO verify (likely J. Geophys. Res. Space Phys.)"
+doi: null
+arxiv: null
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: ["machine-learning", "labelling-rules", "1au"]
+missions: ["ACE", "Wind", "OMNI"]
+regime: []
+quality_level: stub
+executable_status: stub
+required_data:
+  - "TODO verify — abstract data products to be defined at method-ready promotion."
+methods:
+  - "TODO verify — algorithm names + abstract procedures from the primary source."
+validation_targets:
+  - "TODO verify — replace with `validation_target.metric` + tolerance from the primary source."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json"
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md"
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md"
+  - "sioulas-reproduction/results/arxiv_papers/all_papers_index.json"
+verification_flags:
+  - "Primary citation (venue, DOI, author list) TODO verify against the source PDF / arXiv landing page."
+  - "Numerical metrics quoted in the description / claim are stub-level paraphrases of the abstract or extended-search snippet; do NOT treat as benchmarked."
+  - "Skill must remain harness-agnostic at promotion — bindings to specific runtimes / MCPs go in `adapter_notes` only."
+depends_on:
+  - paper-camporeale-2017-knn-solar-wind-categorization
+tags:
+  - heliophysics
+  - paper-skill
+  - solar-wind-classification
+  - stub

@@ -1,0 +1,44 @@
+slug: paper-son-2025-spot-benchmark-verification-scientific
+title: "When AI Co-Scientists Fail: SPOT — a Benchmark for Automated Verification of Scientific Research"
+authors:
+  - "Guijin Son"
+  - "Jiwoo Hong"
+  - "Honglu Fan"
+  - "Heejeong Nam"
+  - "Hyunwoo Ko"
+  - "Seungwon Lim"
+year: 2025
+journal: "arXiv preprint"
+doi: null
+arxiv: "2505.11855"
+theme: scientific-discovery-verification-benchmark
+category: benchmark
+source_type: scientific-discovery-evaluation
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-protocol-template
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Curated error dataset (83 papers / 91 errors)"
+  - "Author + annotator cross-validation"
+  - "LLM verifier scoring (recall, precision)"
+  - "Error-type taxonomy"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[gap] No SPOT-equivalent exists for heliophysics. HelioSI could seed one from its paper-skill corpus's failure_modes + out_of_scope fields, plus retraction-watch entries in PSP/SO literature."
+  - "[minimal_experiment] Compile 10 known erratum-worthy claims in the existing heliophysics paper-skill corpus and benchmark HelioSI's verification recall/precision against the SPOT-style ceiling."
+  - "[hypothesis] Domain grounding (paper-skill claim_boundary as a verifier prior) raises the recall/precision ceiling vs. domain-agnostic LLM-as-judge."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

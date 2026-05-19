@@ -1,0 +1,46 @@
+slug: qrft-2025-quasi-radial-field-tracing-open-flux
+title: >-
+  The Quasi-Radial Field-Line Tracing (QRaFT): An Adaptive Segmentation of the Open-Flux Solar Corona
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2506.14894"
+arxiv_date: "2025-06-17"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - open_flux
+  - segmentation
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic Br for the relevant CR.
+  - EUV-CH ground truth.
+methods:
+  - Quasi-radial seeding is robust to small Br perturbations.
+  - Adaptive refinement converges to the open-closed boundary.
+validation_targets:
+  - Boundary IoU improvement at matched cost.
+trigger_keywords:
+  - QRaFT
+  - adaptive segmentation
+  - open flux
+  - field-line tracing
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - seeding-density convention
+  - comparison-cost matching
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

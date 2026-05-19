@@ -1,0 +1,373 @@
+{
+  "schema_version": "1.0",
+  "batch": "batch_heliophysics_software_infrastructure",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (HelioSI paper-to-skill factory, Opus 4.7)",
+  "harness_framing": "general-purpose harness; HelioSI = heliophysics domain instantiation; software/data-infrastructure skills are the root substrate every in-situ paper-skill depends on",
+  "compilation_framing": {
+    "model": "Each software package / software-paper / data archive is compiled into an Anthropic-style Skill loadable by the HelioSI runtime.",
+    "mapping": {
+      "apis_data_products": "MCP / tool contracts (§4 per SKILL.md)",
+      "documented_workflows": "executable workflows (§3 per SKILL.md)",
+      "maintainer_known_pitfalls": "skill memory (§6 failure_modes per SKILL.md)",
+      "test_problems_smoke_tests": "benchmark targets (§5 validation_target)",
+      "companion_publications": "bibliographic anchor (paper frontmatter)",
+      "ecosystem_contracts": "skill graph (depends_on / index)"
+    },
+    "source_type_taxonomy": {
+      "software-paper": "a paper that describes a software package",
+      "software-package": "a package without a single canonical paper in local inventory",
+      "data-archive": "service infrastructure with no software publication (sub-category of software-package)"
+    },
+    "anti_hallucination": "Every paper.* field comes from a single source listed in source_inventory; missing fields are null with weak_entries flagged rather than guessed."
+  },
+  "skills": [
+    {
+      "slug": "paper-sunpy-2023-interoperable-ecosystem",
+      "title": "The SunPy Project: An Interoperable Ecosystem for Solar Data Analysis",
+      "authors": ["The SunPy Community"],
+      "year": 2023,
+      "venue": "arXiv preprint (software/ecosystem paper)",
+      "doi": null,
+      "arxiv": "2304.09794",
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "heliophysics-data-infrastructure-python",
+      "quality_tier": "stub",
+      "executable_status": "contract-specified-not-yet-benchmarked",
+      "skill_md": "paper-sunpy-2023-interoperable-ecosystem/SKILL.md",
+      "metadata_yaml": "paper-sunpy-2023-interoperable-ecosystem/metadata.yaml",
+      "links": {
+        "arxiv_url": "https://arxiv.org/abs/2304.09794",
+        "code_repo": "https://github.com/sunpy/sunpy"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.6",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (sunpy entry)",
+        ".library/custom/heliophysics-skills/reference/databases.md (sunpy data-access pattern)"
+      ]
+    },
+    {
+      "slug": "paper-sunpy-2015-python-solar-physics",
+      "title": "SunPy — Python for Solar Physics",
+      "authors": ["SunPy Community"],
+      "year": 2015,
+      "venue": "arXiv preprint (Computational Science & Discovery, software paper)",
+      "doi": null,
+      "arxiv": "1505.02563",
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "heliophysics-data-infrastructure-python",
+      "quality_tier": "stub",
+      "executable_status": "historical-citation-only",
+      "skill_md": "paper-sunpy-2015-python-solar-physics/SKILL.md",
+      "metadata_yaml": "paper-sunpy-2015-python-solar-physics/metadata.yaml",
+      "links": {
+        "arxiv_url": "https://arxiv.org/abs/1505.02563",
+        "code_repo": "https://github.com/sunpy/sunpy"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.1",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.2-§7.5 (mirrors)"
+      ]
+    },
+    {
+      "slug": "paper-stansby-2020-pfsspy-python-pfss",
+      "title": "pfsspy: a Python package for Potential Field Source Surface extrapolations (with companion test-problem paper Stansby et al. 2022)",
+      "authors": ["Stansby, D.", "+ pfsspy contributors (TODO verify full list)"],
+      "year": 2020,
+      "venue": "software package (sunpy affiliated); companion arXiv 2201.07783 (2022)",
+      "doi": null,
+      "arxiv": "2201.07783",
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "heliophysics-pfss-python-solver",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-runnable-from-cached-magnetogram",
+      "skill_md": "paper-stansby-2020-pfsspy-python-pfss/SKILL.md",
+      "metadata_yaml": "paper-stansby-2020-pfsspy-python-pfss/metadata.yaml",
+      "links": {
+        "arxiv_url": "https://arxiv.org/abs/2201.07783",
+        "code_repo": "https://github.com/sunpy/pfsspy"
+      },
+      "source_inventory": [
+        ".library/custom/heliophysics-skills/sub-skills/pfss-modeling.md",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (pfsspy entry)",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.1",
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (pfsspy entry)"
+      ]
+    },
+    {
+      "slug": "paper-sunkit-magex-magnetic-field-extrapolation",
+      "title": "sunkit-magex: SunPy-affiliated magnetic-field extrapolation package",
+      "authors": ["sunkit-magex contributors (TODO enumerate from repo)"],
+      "year": 2023,
+      "venue": "software package (sunpy-affiliated); no standalone publication in local inventory",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "heliophysics-pfss-python-successor",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-not-yet-benchmarked",
+      "skill_md": "paper-sunkit-magex-magnetic-field-extrapolation/SKILL.md",
+      "metadata_yaml": "paper-sunkit-magex-magnetic-field-extrapolation/metadata.yaml",
+      "links": {
+        "code_repo": "https://github.com/sunpy/sunkit-magex"
+      },
+      "source_inventory": [
+        ".library/custom/heliophysics-skills/sub-skills/pfss-modeling.md (sunkit_magex SCS example)",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (sunkit-magex entry)",
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (sunkit-magex entry)"
+      ]
+    },
+    {
+      "slug": "paper-spacepy-2022-twelve-years",
+      "title": "The SpacePy space science package at 12 years",
+      "authors": ["Morley, S. K.", "+ SpacePy contributors (TODO verify full list)"],
+      "year": 2022,
+      "venue": "arXiv preprint (Frontiers in Astronomy and Space Sciences software paper)",
+      "doi": null,
+      "arxiv": "2208.10447",
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "heliophysics-space-physics-python-toolkit",
+      "quality_tier": "stub",
+      "executable_status": "pipeline-specified-not-yet-benchmarked",
+      "skill_md": "paper-spacepy-2022-twelve-years/SKILL.md",
+      "metadata_yaml": "paper-spacepy-2022-twelve-years/metadata.yaml",
+      "links": {
+        "arxiv_url": "https://arxiv.org/abs/2208.10447",
+        "code_repo": "https://github.com/spacepy/spacepy"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.8",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.10 (mirror)",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (spacepy entry)"
+      ]
+    },
+    {
+      "slug": "paper-pyspedas-multimission-data-access",
+      "title": "pySPEDAS: Python port of SPEDAS for multi-mission space-physics data",
+      "authors": ["pySPEDAS contributors (TODO enumerate from repo)"],
+      "year": 2022,
+      "venue": "software package (no dedicated paper located in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "heliophysics-multimission-data-loader",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-not-yet-benchmarked",
+      "skill_md": "paper-pyspedas-multimission-data-access/SKILL.md",
+      "metadata_yaml": "paper-pyspedas-multimission-data-access/metadata.yaml",
+      "links": {
+        "code_repo": "https://github.com/spedas/pyspedas"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7 summary (explicit gap noted)",
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (pyspedas entry)",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (pyspedas entry)"
+      ]
+    },
+    {
+      "slug": "paper-cdflib-cdf-reader",
+      "title": "cdflib: a pure-Python CDF reader/writer",
+      "authors": ["MAVENSDC contributors (TODO enumerate from repo)"],
+      "year": 2018,
+      "venue": "software package (no dedicated paper located in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "heliophysics-cdf-pure-python-reader",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-not-yet-benchmarked",
+      "skill_md": "paper-cdflib-cdf-reader/SKILL.md",
+      "metadata_yaml": "paper-cdflib-cdf-reader/metadata.yaml",
+      "links": {
+        "code_repo": "https://github.com/MAVENSDC/cdflib"
+      },
+      "source_inventory": [
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (cdflib entry)",
+        ".library/custom/heliophysics-skills/reference/databases.md (cdflib usage pattern)"
+      ]
+    },
+    {
+      "slug": "paper-gieseler-2022-solar-mach-magnetic-connection",
+      "title": "Solar-MACH: An open-source tool to analyze solar magnetic connection configurations",
+      "authors": ["Gieseler, J.", "+ Solar-MACH contributors (TODO verify full list)"],
+      "year": 2022,
+      "venue": "arXiv preprint / Frontiers in Astronomy and Space Sciences (companion software paper)",
+      "doi": null,
+      "arxiv": "2210.00819",
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "heliophysics-magnetic-connectivity-ballistic",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-runnable-from-spice",
+      "skill_md": "paper-gieseler-2022-solar-mach-magnetic-connection/SKILL.md",
+      "metadata_yaml": "paper-gieseler-2022-solar-mach-magnetic-connection/metadata.yaml",
+      "links": {
+        "arxiv_url": "https://arxiv.org/abs/2210.00819",
+        "code_repo": "https://github.com/sunpy/solar-mach"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.4",
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (Solar-MACH entry)",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (Solar-MACH)",
+        ".library/custom/heliophysics-skills/reference/databases.md (Solar-MACH visualization)"
+      ]
+    },
+    {
+      "slug": "paper-sioulas-sw-scanner-js-segmentation",
+      "title": "sw-scanner: solar-wind regime segmentation via Jensen-Shannon-divergence scalograms",
+      "authors": ["Sioulas, N.", "+ contributors (TODO verify full list)"],
+      "year": 2023,
+      "venue": "software package (companion to Sioulas et al. solar-wind segmentation papers)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "heliophysics-solar-wind-segmentation-js",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-runnable-from-pyspedas",
+      "skill_md": "paper-sioulas-sw-scanner-js-segmentation/SKILL.md",
+      "metadata_yaml": "paper-sioulas-sw-scanner-js-segmentation/metadata.yaml",
+      "links": {
+        "code_repo": "https://github.com/nicosioulas/sw-scanner"
+      },
+      "source_inventory": [
+        ".library/custom/heliophysics-skills/SKILL.md (segmentation row; sw-scanner)",
+        ".library/custom/heliophysics-skills/sub-skills/github-repos.md (sw-scanner entry)",
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (sw-scanner entry)"
+      ]
+    },
+    {
+      "slug": "paper-plasmapy-plasma-physics-python",
+      "title": "PlasmaPy: an open-source Python package for plasma physics",
+      "authors": ["PlasmaPy contributors (TODO enumerate from repo)"],
+      "year": 2018,
+      "venue": "software package (no dedicated publication in local inventory)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "theme": "heliophysics-plasma-formulary-python",
+      "quality_tier": "stub",
+      "executable_status": "examples-only-not-yet-benchmarked",
+      "skill_md": "paper-plasmapy-plasma-physics-python/SKILL.md",
+      "metadata_yaml": "paper-plasmapy-plasma-physics-python/metadata.yaml",
+      "links": {
+        "code_repo": "https://github.com/PlasmaPy/PlasmaPy"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (PlasmaPy entry)"
+      ]
+    },
+    {
+      "slug": "paper-bobra-2019-python-heliophysics-overview",
+      "title": "Snakes on a Spaceship — An Overview of Python in Heliophysics",
+      "authors": ["Bobra, M. G.", "+ co-authors (TODO verify full list)"],
+      "year": 2019,
+      "venue": "arXiv preprint (community overview)",
+      "doi": null,
+      "arxiv": "1901.00143",
+      "ads_bibcode": null,
+      "source_type": "software-paper",
+      "theme": "heliophysics-python-ecosystem-overview",
+      "quality_tier": "stub",
+      "executable_status": "ecosystem-diff-procedure-only",
+      "skill_md": "paper-bobra-2019-python-heliophysics-overview/SKILL.md",
+      "metadata_yaml": "paper-bobra-2019-python-heliophysics-overview/metadata.yaml",
+      "links": {
+        "arxiv_url": "https://arxiv.org/abs/1901.00143"
+      },
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §7.7"
+      ]
+    },
+    {
+      "slug": "paper-cdaweb-heliophysics-archive",
+      "title": "CDAWeb (Coordinated Data Analysis Web) / SPDF — NASA heliophysics data archive",
+      "authors": ["NASA SPDF team (data archive; no software publication)"],
+      "year": 1996,
+      "venue": "NASA data archive (cite as service, not publication)",
+      "doi": null,
+      "arxiv": null,
+      "ads_bibcode": null,
+      "source_type": "software-package",
+      "source_subtype": "data-archive",
+      "theme": "heliophysics-nasa-data-archive",
+      "quality_tier": "method-ready",
+      "executable_status": "pipeline-specified-runnable-from-cdas-or-hapi",
+      "skill_md": "paper-cdaweb-heliophysics-archive/SKILL.md",
+      "metadata_yaml": "paper-cdaweb-heliophysics-archive/metadata.yaml",
+      "links": {
+        "data_repo": "https://cdaweb.gsfc.nasa.gov"
+      },
+      "source_inventory": [
+        ".library/custom/heliophysics-skills/reference/databases.md (CDAWeb / SPDF / OMNI / PSP SOC / SOAR / VSO entries)",
+        ".library/custom/heliophysics-skills/SKILL.md (databases table)",
+        "sioulas-reproduction/results/github_repos/consolidated_repos.json (databases_and_data_sources section)"
+      ]
+    }
+  ],
+  "skill_graph_summary": {
+    "data_access_root": "paper-cdaweb-heliophysics-archive",
+    "cdf_reader_root": "paper-cdflib-cdf-reader",
+    "multimission_loader_root": "paper-pyspedas-multimission-data-access",
+    "solar_imaging_root": "paper-sunpy-2023-interoperable-ecosystem",
+    "pfss_pair": ["paper-stansby-2020-pfsspy-python-pfss", "paper-sunkit-magex-magnetic-field-extrapolation"],
+    "connectivity": "paper-gieseler-2022-solar-mach-magnetic-connection",
+    "segmentation": "paper-sioulas-sw-scanner-js-segmentation",
+    "space_physics_toolkit": "paper-spacepy-2022-twelve-years",
+    "plasma_formulary": "paper-plasmapy-plasma-physics-python",
+    "ecosystem_overview_pair": ["paper-sunpy-2015-python-solar-physics", "paper-bobra-2019-python-heliophysics-overview"]
+  },
+  "weak_entries_needing_full_text_verification": [
+    {"slug": "paper-sunpy-2023-interoperable-ecosystem", "todos": ["DOI of any published version", "ADS bibcode"]},
+    {"slug": "paper-sunpy-2015-python-solar-physics", "todos": ["DOI of Computational Science & Discovery published version", "Full author list"]},
+    {"slug": "paper-stansby-2020-pfsspy-python-pfss", "todos": ["Original pfsspy JOSS DOI", "Stansby 2022 exact numerical tolerance and reference figure ID", "Full author lists for both refs"]},
+    {"slug": "paper-sunkit-magex-magnetic-field-extrapolation", "todos": ["No companion publication located locally — locate JOSS / arXiv if it exists", "Contributor list"]},
+    {"slug": "paper-spacepy-2022-twelve-years", "todos": ["DOI of Frontiers companion", "Full author list"]},
+    {"slug": "paper-pyspedas-multimission-data-access", "todos": ["Dedicated publication: local inventory explicitly notes none; locate if exists", "DOI / arXiv ID", "Author list"]},
+    {"slug": "paper-cdflib-cdf-reader", "todos": ["Dedicated publication: none in local inventory", "Author / contributor list"]},
+    {"slug": "paper-gieseler-2022-solar-mach-magnetic-connection", "todos": ["Companion paper DOI", "Full author list", "Exact reference figure ID"]},
+    {"slug": "paper-sioulas-sw-scanner-js-segmentation", "todos": ["No dedicated software publication located locally", "Author / contributor list", "Per-paper reference figure IDs (Sioulas et al.)"]},
+    {"slug": "paper-plasmapy-plasma-physics-python", "todos": ["JOSS/companion paper", "DOI / arXiv ID", "Contributor list"]},
+    {"slug": "paper-bobra-2019-python-heliophysics-overview", "todos": ["DOI of published version", "Full author list", "Canonical 2019 package list (abstract-only in local source)"]},
+    {"slug": "paper-cdaweb-heliophysics-archive", "todos": ["No formal publication for the archive itself", "HAPI server citation"]}
+  ],
+  "promotion_roadmap": {
+    "stubs_to_method_ready": [
+      "paper-sunpy-2023-interoperable-ecosystem (add Fido + Map + transform smoke test)",
+      "paper-sunpy-2015-python-solar-physics (add API-diff procedure)",
+      "paper-spacepy-2022-twelve-years (add T96 field-line trace + Ticktock example)",
+      "paper-plasmapy-plasma-physics-python (add formulary identity tests)",
+      "paper-bobra-2019-python-heliophysics-overview (add ecosystem diff procedure)"
+    ],
+    "method_ready_to_executable": [
+      "paper-stansby-2020-pfsspy-python-pfss (run dipole test problem; emit metrics.json)",
+      "paper-sunkit-magex-magnetic-field-extrapolation (run PFSS+SCS; compare to pfsspy)",
+      "paper-pyspedas-multimission-data-access (smoke-test PSP + SO + MMS load)",
+      "paper-cdflib-cdf-reader (epoch round-trip + variable enumeration)",
+      "paper-gieseler-2022-solar-mach-magnetic-connection (footpoint regression test)",
+      "paper-sioulas-sw-scanner-js-segmentation (reproduce one Sioulas scalogram panel)",
+      "paper-cdaweb-heliophysics-archive (cdas AvailableData + HAPI smoke tests)"
+    ]
+  },
+  "stage_b_hub_proposal": {
+    "name": "heliosi-python-stack-bundle",
+    "rationale": "When >=50 in-situ paper-skills exist, a Stage-B hub should route across this batch's 12 software/infrastructure skills by task type (data access, PFSS, connectivity, segmentation, formulary, archive root).",
+    "routing_table_sketch": {
+      "load_in_situ_data": ["paper-pyspedas-multimission-data-access", "paper-cdflib-cdf-reader", "paper-cdaweb-heliophysics-archive"],
+      "compute_pfss": ["paper-sunkit-magex-magnetic-field-extrapolation", "paper-stansby-2020-pfsspy-python-pfss"],
+      "magnetic_connection": ["paper-gieseler-2022-solar-mach-magnetic-connection"],
+      "segment_solar_wind": ["paper-sioulas-sw-scanner-js-segmentation"],
+      "solar_imaging": ["paper-sunpy-2023-interoperable-ecosystem"],
+      "plasma_formulary": ["paper-plasmapy-plasma-physics-python"],
+      "space_physics_coords": ["paper-spacepy-2022-twelve-years"]
+    }
+  }
+}

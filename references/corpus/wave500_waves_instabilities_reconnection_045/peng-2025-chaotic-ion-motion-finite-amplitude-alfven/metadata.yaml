@@ -1,0 +1,28 @@
+slug: peng-2025-chaotic-ion-motion-finite-amplitude-alfven
+title: >-
+  Chaotic Motion of Ions in Finite-Amplitude Low-Frequency Alfvén Waves
+authors:
+  - J. Peng
+  - J. He
+  - R. Lin
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2510.07144"
+theme: stochastic-ion-heating-wave-driven-curvature
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Analytic oblique-AW field generator
+  - Test-particle integrator with tangent dynamics
+  - Lyapunov / chaos-ratio estimator
+methods:
+  - Test-particle integration in finite-amplitude waves
+  - Maximum Lyapunov exponent estimation
+  - Wave-driven field-line curvature analysis
+  - Pitch-angle scattering diagnostics
+validation_targets:
+  - CR = 0.01 contour matches P_eff < 25 analytic prediction
+  - λ_m sign correctly identifies chaotic region
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2510.07144

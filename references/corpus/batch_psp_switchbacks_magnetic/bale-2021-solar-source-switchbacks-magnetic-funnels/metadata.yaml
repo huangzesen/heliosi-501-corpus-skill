@@ -1,0 +1,34 @@
+slug: bale-2021-solar-source-switchbacks-magnetic-funnels
+title: >-
+  A Solar Source of Alfvénic Magnetic Field Switchbacks: In-Situ Remnants of
+  Magnetic Funnels on Supergranulation Scales
+authors:
+  - S. D. Bale
+  - T. Horbury
+  - M. Velli
+  - M. Desai
+  - J. Halekas
+  - "+ co-authors (TODO verify full list)"
+year: 2021
+journal: The Astrophysical Journal
+doi: TODO_verify_with_full_text
+arxiv: "2109.01069"
+theme: heliophysics-psp-switchback-origin-solar-source
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN
+  - PSP SWEAP bulk velocity
+  - ADAPT / HMI / GONG synoptic magnetograms
+  - PFSS toolchain (e.g. pfsspy) — TODO verify exact tool
+methods:
+  - Switchback-patch detection by quiescent-gap clustering
+  - PFSS + ballistic footpoint mapping
+  - Inter-patch photospheric longitude spacing
+  - Supergranulation-scale comparison test
+validation_targets:
+  - Median patch spacing within ×2 of supergranulation scale (~ 30 Mm)
+  - Patch detection recall ≈ paper ±20% on named encounter (TODO verify)
+  - Distribution shape (heavy tail at small spacings) matches paper qualitatively
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.11

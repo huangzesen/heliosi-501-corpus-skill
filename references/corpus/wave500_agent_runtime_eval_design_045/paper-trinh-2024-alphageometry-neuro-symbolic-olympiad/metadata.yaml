@@ -1,0 +1,38 @@
+slug: paper-trinh-2024-alphageometry-neuro-symbolic-olympiad
+title: "Solving olympiad geometry without human demonstrations (AlphaGeometry)"
+authors:
+  - "Trieu H. Trinh"
+  - "TODO_verify_with_full_text"
+year: 2024
+journal: "Nature"
+doi: "10.1038/s41586-023-06747-5"
+arxiv: null
+theme: agent-runtime-neuro-symbolic-discovery
+category: domain-specific-ai-scientist
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Symbolic deduction engine over geometry primitives"
+  - "Neural language model proposing constructions"
+  - "Synthetic-data training pipeline"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] Heliophysics has multiple symbolic engines (PFSS solvers, MHD codes, Vlasov-Maxwell linear solvers). Pairing them with an LLM proposer is the AlphaGeometry analogue: LLM proposes a parameter or sub-model; symbolic engine verifies."
+  - "[minimal_experiment] Combine an LLM proposer with a PFSS solver: LLM proposes (magnetogram source, r_ss) pairs; PFSS solver returns open flux; iterate to match the wu-2026 NSPF-FEM target. Treat as the simplest heliophysics neuro-symbolic loop."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

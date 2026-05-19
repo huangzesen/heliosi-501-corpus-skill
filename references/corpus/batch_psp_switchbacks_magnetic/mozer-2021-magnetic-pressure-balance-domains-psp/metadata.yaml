@@ -1,0 +1,30 @@
+slug: mozer-2021-magnetic-pressure-balance-domains-psp
+title: >-
+  Domains of Magnetic Pressure Balance in Parker Solar Probe Observations of
+  the Solar Wind
+authors:
+  - F. S. Mozer
+  - "+ co-authors (TODO verify full list)"
+year: 2021
+journal: The Astrophysical Journal
+doi: TODO_verify_with_full_text
+arxiv: "2110.08506"
+theme: heliophysics-psp-pressure-balance-domains
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN
+  - PSP SWEAP proton moments (n_p, T_p)
+  - Optional electron temperature / density product
+methods:
+  - Magnetic + thermal pressure computation
+  - Sliding-window total-pressure detrending
+  - Threshold-based PBD detection
+  - Anti-correlation diagnostic between δP_B and δP_th
+validation_targets:
+  - Identify at least one PBD in a paper-named interval (TODO verify)
+  - Per-PBD anti-correlation corr(δP_B, δP_th) < −0.5
+  - PBD duration distribution shape matches paper figure
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.12
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.7

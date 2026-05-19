@@ -1,0 +1,29 @@
+slug: wang-2020-magnetic-holes-psp-solar-wind
+title: >-
+  Characteristics of Magnetic Holes in the Solar Wind Revealed by Parker Solar
+  Probe
+authors:
+  - Z. Wang
+  - "+ co-authors (TODO verify full list)"
+year: 2020
+journal: The Astrophysical Journal
+doi: TODO_verify_with_full_text
+arxiv: "2010.14008"
+theme: heliophysics-psp-magnetic-holes
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN
+  - PSP SWEAP bulk velocity (Taylor scale conversion)
+methods:
+  - Sliding-window |B| dip detection
+  - Shape / recovery quality check
+  - Per-hole depth/duration/scale metrics
+  - Population aggregation across encounters
+  - Solar-cycle context tagging
+validation_targets:
+  - Magnetic-hole count within ±25% of paper on named encounter (TODO verify)
+  - Depth distribution peak consistent with paper (TODO verify value)
+  - Scale-size heavy-tail shape qualitatively matches paper
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.1

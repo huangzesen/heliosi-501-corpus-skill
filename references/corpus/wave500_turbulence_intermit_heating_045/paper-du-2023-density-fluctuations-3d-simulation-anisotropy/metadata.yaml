@@ -1,0 +1,31 @@
+slug: paper-du-2023-density-fluctuations-3d-simulation-anisotropy
+title: "On the Interpretation of the Scalings of Density Fluctuations from In-situ Solar Wind Observations: Insights from 3D Turbulence Simulations"
+authors:
+  - "Senbei Du"
+  - "Hui Li"
+  - "Zhaoming Gan"
+  - "Xiangrong Fu"
+year: 2023
+journal: "TODO verify (arXiv:2303.05074)"
+doi: null
+arxiv: "2303.05074"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [compressible, density-fluctuations, simulation, anisotropy]
+missions: [n/a]
+regime: [MHD-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "3D compressible-MHD simulation output derived (n/a)"
+methods:
+  - 3d-compressible-mhd-simulation
+  - angle-dependent-density-psd
+  - beta-dependence-scan
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2303.05074v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

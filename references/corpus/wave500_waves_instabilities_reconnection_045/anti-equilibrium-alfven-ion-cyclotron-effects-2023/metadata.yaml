@@ -1,0 +1,21 @@
+slug: anti-equilibrium-alfven-ion-cyclotron-effects-2023
+title: >-
+  The Effects of Non-Equilibrium Velocity Distributions on Alfvén Ion-Cyclotron Waves in the Solar Wind
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2308.14944"
+theme: aic-non-equilibrium-vdf-effects
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Free-form VDF data
+  - Free-form linear-Vlasov solver
+methods:
+  - Free-form-VDF linear-Vlasov dispersion
+validation_targets:
+  - γ_max ratio reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.14944

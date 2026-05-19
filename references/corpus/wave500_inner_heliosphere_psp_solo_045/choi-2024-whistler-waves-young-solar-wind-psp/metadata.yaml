@@ -1,0 +1,48 @@
+slug: choi-2024-whistler-waves-young-solar-wind-psp
+title: >-
+  Whistler waves in the young solar wind: statistics of amplitude and propagation direction from Parker Solar Probe Encounters 1-11
+authors:
+  - K.-E. Choi
+  - O. Agapitov
+  - L. Colomban
+  - J. W. Bonnell
+  - F. Mozer
+  - R. D. Sydora
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2408.00736"
+theme: psp-whistler-wave-statistics-near-sun
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: waves_instabilities
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - electron-scale
+trigger_keywords:
+  - whistler wave
+  - young solar wind
+  - propagation direction
+  - heat flux
+  - strahl scattering
+  - PSP E1–E11
+data_products:
+  - instrument: PSP/FIELDS DFB + SCM
+    level: L2/L3 spectral matrices
+    cadence: burst mode
+    interval: PSP E1–E11
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP electron moments (where available)
+    level: L3
+    cadence: encounter cadence
+    interval: PSP E1–E11
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: k-vector reconstruction from B-spectral matrices
+  - name: Polarisation + propagation-angle joint statistic
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §11

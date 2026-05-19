@@ -1,0 +1,26 @@
+slug: paper-mason-2025-icme-may16-2023-composition-variation
+title: "Composition variation of the May 16 2023 Solar Energetic Particle Event observed by Solar Orbiter and Parker Solar Probe"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2410.19672"
+theme: heliophysics-sep-composition-may-16-2023-solo-psp
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo composition
+  - Solar Orbiter EPD/SIS + HET
+methods:
+  - Band-function spectral fit per species per observer
+  - Fe/O and He/H ratio time series
+  - Sunward / anti-Sunward sectoring
+  - Direct-flare-contribution diagnostic
+validation_targets:
+  - Fe/O ≈ 0.48 at PSP, ≈ 0.08 at SOLO over 0.1–10 MeV/nuc; He/H factor-of-2 higher at PSP; persistent differences throughout event.
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.19672

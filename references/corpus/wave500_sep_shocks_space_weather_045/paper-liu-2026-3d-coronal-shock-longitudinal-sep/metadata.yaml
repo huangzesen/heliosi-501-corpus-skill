@@ -1,0 +1,28 @@
+slug: paper-liu-2026-3d-coronal-shock-longitudinal-sep
+title: "Three-dimensional properties of a coronal shock and the longitudinal distribution of its related solar energetic particles"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2601.13692"
+theme: heliophysics-coronal-shock-3d-longitudinal-sep
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - STEREO-A SECCHI COR/EUVI
+  - SOHO/LASCO + SDO/AIA
+  - Solar Orbiter EUI + Metis
+  - Multi-mission SEP intensity (IS☉IS / EPD / EPAM / SEPT)
+methods:
+  - 3D shock surface reconstruction (ellipsoid / freeform)
+  - θ_Bn, Mach number tabulation along the surface
+  - Per-observer connectivity (PFSS + ballistic) to the shock surface
+  - Longitudinal SEP intensity ↔ local shock-parameter regression
+validation_targets:
+  - Longitudinal SEP intensity vs local shock θ_Bn / Mach number correlation (sign + qualitative trend; numerics TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.13692

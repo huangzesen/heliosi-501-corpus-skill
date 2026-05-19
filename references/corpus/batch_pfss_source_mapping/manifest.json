@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "batch": "batch_pfss_source_mapping",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (PFSS / source-mapping batch)",
+  "harness_framing": "RUNTIME-NEUTRAL. Paper-skills do not assume a specific harness or agent framework. LingTai and Claude Code appear only as example adapters in Layer 3. .library/custom/pfss-tracing/ and .library/custom/nspf-fem/ are example bindings, not required dependencies, and are NOT modified by this batch.",
+  "skill_md_structure": {
+    "model": "Each SKILL.md is organized as four explicit layers so the same compiled paper is loadable by any runtime.",
+    "layers": {
+      "layer_1_scientific_invariant": "Narrow-form claim, method/data assumptions, failure modes (skill memory), figure / numerical targets, claim boundary. Stable across runtimes.",
+      "layer_2_executable_protocol": "Capability-typed procedure naming abstract capabilities (e.g. pfss.solve, magnetogram.fetch_synoptic_br) — never a specific MCP / framework. Validation target sits here.",
+      "layer_3_adapter_notes": "Optional examples of concrete bindings in one runtime. Examples only; not requirements.",
+      "layer_4_research_generation_affordances": "Gaps, tensions, new hypotheses, composable experiments enabled by combining this paper-skill with siblings."
+    },
+    "compilation_mapping": {
+      "claims": "Layer 1 narrow-form claim + claim_boundary",
+      "methods_equations": "Layer 1 assumptions + Layer 2 procedure",
+      "data_instruments": "Layer 1 data assumptions + Layer 2 abstract capabilities",
+      "caveats_failure_modes": "Layer 1 failure modes (skill memory)",
+      "figures_results": "Layer 1 figure/numerical targets + Layer 2 validation target",
+      "citations": "depends_on at end of SKILL.md",
+      "generative_implications": "Layer 4 research-generation affordances"
+    },
+    "mcp_policy": "No MCP is asserted to exist. Capabilities in Layer 2 are abstract names; specific bindings (MCPs, libraries, scripts) are runtime-supplied and live in Layer 3 only as illustration.",
+    "flavours": {
+      "heliophysics-method": "compiles to a capability-typed scientific workflow",
+      "cross-batch-link": "registers a paper in this batch by aspect, pointing to a canonical paper-skill elsewhere; does NOT duplicate content"
+    }
+  },
+  "skills": [
+    {
+      "slug": "pfss-test-problems-solar-stellar-magnetic-fields",
+      "title": "Test Problems for Potential Field Source Surface Extrapolations of Solar and Stellar Magnetic Fields",
+      "first_author": "D. Stansby",
+      "year": 2022,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2201.07783",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "pfss-test-problems-solar-stellar-magnetic-fields/SKILL.md",
+      "metadata_yaml": "pfss-test-problems-solar-stellar-magnetic-fields/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.1"
+      ]
+    },
+    {
+      "slug": "multi-constraint-pfss-extrapolation-model",
+      "title": "A New Multi-Constraint Potential Field Source Surface (PFSS) Extrapolation Model",
+      "first_author": "TODO_verify",
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2603.20142",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "multi-constraint-pfss-extrapolation-model/SKILL.md",
+      "metadata_yaml": "multi-constraint-pfss-extrapolation-model/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.2",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.10 (HTML mirror)"
+      ]
+    },
+    {
+      "slug": "ai-farside-synchronic-coronal-field-extrapolation",
+      "title": "Solar Coronal Magnetic Field Extrapolation from Synchronic Data with AI-generated Farside",
+      "first_author": "TODO_verify",
+      "year": 2020,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2010.07553",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "ai-farside-synchronic-coronal-field-extrapolation/SKILL.md",
+      "metadata_yaml": "ai-farside-synchronic-coronal-field-extrapolation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.3"
+      ]
+    },
+    {
+      "slug": "comparison-coronal-extrapolation-cycle-24-hmi",
+      "title": "Comparison of Coronal Extrapolation Methods for Cycle 24 Using HMI Data",
+      "first_author": "TODO_verify",
+      "year": 2016,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "1603.04385",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "comparison-coronal-extrapolation-cycle-24-hmi/SKILL.md",
+      "metadata_yaml": "comparison-coronal-extrapolation-cycle-24-hmi/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.4"
+      ]
+    },
+    {
+      "slug": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "title": "Addressing the Open Flux Problem with a Non-Spherical Solar Coronal Magnetic Field Model",
+      "first_author": "Wu",
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.01028",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-locally-reproduced",
+      "executable_status": "locally-reproduced-via-nspf-fem",
+      "local_reproduction": {
+        "implementation": ".library/custom/nspf-fem/SKILL.md",
+        "result": "open flux 9.09 vs paper 9.19 G·R²_sun (1.1% error)",
+        "case": "GONG CR 2282, Rini = 2.5"
+      },
+      "skill_md": "wu-2026-nonspherical-coronal-magnetic-field-open-flux/SKILL.md",
+      "metadata_yaml": "wu-2026-nonspherical-coronal-magnetic-field-open-flux/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.5",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.8 (HTML mirror)"
+      ]
+    },
+    {
+      "slug": "coronal-hole-loop-statistics-potential-field-modeling",
+      "title": "Magnetic Topology and Loop Statistics in Observed Coronal Holes Using Potential Field Modeling",
+      "first_author": "TODO_verify",
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2601.11080",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "coronal-hole-loop-statistics-potential-field-modeling/SKILL.md",
+      "metadata_yaml": "coronal-hole-loop-statistics-potential-field-modeling/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.6"
+      ]
+    },
+    {
+      "slug": "flare-precursor-fine-scale-topology-extrapolation",
+      "title": "Coronal Magnetic Field Extrapolation and Topological Analysis of Fine-Scale Structures during Solar Flare Precursors",
+      "first_author": "TODO_verify",
+      "year": 2023,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2306.03226",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "flare-precursor-fine-scale-topology-extrapolation/SKILL.md",
+      "metadata_yaml": "flare-precursor-fine-scale-topology-extrapolation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.7"
+      ]
+    },
+    {
+      "slug": "eclipse-white-light-benchmark-pfss-models",
+      "title": "Total Solar Eclipse White Light Images as a Benchmark for PFSS Coronal Magnetic Field Models",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2408.16149",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "eclipse-white-light-benchmark-pfss-models/SKILL.md",
+      "metadata_yaml": "eclipse-white-light-benchmark-pfss-models/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §2.9"
+      ]
+    },
+    {
+      "slug": "dakeyo-2026-source-alignment-psp-solo-method-link",
+      "title": "Source Alignment as a Source-Mapping Skill — link entry to Dakeyo et al. 2026 (PSP × Solar Orbiter)",
+      "first_author": "J.-B. Dakeyo",
+      "year": 2026,
+      "journal": "A&A (submitted) / ApJ — TODO verify",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2605.01511",
+      "theme": "pfss_source_mapping",
+      "category": "cross-batch-link",
+      "compilation_type": "cross-batch-link",
+      "quality_level": "link-only-cross-batch",
+      "executable_status": "see-pilot-2026-and-runtime-skill",
+      "canonical_skill": {
+        "slug": "dakeyo-2026-source-alignment-psp-solo",
+        "path": "sioulas-reproduction/results/paper_skill_corpus/pilot_2026_and_runtime/dakeyo-2026-source-alignment-psp-solo"
+      },
+      "skill_md": "dakeyo-2026-source-alignment-psp-solo-method-link/SKILL.md",
+      "metadata_yaml": "dakeyo-2026-source-alignment-psp-solo-method-link/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.3",
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #3"
+      ]
+    },
+    {
+      "slug": "ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "title": "Characteristics and Source Regions of Slow Alfvénic Solar Wind Observed by Parker Solar Probe",
+      "first_author": "Tamar Ervin",
+      "authors": [
+        "Tamar Ervin",
+        "Kai Jaffarove",
+        "Samuel T. Badman",
+        "Jia Huang",
+        "Yeimy J. Rivera",
+        "Stuart D. Bale"
+      ],
+      "year": 2024,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2407.09684",
+      "theme": "pfss_source_mapping",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+      "metadata_yaml": "ervin-2024-slow-alfvenic-source-regions-pfss-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §12"
+      ]
+    }
+  ],
+  "example_adapter_bindings_not_required": [
+    {
+      "custom_skill": ".library/custom/pfss-tracing/SKILL.md",
+      "binds_capabilities": ["pfss.solve", "field.trace_lines", "mapping.ballistic_to_source_surface"],
+      "note": "One Python/sunkit-magex binding; appears in Layer 3 of several SKILLs as an example, not as a requirement"
+    },
+    {
+      "custom_skill": ".library/custom/nspf-fem/SKILL.md",
+      "binds_capabilities": ["pfss.solve_baseline", "geometry.extract_isosurface", "geometry.smooth_spherical_harmonic", "mesh.build_deformed_shell", "fem.solve_laplace", "field.integrate_open_flux"],
+      "note": "Independent reproduction of Wu 2026 NSPF; matches paper to 1.1% on GONG CR 2282 Rini=2.5; appears in Layer 3 of the Wu skill as one example adapter"
+    }
+  ],
+  "weak_entries_needing_full_text_verification": [
+    {"slug": "pfss-test-problems-solar-stellar-magnetic-fields", "todos": ["venue", "exact test-problem list", "numeric L_2/L_inf tolerances", "reference figure/table"]},
+    {"slug": "multi-constraint-pfss-extrapolation-model", "todos": ["first author + full author list", "venue", "DOI", "objective form J", "weight values", "solver"]},
+    {"slug": "ai-farside-synchronic-coronal-field-extrapolation", "todos": ["first author + full author list", "venue", "DOI", "AI architecture", "training set", "weights availability", "agreement metric"]},
+    {"slug": "comparison-coronal-extrapolation-cycle-24-hmi", "todos": ["first author + full author list", "venue", "DOI", "HCCSSS solver name + parameters", "CR range", "reference figure"]},
+    {"slug": "wu-2026-nonspherical-coronal-magnetic-field-open-flux", "todos": ["full author list (Wu, He, Hou + others)", "venue", "DOI", "reference figure identifiers", "whether PFCS current-sheet layer is required for paper's final numbers"]},
+    {"slug": "coronal-hole-loop-statistics-potential-field-modeling", "todos": ["first author + full author list", "venue", "DOI", "CH catalog source", "seed convention", "aggregate distribution metric and tolerance"]},
+    {"slug": "flare-precursor-fine-scale-topology-extrapolation", "todos": ["first author + full author list", "venue", "DOI", "extrapolation family (NLFFF assumed not confirmed)", "event list", "metrics"]},
+    {"slug": "eclipse-white-light-benchmark-pfss-models", "todos": ["first author + full author list", "venue", "DOI", "eclipse-image source / processing", "agreement metric and tolerance", "reference figure"]},
+    {"slug": "dakeyo-2026-source-alignment-psp-solo-method-link", "todos": ["inherits canonical TODOs: final venue, exact PSP × SO interval list, PFSS tool used by authors"]},
+    {"slug": "ervin-2024-slow-alfvenic-source-regions-pfss-psp", "todos": ["venue", "DOI", "SW-type classification thresholds", "high-field-strength source population details", "heavy-ion composition source/instrument", "synoptic Br product used"]}
+  ]
+}

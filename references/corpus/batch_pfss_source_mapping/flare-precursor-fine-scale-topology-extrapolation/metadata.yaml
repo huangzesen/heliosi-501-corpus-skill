@@ -1,0 +1,52 @@
+slug: flare-precursor-fine-scale-topology-extrapolation
+title: >-
+  Coronal Magnetic Field Extrapolation and Topological Analysis of
+  Fine-Scale Structures during Solar Flare Precursors
+authors:
+  - "TODO verify first author"
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2306.03226"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+  - reconnection
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SDO/HMI vector magnetograms covering pre-flare interval
+  - SDO/AIA EUV imagery for fine-scale precursor identification
+  - Optional: IRIS / X-ray for confirmation of precursor activity
+methods:
+  - Coronal field extrapolation (PFSS as anchor; NLFFF as primary,
+    TODO verify which extrapolation family the paper uses)
+  - Topological analysis: null points, separators, quasi-separatrix
+    layers (QSLs), squashing factor Q
+  - Fine-scale (sub-MM) feature tracking pre-flare
+validation_targets:
+  - Reproduce the paper's identification of null/QSL geometry during
+    a named precursor (TODO verify event and metric)
+  - Recover topological proxy time series increase before flare onset
+trigger_keywords:
+  - flare precursor
+  - fine-scale topology
+  - QSL
+  - quasi-separatrix layer
+  - squashing factor Q
+  - null point
+  - separator
+  - coronal field extrapolation
+  - flare prediction
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.7
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.7
+  verified_by: null
+  verified_at: null

@@ -1,0 +1,27 @@
+slug: paper-jsoc-stanford-aia-hmi-archive
+title: The Joint Science Operations Center (JSOC) — SDO data archive at Stanford
+authors:
+  - JSOC team (Stanford / LMSAL)
+year: 2010
+journal: (JSOC project documentation; companion overview Couvidat et al. 2016 for HMI processing)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: archive-jsoc
+source_type: software-package
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - aia.lev1 / aia.lev1_euv_12s L1.5 (12 s)
+  - hmi.M_45s / hmi.B_720s / hmi.sharp_720s_cea L1.5 / L2 (45 s / 720 s)
+  - mdi.fd_M_96m_lev182 L2 legacy (96 min)
+methods:
+  - "DRMS query (jsoc_info, jsoc_fetch)"
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: http://jsoc.stanford.edu/
+weak_entries:
+  - "No single canonical 'JSOC paper'; Couvidat et al. 2016 covers HMI processing"

@@ -1,0 +1,21 @@
+slug: chandran-2010-stochastic-heating-perp-alfven
+title: >-
+  Stochastic Perpendicular Ion Heating from Large-Amplitude Alfvénic Turbulence
+authors:
+  - B. D. G. Chandran
+  - "+ co-authors (TODO verify full list)"
+year: 2010
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "TODO_verify_with_full_text"
+theme: stochastic-heating-foundational
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - (δv_⊥, v_⊥, ρ_i) inputs
+methods:
+  - Analytic Q_⊥ closure evaluation
+validation_targets:
+  - Reproduces analytic Q_⊥(ε) curve (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md (TODO verify section)

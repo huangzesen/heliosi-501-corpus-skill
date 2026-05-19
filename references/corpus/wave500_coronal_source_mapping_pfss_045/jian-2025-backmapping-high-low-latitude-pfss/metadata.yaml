@@ -1,0 +1,48 @@
+slug: jian-2025-backmapping-high-low-latitude-pfss
+title: >-
+  Backmapping of the High- and Low-Latitude Solar Wind Under Multiple Heliospheric and Coronal Magnetic Field Configurations
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2510.21076"
+arxiv_date: "2025-10-24"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - high_latitude
+  - source_mapping
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Ulysses + SolO high-latitude in-situ.
+  - Synoptic Br across the relevant intervals.
+  - MHD ambient as available.
+methods:
+  - Multi-configuration backmapping is consistent at the same R_ss.
+  - High-latitude coverage allows model discrimination.
+validation_targets:
+  - Reproduce disagreement map.
+trigger_keywords:
+  - backmapping
+  - high latitude
+  - Ulysses
+  - PFSS+PFCS
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - Ulysses interval
+  - MHD model identity
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

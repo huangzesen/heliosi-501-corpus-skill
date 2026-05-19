@@ -1,0 +1,28 @@
+slug: paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021
+title: "Electron Beam Propagation and Radio-Wave Scattering in the Inner Heliosphere using Five Spacecraft"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2502.15067"
+theme: heliophysics-electron-beam-radio-scattering-five-spacecraft
+category: primary-observation-methodology
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/FIELDS LFR/HFR
+  - STEREO-A WAVES + Wind WAVES + Solar Orbiter RPW + Mars Express MARSIS
+  - Nançay Radioheliograph 150 MHz
+  - ACE in-situ density
+methods:
+  - BELLA Bayesian multilateration of radio sources
+  - Parker-spiral fit to the apparent path
+  - Radio-wave scattering forward model
+  - Cross-check against Nançay imaging + ACE in-situ
+validation_targets:
+  - Inferred Parker spiral wind speed ~493 km/s consistent with ACE; scattering model reconciles inferred densities (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.15067

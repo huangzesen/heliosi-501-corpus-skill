@@ -1,0 +1,36 @@
+slug: verniero-2020-psp-span-i-vdf-data-product
+title: >-
+  Parker Solar Probe Observations of Proton Beams Simultaneous with Ion-Scale
+  Waves
+authors:
+  - J. L. Verniero
+  - D. E. Larson
+  - R. Livi
+  - A. Rahmati
+  - "+ co-authors per inventory"
+year: 2020
+journal: The Astrophysical Journal Supplement Series, 248, 5
+doi: "10.3847/1538-4365/ab86af"
+arxiv: "2004.03009"
+theme: data-product-psp-sweap-span-ai-vdf-and-vlasov-stability
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/SWEAP SPAN-Ai L2/L3 ion VDFs (spi_sf00)
+  - PSP/FIELDS MAG L2 (RTN)
+  - Linear-Vlasov solver (PLUME / LEOPARD / NHDS — exact tool TODO verify)
+methods:
+  - 3D VDF rotation to field-aligned frame
+  - Bi-Maxwellian core + beam fit
+  - Linear-Vlasov dispersion / stability analysis
+  - Doppler shift between spacecraft and plasma frames
+validation_targets:
+  - Predicted unstable-mode frequency within factor 2 of observed wave frequency on named E1 interval (TODO refine with full text)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.7
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.7"
+  verified_by: null
+  verified_at: null

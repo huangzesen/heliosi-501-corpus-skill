@@ -1,0 +1,28 @@
+slug: paper-rochus-2020-solar-orbiter-eui-imager
+title: "The Solar Orbiter EUI instrument: The Extreme Ultraviolet Imager"
+authors:
+  - "Rochus, P."
+year: 2020
+journal: "Astronomy & Astrophysics"
+doi: 10.1051/0004-6361/201936663
+arxiv: null
+ads_bibcode: null
+theme: instrument-solo-eui
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SO/EUI FSI L2 (10-60 min nominal; faster in campaigns)
+  - SO/EUI HRI_EUV L2 (3-10 s (high-cadence) to minutes)
+  - SO/EUI HRI_LyA L2 (campaign-dependent)
+methods:
+  - "EUI L1→L2 prep (dark, flat, despike, point-spread correction)"
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1051/0004-6361/201936663
+  data_repo: https://soar.esac.esa.int/
+weak_entries:
+  []

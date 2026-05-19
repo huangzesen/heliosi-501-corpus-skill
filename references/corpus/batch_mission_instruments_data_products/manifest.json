@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "batch": "batch_mission_instruments_data_products",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (mission/instrument/data-product batch)",
+  "harness_framing": "general-purpose harness; HelioSI = heliophysics domain instantiation; skills + MCPs + harness triple",
+  "compilation_framing": {
+    "model": "Each paper is compiled from a static PDF into an Anthropic-style Skill loadable by the HelioSI runtime.",
+    "mapping": {
+      "claims": "verifiable tasks",
+      "methods_equations": "executable workflows",
+      "data_instruments_code": "MCP / tool contracts",
+      "caveats_failure_modes": "skill memory",
+      "figures_results": "benchmark artifacts"
+    },
+    "batch_flavor": "mission-instrument-contract-layer",
+    "notes": "All 12 skills are contract-layer skills: they define sensor/level/cadence/frame/caveats for in-situ + remote-sensing PSP and Solar Orbiter data, which downstream science paper-skills compose with."
+  },
+  "skills": [
+    {
+      "slug": "fox-2016-psp-mission-design-orbit-encounters",
+      "title": "The Solar Probe Plus Mission: Humanity's First Visit to Our Star",
+      "authors": ["N. J. Fox", "M. C. Velli", "S. D. Bale", "R. Decker", "A. Driesman", "R. A. Howard", "J. C. Kasper", "+ co-authors (TODO verify)"],
+      "year": 2016,
+      "journal": "Space Science Reviews (PSP special issue)",
+      "doi": "10.1007/s11214-015-0211-6 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-design-psp-orbit-ephemeris",
+      "category": "heliophysics-mission-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "fox-2016-psp-mission-design-orbit-encounters/SKILL.md",
+      "metadata_yaml": "fox-2016-psp-mission-design-orbit-encounters/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Fox-et-al-2016-PSP-mission"
+      ]
+    },
+    {
+      "slug": "bale-2016-fields-instrument-suite-psp",
+      "title": "The FIELDS Instrument Suite for Solar Probe Plus",
+      "authors": ["S. D. Bale", "K. Goetz", "P. R. Harvey", "P. Turin", "J. W. Bonnell", "T. Dudok de Wit", "R. E. Ergun", "R. J. MacDowall", "M. Pulupa", "+ co-authors (TODO verify)"],
+      "year": 2016,
+      "journal": "Space Science Reviews (PSP special issue)",
+      "doi": "10.1007/s11214-016-0244-5 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-instrumentation-psp-fields",
+      "category": "heliophysics-instrument-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "bale-2016-fields-instrument-suite-psp/SKILL.md",
+      "metadata_yaml": "bale-2016-fields-instrument-suite-psp/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Bale-et-al-2016-FIELDS-instrument"
+      ]
+    },
+    {
+      "slug": "kasper-2016-sweap-investigation-psp",
+      "title": "Solar Wind Electrons Alphas and Protons (SWEAP) Investigation: Design of the Solar Wind and Coronal Plasma Instrument Suite for Solar Probe Plus",
+      "authors": ["J. C. Kasper", "R. Abiad", "G. Austin", "M. Balat-Pichelin", "S. D. Bale", "J. W. Belcher", "+ co-authors (TODO verify)"],
+      "year": 2016,
+      "journal": "Space Science Reviews (PSP special issue)",
+      "doi": "10.1007/s11214-015-0206-3 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-instrumentation-psp-sweap",
+      "category": "heliophysics-instrument-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "kasper-2016-sweap-investigation-psp/SKILL.md",
+      "metadata_yaml": "kasper-2016-sweap-investigation-psp/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Kasper-et-al-2016-SWEAP"
+      ]
+    },
+    {
+      "slug": "mccomas-2016-isois-energetic-particle-investigation-psp",
+      "title": "Integrated Science Investigation of the Sun (ISʘIS): Design of the Energetic Particle Investigation",
+      "authors": ["D. J. McComas", "N. Alexander", "N. Angold", "S. Bale", "C. Beebe", "+ co-authors (TODO verify)"],
+      "year": 2016,
+      "journal": "Space Science Reviews (PSP special issue)",
+      "doi": "10.1007/s11214-014-0059-1 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-instrumentation-psp-isois",
+      "category": "heliophysics-instrument-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "mccomas-2016-isois-energetic-particle-investigation-psp/SKILL.md",
+      "metadata_yaml": "mccomas-2016-isois-energetic-particle-investigation-psp/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:McComas-et-al-2016-ISOIS"
+      ]
+    },
+    {
+      "slug": "vourlidas-2016-wispr-imaging-instrument-psp",
+      "title": "The Wide-Field Imager for Solar Probe Plus (WISPR)",
+      "authors": ["A. Vourlidas", "R. A. Howard", "S. P. Plunkett", "C. M. Korendyke", "A. F. R. Thernisien", "D. Wang", "+ co-authors (TODO verify)"],
+      "year": 2016,
+      "journal": "Space Science Reviews (PSP special issue)",
+      "doi": "10.1007/s11214-014-0114-y — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-instrumentation-psp-wispr",
+      "category": "heliophysics-instrument-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "vourlidas-2016-wispr-imaging-instrument-psp/SKILL.md",
+      "metadata_yaml": "vourlidas-2016-wispr-imaging-instrument-psp/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Vourlidas-et-al-2016-WISPR"
+      ]
+    },
+    {
+      "slug": "pulupa-2020-fields-merged-scm-fluxgate-product",
+      "title": "A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar Probe FIELDS",
+      "authors": ["M. Pulupa", "+ FIELDS team co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "TODO_verify_with_full_text (likely JGR Space Physics)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2001.04587",
+      "theme": "data-product-psp-fields-scam-merged-broadband-B",
+      "category": "heliophysics-data-product-contract",
+      "compilation_type": "data-product-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "pulupa-2020-fields-merged-scm-fluxgate-product/SKILL.md",
+      "metadata_yaml": "pulupa-2020-fields-merged-scm-fluxgate-product/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.9"
+      ]
+    },
+    {
+      "slug": "verniero-2020-psp-span-i-vdf-data-product",
+      "title": "Parker Solar Probe Observations of Proton Beams Simultaneous with Ion-Scale Waves",
+      "authors": ["J. L. Verniero", "D. E. Larson", "R. Livi", "A. Rahmati", "+ co-authors per inventory"],
+      "year": 2020,
+      "journal": "The Astrophysical Journal Supplement Series, 248, 5",
+      "doi": "10.3847/1538-4365/ab86af",
+      "arxiv": "2004.03009",
+      "theme": "data-product-psp-sweap-span-ai-vdf-and-vlasov-stability",
+      "category": "heliophysics-data-product-contract",
+      "compilation_type": "data-product-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "verniero-2020-psp-span-i-vdf-data-product/SKILL.md",
+      "metadata_yaml": "verniero-2020-psp-span-i-vdf-data-product/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.7"
+      ]
+    },
+    {
+      "slug": "muller-2020-solar-orbiter-mission-overview",
+      "title": "The Solar Orbiter Mission: Science Overview",
+      "authors": ["D. Müller", "O. C. St. Cyr", "I. Zouganelis", "H. R. Gilbert", "R. Marsden", "T. Nieves-Chinchilla", "E. Antonucci", "F. Auchère", "+ co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "Astronomy & Astrophysics, 642, A1",
+      "doi": "10.1051/0004-6361/202038467 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-design-solar-orbiter-orbit-ephemeris-operations",
+      "category": "heliophysics-mission-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "muller-2020-solar-orbiter-mission-overview/SKILL.md",
+      "metadata_yaml": "muller-2020-solar-orbiter-mission-overview/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Mueller-et-al-2020-Solar-Orbiter"
+      ]
+    },
+    {
+      "slug": "horbury-2020-solo-mag-vector-magnetometer",
+      "title": "The Solar Orbiter Magnetometer",
+      "authors": ["T. S. Horbury", "H. O'Brien", "I. Carrasco Blázquez", "M. Bendyk", "P. Brown", "R. Hudson", "V. Evans", "+ co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "Astronomy & Astrophysics, 642, A9",
+      "doi": "10.1051/0004-6361/201937257 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-instrumentation-solar-orbiter-mag",
+      "category": "heliophysics-instrument-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "horbury-2020-solo-mag-vector-magnetometer/SKILL.md",
+      "metadata_yaml": "horbury-2020-solo-mag-vector-magnetometer/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Horbury-et-al-2020-SO-MAG"
+      ]
+    },
+    {
+      "slug": "owen-2020-solo-swa-plasma-suite",
+      "title": "The Solar Orbiter Solar Wind Analyser (SWA) Suite",
+      "authors": ["C. J. Owen", "R. Bruno", "S. Livi", "P. Louarn", "K. Al Janabi", "+ co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "Astronomy & Astrophysics, 642, A16",
+      "doi": "10.1051/0004-6361/201937259 — TODO_verify_with_full_text",
+      "arxiv": "not-in-local-inventory",
+      "theme": "mission-instrumentation-solar-orbiter-swa",
+      "category": "heliophysics-instrument-contract",
+      "compilation_type": "data-contract-spec",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "contract-spec-only-not-yet-runnable",
+      "skill_md": "owen-2020-solo-swa-plasma-suite/SKILL.md",
+      "metadata_yaml": "owen-2020-solo-swa-plasma-suite/metadata.yaml",
+      "source_inventory": [
+        "not-in-local-inventory — project-knowledge:Owen-et-al-2020-SO-SWA"
+      ]
+    },
+    {
+      "slug": "sinjan-2026-solo-phi-hrt-stray-light-calibration",
+      "title": "A stray light analysis for SO/PHI-HRT and an updated comparison of the inferred magnetic field with SDO/HMI",
+      "authors": ["Jonas Sinjan", "Tino L. Riethmüller", "Achim Gandorfer", "Alex Feller", "Daniele Calchetti", "+ co-authors per inventory (TODO verify)"],
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text (likely Astronomy & Astrophysics)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2603.18744",
+      "theme": "data-product-solar-orbiter-phi-hrt-stray-light-calibration",
+      "category": "heliophysics-calibration-contract",
+      "compilation_type": "calibration-recipe",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "sinjan-2026-solo-phi-hrt-stray-light-calibration/SKILL.md",
+      "metadata_yaml": "sinjan-2026-solo-phi-hrt-stray-light-calibration/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json#arxiv_id=2603.18744v1"
+      ]
+    },
+    {
+      "slug": "damicis-2025-solo-swa-alfvenic-streams-validation",
+      "title": "Alfvénic solar wind intervals observed by Solar Orbiter: Exploiting the capability of the SWA plasma suite and source region investigation",
+      "authors": ["R. D'Amicis", "J. M. Raines", "S. Benella", "M. Velli", "O. Panasenco", "+ co-authors per inventory (TODO verify)"],
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text (likely Astronomy & Astrophysics)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2512.20098",
+      "theme": "data-product-solar-orbiter-swa-full-suite-applied-alfvenic-streams",
+      "category": "heliophysics-data-product-applied",
+      "compilation_type": "applied-suite-workflow",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "damicis-2025-solo-swa-alfvenic-streams-validation/SKILL.md",
+      "metadata_yaml": "damicis-2025-solo-swa-alfvenic-streams-validation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json#arxiv_id=2512.20098v1"
+      ]
+    }
+  ],
+  "weak_entries_needing_full_text_verification": [
+    {"slug": "fox-2016-psp-mission-design-orbit-encounters", "todos": ["full author list", "DOI", "exact perihelion ladder", "encounter-threshold definition"]},
+    {"slug": "bale-2016-fields-instrument-suite-psp", "todos": ["full author list", "DOI", "exact MAG burst cadence", "CDF variable names"]},
+    {"slug": "kasper-2016-sweap-investigation-psp", "todos": ["full author list", "DOI", "exact energy ranges", "exact SPC encounter cadence", "SPC↔SPAN-Ai cross-cal tolerance"]},
+    {"slug": "mccomas-2016-isois-energetic-particle-investigation-psp", "todos": ["full author list", "DOI", "exact energy ranges per telescope", "L3 product names", "concrete validation event"]},
+    {"slug": "vourlidas-2016-wispr-imaging-instrument-psp", "todos": ["full author list", "DOI", "exact elongation ranges", "detector chip", "L1/L2/L3 naming", "concrete CME validation event"]},
+    {"slug": "pulupa-2020-fields-merged-scm-fluxgate-product", "todos": ["full author list", "DOI", "journal", "exact crossover band", "exact SCaM L3 product name", "validation interval"]},
+    {"slug": "verniero-2020-psp-span-i-vdf-data-product", "todos": ["exact solver used", "figure number for dispersion comparison", "refined tolerance"]},
+    {"slug": "muller-2020-solar-orbiter-mission-overview", "todos": ["full author list", "DOI", "RSW schedule", "phase-transition dates", "exact validation r/lat"]},
+    {"slug": "horbury-2020-solo-mag-vector-magnetometer", "todos": ["full author list", "DOI", "exact burst cadence", "validation interval"]},
+    {"slug": "owen-2020-solo-swa-plasma-suite", "todos": ["full author list", "DOI", "exact EAS contamination threshold", "validation interval"]},
+    {"slug": "sinjan-2026-solo-phi-hrt-stray-light-calibration", "todos": ["DOI", "journal", "exact correction term form", "figure indices", "exact agreement tolerance"]},
+    {"slug": "damicis-2025-solo-swa-alfvenic-streams-validation", "todos": ["DOI", "journal", "complete author list", "figure table reference"]}
+  ],
+  "deduplication_check": {
+    "checked_batches": [
+      "batch_pfss_source_mapping",
+      "batch_psp_switchbacks_magnetic",
+      "batch_turbulence_heating_apj",
+      "pilot_2026_and_runtime",
+      "pilot_turbulence"
+    ],
+    "duplicates_found": []
+  },
+  "source_inventories": [
+    "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md",
+    "sioulas-reproduction/results/arxiv_papers/extended_search.md",
+    "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md",
+    "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md",
+    "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md",
+    "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json",
+    "sioulas-reproduction/results/arxiv_papers/theme_psp_data.json"
+  ]
+}

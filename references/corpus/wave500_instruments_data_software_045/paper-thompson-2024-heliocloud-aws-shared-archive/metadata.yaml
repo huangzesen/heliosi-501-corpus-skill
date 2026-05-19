@@ -1,0 +1,25 @@
+slug: paper-thompson-2024-heliocloud-aws-shared-archive
+title: "HelioCloud: A cloud-based ecosystem for heliophysics data"
+authors:
+  - "Thompson, B. J."
+year: 2024
+journal: (NASA HelioCloud documentation / project paper)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-heliocloud
+source_type: software-paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - CDAWeb mirror on S3 (helio-public) L2 mirrored (per source)
+methods:
+  - Dask-parallel CDF read from S3
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://heliocloud.org/
+weak_entries:
+  - No single canonical publication in local inventory; cite HelioCloud documentation and AGU/HelioSummit proceedings

@@ -1,0 +1,42 @@
+slug: paper-goel-2025-rubric-rewards-training-ai-co-scientists
+title: "Training AI Co-Scientists Using Rubric Rewards"
+authors:
+  - "Shashwat Goel"
+  - "Rishi Hazra"
+  - "Dulhan Jayalath"
+  - "Timon Willi"
+  - "Parag Jain"
+  - "William F. Shen"
+year: 2025
+journal: "arXiv preprint"
+doi: null
+arxiv: "2512.23707"
+theme: agent-runtime-training-rubric-rewards
+category: training-methodology
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Goal + rubric automatic extraction from papers"
+  - "Rubric-reward fine-tuning"
+  - "Scalable corpus construction across domains"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's paper-skill corpus already encodes per-paper rubrics (claim_boundary + validation_target + failure_modes). It can serve directly as a rubric-reward signal for a heliophysics-specialized planner."
+  - "[minimal_experiment] Extract claim_boundary.scope + out_of_scope from each paper-skill, treat them as rubric items, and score a model-generated research plan; pick the top-rubric-passing plans for HelioSI PI review."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

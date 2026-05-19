@@ -1,0 +1,33 @@
+slug: paper-cuesta-2024-kappa-distributions-energetic-protons
+title: "Observations of Kappa Distributions in Solar Energetic Protons and Derived Thermodynamic Properties"
+authors:
+  - "Cuesta, M. E."
+  - "Cummings, A. T."
+  - "Livadiotis, G."
+  - "McComas, D. J."
+  - "Cohen, C. M. S."
+  - "Khoo, L. Y."
+year: 2024
+journal: "Journal — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2407.20343"
+theme: heliophysics-sep-kappa-thermodynamics-psp
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/ISʘIS EPI-Hi HET (10-60 MeV protons)
+  - PSP/FIELDS MAG
+  - PSP/SWEAP SPAN-I
+methods:
+  - Kappa-distribution fit to high-energy tail (10-60 MeV)
+  - Thermodynamic-parameter extraction (κ, T_EP, n_EP)
+  - ICME-region tagging (pre-shock / sheath / ejecta / trailing)
+  - Polytropic / entropy diagnostic
+validation_targets:
+  - κ_EP peak ≈ 3.5 in CME ejecta
+  - T_EP and n_EP anti-correlated (sub-isothermal polytropic)
+  - T_EP and κ_EP positively correlated (increasing entropy)
+weak_entries:
+  - Event date, kappa functional form details — TODO verify against Livadiotis companion arXiv:2407.04188
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2407.20343

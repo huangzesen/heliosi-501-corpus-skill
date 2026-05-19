@@ -1,0 +1,24 @@
+slug: alfven-wave-propagation-reflection-trapping-2025
+title: >-
+  Alfvén Wave Propagation, Reflection and Trapping in the Solar Wind
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2507.13809"
+theme: alfven-wave-propagation-reflection-trapping
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - V_A(r) profile
+  - 1D wave-equation solver
+methods:
+  - 1D AW wave-equation integration
+  - WKB reflection-coefficient estimation
+  - Trapping-layer detection
+validation_targets:
+  - Reflection-coefficient curve matches analytic expectation
+  - Trapping-region locations consistent with V_A profile geometry
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2507.13809

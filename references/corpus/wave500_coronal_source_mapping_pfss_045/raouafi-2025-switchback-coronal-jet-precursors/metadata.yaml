@@ -1,0 +1,50 @@
+slug: raouafi-2025-switchback-coronal-jet-precursors
+title: >-
+  Tracing Magnetic Switchbacks to Their Source: An Assessment of Solar Coronal Jets as Switchback Precursors
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2501.12340"
+arxiv_date: "2025-01-21"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - switchbacks
+  - coronal_jets
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS + SWEAP for switchback identification.
+  - AIA EUV for jet catalog.
+  - Synoptic Br for PFSS.
+methods:
+  - Switchback patches at PSP are correctly identified.
+  - PFSS + ballistic back-mapping is accurate enough at the relevant scales.
+  - Coronal-hole jet catalog is complete in the relevant window.
+validation_targets:
+  - Recover the paper's jet–switchback association significance.
+trigger_keywords:
+  - switchbacks
+  - coronal jets
+  - PSP
+  - PFSS
+  - backmapping
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - jet catalog identity
+  - switchback threshold
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

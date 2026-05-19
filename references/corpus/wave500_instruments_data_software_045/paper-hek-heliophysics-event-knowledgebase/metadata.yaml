@@ -1,0 +1,28 @@
+slug: paper-hek-heliophysics-event-knowledgebase
+title: The Heliophysics Event Knowledgebase (HEK)
+authors:
+  - "Hurlburt, N."
+year: 2012
+journal: Solar Physics
+doi: 10.1007/s11207-010-9624-2
+arxiv: null
+ads_bibcode: null
+theme: archive-hek
+source_type: software-paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - HEK FL (flare) events catalog (event-based)
+  - HEK AR (active region) events catalog (event-based)
+  - HEK CH (coronal hole) events catalog (event-based)
+methods:
+  - HEK REST query → HER record
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1007/s11207-010-9624-2
+  data_repo: https://www.lmsal.com/hek/
+weak_entries:
+  []

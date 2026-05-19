@@ -1,0 +1,62 @@
+slug: han-2026-energetic-electrons-hcs-pfss-polarity
+title: >-
+  Do Solar Energetic Electrons Cross the Heliospheric Current Sheet? A Statistical Study
+authors:
+  - C. Han
+  - R. F. Wimmer-Schweingruber
+  - P. Kühl
+  - L. Berger
+  - Z. Ding
+  - A. Kollhoff
+  - Q. Shi
+  - Z. Xu
+  - M. Qin
+  - M. Wang
+first_author: C. Han
+year: 2026
+arxiv: "2604.19446"
+arxiv_date: "2026-04-21"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - energetic_particles
+  - magnetic_field
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic Br (GONG/HMI/ADAPT) for each event CR.
+  - Spacecraft B-field (L1/SolO/PSP) for in-situ polarity.
+  - Strahl PADs from relevant instrument suite.
+  - SEE flux with anisotropy moments.
+methods:
+  - PFSS is solvable per CR on synoptic Br.
+  - Spacecraft footpoint can be back-mapped via ballistic + PFSS.
+  - Strahl PAD is a reliable independent polarity sensor when available.
+  - First-order anisotropy of energetic electrons resolves arrival hemisphere.
+validation_targets:
+  - Reproduce 60/9 split and qualitative HCS-proximity ordering.
+trigger_keywords:
+  - SEE
+  - HCS
+  - same-side
+  - opposite-side
+  - PFSS polarity
+  - strahl PAD
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - journal
+  - exact event list
+  - magnetogram product per event
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

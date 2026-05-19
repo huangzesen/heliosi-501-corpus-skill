@@ -1,0 +1,48 @@
+slug: prasad-2026-blowout-jet-magnetic-topology
+title: >-
+  Investigation of Magnetic Topology and Triggering Mechanisms of a C-Class Flare and Active-Region Blowout Jet
+authors:
+  - A. Prasad
+  - TODO_verify
+first_author: A. Prasad
+year: 2026
+arxiv: "2602.01742"
+arxiv_date: "2026-02-02"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_jets
+  - topology
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI vector + LoS Br.
+  - AIA EUV time series.
+  - Synoptic Br for PFSS background.
+methods:
+  - Fan-spine null is robust to small NLFFF perturbations.
+  - QSL extraction is reproducible.
+validation_targets:
+  - Match QSL footprint to AIA jet base.
+trigger_keywords:
+  - blowout jet
+  - fan-spine null
+  - QSL
+  - topology
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - Q-factor threshold
+  - NLFFF code
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

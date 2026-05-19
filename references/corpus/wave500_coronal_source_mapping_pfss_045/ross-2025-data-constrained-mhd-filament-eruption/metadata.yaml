@@ -1,0 +1,50 @@
+slug: ross-2025-data-constrained-mhd-filament-eruption
+title: >-
+  Data-Constrained Magnetohydrodynamic Simulation of a Filament Eruption in a Decaying Active Region 13079 on 2022-08-17
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2504.15069"
+arxiv_date: "2025-04-21"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_mass_ejections
+  - active_regions
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI vector magnetograms for the AR.
+  - AIA + SDO context EUV.
+  - GOES flare timing.
+methods:
+  - PFSS+NLFFF gives a valid initial state for the MHD run.
+  - Observed flow-driver (e.g., electric field) is consistent with the AR's evolution.
+  - MHD code is converged at the chosen grid.
+validation_targets:
+  - Match observed eruption-onset time within the paper's tolerance and morphology qualitatively.
+trigger_keywords:
+  - MHD eruption
+  - data-constrained
+  - AR 13079
+  - NLFFF
+  - PFSS
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - MHD code identity
+  - NLFFF boundary-prep method
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

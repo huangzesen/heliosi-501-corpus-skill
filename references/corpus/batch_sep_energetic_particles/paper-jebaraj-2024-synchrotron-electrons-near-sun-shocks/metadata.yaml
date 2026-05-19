@@ -1,0 +1,33 @@
+slug: paper-jebaraj-2024-synchrotron-electrons-near-sun-shocks
+title: "Direct Measurements of Synchrotron-Emitting Electrons at Near-Sun Shocks"
+authors:
+  - "Jebaraj, I. C."
+  - "Agapitov, O. V."
+  - "Gedalin, M."
+  - "Vuorinen, L."
+  - "Miceli, M."
+  - "Vainio, R."
+year: 2024
+journal: "Journal — TODO verify (likely ApJL)"
+doi: TODO_verify_with_full_text
+arxiv: "2410.15933"
+theme: heliophysics-shock-electron-synchrotron-psp
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/FIELDS (DC + AC E and B)
+  - PSP/ISʘIS EPI-Hi + electron channels
+  - PSP/SWEAP plasma moments
+methods:
+  - Shock crossing identification + obliquity classification (θ_Bn, Mach)
+  - Relativistic-electron spectrum extraction
+  - Synchrotron photon-emission diagnostic (instrument detail TODO verify)
+  - Quasi-parallel vs quasi-perpendicular intensity contrast
+validation_targets:
+  - Reproduce qpara > qperp ordering of synchrotron intensity at strong shocks
+  - Identify the named event list (TODO verify) and re-derive obliquity classifications
+weak_entries:
+  - Final venue and DOI
+  - Exact photon-emission diagnostic and event list
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.15933

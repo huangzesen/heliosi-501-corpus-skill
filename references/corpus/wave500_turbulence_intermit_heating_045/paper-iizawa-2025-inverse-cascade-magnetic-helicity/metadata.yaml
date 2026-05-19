@@ -1,0 +1,31 @@
+slug: paper-iizawa-2025-inverse-cascade-magnetic-helicity
+title: "Evidence for an Inverse Cascade of Magnetic Helicity in the Inner Heliosphere"
+authors:
+  - "Masatomi Iizawa"
+  - "Yasuhito Narita"
+  - "Tommaso Alberti"
+  - "Stuart D. Bale"
+year: 2025
+journal: "TODO verify (arXiv:2507.13213)"
+doi: null
+arxiv: "2507.13213"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [magnetic-helicity, inverse-cascade, radial-evolution]
+missions: [PSP]
+regime: [inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (PSP encounters (TODO verify range))"
+methods:
+  - magnetic-helicity-density-spectrum-from-single-spacecraft-b
+  - distance-binning-across-encounters
+  - sign-change-frequency-tracking
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2025 item 13"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

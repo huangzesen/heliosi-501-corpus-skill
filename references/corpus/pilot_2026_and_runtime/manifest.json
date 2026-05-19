@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "batch": "pilot_2026_and_runtime",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (Task C)",
+  "harness_framing": "general-purpose harness; HelioSI = heliophysics domain instantiation; skills + MCPs + harness triple",
+  "compilation_framing": {
+    "model": "Each paper is compiled from a static PDF into an Anthropic-style Skill loadable by the HelioSI runtime.",
+    "mapping": {
+      "claims": "verifiable tasks",
+      "methods_equations": "executable workflows",
+      "data_instruments_code": "MCP / tool contracts",
+      "caveats_failure_modes": "skill memory",
+      "figures_results": "benchmark artifacts"
+    },
+    "flavours": {
+      "heliophysics-method": "compiles to a callable scientific workflow consuming mission data via MCPs and emitting benchmark artifacts",
+      "positioning-comparison": "compiles to a manuscript/benchmark auditor or architecture linter; runtime refuses to compose into a data pipeline"
+    }
+  },
+  "skills": [
+    {
+      "slug": "murtas-2026-hcs-reconnection-ion-energization",
+      "title": "The Role of Magnetic Reconnection in Energizing Protons and Heavier Ions at the Heliospheric Current Sheet",
+      "authors": ["G. Murtas", "X. Li", "F. Guo", "G. Arrò", "J. Seo", "C. Haggerty"],
+      "year": 2026,
+      "journal": "ApJ (in press)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2605.15068",
+      "theme": "heliophysics-psp-energetic-particles",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "murtas-2026-hcs-reconnection-ion-energization/SKILL.md",
+      "metadata_yaml": "murtas-2026-hcs-reconnection-ion-energization/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.1",
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #1"
+      ]
+    },
+    {
+      "slug": "mozer-2026-switchback-nonideal-dissipation",
+      "title": "Direct Evidence of Non-Ideal Dissipative Dynamics in Solar Wind Magnetic Switchbacks",
+      "authors": ["F. Mozer", "O. Agapitov", "K.-E. Choi", "R. Sydora"],
+      "year": 2026,
+      "journal": "ApJ",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2605.14114",
+      "theme": "heliophysics-psp-switchbacks-dissipation",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "mozer-2026-switchback-nonideal-dissipation/SKILL.md",
+      "metadata_yaml": "mozer-2026-switchback-nonideal-dissipation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.2",
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #2"
+      ]
+    },
+    {
+      "slug": "dakeyo-2026-source-alignment-psp-solo",
+      "title": "On the Radial Evolution of the Solar Wind: The Source Alignment Method Applied to Parker Solar Probe and Solar Orbiter Observations",
+      "authors": ["J.-B. Dakeyo", "T. Ervin", "S. D. Bale", "P. Démoulin", "N. Sioulas", "V. Réville", "+7 others"],
+      "year": 2026,
+      "journal": "A&A (submitted) / ApJ — TODO verify",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2605.01511",
+      "theme": "heliophysics-psp-solo-radial-evolution",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "dakeyo-2026-source-alignment-psp-solo/SKILL.md",
+      "metadata_yaml": "dakeyo-2026-source-alignment-psp-solo/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.3",
+        "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #3"
+      ]
+    },
+    {
+      "slug": "li-2026-mercury-orbit-solar-wind-turbulence",
+      "title": "Properties and Radial Evolution of Solar Wind Turbulence Near Mercury's Orbit",
+      "authors": ["Xinmin Li", "Chuanfei Dong", "Lina Z. Hadid", "+ other authors"],
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2604.21196",
+      "theme": "heliophysics-turbulence-radial-evolution",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "li-2026-mercury-orbit-solar-wind-turbulence/SKILL.md",
+      "metadata_yaml": "li-2026-mercury-orbit-solar-wind-turbulence/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #15"
+      ]
+    },
+    {
+      "slug": "tenerani-2026-spherically-polarized-magnetic-fields",
+      "title": "Three dimensional, spherically polarized magnetic fields",
+      "authors": ["Anna Tenerani", "Marco Velli"],
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2605.04285",
+      "theme": "heliophysics-switchback-geometry-theory",
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "constructive-pipeline-specified",
+      "skill_md": "tenerani-2026-spherically-polarized-magnetic-fields/SKILL.md",
+      "metadata_yaml": "tenerani-2026-spherically-polarized-magnetic-fields/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #16"
+      ]
+    },
+    {
+      "slug": "agentic-ai-scientists-not-built-autonomous-discovery-2026",
+      "title": "Agentic AI Scientists Are Not Built For Autonomous Scientific Discovery",
+      "authors": ["Harshit Bisht", "Vinay Kumar", "Kevin Maik Jablonka", "Mausam", "N. M. Anoop Krishnan"],
+      "year": 2026,
+      "journal": "arXiv preprint (cs.AI)",
+      "doi": null,
+      "arxiv": "2605.08956",
+      "theme": "agent-runtime-critique-positioning",
+      "category": "positioning-comparison",
+      "compilation_type": "positioning-comparison",
+      "quality_level": "positioning-skill-not-executable-science",
+      "executable_status": "manuscript-checklist-only",
+      "skill_md": "agentic-ai-scientists-not-built-autonomous-discovery-2026/SKILL.md",
+      "metadata_yaml": "agentic-ai-scientists-not-built-autonomous-discovery-2026/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md §1.1",
+        "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md",
+        "sioulas-reproduction/results/heliosi_similar_papers_requirements_gap_plan.md §1.4"
+      ]
+    },
+    {
+      "slug": "mind-ai-co-scientist-material-research-2026",
+      "title": "MIND: AI Co-Scientist for Material Research",
+      "authors": ["Geonhee Ahn", "+ co-authors (TODO verify full list)"],
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": null,
+      "arxiv": "2604.13699",
+      "theme": "agent-runtime-domain-specific-pattern-transfer",
+      "category": "positioning-comparison",
+      "compilation_type": "positioning-comparison",
+      "quality_level": "positioning-skill-not-executable-science",
+      "executable_status": "architecture-template-only",
+      "skill_md": "mind-ai-co-scientist-material-research-2026/SKILL.md",
+      "metadata_yaml": "mind-ai-co-scientist-material-research-2026/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md §1.2",
+        "sioulas-reproduction/results/heliosi_similar_papers_requirements_gap_plan.md"
+      ]
+    },
+    {
+      "slug": "heurekabench-2026-end-to-end-co-scientist-evaluation",
+      "title": "HeurekaBench: A Benchmarking Framework for AI Co-scientist",
+      "authors": ["Siba Smarak Panigrahi", "Jovana Videnović", "Maria Brbić"],
+      "year": 2026,
+      "journal": "arXiv preprint",
+      "doi": null,
+      "arxiv": "2601.01678",
+      "theme": "agent-runtime-benchmark-design",
+      "category": "positioning-comparison",
+      "compilation_type": "positioning-comparison",
+      "quality_level": "positioning-skill-not-executable-science",
+      "executable_status": "benchmark-design-template",
+      "skill_md": "heurekabench-2026-end-to-end-co-scientist-evaluation/SKILL.md",
+      "metadata_yaml": "heurekabench-2026-end-to-end-co-scientist-evaluation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md §1.8",
+        "sioulas-reproduction/results/heliosi_similar_papers_requirements_gap_plan.md §0 and §2.2"
+      ]
+    }
+  ],
+  "weak_entries_needing_full_text_verification": [
+    {"slug": "murtas-2026-hcs-reconnection-ion-energization", "todos": ["DOI", "exact MHD solver name", "numerical spectral-index value", "per-species E_max ordering direction"]},
+    {"slug": "mozer-2026-switchback-nonideal-dissipation", "todos": ["DOI", "exact FIELDS L2 product IDs", "classification-recall numeric target"]},
+    {"slug": "dakeyo-2026-source-alignment-psp-solo", "todos": ["final venue", "exact PSP × SO interval list", "PFSS tool used by authors"]},
+    {"slug": "li-2026-mercury-orbit-solar-wind-turbulence", "todos": ["DOI", "journal", "sign of kinetic-range-slope vs. r_au trend"]},
+    {"slug": "tenerani-2026-spherically-polarized-magnetic-fields", "todos": ["DOI", "journal", "exact constructive scheme equations", "figure identifier"]},
+    {"slug": "mind-ai-co-scientist-material-research-2026", "todos": ["full author list"]}
+  ]
+}

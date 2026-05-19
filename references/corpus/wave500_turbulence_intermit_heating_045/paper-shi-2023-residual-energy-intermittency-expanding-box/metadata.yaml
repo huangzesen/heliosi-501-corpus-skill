@@ -1,0 +1,33 @@
+slug: paper-shi-2023-residual-energy-intermittency-expanding-box
+title: "Evolution of MHD turbulence in the expanding solar wind: residual energy and intermittency"
+authors:
+  - "Chen Shi"
+  - "Nikos Sioulas"
+  - "Zesen Huang"
+  - "Marco Velli"
+  - "Anna Tenerani"
+  - "Victor Réville"
+year: 2023
+journal: "TODO verify (arXiv:2308.12376)"
+doi: null
+arxiv: "2308.12376"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [expanding-box, residual-energy, intermittency, simulation]
+missions: [n/a]
+regime: [MHD-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data: []
+methods:
+  - 3d-mhd-expanding-box-simulation
+  - second-order-structure-functions-s_2b-s_2u
+  - residual-energy-spectrum-e_rk_perp
+  - higher-order-intermittency-statistics
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2308.12376v2)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

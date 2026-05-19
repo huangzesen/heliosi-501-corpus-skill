@@ -1,0 +1,43 @@
+slug: paper-bran-2024-chemcrow-augmenting-llms-chemistry-tools
+title: "Augmenting large language models with chemistry tools (ChemCrow)"
+authors:
+  - "Andres M. Bran"
+  - "Sam Cox"
+  - "Oliver Schilter"
+  - "Carlo Baldassari"
+  - "Andrew D. White"
+  - "Philippe Schwaller"
+year: 2024
+journal: "Nature Machine Intelligence"
+doi: "10.1038/s42256-024-00832-8"
+arxiv: "2304.05376"
+theme: agent-runtime-domain-tools
+category: ai-scientist-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Curated expert tool library (18 chemistry tools)"
+  - "GPT-4 as central reasoning driver"
+  - "Plan -> tool-call -> verify loop"
+  - "Expert + LLM hybrid evaluation"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's 'paper-skill + MCP' design is the heliophysics analogue of the ChemCrow '18 expert tools' design. The HelioSI corpus is the long-tail tool library; mission MCPs are the short list of integration adapters."
+  - "[minimal_experiment] Pick 18 heliophysics skill/MCP capabilities (PFSS, PVI, structure-function, kappa-fit, CDAWeb fetch, etc.) and benchmark whether a ChemCrow-style plan-call-verify loop solves a paper-grounded question on PSP."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

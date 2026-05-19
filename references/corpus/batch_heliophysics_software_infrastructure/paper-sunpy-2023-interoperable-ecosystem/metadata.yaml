@@ -1,0 +1,32 @@
+slug: paper-sunpy-2023-interoperable-ecosystem
+title: "The SunPy Project: An Interoperable Ecosystem for Solar Data Analysis"
+authors:
+  - The SunPy Community
+year: 2023
+journal: arXiv preprint (software/ecosystem paper)
+doi: null
+arxiv: "2304.09794"
+ads_bibcode: null
+theme: heliophysics-data-infrastructure-python
+source_type: software-paper
+quality_level: stub-infrastructure
+executable_status: contract-specified-not-yet-benchmarked
+required_data: []
+methods:
+  - Fido unified data search (sunpy.net.Fido)
+  - sunpy.map.Map FITS map model
+  - Astropy-based solar coordinate frames (Helioprojective, Heliographic*, HCRS)
+validation_targets:
+  - Fido search returns ≥1 file for a known AIA 171 Å interval
+  - sunpy.map.Map loads file and exposes valid wcs + observer_coordinate
+  - Coordinate transform preserves obstime
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.6
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (sunpy entry)
+  - .library/custom/heliophysics-skills/reference/databases.md (sunpy data-access pattern)
+links:
+  arxiv_url: https://arxiv.org/abs/2304.09794
+  code_repo: https://github.com/sunpy/sunpy
+weak_entries:
+  - DOI not verified from local inventory (preprint-only listing)
+  - ADS bibcode not in local sources

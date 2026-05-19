@@ -1,0 +1,35 @@
+slug: paper-pyspedas-multimission-data-access
+title: "pySPEDAS: Python port of SPEDAS for multi-mission space-physics data"
+authors:
+  - pySPEDAS contributors (TODO enumerate from repo)
+year: 2022
+journal: software package (no dedicated paper located in local inventory)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: heliophysics-multimission-data-loader
+source_type: software-package
+quality_level: method-ready
+executable_status: pipeline-specified-not-yet-benchmarked
+required_data:
+  - PSP/FIELDS MAG (L2)
+  - PSP/SWEAP SPAN-I (L2)
+  - Solar Orbiter MAG (L2)
+  - MMS FGM / FPI (L2)
+  - Wind, ACE, THEMIS, MAVEN, MESSENGER, STEREO L2 products
+methods:
+  - Mission-specific loaders (pyspedas.<mission>.<instrument>)
+  - tplot variable model + plotting
+validation_targets:
+  - Load PSP/SO/MMS intervals and verify non-empty tplot variables
+  - Round-trip cdflib vs pyspedas: same epoch + first-sample values
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7 summary (explicit gap noted)
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (pyspedas entry)
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (pyspedas entry)
+links:
+  code_repo: https://github.com/spedas/pyspedas
+weak_entries:
+  - No dedicated publication located in local inventory
+  - DOI / arXiv ID unknown locally
+  - Author / contributor list not enumerated

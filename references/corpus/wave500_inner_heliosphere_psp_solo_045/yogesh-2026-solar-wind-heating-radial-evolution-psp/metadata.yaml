@@ -1,0 +1,44 @@
+slug: yogesh-2026-solar-wind-heating-radial-evolution-psp
+title: >-
+  Solar Wind Heating Near the Sun: A Radial Evolution Approach
+authors:
+  - Yogesh
+  - L. Ofman
+  - K. Klein
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2602.10275"
+theme: psp-radial-evolution-heating-free-energy
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: coronal_heating
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+trigger_keywords:
+  - radial evolution
+  - near-Sun heating
+  - free energy
+  - proton beam
+  - wave-particle heating
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz/burst
+    interval: PSP encounters
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPAN-I
+    level: L3 VDF
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Free-energy estimate from δB^2 with appropriate scale partition
+  - name: Proton-beam identification in VDF
+  - name: Conditional radial-bin statistics
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §4

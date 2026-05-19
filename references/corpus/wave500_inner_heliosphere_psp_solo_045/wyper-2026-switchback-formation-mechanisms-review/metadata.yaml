@@ -1,0 +1,34 @@
+slug: wyper-2026-switchback-formation-mechanisms-review
+title: >-
+  Magnetic switchback formation: a review of proposed mechanisms
+authors:
+  - P. F. Wyper
+  - J. Squire
+  - E. Pariat
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2604.16166"
+theme: switchback-formation-review-coronal-vs-insitu
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+regime:
+  - corona
+  - inner-heliosphere
+trigger_keywords:
+  - switchback formation
+  - coronal vs in-situ
+  - review
+  - reconnection-driven
+  - turbulence-driven
+  - interchange
+data_products: []
+algorithms:
+  - name: Discriminating-observable matrix construction across mechanism candidates
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §6

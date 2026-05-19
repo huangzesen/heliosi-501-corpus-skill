@@ -1,0 +1,45 @@
+slug: zhao-2025-mode-composition-magnetic-anisotropy-solar-wind
+title: >-
+  Mode Composition Shapes Magnetic Anisotropy in Solar Wind Turbulence
+authors:
+  - S. Zhao
+  - H. Yan
+  - T. Z. Liu
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2510.25636"
+theme: mhd-mode-composition-anisotropy
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+  - Wind
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - mode decomposition
+  - Alfvén/slow/fast
+  - MHD eigenmodes
+  - anisotropy
+  - parallel concentration
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: ~1 Hz
+    interval: PSP encounter intervals (TODO verify)
+    archive: SPDF/CDAWeb
+  - instrument: Wind/MFI
+    level: L2
+    cadence: 3 s
+    interval: 1 au comparison intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: MHD-eigenmode decomposition into Alfvén/slow/fast components
+  - name: Conditional anisotropy histogram per mode
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §5

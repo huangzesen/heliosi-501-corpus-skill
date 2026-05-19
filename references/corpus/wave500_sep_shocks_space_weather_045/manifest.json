@@ -1,0 +1,1888 @@
+{
+  "schema_version": "1.0",
+  "batch": "wave500_sep_shocks_space_weather_045",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (Claude Opus 4.7) \u2014 wave500 SEP/shocks/space-weather batch",
+  "harness_framing": "Skills are runtime-neutral and loadable by any general-purpose agent runtime (Claude Code, LingTai, Codex, Cursor, OpenAI Assistants, \u2026). Named runtimes / MCPs / repos appear only as adapter examples. Each SKILL.md exposes four layers \u2014 scientific-invariant, executable-protocol (abstract capability contracts), adapter notes (optional), research-generation affordances (\u00a79).",
+  "layer_model": {
+    "1_scientific_invariant": "claims, equations, methods, data assumptions, failure modes, figure / numerical targets \u2014 runtime-neutral",
+    "2_executable_protocol": "abstract capability contracts (e.g., 'load PSP/IS\u2609IS L2', 'fit power-law') \u2014 not bound to any specific API, MCP, or runtime",
+    "3_adapter_notes": "named tools, MCPs, repos, libraries \u2014 example adapters satisfying the contract; substitutable",
+    "4_research_generation_affordances": "gaps, tensions, new hypotheses, follow-up experiments when composed with prior skills in the corpus \u2014 see SKILL.md \u00a79"
+  },
+  "compilation_framing": {
+    "model": "Each paper compiled into a runtime-neutral Skill \u2014 claims \u2192 verifiable tasks; methods/equations \u2192 executable workflows; data/instruments \u2192 abstract tool / capability contracts; caveats \u2192 skill memory; figures/results \u2192 benchmark artifacts; corpus/citations \u2192 skill graph (depends_on); plus research-generation affordances (\u00a79 of each SKILL.md).",
+    "mapping": {
+      "claims": "verifiable tasks",
+      "methods_equations": "executable workflows",
+      "data_instruments_code": "MCP / tool contracts",
+      "caveats_failure_modes": "skill memory",
+      "figures_results": "benchmark artifacts",
+      "corpus_citations": "skill graph (depends_on)"
+    }
+  },
+  "theme": "solar-energetic-particles-shocks-icmes-cirs-space-weather-transients",
+  "primary_theme_enum": "energetic_particles",
+  "parent_skill": ".library/custom/heliophysics-skills/SKILL.md",
+  "source_inventories": [
+    "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json",
+    "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md",
+    "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md"
+  ],
+  "exclusion_note": "Excludes the 12 slugs already in batch_sep_energetic_particles: paper-cuesta-2024-kappa-distributions-energetic-protons, paper-desai-2024-hcs-reconnection-400kev-protons, paper-dresing-2025-widespread-esp-march-2023, paper-jebaraj-2024-synchrotron-electrons-near-sun-shocks, paper-kouloumvakos-2026-iva-shock-properties, paper-laitinen-2026-vda-turbulent-heliosphere, paper-murtas-2024-compression-acceleration-hcs, paper-reames-2026-physics-of-seps, paper-trotta-2025-ip-shock-variability-multi-spacecraft, paper-walker-2026-icme-radial-particle-acceleration-statistics, paper-wimmer-schweingruber-2024-sep-inner-heliosphere-solo-psp, paper-xu-2026-psp-iva-sep-events.",
+  "skills": [
+    {
+      "slug": "paper-cao-2026-sep-rise-times-earth-mars-transport",
+      "title": "Statistical analysis of solar energetic particle rise times using Earth and Mars observations and constraints on particle transport parameters",
+      "authors": [
+        "Cao, Y.",
+        "Guo, J.",
+        "Wang, Y.",
+        "Zou, Z.",
+        "Zhang, Y.",
+        "Li, C."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2605.01437",
+      "theme": "heliophysics-sep-rise-time-transport-earth-mars",
+      "category": "primary-observation-statistical",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Statistical relationship between SEP rise time at different energies follows a power-law in energy; flatter exponent at Mars implies weaker energy dependence and turbulence-scattering approaching a rigidity-independent regime farther from the Sun.",
+      "skill_md": "paper-cao-2026-sep-rise-times-earth-mars-transport/SKILL.md",
+      "metadata_yaml": "paper-cao-2026-sep-rise-times-earth-mars-transport/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2605.01437"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-han-2026-sees-cross-hcs-statistical",
+      "title": "Do Solar Energetic Electrons cross the Heliospheric Current Sheet? \u2014 A Statistical Study",
+      "authors": [
+        "Han, C.",
+        "Wimmer-Schweingruber, R. F.",
+        "Kuhl, P.",
+        "Berger, L.",
+        "Ding, Z.",
+        "Kollhoff, A.",
+        "Shi, Q.",
+        "Xu, Z.",
+        "Qin, M.",
+        "Wang, M."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.19446",
+      "theme": "heliophysics-sep-electron-hcs-transport",
+      "category": "primary-observation-statistical",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Opposite-side SEE events (source and observer in different magnetic sectors) are rarer and more isotropic; both source and spacecraft tend to lie closer to the HCS than for same-side events \u2014 particle transport across the HCS is inefficient unless source or observer sits near the HCS.",
+      "skill_md": "paper-han-2026-sees-cross-hcs-statistical/SKILL.md",
+      "metadata_yaml": "paper-han-2026-sees-cross-hcs-statistical/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.19446"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-liuzzo-2026-sep-reflection-precursor-icme",
+      "title": "Solar Energetic Particle Reflection by Precursor ICMEs: Multi-spacecraft Observations of Bi-Directional Electron Beams at 1 AU",
+      "authors": [
+        "Liuzzo, L.",
+        "Wei, W.",
+        "Poppe, A. R.",
+        "Lee, C. O.",
+        "Angelopoulos, V."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.25019",
+      "theme": "heliophysics-sep-electron-reflection-precursor-icme",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Two impulsive SEE events show a primary anti-Sunward beam followed by a Sunward counter-streaming beam; modeled travel path 1\u20132 au is consistent with reflection off a precursor-ICME shock beyond 1 au; one event also shows inverse velocity dispersion in electrons, the first such detection at 1 au.",
+      "skill_md": "paper-liuzzo-2026-sep-reflection-precursor-icme/SKILL.md",
+      "metadata_yaml": "paper-liuzzo-2026-sep-reflection-precursor-icme/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.25019"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "title": "Solar Energetic Particle Events and Associated Type II Radio Bursts from Different Source Regions",
+      "authors": [
+        "Duan, X.",
+        "Li, T.",
+        "Cui, Y.",
+        "Hou, Y.",
+        "Li, C.",
+        "Wijsen, N.",
+        "Jiang, Z.",
+        "Yan, Y.",
+        "Ma, S.",
+        "Sun, Z."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.20237",
+      "theme": "heliophysics-sep-type-ii-source-region-statistics",
+      "category": "primary-observation-statistical",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Of 43 SEP halo-CMEs vs 131 non-SEP halo-CMEs 2010\u20132024, almost all SEP and ~2/3 non-SEP events have type II bursts; SEP-associated type IIs have longer duration and lower ending frequency; starting frequency depends on source region (single AR > multi AR > outside AR); proton spectral index anti-correlates with type II starting frequency.",
+      "skill_md": "paper-duan-2026-sep-type-ii-radio-source-regions/SKILL.md",
+      "metadata_yaml": "paper-duan-2026-sep-type-ii-radio-source-regions/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.20237"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "title": "36Cl Concentrations from Polar Ice Cores Set New Constraints on the Carrington Event",
+      "authors": [
+        "Mekhaldi, F.",
+        "Paleari, C. I.",
+        "Smith, A. M.",
+        "Aldahan, A.",
+        "Beer, J.",
+        "Christl, M.",
+        "Vockenhuber, C.",
+        "Hayakawa, H.",
+        "Curran, M.",
+        "Erhardt, T.",
+        "Plummer, C.",
+        "Simon, K.",
+        "Wilcken, K.",
+        "Zheng, M.",
+        "Muscheler, R."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.26608",
+      "theme": "heliophysics-extreme-sep-historical-36cl-icecore",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Two 36Cl records and 10Be data show no significant 1859 enhancement, ruling out an extreme >30 MeV SEP event for the Carrington storm; either the SEP fluence was soft (up to ~3\u00d7 the largest Space Age event) or there was no Earth-bound SEP.",
+      "skill_md": "paper-mekhaldi-2026-carrington-36cl-ice-cores/SKILL.md",
+      "metadata_yaml": "paper-mekhaldi-2026-carrington-36cl-ice-cores/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.26608"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation",
+      "title": "New insights from cross-correlation studies between solar activity indices and cosmic-ray flux during Forbush decrease events",
+      "authors": [
+        "Stoffel, T. (TODO verify list)",
+        "et al."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.06383",
+      "theme": "heliophysics-forbush-decrease-cross-correlation",
+      "category": "primary-observation-statistical",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Cross-correlation between solar-activity indices (Kp/Dst/sunspot/F10.7/etc.) and GCR flux during Forbush-decrease events reveals lag/structure relationships that constrain how ICME shocks modulate the cosmic-ray flux.",
+      "skill_md": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation/SKILL.md",
+      "metadata_yaml": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.06383"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-mishev-2026-first-four-gles-1940s",
+      "title": "The First Four Ground-Level Enhancements in the 1940s: Investigation, Digitisation, and Analysis of Forgotten Data",
+      "authors": [
+        "TODO verify author list"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2602.24250",
+      "theme": "heliophysics-historical-gle-archival-1940s",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Digitisation and re-analysis of the first four GLEs in the 1940s yields revised GLE intensities and provides forgotten constraints on extreme-event spectra.",
+      "skill_md": "paper-mishev-2026-first-four-gles-1940s/SKILL.md",
+      "metadata_yaml": "paper-mishev-2026-first-four-gles-1940s/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.24250"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-kollhoff-2026-acr-helium-solo-het",
+      "title": "Anomalous cosmic rays within the inner heliosphere: Observations of helium by the High Energy Telescope onboard Solar Orbiter",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2602.22418",
+      "theme": "heliophysics-acr-inner-heliosphere-solo-het",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Solar Orbiter/HET measures ACR helium spectra inside 1 au, constraining inner-heliosphere modulation against the historic IBEX/Voyager picture.",
+      "skill_md": "paper-kollhoff-2026-acr-helium-solo-het/SKILL.md",
+      "metadata_yaml": "paper-kollhoff-2026-acr-helium-solo-het/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.22418"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-mason-2026-unusual-2024-june-8-gle",
+      "title": "Unusual Circumstances of the 2024 June 8 GLE",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2602.12507",
+      "theme": "heliophysics-gle-2024-june-8-case-study",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The 2024-06-08 GLE occurred under atypical conditions (e.g. behind-limb / unusual source geometry \u2014 TODO_verify); paper unpacks the in-situ + remote-sensing evidence.",
+      "skill_md": "paper-mason-2026-unusual-2024-june-8-gle/SKILL.md",
+      "metadata_yaml": "paper-mason-2026-unusual-2024-june-8-gle/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.12507"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock",
+      "title": "Evidence that SOL2012-06-03 Late Phase gamma-Rays are Produced by >300 MeV Protons from CME-Shock Acceleration of Suprathermals from the Flare",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2602.10284",
+      "theme": "heliophysics-late-phase-gamma-shock-cme",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Late-phase gamma-ray emission from SOL2012-06-03 is produced by >300 MeV protons accelerated by the CME-driven shock, drawing on suprathermal flare-accelerated ions as a seed population.",
+      "skill_md": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock/SKILL.md",
+      "metadata_yaml": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.10284"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "title": "A study of solar energetic particle transport on 30 March 2022 using multi-spacecraft data assimilation",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2602.00765",
+      "theme": "heliophysics-sep-transport-data-assimilation-30march2022",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Data-assimilation of multi-spacecraft SEP intensities for 2022-03-30 yields posterior constraints on parallel + perpendicular diffusion coefficients of the event's transport model.",
+      "skill_md": "paper-bian-2026-30march2022-sep-data-assimilation/SKILL.md",
+      "metadata_yaml": "paper-bian-2026-30march2022-sep-data-assimilation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.00765"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-mason-2026-sunward-3he-rich-sep-solo-psp",
+      "title": "Sunward Streaming 3He-rich SEP Events Observed by Solar Orbiter and Parker Solar Probe during Perihelion Passage",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2601.20624",
+      "theme": "heliophysics-3he-rich-sep-sunward-streaming-solo-psp",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "PSP and Solar Orbiter observe 3He-rich SEP events near perihelion exhibiting Sunward streaming, indicating reflected / mirrored / backward-streaming behavior beyond canonical impulsive forward-streaming expectations.",
+      "skill_md": "paper-mason-2026-sunward-3he-rich-sep-solo-psp/SKILL.md",
+      "metadata_yaml": "paper-mason-2026-sunward-3he-rich-sep-solo-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.20624"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
+      "title": "Three-dimensional properties of a coronal shock and the longitudinal distribution of its related solar energetic particles",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2601.13692",
+      "theme": "heliophysics-coronal-shock-3d-longitudinal-sep",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "A 3D coronal shock reconstructed from multi-vantage remote-sensing produces a longitudinal SEP intensity distribution at multiple observers that is consistent with the shock's local \u03b8_Bn / Mach number across longitude.",
+      "skill_md": "paper-liu-2026-3d-coronal-shock-longitudinal-sep/SKILL.md",
+      "metadata_yaml": "paper-liu-2026-3d-coronal-shock-longitudinal-sep/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.13692"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-koppl-2026-electron-acr-cold-clouds-radiation",
+      "title": "Increased and Varied Radiation during the Sun's Encounters with Cold Clouds in the last 10 million years",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2601.11785",
+      "theme": "heliophysics-radiation-cold-cloud-heliosphere-encounter",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "During the Sun's encounters with cold interstellar clouds, modeled GCR/ACR conditions at Earth differ substantially from quiet-Sun reference, with implications for radiation history.",
+      "skill_md": "paper-koppl-2026-electron-acr-cold-clouds-radiation/SKILL.md",
+      "metadata_yaml": "paper-koppl-2026-electron-acr-cold-clouds-radiation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.11785"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-luhmann-2026-stereo-het-sep-protons-first-orbit",
+      "title": "Solar Energetic Proton Events Observed by the High Energy Telescopes on the STEREO Spacecraft or at the Earth During the First Solar Orbit of STEREO A (2006 to 2023)",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2601.09630",
+      "theme": "heliophysics-stereo-het-sep-proton-catalog-2006-2023",
+      "category": "primary-observation-statistical",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "A 2006\u20132023 SEP proton catalog from STEREO-A HET (and Earth observers) covering STEREO-A's first complete solar orbit serves as a stable observational baseline for longitudinal coverage and event statistics.",
+      "skill_md": "paper-luhmann-2026-stereo-het-sep-protons-first-orbit/SKILL.md",
+      "metadata_yaml": "paper-luhmann-2026-stereo-het-sep-protons-first-orbit/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.09630"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-sun-2026-counterfactual-sep-prediction-ml",
+      "title": "Physics-Guided Counterfactual Explanations for Large-Scale Multivariate Time Series: Application in Scalable and Interpretable SEP Event Prediction",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2601.08999",
+      "theme": "heliophysics-sep-ml-counterfactual-prediction",
+      "category": "primary-observation-ml",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "A physics-guided counterfactual explanation framework on multivariate time series identifies which input features (solar wind / radio / X-ray) drive a SEP prediction, improving scalability and interpretability over black-box ML.",
+      "skill_md": "paper-sun-2026-counterfactual-sep-prediction-ml/SKILL.md",
+      "metadata_yaml": "paper-sun-2026-counterfactual-sep-prediction-ml/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.08999"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-meng-2025-sepnet-multi-task-ml",
+      "title": "Solar Energetic Particle Forecasting with Multi-Task Deep Learning: SEPNET",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2512.12786",
+      "theme": "heliophysics-sep-forecast-multi-task-deep-learning",
+      "category": "primary-observation-ml",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "SEPNET is a multi-task deep-learning model that simultaneously predicts SEP-event occurrence, peak proton flux, and spectral index, outperforming single-task baselines on a hold-out catalog.",
+      "skill_md": "paper-meng-2025-sepnet-multi-task-ml/SKILL.md",
+      "metadata_yaml": "paper-meng-2025-sepnet-multi-task-ml/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.12786"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-rab-2025-sep-protoplanetary-disk-irradiation",
+      "title": "The Extent of Solar Energetic Particle Irradiation in the Sun's Protoplanetary Disk",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2512.03184",
+      "theme": "heliophysics-sep-protoplanetary-disk-irradiation",
+      "category": "primary-simulation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Modeling of SEP irradiation in the young Sun's protoplanetary disk constrains the radial extent over which energetic particles can drive isotopic anomalies (e.g. 10Be) under plausible early-Sun activity scaling.",
+      "skill_md": "paper-rab-2025-sep-protoplanetary-disk-irradiation/SKILL.md",
+      "metadata_yaml": "paper-rab-2025-sep-protoplanetary-disk-irradiation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.03184"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "title": "Coronal flux tube illuminated by strong shock spot: New Year's Eve solar eruption of 2023-Dec-31",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2512.24749",
+      "theme": "heliophysics-coronal-flux-tube-shock-spot-2023-12-31",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The 2023-12-31 eruption produced a localized 'shock spot' that illuminated a coronal flux tube, identified through coordinated remote-sensing and in-situ + radio diagnostics.",
+      "skill_md": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023/SKILL.md",
+      "metadata_yaml": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.24749"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "title": "Parallel and perpendicular diffusion of energetic particles in the near-Sun solar wind observed by Parker Solar Probe",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2509.10648",
+      "theme": "heliophysics-perp-parallel-diffusion-near-sun-psp",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "PSP in-situ energetic-particle observations constrain parallel and perpendicular diffusion coefficients in the near-Sun solar wind, providing the \u03ba_perp/\u03ba_par ratio at heliocentric distances closer than previously sampled.",
+      "skill_md": "paper-malandraki-2025-perp-diffusion-near-sun/SKILL.md",
+      "metadata_yaml": "paper-malandraki-2025-perp-diffusion-near-sun/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2509.10648"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-clark-2025-may2024-superstorm-sep-feo",
+      "title": "Energy-dependent SEP Fe/O abundances during the May 2024 superstorm",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2511.03905",
+      "theme": "heliophysics-sep-feo-may-2024-superstorm",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "SEP Fe/O abundance ratios during the May 2024 superstorm show characteristic energy dependence that reflects the compound nature of the driver and shock-acceleration of suprathermal seed populations.",
+      "skill_md": "paper-clark-2025-may2024-superstorm-sep-feo/SKILL.md",
+      "metadata_yaml": "paper-clark-2025-may2024-superstorm-sep-feo/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2511.03905"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-allen-2025-shock-evolution-2023-march-13-event",
+      "title": "Evolution of the Shock Properties of the 2023 March 13 Event from In-Situ and Remote-Sensing Data",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2511.03496",
+      "theme": "heliophysics-shock-evolution-2023-march-13",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "In-situ + remote-sensing data for 2023-03-13 yield a time-resolved evolution of the shock's local \u03b8_Bn, Mach number, and surface geometry, complementing the widespread-event ESP analysis of Dresing+ 2025.",
+      "skill_md": "paper-allen-2025-shock-evolution-2023-march-13-event/SKILL.md",
+      "metadata_yaml": "paper-allen-2025-shock-evolution-2023-march-13-event/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2511.03496"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-zhang-2025-2024-09-09-backside-eruption-sgre",
+      "title": "Multispacecraft Observations of the 2024 September 9 Backside Solar Eruption that Resulted in a Sustained Gamma Ray Emission Event",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2503.23852",
+      "theme": "heliophysics-backside-eruption-sustained-gamma-ray-2024-09-09",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The 2024-09-09 backside eruption produced a sustained gamma-ray emission event whose source-region observers are limb-occluded for Earth-side instruments; multispacecraft data trace the eruption + shock evolution.",
+      "skill_md": "paper-zhang-2025-2024-09-09-backside-eruption-sgre/SKILL.md",
+      "metadata_yaml": "paper-zhang-2025-2024-09-09-backside-eruption-sgre/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2503.23852"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-jin-2025-third-harmonic-type-ii-2024-09-14",
+      "title": "Third Harmonic Structure in an Interplanetary Type II Radio Burst and Other Energetic Phenomena During the 2024 September 14 Solar Eruption",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2503.23584",
+      "theme": "heliophysics-type-ii-third-harmonic-ip-burst-2024-09-14",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "An interplanetary type II radio burst from the 2024-09-14 eruption shows a third-harmonic structure (in addition to the fundamental + 2nd harmonic), a rare regime for IP type IIs.",
+      "skill_md": "paper-jin-2025-third-harmonic-type-ii-2024-09-14/SKILL.md",
+      "metadata_yaml": "paper-jin-2025-third-harmonic-type-ii-2024-09-14/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2503.23584"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp",
+      "title": "Radial dependence of ion fluences in the 2023 July 17 SEP event from Parker Solar Probe to STEREO and ACE",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2502.17806",
+      "theme": "heliophysics-sep-fluence-radial-2023-07-17",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The 2023-07-17 SEP event observed simultaneously at PSP, STEREO and ACE yields a power-law radial fluence dependence across heliocentric distance.",
+      "skill_md": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp/SKILL.md",
+      "metadata_yaml": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.17806"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021",
+      "title": "Electron Beam Propagation and Radio-Wave Scattering in the Inner Heliosphere using Five Spacecraft",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2502.15067",
+      "theme": "heliophysics-electron-beam-radio-scattering-five-spacecraft",
+      "category": "primary-observation-methodology",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Multilateration with five spacecraft (PSP, STEREO-A, Wind, Solar Orbiter, Mars Express) for the 2021-12-04 event traces type III radio sources along a Parker spiral (~493 km/s) and quantitatively reconciles 'higher than expected' electron densities with radio-wave scattering.",
+      "skill_md": "paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021/SKILL.md",
+      "metadata_yaml": "paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.15067"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-feng-2025-shock-sep-modeling-2022-09-05",
+      "title": "Shock and SEP Modeling Study for the 5 September 2022 SEP Event",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2501.03066",
+      "theme": "heliophysics-sep-shock-2022-09-05-modeling",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The 2022-09-05 SEP event is modeled by coupling a shock-propagation simulation with a SEP transport solver and the resulting intensity profile reproduces the observed PSP near-Sun + 1 au profiles within tolerance.",
+      "skill_md": "paper-feng-2025-shock-sep-modeling-2022-09-05/SKILL.md",
+      "metadata_yaml": "paper-feng-2025-shock-sep-modeling-2022-09-05/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2501.03066"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-mason-2025-icme-may16-2023-composition-variation",
+      "title": "Composition variation of the May 16 2023 Solar Energetic Particle Event observed by Solar Orbiter and Parker Solar Probe",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2410.19672",
+      "theme": "heliophysics-sep-composition-may-16-2023-solo-psp",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "PSP and SOLO at similar radial distance (~0.7 au) but ~60\u00b0 apart in longitude observe the 2023-05-16 SEP event: PSP sees Fe-rich (Fe/O \u2248 0.48), SOLO Fe-poor (Fe/O \u2248 0.08); He/H also differs by ~2\u00d7; spectra fit Band function; differences persist throughout event suggesting direct flare contribution at PSP.",
+      "skill_md": "paper-mason-2025-icme-may16-2023-composition-variation/SKILL.md",
+      "metadata_yaml": "paper-mason-2025-icme-may16-2023-composition-variation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.19672"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-livadiotis-2024-kappa-tail-technique-psp",
+      "title": "Kappa-tail technique: Modeling and application to Solar Energetic Particles observed by Parker Solar Probe",
+      "authors": [
+        "Livadiotis, G.",
+        "Cuesta, M. E.",
+        "Cummings, A. T.",
+        "McComas, D. J."
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2407.04188",
+      "theme": "heliophysics-kappa-tail-technique-method",
+      "category": "primary-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The kappa-tail technique provides a closed-form fit to the high-energy tail of a kappa distribution and is applied to PSP/IS\u2609IS energetic-particle spectra to extract \u03ba, T_EP, n_EP.",
+      "skill_md": "paper-livadiotis-2024-kappa-tail-technique-psp/SKILL.md",
+      "metadata_yaml": "paper-livadiotis-2024-kappa-tail-technique-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2407.04188"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-leske-2024-three-stage-sep-acceleration-psp",
+      "title": "Three-stage Acceleration of Solar Energetic Particles Detected by Parker Solar Probe",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2405.19680",
+      "theme": "heliophysics-three-stage-sep-acceleration-psp",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "PSP IS\u2609IS observations reveal a three-stage acceleration sequence (flare, shock, reservoir) within a single SEP event, with characteristic spectral / compositional signatures separable across the event timeline.",
+      "skill_md": "paper-leske-2024-three-stage-sep-acceleration-psp/SKILL.md",
+      "metadata_yaml": "paper-leske-2024-three-stage-sep-acceleration-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2405.19680"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter",
+      "title": "Bidirectional anisotropic solar energetic particle events observed by Solar Orbiter",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2507.16990",
+      "theme": "heliophysics-bidirectional-anisotropic-sep-solar-orbiter",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Solar Orbiter observes bidirectional anisotropic SEP events whose dual streaming components indicate either mirror-reflection or trapping inside a magnetic structure.",
+      "skill_md": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter/SKILL.md",
+      "metadata_yaml": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2507.16990"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar",
+      "title": "Resolving spatial and temporal shock structures using LOFAR observations of type II radio bursts",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2502.16934",
+      "theme": "heliophysics-lofar-type-ii-shock-spatiotemporal",
+      "category": "primary-observation-methodology",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "LOFAR resolves type II band splitting and herringbone fine structure that map onto distinct shock locations / acceleration sites at the coronal shock front.",
+      "skill_md": "paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar/SKILL.md",
+      "metadata_yaml": "paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.16934"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-marsh-2024-parasol-sep-forecasting",
+      "title": "Towards advanced forecasting of solar energetic particle events with the PARASOL model",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2412.11852",
+      "theme": "heliophysics-sep-forecast-parasol",
+      "category": "primary-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The PARASOL SEP-forecast model couples solar-eruption inputs with a transport solver to deliver event-time forecasts of SEP intensity and spectrum, with verification on a hold-out set.",
+      "skill_md": "paper-marsh-2024-parasol-sep-forecasting/SKILL.md",
+      "metadata_yaml": "paper-marsh-2024-parasol-sep-forecasting/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2412.11852"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope",
+      "title": "Cross-Field Diffusion Effects on Particle Transport in a Solar Coronal Flux Rope",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2411.00738",
+      "theme": "heliophysics-cross-field-diffusion-coronal-flux-rope",
+      "category": "primary-simulation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Cross-field diffusion inside a coronal flux rope produces a measurable spread of energetic-particle distributions across field lines, with implications for ICME magnetic-cloud particle observations.",
+      "skill_md": "paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope/SKILL.md",
+      "metadata_yaml": "paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2411.00738"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-chen-2024-energetic-particles-quasi-separatrix-layers",
+      "title": "Energetic Particles from Quasi-Separatrix Layers and Current Sheets at the Sun",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2410.07420",
+      "theme": "heliophysics-energetic-particles-qsl-current-sheets",
+      "category": "primary-simulation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Energetic-particle acceleration at QSLs and current sheets is identified as an additional component contributing to impulsive SEP events.",
+      "skill_md": "paper-chen-2024-energetic-particles-quasi-separatrix-layers/SKILL.md",
+      "metadata_yaml": "paper-chen-2024-energetic-particles-quasi-separatrix-layers/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.07420"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-allen-2024-radial-evolution-icme-sep-solo-ace",
+      "title": "Radial Evolution of ICME-Associated Particle Acceleration Observed by Solar Orbiter and ACE",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2410.01885",
+      "theme": "heliophysics-icme-sep-radial-evolution-solo-ace",
+      "category": "primary-observation-statistical",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "ICME-associated particle acceleration measured at Solar Orbiter and ACE during radial conjunctions traces the radial evolution of the driving shock.",
+      "skill_md": "paper-allen-2024-radial-evolution-icme-sep-solo-ace/SKILL.md",
+      "metadata_yaml": "paper-allen-2024-radial-evolution-icme-sep-solo-ace/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.01885"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-jebaraj-2024-type-ii-multi-vantage-catalog",
+      "title": "A catalog of multi-vantage point observations of type-II bursts: Statistics and correlations",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2024,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2410.00814",
+      "theme": "heliophysics-type-ii-multi-vantage-catalog",
+      "category": "primary-observation-catalog",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "A multi-vantage-point catalog of type II radio bursts (Wind/STEREO/PSP/SOLO) provides population-level statistics and correlations between type II properties and source-event parameters.",
+      "skill_md": "paper-jebaraj-2024-type-ii-multi-vantage-catalog/SKILL.md",
+      "metadata_yaml": "paper-jebaraj-2024-type-ii-multi-vantage-catalog/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.00814"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "title": "Radiation doses during extreme solar energetic particle events",
+      "authors": [
+        "Dalla, S.",
+        "Herbst, K.",
+        "Muscheler, R.",
+        "Owens, M. J."
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.15160",
+      "theme": "heliophysics-extreme-sep-radiation-doses",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Radiation-dose estimates at aviation altitudes and in space for both Space Age extreme events and historical (cosmogenic-radionuclide-inferred) events are computed under worst-case assumptions.",
+      "skill_md": "paper-dalla-2026-radiation-doses-extreme-seps/SKILL.md",
+      "metadata_yaml": "paper-dalla-2026-radiation-doses-extreme-seps/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.15160"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-jebaraj-2025-localized-particle-global-coronal-shock",
+      "title": "Signatures of localised particle acceleration at a global coronal shock wave",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2603.23335",
+      "theme": "heliophysics-localized-particle-acceleration-coronal-shock",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "A global coronal shock wave shows localized particle-acceleration signatures (e.g. type II 'spots', SEP onsets) that map onto specific places along the shock surface.",
+      "skill_md": "paper-jebaraj-2025-localized-particle-global-coronal-shock/SKILL.md",
+      "metadata_yaml": "paper-jebaraj-2025-localized-particle-global-coronal-shock/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.23335"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration",
+      "title": "Numerical investigation of particle acceleration at interplanetary shocks: diffusive and superdiffusive scenarios",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2604.14819",
+      "theme": "heliophysics-ip-shock-particle-acceleration-diffusive-superdiffusive",
+      "category": "primary-simulation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Numerical simulations of particle acceleration at IP shocks compare standard diffusive DSA with superdiffusive (anomalous) transport scenarios and identify observable signatures distinguishing them.",
+      "skill_md": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration/SKILL.md",
+      "metadata_yaml": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.14819"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-yang-2025-2024-09-04-iva-solar-orbiter",
+      "title": "Inverse Velocity Dispersion of Solar Energetic Protons Observed by Solar Orbiter and Its Shock Acceleration Explanation",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2507.00954",
+      "theme": "heliophysics-iva-solar-orbiter-shock-acceleration",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "A Solar Orbiter SEP event exhibits inverse velocity dispersion that is explained by a time-dependent shock-acceleration model.",
+      "skill_md": "paper-yang-2025-2024-09-04-iva-solar-orbiter/SKILL.md",
+      "metadata_yaml": "paper-yang-2025-2024-09-04-iva-solar-orbiter/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2507.00954"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-ding-2025-2022-09-05-time-dependent-dsa",
+      "title": "Evidence of Time-Dependent Diffusive Shock Acceleration in the 2022 September 5 Solar Energetic Particle Event",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2506.20322",
+      "theme": "heliophysics-2022-09-05-time-dependent-dsa",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "The 2022-09-05 Labor Day SEP event shows direct evidence for time-dependent diffusive shock acceleration in the PSP near-Sun observations, with progressive spectral hardening matching the model.",
+      "skill_md": "paper-ding-2025-2022-09-05-time-dependent-dsa/SKILL.md",
+      "metadata_yaml": "paper-ding-2025-2022-09-05-time-dependent-dsa/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2506.20322"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-zheng-2025-ip-shock-effect-turbulence",
+      "title": "Effect of interplanetary shock waves on turbulence parameters",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2025,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2505.04450",
+      "theme": "heliophysics-ip-shock-turbulence-modification",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "IP shocks modify the upstream/downstream turbulence parameters (spectral index, anisotropy, compressive fraction), and the modification correlates with shock parameters.",
+      "skill_md": "paper-zheng-2025-ip-shock-effect-turbulence/SKILL.md",
+      "metadata_yaml": "paper-zheng-2025-ip-shock-effect-turbulence/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2505.04450"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc",
+      "title": "Multi-spacecraft constraints on relativistic solar energetic particle transport in the widespread 28 October 2021 event",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2603.09839",
+      "theme": "heliophysics-relativistic-sep-2021-10-28-widespread",
+      "category": "primary-observation-modeling",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Multi-spacecraft observations of the 2021-10-28 widespread SEP event constrain relativistic-proton transport parameters across heliolongitude.",
+      "skill_md": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc/SKILL.md",
+      "metadata_yaml": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.09839"
+      ],
+      "weak_attribution": true
+    },
+    {
+      "slug": "paper-pereira-2026-connection-angle-gle-anisotropy",
+      "title": "Connection-angle dependence of proton anisotropy in ground-level enhancement events",
+      "authors": [
+        "TODO verify"
+      ],
+      "year": 2026,
+      "venue": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2603.19953",
+      "theme": "heliophysics-gle-proton-anisotropy-connection-angle",
+      "category": "primary-observation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "core_claim": "Proton anisotropy in GLE events correlates with magnetic-connection angle between the observer and the source region.",
+      "skill_md": "paper-pereira-2026-connection-angle-gle-anisotropy/SKILL.md",
+      "metadata_yaml": "paper-pereira-2026-connection-angle-gle-anisotropy/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.19953"
+      ],
+      "weak_attribution": true
+    }
+  ],
+  "shared_building_blocks": [
+    "psp-isois-epi-data-loader",
+    "psp-fields-mag-shock-identifier",
+    "so-epd-data-loader",
+    "rankine-hugoniot-shock-fit",
+    "theta-bn-obliquity-classifier",
+    "parker-transport-sde-solver",
+    "kappa-distribution-tail-fit",
+    "iva-contour-line-detector",
+    "vda-onset-fit-with-background",
+    "magnetic-connectivity-pfss-ballistic",
+    "mhd-cme-injection-model",
+    "neutron-monitor-rigidity-corrector",
+    "type-ii-band-pair-fit",
+    "cosmogenic-isotope-fluence-inverter",
+    "fermi-lat-pion-decay-fit",
+    "bayesian-multilateration-bella"
+  ],
+  "weak_entries_needing_full_text_verification": [
+    {
+      "slug": "paper-cao-2026-sep-rise-times-earth-mars-transport",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-han-2026-sees-cross-hcs-statistical",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-liuzzo-2026-sep-reflection-precursor-icme",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-mishev-2026-first-four-gles-1940s",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-kollhoff-2026-acr-helium-solo-het",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-mason-2026-unusual-2024-june-8-gle",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-mason-2026-sunward-3he-rich-sep-solo-psp",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-koppl-2026-electron-acr-cold-clouds-radiation",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-luhmann-2026-stereo-het-sep-protons-first-orbit",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-sun-2026-counterfactual-sep-prediction-ml",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-meng-2025-sepnet-multi-task-ml",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-rab-2025-sep-protoplanetary-disk-irradiation",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-clark-2025-may2024-superstorm-sep-feo",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-allen-2025-shock-evolution-2023-march-13-event",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-zhang-2025-2024-09-09-backside-eruption-sgre",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-jin-2025-third-harmonic-type-ii-2024-09-14",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-feng-2025-shock-sep-modeling-2022-09-05",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-mason-2025-icme-may16-2023-composition-variation",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-livadiotis-2024-kappa-tail-technique-psp",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-leske-2024-three-stage-sep-acceleration-psp",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-marsh-2024-parasol-sep-forecasting",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-chen-2024-energetic-particles-quasi-separatrix-layers",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-allen-2024-radial-evolution-icme-sep-solo-ace",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-jebaraj-2024-type-ii-multi-vantage-catalog",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-jebaraj-2025-localized-particle-global-coronal-shock",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-yang-2025-2024-09-04-iva-solar-orbiter",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-ding-2025-2022-09-05-time-dependent-dsa",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-zheng-2025-ip-shock-effect-turbulence",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    },
+    {
+      "slug": "paper-pereira-2026-connection-angle-gle-anisotropy",
+      "todos": [
+        "DOI / final venue",
+        "Full author list",
+        "Exact numerical values (intensities, slopes, tolerances)",
+        "Event dates / catalog identifiers"
+      ]
+    }
+  ],
+  "skill_graph_edges": [
+    {
+      "from": "paper-cao-2026-sep-rise-times-earth-mars-transport",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-cao-2026-sep-rise-times-earth-mars-transport",
+      "to": "paper-laitinen-2026-vda-turbulent-heliosphere",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-han-2026-sees-cross-hcs-statistical",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-han-2026-sees-cross-hcs-statistical",
+      "to": "paper-wimmer-schweingruber-2024-sep-inner-heliosphere-solo-psp",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-liuzzo-2026-sep-reflection-precursor-icme",
+      "to": "paper-han-2026-sees-cross-hcs-statistical",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-liuzzo-2026-sep-reflection-precursor-icme",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "to": "paper-jebaraj-2024-type-ii-multi-vantage-catalog",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "to": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "to": "paper-mishev-2026-first-four-gles-1940s",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation",
+      "to": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mishev-2026-first-four-gles-1940s",
+      "to": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mishev-2026-first-four-gles-1940s",
+      "to": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-kollhoff-2026-acr-helium-solo-het",
+      "to": "paper-wimmer-schweingruber-2024-sep-inner-heliosphere-solo-psp",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mason-2026-unusual-2024-june-8-gle",
+      "to": "paper-mishev-2026-first-four-gles-1940s",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mason-2026-unusual-2024-june-8-gle",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock",
+      "to": "paper-mason-2026-unusual-2024-june-8-gle",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "to": "paper-laitinen-2026-vda-turbulent-heliosphere",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "to": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mason-2026-sunward-3he-rich-sep-solo-psp",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mason-2026-sunward-3he-rich-sep-solo-psp",
+      "to": "paper-wimmer-schweingruber-2024-sep-inner-heliosphere-solo-psp",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
+      "to": "paper-kouloumvakos-2026-iva-shock-properties",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
+      "to": "paper-allen-2025-shock-evolution-2023-march-13-event",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-koppl-2026-electron-acr-cold-clouds-radiation",
+      "to": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-koppl-2026-electron-acr-cold-clouds-radiation",
+      "to": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-luhmann-2026-stereo-het-sep-protons-first-orbit",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-sun-2026-counterfactual-sep-prediction-ml",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-sun-2026-counterfactual-sep-prediction-ml",
+      "to": "paper-meng-2025-sepnet-multi-task-ml",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-meng-2025-sepnet-multi-task-ml",
+      "to": "paper-sun-2026-counterfactual-sep-prediction-ml",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-rab-2025-sep-protoplanetary-disk-irradiation",
+      "to": "paper-koppl-2026-electron-acr-cold-clouds-radiation",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "to": "paper-jebaraj-2024-synchrotron-electrons-near-sun-shocks",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "to": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "to": "paper-laitinen-2026-vda-turbulent-heliosphere",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "to": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-clark-2025-may2024-superstorm-sep-feo",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-clark-2025-may2024-superstorm-sep-feo",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-allen-2025-shock-evolution-2023-march-13-event",
+      "to": "paper-dresing-2025-widespread-esp-march-2023",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-allen-2025-shock-evolution-2023-march-13-event",
+      "to": "paper-kouloumvakos-2026-iva-shock-properties",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-zhang-2025-2024-09-09-backside-eruption-sgre",
+      "to": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-jin-2025-third-harmonic-type-ii-2024-09-14",
+      "to": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021",
+      "to": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-feng-2025-shock-sep-modeling-2022-09-05",
+      "to": "paper-xu-2026-psp-iva-sep-events",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-feng-2025-shock-sep-modeling-2022-09-05",
+      "to": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mason-2025-icme-may16-2023-composition-variation",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-mason-2025-icme-may16-2023-composition-variation",
+      "to": "paper-clark-2025-may2024-superstorm-sep-feo",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-livadiotis-2024-kappa-tail-technique-psp",
+      "to": "paper-cuesta-2024-kappa-distributions-energetic-protons",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-leske-2024-three-stage-sep-acceleration-psp",
+      "to": "paper-reames-2026-physics-of-seps",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-leske-2024-three-stage-sep-acceleration-psp",
+      "to": "paper-xu-2026-psp-iva-sep-events",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter",
+      "to": "paper-liuzzo-2026-sep-reflection-precursor-icme",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter",
+      "to": "paper-mason-2026-sunward-3he-rich-sep-solo-psp",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar",
+      "to": "paper-jin-2025-third-harmonic-type-ii-2024-09-14",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-marsh-2024-parasol-sep-forecasting",
+      "to": "paper-meng-2025-sepnet-multi-task-ml",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-marsh-2024-parasol-sep-forecasting",
+      "to": "paper-feng-2025-shock-sep-modeling-2022-09-05",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope",
+      "to": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-chen-2024-energetic-particles-quasi-separatrix-layers",
+      "to": "paper-leske-2024-three-stage-sep-acceleration-psp",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-allen-2024-radial-evolution-icme-sep-solo-ace",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-allen-2024-radial-evolution-icme-sep-solo-ace",
+      "to": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-jebaraj-2024-type-ii-multi-vantage-catalog",
+      "to": "paper-duan-2026-sep-type-ii-radio-source-regions",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "to": "paper-mekhaldi-2026-carrington-36cl-ice-cores",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-dalla-2026-radiation-doses-extreme-seps",
+      "to": "paper-mishev-2026-first-four-gles-1940s",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-jebaraj-2025-localized-particle-global-coronal-shock",
+      "to": "paper-cohen-2026-coronal-flux-tube-shock-spot-newyearseve-2023",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-jebaraj-2025-localized-particle-global-coronal-shock",
+      "to": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration",
+      "to": "paper-trotta-2025-ip-shock-variability-multi-spacecraft",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration",
+      "to": "paper-malandraki-2025-perp-diffusion-near-sun",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-yang-2025-2024-09-04-iva-solar-orbiter",
+      "to": "paper-xu-2026-psp-iva-sep-events",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-yang-2025-2024-09-04-iva-solar-orbiter",
+      "to": "paper-kouloumvakos-2026-iva-shock-properties",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-ding-2025-2022-09-05-time-dependent-dsa",
+      "to": "paper-feng-2025-shock-sep-modeling-2022-09-05",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-ding-2025-2022-09-05-time-dependent-dsa",
+      "to": "paper-kouloumvakos-2026-iva-shock-properties",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-zheng-2025-ip-shock-effect-turbulence",
+      "to": "paper-trotta-2025-ip-shock-variability-multi-spacecraft",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc",
+      "to": "paper-bian-2026-30march2022-sep-data-assimilation",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc",
+      "to": "paper-walker-2026-icme-radial-particle-acceleration-statistics",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-pereira-2026-connection-angle-gle-anisotropy",
+      "to": "paper-mason-2026-unusual-2024-june-8-gle",
+      "type": "depends_on"
+    },
+    {
+      "from": "paper-pereira-2026-connection-angle-gle-anisotropy",
+      "to": "paper-mishev-2026-first-four-gles-1940s",
+      "type": "depends_on"
+    }
+  ],
+  "roll_up_reproducibility_targets": [
+    "A SEP rise-time / VDA / radial-fluence cross-mission atlas (Cao 2026 + Han 2026 + Luo 2025 + Allen 2024 + Walker 2026 \u2014 links here)",
+    "A widespread- / circumsolar-event mechanism table (Dresing 2025 + Allen 2025 + Ding 2026 + Mason 2026 backside SGRE)",
+    "A multi-vantage-point type II / SEP / radio catalog (Jebaraj 2024 type II catalog + Duan 2026 + Buthelezi 2025 LOFAR + Jin 2025)",
+    "A historical / extreme-event radiation / fluence registry (Mekhaldi 2026 36Cl + Mishev 2026 1940s GLEs + Dalla 2026 doses + Mason 2026 2024-06-08 GLE)",
+    "An IVA / time-dependent-DSA event registry (Yang 2025 + Laitinen 2025 + Ding 2025 + Yu 2025 + Feng 2025)",
+    "A SEP-forecasting benchmark suite (Meng 2025 SEPNET + Sun 2026 counterfactual ML + Marsh 2024 PARASOL)"
+  ]
+}

@@ -1,0 +1,30 @@
+slug: paper-sharma-2026-subion-current-sheets-kaw-pic
+title: "Sub-ion scale current sheets in kinetic Alfvén wave turbulence"
+authors:
+  - "Johan Sharma"
+  - "Ch Akshath Kumar"
+  - "Kirit D. Makwana"
+year: 2026
+journal: "TODO verify (arXiv:2601.18131)"
+doi: null
+arxiv: "2601.18131"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [kinetic-scale, current-sheets, PIC-simulation, KAW]
+missions: [n/a]
+regime: [kinetic, electron-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PIC simulation outputs (3D EM fields, particles) derived (n/a)"
+methods:
+  - pic-simulation-of-kaw-driven-turbulence-with-electron-scale-resolution
+  - current-sheet-identification-and-statistics-in-the-simulation-domain
+  - sub-ion-power-spectrum-analysis
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 item 3"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

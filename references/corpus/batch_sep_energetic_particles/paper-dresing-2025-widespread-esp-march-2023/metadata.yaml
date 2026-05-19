@@ -1,0 +1,40 @@
+slug: paper-dresing-2025-widespread-esp-march-2023
+title: "On the reason for the widespread energetic storm particle event of 13 March 2023"
+authors:
+  - "Dresing, N."
+  - "Jebaraj, I. C."
+  - "Wijsen, N."
+  - "Palmerio, E."
+  - "Rodríguez-García, L."
+  - "Palmroos, C."
+year: 2025
+journal: "Journal — TODO verify (likely A&A)"
+doi: TODO_verify_with_full_text
+arxiv: "2502.06332"
+theme: heliophysics-widespread-esp-circumsolar-shock
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/ISʘIS + FIELDS + SWEAP
+  - SO/EPD + MAG + SWA
+  - BepiColombo/BERM + MAG
+  - STEREO-A/IMPACT + PLASTIC + MAG
+  - Near-Earth (ACE, Wind, GOES)
+  - MAVEN/SEP + MAG
+  - Coronagraph LASCO + STEREO/SECCHI + SO/Metis
+  - MHD solar-wind + CME injection model
+methods:
+  - Multi-spacecraft shock + ESP-onset cataloging
+  - Magnetic-connectivity estimation per observer
+  - MHD CME-injection scenarios (single blast wave vs multi-CME combined)
+  - Scenario comparison via simulation-vs-observation fit
+validation_targets:
+  - Catalog shock+ESP onsets at six observers within ±15 min of paper times
+  - Reproduce qualitative ordering (blast-wave ≳ multi-CME slightly)
+  - Reproduce MHD shock-shape match to observed crossings within paper tolerance
+weak_entries:
+  - DOI / final venue
+  - MHD model identity (ENLIL / EUHFORIA / MAS — TODO verify)
+  - Full pre-event + simultaneous CME injection list
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.06332

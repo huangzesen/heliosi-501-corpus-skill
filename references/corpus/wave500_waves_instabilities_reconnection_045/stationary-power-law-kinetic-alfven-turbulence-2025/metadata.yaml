@@ -1,0 +1,23 @@
+slug: stationary-power-law-kinetic-alfven-turbulence-2025
+title: >-
+  Stationary Power-Law Solutions of Kinetic-Alfvénic Turbulence
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2508.03478"
+theme: kinetic-alfvenic-turbulence-stationary-power-law
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Wave-kinetic-equation solver
+  - In-situ KAW-range spectrum
+methods:
+  - Wave-kinetic equation closure
+  - Stationary power-law derivation
+  - Spectral exponent comparison
+validation_targets:
+  - α_⊥, α_∥ analytic vs observed match (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2508.03478

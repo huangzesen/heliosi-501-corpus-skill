@@ -1,0 +1,52 @@
+slug: tahtinen-2026-dipole-flux-transport-open-flux
+title: >-
+  Ultra-Fast Simulations of the Solar Dipole and Open Flux
+authors:
+  - I. Tähtinen
+  - T. Asikainen
+  - K. Mursula
+first_author: I. Tähtinen
+year: 2026
+arxiv: "2604.11342"
+arxiv_date: "2026-04-13"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - surface_flux_transport
+  - open_flux
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - BMR emergence stream for the simulation window.
+  - Reference PFSS-OSF time series.
+methods:
+  - SFT linearizes into propagators over a fixed synoptic basis.
+  - Compression ratio <1e-4 preserves dipole accuracy.
+  - |dipole| ≈ OSF empirically over Cycle 24.
+validation_targets:
+  - ≤1% disagreement on dipole vs SFT; tight |dipole|–OSF rank-correlation.
+trigger_keywords:
+  - DFT
+  - SFT
+  - OSF
+  - dipole flux transport
+  - propagator matrix
+  - Cycle 24
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - journal
+  - compression-ratio for headline numbers
+  - BMR catalog identity
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

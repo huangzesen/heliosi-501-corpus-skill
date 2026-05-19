@@ -1,0 +1,40 @@
+slug: good-2025-residual-energy-mhd-shocks-interplanetary
+title: >-
+  Residual energy of magnetohydrodynamic shocks
+authors:
+  - S. W. Good
+  - K. J. Palmunen
+  - C. H. K. Chen
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2509.20096"
+theme: mhd-shock-residual-energy-signature
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+  - Solar Orbiter
+  - Wind
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - residual energy
+  - MHD shock
+  - magnetic-kinetic ratio
+  - interplanetary shock
+data_products:
+  - instrument: PSP/SolO/Wind MAG + plasma
+    level: L2
+    cadence: burst/standard
+    interval: interplanetary shock catalog
+    archive: SPDF/CDAWeb / SOAR
+algorithms:
+  - name: Pre-shock vs post-shock residual energy σ_r computation
+  - name: Statistical comparison to MHD theoretical prediction
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §7

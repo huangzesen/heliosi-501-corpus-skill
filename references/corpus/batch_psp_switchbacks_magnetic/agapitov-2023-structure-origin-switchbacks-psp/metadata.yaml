@@ -1,0 +1,33 @@
+slug: agapitov-2023-structure-origin-switchbacks-psp
+title: >-
+  The Structure and Origin of Switchbacks: Parker Solar Probe Observations
+authors:
+  - O. V. Agapitov
+  - F. S. Mozer
+  - J. F. Drake
+  - T. Dudok de Wit
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: The Astrophysical Journal
+doi: "10.3847/1538-4357/acd17e"
+arxiv: TODO_verify_with_full_text
+theme: heliophysics-psp-switchback-structure-origin
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN at high cadence
+  - PSP SWEAP bulk velocity (SPC / SPAN-I)
+  - PSP electron / proton density for V_A
+  - Switchback event catalog with documented threshold
+methods:
+  - Switchback identification by deflection threshold
+  - Boundary-crossing localization
+  - Minimum-variance analysis on B
+  - Walén test across boundary
+  - Per-boundary RD / TD / hybrid / ambiguous classification
+validation_targets:
+  - Non-zero fraction of RD-classified boundaries (sign of effect)
+  - Walén-slope distribution peak near ±1 for RD subset
+  - Aggregate classification recall vs. paper fractions (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.5

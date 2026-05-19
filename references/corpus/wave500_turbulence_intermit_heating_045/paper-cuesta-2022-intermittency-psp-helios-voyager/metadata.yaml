@@ -1,0 +1,35 @@
+slug: paper-cuesta-2022-intermittency-psp-helios-voyager
+title: "Intermittency in the Expanding Solar Wind: Observations from Parker Solar Probe (0.16 au), Helios 1 (0.3–1 au), and Voyager 1 (1–10 au)"
+authors:
+  - "Manuel Enrique Cuesta"
+  - "Tulasi N. Parashar"
+  - "Rohit Chhiber"
+  - "William H. Matthaeus"
+year: 2022
+journal: "TODO verify (arXiv:2202.01874)"
+doi: null
+arxiv: "2202.01874"
+primary_theme: turbulence
+secondary_themes: [intermittency, radial-evolution, multi-spacecraft]
+missions: [PSP, Helios, Voyager]
+regime: [inner-heliosphere, 1au, outer-heliosphere]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP FIELDS MAG L2 perihelion"
+  - "Helios 1 MAG L2"
+  - "Voyager 1 MAG L2"
+methods:
+  - autocorrelation-correlation-length
+  - structure-function-S_n
+  - scale-dependent-kurtosis-sdk
+  - radial-distance-binning-d_i-normalisation
+validation_targets:
+  - "Monotonic radial trend of lambda_C/d_i across three missions (numbers TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2022 item 7"
+verification_flags:
+  - "Helios cadence used TODO verify."
+  - "Voyager cadence used TODO verify."
+  - "Reported numerical trend slope TODO verify."
+  - "Publication venue/DOI TODO verify."

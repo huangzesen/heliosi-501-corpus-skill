@@ -1,0 +1,44 @@
+slug: paper-source-surface-radius-optimization-eclipse-streamer
+title: "PFSS Source-Surface Radius Optimization via Eclipse / Streamer Comparison"
+authors:
+  - "TODO verify (canonical: Lee et al. 2011; Badman et al. 2020/2022)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - pfss_source_mapping
+  - eclipse_benchmark
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Synoptic Br
+  - Eclipse white-light or pB streamer geometry
+methods:
+  - PFSS solver with parameterized R_ss
+  - Neutral-line agreement metric
+  - R_ss grid scan
+validation_targets:
+  - Optimal R_ss within ~0.1 R_sun of published value (TODO verify)
+trigger_keywords:
+  - source surface radius
+  - R_ss optimization
+  - eclipse PFSS
+  - pB neutral line
+  - Badman 2020
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

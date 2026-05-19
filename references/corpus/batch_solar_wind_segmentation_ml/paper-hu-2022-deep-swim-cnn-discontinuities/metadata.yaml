@@ -1,0 +1,37 @@
+slug: paper-hu-2022-deep-swim-cnn-discontinuities
+title: "Deep-SWIM: A few-shot learning approach to classify Solar WInd Magnetic field structures"
+authors:
+  - "TODO verify full author list (arXiv:2203.01184)"
+year: 2022
+journal: "TODO verify (arXiv:2203.01184)"
+doi: null
+arxiv: "2203.01184"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, cnn, few-shot, discontinuity-detection]
+missions: [Wind, ACE, other]
+regime: ["1au"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "L2 in-situ magnetic-field time series with ≥0.1 Hz cadence"
+  - "Discontinuity catalog (Tsurutani-Smith / Vasquez / hand-labelled — TODO verify)"
+methods:
+  - five-minute-windowing-with-stride
+  - three-component-channel-stacking
+  - few-shot-cnn-meta-learning
+  - binary-discontinuity-classification
+validation_targets:
+  - "Per-window binary accuracy / F1 (numerical value TODO verify)"
+  - "Accuracy-vs-shots-K curve reproduces few-shot behaviour reported by the paper"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.7"
+verification_flags:
+  - "Lead author surname + full author list TODO verify."
+  - "Publication venue + DOI TODO verify."
+  - "Source mission (Wind vs ACE vs Cluster) TODO verify."
+  - "Discontinuity catalog identity TODO verify."
+  - "CNN architecture + few-shot paradigm TODO verify."
+  - "Component frame (GSE vs RTN) TODO verify."
+  - "Window stride and overlap TODO verify."
+  - "Headline accuracy / F1 numbers TODO verify."

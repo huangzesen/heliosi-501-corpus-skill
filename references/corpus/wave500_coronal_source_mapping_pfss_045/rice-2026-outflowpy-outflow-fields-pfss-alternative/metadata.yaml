@@ -1,0 +1,52 @@
+slug: rice-2026-outflowpy-outflow-fields-pfss-alternative
+title: >-
+  Global Coronal Equilibria with Solar Wind Outflow II — Optimizing the Outflow Model (outflowpy)
+authors:
+  - O. Rice
+  - A. R. Yeates
+first_author: O. Rice
+year: 2026
+arxiv: "2603.22159"
+arxiv_date: "2026-03-23"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - open_flux
+  - coronal_equilibria
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic Br 2000–2022.
+  - Eclipse images with extracted field-line angles.
+  - OMNI |B|R² for in-situ OSF.
+methods:
+  - A magneto-frictional outflow equilibrium is solvable on the same synoptic Br as PFSS.
+  - Eclipse-image field-line angles are a fair morphology test.
+  - An EA can tune the outflow parameters to a multi-metric objective.
+validation_targets:
+  - Recover ~45% → ~24% gap reduction within tolerance and eclipse-angle improvement.
+trigger_keywords:
+  - outflowpy
+  - outflow fields
+  - open flux
+  - eclipse
+  - evolutionary algorithm
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - journal
+  - outflowpy version
+  - EA metric weights
+  - held-out cycle
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

@@ -1,0 +1,43 @@
+slug: paper-microflare-stix-nonthermal-electron-spectra
+title: "STIX Microflare Nonthermal Electron Spectra"
+authors:
+  - "TODO verify (canonical: Battaglia et al. 2021/2023; Saqri et al. 2022)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - flare_spectroscopy
+  - microflares
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - STIX L1 spectral and pixel data
+  - Quiet-time background
+methods:
+  - Background-subtracted forward fit (thermal + power-law)
+  - STIX-CLEAN imaging
+validation_targets:
+  - Recover paper (E_c, δ) distribution on benchmark microflare list (TODO verify)
+trigger_keywords:
+  - STIX microflare
+  - nonthermal electron spectrum
+  - thick target bremsstrahlung
+  - Solar Orbiter STIX
+  - flare power law
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

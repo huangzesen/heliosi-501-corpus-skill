@@ -1,0 +1,28 @@
+slug: paper-ogilvie-1995-wind-swe-faraday-cup
+title: "SWE, a comprehensive plasma instrument for the Wind spacecraft"
+authors:
+  - "Ogilvie, K. W."
+year: 1995
+journal: Space Science Reviews
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-wind-swe
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - Wind/SWE FC L2 (92 s (ion moments))
+  - Wind/SWE NL moments L2 (92 s)
+  - Wind/SWE VEIS electrons L2 (3-12 s (mode-dependent))
+methods:
+  - Faraday-cup nonlinear Maxwellian fit
+  - Key-parameter (KP) moment pipeline
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov/pub/data/wind/swe/
+weak_entries:
+  - "DOI not in local inventory; Space Sci. Rev. 71, 55 (1995)"

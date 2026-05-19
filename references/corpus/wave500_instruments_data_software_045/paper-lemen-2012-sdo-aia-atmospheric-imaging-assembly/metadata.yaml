@@ -1,0 +1,28 @@
+slug: paper-lemen-2012-sdo-aia-atmospheric-imaging-assembly
+title: The Atmospheric Imaging Assembly (AIA) on the Solar Dynamics Observatory (SDO)
+authors:
+  - "Lemen, J. R."
+year: 2012
+journal: Solar Physics
+doi: 10.1007/s11207-011-9776-8
+arxiv: null
+ads_bibcode: null
+theme: instrument-sdo-aia
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SDO/AIA EUV L1.5 (lev1 + pointing) (12 s)
+  - SDO/AIA UV (1600/1700) L1.5 (24 s)
+methods:
+  - "aia_prep (point spread function, registration, flat-field)"
+  - AIA differential emission measure (DEM) inversion
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1007/s11207-011-9776-8
+  data_repo: http://jsoc.stanford.edu/
+weak_entries:
+  []

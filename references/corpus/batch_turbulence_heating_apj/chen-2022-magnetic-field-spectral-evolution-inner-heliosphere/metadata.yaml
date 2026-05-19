@@ -1,0 +1,29 @@
+slug: chen-2022-magnetic-field-spectral-evolution-inner-heliosphere
+title: "Magnetic Field Spectral Evolution in the Inner Heliosphere"
+authors:
+  - "C. H. K. Chen"
+year: 2022
+journal: "TODO verify (arXiv preprint per inventory)"
+doi: null
+arxiv: "2209.02451"
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN (~0.1-0.3 au)"
+  - "Helios reprocessed MAG L2 (~0.3-1 au)"
+  - "Wind MFI L2 (~1 au)"
+methods:
+  - trace-power-spectral-density
+  - inertial-range-bounds-determination
+  - slope-fitting
+  - multi-mission-pooled-radial-evolution
+validation_targets:
+  - "alpha_B steepens from ~-3/2 near the Sun to ~-5/3 by ~0.6 au (PSP+Helios+Wind pooled)"
+  - "Wind 1-au asymptote consistent with -5/3 (TODO verify exact transition distance)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.15"
+verification_flags:
+  - "Publication venue TODO verify (arXiv-only in inventory)."
+  - "Stream-class conditioning (fast/slow split) TODO verify in full paper."
+  - "Per-bin alpha_B numerical values TODO verify."

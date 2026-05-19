@@ -1,0 +1,40 @@
+slug: touresse-2024-untwisting-jets-super-alfvenic-wind-switchback
+title: >-
+  Propagation of untwisting solar jets from the low-beta corona into the super-Alfvénic wind: Testing a solar origin scenario for switchbacks
+authors:
+  - J. Touresse
+  - E. Pariat
+  - C. Froment
+  - V. Aslanyan
+  - P. F. Wyper
+  - L. Seyfritz
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2412.15930"
+theme: solar-jet-untwisting-switchback-origin
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+regime:
+  - corona
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - solar jet
+  - untwisting
+  - low-beta corona
+  - switchback origin
+  - reconnection-jet
+  - super-Alfvénic propagation
+data_products: []
+algorithms:
+  - name: 3D resistive MHD simulation of reconnection-driven jet
+  - name: Twist-helicity injection tracking
+  - name: Synthetic single-spacecraft sampling of jet propagation
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §9

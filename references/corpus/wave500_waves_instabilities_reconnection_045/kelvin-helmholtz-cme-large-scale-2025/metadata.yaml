@@ -1,0 +1,21 @@
+slug: kelvin-helmholtz-cme-large-scale-2025
+title: >-
+  Observation of Large-Scale Kelvin–Helmholtz Instability Wave Driven by a Coronal Mass Ejection
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2512.19942"
+theme: kelvin-helmholtz-cme-driven
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - CME imagery + in-situ shear data
+methods:
+  - Linear KH threshold
+  - Wavelength extraction from imagery
+validation_targets:
+  - KH wavelength matches linear theory (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.19942

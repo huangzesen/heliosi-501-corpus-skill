@@ -1,0 +1,47 @@
+slug: badman-2023-pfss-iplmf-evaluation-psp
+title: >-
+  Evaluation of Coronal and Interplanetary Magnetic Field Extrapolation Using PSP Solar Wind Observation
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2023
+arxiv: "2305.12124"
+arxiv_date: "2023-05-20"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - psp
+  - validation
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS B per encounter.
+  - Synoptic Br products (GONG/HMI/ADAPT) per CR.
+methods:
+  - Parker-spiral extension is valid outside the source surface.
+  - PSP perihelion windows are unambiguous.
+validation_targets:
+  - Reproduce per-encounter pass-rate table.
+trigger_keywords:
+  - PFSS evaluation
+  - PSP
+  - polarity
+  - Parker spiral
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - encounters list
+  - exact pass-rate metric
+  - magnetogram products
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

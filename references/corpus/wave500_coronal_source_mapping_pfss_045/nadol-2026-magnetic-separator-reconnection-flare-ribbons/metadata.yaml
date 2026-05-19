@@ -1,0 +1,47 @@
+slug: nadol-2026-magnetic-separator-reconnection-flare-ribbons
+title: >-
+  The Role of Reconnection at Magnetic Separators in Complex Solar Flare Ribbons
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2026
+arxiv: "2603.23789"
+arxiv_date: "2026-03-24"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - flares
+  - topology
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - AIA 1600/304 Å ribbon imagery.
+  - HMI vector magnetograms.
+  - Synoptic Br for PFSS background.
+methods:
+  - Separator extraction is robust at the chosen grid.
+  - Ribbon morphology can be mapped to separator footprints.
+validation_targets:
+  - Reproduce the separator-flux–ribbon-flux scatter.
+trigger_keywords:
+  - magnetic separator
+  - flare ribbons
+  - reconnection flux
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - NLFFF code
+  - ribbon threshold
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

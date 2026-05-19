@@ -1,0 +1,27 @@
+slug: paper-meng-2025-sepnet-multi-task-ml
+title: "Solar Energetic Particle Forecasting with Multi-Task Deep Learning: SEPNET"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2512.12786"
+theme: heliophysics-sep-forecast-multi-task-deep-learning
+category: primary-observation-ml
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - GOES SEISS/EPS proton
+  - SDO/HMI + AIA active-region context
+  - Wind/WAVES + STEREO/WAVES radio
+methods:
+  - Multi-task neural-network head (occurrence + peak flux + spectral index)
+  - Class-imbalance loss
+  - Time-series convolution / transformer backbone (TODO_verify)
+  - Probability-calibration check
+validation_targets:
+  - Hold-out TSS / Heidke / RMSE per head (numerics TODO_verify); calibration plot.
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2512.12786

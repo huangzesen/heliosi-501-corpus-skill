@@ -1,0 +1,50 @@
+slug: gonzalez-2026-compressible-fluctuations-balanced-imbalanced
+title: >-
+  Characterization of compressible fluctuations in solar wind streams dominated by balanced and imbalanced turbulence
+authors:
+  - C. A. Gonzalez
+  - A. Tenerani
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2602.17606"
+theme: compressible-fluctuations-balanced-imbalanced-near-sun
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+  - Solar Orbiter
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - compressible turbulence
+  - slow magnetosonic mode
+  - balanced
+  - imbalanced
+  - near-Sun heating
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP near-Sun intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+  - instrument: Solar Orbiter/MAG + SWA
+    level: L2
+    cadence: vector cadence
+    interval: PSP–SolO conjunction set
+    archive: SOAR
+algorithms:
+  - name: Mode-decomposition: Alfvén/slow/fast partitioning
+  - name: σ_c imbalance classifier
+  - name: Local heating-rate contribution from compressible modes
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §3

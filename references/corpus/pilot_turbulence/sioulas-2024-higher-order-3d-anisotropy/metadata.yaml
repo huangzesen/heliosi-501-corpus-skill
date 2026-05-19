@@ -1,0 +1,31 @@
+slug: sioulas-2024-higher-order-3d-anisotropy
+title: "Higher-Order Analysis of Three-Dimensional Anisotropy in Imbalanced Alfvenic Turbulence"
+authors:
+  - "N. Sioulas"
+  - "T. Zikopoulos"
+  - "C. Shi"
+  - "M. Velli"
+year: 2024
+journal: null
+doi: null
+arxiv: "2404.04055"
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN on intervals selected for large |sigma_c| (imbalanced Alfvenic)"
+  - "PSP SWEAP/SPC or SPAN-I L3 plasma moments"
+  - "(optional) Solar Orbiter MAG L2 + SWA/PAS for radial coverage"
+methods:
+  - imbalanced-alfvenic-filter
+  - local-mean-field-frame
+  - three-axis-decomposition-parallel-perpendicular-fluctuation
+  - higher-order-structure-functions
+  - critical-balance-vs-scale-dependent-dynamic-alignment-test
+  - sigma_c-binning
+validation_targets:
+  - "Per-sigma_c-bin zeta_n^a profiles in the inertial range select between CB and SDDA in the direction reported by the paper (TODO verify direction in full paper)"
+  - "Identification of two sub-inertial-range segments and an 'anomalous coherence' regime (qualitative; TODO verify exact scale boundaries)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #11 (2024)"
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.2 (companion 2404.04055)"

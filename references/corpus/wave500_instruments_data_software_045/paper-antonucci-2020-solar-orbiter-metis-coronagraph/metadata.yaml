@@ -1,0 +1,28 @@
+slug: paper-antonucci-2020-solar-orbiter-metis-coronagraph
+title: "Metis: the Solar Orbiter visible light and ultraviolet coronal imager"
+authors:
+  - "Antonucci, E."
+year: 2020
+journal: "Astronomy & Astrophysics"
+doi: 10.1051/0004-6361/201935338
+arxiv: null
+ads_bibcode: null
+theme: instrument-solo-metis
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SO/METIS VL pB L2 (campaign-dependent (10s seconds to minutes))
+  - SO/METIS UV Ly-α L2 (campaign-dependent)
+methods:
+  - van de Hulst inversion of pB → coronal density
+  - Doppler dimming → outflow velocity from H I Ly-α
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1051/0004-6361/201935338
+  data_repo: https://soar.esac.esa.int/
+weak_entries:
+  []

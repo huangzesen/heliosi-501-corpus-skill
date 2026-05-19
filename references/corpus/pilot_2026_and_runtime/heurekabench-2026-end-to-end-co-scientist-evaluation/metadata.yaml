@@ -1,0 +1,28 @@
+slug: heurekabench-2026-end-to-end-co-scientist-evaluation
+title: "HeurekaBench: A Benchmarking Framework for AI Co-scientist"
+authors:
+  - Siba Smarak Panigrahi
+  - Jovana Videnović
+  - Maria Brbić
+year: 2026
+journal: arXiv preprint
+doi: null
+arxiv: "2601.01678"
+theme: agent-runtime-benchmark-design
+quality_level: positioning-skill-not-executable-science
+executable_status: benchmark-design-template
+required_data:
+  - HelioSI skill catalog (with validation_targets per skill)
+  - HelioSI benchmark agent source
+  - Reproducibility log format
+methods:
+  - HeurekaBench-style item construction (anchor paper + repo + data + expected finding + verification pipeline)
+  - Feasibility sorting and selection
+  - Per-item metrics.json + top-level summary.json
+validation_targets:
+  - At least one paper-grounded end-to-end item exists
+  - Item executes end-to-end and is externally reproducible
+  - Published finding reproduced within stated tolerance
+source_inventory:
+  - sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md §1.8
+  - sioulas-reproduction/results/heliosi_similar_papers_requirements_gap_plan.md §0 and §2.2

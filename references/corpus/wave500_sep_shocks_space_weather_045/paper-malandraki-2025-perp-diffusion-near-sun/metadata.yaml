@@ -1,0 +1,26 @@
+slug: paper-malandraki-2025-perp-diffusion-near-sun
+title: "Parallel and perpendicular diffusion of energetic particles in the near-Sun solar wind observed by Parker Solar Probe"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2509.10648"
+theme: heliophysics-perp-parallel-diffusion-near-sun-psp
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo
+  - PSP/FIELDS MAG
+methods:
+  - Onset-vs-energy and decay-vs-time joint fit
+  - Pitch-angle decay-rate inference for κ_par
+  - Cross-field-spread inference for κ_perp
+  - κ_perp / κ_par ratio extraction
+validation_targets:
+  - κ_par(E), κ_perp(E), and κ_perp/κ_par at near-Sun distances (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2509.10648

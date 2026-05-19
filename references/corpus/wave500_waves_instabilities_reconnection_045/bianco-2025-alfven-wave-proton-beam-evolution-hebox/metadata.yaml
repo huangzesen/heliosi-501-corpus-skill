@@ -1,0 +1,30 @@
+slug: bianco-2025-alfven-wave-proton-beam-evolution-hebox
+title: >-
+  Evolution of an Alfvén Wave-Driven Proton Beam in the Expanding Solar Wind
+authors:
+  - J. S. Bianco
+  - A. Tenerani
+  - C. Gonzalez
+  - L. Matteini
+  - K. G. Klein
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2511.02940"
+theme: alfven-wave-driven-proton-beams-hebox
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - 1D HEB hybrid code
+  - Helios-like 0.3 AU initial state
+  - VDF segmentation toolchain
+methods:
+  - 1D hybrid expanding-box simulation
+  - AW–beam nonlinear coupling
+  - VDF moment extraction for drift/density
+  - Linear-Vlasov marginal-stability check
+validation_targets:
+  - Mean v_d(r) profile vs Helios/PSP agreement within stated bars
+  - Core/beam density ratio radial trend reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2511.02940

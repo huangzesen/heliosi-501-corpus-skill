@@ -1,0 +1,20 @@
+slug: suprathermal-anisotropy-instabilities-stimulated-2024
+title: >-
+  Numerical Simulations of Temperature Anisotropy Instabilities Stimulated by Suprathermal Populations
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2409.09180"
+theme: suprathermal-stimulated-anisotropy-instabilities
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Hybrid code with two-population proton VDF
+methods:
+  - Hybrid simulation with κ-distribution suprathermal protons
+validation_targets:
+  - Threshold-shift vs (κ, n_sup/n_core) reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2409.09180

@@ -1,0 +1,37 @@
+slug: paper-bloch-2024-uncertainty-nn-solar-wind-types
+title: "Classifying different types of solar wind plasma with uncertainty estimations using machine learning"
+authors:
+  - "TODO verify full author list (arXiv:2409.09230)"
+year: 2024
+journal: "TODO verify (arXiv:2409.09230)"
+doi: null
+arxiv: "2409.09230"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [machine-learning, uncertainty-quantification, neural-network, four-class]
+missions: [ACE, Wind, other]
+regime: ["1au"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "ACE / Wind / OMNI 1-au plasma + magnetic field moments"
+  - "4-class Xu-Borovsky / Stansby labels (label rule TODO verify)"
+methods:
+  - neural-network-four-class-classifier
+  - uncertainty-method-tbd-mc-dropout-or-ensemble-or-evidential
+  - calibration-evaluation-ece-or-brier
+  - abstention-curve-accuracy-vs-coverage
+validation_targets:
+  - "Per-class accuracy on 4-class 1-au labelling (TODO verify numbers)"
+  - "Calibrated uncertainty (ECE or Brier — TODO verify which)"
+  - "Abstention curve (accuracy vs coverage) reproduces paper's operating point"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.3"
+verification_flags:
+  - "Lead author surname + full author list TODO verify."
+  - "Publication venue + DOI TODO verify."
+  - "Labelling rule (Xu-Borovsky vs Stansby vs Owens) TODO verify."
+  - "NN architecture (MLP depth, width) TODO verify."
+  - "Uncertainty method (MC-Dropout / ensembles / Bayesian / evidential) TODO verify."
+  - "Calibration metric reported (ECE / Brier / NLL) TODO verify."
+  - "Operating point on abstention curve TODO verify."

@@ -1,0 +1,27 @@
+slug: paper-clark-2025-may2024-superstorm-sep-feo
+title: "Energy-dependent SEP Fe/O abundances during the May 2024 superstorm"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2511.03905"
+theme: heliophysics-sep-feo-may-2024-superstorm
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo composition
+  - Solar Orbiter EPD/SIS+HET composition
+  - ACE/SIS + Wind/EPACT + STEREO-A LET/HET
+methods:
+  - Cross-mission Fe/O energy-spectrum harmonization
+  - Per-event Fe/O vs energy power-law fit
+  - Compound-event decomposition (multiple CMEs / shocks)
+  - Seed-population diagnostic
+validation_targets:
+  - Fe/O(E) power-law parameters per observer; compound-event substructure (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2511.03905

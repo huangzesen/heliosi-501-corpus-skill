@@ -1,0 +1,28 @@
+slug: paper-hapi-2020-heliophysics-api-time-series
+title: "The Heliophysics Application Programmer's Interface (HAPI)"
+authors:
+  - "Weigel, R. S."
+year: 2020
+journal: Frontiers in Astronomy and Space Sciences (and JOSS specification)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-hapi
+source_type: software-paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - Wind/MFI via HAPI L2 via HAPI (3 s, 1 min)
+  - ACE/MAG via HAPI L2 via HAPI (16 s, 1 min)
+  - OMNI via HAPI L2 via HAPI (1 min, 1 hour)
+methods:
+  - HAPI /data streaming with start/stop ISO times
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://github.com/hapi-server/client-python
+  data_repo: https://hapi-server.org/
+weak_entries:
+  - DOI lookup TODO — HAPI is maintained as a community spec (hapi-server.org) with companion publications scattered

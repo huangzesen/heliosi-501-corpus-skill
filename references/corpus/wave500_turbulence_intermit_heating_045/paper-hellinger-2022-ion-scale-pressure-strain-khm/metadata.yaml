@@ -1,0 +1,34 @@
+slug: paper-hellinger-2022-ion-scale-pressure-strain-khm
+title: "Ion-scale transition of plasma turbulence: Pressure-strain effect"
+authors:
+  - "Petr Hellinger"
+  - "Victor Montagud-Camps"
+  - "Luca Franci"
+  - "Lorenzo Matteini"
+  - "Emanuele Papini"
+  - "Andrea Verdini"
+  - "Simone Landi"
+year: 2022
+journal: "TODO verify (arXiv:2203.12322)"
+doi: null
+arxiv: "2203.12322"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [ion-scale, pressure-strain, KHM-equation, hybrid-simulation]
+missions: [n/a]
+regime: [ion-scale, MHD-scale, kinetic]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "2D hybrid simulation output derived (n/a)"
+methods:
+  - compressible-hall-mhd-khm-equation-with-tensor-pressure
+  - pressure-strain-energy-exchange-diagnostic
+  - hybrid-fluid-e-kinetic-i-simulation-analysis
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2203.12322v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

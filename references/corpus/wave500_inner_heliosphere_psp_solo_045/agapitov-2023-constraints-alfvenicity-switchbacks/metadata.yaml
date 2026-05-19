@@ -1,0 +1,46 @@
+slug: agapitov-2023-constraints-alfvenicity-switchbacks
+title: >-
+  Constraints on the Alfvénicity of Switchbacks
+authors:
+  - O. V. Agapitov
+  - J. F. Drake
+  - M. Swisdak
+  - K.-E. Choi
+  - N. Raouafi
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2312.01011"
+theme: psp-switchback-alfvenicity-constraints
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - switchback Alfvenicity
+  - delta-v/delta-B ratio
+  - deflection angle distribution
+  - non-Alfvenic switchback
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP encounters with classified switchbacks
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPC/SPAN-I
+    level: L3 moments
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Switchback event detection with documented threshold
+  - name: delta-v vs ±delta-B/√(μ_0 ρ) ratio computation inside the event
+  - name: Conditional binning by deflection angle
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §14

@@ -1,0 +1,37 @@
+slug: chen-2023-relation-switchbacks-turbulence-inner-heliosphere
+title: >-
+  The relation between magnetic switchbacks and turbulence in the inner heliosphere
+authors:
+  - C. H. K. Chen
+  - TODO verify
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2312.16521"
+theme: switchback-turbulence-coupling-inner-heliosphere
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - switchback–turbulence coupling
+  - spectral index
+  - intermittency around switchbacks
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst
+    interval: PSP encounters with classified switchback patches
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Switchback-patch classifier
+  - name: Conditional PSD inside/outside patches
+  - name: Intermittency moments (kurtosis) conditional on patch state
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §1.7

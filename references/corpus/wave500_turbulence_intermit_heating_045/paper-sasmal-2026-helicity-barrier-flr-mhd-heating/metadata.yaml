@@ -1,0 +1,28 @@
+slug: paper-sasmal-2026-helicity-barrier-flr-mhd-heating
+title: "Determination of turbulent heating rate and relaxed states in finite Larmor radius MHD turbulence with helicity barrier"
+authors:
+  - "Ramesh Sasmal"
+  - "Supratik Banerjee"
+year: 2026
+journal: "TODO verify (arXiv:2604.28165)"
+doi: null
+arxiv: "2604.28165"
+ads_bibcode: null
+primary_theme: coronal_heating
+secondary_themes: [turbulence, helicity-barrier, FLR-MHD, exact-relation]
+missions: [n/a]
+regime: [MHD-scale, ion-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data: []
+methods:
+  - flr-mhd-exact-cascade-law-derivation
+  - helicity-barrier-identification-and-quantification
+  - ion-heating-rate-partition-under-flr-mhd
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 item 8"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

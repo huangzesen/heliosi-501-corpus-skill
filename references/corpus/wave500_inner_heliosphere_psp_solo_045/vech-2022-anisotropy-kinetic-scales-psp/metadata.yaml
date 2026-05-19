@@ -1,0 +1,44 @@
+slug: vech-2022-anisotropy-kinetic-scales-psp
+title: >-
+  Anisotropy of Magnetic Field Spectra at Kinetic Scales of Solar Wind Turbulence as Revealed by Parker Solar Probe in the Inner Heliosphere
+authors:
+  - D. Vech
+  - TODO verify
+year: 2022
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2203.10475"
+theme: psp-kinetic-scale-anisotropy-break
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - ion-scale
+  - kinetic
+trigger_keywords:
+  - kinetic-scale anisotropy
+  - spectral break
+  - angle-dependent break
+  - local mean field
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst (~290 Sa/s)
+    interval: PSP encounter perihelion windows
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3 moments
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Local-mean-field-frame decomposition
+  - name: Angle-conditioned PSD computation
+  - name: Break-scale fit per angle bin
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.14

@@ -1,0 +1,29 @@
+slug: chen-2021-near-sun-streamer-belt-turbulence
+title: "The Near-Sun Streamer Belt Solar Wind: Turbulence and Solar Wind Acceleration"
+authors:
+  - "C. H. K. Chen"
+  - "B. D. G. Chandran"
+  - "L. D. Woodham"
+  - "S. I. Jones-Mecholsky"
+year: 2021
+journal: null
+doi: null
+arxiv: "2101.00246"
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN, Encounter 4 (down to ~27.9 R_sun)"
+  - "PSP SWEAP/SPC L3 plasma moments, Encounter 4"
+methods:
+  - hcs-crossing-identification
+  - inbound-outbound-leg-split
+  - trace-power-spectral-density
+  - inertial-range-slope-fit
+  - elsasser-variables
+  - normalised-cross-helicity-sigma-c
+  - residual-energy-sigma-R
+validation_targets:
+  - "Inbound and outbound legs of PSP E4 streamer-belt wind show distinguishable trace PSDs and sigma_c / sigma_R (qualitative)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #3 (2021)"

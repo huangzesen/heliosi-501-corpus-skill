@@ -1,0 +1,39 @@
+slug: paper-liweiwu-2026-ai-co-scientist-ranking-search-models
+title: "AI Co-Scientist for Ranking: Discovering Novel Search Ranking Models alongside LLM-based AI Agents with Cloud Computing Access"
+authors:
+  - "Liwei Wu"
+  - "Cho-Jui Hsieh"
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2603.22376"
+theme: agent-runtime-full-pipeline-cloud
+category: domain-specific-ai-scientist
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Single-LLM routine agents"
+  - "Multi-LLM consensus agents for analysis + idea generation"
+  - "Cloud GPU training job scheduling"
+  - "Expert-in-the-loop pipeline orchestration"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI can borrow the routine-vs-challenging split: routine = data fetch / plot / file IO (single-LLM); challenging = paper-skill cross-reference / hypothesis generation / benchmark interpretation (multi-LLM consensus)."
+  - "[minimal_experiment] Pilot multi-LLM consensus on one HelioSI challenge — e.g. interpreting a discrepancy between [[paper-sioulas-2023-anisotropic-scaling]] and [[paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] — and measure agreement vs. expert (HelioSI PI)."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

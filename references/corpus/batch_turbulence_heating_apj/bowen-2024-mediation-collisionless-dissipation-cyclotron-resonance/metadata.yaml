@@ -1,0 +1,32 @@
+slug: bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance
+title: "Mediation of Collisionless Turbulent Dissipation Through Cyclotron Resonance"
+authors:
+  - "T. A. Bowen"
+  - "S. D. Bale"
+  - "B. D. G. Chandran"
+year: 2024
+journal: "Nature Astronomy"
+doi: null
+arxiv: null
+pmid: "38659611"
+theme: waves_instabilities
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN at ion-scale resolution (Burst-mode)"
+  - "PSP SWEAP/SPC, SPAN-I L3 plasma moments incl. temperature anisotropy"
+methods:
+  - mean-field-aligned-frame
+  - reduced-magnetic-helicity-sigma-m
+  - ellipticity-polarisation-diagnostic
+  - cyclotron-resonance-overlap
+  - quasilinear-cyclotron-heating
+  - comparison-to-landau-channel
+validation_targets:
+  - "Ion-scale LH-circular polarisation signatures with resonance overlap consistent with cyclotron-mediated dissipation"
+  - "Q_p,cyc / Q_p,Landau ratio matches paper conclusion (TODO verify magnitude)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.9"
+verification_flags:
+  - "Nature Astronomy DOI TODO verify; arXiv ID (if any) TODO verify."
+  - "Encounter list and Q ratios TODO verify in full paper."

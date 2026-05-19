@@ -1,0 +1,22 @@
+slug: parametric-instability-alfven-wave-packets-2025
+title: >-
+  Parametric Instability of Alfvén Wave Packets
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2507.10038"
+theme: alfven-wave-packet-parametric-instability
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - 1D MHD code
+  - Packet linear-stability harness
+methods:
+  - Linear stability of AW packets
+  - 1D MHD numerical verification
+validation_targets:
+  - Analytic γ_max(Δω/ω_0) curve verified by 1D MHD
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2507.10038

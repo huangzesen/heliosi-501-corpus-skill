@@ -1,0 +1,38 @@
+slug: mccomas-2016-isois-energetic-particle-investigation-psp
+title: >-
+  Integrated Science Investigation of the Sun (ISʘIS): Design of the Energetic
+  Particle Investigation
+authors:
+  - D. J. McComas
+  - N. Alexander
+  - N. Angold
+  - S. Bale
+  - C. Beebe
+  - "+ co-authors (TODO verify full list with primary source)"
+year: 2016
+journal: Space Science Reviews (Parker Solar Probe special issue)
+doi: "10.1007/s11214-014-0059-1 — TODO_verify_with_full_text"
+arxiv: not-in-local-inventory
+theme: mission-instrumentation-psp-isois
+quality_level: paper-grounded-pending-full-text
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP/ISʘIS EPI-Lo L2 (suprathermal ions ~30 keV/nuc–1 MeV/nuc, electrons)
+  - PSP/ISʘIS EPI-Hi LETA/LETB L2 (~1–20 MeV/nuc ions)
+  - PSP/ISʘIS EPI-Hi HETA/HETB L2 (~10–100 MeV/nuc ions, MeV electrons)
+  - PSP/ISʘIS L3 summary products (TODO verify exact names)
+methods:
+  - Telescope selection by energy / species
+  - Pixel / look-direction selection
+  - Pitch-angle reconstruction against FIELDS MAG
+  - SEP event onset / fluence detection
+validation_targets:
+  - Reproduce a published SEP onset time and power-law spectral index within ~20% (TODO supply event from full text)
+source_inventory:
+  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "project-knowledge:McComas-et-al-2016-ISOIS; not-in-local-inventory"
+  verified_by: null
+  verified_at: null

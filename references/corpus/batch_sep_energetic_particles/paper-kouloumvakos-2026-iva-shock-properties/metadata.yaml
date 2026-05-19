@@ -1,0 +1,38 @@
+slug: paper-kouloumvakos-2026-iva-shock-properties
+title: "Shock properties for solar energetic particle events with signatures of inverse velocity arrival"
+authors:
+  - "Kouloumvakos, A."
+  - "Lario, D."
+  - "Mason, G. M."
+  - "Vourlidas, A."
+  - "Allen, R. C."
+  - "Wijsen, N."
+year: 2026
+journal: "Journal — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2604.13962"
+theme: heliophysics-sep-iva-shock-connectivity
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SO/EPD (SIS, HET, EPT, STEP) per IVA event
+  - PSP/ISʘIS EPI-Lo + EPI-Hi (subset)
+  - Coronagraph imagery LASCO + STEREO/SECCHI + SO/Metis
+  - Coronal MHD model output (model name TODO verify)
+methods:
+  - IVA event identification + transition-energy extraction
+  - 3D shock-front reconstruction from coronagraph imagery
+  - Connected-field-line tracing through coronal MHD
+  - Shock-strength profile along connectivity (flank → apex)
+  - Time-dependent DSA consistency check
+validation_targets:
+  - Reproduce transition-energy vs shock-speed correlation within ±20%
+  - Reproduce flank→apex strength evolution for the named event subset
+  - Reproduce IVA detection on the 26-event set (TODO verify)
+weak_entries:
+  - DOI / final venue
+  - Coronal MHD model identity
+  - Exact contour-line / IVA-detection threshold
+  - Full event list
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.13962

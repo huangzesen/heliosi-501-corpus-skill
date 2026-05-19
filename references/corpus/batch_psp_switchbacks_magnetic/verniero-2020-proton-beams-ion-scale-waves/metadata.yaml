@@ -1,0 +1,34 @@
+slug: verniero-2020-proton-beams-ion-scale-waves
+title: >-
+  Parker Solar Probe Observations of Proton Beams Simultaneous with Ion-Scale
+  Waves
+authors:
+  - J. L. Verniero
+  - D. E. Larson
+  - R. Livi
+  - A. Rahmati
+  - "+ co-authors (TODO verify full list)"
+year: 2020
+journal: The Astrophysical Journal Supplement Series
+volume: "248"
+article: "5"
+doi: "10.3847/1538-4365/ab86af"
+arxiv: TODO_verify_with_full_text
+theme: heliophysics-psp-ion-scale-waves-beam-driven
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP SWEAP / SPAN-I 3D proton VDFs (full distribution)
+  - PSP FIELDS MAG L2 + AC/DC waveform spectra (ion-cyclotron band)
+  - Local plasma parameters (β, density, θ_kB)
+methods:
+  - Core + beam bi-Maxwellian VDF fit
+  - Linear-Vlasov stability calculation (PLUME / NHDS class) — TODO verify solver
+  - Wave-spectrum frequency / polarization comparison
+  - Per-interval beam-driven verdict
+validation_targets:
+  - Reproduce a named beam-plus-wave interval (TODO verify intervals)
+  - Positive linear growth rate at observed frequency band
+  - Predicted polarization handedness matches observation
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.7

@@ -1,0 +1,22 @@
+slug: interchange-reconnection-pseudostreamer-metis-2025
+title: >-
+  Metis Observations of Alfvénic Outflows Driven by Interchange Reconnection in a Pseudostreamer
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2502.08015"
+theme: interchange-reconnection-pseudostreamer-metis
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Metis coronagraph data
+  - PFSS topology model
+methods:
+  - Coronagraph time-series outflow tracking
+  - Pseudostreamer-topology PFSS
+validation_targets:
+  - Outflow speed within expected range (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2502.08015

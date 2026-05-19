@@ -1,0 +1,29 @@
+slug: paper-howard-2008-stereo-secchi-imaging-suite
+title: Sun Earth Connection Coronal and Heliospheric Investigation (SECCHI)
+authors:
+  - "Howard, R. A."
+year: 2008
+journal: Space Science Reviews
+doi: 10.1007/s11214-008-9341-4
+arxiv: null
+ads_bibcode: null
+theme: instrument-stereo-secchi
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - STEREO/SECCHI EUVI A/B L0/L1 (2.5 min - 10 min (mode-dependent))
+  - STEREO/SECCHI COR1 / COR2 L0/L1 (~10 min)
+  - STEREO/SECCHI HI1 / HI2 L1/L2 (40 min / 2 hr)
+methods:
+  - "secchi_prep (bias, flat, distortion, exposure normalization)"
+  - J-map (time-elongation) from HI1+HI2 for CME tracking
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1007/s11214-008-9341-4
+  data_repo: https://stereo-ssc.nascom.nasa.gov/
+weak_entries:
+  []

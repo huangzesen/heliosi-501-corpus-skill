@@ -1,0 +1,33 @@
+slug: huang-2023-psp-one-over-f-spectrum
+title: "New Observations of Solar Wind 1/f Turbulence Spectrum from Parker Solar Probe"
+authors:
+  - "Z. Huang"
+  - "N. Sioulas"
+  - "C. Shi"
+  - "M. Velli"
+  - "T. Bowen"
+  - "N. Davis"
+year: 2023
+journal: "The Astrophysical Journal Letters"
+doi: "10.3847/2041-8213/acd7f2"
+arxiv: "2303.00843"
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN, Encounters 1-13"
+  - "PSP SWEAP/SPC or SPAN-I L3 plasma moments (context, Alfven point)"
+methods:
+  - magnetic-incompressibility-filter
+  - trace-power-spectral-density
+  - double-power-law-fit
+  - break-frequency-detection
+  - radial-binning
+validation_targets:
+  - "On 109 magnetically incompressible PSP intervals from Encounters 1-13, the inertial-range slope close to the Sun is consistent with -3/2 (TODO verify exact value)"
+  - "Low-frequency slope consistent with -1 (1/f range) on the filtered subset"
+  - "1/f range extends to larger scales (lower break frequency) as heliocentric distance decreases"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.4"
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #9 (2023)"
+  - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #4)"

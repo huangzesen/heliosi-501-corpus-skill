@@ -1,0 +1,49 @@
+slug: brightness-magnetically-open-corona-2025
+title: >-
+  What Determines the Brightness of the Magnetically Open Solar Corona? Insights from Three-Dimensional Radiative MHD
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2504.14049"
+arxiv_date: "2025-04-18"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_holes
+  - rmhd
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Comparison AIA EUV CH brightness.
+  - Simulation-internal MHD state + radiative-transfer post-processing.
+methods:
+  - 3-D radiative MHD captures the dominant heating modes for CH plasma.
+  - EUV-band synthetic observables are calibrated against AIA.
+  - PFSS open-field footpoints can be projected onto the simulation domain.
+validation_targets:
+  - Reproduce the paper's brightness-vs-heating-amplitude scaling at fixed column density.
+trigger_keywords:
+  - coronal hole brightness
+  - RMHD
+  - open field
+  - AIA
+  - PFSS overlay
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - RMHD code identity
+  - heating prescription
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

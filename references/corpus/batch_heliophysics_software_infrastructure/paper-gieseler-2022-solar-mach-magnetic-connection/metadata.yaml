@@ -1,0 +1,35 @@
+slug: paper-gieseler-2022-solar-mach-magnetic-connection
+title: "Solar-MACH: An open-source tool to analyze solar magnetic connection configurations"
+authors:
+  - "Gieseler, J."
+  - "+ Solar-MACH contributors (TODO verify full list)"
+year: 2022
+journal: arXiv preprint / Frontiers in Astronomy and Space Sciences (companion software paper)
+doi: null
+arxiv: "2210.00819"
+ads_bibcode: null
+theme: heliophysics-magnetic-connectivity-ballistic
+source_type: software-paper
+quality_level: method-ready
+executable_status: pipeline-specified-runnable-from-spice
+required_data:
+  - SPICE-based spacecraft ephemerides
+  - In-situ solar-wind speed (per spacecraft; optional)
+methods:
+  - Parker-spiral ballistic backmapping
+  - Multi-spacecraft polar visualization
+validation_targets:
+  - Per-spacecraft footpoint Carrington longitude within ±5° vs independent Parker-spiral calc
+  - Reproduce Gieseler 2022 Fig 1 / Fig 2 (TODO verify figure ID with full text)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §7.4
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (Solar-MACH entry)
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (Solar-MACH)
+  - .library/custom/heliophysics-skills/reference/databases.md (Solar-MACH visualization tool entry)
+links:
+  arxiv_url: https://arxiv.org/abs/2210.00819
+  code_repo: https://github.com/sunpy/solar-mach
+weak_entries:
+  - Companion paper DOI not in local inventory
+  - Full author list not enumerated locally
+  - Exact reference figure ID not in local source

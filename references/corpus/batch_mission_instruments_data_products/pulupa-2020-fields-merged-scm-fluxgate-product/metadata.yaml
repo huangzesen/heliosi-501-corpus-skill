@@ -1,0 +1,33 @@
+slug: pulupa-2020-fields-merged-scm-fluxgate-product
+title: >-
+  A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar
+  Probe FIELDS
+authors:
+  - M. Pulupa
+  - "+ FIELDS team co-authors (TODO verify full list with primary source)"
+year: 2020
+journal: TODO_verify_with_full_text (likely J. Geophys. Res. Space Physics)
+doi: TODO_verify_with_full_text
+arxiv: "2001.04587"
+theme: data-product-psp-fields-scam-merged-broadband-B
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/FIELDS MAG L2 (fluxgate vector B)
+  - PSP/FIELDS SCM L2 (search-coil vector B)
+  - PSP/FIELDS SCaM L3 merged product (exact product name TODO verify)
+methods:
+  - Frequency-domain blending of MAG and SCM channels
+  - PSD-continuity validation across crossover band
+  - Burst-mode availability gating
+validation_targets:
+  - PSD continuity at MAG/SCM crossover within 0.05 dex on a named encounter interval (TODO supply with full text)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.9 (mirror)
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3"
+  verified_by: null
+  verified_at: null

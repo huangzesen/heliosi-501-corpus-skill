@@ -1,0 +1,41 @@
+slug: paper-mekhaldi-2026-carrington-36cl-ice-cores
+title: "36Cl Concentrations from Polar Ice Cores Set New Constraints on the Carrington Event"
+authors:
+  - "Mekhaldi, F."
+  - "Paleari, C. I."
+  - "Smith, A. M."
+  - "Aldahan, A."
+  - "Beer, J."
+  - "Christl, M."
+  - "Vockenhuber, C."
+  - "Hayakawa, H."
+  - "Curran, M."
+  - "Erhardt, T."
+  - "Plummer, C."
+  - "Simon, K."
+  - "Wilcken, K."
+  - "Zheng, M."
+  - "Muscheler, R."
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2604.26608"
+theme: heliophysics-extreme-sep-historical-36cl-icecore
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - EGRIP 36Cl + 10Be
+  - NGRIP 36Cl
+  - Law Dome 36Cl + 10Be
+methods:
+  - Layer-counted chronology of 36Cl / 10Be enhancements
+  - Atmospheric-transport-corrected fluence inversion (>30 MeV)
+  - Comparison against Space Age fluence reference distribution
+  - Two-scenario fit: soft SEP up to 3× SA-max vs no Earth-bound SEP
+validation_targets:
+  - No significant 36Cl enhancement at 1859 within instrument detection limits; >30 MeV fluence upper bound (specific value TODO_verify); two compatible scenarios as stated in claim.
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2604.26608

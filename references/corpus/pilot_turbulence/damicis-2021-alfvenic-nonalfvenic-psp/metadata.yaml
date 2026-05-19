@@ -1,0 +1,36 @@
+slug: damicis-2021-alfvenic-nonalfvenic-psp
+title: "Alfvenic versus Non-Alfvenic Turbulence in the Inner Heliosphere as Observed by Parker Solar Probe"
+authors_primary_inventory:
+  - "R. D'Amicis"
+  - "R. Bruno"
+  - "O. Panasenco"
+  - "D. Telloni"
+authors_alternative_inventory:
+  - "Chen Shi"
+  - "Marco Velli"
+  - "Olga Panasenco"
+  - "Anna Tenerani"
+year: 2021
+journal: "A&A"
+doi: null
+arxiv: "2101.00830"
+theme: turbulence
+quality_level: pilot_weak_attribution
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN, Encounters 1-5"
+  - "PSP SWEAP/SPC or SPAN-I L3 plasma moments"
+methods:
+  - normalised-cross-helicity-sigma-c
+  - residual-energy-sigma-R
+  - alfvenic-nonalfvenic-stream-classification
+  - inertial-range-spectral-index
+  - radial-binning
+validation_targets:
+  - "Alfvenic vs non-Alfvenic classes occupy distinct regions of the sigma_c-slope plane on PSP E1-E5 (qualitative)"
+  - "Direction of radial / stream-context dependence matches paper (TODO verify direction in full paper)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.13 (attribution A: D'Amicis et al. 2021, A&A)"
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #4, 2021 (attribution B: Shi, Velli, Panasenco, Tenerani 2021)"
+  - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #13)"
+notes: "arXiv 2101.00830 is dual-attributed across the two inventories. The user-specified slug is 'damicis-2021-...' but the methodologically-detailed inventory entry attributes the arXiv ID to Shi et al. TODO verify the live abstract to resolve before citing this skill."

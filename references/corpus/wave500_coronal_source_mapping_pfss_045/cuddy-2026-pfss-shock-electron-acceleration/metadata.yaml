@@ -1,0 +1,54 @@
+slug: cuddy-2026-pfss-shock-electron-acceleration
+title: >-
+  Signatures of Localised Particle Acceleration at a Global Coronal Shock Wave
+authors:
+  - C. Cuddy
+  - D. M. Long
+  - M. Nedal
+  - S. Bhunia
+  - P. T. Gallagher
+first_author: C. Cuddy
+year: 2026
+arxiv: "2603.23335"
+arxiv_date: "2026-03-24"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - energetic_particles
+  - shocks
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - AIA EUV channels for the event.
+  - Radio dynamic spectra + imaging.
+  - Synoptic Br for the event CR.
+methods:
+  - EUV running/base difference images give true wavefront speed.
+  - Radio herringbone drift-rates map to electron energies via Newkirk density (scale factor 1.3–2.6).
+  - PFSS captures the relevant ambient-field geometry at the shock front.
+validation_targets:
+  - Recover the M_A≈1.005 wavefront and 75–122 keV electron energy range at the dimming-region open field.
+trigger_keywords:
+  - EUV wave
+  - herringbone
+  - shock acceleration
+  - PFSS
+  - Newkirk
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - exact event time
+  - Newkirk scale factor used
+  - herringbone identification protocol
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

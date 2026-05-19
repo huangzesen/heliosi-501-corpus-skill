@@ -1,0 +1,28 @@
+slug: paper-lin-1995-wind-3dp-plasma-energetic-electrons
+title: A three-dimensional plasma and energetic particle investigation for the Wind spacecraft
+authors:
+  - "Lin, R. P."
+year: 1995
+journal: Space Science Reviews
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-wind-3dp
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - Wind/3DP PESA L2 (3 s (full 3D))
+  - Wind/3DP EESA L2 (3 s)
+  - Wind/3DP SST electrons L2 (3 s)
+methods:
+  - 3D distribution-function moment integration
+  - Pitch-angle distribution from look-direction bins
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov/pub/data/wind/3dp/
+weak_entries:
+  - "DOI not in local inventory; Space Sci. Rev. 71, 125 (1995)"

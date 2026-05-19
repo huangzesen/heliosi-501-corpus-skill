@@ -1,0 +1,40 @@
+slug: paper-koikkalainen-2025-complexity-solar-wind-streams
+title: "Exploring Complexity Measures for Analysis of Solar Wind Structures and Streams"
+authors:
+  - "Venla Koikkalainen"
+  - "Emilia Kilpua"
+  - "Simon Good"
+  - "Adnane Osmane"
+year: 2025
+journal: "TODO verify (arXiv:2510.05873)"
+doi: null
+arxiv: "2510.05873"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [information-theory, complexity-measures, permutation-entropy, hvg, stream-classification]
+missions: [Wind]
+regime: ["1au"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "Wind MFI L2 magnetic field"
+  - "Wind SWE L2 plasma moments (optional channels)"
+  - "Stream-type catalog (fast / slow / magnetic cloud / sheath) — Kilpua-led catalog TODO verify"
+methods:
+  - permutation-entropy-embedding
+  - jensen-shannon-complexity
+  - horizontal-visibility-graph-degree-distribution
+  - fisher-shannon-information-plane
+  - time-lag-scan-for-stream-type-separation
+validation_targets:
+  - "Magnetic-cloud intervals separate from other stream types across all complexity metrics (qualitative — TODO verify quantitative)"
+  - "Fisher-Shannon spread > Jensen-Shannon spread in the entropy-complexity plane"
+  - "Stream-type separation increases with time lag τ (small-τ universality of fluctuations)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2510.05873"
+verification_flags:
+  - "Publication venue + DOI TODO verify."
+  - "Permutation embedding order d and lag τ used TODO verify."
+  - "HVG construction tie-breaking and despike strategy TODO verify."
+  - "Stream-type catalog identity TODO verify."
+  - "Quantitative cluster-separation scores TODO verify."

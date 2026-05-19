@@ -1,0 +1,48 @@
+slug: deforest-2024-flux-fluxon-coronal-modeling
+title: >-
+  Field Line Universal relaXer (FLUX): A Fluxon Approach to Coronal Magnetic Field Modeling
+authors:
+  - C. E. DeForest
+  - TODO_verify
+first_author: C. E. DeForest
+year: 2024
+arxiv: "2402.10370"
+arxiv_date: "2024-02-15"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_modeling
+  - topology
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic or full-disk Br.
+  - Optional EUV imagery for validation.
+methods:
+  - Photospheric Br can be decomposed into discrete flux elements.
+  - Fluxon relaxation converges to a force-free / potential state within tolerance.
+  - Fluxon density is sufficient to resolve relevant topology.
+validation_targets:
+  - Match gridded-PFSS open-field map at convergence.
+trigger_keywords:
+  - fluxon
+  - FLUX
+  - PFSS alternative
+  - topology
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - FLUX version
+  - fluxon-density convention
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

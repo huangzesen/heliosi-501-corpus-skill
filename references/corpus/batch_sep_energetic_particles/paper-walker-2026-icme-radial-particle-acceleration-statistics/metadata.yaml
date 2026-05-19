@@ -1,0 +1,37 @@
+slug: paper-walker-2026-icme-radial-particle-acceleration-statistics
+title: "Radial Dependency of ICME-associated Particle Acceleration Processes: Statistical Multipoint Observations from 2016-2023"
+authors:
+  - "Walker, M. H."
+  - "Allen, R. C."
+  - "Ho, G. C."
+  - "Mason, G. M."
+  - "Cohen, C. M. S."
+  - "Lee, C."
+year: 2026
+journal: "Journal — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2605.00163"
+theme: heliophysics-icme-shock-sep-radial-statistics
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/ISʘIS + FIELDS MAG + SWEAP
+  - SO/EPD + MAG + SWA
+  - ACE/EPAM + ULEIS + MAG + SWEPAM
+  - Wind/3DP + EPACT + MFI + 3DP/PESA
+  - STEREO-A/IMPACT + PLASTIC + MAG
+methods:
+  - Multipoint ICME-event identification + observer-pairing
+  - Local shock-condition derivation (Rankine-Hugoniot)
+  - ESP spectral-shape fit (Band / double-power-law / break)
+  - Radial-trend regression of shock-acceleration efficiency
+validation_targets:
+  - Reproduce radial efficiency turn-over near ~0.7 au qualitatively
+  - Match efficiency proxy within ±20% per event
+  - Recover ≥ 35 of 39 events from the catalog
+weak_entries:
+  - DOI / final venue
+  - Exact efficiency-proxy definition
+  - Full 39-event list with multipoint observer pairings
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2605.00163

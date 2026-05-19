@@ -1,0 +1,127 @@
+# sun-2026-compound-reconnection-exhaust-mirror-modes-hcs
+
+A paper-skill compiled from W. Sun et al. 2026 (arXiv preprint, arXiv:2604.26137).
+
+Paper-skills are **harness-agnostic** — they describe what a paper enables an
+agent to do via abstract *capability contracts*. Any runtime (Claude Code,
+LingTai, Codex, Python notebook, a future MCP server) can satisfy them.
+
+Layers: (1) trigger + claim boundary; (2) scientific invariants;
+(3) executable protocol with abstract capability contracts; (4) optional
+adapter / runtime notes; (5) research-generation affordance.
+
+---
+
+## 1. Trigger and claim boundary
+
+### When to use this skill
+
+- A PSP near-Sun HCS encounter shows a reconnection exhaust whose boundaries are quasi-perpendicular slow shocks with embedded mirror-mode structures, characterising a compound-boundary geometry not observed at 1 au.
+- The skill applies to: Single near-Sun HCS encounter (TODO_verify_with_full_text encounter ID), MHD/ion-scale exhaust + boundary diagnostics, slow-shock + mirror-mode coexistence.
+
+### When NOT to use it
+
+- Do not generalise the compound-boundary geometry to all HCS reconnection events without statistics.
+- Not a claim that all HCS reconnection at PSP shows mirror modes.
+
+### Claim boundary
+
+Single near-Sun HCS encounter (TODO_verify_with_full_text encounter ID), MHD/ion-scale exhaust + boundary diagnostics, slow-shock + mirror-mode coexistence.
+
+---
+
+## 2. Scientific invariant layer
+
+### 2.1 Central claim (narrow form)
+
+A PSP near-Sun HCS encounter shows a reconnection exhaust whose boundaries are quasi-perpendicular slow shocks with embedded mirror-mode structures, characterising a compound-boundary geometry not observed at 1 au.
+
+### 2.2 Equations / method
+
+See §3.1 for capability contracts; equation references where available are
+recorded in `algorithms[].equation_refs` in `metadata.yaml`.
+
+### 2.3 Data assumptions
+
+| Instrument | Level | Cadence | Interval | Archive |
+|---|---|---|---|---|
+| PSP/FIELDS MAG | L2 | ~290 Sa/s burst | near-Sun HCS event window (TODO encounter ID) | SPDF/CDAWeb |
+| PSP/SWEAP SPAN-I | L3 moments | encounter cadence | same window | SPDF/CDAWeb |
+| PSP/FIELDS QTN | derived | density | same window | SPDF/CDAWeb |
+
+### 2.4 Failure modes (skill memory)
+
+- Sign convention errors in Walén test produce false positives.
+- Density proxy choice (QTN vs SPC) materially shifts mirror-mode anti-correlation.
+
+### 2.5 Figure / numerical targets
+
+TODO verify with full text — quality tier is `paper-grounded-pending-full-text`.
+The paper's reproducible numerical anchor lives in its figures/tables; promotion
+to `executable` requires lifting that anchor into `validation_target`.
+
+---
+
+## 3. Executable protocol layer
+
+### 3.1 Algorithms (abstract capability contracts)
+
+### Walén test for reconnection-exhaust identification
+
+- Abstract procedure (runtime-neutral): documented in the paper; runtime supplies the named capability. See `algorithms[]` in `metadata.yaml`.
+
+### Rankine–Hugoniot slow-shock identification at exhaust boundary
+
+- Abstract procedure (runtime-neutral): documented in the paper; runtime supplies the named capability. See `algorithms[]` in `metadata.yaml`.
+
+### Mirror-mode signature detection (anti-correlated B/n)
+
+- Abstract procedure (runtime-neutral): documented in the paper; runtime supplies the named capability. See `algorithms[]` in `metadata.yaml`.
+
+### 3.2 Capability contracts
+
+The runtime must supply:
+
+- **C-FETCH-DATA**: time-series read of the instruments listed in §2.3.
+- **C-CLASSIFIER**: event/interval classifier (paper-specific).
+- **C-METRIC**: numerical comparison to a paper figure/table (TODO verify full text).
+
+These contracts name no MCP, plugin, or harness command. Adapter binding
+examples (if any) live in §4 and `adapter_notes[]` in the frontmatter; the
+contract itself remains runtime-neutral.
+
+### 3.3 Minimum reproduction artifacts
+
+- A run log capturing data interval(s), thresholds, and algorithm parameters.
+- One numerical scalar or shape statistic comparable to a paper figure/table.
+- A JSON/CSV side-car recording inputs, parameters, and the comparison metric.
+
+---
+
+## 4. Adapter / runtime notes (optional examples)
+
+- Any harness capable of CDF I/O + standard time-series analysis can satisfy
+  the contracts; named tools (pyspedas, sunpy, sunkit-magex, pfsspy,
+  sw-scanner) are *example* adapters, not requirements.
+- Encounter-specific data ranges should be obtained from the paper's full
+  text; adapter glue is the runtime's responsibility.
+
+---
+
+## 5. Research-generation affordance
+
+- **Hypothesis** — Compound slow-shock + mirror-mode boundaries are common near the Sun but disappear by 0.3 au; testable on PSP E14–E20. Related: (no explicit sibling).
+- **Minimal_experiment** — Apply Walén + R–H tests on all flagged HCS crossings in PSP E14–E20 burst windows. Related: (no explicit sibling).
+
+---
+
+## Links
+
+- arXiv: https://arxiv.org/abs/2604.26137
+- DOI: TODO_verify_with_full_text
+- Source inventory: `sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §6`
+
+## Skill graph
+
+- [[phan-2022-switchback-boundary-reconnection-psp]]
+- [[paper-desai-2024-hcs-reconnection-400kev-protons]]

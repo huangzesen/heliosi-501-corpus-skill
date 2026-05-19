@@ -1,0 +1,24 @@
+slug: firehose-thermodynamics-high-beta-2025
+title: >-
+  Thermodynamics and Collisionality in Firehose-Susceptible High-β Plasmas
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2501.13663"
+theme: firehose-instability-high-beta-thermodynamics
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Hybrid kinetic simulation tooling
+  - Linear firehose dispersion solver
+methods:
+  - Driven hybrid simulation
+  - Linear firehose stability
+  - ν_eff diagnostic from VDF
+validation_targets:
+  - ν_eff scaling with distance from threshold (TODO verify)
+  - Marginal-stability locus reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2501.13663

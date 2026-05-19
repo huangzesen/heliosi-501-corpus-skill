@@ -1,0 +1,49 @@
+slug: stansby-2025-open-closed-flux-boundary-slow-wind
+title: >-
+  The Sun's Open–Closed Flux Boundary and the Origin of the Slow Solar Wind
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2503.09744"
+arxiv_date: "2025-03-12"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - solar_wind_sources
+  - open_flux
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Synoptic Br across the studied interval.
+  - In-situ vsw + composition data for the slow-wind sample.
+methods:
+  - PFSS captures the relevant OCB at the source surface.
+  - Expansion factor f at the source surface is a meaningful diagnostic.
+  - In-situ slow-wind classification is independent of the OCB definition.
+validation_targets:
+  - Reproduce the slow-wind/OCB proximity statistic at the paper's level.
+trigger_keywords:
+  - open-closed boundary
+  - OCB
+  - slow wind
+  - expansion factor
+  - S-web
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - slow-wind classifier
+  - OCB extraction method
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

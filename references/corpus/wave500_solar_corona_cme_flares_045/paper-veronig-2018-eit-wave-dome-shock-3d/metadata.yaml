@@ -1,0 +1,44 @@
+slug: paper-veronig-2018-eit-wave-dome-shock-3d
+title: "EIT-Wave Dome as a 3-D Coronal Shock (Veronig et al.)"
+authors:
+  - "Veronig, A. M."
+  - "+ co-authors (TODO verify full list)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - euv_waves
+  - coronal_shocks
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - AIA EUV imagery (multi-channel)
+  - STEREO EUVI or EUI/FSI off-limb imagery
+methods:
+  - 3-D ellipsoid dome fitting
+  - Radial and lateral expansion-speed estimation
+validation_targets:
+  - Dome radial speed within ~20% of coronagraph shock speed (TODO verify)
+trigger_keywords:
+  - EIT wave dome
+  - 3D coronal shock
+  - off-limb shock surface
+  - Veronig dome
+  - ellipsoid shock model
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

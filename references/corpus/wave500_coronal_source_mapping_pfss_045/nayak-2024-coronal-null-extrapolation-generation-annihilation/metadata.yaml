@@ -1,0 +1,48 @@
+slug: nayak-2024-coronal-null-extrapolation-generation-annihilation
+title: >-
+  Generation and Annihilation of Three-Dimensional Magnetic Nulls in Extrapolated Solar Coronal Magnetic Field
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2024
+arxiv: "2404.12034"
+arxiv_date: "2024-04-18"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - topology
+  - null_points
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI vector + LoS Br time series.
+  - Synoptic Br for PFSS.
+methods:
+  - Null detection is converged at the chosen grid.
+  - Null lifetimes are robust to small parameter perturbations.
+validation_targets:
+  - Reproduce null-rate vs flux-emergence relation.
+trigger_keywords:
+  - 3-D nulls
+  - generation
+  - annihilation
+  - NLFFF
+  - PFSS
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - null detection algorithm
+  - grid resolution
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

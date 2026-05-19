@@ -1,0 +1,27 @@
+slug: paper-annex-2020-spiceypy-naif-spice-toolkit-python
+title: "SpiceyPy: a Pythonic Wrapper for the SPICE Toolkit"
+authors:
+  - "Annex, A. M."
+year: 2020
+journal: Journal of Open Source Software
+doi: 10.21105/joss.02050
+arxiv: null
+ads_bibcode: null
+theme: software-spiceypy
+source_type: software-paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SPICE kernels (PSP/Solar Orbiter/MAVEN SPK) ephemeris kernel (n/a)
+methods:
+  - spkpos / spkezr — position + state of body relative to observer
+  - pxform / sxform — frame transform matrices
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.21105/joss.02050
+  code_repo: https://github.com/AndrewAnnex/SpiceyPy
+weak_entries:
+  []

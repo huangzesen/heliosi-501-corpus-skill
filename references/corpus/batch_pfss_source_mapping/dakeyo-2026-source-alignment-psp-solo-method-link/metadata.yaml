@@ -1,0 +1,59 @@
+slug: dakeyo-2026-source-alignment-psp-solo-method-link
+title: >-
+  Source Alignment as a Source-Mapping Skill — link entry to
+  Dakeyo et al. 2026 (PSP × Solar Orbiter)
+authors:
+  - J.-B. Dakeyo
+  - T. Ervin
+  - S. D. Bale
+  - P. Démoulin
+  - N. Sioulas
+  - V. Réville
+  - "+ 7 others"
+year: 2026
+journal: A&A (submitted) / ApJ — TODO verify final venue
+doi: TODO_verify_with_full_text
+arxiv: "2605.01511"
+theme: pfss_source_mapping
+secondary_themes:
+  - psp_data
+  - solar_orbiter
+quality_level: link-only-cross-batch
+executable_status: see-pilot-2026-and-runtime-skill
+canonical_skill:
+  path: >-
+    sioulas-reproduction/results/paper_skill_corpus/pilot_2026_and_runtime/dakeyo-2026-source-alignment-psp-solo
+  slug: dakeyo-2026-source-alignment-psp-solo
+  note: >-
+    Full paper-skill for Dakeyo 2026 lives in the pilot_2026_and_runtime
+    batch. This entry exists ONLY to register the paper in the
+    pfss_source_mapping batch under its source-mapping aspect — it does
+    NOT duplicate the canonical skill's content.
+required_data:
+  - "See canonical skill for full data contract"
+  - "Source-mapping aspect: PFSS / footpoint-mapping tooling for both spacecraft"
+methods:
+  - "See canonical skill — source-alignment method (footpoint + ballistic + Parker spiral)"
+validation_targets:
+  - "See canonical skill — matched-pair Δv within ±20% of paper"
+trigger_keywords:
+  - source alignment
+  - source mapping
+  - PSP Solar Orbiter conjunction
+  - footpoint mapping
+  - radial evolution
+  - Dakeyo 2026
+  - ballistic back-mapping
+  - Parker spiral
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.3
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #3
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.3
+  source_merge_with: paper_skill_corpus/pilot_2026_and_runtime/dakeyo-2026-source-alignment-psp-solo
+  verified_by: null
+  verified_at: null

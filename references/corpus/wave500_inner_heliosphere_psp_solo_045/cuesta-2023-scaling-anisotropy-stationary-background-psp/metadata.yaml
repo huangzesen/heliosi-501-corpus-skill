@@ -1,0 +1,37 @@
+slug: cuesta-2023-scaling-anisotropy-stationary-background-psp
+title: >-
+  Scaling Anisotropy with Stationary Background Field in the Near-Sun Solar Wind Turbulence
+authors:
+  - M. M. Cuesta
+  - TODO verify
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2303.10810"
+theme: psp-stationary-background-anisotropy
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - stationarity-conditioned anisotropy
+  - structure function
+  - local mean field
+  - PSP near-Sun
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz/burst
+    interval: PSP near-Sun intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Stationarity-test for background-field (mean direction drift)
+  - name: Local-mean-field structure-function method conditioned on stationarity
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.5

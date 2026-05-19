@@ -1,0 +1,50 @@
+slug: brooks-2025-active-region-upflows-coronal-coupling
+title: >-
+  Active Region Upflows in Various Coronal Structures and Their Coupling to the Lower Atmosphere
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2025
+arxiv: "2509.02157"
+arxiv_date: "2025-09-02"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - solar_wind_sources
+  - active_regions
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - EIS Fe XII 195 Å or SPICE Ne VIII Doppler maps.
+  - AIA EUV + HMI Br for the same AR.
+  - Synoptic Br for PFSS over the AR's CR.
+methods:
+  - EIS/SPICE Doppler shifts are calibrated against a quiet-Sun reference.
+  - AR-edge upflow patches are robust to thresholding.
+  - PFSS captures AR-edge open-vs-closed footpoint identity.
+validation_targets:
+  - Reproduce the open-field fraction of upflow patches and the lower-atmosphere-driver correlation.
+trigger_keywords:
+  - AR upflows
+  - EIS
+  - SPICE
+  - slow wind source
+  - lower atmosphere coupling
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - AR sample list
+  - Doppler calibration policy
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

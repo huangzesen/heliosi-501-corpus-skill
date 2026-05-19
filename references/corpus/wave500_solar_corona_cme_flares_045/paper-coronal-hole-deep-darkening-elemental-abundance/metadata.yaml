@@ -1,0 +1,46 @@
+slug: paper-coronal-hole-deep-darkening-elemental-abundance
+title: "Coronal-Hole Deep Darkening and Elemental Abundance (FIP Bias)"
+authors:
+  - "TODO verify (canonical: Brooks et al. 2015; Laming 2015 review)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - coronal_holes
+  - composition
+  - fip_bias
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - AIA / XRT EUV / X-ray imagery
+  - EUV line-ratio spectra
+  - In-situ composition (PSP/SO/ACE)
+methods:
+  - DEM inversion
+  - Line-ratio FIP bias mapping
+  - In-situ composition comparison
+validation_targets:
+  - Co-spatial FIP-bias deficit and in-situ low-FIP fraction (TODO verify)
+trigger_keywords:
+  - FIP bias
+  - coronal hole composition
+  - deep darkening
+  - Brooks 2015
+  - Laming FIP
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

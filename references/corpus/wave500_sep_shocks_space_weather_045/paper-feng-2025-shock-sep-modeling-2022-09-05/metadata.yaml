@@ -1,0 +1,26 @@
+slug: paper-feng-2025-shock-sep-modeling-2022-09-05
+title: "Shock and SEP Modeling Study for the 5 September 2022 SEP Event"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2501.03066"
+theme: heliophysics-sep-shock-2022-09-05-modeling
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo
+  - Multi-mission energetic-particle observers
+methods:
+  - MHD shock-propagation simulation (TODO_verify code)
+  - Transport-equation SEP solver (TODO_verify code)
+  - Per-observer intensity-profile prediction
+  - Tolerance check against in-situ time series
+validation_targets:
+  - Per-observer peak intensity / time-of-peak / spectral-index within tolerance (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2501.03066

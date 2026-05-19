@@ -1,0 +1,57 @@
+slug: wu-2026-nonspherical-coronal-magnetic-field-open-flux
+title: >-
+  Addressing the Open Flux Problem with a Non-Spherical Solar Coronal
+  Magnetic Field Model
+authors:
+  - Wu
+  - He
+  - Hou
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "2604.01028"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+quality_level: paper-grounded-locally-reproduced
+executable_status: locally-reproduced-via-nspf-fem
+required_data:
+  - GONG synoptic Br (specifically CR 2282 in the local reproduction)
+  - SDO/AIA 193 Å for open-field-map comparison (Figure 4)
+  - LASCO C2 / coronagraph for field-line overlay (Figure 3)
+  - PSP ephemeris + in-situ context (Figure 5)
+methods:
+  - Standard PFSS with spherical source surface at Rini (=2.5 in baseline)
+  - Extract NSSS (|B|=max|B|_SS isosurface) from PFSS solution
+  - Smooth NSSS with spherical harmonics (L_max=30) and clip to [1.0, 2.5] R_sun
+  - 3D mesh between r=1 and NSSS using Gmsh
+  - FEM solve of Laplace ∇²Φ = 0 with FEniCSx P2 elements
+  - Open-flux integral through NSSS
+validation_targets:
+  - "Open flux: 9.09 G·R²_sun reproduced locally vs paper's 9.19 (1.1% error)
+     for GONG CR 2282, Rini=2.5 — see .library/custom/nspf-fem/SKILL.md"
+  - "NSPF / PFSS open-flux ratio: 1.82 (local) vs 1.98 (paper)"
+trigger_keywords:
+  - NSPF
+  - non-spherical source surface
+  - NSSS
+  - open flux problem
+  - FEM PFSS
+  - FEniCSx
+  - Gmsh deformed mesh
+  - coronal magnetic field
+  - Wu 2026
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.5
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.8 (HTML mirror)
+related_local_skills:
+  - .library/custom/nspf-fem/SKILL.md  # primary reproduction implementation
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.5
+  verified_by: null
+  verified_at: null

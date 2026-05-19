@@ -1,0 +1,26 @@
+slug: paper-reames-2026-physics-of-seps
+title: "The Physics of Solar Energetic Particles"
+authors:
+  - "Reames, D. V."
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2602.18617"
+theme: heliophysics-sep-canonical-review
+quality_level: paper-grounded-pending-full-text
+executable_status: review-routing-not-runnable
+required_data:
+  - ACE/ULEIS, STEREO/SIT composition (per primary references)
+  - PSP/ISʘIS EPI-Lo, EPI-Hi (per primary references)
+  - SO/EPD SIS, HET, EPT
+  - Radio bursts (WIND/WAVES, STEREO/WAVES, PSP/RFS)
+methods:
+  - Impulsive vs gradual composition classification
+  - Streaming-limit spectrum interpretation
+  - Reservoir adiabatic-volume scaling
+  - FIP-bias coronal-seed diagnosis
+validation_targets:
+  - None at stub tier — review-only
+weak_entries: []
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.18617

@@ -1,0 +1,29 @@
+slug: paper-bowen-2025-stochastic-heating-sub-alfvenic
+title: "Stochastic Heating in the Sub-Alfvénic Solar Wind"
+authors:
+  - "Trevor A. Bowen"
+year: 2025
+journal: "TODO verify (arXiv:2509.20654)"
+doi: null
+arxiv: "2509.20654"
+ads_bibcode: null
+primary_theme: coronal_heating
+secondary_themes: [stochastic-heating, sub-alfvenic, PSP]
+missions: [PSP]
+regime: [sub-Alfvenic, inner-heliosphere, ion-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (PSP E14+ sub-Alfvenic intervals)"
+  - "PSP/SWEAP SPC/SPAN-I L3 (Same)"
+methods:
+  - stochastic-heating-threshold-criterion-delta-b_perp-b
+  - sub-alfvenic-interval-selection-by-mach-number
+  - stochastic-heating-rate-q_perp-estimate
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2509.20654v1) / apj_aa #1.20"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

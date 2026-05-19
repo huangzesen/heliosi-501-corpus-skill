@@ -1,0 +1,31 @@
+slug: adhikari-2026-alfven-transition-young-solar-wind-solar-max
+title: >-
+  Characterization of the Alfvén Transition in the Young Solar Wind Using
+  Parker Solar Probe Observations Approaching Solar Maximum
+authors:
+  - S. Adhikari
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: The Astrophysical Journal
+volume: "997"
+article: "2"
+doi: "10.3847/1538-4357/ae2c78"
+arxiv: TODO_verify_with_full_text
+theme: heliophysics-psp-alfven-transition
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN
+  - PSP SWEAP bulk velocity and proton density
+  - ADAPT / HMI / GONG synoptic photospheric maps
+methods:
+  - Alfvén-speed and Alfvén-Mach-number computation
+  - Hysteretic sub-Alfvénic interval detection
+  - Per-encounter binning of M_A statistics
+  - Source-surface (PFSS) projection comparison
+validation_targets:
+  - Recover named sub-Alfvénic intervals at one or more encounters (TODO verify)
+  - Direction of sub-Alfvénic occurrence trend across encounters matches paper
+  - M_A PDF shape matches paper figure within density-proxy noise
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.6

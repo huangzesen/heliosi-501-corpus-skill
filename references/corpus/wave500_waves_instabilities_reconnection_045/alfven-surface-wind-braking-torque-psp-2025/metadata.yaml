@@ -1,0 +1,25 @@
+slug: alfven-surface-wind-braking-torque-psp-2025
+title: >-
+  Reconstructing the Sun's Alfvén Surface and Wind Braking Torque with Parker Solar Probe
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2509.07088"
+theme: alfven-surface-wind-braking-torque
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP MAG + plasma + QTN density
+  - Multi-encounter coverage of M_A<1 intervals
+  - Coronal magnetic-field model
+methods:
+  - M_A<1 interval masking
+  - Global surface fitting from in-situ + coronal model
+  - Angular-momentum stress-tensor integration
+validation_targets:
+  - Braking torque consistent with long-term spin-down within stated bars
+  - Surface shape reproduced encounter-by-encounter
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.07088

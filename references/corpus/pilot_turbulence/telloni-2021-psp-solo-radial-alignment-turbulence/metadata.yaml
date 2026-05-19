@@ -1,0 +1,31 @@
+slug: telloni-2021-psp-solo-radial-alignment-turbulence
+title: "Evolution of Solar Wind Turbulence from 0.1 to 1 au during the First Parker Solar Probe-Solar Orbiter Radial Alignment"
+authors:
+  - "D. Telloni"
+  - "L. Sorriso-Valvo"
+  - "L. D. Woodham"
+  - "O. Panasenco"
+  - "M. Velli"
+  - "F. Carbone"
+year: 2021
+journal: "The Astrophysical Journal Letters"
+volume_page: "912, L21"
+doi: "10.3847/2041-8213/abf7d1"
+arxiv: null
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2, SWEAP L3 during first PSP-SO radial alignment"
+  - "Solar Orbiter MAG L2, SWA/PAS L2/L3 during first PSP-SO radial alignment"
+methods:
+  - psp-solo-conjunction-identification
+  - elsasser-variables
+  - normalised-cross-helicity-sigma-c
+  - residual-energy-sigma-R
+  - politano-pouquet-cascade-rate
+validation_targets:
+  - "sigma_c, sigma_R, epsilon computed at PSP (~0.1 au) and SO (~1 au); direction of evolution matches paper's reported trend (TODO verify direction in full paper)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.11"
+  - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #11)"

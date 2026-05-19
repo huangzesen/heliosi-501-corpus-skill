@@ -1,0 +1,51 @@
+slug: jiao-2023-steady-sub-alfvenic-solar-wind-psp
+title: >-
+  Properties of Steady Sub-Alfvénic Solar Wind in Comparison with Super-Alfvénic Wind from Measurements of Parker Solar Probe
+authors:
+  - Y. Jiao
+  - Y. D. Liu
+  - H. Ran
+  - W. Cheng
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2311.15622"
+theme: psp-steady-sub-alfvenic-wind
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: psp_data
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - sub-Alfvenic
+trigger_keywords:
+  - sub-Alfvénic wind
+  - Alfvén Mach number
+  - coronal-hole boundary
+  - switchback suppression
+  - PSP E8–E14
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP E8–E14
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPC/SPAN-I + QTN
+    level: L3
+    cadence: encounter cadence
+    interval: PSP E8–E14
+    archive: SPDF/CDAWeb
+  - instrument: Synoptic magnetograms
+    level: synoptic
+    cadence: CR
+    interval: matching encounters
+    archive: GONG/ADAPT
+algorithms:
+  - name: Alfvén Mach number M_A = v_sw / v_A computation
+  - name: Steady-interval extraction with documented duration threshold
+  - name: PFSS + ballistic source-mapping
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §15

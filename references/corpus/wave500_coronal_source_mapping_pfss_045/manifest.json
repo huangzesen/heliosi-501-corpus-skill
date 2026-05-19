@@ -1,0 +1,1319 @@
+{
+  "schema_version": "1.0",
+  "batch": "wave500_coronal_source_mapping_pfss_045",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (wave500 PFSS / coronal source mapping batch, +45)",
+  "harness_framing": "RUNTIME-NEUTRAL. Paper-skills do not assume a specific harness or agent framework. LingTai / Claude Code / Codex appear only as example adapters in Layer 3. .library/custom/pfss-tracing/ and .library/custom/nspf-fem/ are example bindings, not requirements, and are NOT modified by this batch.",
+  "scope": "PFSS / NSPF / source mapping / coronal magnetic extrapolation / solar wind source regions / magnetograms / open flux. Selected from sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json (and adjacent) and confirmed disjoint from the existing 96-object corpus.",
+  "totals": {
+    "skills": 45,
+    "skill_md_files": 45,
+    "metadata_yaml_files": 45,
+    "duplicate_slugs": []
+  },
+  "skill_md_structure": {
+    "model": "Each SKILL.md is organized as four explicit layers so the same compiled paper is loadable by any runtime.",
+    "layers": {
+      "layer_1_scientific_invariant": "Narrow-form claim, method/data assumptions, failure modes (skill memory), figure / numerical targets, claim boundary.",
+      "layer_2_executable_protocol": "Capability-typed procedure naming abstract capabilities (e.g. pfss.solve, magnetogram.fetch_synoptic_br) \u2014 never a specific MCP / framework. Validation target sits here.",
+      "layer_3_adapter_notes": "Optional examples of concrete bindings in one runtime. Examples only; not requirements.",
+      "layer_4_research_generation_affordances": "Gaps, tensions, new hypotheses, composable experiments enabled by combining this paper-skill with siblings."
+    },
+    "mcp_policy": "No MCP is asserted to exist. Capabilities in Layer 2 are abstract names; specific bindings (MCPs, libraries, scripts) are runtime-supplied and live in Layer 3 only as illustration."
+  },
+  "skills": [
+    {
+      "slug": "han-2026-energetic-electrons-hcs-pfss-polarity",
+      "title": "Do Solar Energetic Electrons Cross the Heliospheric Current Sheet? A Statistical Study",
+      "first_author": "C. Han",
+      "year": 2026,
+      "arxiv": "2604.19446",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "energetic_particles",
+        "magnetic_field"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+      "metadata_yaml": "han-2026-energetic-electrons-hcs-pfss-polarity/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "journal",
+        "exact event list",
+        "magnetogram product per event"
+      ]
+    },
+    {
+      "slug": "tahtinen-2026-dipole-flux-transport-open-flux",
+      "title": "Ultra-Fast Simulations of the Solar Dipole and Open Flux",
+      "first_author": "I. T\u00e4htinen",
+      "year": 2026,
+      "arxiv": "2604.11342",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "surface_flux_transport",
+        "open_flux"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+      "metadata_yaml": "tahtinen-2026-dipole-flux-transport-open-flux/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "journal",
+        "compression-ratio for headline numbers",
+        "BMR catalog identity"
+      ]
+    },
+    {
+      "slug": "hore-2026-dominant-spatial-scales-coronal-field",
+      "title": "Uncovering the Dominant Spatial Scales of the Sun's Magnetic Field in Solar Cycle 24",
+      "first_author": "A. Hore",
+      "year": 2026,
+      "arxiv": "2604.10144",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "magnetogram_analysis",
+        "spectral_decomposition"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "hore-2026-dominant-spatial-scales-coronal-field/SKILL.md",
+      "metadata_yaml": "hore-2026-dominant-spatial-scales-coronal-field/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "exact 80%-degree cutoff",
+        "PFSSE truncation degree",
+        "polar fill-in policy",
+        "DOI"
+      ]
+    },
+    {
+      "slug": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "title": "Temporal Evolution of Sunspot Groups and Increase in the Open Flux During Solar Maximum in Cycle 24",
+      "first_author": "M. Yoshida",
+      "year": 2026,
+      "arxiv": "2602.24118",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "open_flux",
+        "active_regions",
+        "coronal_holes"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+      "metadata_yaml": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "journal",
+        "BMR catalog identity",
+        "SFT parameters"
+      ]
+    },
+    {
+      "slug": "rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "title": "Global Coronal Equilibria with Solar Wind Outflow II \u2014 Optimizing the Outflow Model (outflowpy)",
+      "first_author": "O. Rice",
+      "year": 2026,
+      "arxiv": "2603.22159",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "open_flux",
+        "coronal_equilibria"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+      "metadata_yaml": "rice-2026-outflowpy-outflow-fields-pfss-alternative/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "journal",
+        "outflowpy version",
+        "EA metric weights",
+        "held-out cycle"
+      ]
+    },
+    {
+      "slug": "razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "title": "Magnetic Flux Systems Involved in the May 2024 Solar Energetic Events from AR 13664 Inferred Through Coronal Dimmings",
+      "first_author": "A. Razquin",
+      "year": 2026,
+      "arxiv": "2603.23623",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_mass_ejections",
+        "active_regions"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "razquin-2026-coronal-dimming-magnetic-flux-may2024/SKILL.md",
+      "metadata_yaml": "razquin-2026-coronal-dimming-magnetic-flux-may2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "logBR threshold",
+        "NLFFF code identity",
+        "uncertainty on reconnection flux",
+        "DOI"
+      ]
+    },
+    {
+      "slug": "cuddy-2026-pfss-shock-electron-acceleration",
+      "title": "Signatures of Localised Particle Acceleration at a Global Coronal Shock Wave",
+      "first_author": "C. Cuddy",
+      "year": 2026,
+      "arxiv": "2603.23335",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "energetic_particles",
+        "shocks"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+      "metadata_yaml": "cuddy-2026-pfss-shock-electron-acceleration/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "exact event time",
+        "Newkirk scale factor used",
+        "herringbone identification protocol"
+      ]
+    },
+    {
+      "slug": "nedal-2026-pfss-mhd-typeII-shock-may2024",
+      "title": "Multiple Shocks Generated by the 2024 May 14 Coronal Mass Ejection",
+      "first_author": "M. Nedal",
+      "year": 2026,
+      "arxiv": "2602.16983",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_mass_ejections",
+        "shocks"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "nedal-2026-pfss-mhd-typeII-shock-may2024/SKILL.md",
+      "metadata_yaml": "nedal-2026-pfss-mhd-typeII-shock-may2024/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "density model identity",
+        "MHD ambient identity",
+        "exact burst times"
+      ]
+    },
+    {
+      "slug": "dingding-2025-pfss-source-surface-height-optimization",
+      "title": "Empirical Optimization of the Source-Surface Height in the PFSS Extrapolation",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2510.05513",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "open_flux",
+        "coronal_holes"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+      "metadata_yaml": "dingding-2025-pfss-source-surface-height-optimization/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "full author list",
+        "venue/DOI",
+        "exact mismatch metric formula",
+        "EUV-CH segmentation algorithm"
+      ]
+    },
+    {
+      "slug": "ervin-2025-alfven-surface-wind-braking-psp",
+      "title": "Reconstructing the Sun's Alfv\u00e9n Surface and Wind-Braking Torque with Parker Solar Probe",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2509.07088",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind",
+        "angular_momentum"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+      "metadata_yaml": "ervin-2025-alfven-surface-wind-braking-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "exact sub-Alfv\u00e9nic interval list",
+        "OSF normalization",
+        "DOI"
+      ]
+    },
+    {
+      "slug": "wood-2025-quiet-sun-filament-coronal-hole-formation",
+      "title": "Formation of a Coronal Hole by a Quiet-Sun Filament Eruption",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2509.04663",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_holes",
+        "filaments"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "wood-2025-quiet-sun-filament-coronal-hole-formation/SKILL.md",
+      "metadata_yaml": "wood-2025-quiet-sun-filament-coronal-hole-formation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "event date",
+        "synoptic product"
+      ]
+    },
+    {
+      "slug": "brooks-2025-active-region-upflows-coronal-coupling",
+      "title": "Active Region Upflows in Various Coronal Structures and Their Coupling to the Lower Atmosphere",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2509.02157",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind_sources",
+        "active_regions"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "brooks-2025-active-region-upflows-coronal-coupling/SKILL.md",
+      "metadata_yaml": "brooks-2025-active-region-upflows-coronal-coupling/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "AR sample list",
+        "Doppler calibration policy"
+      ]
+    },
+    {
+      "slug": "wsa-l1-errors-2025",
+      "title": "What Causes Errors in Wang-Sheeley-Arge Solar Wind Modeling at L1?",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2506.09676",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind",
+        "forecasting"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "wsa-l1-errors-2025/SKILL.md",
+      "metadata_yaml": "wsa-l1-errors-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "WSA kernel parameters",
+        "validation interval"
+      ]
+    },
+    {
+      "slug": "ross-2025-data-constrained-mhd-filament-eruption",
+      "title": "Data-Constrained Magnetohydrodynamic Simulation of a Filament Eruption in a Decaying Active Region 13079 on 2022-08-17",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2504.15069",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_mass_ejections",
+        "active_regions"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+      "metadata_yaml": "ross-2025-data-constrained-mhd-filament-eruption/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "MHD code identity",
+        "NLFFF boundary-prep method"
+      ]
+    },
+    {
+      "slug": "brightness-magnetically-open-corona-2025",
+      "title": "What Determines the Brightness of the Magnetically Open Solar Corona? Insights from Three-Dimensional Radiative MHD",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2504.14049",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_holes",
+        "rmhd"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "brightness-magnetically-open-corona-2025/SKILL.md",
+      "metadata_yaml": "brightness-magnetically-open-corona-2025/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "RMHD code identity",
+        "heating prescription"
+      ]
+    },
+    {
+      "slug": "stansby-2025-open-closed-flux-boundary-slow-wind",
+      "title": "The Sun's Open\u2013Closed Flux Boundary and the Origin of the Slow Solar Wind",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2503.09744",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind_sources",
+        "open_flux"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+      "metadata_yaml": "stansby-2025-open-closed-flux-boundary-slow-wind/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "slow-wind classifier",
+        "OCB extraction method"
+      ]
+    },
+    {
+      "slug": "raouafi-2025-switchback-coronal-jet-precursors",
+      "title": "Tracing Magnetic Switchbacks to Their Source: An Assessment of Solar Coronal Jets as Switchback Precursors",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2501.12340",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "switchbacks",
+        "coronal_jets"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "raouafi-2025-switchback-coronal-jet-precursors/SKILL.md",
+      "metadata_yaml": "raouafi-2025-switchback-coronal-jet-precursors/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "jet catalog identity",
+        "switchback threshold"
+      ]
+    },
+    {
+      "slug": "milligan-2024-flares-sympathetic-angular-separation",
+      "title": "Flaring Together: A Preferred Angular Separation Between Sympathetic Flares on the Sun",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2412.10143",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "flares",
+        "active_regions"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "milligan-2024-flares-sympathetic-angular-separation/SKILL.md",
+      "metadata_yaml": "milligan-2024-flares-sympathetic-angular-separation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "\u0394t window",
+        "flare-pair definition"
+      ]
+    },
+    {
+      "slug": "jiang-2024-nested-active-regions-hcs-reversal",
+      "title": "Nested Active Regions Anchor the Heliospheric Current Sheet and Stall the Reversal of the Coronal Magnetic Field",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2410.18244",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "heliospheric_current_sheet",
+        "active_regions"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "jiang-2024-nested-active-regions-hcs-reversal/SKILL.md",
+      "metadata_yaml": "jiang-2024-nested-active-regions-hcs-reversal/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "nested-AR definition",
+        "SFT parameters"
+      ]
+    },
+    {
+      "slug": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "title": "Quantifying Uncertainties in Solar Wind Forecasting Due to Incomplete Solar Magnetic Field Information",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2504.19534",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "forecasting",
+        "uncertainty_quantification"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+      "metadata_yaml": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "ensemble size",
+        "AI-farside model"
+      ]
+    },
+    {
+      "slug": "reville-2025-solo-psp-open-closed-magnetic-outflows",
+      "title": "Investigating Solar Wind Outflows from Open\u2013Closed Magnetic Field Structures Using Coordinated Solar Orbiter and PSP Observations",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2502.08290",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind_sources",
+        "conjunctions"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "reville-2025-solo-psp-open-closed-magnetic-outflows/SKILL.md",
+      "metadata_yaml": "reville-2025-solo-psp-open-closed-magnetic-outflows/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "conjunction definition",
+        "composition product"
+      ]
+    },
+    {
+      "slug": "sachdeva-2024-global-simulation-psp-2018-2022",
+      "title": "Global Simulation of the Solar Wind: A Comparison with Parker Solar Probe Observations During 2018\u20132022",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2410.23157",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind",
+        "psp"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "sachdeva-2024-global-simulation-psp-2018-2022/SKILL.md",
+      "metadata_yaml": "sachdeva-2024-global-simulation-psp-2018-2022/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "MHD code identity",
+        "encounter list with CRs"
+      ]
+    },
+    {
+      "slug": "macneice-2024-fisk-heliospheric-field-source-mapping",
+      "title": "Identifying Coronal Sources of L1 Solar Wind Disturbances Using the Fisk Heliospheric Magnetic Field and Potential Field Source Surface Model",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2404.11219",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "heliospheric_field",
+        "source_mapping"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "macneice-2024-fisk-heliospheric-field-source-mapping/SKILL.md",
+      "metadata_yaml": "macneice-2024-fisk-heliospheric-field-source-mapping/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "Fisk parameterization",
+        "disturbance catalog"
+      ]
+    },
+    {
+      "slug": "deforest-2024-flux-fluxon-coronal-modeling",
+      "title": "Field Line Universal relaXer (FLUX): A Fluxon Approach to Coronal Magnetic Field Modeling",
+      "first_author": "C. E. DeForest",
+      "year": 2024,
+      "arxiv": "2402.10370",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_modeling",
+        "topology"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "deforest-2024-flux-fluxon-coronal-modeling/SKILL.md",
+      "metadata_yaml": "deforest-2024-flux-fluxon-coronal-modeling/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "FLUX version",
+        "fluxon-density convention"
+      ]
+    },
+    {
+      "slug": "wang-2023-solar-wind-source-cycle-coronal-rotation",
+      "title": "Evolution of Solar Wind Sources and Coronal Rotation Driven by the Cyclic Variation of the Sun's Large-Scale Magnetic Field",
+      "first_author": "TODO_verify",
+      "year": 2023,
+      "arxiv": "2309.10850",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind_sources",
+        "cycle_evolution"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "wang-2023-solar-wind-source-cycle-coronal-rotation/SKILL.md",
+      "metadata_yaml": "wang-2023-solar-wind-source-cycle-coronal-rotation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "tracking algorithm",
+        "multipole truncation"
+      ]
+    },
+    {
+      "slug": "badman-2023-pfss-iplmf-evaluation-psp",
+      "title": "Evaluation of Coronal and Interplanetary Magnetic Field Extrapolation Using PSP Solar Wind Observation",
+      "first_author": "TODO_verify",
+      "year": 2023,
+      "arxiv": "2305.12124",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "psp",
+        "validation"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "badman-2023-pfss-iplmf-evaluation-psp/SKILL.md",
+      "metadata_yaml": "badman-2023-pfss-iplmf-evaluation-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "encounters list",
+        "exact pass-rate metric",
+        "magnetogram products"
+      ]
+    },
+    {
+      "slug": "koukras-2022-backmapping-uncertainty-fast-wind",
+      "title": "Estimating Uncertainties in the Back-Mapping of the Fast Solar Wind",
+      "first_author": "TODO_verify",
+      "year": 2022,
+      "arxiv": "2212.11553",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "uncertainty_quantification",
+        "source_mapping"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "koukras-2022-backmapping-uncertainty-fast-wind/SKILL.md",
+      "metadata_yaml": "koukras-2022-backmapping-uncertainty-fast-wind/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "fast-wind definition",
+        "linearization assumption"
+      ]
+    },
+    {
+      "slug": "mostl-2022-alfven-wave-solar-wind-ip-scintillation",
+      "title": "Testing the Alfv\u00e9n-Wave Model of the Solar Wind with Interplanetary Scintillation",
+      "first_author": "TODO_verify",
+      "year": 2022,
+      "arxiv": "2202.10768",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind",
+        "remote_sensing"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+      "metadata_yaml": "mostl-2022-alfven-wave-solar-wind-ip-scintillation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "IPS dataset",
+        "AW model identity"
+      ]
+    },
+    {
+      "slug": "kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ",
+      "title": "Refinement of Global Coronal and Interplanetary Magnetic Field Extrapolations Constrained by Remote-Sensing and In-Situ Observations",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2405.18665",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "multi-observable",
+        "extrapolation"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ/SKILL.md",
+      "metadata_yaml": "kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "multi-objective weights",
+        "intervals studied"
+      ]
+    },
+    {
+      "slug": "macneil-2024-adapt-aft-flux-transport-in-situ",
+      "title": "Assessing the Performance of the ADAPT and AFT Flux Transport Models Using In-Situ Measurements from Multiple Spacecraft",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2402.10432",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "surface_flux_transport",
+        "uncertainty"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "macneil-2024-adapt-aft-flux-transport-in-situ/SKILL.md",
+      "metadata_yaml": "macneil-2024-adapt-aft-flux-transport-in-situ/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "ADAPT/AFT versions",
+        "polar completeness metric"
+      ]
+    },
+    {
+      "slug": "badman-2023-prediction-psp-source-13rs",
+      "title": "Prediction and Verification of Parker Solar Probe Solar Wind Sources at 13.3 R_sun",
+      "first_author": "TODO_verify",
+      "year": 2023,
+      "arxiv": "2303.04852",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "psp",
+        "prediction"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "badman-2023-prediction-psp-source-13rs/SKILL.md",
+      "metadata_yaml": "badman-2023-prediction-psp-source-13rs/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "encounters list",
+        "accuracy metric"
+      ]
+    },
+    {
+      "slug": "finley-2023-differential-rotation-angular-momentum-loss",
+      "title": "Accounting for Differential Rotation in Calculations of the Sun's Angular Momentum-Loss Rate",
+      "first_author": "A. J. Finley",
+      "year": 2023,
+      "arxiv": "2302.12700",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "angular_momentum",
+        "rotation"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+      "metadata_yaml": "finley-2023-differential-rotation-angular-momentum-loss/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "rotation-profile source",
+        "headline correction magnitude"
+      ]
+    },
+    {
+      "slug": "lapenta-2026-magnetic-connectivity-time-dependent-corona",
+      "title": "Magnetic Connectivity in the Time-Dependent Corona and Heliosphere",
+      "first_author": "TODO_verify",
+      "year": 2026,
+      "arxiv": "2603.22440",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "connectivity",
+        "time_dependent_modeling"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "lapenta-2026-magnetic-connectivity-time-dependent-corona/SKILL.md",
+      "metadata_yaml": "lapenta-2026-magnetic-connectivity-time-dependent-corona/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "time-dependent code identity"
+      ]
+    },
+    {
+      "slug": "mackay-2026-tracking-magnetic-topology-change-corona",
+      "title": "Tracking Magnetic Topological Change in a Time-Dependent Coronal Model",
+      "first_author": "D. H. Mackay",
+      "year": 2026,
+      "arxiv": "2604.21639",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "topology",
+        "time_dependent_modeling"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "mackay-2026-tracking-magnetic-topology-change-corona/SKILL.md",
+      "metadata_yaml": "mackay-2026-tracking-magnetic-topology-change-corona/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "skeleton-extraction code"
+      ]
+    },
+    {
+      "slug": "nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "title": "The Role of Reconnection at Magnetic Separators in Complex Solar Flare Ribbons",
+      "first_author": "TODO_verify",
+      "year": 2026,
+      "arxiv": "2603.23789",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "flares",
+        "topology"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+      "metadata_yaml": "nadol-2026-magnetic-separator-reconnection-flare-ribbons/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "NLFFF code",
+        "ribbon threshold"
+      ]
+    },
+    {
+      "slug": "prasad-2026-blowout-jet-magnetic-topology",
+      "title": "Investigation of Magnetic Topology and Triggering Mechanisms of a C-Class Flare and Active-Region Blowout Jet",
+      "first_author": "A. Prasad",
+      "year": 2026,
+      "arxiv": "2602.01742",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_jets",
+        "topology"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+      "metadata_yaml": "prasad-2026-blowout-jet-magnetic-topology/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "Q-factor threshold",
+        "NLFFF code"
+      ]
+    },
+    {
+      "slug": "qrft-2025-quasi-radial-field-tracing-open-flux",
+      "title": "The Quasi-Radial Field-Line Tracing (QRaFT): An Adaptive Segmentation of the Open-Flux Solar Corona",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2506.14894",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "open_flux",
+        "segmentation"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "qrft-2025-quasi-radial-field-tracing-open-flux/SKILL.md",
+      "metadata_yaml": "qrft-2025-quasi-radial-field-tracing-open-flux/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "seeding-density convention",
+        "comparison-cost matching"
+      ]
+    },
+    {
+      "slug": "lyons-2025-flux-cancellation-jet-coronal-hole-eruption",
+      "title": "Magnetic Flux Cancellation in a Flux-Emergence MHD Simulation of Coronal-Hole Eruptions and Jets",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2505.21155",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_jets",
+        "flux_emergence"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "lyons-2025-flux-cancellation-jet-coronal-hole-eruption/SKILL.md",
+      "metadata_yaml": "lyons-2025-flux-cancellation-jet-coronal-hole-eruption/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "MHD code",
+        "cancellation-rate estimator"
+      ]
+    },
+    {
+      "slug": "huang-2024-stereoscopic-coronal-loop-morphology",
+      "title": "Stereoscopic Observations Reveal Coherent Morphology and Evolution of Solar Coronal Loops",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2411.16943",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "coronal_loops",
+        "stereoscopy"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+      "metadata_yaml": "huang-2024-stereoscopic-coronal-loop-morphology/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "loop-sample identity",
+        "angular-deviation tolerance"
+      ]
+    },
+    {
+      "slug": "vanderlinden-2024-flux-rope-magneto-friction-electric-field",
+      "title": "Simulating the Formation and Eruption of Flux Rope by Magneto-Friction Model Driven by Time-Dependent Electric Field",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2409.14045",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "flux_ropes",
+        "data_driven_modeling"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+      "metadata_yaml": "vanderlinden-2024-flux-rope-magneto-friction-electric-field/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "gauge convention",
+        "MF code"
+      ]
+    },
+    {
+      "slug": "brennan-2024-tracing-reconnecting-expanding-field-lines",
+      "title": "Tracing Field Lines That Are Reconnecting or Expanding or Both",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2409.04573",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "topology",
+        "field_line_classification"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "brennan-2024-tracing-reconnecting-expanding-field-lines/SKILL.md",
+      "metadata_yaml": "brennan-2024-tracing-reconnecting-expanding-field-lines/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "classifier definition",
+        "regularization"
+      ]
+    },
+    {
+      "slug": "nayak-2024-coronal-null-extrapolation-generation-annihilation",
+      "title": "Generation and Annihilation of Three-Dimensional Magnetic Nulls in Extrapolated Solar Coronal Magnetic Field",
+      "first_author": "TODO_verify",
+      "year": 2024,
+      "arxiv": "2404.12034",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "topology",
+        "null_points"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "nayak-2024-coronal-null-extrapolation-generation-annihilation/SKILL.md",
+      "metadata_yaml": "nayak-2024-coronal-null-extrapolation-generation-annihilation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "null detection algorithm",
+        "grid resolution"
+      ]
+    },
+    {
+      "slug": "prasad-2023-3d-reconnection-turbulent-plasmas",
+      "title": "A Method for Determining the Locations and Configurations of Magnetic Reconnection within 3-D Turbulent Plasmas",
+      "first_author": "A. Prasad",
+      "year": 2023,
+      "arxiv": "2312.15589",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "reconnection",
+        "turbulence"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "prasad-2023-3d-reconnection-turbulent-plasmas/SKILL.md",
+      "metadata_yaml": "prasad-2023-3d-reconnection-turbulent-plasmas/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "DOI",
+        "labelling protocol",
+        "simulation code"
+      ]
+    },
+    {
+      "slug": "katsavrias-2025-low-db-streams-source-variability",
+      "title": "On the Relation Between Source Region and In-Situ Variability of Low-\u03b4B Solar Wind Streams",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2511.21971",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "solar_wind_sources",
+        "low_db"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "katsavrias-2025-low-db-streams-source-variability/SKILL.md",
+      "metadata_yaml": "katsavrias-2025-low-db-streams-source-variability/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "low-\u03b4B threshold",
+        "source-region metric"
+      ]
+    },
+    {
+      "slug": "jian-2025-backmapping-high-low-latitude-pfss",
+      "title": "Backmapping of the High- and Low-Latitude Solar Wind Under Multiple Heliospheric and Coronal Magnetic Field Configurations",
+      "first_author": "TODO_verify",
+      "year": 2025,
+      "arxiv": "2510.21076",
+      "journal": "TODO_verify_with_full_text",
+      "doi": "TODO_verify_with_full_text",
+      "theme": "pfss_source_mapping",
+      "secondary_themes": [
+        "high_latitude",
+        "source_mapping"
+      ],
+      "category": "heliophysics-method",
+      "compilation_type": "heliophysics-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "jian-2025-backmapping-high-low-latitude-pfss/SKILL.md",
+      "metadata_yaml": "jian-2025-backmapping-high-low-latitude-pfss/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json"
+      ],
+      "todos": [
+        "lead author",
+        "DOI",
+        "Ulysses interval",
+        "MHD model identity"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+slug: paper-soar-solar-orbiter-archive-esa
+title: The Solar Orbiter Archive (SOAR)
+authors:
+  - ESAC Solar Orbiter Archive team
+year: 2021
+journal: "(ESA Solar Orbiter Archive documentation; companion paper Sanchez et al. 2024 A&A)"
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: archive-soar
+source_type: software-package
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SO/MAG L2 (8 Hz normal)
+  - SO/SWA L2 (varies)
+  - SO/EUI L2 (varies)
+  - SO/METIS L2 (campaign-dependent)
+  - SO/EPD L2 (varies)
+methods:
+  - TAP (Table Access Protocol) query for SO observations
+  - sunpy.net.Fido SOAR provider
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://soar.esac.esa.int/
+weak_entries:
+  - "Companion paper Sanchez et al. 2024 A&A; verify exact DOI"

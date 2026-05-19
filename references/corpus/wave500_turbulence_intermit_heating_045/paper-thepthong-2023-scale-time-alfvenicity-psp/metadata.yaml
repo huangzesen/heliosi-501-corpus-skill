@@ -1,0 +1,29 @@
+slug: paper-thepthong-2023-scale-time-alfvenicity-psp
+title: "Scale and Time Dependence of Alfvenicity in the Solar Wind as Observed by Parker Solar Probe"
+authors:
+  - "Panisara Thepthong"
+year: 2023
+journal: "TODO verify (arXiv:2312.08707)"
+doi: null
+arxiv: "2312.08707"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [alfvenicity, scale-dependence, PSP]
+missions: [PSP]
+regime: [inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (PSP encounters (TODO verify range))"
+  - "PSP/SWEAP SPC/SPAN-I L3 (Same)"
+methods:
+  - scale-resolved-σ_cτ
+  - per-encounter-time-dependent-alfvenicity-evolution
+  - alignment-angle-scale-dependence-statistics
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2312.08707v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

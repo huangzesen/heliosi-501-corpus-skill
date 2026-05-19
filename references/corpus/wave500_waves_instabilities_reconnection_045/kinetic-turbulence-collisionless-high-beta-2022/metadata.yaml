@@ -1,0 +1,22 @@
+slug: kinetic-turbulence-collisionless-high-beta-2022
+title: >-
+  Kinetic Turbulence in Collisionless High-Beta Plasmas
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2022
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2207.05189"
+theme: high-beta-kinetic-turbulence
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Hybrid-kinetic simulation tooling
+methods:
+  - Hybrid-kinetic high-β simulation
+  - Anisotropy-moment tracking
+  - Spectral-slope fitting
+validation_targets:
+  - Inertial-range slope shift vs low-β (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2207.05189

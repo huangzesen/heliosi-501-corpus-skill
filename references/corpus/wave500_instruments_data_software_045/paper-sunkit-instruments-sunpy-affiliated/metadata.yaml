@@ -1,0 +1,27 @@
+slug: paper-sunkit-instruments-sunpy-affiliated
+title: sunkit-instruments — Instrument-specific I/O and prep on top of SunPy
+authors:
+  - sunkit-instruments developers
+year: 2024
+journal: software package (SunPy affiliated; no dedicated paper in local inventory)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-sunkit-instruments
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - GOES-XRS via sunkit-instruments L2 (1 s / 1 min)
+  - GOES-SUVI EUV via sunkit-instruments L1b (~minute)
+methods:
+  - GOES XRS background subtraction
+  - GOES temperature/EM via Thomas/White ratio
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://github.com/sunpy/sunkit-instruments
+weak_entries:
+  - No standalone publication located; citation TODO

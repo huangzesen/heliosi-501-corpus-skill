@@ -1,0 +1,35 @@
+slug: paper-cdaweb-heliophysics-archive
+title: "CDAWeb (Coordinated Data Analysis Web) / SPDF — NASA heliophysics data archive"
+authors:
+  - NASA SPDF team (data archive; no software publication)
+year: 1996
+journal: NASA data archive (cite as service, not publication)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: heliophysics-nasa-data-archive
+source_type: software-package
+quality_level: method-ready
+executable_status: pipeline-specified-runnable-from-cdas-or-hapi
+required_data:
+  - PSP/FIELDS MAG L2, PSP/SWEAP L2/L3, PSP/ISʘIS L2
+  - Wind/MFI, Wind/SWE, Wind/3DP L2
+  - ACE/MAG, ACE/SWEPAM, ACE/SWICS L2
+  - STEREO/MAG, STEREO/PLASTIC L2
+  - OMNI merged 1-min / 1-hour
+methods:
+  - cdas Web API discovery + download
+  - HAPI streaming
+  - Multiple Python clients (sunpy.net.cdaweb, pyspedas, cdasws)
+validation_targets:
+  - AvailableData query returns expected dataset list
+  - Round-trip download + cdflib read matches metadata
+source_inventory:
+  - .library/custom/heliophysics-skills/reference/databases.md (CDAWeb / SPDF / OMNI / PSP SOC / SOAR / VSO entries)
+  - .library/custom/heliophysics-skills/SKILL.md (databases table)
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (databases_and_data_sources section)
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov
+weak_entries:
+  - No formal publication for the archive itself in local inventory
+  - HAPI server citation not in local inventory

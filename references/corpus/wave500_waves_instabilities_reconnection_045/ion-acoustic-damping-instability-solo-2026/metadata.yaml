@@ -1,0 +1,21 @@
+slug: ion-acoustic-damping-instability-solo-2026
+title: >-
+  The Damping and Instability of Ion-Acoustic Waves in the Solar Wind: Solar Orbiter Observations
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2604.14311"
+theme: ion-acoustic-damping-instability-solo
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - SolO RPW + SWA inputs
+methods:
+  - Linear-Vlasov IA dispersion
+  - Event classification
+validation_targets:
+  - Damped/unstable split at (T_e/T_i) threshold (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2604.14311

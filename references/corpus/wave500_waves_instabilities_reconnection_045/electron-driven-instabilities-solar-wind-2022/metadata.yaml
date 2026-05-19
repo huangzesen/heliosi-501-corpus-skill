@@ -1,0 +1,22 @@
+slug: electron-driven-instabilities-solar-wind-2022
+title: >-
+  Electron-Driven Instabilities in the Solar Wind
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2022
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2206.10403"
+theme: electron-driven-instabilities-solar-wind
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Electron VDF moments
+  - Electron-side linear-Vlasov solver
+methods:
+  - Electron-driven linear-Vlasov stability
+  - Heat-flux normalization
+validation_targets:
+  - Electron-instability boundary in (β_e, q_e/q_max) reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2206.10403

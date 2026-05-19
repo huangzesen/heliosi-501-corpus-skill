@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.1",
+  "batch": "batch_psp_switchbacks_magnetic",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory — PSP switchbacks + magnetic structures batch",
+  "runtime_neutrality": {
+    "principle": "Paper-skills are harness-agnostic. LingTai, Claude Code, Codex, and notebook-driven workflows are adapters, not assumptions in the skill body.",
+    "skill_layers": [
+      "1. Trigger + claim boundary",
+      "2. Scientific invariant layer (claims, equations, methods, data assumptions, failure modes, figure targets)",
+      "3. Executable protocol layer with abstract capability contracts (C-FETCH-*, C-MVA, C-WALEN, ...)",
+      "4. Adapter / runtime notes (optional examples only)",
+      "5. Research-generation affordance (gaps, tensions, candidate experiments)"
+    ]
+  },
+  "compilation_framing": {
+    "model": "Each paper is compiled from a static PDF into a runtime-neutral paper-skill describing capability contracts and scientific invariants.",
+    "mapping": {
+      "claims": "verifiable tasks anchored by claim_boundary",
+      "methods_equations": "executable procedure stated against capability contracts",
+      "data_instruments_code": "capability contracts (no MCP names asserted)",
+      "caveats_failure_modes": "skill memory (§2.4 list)",
+      "figures_results": "benchmark targets (§2.5)",
+      "corpus_citations": "skill graph via [[paper-...]] edges"
+    }
+  },
+  "skills": [
+    {
+      "slug": "shoda-2021-turbulence-switchback-generation-alfvenic",
+      "title": "Turbulent Generation of Magnetic Switchbacks in the Alfvénic Solar Wind",
+      "authors": ["M. Shoda", "B. D. G. Chandran", "S. R. Cranmer"],
+      "year": 2021,
+      "journal": "The Astrophysical Journal",
+      "doi": "10.3847/1538-4357/abfdbc",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "switchback-generation-turbulence",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "shoda-2021-turbulence-switchback-generation-alfvenic/SKILL.md",
+      "metadata_yaml": "shoda-2021-turbulence-switchback-generation-alfvenic/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.4"
+      ]
+    },
+    {
+      "slug": "agapitov-2023-structure-origin-switchbacks-psp",
+      "title": "The Structure and Origin of Switchbacks: Parker Solar Probe Observations",
+      "authors": ["O. V. Agapitov", "F. S. Mozer", "J. F. Drake", "T. Dudok de Wit", "+ co-authors (TODO verify)"],
+      "year": 2023,
+      "journal": "The Astrophysical Journal",
+      "doi": "10.3847/1538-4357/acd17e",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "switchback-structure-origin",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "agapitov-2023-structure-origin-switchbacks-psp/SKILL.md",
+      "metadata_yaml": "agapitov-2023-structure-origin-switchbacks-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.5"
+      ]
+    },
+    {
+      "slug": "adhikari-2026-alfven-transition-young-solar-wind-solar-max",
+      "title": "Characterization of the Alfvén Transition in the Young Solar Wind Using Parker Solar Probe Observations Approaching Solar Maximum",
+      "authors": ["S. Adhikari", "+ co-authors (TODO verify)"],
+      "year": 2026,
+      "journal": "The Astrophysical Journal, 997, 2",
+      "doi": "10.3847/1538-4357/ae2c78",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "psp-alfven-transition",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "adhikari-2026-alfven-transition-young-solar-wind-solar-max/SKILL.md",
+      "metadata_yaml": "adhikari-2026-alfven-transition-young-solar-wind-solar-max/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.6"
+      ]
+    },
+    {
+      "slug": "verniero-2020-proton-beams-ion-scale-waves",
+      "title": "Parker Solar Probe Observations of Proton Beams Simultaneous with Ion-Scale Waves",
+      "authors": ["J. L. Verniero", "D. E. Larson", "R. Livi", "A. Rahmati", "+ co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "The Astrophysical Journal Supplement Series, 248, 5",
+      "doi": "10.3847/1538-4365/ab86af",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "psp-ion-scale-waves-beam-driven",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "verniero-2020-proton-beams-ion-scale-waves/SKILL.md",
+      "metadata_yaml": "verniero-2020-proton-beams-ion-scale-waves/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.7"
+      ]
+    },
+    {
+      "slug": "perrone-2022-coronal-hole-wind-psp-solo-conjunction",
+      "title": "Evolution of Coronal-Hole Solar Wind in the Inner Heliosphere: Combined Observations by Solar Orbiter and Parker Solar Probe",
+      "authors": ["D. Perrone", "S. Perri", "R. Bruno", "D. Stansby", "R. D'Amicis", "V. K. Jagarlamudi", "+ co-authors (TODO verify)"],
+      "year": 2022,
+      "journal": "A&A 668, A189",
+      "doi": "10.1051/0004-6361/202243989",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "psp-solo-coronal-hole-radial-evolution",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "perrone-2022-coronal-hole-wind-psp-solo-conjunction/SKILL.md",
+      "metadata_yaml": "perrone-2022-coronal-hole-wind-psp-solo-conjunction/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.8"
+      ]
+    },
+    {
+      "slug": "kasper-2021-psp-enters-magnetically-dominated-corona",
+      "title": "Parker Solar Probe Enters the Magnetically Dominated Solar Corona",
+      "authors": ["J. C. Kasper", "K. G. Klein", "E. Lichko", "J. Huang", "+ co-authors (TODO verify)"],
+      "year": 2021,
+      "journal": "Physical Review Letters, 127, 255101",
+      "doi": "10.1103/PhysRevLett.127.255101",
+      "arxiv": "TODO_verify_with_full_text",
+      "theme": "psp-alfven-surface-first-crossing",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "kasper-2021-psp-enters-magnetically-dominated-corona/SKILL.md",
+      "metadata_yaml": "kasper-2021-psp-enters-magnetically-dominated-corona/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.9"
+      ]
+    },
+    {
+      "slug": "phan-2022-switchback-boundary-reconnection-psp",
+      "title": "Direct Evidence for Magnetic Reconnection at the Boundaries of Magnetic Switchbacks with Parker Solar Probe",
+      "authors": ["T. D. Phan", "B. Lavraud", "J. S. Halekas", "M. Zhang", "S. D. Bale", "J. C. Kasper", "+ co-authors (TODO verify)"],
+      "year": 2022,
+      "journal": "The Astrophysical Journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2101.06279",
+      "theme": "psp-switchback-boundary-reconnection",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "phan-2022-switchback-boundary-reconnection-psp/SKILL.md",
+      "metadata_yaml": "phan-2022-switchback-boundary-reconnection-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.10",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.1"
+      ]
+    },
+    {
+      "slug": "bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "title": "A Solar Source of Alfvénic Magnetic Field Switchbacks: In-Situ Remnants of Magnetic Funnels on Supergranulation Scales",
+      "authors": ["S. D. Bale", "T. Horbury", "M. Velli", "M. Desai", "J. Halekas", "+ co-authors (TODO verify)"],
+      "year": 2021,
+      "journal": "The Astrophysical Journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2109.01069",
+      "theme": "psp-switchback-origin-solar-funnels",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "bale-2021-solar-source-switchbacks-magnetic-funnels/SKILL.md",
+      "metadata_yaml": "bale-2021-solar-source-switchbacks-magnetic-funnels/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.11"
+      ]
+    },
+    {
+      "slug": "mozer-2021-magnetic-pressure-balance-domains-psp",
+      "title": "Domains of Magnetic Pressure Balance in Parker Solar Probe Observations of the Solar Wind",
+      "authors": ["F. S. Mozer", "+ co-authors (TODO verify)"],
+      "year": 2021,
+      "journal": "The Astrophysical Journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2110.08506",
+      "theme": "psp-pressure-balance-domains",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "mozer-2021-magnetic-pressure-balance-domains-psp/SKILL.md",
+      "metadata_yaml": "mozer-2021-magnetic-pressure-balance-domains-psp/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.12",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.7"
+      ]
+    },
+    {
+      "slug": "agapitov-2020-localized-magnetic-structures-boundaries",
+      "title": "Localized Magnetic Field Structures and Their Boundaries in the Near-Sun Solar Wind from Parker Solar Probe Measurements",
+      "authors": ["O. V. Agapitov", "T. Dudok de Wit", "F. Mozer", "+ co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "The Astrophysical Journal Supplement Series",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2003.05409",
+      "theme": "psp-localized-structures-boundaries",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "agapitov-2020-localized-magnetic-structures-boundaries/SKILL.md",
+      "metadata_yaml": "agapitov-2020-localized-magnetic-structures-boundaries/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.13",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.2"
+      ]
+    },
+    {
+      "slug": "wang-2020-magnetic-holes-psp-solar-wind",
+      "title": "Characteristics of Magnetic Holes in the Solar Wind Revealed by Parker Solar Probe",
+      "authors": ["Z. Wang", "+ co-authors (TODO verify)"],
+      "year": 2020,
+      "journal": "The Astrophysical Journal",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2010.14008",
+      "theme": "psp-magnetic-holes",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "wang-2020-magnetic-holes-psp-solar-wind/SKILL.md",
+      "metadata_yaml": "wang-2020-magnetic-holes-psp-solar-wind/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.1"
+      ]
+    },
+    {
+      "slug": "phan-2023-switchback-boundaries-closed",
+      "title": "Are Switchback Boundaries Observed by Parker Solar Probe Closed?",
+      "authors": ["T. D. Phan", "+ co-authors (TODO verify)"],
+      "year": 2023,
+      "journal": "ApJ-family (TODO verify exact venue)",
+      "doi": "TODO_verify_with_full_text",
+      "arxiv": "2310.12134",
+      "theme": "psp-switchback-boundary-topology",
+      "category": "scientific-method",
+      "compilation_type": "scientific-method",
+      "quality_level": "paper-grounded-pending-full-text",
+      "executable_status": "pipeline-specified-not-yet-runnable",
+      "skill_md": "phan-2023-switchback-boundaries-closed/SKILL.md",
+      "metadata_yaml": "phan-2023-switchback-boundaries-closed/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.3"
+      ]
+    }
+  ],
+  "weak_entries_needing_full_text_verification": [
+    {"slug": "shoda-2021-turbulence-switchback-generation-alfvenic", "todos": ["arXiv ID", "exact simulation grid + equation set", "exact occurrence-vs-r numerics", "existence of public code repo"]},
+    {"slug": "agapitov-2023-structure-origin-switchbacks-psp", "todos": ["arXiv ID", "full author list", "exact reported RD-fraction", "encounter list"]},
+    {"slug": "adhikari-2026-alfven-transition-young-solar-wind-solar-max", "todos": ["arXiv ID", "full author list", "exact sub-Alfvénic interval list", "PFSS tool + source-surface height"]},
+    {"slug": "verniero-2020-proton-beams-ion-scale-waves", "todos": ["arXiv ID", "linear-Vlasov solver identity", "exact event intervals", "SPAN-I cadence used"]},
+    {"slug": "perrone-2022-coronal-hole-wind-psp-solo-conjunction", "todos": ["exact conjunction dates", "PSD method", "σ_c trend direction"]},
+    {"slug": "kasper-2021-psp-enters-magnetically-dominated-corona", "todos": ["full author list", "exact Encounter-8 interval timestamps", "density proxy (QTN vs SPC)", "reported Alfvén radius"]},
+    {"slug": "phan-2022-switchback-boundary-reconnection-psp", "todos": ["DOI", "exact event list", "reported Walén-slope tolerance", "sign convention"]},
+    {"slug": "bale-2021-solar-source-switchbacks-magnetic-funnels", "todos": ["DOI", "full author list", "encounter list", "PFSS tool / source-surface height"]},
+    {"slug": "mozer-2021-magnetic-pressure-balance-domains-psp", "todos": ["DOI", "full author list", "exact PBD residual threshold", "whether T_e was used"]},
+    {"slug": "agapitov-2020-localized-magnetic-structures-boundaries", "todos": ["DOI", "full author list", "deflection threshold", "analyzed interval list"]},
+    {"slug": "wang-2020-magnetic-holes-psp-solar-wind", "todos": ["DOI", "full author list", "detection threshold and depth peak", "encounter coverage"]},
+    {"slug": "phan-2023-switchback-boundaries-closed", "todos": ["DOI / venue", "full author list", "reported topology fraction", "event list"]}
+  ]
+}

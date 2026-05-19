@@ -1,0 +1,28 @@
+slug: paper-allen-2025-shock-evolution-2023-march-13-event
+title: "Evolution of the Shock Properties of the 2023 March 13 Event from In-Situ and Remote-Sensing Data"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2511.03496"
+theme: heliophysics-shock-evolution-2023-march-13
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/FIELDS MAG + SWEAP
+  - Solar Orbiter MAG + SWA
+  - STEREO-A IMPACT/PLASTIC
+  - Multi-observer coronagraphs + EUV
+methods:
+  - Per-observer Rankine-Hugoniot shock fit
+  - θ_Bn radial-evolution series
+  - 3D shock surface fit at multiple times
+  - Comparison to widespread-ESP global structure
+validation_targets:
+  - Time-resolved θ_Bn, Mach number; 3D-surface kinematic parameters; consistency with widespread-ESP front (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2511.03496

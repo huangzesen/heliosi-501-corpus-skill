@@ -1,0 +1,48 @@
+slug: woodham-2024-alpha-proton-differential-flow-young-solar-wind
+title: >-
+  The Alpha-Proton Differential Flow in the Alfvénic Young Solar Wind: From Sub-Alfvénic to Super-Alfvénic
+authors:
+  - TODO verify
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2401.10457"
+theme: alpha-proton-drift-young-solar-wind
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: psp_data
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - sub-Alfvenic
+  - super-Alfvenic
+trigger_keywords:
+  - alpha-proton drift
+  - differential flow
+  - young solar wind
+  - sub/super-Alfvenic
+  - Alfvénic streams
+data_products:
+  - instrument: PSP/SWEAP SPAN-I (proton)
+    level: L3 VDF/moments
+    cadence: encounter cadence
+    interval: sub/super-Alfvenic intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP SPAN-Ai (alpha)
+    level: L3 VDF/moments
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: M_A classification (sub vs super)
+  - name: Alpha-proton drift speed estimation per species moment
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §4.7

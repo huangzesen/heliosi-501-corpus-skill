@@ -1,0 +1,44 @@
+slug: paper-wang-2023-voyager-open-ended-embodied-agent-llm
+title: "Voyager: An Open-Ended Embodied Agent with Large Language Models"
+authors:
+  - "Guanzhi Wang"
+  - "Yuqi Xie"
+  - "Yunfan Jiang"
+  - "Ajay Mandlekar"
+  - "Chaowei Xiao"
+  - "Yuke Zhu"
+  - "Linxi Fan"
+  - "Anima Anandkumar"
+year: 2023
+journal: "arXiv preprint"
+doi: null
+arxiv: "2305.16291"
+theme: agent-runtime-skill-library-acquisition
+category: foundational-method
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Iterative-prompting LLM curriculum"
+  - "Executable skill library with retrieval"
+  - "Self-verification loop"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's paper-skill corpus IS the heliophysics analogue of Voyager's skill library, but populated from published literature rather than self-discovery. A Stage-D self-discovery loop is the missing piece."
+  - "[minimal_experiment] Run a Voyager-style curriculum over HelioSI: starting from one anchor paper-skill, generate child hypothesis-tier skills and store them as paper-hyp-* nodes; measure curriculum branching factor."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

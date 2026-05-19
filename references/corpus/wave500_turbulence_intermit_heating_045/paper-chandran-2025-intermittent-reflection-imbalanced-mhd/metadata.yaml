@@ -1,0 +1,27 @@
+slug: paper-chandran-2025-intermittent-reflection-imbalanced-mhd
+title: "Intermittent, Reflection-Driven, Strong Imbalanced MHD Turbulence"
+authors:
+  - "B. D. G. Chandran"
+year: 2025
+journal: "TODO verify (arXiv:2502.04585)"
+doi: null
+arxiv: "2502.04585"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [intermittency, reflection-driven, imbalanced, theory]
+missions: [n/a]
+regime: [MHD-scale, fluid]
+quality_level: stub
+harness_agnostic: true
+required_data: []
+methods:
+  - analytic-intermittency-phenomenology-under-imbalance
+  - predicted-high-order-moment-scaling
+  - reflection-driven-cascade-closure
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2502.04585v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

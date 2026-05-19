@@ -1,0 +1,35 @@
+slug: jiang-2025-third-order-law-angular-dependence-anisotropic-mhd
+title: >-
+  Angular dependence of third-order law in anisotropic MHD turbulence
+authors:
+  - B. Jiang
+  - Z. Gao
+  - Y. Yang
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2512.16610"
+theme: anisotropic-mhd-third-order-law-angular-dependence
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - n/a
+regime:
+  - inner-heliosphere
+  - MHD-scale
+  - fluid
+trigger_keywords:
+  - Politano–Pouquet third-order law
+  - anisotropic MHD
+  - cascade rate
+  - single-direction sampling
+  - 60° polar angle
+data_products: []
+algorithms:
+  - name: DNS-based Politano–Pouquet evaluation at variable angles
+  - name: Angular-bias quantification for single-spacecraft ε estimation
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §4

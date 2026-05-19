@@ -1,0 +1,34 @@
+slug: bandyopadhyay-2020-energy-transfer-psp
+title: "Enhanced Energy Transfer Rate in Solar Wind Turbulence Observed near the Sun from Parker Solar Probe"
+authors:
+  - "R. Bandyopadhyay"
+  - "M. L. Goldstein"
+  - "B. A. Maruca"
+  - "W. H. Matthaeus"
+  - "T. N. Parashar"
+  - "D. Ruffolo"
+  - "R. Chhiber"
+  - "A. Usmanov"
+  - "A. Chasapis"
+  - "R. Qudsi"
+year: 2020
+journal: "The Astrophysical Journal Supplement Series"
+doi: "10.3847/1538-4365/ab5dae"
+arxiv: "1912.02959"
+theme: turbulence
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN (~1 vec/s) during Encounter 1"
+  - "PSP SWEAP/SPC L3 proton moments during Encounter 1"
+methods:
+  - politano-pouquet-third-order-law
+  - von-karman-decay-law
+  - elsasser-variables
+  - inertial-range-cascade-rate
+validation_targets:
+  - "ε estimated at PSP E1 (~0.17 au) is ~100x a 1-au reference, by both PP and vK methods (order-of-magnitude target)"
+  - "PP and vK estimates agree within scatter (factor TODO verify in full paper)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.1"
+  - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #1)"

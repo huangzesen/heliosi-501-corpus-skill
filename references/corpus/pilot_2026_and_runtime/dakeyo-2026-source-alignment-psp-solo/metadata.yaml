@@ -1,0 +1,38 @@
+slug: dakeyo-2026-source-alignment-psp-solo
+title: >-
+  On the Radial Evolution of the Solar Wind: The Source Alignment Method
+  Applied to Parker Solar Probe and Solar Orbiter Observations
+authors:
+  - J.-B. Dakeyo
+  - T. Ervin
+  - S. D. Bale
+  - P. Démoulin
+  - N. Sioulas
+  - V. Réville
+  - "+ 7 others"
+year: 2026
+journal: A&A (submitted) / ApJ — TODO verify final venue
+doi: TODO_verify_with_full_text
+arxiv: "2605.01511"
+theme: heliophysics-psp-solo-radial-evolution
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP SWEAP (SPC / SPAN-I) bulk moments
+  - PSP FIELDS MAG RTN
+  - SO SWA-PAS bulk moments
+  - SO MAG RTN
+  - ADAPT / HMI synoptic photospheric maps
+  - SPICE kernels for PSP and SO
+methods:
+  - Magnetic footpoint mapping (PFSS + ballistic + Parker spiral)
+  - Source-region matching between spacecraft
+  - Time-lag cross-correlation of matched sub-intervals
+  - Radial-evolution diagnostics (Δv, Δn, ΔT, Δσc, ΔσR, spectral index)
+validation_targets:
+  - Reproduce at least one PSP × SO matched pair from the paper
+  - Recover sign and order of magnitude of Δv > 0 above ~15 R_s
+  - Δv within ±20% of published value for a named conjunction
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.3
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #3

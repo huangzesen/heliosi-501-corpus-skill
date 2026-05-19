@@ -1,0 +1,468 @@
+{
+  "batch_id": "wave500_turbulence_intermit_heating_045",
+  "created_at": "2026-05-18T00:00:00Z",
+  "generated_by": "HelioSI paper-to-skill factory",
+  "spec_version": "v0.2",
+  "harness_agnostic": true,
+  "theme_scope": "turbulence, intermittency, heating, cascade physics (paper-skills)",
+  "count": 45,
+  "expected_count": 45,
+  "skills": [
+    {
+      "slug": "paper-adhikari-2025-trans-alfvenic-turbulence",
+      "title": "Characterization of the Trans-Alfvénic Region Using Observations from Parker Solar Probe",
+      "first_author": "Subash Adhikari",
+      "year": 2025,
+      "arxiv": "2510.07472",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Subash Adhikari et al. 2025 — Across PSP encounters 8-19, sub-Alfvenic intervals show smaller normalised magnetic-fluctuation amplitude and stronger anisotropy than super-Alfvenic intervals, with no polarity- reversing (>90 deg) switchbacks in the sub-Alfvenic sample. (arXiv:2510.07472; venue TODO verify)."
+    },
+    {
+      "slug": "paper-andres-2021-incompressible-cascade-anisotropic-pp",
+      "title": "The incompressible energy cascade rate in anisotropic solar wind turbulence",
+      "first_author": "Andres, N.",
+      "year": 2021,
+      "arxiv": "2112.13748",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when evaluating the Politano-Pouquet exact third-order relation on PSP data and decomposing the cascade rate into directions parallel and perpendicular to the local mean field — Andres et al. 2021 apply this decomposition over >2 yr of PSP data (arXiv 2112.13748; venue TODO verify)."
+    },
+    {
+      "slug": "paper-bourouaine-2020-switchback-nonswitchback-turbulence",
+      "title": "Turbulence characteristics of switchbacks and non-switchbacks intervals observed by Parker Solar Probe",
+      "first_author": "Bourouaine, S.",
+      "year": 2020,
+      "arxiv": "2010.00936",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when comparing turbulent power, cross-helicity, and residual-energy diagnostics between switchback (SB) and non-switchback (NSB) sub-intervals during PSP Encounter 1 — Bourouaine et al. 2020 separate SB/NSB populations near perihelion (35.7–41.7 R☉) via conditioned correlation functions and Elsasser z± spectra (arXiv 2010.00936; venue TODO verify)."
+    },
+    {
+      "slug": "paper-bowen-2025-stochastic-heating-sub-alfvenic",
+      "title": "Stochastic Heating in the Sub-Alfvénic Solar Wind",
+      "first_author": "Trevor A. Bowen",
+      "year": 2025,
+      "arxiv": "2509.20654",
+      "primary_theme": "coronal_heating",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Trevor A. Bowen et al. 2025 — Stochastic- heating diagnostics (delta-B_perp / B threshold criterion) applied to PSP encounter intervals that crossed into the sub-Alfvenic regime show stochastic heating remains active and consistent with established threshold criteria. (arXiv:2509.20654; venue TODO verify)."
+    },
+    {
+      "slug": "paper-brodiano-2025-intermittent-1f-spectrum-pristine",
+      "title": "An Intermittent Model for the 1/f Spectrum in the Pristine Solar Wind",
+      "first_author": "Maia Brodiano",
+      "year": 2025,
+      "arxiv": "2506.04366",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Maia Brodiano et al. 2025 — A phenomenological intermittent-fluctuation model reproduces the 1/f magnetic spectrum in pristine (young) solar wind through scale-dependent occurrence of discrete coherent structures. (arXiv:2506.04366; venue TODO verify)."
+    },
+    {
+      "slug": "paper-chandran-2025-intermittent-reflection-imbalanced-mhd",
+      "title": "Intermittent, Reflection-Driven, Strong Imbalanced MHD Turbulence",
+      "first_author": "B. D. G. Chandran",
+      "year": 2025,
+      "arxiv": "2502.04585",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of B. D. G. Chandran et al. 2025 — An analytic phenomenology of strong imbalanced reflection-driven MHD turbulence predicts intermittent z+ structure with a defined scaling for the high-order moments distinct from balanced GS95-style cascades. (arXiv:2502.04585; venue TODO verify)."
+    },
+    {
+      "slug": "paper-cuesta-2022-intermittency-psp-helios-voyager",
+      "title": "Intermittency in the Expanding Solar Wind: Observations from Parker Solar Probe (0.16 au), Helios 1 (0.3–1 au), and Voyager 1 (1–10 au)",
+      "first_author": "Cuesta, M. E.",
+      "year": 2022,
+      "arxiv": "2202.01874",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when tracking radial evolution of solar-wind intermittency from 0.16 au to ~10 au using multi-spacecraft (PSP, Helios 1, Voyager 1) MAG time series via structure functions, scale-dependent kurtosis, and correlation length — Cuesta et al. 2022 build the SDK(r) family across distance bins (arXiv 2202.01874; venue TODO verify)."
+    },
+    {
+      "slug": "paper-cuesta-2023-compressible-turbulence-eight-perihelia",
+      "title": "Compressible Turbulence in the Near-Sun Solar Wind: Parker Solar Probe's First Eight Perihelia",
+      "first_author": "Manuel Enrique Cuesta",
+      "year": 2023,
+      "arxiv": "2305.03566",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Manuel Enrique Cuesta et al. 2023 — Across PSP's first eight perihelia, compressible turbulence diagnostics (density-fluctuation amplitude δn/n, density spectral slope) show measurable radial trends and stream- dependence in the near-Sun environment. (arXiv:2305.03566; venue TODO verify)."
+    },
+    {
+      "slug": "paper-davis-2023-1f-evolution-single-fast-stream",
+      "title": "The Evolution of the 1/f Range Within a Single Fast-Solar-Wind Stream Between 17.4 and 45.7 Solar Radii",
+      "first_author": "Nooshin Davis",
+      "year": 2023,
+      "arxiv": "2303.01663",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Nooshin Davis et al. 2023 — In a single fast- wind stream sampled by PSP Encounter 10 between 17.4 and 45.7 R_sun, the low-frequency spectral index below f_b decreases from ~-0.61 to ~-0.94 as r increases, indicating dynamic in-situ formation rather than a coronal origin of the 1/f range. (arXiv:2303.01663; venue TODO verify)."
+    },
+    {
+      "slug": "paper-du-2023-density-fluctuations-3d-simulation-anisotropy",
+      "title": "On the Interpretation of the Scalings of Density Fluctuations from In-situ Solar Wind Observations: Insights from 3D Turbulence Simulations",
+      "first_author": "Senbei Du",
+      "year": 2023,
+      "arxiv": "2303.05074",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Senbei Du et al. 2023 — 3D compressible-MHD simulations show density-fluctuation spectra depend on sampling angle vs mean field and on beta; broad spacecraft-to-spacecraft variability is consistent with anisotropic-sampling draws from a single underlying population. (arXiv:2303.05074; venue TODO verify)."
+    },
+    {
+      "slug": "paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp",
+      "title": "Anisotropy of Solar-Wind Turbulence in the Inner Heliosphere at Kinetic Scales: PSP Observations",
+      "first_author": "Duan, D.",
+      "year": 2021,
+      "arxiv": "2102.13294",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when characterising sub-ion (kinetic-Alfven-wave) anisotropy in slow-Alfvenic PSP intervals via wavelet spectra and the magnetic compressibility test — Duan et al. 2021 angle-bin sub-ion spectra and identify KAW-consistent perpendicular cascade (arXiv 2102.13294; venue TODO verify)."
+    },
+    {
+      "slug": "paper-fu-2022-density-fluctuations-compressible-mhd-scaling",
+      "title": "Nature and Scalings of Density Fluctuations of Compressible MHD Turbulence with Applications to the Solar Wind",
+      "first_author": "Xiangrong Fu",
+      "year": 2022,
+      "arxiv": "2207.09490",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Xiangrong Fu et al. 2022 — Compressible-MHD simulations characterise the scaling of density-fluctuation amplitude with turbulent Mach number and beta and predict an observable signature in solar-wind density spectra. (arXiv:2207.09490; venue TODO verify)."
+    },
+    {
+      "slug": "paper-galtier-2023-fast-magnetoacoustic-turbulence-iroshnikov",
+      "title": "Fast magneto-acoustic wave turbulence and the Iroshnikov-Kraichnan spectrum",
+      "first_author": "Sebastien Galtier",
+      "year": 2023,
+      "arxiv": "2303.00643",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Sebastien Galtier et al. 2023 — Wave-turbulence kinetic-equation analysis of fast magnetosonic waves predicts an Iroshnikov-Kraichnan k^(-3/2) power spectrum for the fast-mode cascade under the stated theoretical assumptions. (arXiv:2303.00643; venue TODO verify)."
+    },
+    {
+      "slug": "paper-gomes-2023-multifractality-current-sheets-mfdfa",
+      "title": "Origin of Multifractality in Solar Wind Turbulence: the Role of Current Sheets",
+      "first_author": "Leonardo F. Gomes",
+      "year": 2023,
+      "arxiv": "2301.02118",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Leonardo F. Gomes et al. 2023 — Multifractal- Detrended-Fluctuation-Analysis (MFDFA) on solar-wind magnetic-field time series shows current-sheet removal substantially reduces multifractality, with surrogate-data and volatility tests separating heavy-tail vs nonlinear-correlation contributions. (arXiv:2301.02118; venue TODO verify)."
+    },
+    {
+      "slug": "paper-good-2025-residual-energy-mhd-shocks",
+      "title": "Residual energy of magnetohydrodynamic shocks",
+      "first_author": "S. W. Good",
+      "year": 2025,
+      "arxiv": "2509.20096",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of S. W. Good et al. 2025 — MHD-shock theory predicts a specific residual-energy (magnetic-minus-kinetic) signature across the shock front, validated against an interplanetary-shock observational set. (arXiv:2509.20096; venue TODO verify)."
+    },
+    {
+      "slug": "paper-good-2026-correlation-length-magnetic-clouds",
+      "title": "The Correlation Length of Turbulence in Magnetic Clouds",
+      "first_author": "S. W. Good",
+      "year": 2026,
+      "arxiv": "2602.05450",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of S. W. Good et al. 2026 — Force-free flux-rope detrending of PSP MAG time series inside two magnetic clouds yields correlation lengths of 2.7e4 d_p (0.77 au) and 1.6e4 d_p (0.39 au), significantly smaller than non-detrended estimates; inertial-range scaling remains ~k^(-5/3). (arXiv:2602.05450; venue TODO verify)."
+    },
+    {
+      "slug": "paper-hellinger-2022-ion-scale-pressure-strain-khm",
+      "title": "Ion-scale transition of plasma turbulence: Pressure-strain effect",
+      "first_author": "Petr Hellinger",
+      "year": 2022,
+      "arxiv": "2203.12322",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Petr Hellinger et al. 2022 — 2D hybrid simulations analysed with a compressible Hall-MHD Karman-Howarth-Monin equation (extended to a tensor pressure) show the ion-scale spectral break is set by a combination of Hall physics and effective dissipation through the pressure-strain energy-exchange channel and resistivity. (arXiv:2203.12322; venue TODO verify)."
+    },
+    {
+      "slug": "paper-iizawa-2025-inverse-cascade-magnetic-helicity",
+      "title": "Evidence for an Inverse Cascade of Magnetic Helicity in the Inner Heliosphere",
+      "first_author": "Masatomi Iizawa",
+      "year": 2025,
+      "arxiv": "2507.13213",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Masatomi Iizawa et al. 2025 — Magnetic helicity density spectra computed from PSP data over >500 heliocentric-distance samples show persistent sign characteristics consistent with an inverse cascade in the inner heliosphere. (arXiv:2507.13213; venue TODO verify)."
+    },
+    {
+      "slug": "paper-jiang-2022-forced-anisotropic-third-order-hyperviscosity",
+      "title": "Energy transfer and third-order law in forced anisotropic MHD turbulence with hyperviscosity",
+      "first_author": "Bin Jiang",
+      "year": 2022,
+      "arxiv": "2212.03617",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Bin Jiang et al. 2022 — In forced anisotropic MHD simulations with hyperviscosity, the third-order law-derived cascade rate matches the imposed injection rate within stated tolerance when computed with the appropriate anisotropic projection. (arXiv:2212.03617; venue TODO verify)."
+    },
+    {
+      "slug": "paper-jiang-2025-angular-third-order-law",
+      "title": "Angular dependence of third-order law in anisotropic MHD turbulence",
+      "first_author": "Bin Jiang",
+      "year": 2025,
+      "arxiv": "2512.16610",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Bin Jiang et al. 2025 — In anisotropic MHD simulations the Politano-Pouquet cascade rate inferred along a single sampling direction is least biased at a polar angle of ~60 deg relative to the mean field. (arXiv:2512.16610; venue TODO verify)."
+    },
+    {
+      "slug": "paper-johnston-2024-unified-ion-heating-low-beta",
+      "title": "A Unified Phenomenology of Ion Heating in Low-β Plasmas: Test-Particle Simulations",
+      "first_author": "Zade Johnston",
+      "year": 2024,
+      "arxiv": "2409.07015",
+      "primary_theme": "coronal_heating",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Zade Johnston et al. 2024 — Test-particle simulations in synthetic turbulent fields yield a unified low-β ion-heating phenomenology bridging stochastic and cyclotron-resonant regimes through a single threshold parameter. (arXiv:2409.07015; venue TODO verify)."
+    },
+    {
+      "slug": "paper-kilpua-2025-shock-effect-turbulence-parameters",
+      "title": "Effect of interplanetary shock waves on turbulence parameters",
+      "first_author": "Emilia Kilpua",
+      "year": 2025,
+      "arxiv": "2505.04450",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Emilia Kilpua et al. 2025 — Interplanetary- shock crossings systematically modify post-shock turbulence parameters (correlation length, spectral slope, PVI distribution) relative to pre-shock ambient values. (arXiv:2505.04450; venue TODO verify)."
+    },
+    {
+      "slug": "paper-magyar-2024-plasma-frame-synthetic-modeling",
+      "title": "Solar wind data analysis aided by synthetic modeling: a better understanding of plasma-frame variations from temporal data",
+      "first_author": "Norbert Magyar",
+      "year": 2024,
+      "arxiv": "2405.12547",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Norbert Magyar et al. 2024 — A toolkit that overlays synthetic MHD/turbulence models on PSP time series translates single-spacecraft temporal variations into plasma-frame variations more accurately than Taylor-hypothesis alone, especially at low solar-wind speeds. (arXiv:2405.12547; venue TODO verify)."
+    },
+    {
+      "slug": "paper-mcintyre-2023-spectral-index-variation-inner-heliosphere",
+      "title": "Properties underlying the variation of the magnetic field spectral index in the inner solar wind",
+      "first_author": "J. R. McIntyre",
+      "year": 2023,
+      "arxiv": "2307.04682",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of J. R. McIntyre et al. 2023 — Variation of the magnetic-field inertial-range spectral index in the inner solar wind correlates with measurable stream properties (e.g. Alfvenicity, beta, σ_c), beyond pure radial dependence. (arXiv:2307.04682; venue TODO verify)."
+    },
+    {
+      "slug": "paper-mcintyre-2024-helicity-barrier-transition-range",
+      "title": "Evidence for the helicity barrier from measurements of the turbulence transition range",
+      "first_author": "J. R. McIntyre",
+      "year": 2024,
+      "arxiv": "2407.10815",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of J. R. McIntyre et al. 2024 — Statistical analysis of the ion-scale transition-range magnetic spectrum at 1 au shows a steepening behaviour consistent with the helicity-barrier prediction for strongly imbalanced turbulence. (arXiv:2407.10815; venue TODO verify)."
+    },
+    {
+      "slug": "paper-mondal-2024-two-inertial-subranges",
+      "title": "Emergence of two inertial sub-ranges in solar wind turbulence: dependence on heliospheric distance and solar activity",
+      "first_author": "Shiladittya Mondal",
+      "year": 2024,
+      "arxiv": "2409.03090",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Shiladittya Mondal et al. 2024 — Eight fast- wind intervals between 0.3 and 3.16 au across solar-minimum and -maximum exhibit two distinct inertial sub-ranges, f^(-3/2) and f^(-5/3), with an intermittency-scaling test confirming the break. (arXiv:2409.03090; venue TODO verify)."
+    },
+    {
+      "slug": "paper-opie-2024-temperature-anisotropy-velocity-shears",
+      "title": "Temperature anisotropy instabilities driven by intermittent velocity shears in the solar wind",
+      "first_author": "Simon Opie",
+      "year": 2024,
+      "arxiv": "2409.18849",
+      "primary_theme": "waves_instabilities",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Simon Opie et al. 2024 — Intermittent velocity shears in the solar wind drive temperature-anisotropy instability crossings statistically more often than ambient turbulence, observable in conditioned T_perp/T_par vs beta_par diagrams. (arXiv:2409.18849; venue TODO verify)."
+    },
+    {
+      "slug": "paper-palacios-2022-elsasser-increment-pdf",
+      "title": "On the Statistics of Elsässer Increments in Solar Wind and Magnetohydrodynamic Turbulence",
+      "first_author": "Juan C. Palacios",
+      "year": 2022,
+      "arxiv": "2209.09152",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Juan C. Palacios et al. 2022 — PDFs of Elsasser increments at 1 au (WIND 1995-2017) and 2048^3 reduced-MHD simulations share an exponential-tail decrement alpha_l proportional to l^(-mu) under Alfvenicity conditioning. (arXiv:2209.09152; venue TODO verify)."
+    },
+    {
+      "slug": "paper-pecora-2024-scale-dependent-kurtosis-helioswarm",
+      "title": "Evaluation of scale-dependent kurtosis with HelioSwarm",
+      "first_author": "Francesco Pecora",
+      "year": 2024,
+      "arxiv": "2407.06679",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Francesco Pecora et al. 2024 — A multi-point HelioSwarm-style SDK estimator outperforms single-spacecraft SDK in recovering true increment kurtosis from a synthetic multi-spacecraft configuration spanning the inertial- to-kinetic range. (arXiv:2407.06679; venue TODO verify)."
+    },
+    {
+      "slug": "paper-romanelli-2024-incompressible-cascade-upstream-mars",
+      "title": "The Incompressible Magnetohydrodynamic Energy Cascade Rate Upstream of Mars",
+      "first_author": "Norberto Romanelli",
+      "year": 2024,
+      "arxiv": "2406.18349",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Norberto Romanelli et al. 2024 — The incompressible Politano-Pouquet cascade rate evaluated upstream of Mars (MAVEN data) yields a quantifiable ε with dependence on solar-wind conditions distinct from 1-au reference values. (arXiv:2406.18349; venue TODO verify)."
+    },
+    {
+      "slug": "paper-ruohotie-2025-intermittency-icme-psp-solo",
+      "title": "Intermittency in Interplanetary Coronal Mass Ejections Observed by Parker Solar Probe and Solar Orbiter",
+      "first_author": "Julia Ruohotie",
+      "year": 2025,
+      "arxiv": "2505.22283",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Julia Ruohotie et al. 2025 — Intermittency diagnostics (PVI, scale-dependent kurtosis, structure-function exponents) inside ICMEs observed by PSP and Solar Orbiter show systematic differences vs ambient solar-wind intermittency statistics. (arXiv:2505.22283; venue TODO verify)."
+    },
+    {
+      "slug": "paper-sasmal-2026-helicity-barrier-flr-mhd-heating",
+      "title": "Determination of turbulent heating rate and relaxed states in finite Larmor radius MHD turbulence with helicity barrier",
+      "first_author": "Ramesh Sasmal",
+      "year": 2026,
+      "arxiv": "2604.28165",
+      "primary_theme": "coronal_heating",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Ramesh Sasmal et al. 2026 — Exact cascade laws derived for finite-Larmor-radius MHD with an imbalance-induced helicity barrier characterise ion-heating channels relevant to coronal and solar-wind turbulence. (arXiv:2604.28165; venue TODO verify)."
+    },
+    {
+      "slug": "paper-shankarappa-2025-ion-scale-waves-free-energy-survey",
+      "title": "Free Energy Sources of Ion-scale Waves Observed by Parker Solar Probe",
+      "first_author": "Niranjana Shankarappa",
+      "year": 2025,
+      "arxiv": "2512.11182",
+      "primary_theme": "waves_instabilities",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Niranjana Shankarappa et al. 2025 — A mission- wide PSP survey links left-handed circularly polarised ion-scale waves to specific free- energy sources in proton VDFs and finds the left-handed wave occurrence rises closer to the Sun, reaching ~30 percent. (arXiv:2512.11182; venue TODO verify)."
+    },
+    {
+      "slug": "paper-sharma-2026-subion-current-sheets-kaw-pic",
+      "title": "Sub-ion scale current sheets in kinetic Alfvén wave turbulence",
+      "first_author": "Johan Sharma",
+      "year": 2026,
+      "arxiv": "2601.18131",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Johan Sharma et al. 2026 — PIC simulations of KAW-driven turbulence resolving electron scales show formation of sub-ion current sheets and intermittent coherent structures that mediate dissipation at sub-ion scales. (arXiv:2601.18131; venue TODO verify)."
+    },
+    {
+      "slug": "paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution",
+      "title": "Alfvénic versus non-Alfvénic turbulence in the inner heliosphere as observed by Parker Solar Probe",
+      "first_author": "Shi, C.",
+      "year": 2021,
+      "arxiv": "2101.00830",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when classifying PSP E1-E5 streams by Alfvenicity (σ_c, σ_R) and tracking spectral-index radial evolution per class — Shi et al. 2021 statistically partition Alfvenic vs non-Alfvenic intervals and test expansion-driven spectral evolution (arXiv 2101.00830; venue TODO verify)."
+    },
+    {
+      "slug": "paper-shi-2023-residual-energy-intermittency-expanding-box",
+      "title": "Evolution of MHD turbulence in the expanding solar wind: residual energy and intermittency",
+      "first_author": "Chen Shi",
+      "year": 2023,
+      "arxiv": "2308.12376",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Chen Shi et al. 2023 — 3D MHD expanding-box simulations of decaying Alfvenic turbulence generate negative residual energy at all sigma_c with E_r proportional to k_perp^(-2) and a typical S_2(b) proportional to l_perp^(1/2) scaling; intermittency growth is enhanced by expansion. (arXiv:2308.12376; venue TODO verify)."
+    },
+    {
+      "slug": "paper-sioulas-2024-scale-dependent-dynamic-alignment",
+      "title": "Scale-Dependent Dynamic Alignment in MHD Turbulence: Insights into Intermittency, Compressibility",
+      "first_author": "Nikos Sioulas",
+      "year": 2024,
+      "arxiv": "2407.03649",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Nikos Sioulas et al. 2024 — Scale-dependent dynamic alignment (SDDA) inferred from PSP+SO magnetic-velocity increments correlates with intermittency growth and compressibility level, supporting an SDDA-mediated cascade. (arXiv:2407.03649; venue TODO verify)."
+    },
+    {
+      "slug": "paper-soljento-2023-imbalanced-turbulence-velocity-shears",
+      "title": "Imbalanced Turbulence Modified by Large-scale Velocity Shears in the Solar Wind",
+      "first_author": "Juska E. Soljento",
+      "year": 2023,
+      "arxiv": "2303.04006",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Juska E. Soljento et al. 2023 — Large-scale velocity shears in the solar wind modify the imbalanced-turbulence cascade by redistributing z+ and z- power, observable as shear-dependent cross-helicity drift. (arXiv:2303.04006; venue TODO verify)."
+    },
+    {
+      "slug": "paper-squire-2023-electron-ion-heating-imbalanced",
+      "title": "Electron-ion heating partition in imbalanced solar-wind turbulence",
+      "first_author": "Jonathan Squire",
+      "year": 2023,
+      "arxiv": "2308.13048",
+      "primary_theme": "coronal_heating",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Jonathan Squire et al. 2023 — In strongly imbalanced solar-wind turbulence the electron/ion heating partition is controlled by the helicity barrier, predicting a higher ion fraction than in balanced turbulence within a stated parameter range. (arXiv:2308.13048; venue TODO verify)."
+    },
+    {
+      "slug": "paper-thepthong-2023-scale-time-alfvenicity-psp",
+      "title": "Scale and Time Dependence of Alfvenicity in the Solar Wind as Observed by Parker Solar Probe",
+      "first_author": "Panisara Thepthong",
+      "year": 2023,
+      "arxiv": "2312.08707",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Panisara Thepthong et al. 2023 — Alfvenicity diagnostics (σ_c, alignment angle) on PSP data show systematic scale dependence and slow time-evolution within single encounters, distinguishing genuine Alfvenic regions from mixed states. (arXiv:2312.08707; venue TODO verify)."
+    },
+    {
+      "slug": "paper-wojcik-2025-markovian-kinetic-cascade-test",
+      "title": "Testing for Markovian character of transfer of fluctuations in solar wind turbulence on kinetic scales",
+      "first_author": "Dariusz Wójcik",
+      "year": 2025,
+      "arxiv": "2503.07255",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Dariusz Wójcik et al. 2025 — Conditional- probability statistics on solar-wind magnetic-field increments at kinetic scales support a Markovian cascade structure within a stated range of scales. (arXiv:2503.07255; venue TODO verify)."
+    },
+    {
+      "slug": "paper-wrench-2024-debiasing-structure-function-sparse",
+      "title": "De-Biasing Structure Function Estimates From Sparse Time Series of the Solar Wind: A Data-Driven Approach",
+      "first_author": "Daniel Wrench",
+      "year": 2024,
+      "arxiv": "2412.10053",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Daniel Wrench et al. 2024 — A data-driven de- biasing procedure applied to gappy in-situ MAG time series recovers structure-function estimates with reduced bias compared to naive gap-skipping or zero-fill, validated against synthetic and real solar-wind data. (arXiv:2412.10053; venue TODO verify)."
+    },
+    {
+      "slug": "paper-wu-2020-isotropic-scaling-stationary-background",
+      "title": "Isotropic Scaling Features Measured Locally in the Solar Wind Turbulence with Stationary Background Field",
+      "first_author": "Wu, H.",
+      "year": 2020,
+      "arxiv": "2011.10244",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when measuring solar-wind turbulence scaling exponents with a strict local-stationarity-of-the-background-field criterion — Wu et al. 2020 argue that under stationary-background sampling the magnetic-field structure-function exponents are isotropic (arXiv 2011.10244; venue TODO verify)."
+    },
+    {
+      "slug": "paper-zank-2022-turbulence-sub-alfvenic",
+      "title": "Turbulence in the Sub-Alfvénic Solar Wind",
+      "first_author": "G. P. Zank",
+      "year": 2022,
+      "arxiv": "2202.02563",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of G. P. Zank et al. 2022 — A nearly- incompressible (NI) MHD-based theoretical framework characterises sub-Alfvenic solar-wind turbulence with distinct anisotropy and cross-helicity behaviour relative to super- Alfvenic conditions. (arXiv:2202.02563; venue TODO verify)."
+    },
+    {
+      "slug": "paper-zhao-2025-mode-composition-anisotropy",
+      "title": "Mode Composition Shapes Magnetic Anisotropy in Solar Wind Turbulence",
+      "first_author": "Siqi Zhao",
+      "year": 2025,
+      "arxiv": "2510.25636",
+      "primary_theme": "turbulence",
+      "quality": "stub",
+      "description": "Use when working with the central claim of Siqi Zhao et al. 2025 — Decomposing in-situ solar-wind fluctuations into Alfvén, slow, and fast MHD eigenmodes shows compressible modes concentrate quasi-parallel to the mean field while Alfvenic modes spread broadly, explaining the observed angular anisotropy. (arXiv:2510.25636; venue TODO verify)."
+    }
+  ],
+  "notes": [
+    "All skills are stub-tier v0.2 four-layer paper-skill stubs.",
+    "Every skill carries explicit TODO verification flags in metadata.yaml verification_flags; numerical claims must be cross-checked against full text before promotion.",
+    "No DOIs were invented; doi=null until verified.",
+    "No slug collisions with the existing corpus (verified at batch creation)."
+  ]
+}

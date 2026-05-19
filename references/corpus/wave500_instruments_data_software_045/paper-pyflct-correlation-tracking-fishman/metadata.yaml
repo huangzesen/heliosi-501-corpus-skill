@@ -1,0 +1,25 @@
+slug: paper-pyflct-correlation-tracking-fishman
+title: pyflct / FLCT — Fourier Local Correlation Tracking for solar magnetograms
+authors:
+  - "Fisher, G. H."
+year: 2008
+journal: "(Fisher & Welsch 2008, ASP Conf. Ser. — FLCT method)"
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-pyflct
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  []
+methods:
+  - FLCT windowed FFT cross-correlation velocity field
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://cgem.ssl.berkeley.edu/cgi-bin/cgem/FLCT/home
+weak_entries:
+  - "Original Fisher & Welsch 2008 in ASP Conf. Ser. 383 — verify exact citation"

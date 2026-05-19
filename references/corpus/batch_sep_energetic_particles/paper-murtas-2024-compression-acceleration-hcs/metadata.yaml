@@ -1,0 +1,30 @@
+slug: paper-murtas-2024-compression-acceleration-hcs
+title: "Compression Acceleration of Protons and Heavier Ions at the Heliospheric Current Sheet"
+authors:
+  - "Murtas, G."
+  - "Li, X."
+  - "Guo, F."
+year: 2024
+journal: "ApJ (in press) — TODO verify"
+doi: TODO_verify_with_full_text
+arxiv: "2408.10445"
+theme: heliophysics-hcs-reconnection-acceleration-mhd
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/ISʘIS reference spectra for cross-validation
+  - Heavy-ion Q/A table (H, He, C, O, Fe — TODO verify exact list)
+methods:
+  - Large-scale 2D MHD reconnection simulation
+  - Parker transport equation (SDE Monte Carlo)
+  - Multi-species injection with Q/A-dependent diffusion
+  - Power-law spectrum + E_max ∝ (Q/M)^α fit
+validation_targets:
+  - Reproduce paper figure showing multi-species spectra and (Q/M)^α scaling
+  - E_max(proton) within factor of 2 of paper value (~0.1-1 MeV)
+  - α scaling ≈ 0.4 ± 0.1 (under quasilinear-Kolmogorov assumption)
+weak_entries:
+  - DOI, final venue, exact code repository — TODO verify
+  - Exact species list and default plasma parameters — TODO verify
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2408.10445

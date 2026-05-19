@@ -1,0 +1,39 @@
+slug: paper-rahgozar-2026-ai-co-scientist-knowledge-synthesis-medical
+title: "AI Co-Scientist for Knowledge Synthesis in Medical Contexts: A Proof of Concept"
+authors:
+  - "Arya Rahgozar"
+  - "Pouria Mortezaagha"
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2601.11825"
+theme: agent-runtime-knowledge-synthesis-formal-schema
+category: domain-specific-ai-scientist
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "PICOS formal synthesis schema"
+  - "Relational + vector + Neo4j KG storage"
+  - "BiLSTM baseline + PubMedBERT-fine-tuned multi-task classifier"
+  - "Retrieval-augmented full-text synthesis"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[minimal_experiment] Design HelioSI's PICOS analogue: 'Mission, Instrument, Algorithm, Validation target, Failure modes' (MIAVF). Apply to a turbulence subset of the paper-skill corpus and emit a synthesis report."
+  - "[gap] Heliophysics lacks a community-accepted method schema; HelioSI could publish MIAVF as a community-facing contribution."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

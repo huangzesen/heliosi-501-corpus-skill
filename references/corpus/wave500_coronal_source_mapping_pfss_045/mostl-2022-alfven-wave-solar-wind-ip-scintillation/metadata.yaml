@@ -1,0 +1,46 @@
+slug: mostl-2022-alfven-wave-solar-wind-ip-scintillation
+title: >-
+  Testing the Alfvén-Wave Model of the Solar Wind with Interplanetary Scintillation
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2022
+arxiv: "2202.10768"
+arxiv_date: "2022-02-22"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - solar_wind
+  - remote_sensing
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - IPS vsw maps for the studied interval.
+  - Synoptic Br for PFSS.
+methods:
+  - IPS inversion gives reliable vsw on a global grid.
+  - Alfvén-wave model is consistent with expansion-factor inputs.
+validation_targets:
+  - Recover the global agreement and polar residuals.
+trigger_keywords:
+  - IPS
+  - Alfvén-wave model
+  - vsw map
+  - expansion factor
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - DOI
+  - IPS dataset
+  - AW model identity
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

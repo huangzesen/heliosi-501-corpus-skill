@@ -1,0 +1,47 @@
+slug: halekas-2024-coronal-heating-switchback-budget-ruled-out
+title: >-
+  Parker Solar Probe Constraints on Coronal Heating — Switchback Hypothesis Ruled Out
+authors:
+  - J. Halekas
+  - M. Velli
+  - S. D. Bale
+  - J. C. Kasper
+  - M. M. Martinović
+year: 2024
+journal: ApJ
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify_with_full_text
+theme: psp-coronal-heating-switchback-budget-ruled-out
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: coronal_heating
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - corona
+trigger_keywords:
+  - coronal heating budget
+  - switchback flux
+  - heat flux
+  - PSP near-Sun
+  - energetics
+data_products:
+  - instrument: PSP/SWEAP SPC/SPAN-I + electron moments
+    level: L3
+    cadence: encounter cadence
+    interval: PSP perihelia
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz/burst
+    interval: PSP perihelia
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Heating-rate inference from in-situ T(r) gradient
+  - name: Switchback-flux energy estimate
+  - name: Closure check vs known coronal-heating budget
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §4.3

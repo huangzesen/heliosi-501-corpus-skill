@@ -1,0 +1,21 @@
+slug: whistler-counter-propagating-encounter1-2023
+title: >-
+  Whistler Wave Observations by Parker Solar Probe During Encounter 1: Counter-Propagating Sources
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2304.01185"
+theme: whistler-counter-propagating-psp
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP Encounter-1 burst data
+methods:
+  - SVD polarization
+  - Reflection-candidate identification
+validation_targets:
+  - Counter-propagating event count reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2304.01185

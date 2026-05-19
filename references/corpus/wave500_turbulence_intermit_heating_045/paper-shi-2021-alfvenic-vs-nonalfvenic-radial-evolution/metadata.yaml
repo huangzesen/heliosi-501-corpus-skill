@@ -1,0 +1,32 @@
+slug: paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution
+title: "Alfvénic versus non-Alfvénic turbulence in the inner heliosphere as observed by Parker Solar Probe"
+authors:
+  - "Chen Shi"
+  - "Marco Velli"
+  - "Olga Panasenco"
+  - "Anna Tenerani"
+year: 2021
+journal: "TODO verify (arXiv:2101.00830)"
+doi: null
+arxiv: "2101.00830"
+primary_theme: turbulence
+secondary_themes: [alfvenic, classification, radial-evolution]
+missions: [PSP]
+regime: [inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP FIELDS MAG L2 (E1-E5)"
+  - "PSP SWEAP SPC L3 moments (E1-E5)"
+methods:
+  - alfvenicity-classification-sigma-c-sigma-r
+  - per-class-psd-spectral-index
+  - radial-distance-trend-regression
+validation_targets:
+  - "Distinct per-class spectral indices and radial trend (numbers TODO verify)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2021 item 4"
+verification_flags:
+  - "Classification thresholds on sigma_c and sigma_R TODO verify."
+  - "Reported per-class spectral indices TODO verify."
+  - "Publication venue/DOI TODO verify."

@@ -1,0 +1,45 @@
+slug: paper-csss-current-sheet-source-surface-non-radial-open-flux
+title: "Current-Sheet Source-Surface (CSSS) Model and Open-Flux Comparison"
+authors:
+  - "Zhao, X. P."
+  - "Hoeksema, J. T."
+  - "(+ Schatten lineage; TODO verify)"
+year: 1995
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - pfss_source_mapping
+  - open_flux
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - Synoptic Br map
+methods:
+  - CSSS spherical-harmonic solve
+  - Open-flux integral
+  - PFSS vs CSSS comparison
+validation_targets:
+  - Open-flux delta ~20–50% vs PFSS (TODO verify)
+trigger_keywords:
+  - CSSS source surface
+  - current sheet source surface
+  - Zhao Hoeksema 1995
+  - Schatten current sheet
+  - open flux model
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

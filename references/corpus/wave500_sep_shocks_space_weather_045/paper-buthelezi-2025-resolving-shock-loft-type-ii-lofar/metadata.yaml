@@ -1,0 +1,25 @@
+slug: paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar
+title: "Resolving spatial and temporal shock structures using LOFAR observations of type II radio bursts"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2502.16934"
+theme: heliophysics-lofar-type-ii-shock-spatiotemporal
+category: primary-observation-methodology
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - LOFAR LBA/HBA dynamic spectra + imaging
+methods:
+  - Dynamic-spectrum band-splitting fit
+  - Imaging-localization of bands
+  - Herringbone burst onset detection
+  - Shock-front mapping from band geometry
+validation_targets:
+  - Per-event resolved shock band map; herringbone count (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.16934

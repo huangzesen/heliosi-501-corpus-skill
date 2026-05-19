@@ -1,0 +1,26 @@
+slug: paper-freeland-1998-solarsoft-ssw-idl-ecosystem
+title: Data analysis with the SolarSoft system
+authors:
+  - "Freeland, S. L."
+year: 1998
+journal: Solar Physics
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: software-solarsoft-ssw
+source_type: software-paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  []
+methods:
+  - ssw_upgrade / rsync mirror
+  - "Per-instrument prep dispatch (aia_prep, eit_prep, secchi_prep)"
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  code_repo: https://www.lmsal.com/solarsoft/
+weak_entries:
+  - "Sol. Phys. 182, 497 (1998); DOI not in local inventory"

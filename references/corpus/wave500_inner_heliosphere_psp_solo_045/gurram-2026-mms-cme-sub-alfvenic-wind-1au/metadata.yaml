@@ -1,0 +1,38 @@
+slug: gurram-2026-mms-cme-sub-alfvenic-wind-1au
+title: >-
+  MMS Insights into CME Driven Sub-Alfvénic Solar Wind at 1 AU
+authors:
+  - H. Gurram
+  - L.-J. Chen
+  - M. R. Argall
+year: 2026
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2604.12000"
+theme: mms-cme-sub-alfvenic-wind-1au
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - other
+regime:
+  - 1au
+trigger_keywords:
+  - sub-Alfvénic 1 au
+  - magnetic cloud interior
+  - cross helicity
+  - MMS multi-point
+  - CME-driven
+data_products:
+  - instrument: MMS FGM + FPI
+    level: L2
+    cadence: burst
+    interval: magnetic-cloud event (TODO date)
+    archive: SDC / SPDF
+algorithms:
+  - name: Cross-helicity σ_c computation
+  - name: Sub-Alfvénic interval extraction from M_A < 1
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §1

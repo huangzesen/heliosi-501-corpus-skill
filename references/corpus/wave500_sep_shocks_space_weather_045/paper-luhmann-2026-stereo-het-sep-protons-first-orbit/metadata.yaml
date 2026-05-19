@@ -1,0 +1,26 @@
+slug: paper-luhmann-2026-stereo-het-sep-protons-first-orbit
+title: "Solar Energetic Proton Events Observed by the High Energy Telescopes on the STEREO Spacecraft or at the Earth During the First Solar Orbit of STEREO A (2006 to 2023)"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2601.09630"
+theme: heliophysics-stereo-het-sep-proton-catalog-2006-2023
+category: primary-observation-statistical
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - STEREO-A IMPACT/HET
+  - GOES SEISS/EPS proton
+methods:
+  - Event detection threshold (TODO_verify)
+  - Peak-intensity + spectral fit per event
+  - Longitudinal coverage map (STEREO-A heliographic longitude vs Earth)
+  - Association class (CME / type II / source AR)
+validation_targets:
+  - Total event count; cumulative distribution of peak intensity; spectral-index histogram (TODO_verify numbers).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.09630

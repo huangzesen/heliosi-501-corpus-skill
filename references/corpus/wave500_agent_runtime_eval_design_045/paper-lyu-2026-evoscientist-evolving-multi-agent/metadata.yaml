@@ -1,0 +1,42 @@
+slug: paper-lyu-2026-evoscientist-evolving-multi-agent
+title: "EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery"
+authors:
+  - "Yougang Lyu"
+  - "Xi Zhang"
+  - "Xinhao Yi"
+  - "Yuyue Zhao"
+  - "Shuyu Guo"
+  - "Wenxiang Hu"
+year: 2026
+journal: "arXiv preprint"
+doi: null
+arxiv: "2603.08127"
+theme: agent-runtime-persistent-memory-evolution
+category: ai-scientist-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Persistent procedural memory store"
+  - "Self-evolution: failed-experiment memory + successful-strategy reinforcement"
+  - "Three-agent specialization (Researcher + experiment + reviewer roles)"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's paper-skill corpus + LingTai persistent memory + molting is the heliophysics instantiation of EvoScientist's persistent-memory thesis. HelioSI should cite this as the direct positioning anchor."
+  - "[minimal_experiment] Track every failed CDAWeb fetch / failed PFSS solve in HelioSI's memory, and measure whether subsequent attempts at the same task succeed at higher rates over time — the empirical signature of self-evolution."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

@@ -1,0 +1,26 @@
+slug: paper-ccmc-iswa-integrated-space-weather-analysis
+title: CCMC iSWA — Integrated Space Weather Analysis platform
+authors:
+  - CCMC team (Pulkkinen et al.)
+year: 2010
+journal: (CCMC iSWA project documentation; companion Pulkkinen 2011 Space Weather)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: archive-iswa-ccmc
+source_type: software-package
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - ACE/Wind real-time IMF + plasma via iSWA L1 RT (real-time)
+  - ENLIL forecast (heliospheric MHD) forecast (run-based)
+methods:
+  []
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://iswa.ccmc.gsfc.nasa.gov/
+weak_entries:
+  - No single canonical iSWA paper; Pulkkinen 2011 Space Weather covers GEM context

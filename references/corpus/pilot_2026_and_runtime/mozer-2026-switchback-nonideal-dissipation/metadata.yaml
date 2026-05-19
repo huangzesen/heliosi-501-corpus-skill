@@ -1,0 +1,35 @@
+slug: mozer-2026-switchback-nonideal-dissipation
+title: >-
+  Direct Evidence of Non-Ideal Dissipative Dynamics in Solar Wind Magnetic
+  Switchbacks
+authors:
+  - F. Mozer
+  - O. Agapitov
+  - K.-E. Choi
+  - R. Sydora
+year: 2026
+journal: ApJ
+doi: TODO_verify_with_full_text
+arxiv: "2605.14114"
+theme: heliophysics-psp-switchbacks-dissipation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS DC + AC electric field (13–40 R_s intervals)
+  - PSP FIELDS MAG RTN
+  - PSP SWEAP bulk velocity (SPC or SPAN-I)
+  - PSP electron / proton density for Hall term
+  - Switchback boundary catalog
+methods:
+  - Minimum-variance boundary-normal frame
+  - Ideal-MHD residual E - (-U x B)
+  - Hall-MHD prediction (J x B)/(n_e e)
+  - Single-spacecraft current estimate via Taylor hypothesis
+  - Boundary classification (ideal / Hall / ambiguous)
+validation_targets:
+  - Reproduce distribution of |E_meas - E_ideal| at switchback boundaries
+  - Correlation of residual with Hall prediction
+  - Classification recall vs. paper figure within ±15% (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §2.2
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md entry #2

@@ -1,0 +1,25 @@
+slug: poynting-flux-alfven-polar-coronal-holes-cycle24-2025
+title: >-
+  Estimating the Poynting Flux of Alfvénic Waves in Polar Coronal Holes Across Solar Cycle 24
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2501.13673"
+theme: alfven-poynting-flux-polar-coronal-holes
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - EUV spectroscopy of polar CH
+  - Line-ratio density diagnostic
+  - Magnetic-field proxy
+methods:
+  - Nonthermal-width to δv_⊥ conversion
+  - Polar-CH masking
+  - Poynting-flux integration
+validation_targets:
+  - F at polar CH ~10^5 erg cm^-2 s^-1 (TODO verify)
+  - Cycle-phase trend reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2501.13673

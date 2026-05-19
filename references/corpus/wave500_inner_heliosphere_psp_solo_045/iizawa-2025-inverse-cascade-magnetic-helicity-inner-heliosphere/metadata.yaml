@@ -1,0 +1,40 @@
+slug: iizawa-2025-inverse-cascade-magnetic-helicity-inner-heliosphere
+title: >-
+  Evidence for an Inverse Cascade of Magnetic Helicity in the Inner Heliosphere
+authors:
+  - M. Iizawa
+  - Y. Narita
+  - T. Alberti
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2507.13213"
+theme: psp-magnetic-helicity-inverse-cascade
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - MHD-scale
+trigger_keywords:
+  - magnetic helicity
+  - inverse cascade
+  - PSP
+  - Mercury orbit
+  - helicity spectrum
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: ~1 Hz/burst
+    interval: PSP E1–E18 (TODO verify range)
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Reduced magnetic-helicity spectrum from spacecraft-frame B(t)
+  - name: Spectral decomposition into ω-bins
+  - name: Inverse-cascade detection: low-k pile-up signature
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 1 §7

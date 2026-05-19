@@ -1,0 +1,22 @@
+slug: wave-particle-equilibria-heavy-ions-2026
+title: >-
+  Wave-Particle Equilibria with Heavy Ions in Weakly Collisional Space Plasmas
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2026
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2603.22613"
+theme: wave-particle-equilibria-heavy-ions
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Wave-spectrum prescription
+  - Heavy-ion-capable hybrid PIC
+methods:
+  - Wave-particle equilibrium derivation
+  - Hybrid PIC verification
+validation_targets:
+  - F_eq locus matches in-situ (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2603.22613

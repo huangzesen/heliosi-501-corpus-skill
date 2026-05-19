@@ -1,0 +1,26 @@
+slug: paper-mason-2026-sunward-3he-rich-sep-solo-psp
+title: "Sunward Streaming 3He-rich SEP Events Observed by Solar Orbiter and Parker Solar Probe during Perihelion Passage"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2601.20624"
+theme: heliophysics-3he-rich-sep-sunward-streaming-solo-psp
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Solar Orbiter/EPD SIS+STEP+EPT
+  - PSP/IS☉IS EPI-Lo
+methods:
+  - 3He-rich event identification (3He/4He ratio threshold)
+  - Pitch-angle distribution / first-order anisotropy
+  - Sunward vs anti-Sunward streaming classification
+  - Connectivity check (PFSS + ballistic)
+validation_targets:
+  - Per-event 3He/4He ratio above impulsive-event threshold; Sunward-streaming anisotropy (numerics TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.20624

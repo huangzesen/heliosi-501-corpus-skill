@@ -1,0 +1,28 @@
+slug: paper-brueckner-1995-soho-lasco-coronagraph-suite
+title: The Large Angle Spectroscopic Coronagraph (LASCO)
+authors:
+  - "Brueckner, G. E."
+year: 1995
+journal: Solar Physics
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-soho-lasco
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SOHO/LASCO C2 L0.5/L1 (~12 min)
+  - SOHO/LASCO C3 L0.5/L1 (~12-60 min)
+  - LASCO CDAW CME catalog catalog (event-based)
+methods:
+  - "LASCO reduce (vignette, mask, F-corona subtraction)"
+  - CDAW CME catalog manual measurement workflow
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://lasco-www.nrl.navy.mil/
+weak_entries:
+  - "DOI not in local inventory; Sol. Phys. 162, 357 (1995)"

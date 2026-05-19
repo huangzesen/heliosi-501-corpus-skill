@@ -1,0 +1,54 @@
+slug: razquin-2026-coronal-dimming-magnetic-flux-may2024
+title: >-
+  Magnetic Flux Systems Involved in the May 2024 Solar Energetic Events from AR 13664 Inferred Through Coronal Dimmings
+authors:
+  - A. Razquin
+  - K. Dissauer
+  - A. M. Veronig
+  - G. Barnes
+first_author: A. Razquin
+year: 2026
+arxiv: "2603.23623"
+arxiv_date: "2026-03-24"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - coronal_mass_ejections
+  - active_regions
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - AIA 211 / 1600 Å, May 2024.
+  - HMI LoS + radial Br + vector magnetograms.
+  - GOES flare list for the sequence.
+methods:
+  - AIA 211 Å logBR thresholding isolates dimmings reliably.
+  - ∫|Br| in AIA 1600 Å ribbon mask is a fair reconnection-flux proxy.
+  - PFSS+NLFFF together pin strapping flux above PILs.
+validation_targets:
+  - Recover the southward/northward population split and stronger-than-prior dimming–ribbon correlations.
+trigger_keywords:
+  - coronal dimming
+  - AR 13664
+  - May 2024
+  - strapping flux
+  - PFSS
+  - NLFFF
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - logBR threshold
+  - NLFFF code identity
+  - uncertainty on reconnection flux
+  - DOI
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

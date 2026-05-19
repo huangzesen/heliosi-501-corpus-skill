@@ -1,0 +1,46 @@
+slug: milligan-2024-flares-sympathetic-angular-separation
+title: >-
+  Flaring Together: A Preferred Angular Separation Between Sympathetic Flares on the Sun
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2024
+arxiv: "2412.10143"
+arxiv_date: "2024-12-13"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - flares
+  - active_regions
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - GOES flare list with AR identifiers.
+  - Synoptic Br for the studied cycle.
+methods:
+  - Flare pairs can be operationally defined within Δt window.
+  - PFSS connectivity between ARs is meaningful for sympathy.
+validation_targets:
+  - Reproduce the preferred-separation feature.
+trigger_keywords:
+  - sympathetic flares
+  - PFSS connectivity
+  - angular separation
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - Δt window
+  - flare-pair definition
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

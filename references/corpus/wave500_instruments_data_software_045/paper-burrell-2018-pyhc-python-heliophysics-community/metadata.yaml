@@ -1,0 +1,26 @@
+slug: paper-burrell-2018-pyhc-python-heliophysics-community
+title: Snakes on a Spaceship — An Overview of Python in Heliophysics
+authors:
+  - "Burrell, A. G."
+year: 2018
+journal: "Journal of Geophysical Research: Space Physics"
+doi: 10.1029/2018JA025877
+arxiv: null
+ads_bibcode: null
+theme: software-pyhc-community
+source_type: software-paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  []
+methods:
+  - PyHC standards (testing/docs/licensing tiers)
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1029/2018JA025877
+  data_repo: https://heliopython.org/
+weak_entries:
+  []

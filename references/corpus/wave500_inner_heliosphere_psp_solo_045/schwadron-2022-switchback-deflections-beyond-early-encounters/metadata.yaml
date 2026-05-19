@@ -1,0 +1,36 @@
+slug: schwadron-2022-switchback-deflections-beyond-early-encounters
+title: >-
+  Switchback Deflections Beyond the Early Parker Solar Probe Encounters
+authors:
+  - N. M. Schwadron
+  - TODO verify
+year: 2022
+journal: MNRAS, 517, 1001
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify_with_full_text
+theme: psp-switchback-radial-trend-occurrence
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: switchbacks
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+trigger_keywords:
+  - switchback deflection
+  - radial trend
+  - PSP E4–E8
+  - occurrence rate
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz
+    interval: PSP E4–E8
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Deflection-angle classifier with documented threshold
+  - name: Radial-bin occurrence-rate statistic
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.4

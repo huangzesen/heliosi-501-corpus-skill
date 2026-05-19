@@ -1,0 +1,27 @@
+slug: paper-sun-2026-counterfactual-sep-prediction-ml
+title: "Physics-Guided Counterfactual Explanations for Large-Scale Multivariate Time Series: Application in Scalable and Interpretable SEP Event Prediction"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2601.08999"
+theme: heliophysics-sep-ml-counterfactual-prediction
+category: primary-observation-ml
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - GOES SEM/SEISS proton
+  - SDO/AIA flare
+  - Wind/WAVES type II/III
+methods:
+  - Multivariate time-series encoder
+  - Physics-guided regularization (e.g. constrain to known shock/flare-association)
+  - Counterfactual generator (minimum perturbation flipping the prediction)
+  - Per-feature attribution score
+validation_targets:
+  - Hold-out F1 / TSS / ROC-AUC (numerics TODO_verify); counterfactual sparsity per event.
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2601.08999

@@ -1,0 +1,28 @@
+slug: paper-nso-gong-network-magnetograms
+title: The Global Oscillation Network Group (GONG) ground-based magnetograms
+authors:
+  - "Harvey, J. W."
+year: 1996
+journal: Science
+doi: 10.1126/science.272.5266.1284
+arxiv: null
+ads_bibcode: null
+theme: archive-nso-gong
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - GONG full-disk magnetogram L1/L2 (1 min (network))
+  - GONG pseudo-synoptic / zero-point-corrected synoptic synoptic (Carrington rotation)
+methods:
+  - Site-stitched 1-min magnetogram from network sites
+  - Synoptic-map assembly with longitude wedge averaging
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1126/science.272.5266.1284
+  data_repo: https://gong.nso.edu/
+weak_entries:
+  []

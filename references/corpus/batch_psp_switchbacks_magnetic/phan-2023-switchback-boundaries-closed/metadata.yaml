@@ -1,0 +1,27 @@
+slug: phan-2023-switchback-boundaries-closed
+title: >-
+  Are Switchback Boundaries Observed by Parker Solar Probe Closed?
+authors:
+  - T. D. Phan
+  - "+ co-authors (TODO verify full list)"
+year: 2023
+journal: ApJ-family (TODO verify exact venue with full text)
+doi: TODO_verify_with_full_text
+arxiv: "2310.12134"
+theme: heliophysics-psp-switchback-boundary-topology
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP FIELDS MAG L2 RTN (high cadence)
+  - PSP SWEAP bulk moments
+  - PSP IS⊙IS EPI energetic-particle flux across boundary
+methods:
+  - Boundary localization and MVA for B_n / topology
+  - Energetic-particle continuity / drop-out test
+  - Per-event combined topology label {closed, open, ambiguous}
+validation_targets:
+  - Reproduce a paper closed-labeled event (TODO verify list)
+  - Reproduce at least one open-labeled event for contrast
+  - Inter-rater agreement with paper labels ≥ 75% (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.3

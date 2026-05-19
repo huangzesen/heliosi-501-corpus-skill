@@ -1,0 +1,27 @@
+slug: paper-luo-2025-2023-july-17-radial-ion-fluence-psp
+title: "Radial dependence of ion fluences in the 2023 July 17 SEP event from Parker Solar Probe to STEREO and ACE"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2502.17806"
+theme: heliophysics-sep-fluence-radial-2023-07-17
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi + EPI-Lo
+  - STEREO-A LET/HET
+  - ACE/SIS + Wind/EPACT
+methods:
+  - Per-observer time-integrated fluence
+  - Cross-mission energy-channel matching
+  - Power-law fit: fluence vs heliocentric distance
+  - Connectivity / longitude correction
+validation_targets:
+  - Per-observer time-integrated fluence at matched energy; radial-scaling exponent (TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2502.17806

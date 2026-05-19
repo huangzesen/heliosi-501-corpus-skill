@@ -1,0 +1,25 @@
+slug: paper-delaboudiniere-1995-soho-eit-extreme-uv-telescope
+title: "EIT: Extreme-ultraviolet Imaging Telescope for the SOHO mission"
+authors:
+  - "Delaboudinière, J.-P."
+year: 1995
+journal: Solar Physics
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-soho-eit
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - SOHO/EIT L1 quick-look + L2 calibrated (~12 min (synoptic))
+methods:
+  - "EIT prep (flat field, CCD bias, degradation correction)"
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  data_repo: https://sohowww.nascom.nasa.gov/
+weak_entries:
+  - "DOI not in local inventory; Sol. Phys. 162, 291 (1995)"

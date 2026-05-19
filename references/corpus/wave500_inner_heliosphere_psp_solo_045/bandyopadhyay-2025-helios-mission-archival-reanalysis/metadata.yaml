@@ -1,0 +1,48 @@
+slug: bandyopadhyay-2025-helios-mission-archival-reanalysis
+title: >-
+  Helios mission archival reanalysis: cross-check of PSP turbulence radial scaling against the 0.3–1.0 au Helios baseline
+authors:
+  - TODO verify
+year: 2025
+journal: arXiv preprint (stub)
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify_with_full_text
+theme: helios-archival-reanalysis-baseline
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - Helios
+  - PSP
+  - Solar Orbiter
+regime:
+  - inner-heliosphere
+trigger_keywords:
+  - Helios archive
+  - 0.3–1 au baseline
+  - turbulence radial scaling
+  - cross-mission re-analysis
+data_products:
+  - instrument: Helios E1/E2 MAG (Helios I, II)
+    level: archive (legacy)
+    cadence: ≈4 s vector
+    interval: 0.3–1.0 au orbits
+    archive: SPDF/CDAWeb (Helios merged)
+  - instrument: Helios E1/E2 plasma (proton moments)
+    level: archive
+    cadence: ≈40 s
+    interval: 0.3–1.0 au orbits
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG + SWEAP
+    level: L2/L3
+    cadence: encounter cadence
+    interval: PSP encounters mapped to 0.3–0.7 au bins for comparison
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Local-mean-field structure-function methodology applied to Helios archive
+  - name: σ_c / σ_r Alfvenicity classifier on Helios merged plasma+MAG
+  - name: Radial-bin alignment between Helios and PSP
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.15 (PSP+Helios+Wind spectral evolution)

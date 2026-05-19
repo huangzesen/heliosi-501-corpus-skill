@@ -1,0 +1,29 @@
+slug: paper-soljento-2023-imbalanced-turbulence-velocity-shears
+title: "Imbalanced Turbulence Modified by Large-scale Velocity Shears in the Solar Wind"
+authors:
+  - "Juska E. Soljento"
+year: 2023
+journal: "TODO verify (arXiv:2303.04006)"
+doi: null
+arxiv: "2303.04006"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [imbalanced, velocity-shear, large-scale]
+missions: [other]
+regime: [1au, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "In-situ MAG (mission TODO verify) L2 (TODO verify)"
+  - "Corresponding plasma L2/L3 (Same)"
+methods:
+  - large-scale-velocity-shear-estimator
+  - cross-helicity-per-shear-binned-subsample
+  - drift-trend-regression-vs-shear-strength
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2303.04006v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

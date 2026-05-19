@@ -1,0 +1,46 @@
+slug: paper-eui-euv-wave-fast-mode-mhd-front
+title: "EUV Wave as a Fast-Mode MHD Front (EUI / AIA classification)"
+authors:
+  - "TODO verify (canonical: Patsourakos & Vourlidas 2012; Long et al. 2017)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - euv_waves
+  - fast_mode_mhd
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - AIA EUV imagery (171/193/211 Å)
+  - EUI/FSI imagery (when available)
+  - Coronal Alfven-speed map (DEM + PFSS)
+methods:
+  - Running- and base-difference wavefront extraction
+  - Radial-sector front tracking
+  - Fast-mode consistency test (speed vs v_A, refraction)
+validation_targets:
+  - Reproduce paper's fast-mode-consistency demonstration on benchmark event (TODO verify)
+trigger_keywords:
+  - EUV wave
+  - EIT wave
+  - fast mode MHD
+  - coronal bright front
+  - wave refraction coronal hole
+  - EUI wave
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

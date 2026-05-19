@@ -1,0 +1,32 @@
+slug: raouafi-2023-psp-four-years-discoveries-solar-minimum
+title: >-
+  NASA Parker Solar Probe: Four Years of Discoveries at Solar Cycle Minimum (Review)
+authors:
+  - N. Raouafi
+  - TODO verify
+year: 2023
+journal: Space Science Reviews 219, 8
+doi: 10.1007/s11214-023-00952-4
+arxiv: "2301.02727"
+theme: psp-mission-review-solar-min-discoveries
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: psp_data
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - corona
+trigger_keywords:
+  - PSP review
+  - first four years
+  - solar minimum
+  - switchback origin
+  - Alfvén surface
+data_products: []
+algorithms:
+  - name: Topic-clustered review-synthesis methodology
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §4.4

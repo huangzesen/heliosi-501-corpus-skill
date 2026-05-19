@@ -1,0 +1,32 @@
+slug: carbone-2021-electron-density-turbulence-ion-cyclotron-waves
+title: "Statistical Study of Electron Density Turbulence and Ion-Cyclotron Waves in the Inner Heliosphere: Solar Orbiter Observations"
+authors:
+  - "F. Carbone"
+  - "D. Telloni"
+  - "L. Sorriso-Valvo"
+year: 2021
+journal: "Astronomy & Astrophysics"
+doi: "10.1051/0004-6361/202140931"
+arxiv: "2105.07790"
+theme: waves_instabilities
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "Solar Orbiter RPW spacecraft-potential-derived n_e L2/L3"
+  - "Solar Orbiter MAG L2 RTN"
+  - "Solar Orbiter SWA/PAS L2 plasma moments (cross-check)"
+methods:
+  - rpw-spacecraft-potential-to-electron-density
+  - density-power-spectral-density
+  - density-intermittency-structure-functions
+  - wavelet-magnetic-helicity
+  - ion-cyclotron-wave-event-detection
+validation_targets:
+  - "RPW-derived n_e PSD slope and intermittency at ~0.5 au match paper statistics"
+  - "Wavelet-identified ICW occurrence rate matches paper (TODO verify rate)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.14"
+verification_flags:
+  - "Exact SO encounter list / time windows TODO verify."
+  - "RPW V_sc -> n_e calibration version TODO verify."
+  - "Quantitative ICW occurrence rate and density slope TODO verify in full paper."

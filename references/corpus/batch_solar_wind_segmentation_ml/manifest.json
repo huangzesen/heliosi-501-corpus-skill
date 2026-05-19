@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0",
+  "batch": "batch_solar_wind_segmentation_ml",
+  "generated_at": "2026-05-18",
+  "generator": "HelioSI paper-to-skill factory (Claude Code, .lingtai/HelioSI paper-to-skill factory working tree)",
+  "harness_framing": "general-purpose harness; HelioSI = heliophysics domain instantiation; skills + (proposed) MCPs + harness triple",
+  "compilation_framing": {
+    "model": "Each paper is compiled from a static PDF / arXiv inventory into an Anthropic-style Skill loadable by the HelioSI runtime.",
+    "mapping": {
+      "claims": "verifiable tasks",
+      "methods_equations": "executable workflows",
+      "data_instruments_code": "MCP / tool contracts",
+      "caveats_failure_modes": "skill memory",
+      "figures_results": "benchmark artifacts",
+      "corpus_citations": "skill graph (depends_on via [[slug]])"
+    },
+    "compilation_flavours_in_batch": {
+      "heliophysics-method": "in-situ ML classification, event detection, structure cataloging, image segmentation (all 12 entries are this flavour)",
+      "infrastructure-benchmark": "skills 8 + 9 (Surya + SuryaBench) double as infrastructure / benchmark anchors"
+    }
+  },
+  "theme": "solar_wind_segmentation",
+  "secondary_themes": [
+    "machine-learning",
+    "event-detection",
+    "stream-classification",
+    "icme-cir",
+    "image-segmentation",
+    "foundation-model",
+    "complexity-measures",
+    "mesoscale-structures"
+  ],
+  "skills": [
+    {
+      "n": 1,
+      "slug": "paper-regan-2026-mars-solar-wind-ml-classification",
+      "title": "Solar Wind Classifications at Mars using Machine Learning Techniques",
+      "first_author": "C. E. Regan",
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text (Heliophysics Summer School ML Special Collection)",
+      "doi": null,
+      "arxiv": "2604.08710",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["MAVEN"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-regan-2026-mars-solar-wind-ml-classification/SKILL.md",
+      "metadata_yaml": "paper-regan-2026-mars-solar-wind-ml-classification/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2604.08710",
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.2"
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml",
+      "title": "EMBER: Machine-Learning Detection of Modulated Ion Acoustic Waves and Associated Core-Electron Heating in the Solar Wind with Parker Solar Probe",
+      "first_author": "A. Sasli",
+      "year": 2026,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2605.00162",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["PSP"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml/SKILL.md",
+      "metadata_yaml": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 entry #4"
+      ]
+    },
+    {
+      "n": 3,
+      "slug": "paper-rudisser-2022-icme-unet-automatic-detection",
+      "title": "Automatic Detection of Interplanetary Coronal Mass Ejections in Solar Wind In Situ Data",
+      "first_author": "H. T. Rüdisser",
+      "year": 2022,
+      "journal": "TODO_verify_with_full_text (likely Space Weather)",
+      "doi": null,
+      "arxiv": "2205.03578",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["Wind", "STEREO"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-rudisser-2022-icme-unet-automatic-detection/SKILL.md",
+      "metadata_yaml": "paper-rudisser-2022-icme-unet-automatic-detection/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2205.03578"
+      ]
+    },
+    {
+      "n": 4,
+      "slug": "paper-camporeale-2017-knn-solar-wind-categorization",
+      "title": "Machine Learning Approach for Solar Wind Categorization",
+      "first_author": "E. Camporeale (TODO_verify_with_full_text)",
+      "year": 2018,
+      "journal": "TODO_verify_with_full_text (likely JGR Space Physics)",
+      "doi": null,
+      "arxiv": "1811.02323",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["ACE", "Wind"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-camporeale-2017-knn-solar-wind-categorization/SKILL.md",
+      "metadata_yaml": "paper-camporeale-2017-knn-solar-wind-categorization/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.1"
+      ]
+    },
+    {
+      "n": 5,
+      "slug": "paper-bloch-2024-uncertainty-nn-solar-wind-types",
+      "title": "Classifying different types of solar wind plasma with uncertainty estimations using machine learning",
+      "first_author": "TODO_verify_with_full_text",
+      "year": 2024,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2409.09230",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["ACE", "Wind"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-bloch-2024-uncertainty-nn-solar-wind-types/SKILL.md",
+      "metadata_yaml": "paper-bloch-2024-uncertainty-nn-solar-wind-types/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.3"
+      ]
+    },
+    {
+      "n": 6,
+      "slug": "paper-hu-2022-deep-swim-cnn-discontinuities",
+      "title": "Deep-SWIM: A few-shot learning approach to classify Solar WInd Magnetic field structures",
+      "first_author": "TODO_verify_with_full_text",
+      "year": 2022,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2203.01184",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["Wind", "ACE"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-hu-2022-deep-swim-cnn-discontinuities/SKILL.md",
+      "metadata_yaml": "paper-hu-2022-deep-swim-cnn-discontinuities/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.7"
+      ]
+    },
+    {
+      "n": 7,
+      "slug": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation",
+      "title": "CIPHER: Scalable Time Series Analysis for Physical Sciences with Application to Solar Wind Phenomena",
+      "first_author": "TODO_verify_with_full_text",
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2510.21022",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["other"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation/SKILL.md",
+      "metadata_yaml": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.9"
+      ]
+    },
+    {
+      "n": 8,
+      "slug": "paper-roy-2025-surya-heliophysics-foundation-model",
+      "title": "Surya: Foundation Model for Heliophysics",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2508.14112",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["SDO"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-roy-2025-surya-heliophysics-foundation-model/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-surya-heliophysics-foundation-model/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2508.14112"
+      ]
+    },
+    {
+      "n": 9,
+      "slug": "paper-roy-2025-suryabench-ml-benchmark-dataset",
+      "title": "SuryaBench: Benchmark Dataset for Advancing Machine Learning in Heliophysics and Space Weather Prediction",
+      "first_author": "S. Roy",
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2508.14107",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["SDO"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-roy-2025-suryabench-ml-benchmark-dataset/SKILL.md",
+      "metadata_yaml": "paper-roy-2025-suryabench-ml-benchmark-dataset/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2508.14107"
+      ]
+    },
+    {
+      "n": 10,
+      "slug": "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation",
+      "title": "Incorporating Magnetic Field Characteristics into EUV-Based Automated Segmentation of Coronal Holes",
+      "first_author": "J. A. Grajeda",
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2501.13211",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["SDO"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation/SKILL.md",
+      "metadata_yaml": "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2501.13211"
+      ]
+    },
+    {
+      "n": 11,
+      "slug": "paper-koikkalainen-2025-complexity-solar-wind-streams",
+      "title": "Exploring Complexity Measures for Analysis of Solar Wind Structures and Streams",
+      "first_author": "V. Koikkalainen",
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2510.05873",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["Wind"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-koikkalainen-2025-complexity-solar-wind-streams/SKILL.md",
+      "metadata_yaml": "paper-koikkalainen-2025-complexity-solar-wind-streams/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2510.05873"
+      ]
+    },
+    {
+      "n": 12,
+      "slug": "paper-katsavrias-2025-periodic-density-structures-solar-orbiter",
+      "title": "Identification of periodic density structures in Solar Orbiter data: Radial evolution",
+      "first_author": "C. Katsavrias",
+      "year": 2025,
+      "journal": "TODO_verify_with_full_text",
+      "doi": null,
+      "arxiv": "2511.15518",
+      "primary_theme": "solar_wind_segmentation",
+      "mission_tags": ["Solar Orbiter"],
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "skill_md": "paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+      "metadata_yaml": "paper-katsavrias-2025-periodic-density-structures-solar-orbiter/metadata.yaml",
+      "source_inventory": [
+        "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2511.15518"
+      ]
+    }
+  ],
+  "weak_entries_needing_full_text_verification": [
+    {"slug": "paper-regan-2026-mars-solar-wind-ml-classification", "todos": ["venue/DOI", "exact feature vector", "PCA component count", "bow-shock model for upstream selection", "solar-activity proxy", "per-cluster occurrence fractions"]},
+    {"slug": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml", "todos": ["venue/DOI", "model architecture", "training-set definition", "exact metric reported as 93%", "encounter list", "SPAN-e calibration version"]},
+    {"slug": "paper-rudisser-2022-icme-unet-automatic-detection", "todos": ["venue/DOI", "reference catalog identity", "U-Net depth + loss", "feature list", "baseline architecture for 20x speedup", "operating threshold"]},
+    {"slug": "paper-camporeale-2017-knn-solar-wind-categorization", "todos": ["full author list", "venue/DOI", "feature list", "K + distance metric", "per-class confusion matrix", "cross-cycle generalisation"]},
+    {"slug": "paper-bloch-2024-uncertainty-nn-solar-wind-types", "todos": ["lead author + full author list", "venue/DOI", "labelling rule", "NN architecture", "uncertainty method (MC-Dropout vs ensembles vs Bayesian vs evidential)", "calibration metric"]},
+    {"slug": "paper-hu-2022-deep-swim-cnn-discontinuities", "todos": ["full author list", "venue/DOI", "source mission (Wind vs ACE vs Cluster)", "discontinuity catalog identity", "CNN architecture + few-shot paradigm", "component frame (GSE vs RTN)"]},
+    {"slug": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation", "todos": ["full author list", "venue/DOI", "iSAX word length + cardinality", "HDBSCAN min_cluster_size", "mission used", "specific phenomena identified", "HITL protocol"]},
+    {"slug": "paper-roy-2025-surya-heliophysics-foundation-model", "todos": ["venue/DOI", "exact 8 AIA + 5 HMI channels", "training resolution", "spectral-gating implementation", "long-short attention pattern", "LoRA rank + injected layers", "pretrained weights URL"]},
+    {"slug": "paper-roy-2025-suryabench-ml-benchmark-dataset", "todos": ["venue/DOI", "preprocessing algorithm parameters", "per-task label source", "train/val/test split rules", "canonical hosting URL", "per-task baseline scores"]},
+    {"slug": "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation", "todos": ["venue/DOI", "AIA channel (193 vs 211 Å)", "magnetic-skewness threshold", "form of E_magnetic + λ_B weight", "convergence rule", "ground-truth subset", "quantitative FP / area-gain numbers"]},
+    {"slug": "paper-koikkalainen-2025-complexity-solar-wind-streams", "todos": ["venue/DOI", "permutation embedding order + lag", "HVG construction tie-breaking + despike", "stream-type catalog identity", "quantitative cluster-separation scores"]},
+    {"slug": "paper-katsavrias-2025-periodic-density-structures-solar-orbiter", "todos": ["venue/DOI", "density product (RPW V_sc vs SWA/PAS)", "multitaper NW + window length", "wavelet mother function", "slow/fast wind threshold", "public PDS catalog URL", "per-population L_R(r) slope"]}
+  ],
+  "cross_batch_references": [
+    "sioulas-reproduction/results/paper_skill_corpus/batch_pfss_source_mapping/",
+    "sioulas-reproduction/results/paper_skill_corpus/batch_psp_switchbacks_magnetic/",
+    "sioulas-reproduction/results/paper_skill_corpus/batch_turbulence_heating_apj/",
+    "sioulas-reproduction/results/paper_skill_corpus/batch_heliophysics_software_infrastructure/",
+    "sioulas-reproduction/results/paper_skill_corpus/pilot_turbulence/",
+    "sioulas-reproduction/results/paper_skill_corpus/pilot_2026_and_runtime/"
+  ],
+  "source_inventories": [
+    "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json",
+    "sioulas-reproduction/results/arxiv_papers/extended_search.md",
+    "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md"
+  ],
+  "constraints_observed": {
+    "did_not_modify_library_custom": true,
+    "did_not_modify_other_batches": true,
+    "one_paper_per_directory": true,
+    "todo_verify_markers_explicit": true,
+    "no_mcp_runtime_assumed": true,
+    "claim_boundary_present_per_skill": true
+  }
+}

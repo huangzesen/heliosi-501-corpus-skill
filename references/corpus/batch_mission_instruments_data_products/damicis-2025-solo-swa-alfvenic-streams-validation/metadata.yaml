@@ -1,0 +1,40 @@
+slug: damicis-2025-solo-swa-alfvenic-streams-validation
+title: >-
+  Alfvénic solar wind intervals observed by Solar Orbiter: Exploiting the
+  capability of the SWA plasma suite and source region investigation
+authors:
+  - R. D'Amicis
+  - J. M. Raines
+  - S. Benella
+  - M. Velli
+  - O. Panasenco
+  - "+ co-authors per inventory (TODO complete full list with full text)"
+year: 2025
+journal: TODO_verify_with_full_text (likely Astronomy & Astrophysics)
+doi: TODO_verify_with_full_text
+arxiv: "2512.20098"
+theme: data-product-solar-orbiter-swa-full-suite-applied-alfvenic-streams
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SO/MAG L2 (RTN)
+  - SO/SWA PAS L2 moments + VDFs
+  - SO/SWA EAS L2 electron PADs
+  - SO/SWA HIS L2 heavy-ion charge-state ratios (O7+/O6+; C6+/C5+)
+  - Synoptic magnetogram (ADAPT / GONG / HMI) for PFSS
+methods:
+  - Magnetic + velocity spectral analysis (σ_c, r_A)
+  - Proton VDF anisotropy / beam identification
+  - Electron strahl identification
+  - Heavy-ion charge-state thresholds for source attribution
+  - PFSS + ballistic backmapping
+validation_targets:
+  - 5-of-5 stream classifications + source-region attributions reproduced for September 2022 intervals (TODO supply table reference with full text)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json (entry arxiv_id 2512.20098v1)
+provenance:
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_at: "2026-05-18T00:00:00Z"
+  source_record: "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json#arxiv_id=2512.20098v1"
+  verified_by: null
+  verified_at: null

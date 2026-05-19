@@ -1,0 +1,43 @@
+slug: paper-yao-2022-react-reasoning-acting-language-models
+title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+authors:
+  - "Shunyu Yao"
+  - "Jeffrey Zhao"
+  - "Dian Yu"
+  - "Nan Du"
+  - "Izhak Shafran"
+  - "Karthik Narasimhan"
+  - "Yuan Cao"
+year: 2022
+journal: "arXiv preprint / ICLR 2023"
+doi: null
+arxiv: "2210.03629"
+theme: agent-runtime-reason-act-loop
+category: foundational-method
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Interleaved thought-action-observation trajectories"
+  - "External-tool feedback grounding"
+  - "Benchmark evaluation across QA + decision-making tasks"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] Every HelioSI Layer-2 abstract procedure is a candidate for ReAct-style execution: thought (which paper-skill to invoke) -> action (call MCP) -> observation (data/figure) -> next thought."
+  - "[minimal_experiment] Re-run one HelioSI workflow (PFSS source mapping) with explicit ReAct traces logged; measure whether trace inspection helps the HelioSI PI catch reasoning errors."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

@@ -1,0 +1,44 @@
+slug: paper-katsavrias-2025-periodic-density-structures-solar-orbiter
+title: "Identification of periodic density structures in Solar Orbiter data: Radial evolution"
+authors:
+  - "C. Katsavrias"
+  - "S. Di Matteo"
+  - "L. Kepko"
+  - "N. Viall"
+  - "A. Walsh"
+year: 2025
+journal: "TODO verify (arXiv:2511.15518)"
+doi: null
+arxiv: "2511.15518"
+ads_bibcode: null
+primary_theme: solar_wind_segmentation
+secondary_themes: [solar_orbiter, mesoscale-structures, density-fluctuations, catalog, radial-evolution]
+missions: [Solar Orbiter]
+regime: ["inner-heliosphere", "1au"]
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "Solar Orbiter RPW spacecraft-potential-derived n_e (L2/L3)"
+  - "Solar Orbiter SWA/PAS proton moments (L2)"
+  - "Solar Orbiter MAG (L2) for context"
+  - "Heliocentric distance via NAIF SPICE"
+methods:
+  - multitaper-psd-with-red-noise-null
+  - continuous-wavelet-transform-confirmation
+  - radial-length-scale-LR-extraction-via-taylor-hypothesis
+  - slow-fast-wind-population-separation
+  - public-pds-catalog-assembly
+validation_targets:
+  - "PDS catalog with L_R between 100 and 10,000 Mm"
+  - "Slow-wind PDS expansion ~10% across 0.3-1 au"
+  - "Fast-wind PDS compression ~10% across 0.3-1 au"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2511.15518"
+verification_flags:
+  - "Publication venue + DOI TODO verify."
+  - "Density product used (RPW V_sc vs SWA/PAS) TODO verify."
+  - "Multitaper time-bandwidth product NW and window length TODO verify."
+  - "Wavelet mother function TODO verify."
+  - "Slow/fast wind threshold TODO verify."
+  - "Public PDS catalog hosting URL TODO verify."
+  - "Per-population L_R vs r slope numerical values TODO verify."

@@ -1,0 +1,35 @@
+slug: pecora-2022-coherent-structures-proton-electron-heating
+title: "Preferential Proton over Electron Heating from Coherent Structures during the First Perihelion of Parker Solar Probe"
+authors:
+  - "F. Pecora"
+  - "R. Bandyopadhyay"
+  - "D. Ruffolo"
+  - "W. H. Matthaeus"
+  - "T. N. Parashar"
+  - "R. Chhiber"
+  - "A. Chasapis"
+year: 2022
+journal: "TODO verify (MNRAS or ApJ 2022 per inventory)"
+doi: null
+arxiv: "2206.10671"
+theme: coronal_heating
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN (PSP E1)"
+  - "PSP SWEAP/SPC L3 proton moments"
+  - "PSP SWEAP/SPAN-e L3 electron moments"
+methods:
+  - partial-variance-of-increments
+  - pvi-thresholding
+  - conditional-superposed-epoch-averaging
+  - proton-vs-electron-heating-signature
+validation_targets:
+  - "Conditional Delta T_p exceeds Delta T_e at high-PVI events in PSP E1 (preferential proton heating signature)"
+  - "Sign and qualitative magnitude match paper figure (TODO verify ratio)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.7"
+verification_flags:
+  - "Publication venue (MNRAS / ApJ) TODO verify."
+  - "Exact PVI threshold and averaging window used in paper TODO verify."
+  - "Quantitative Delta T_p/Delta T_e ratio TODO verify in full paper."

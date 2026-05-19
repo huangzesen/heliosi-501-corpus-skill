@@ -1,0 +1,29 @@
+slug: paper-ruohotie-2025-intermittency-icme-psp-solo
+title: "Intermittency in Interplanetary Coronal Mass Ejections Observed by Parker Solar Probe and Solar Orbiter"
+authors:
+  - "Julia Ruohotie"
+year: 2025
+journal: "TODO verify (arXiv:2505.22283)"
+doi: null
+arxiv: "2505.22283"
+ads_bibcode: null
+primary_theme: turbulence
+secondary_themes: [intermittency, ICME, multi-spacecraft]
+missions: [PSP, Solar Orbiter]
+regime: [inner-heliosphere, MHD-scale]
+quality_level: stub
+harness_agnostic: true
+required_data:
+  - "PSP/FIELDS MAG L2 (ICME intervals)"
+  - "Solar Orbiter MAG L2 (ICME intervals)"
+methods:
+  - icme-interval-selection-catalogue-join
+  - pvi-per-scale-inside-icme
+  - scale-dependent-kurtosis-comparison-vs-ambient
+validation_targets:
+  - "TODO verify numerical targets against published figures."
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2505.22283v1)"
+verification_flags:
+  - "Publication venue / DOI TODO verify."
+  - "Numerical values for the central claim TODO verify against full text."

@@ -1,0 +1,22 @@
+slug: free-energy-sources-ion-scale-waves-psp-2025
+title: >-
+  Free Energy Sources of Ion-Scale Waves Observed by Parker Solar Probe
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2512.11182"
+theme: ion-scale-wave-free-energy-source-psp
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP ion-scale-wave catalog
+  - Per-event VDFs
+methods:
+  - Linear-Vlasov driver decomposition
+  - Event attribution
+validation_targets:
+  - Driver-fraction percentages reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.11182

@@ -1,0 +1,44 @@
+slug: verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event
+title: >-
+  Proton and Alpha Driven Instabilities in an Ion Cyclotron Wave Event
+authors:
+  - J. L. Verniero
+  - TODO verify
+year: 2023
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2310.14136"
+theme: psp-proton-alpha-instabilities-ion-cyclotron-wave
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: waves_instabilities
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - ion-scale
+  - kinetic
+trigger_keywords:
+  - ion-cyclotron wave
+  - proton instability
+  - alpha-particle instability
+  - linear Vlasov
+  - SPAN-I 3D VDF
+data_products:
+  - instrument: PSP/SWEAP SPAN-I + SPAN-Ai
+    level: L3 VDF
+    cadence: encounter cadence
+    interval: single event (TODO verify)
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG + DFB
+    level: L2
+    cadence: burst
+    interval: matching window
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Multi-species linear-Vlasov solver from measured VDFs
+  - name: Free-energy source attribution per species
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §3.6

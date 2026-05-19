@@ -1,0 +1,21 @@
+slug: helicity-barrier-evidence-transition-range-2024
+title: >-
+  Evidence for the Helicity Barrier from Measurements of the Turbulence Transition Range
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2407.10815"
+theme: helicity-barrier-transition-range
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - High-cadence in-situ B, V, n
+methods:
+  - σ_c-binned spectral analysis
+  - Transition-range steepening fit
+validation_targets:
+  - Pile-up vs |σ_c| trend reproduced (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2407.10815

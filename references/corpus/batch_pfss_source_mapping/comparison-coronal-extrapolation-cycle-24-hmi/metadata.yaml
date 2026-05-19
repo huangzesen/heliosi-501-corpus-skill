@@ -1,0 +1,46 @@
+slug: comparison-coronal-extrapolation-cycle-24-hmi
+title: >-
+  Comparison of Coronal Extrapolation Methods for Cycle 24 Using HMI Data
+authors:
+  - "TODO verify first author"
+  - "+ co-authors (TODO verify full list)"
+year: 2016
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: "1603.04385"
+theme: pfss_source_mapping
+secondary_themes:
+  - magnetic_field
+  - corona
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SDO/HMI synoptic Br (JSOC hmi.synoptic_mr_*)
+  - Cycle 24 Carrington rotation series (TODO verify range)
+methods:
+  - PFSS extrapolation (standard reference)
+  - Horizontal-current current-sheet source surface (HCCSSS, or named variant)
+  - Cross-method comparison of neutral line, open-flux, current-sheet warp
+validation_targets:
+  - Reproduce the paper's qualitative differences (e.g., HCS warp,
+    open-flux magnitude) between PFSS and the current-sheet model
+  - Recover open-flux ordering between methods (TODO verify magnitude)
+trigger_keywords:
+  - HMI
+  - Cycle 24
+  - PFSS
+  - current sheet source surface
+  - HCCSSS
+  - coronal extrapolation comparison
+  - heliospheric current sheet
+  - open flux
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md §2.4
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.4
+  verified_by: null
+  verified_at: null

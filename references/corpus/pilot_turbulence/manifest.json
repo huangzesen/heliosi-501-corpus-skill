@@ -1,0 +1,219 @@
+{
+  "schema_version": "0.1.0",
+  "corpus": "pilot_turbulence",
+  "theme": "solar-wind-turbulence",
+  "generated_at": "2026-05-18",
+  "parent_skill": ".library/custom/heliophysics-skills/SKILL.md",
+  "source_inventories": [
+    "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md",
+    "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md",
+    "sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md"
+  ],
+  "skills": [
+    {
+      "slug": "bandyopadhyay-2020-energy-transfer-psp",
+      "title": "Enhanced Energy Transfer Rate in Solar Wind Turbulence Observed near the Sun from Parker Solar Probe",
+      "year": 2020,
+      "lead_author": "R. Bandyopadhyay",
+      "journal": "ApJS",
+      "doi": "10.3847/1538-4365/ab5dae",
+      "arxiv": "1912.02959",
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "Cascade rate near the Sun ~100x the 1-au value, by Politano-Pouquet and von Karman methods on PSP E1.",
+      "methods": [
+        "politano-pouquet-third-order-law",
+        "von-karman-decay-law",
+        "elsasser-variables"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC L3"],
+      "weak_attribution": false,
+      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.1"]
+    },
+    {
+      "slug": "sioulas-2023-anisotropic-scaling-inner-heliosphere",
+      "title": "On the Evolution of the Anisotropic Scaling of Magnetohydrodynamic Turbulence in the Inner Heliosphere",
+      "year": 2023,
+      "lead_author": "N. Sioulas",
+      "journal": "ApJ",
+      "doi": "10.3847/1538-4357/acd053",
+      "arxiv": "2303.10810",
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "Wavevector-anisotropic structure-function scaling evolves with heliocentric distance between PSP and SO (0.1-1 au).",
+      "methods": [
+        "local-mean-field-decomposition",
+        "multi-order-structure-functions",
+        "parallel-perpendicular-anisotropy"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3", "Solar Orbiter MAG L2", "SO SWA/PAS L2/L3"],
+      "weak_attribution": false,
+      "verification_flags": [
+        "arXiv 2303.10810 is dual-attributed in apj_aa (§1.2 Sioulas+ 2023 ApJ; §3.5 Cuesta+ 2023). TODO verify."
+      ],
+      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.2"]
+    },
+    {
+      "slug": "huang-2023-psp-one-over-f-spectrum",
+      "title": "New Observations of Solar Wind 1/f Turbulence Spectrum from Parker Solar Probe",
+      "year": 2023,
+      "lead_author": "Z. Huang",
+      "journal": "ApJL",
+      "doi": "10.3847/2041-8213/acd7f2",
+      "arxiv": "2303.00843",
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "Magnetically-incompressible PSP intervals (E1-E13) show 1/f outer range and inertial slope ~-3/2 near the Sun; 1/f range extends to larger scales closer to the Sun.",
+      "methods": [
+        "magnetic-incompressibility-filter",
+        "trace-power-spectral-density",
+        "double-power-law-fit",
+        "break-frequency-detection"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3"],
+      "weak_attribution": false,
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.4",
+        "solar_wind_turbulence_2020_2026.md #9 (2023)"
+      ]
+    },
+    {
+      "slug": "sioulas-2022-magnetic-field-intermittency-psp-solo",
+      "title": "Magnetic Field Intermittency in the Solar Wind: Parker Solar Probe and Solar Orbiter",
+      "year": 2022,
+      "lead_author": "N. Sioulas",
+      "journal": "ApJ",
+      "doi": "10.3847/1538-4357/ac7aa2",
+      "arxiv": null,
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "Magnetic-field intermittency (PVI, higher-order moments, kurtosis scaling) increases with decreasing heliocentric distance between SO (~1 au) and PSP (~0.1 au).",
+      "methods": [
+        "partial-variance-of-increments",
+        "higher-order-structure-functions",
+        "kurtosis-scaling"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "Solar Orbiter MAG L2"],
+      "weak_attribution": false,
+      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.5"]
+    },
+    {
+      "slug": "telloni-2021-psp-solo-radial-alignment-turbulence",
+      "title": "Evolution of Solar Wind Turbulence from 0.1 to 1 au during the First Parker Solar Probe-Solar Orbiter Radial Alignment",
+      "year": 2021,
+      "lead_author": "D. Telloni",
+      "journal": "ApJL",
+      "doi": "10.3847/2041-8213/abf7d1",
+      "arxiv": null,
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "First PSP-SO radial alignment: sigma_c, sigma_R, epsilon evolve from 0.1 au to 1 au in approximately the same plasma parcel.",
+      "methods": [
+        "psp-solo-conjunction-identification",
+        "normalised-cross-helicity-sigma-c",
+        "residual-energy-sigma-R",
+        "politano-pouquet-cascade-rate"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3", "Solar Orbiter MAG L2", "SO SWA/PAS L2/L3"],
+      "weak_attribution": false,
+      "source_inventory_refs": ["apj_aa_heliophysics_papers.md §1.11"]
+    },
+    {
+      "slug": "damicis-2021-alfvenic-nonalfvenic-psp",
+      "title": "Alfvenic versus Non-Alfvenic Turbulence in the Inner Heliosphere as Observed by Parker Solar Probe",
+      "year": 2021,
+      "lead_author": "(see attribution note: D'Amicis et al. per apj_aa §1.13; Shi et al. per solar_wind_turbulence_2020_2026 #4)",
+      "journal": "A&A",
+      "doi": null,
+      "arxiv": "2101.00830",
+      "quality_level": "pilot_weak_attribution",
+      "executable_status": "scaffold",
+      "core_claim": "PSP E1-E5 intervals stratify into Alfvenic vs non-Alfvenic streams with distinct spectral indices and radial dependences.",
+      "methods": [
+        "normalised-cross-helicity-sigma-c",
+        "residual-energy-sigma-R",
+        "alfvenic-nonalfvenic-stream-classification",
+        "inertial-range-spectral-index"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP L3"],
+      "weak_attribution": true,
+      "verification_flags": [
+        "arXiv 2101.00830 dual-attributed across inventories (D'Amicis et al. 2021, A&A vs Shi, Velli, Panasenco, Tenerani 2021). TODO verify the arXiv abstract before manuscript citation."
+      ],
+      "source_inventory_refs": [
+        "apj_aa_heliophysics_papers.md §1.13",
+        "solar_wind_turbulence_2020_2026.md #4 (2021)"
+      ]
+    },
+    {
+      "slug": "chen-2021-near-sun-streamer-belt-turbulence",
+      "title": "The Near-Sun Streamer Belt Solar Wind: Turbulence and Solar Wind Acceleration",
+      "year": 2021,
+      "lead_author": "C. H. K. Chen",
+      "journal": null,
+      "doi": null,
+      "arxiv": "2101.00246",
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "PSP E4 (down to ~27.9 R_sun) streamer-belt wind shows distinguishable inbound/outbound trace PSDs and sigma_c, sigma_R linked to solar-wind acceleration.",
+      "methods": [
+        "hcs-crossing-identification",
+        "inbound-outbound-leg-split",
+        "trace-power-spectral-density",
+        "normalised-cross-helicity-sigma-c",
+        "residual-energy-sigma-R"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC L3"],
+      "weak_attribution": false,
+      "verification_flags": [
+        "No DOI in inventory; year and venue need confirmation against ADS."
+      ],
+      "source_inventory_refs": ["solar_wind_turbulence_2020_2026.md #3 (2021)"]
+    },
+    {
+      "slug": "sioulas-2024-higher-order-3d-anisotropy",
+      "title": "Higher-Order Analysis of Three-Dimensional Anisotropy in Imbalanced Alfvenic Turbulence",
+      "year": 2024,
+      "lead_author": "N. Sioulas",
+      "journal": null,
+      "doi": null,
+      "arxiv": "2404.04055",
+      "quality_level": "pilot",
+      "executable_status": "scaffold",
+      "core_claim": "3D structure-function decomposition (par, perp, fluctuation-direction) of imbalanced Alfvenic z+/z- turbulence discriminates Critical Balance from Scale-Dependent Dynamic Alignment, with two sub-inertial segments and an 'anomalous coherence' regime.",
+      "methods": [
+        "imbalanced-alfvenic-filter",
+        "local-mean-field-frame",
+        "three-axis-decomposition-parallel-perpendicular-fluctuation",
+        "higher-order-structure-functions",
+        "critical-balance-vs-scale-dependent-dynamic-alignment-test"
+      ],
+      "instruments": ["PSP FIELDS MAG L2", "PSP SWEAP/SPC or SPAN-I L3", "Solar Orbiter MAG L2 (optional)"],
+      "weak_attribution": false,
+      "verification_flags": [
+        "No DOI in inventory; CB/SDDA template parameterisations need to be frozen against full text."
+      ],
+      "source_inventory_refs": [
+        "solar_wind_turbulence_2020_2026.md #11 (2024)",
+        "apj_aa_heliophysics_papers.md §1.2 (companion 2404.04055)"
+      ]
+    }
+  ],
+  "shared_building_blocks": [
+    "psp-data-mcp-contract",
+    "solar-orbiter-data-mcp-contract",
+    "elsasser-field-computation",
+    "sigma_c-sigma_R-definitions",
+    "politano-pouquet-cascade-rate",
+    "von-karman-decay-law",
+    "partial-variance-of-increments",
+    "local-mean-field-decomposition",
+    "trace-power-spectral-density-welch-multitaper"
+  ],
+  "weak_entries": [
+    "damicis-2021-alfvenic-nonalfvenic-psp",
+    "sioulas-2023-anisotropic-scaling-inner-heliosphere",
+    "chen-2021-near-sun-streamer-belt-turbulence",
+    "sioulas-2024-higher-order-3d-anisotropy"
+  ]
+}

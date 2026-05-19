@@ -1,0 +1,32 @@
+slug: bowen-2023-landau-damping-proton-electron-heating
+title: "Estimation of Turbulent Proton and Electron Heating Rates via Landau Damping Constrained by Parker Solar Probe Observations"
+authors:
+  - "T. A. Bowen"
+  - "S. D. Bale"
+  - "J. C. Kasper"
+  - "M. Pulupa"
+year: 2023
+journal: "TODO verify (ApJ submission per inventory; arXiv preprint)"
+doi: null
+arxiv: "2301.09713"
+theme: coronal_heating
+quality_level: pilot
+executable_status: scaffold
+required_data:
+  - "PSP FIELDS MAG L2 RTN trace PSD covering ion break"
+  - "PSP SWEAP/SPC L3 proton moments"
+  - "PSP SWEAP/SPAN-e L3 electron moments"
+methods:
+  - linear-vlasov-gamma-of-k
+  - quasilinear-landau-damping-cascade-model
+  - proton-electron-heating-partition
+  - empirical-heating-from-radial-temperature-gradient
+validation_targets:
+  - "Model Q_p, Q_e from Landau-damping partition match empirical values in PSP E1-E2"
+  - "Q_p/Q_e ratio consistent with paper's stated tolerance (TODO verify exact value)"
+source_inventory:
+  - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.6"
+verification_flags:
+  - "Publication venue / status (ApJ submission) TODO verify."
+  - "Specific Vlasov solver used (PLUME / NHDS / LEOPARD) TODO verify in full text."
+  - "Quantitative tolerance for Q_p/Q_e agreement TODO verify."

@@ -1,0 +1,33 @@
+slug: paper-sioulas-sw-scanner-js-segmentation
+title: "sw-scanner: solar-wind regime segmentation via Jensen-Shannon-divergence scalograms"
+authors:
+  - "Sioulas, N."
+  - "+ contributors (TODO verify full list)"
+year: 2023
+journal: software package (companion to Sioulas et al. solar-wind segmentation papers)
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: heliophysics-solar-wind-segmentation-js
+source_type: software-package
+quality_level: method-ready
+executable_status: pipeline-specified-runnable-from-pyspedas
+required_data:
+  - PSP/FIELDS MAG L2 (4 Sa/cyc)
+  - PSP/SWEAP SPC or SPAN-I L2 plasma moments
+methods:
+  - Jensen-Shannon-divergence scalogram across scales
+  - Multiscale change-point segmentation
+validation_targets:
+  - Scalogram + segmentation reproduces a published Sioulas figure within ±1 scale + ±1 min
+  - Boundary list cross-validates with composition / strahl criteria (failure-mode check)
+source_inventory:
+  - .library/custom/heliophysics-skills/SKILL.md (segmentation row; sw-scanner)
+  - .library/custom/heliophysics-skills/sub-skills/github-repos.md (sw-scanner entry)
+  - sioulas-reproduction/results/github_repos/consolidated_repos.json (sw-scanner entry)
+links:
+  code_repo: https://github.com/nicosioulas/sw-scanner
+weak_entries:
+  - No dedicated software publication located locally
+  - Author / contributor list not enumerated
+  - Per-paper reference figure IDs not in local source

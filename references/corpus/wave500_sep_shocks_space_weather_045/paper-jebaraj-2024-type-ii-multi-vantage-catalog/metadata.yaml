@@ -1,0 +1,24 @@
+slug: paper-jebaraj-2024-type-ii-multi-vantage-catalog
+title: "A catalog of multi-vantage point observations of type-II bursts: Statistics and correlations"
+authors:
+  - "TODO verify"
+year: 2024
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2410.00814"
+theme: heliophysics-type-ii-multi-vantage-catalog
+category: primary-observation-catalog
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Wind/WAVES + STEREO/WAVES + PSP/FIELDS RFS + Solar Orbiter RPW
+methods:
+  - Cross-mission type II event matching
+  - Catalog assembly + per-event property table
+  - Correlation analysis vs CME/flare/SEP variables
+validation_targets:
+  - Catalog entry count; correlation coefficients vs event variables (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2410.00814

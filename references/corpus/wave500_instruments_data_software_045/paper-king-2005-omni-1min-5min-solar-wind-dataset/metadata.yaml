@@ -1,0 +1,29 @@
+slug: paper-king-2005-omni-1min-5min-solar-wind-dataset
+title: Solar wind spatial scales in and comparisons of hourly Wind and ACE plasma and magnetic field data
+authors:
+  - "King, J. H."
+year: 2005
+journal: Journal of Geophysical Research
+doi: 10.1029/2004JA010649
+arxiv: null
+ads_bibcode: null
+theme: data-product-omni
+source_type: paper
+quality_level: method-ready
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - OMNI 1-min L2 derived (1 min)
+  - OMNI hourly L2 derived (1 hour)
+  - OMNI 5-min L2 derived (5 min)
+methods:
+  - Multi-spacecraft phase-front propagation time-shift
+  - Spacecraft selection priority logic
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
+links:
+  doi_url: https://doi.org/10.1029/2004JA010649
+  data_repo: https://omniweb.gsfc.nasa.gov/
+weak_entries:
+  []

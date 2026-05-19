@@ -1,0 +1,42 @@
+slug: paper-xie-2025-how-far-ai-scientists-changing-world
+title: "How Far Are AI Scientists from Changing the World?"
+authors:
+  - "Qiujie Xie"
+  - "Yixuan Weng"
+  - "Minjun Zhu"
+  - "Fuchen Shen"
+  - "Shulin Huang"
+  - "Zhen Lin"
+year: 2025
+journal: "arXiv preprint"
+doi: null
+arxiv: "2507.23276"
+theme: agent-runtime-survey
+category: survey
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: manuscript-checklist-only
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Prospect-driven survey methodology"
+  - "Capability-gap taxonomy"
+  - "Conditions for human-level discovery"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[gap] The survey's capability-gap list lacks a 'domain-grounded executable skill memory' axis; HelioSI's corpus fills it for heliophysics."
+  - "[hypothesis] Using the survey's capability gaps as a HelioSI manuscript checklist will surface at least one HelioSI weakness (e.g. lack of preregistration), useful as honest limitation."
+depends_on:
+  - paper-wei-2025-agentic-science-survey-autonomous-discovery
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

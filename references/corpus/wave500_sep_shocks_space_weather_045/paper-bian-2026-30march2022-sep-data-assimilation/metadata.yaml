@@ -1,0 +1,27 @@
+slug: paper-bian-2026-30march2022-sep-data-assimilation
+title: "A study of solar energetic particle transport on 30 March 2022 using multi-spacecraft data assimilation"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2602.00765"
+theme: heliophysics-sep-transport-data-assimilation-30march2022
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - PSP/IS☉IS EPI-Hi+EPI-Lo
+  - Solar Orbiter EPD (HET/EPT/SIS/STEP)
+  - ACE/EPAM + Wind/3DP + STEREO-A HET/SEPT
+methods:
+  - Multi-spacecraft intensity time-series alignment
+  - Forward transport solver (parallel + perpendicular diffusion)
+  - Bayesian data assimilation / parameter posterior
+  - Pulse-of-injection vs continuous-injection comparison
+validation_targets:
+  - Posterior on κ_par / κ_perp for the event; per-observer fitted intensity time series within tolerance (TODO_verify).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2602.00765

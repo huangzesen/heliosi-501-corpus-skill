@@ -1,0 +1,42 @@
+slug: paper-rhessi-hxr-footpoint-asymmetry-flare
+title: "RHESSI HXR Footpoint Asymmetry as a Magnetic-Mirror Diagnostic"
+authors:
+  - "TODO verify (canonical: Saint-Hilaire et al. 2008)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - flare_modeling
+  - hxr_imaging
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - RHESSI L1 counts / images
+  - HMI / MDI LOS magnetograms
+methods:
+  - CLEAN imaging of HXR footpoints
+  - Footpoint–B correlation
+validation_targets:
+  - Reproduce published brightness vs B-ratio relation (TODO verify)
+trigger_keywords:
+  - RHESSI footpoint
+  - HXR asymmetry
+  - magnetic mirror flare
+  - Saint-Hilaire 2008
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

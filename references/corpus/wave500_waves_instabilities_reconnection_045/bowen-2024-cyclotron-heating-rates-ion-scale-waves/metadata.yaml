@@ -1,0 +1,24 @@
+slug: bowen-2024-cyclotron-heating-rates-ion-scale-waves
+title: >-
+  Estimated Heating Rates Due to Cyclotron Damping of Ion-Scale Waves Observed by Parker Solar Probe
+authors:
+  - T. A. Bowen
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2407.02708"
+theme: cyclotron-damping-heating-rate-psp
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - PSP MAG ion-scale spectrum
+  - SWEAP VDF moments
+  - Linear-Vlasov cyclotron damping solver
+methods:
+  - Linear-Vlasov cyclotron damping computation
+  - Q_⊥ integration over spectrum
+validation_targets:
+  - Q_⊥ closure within stated fraction (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2407.02708

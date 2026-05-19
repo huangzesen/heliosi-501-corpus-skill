@@ -1,0 +1,47 @@
+slug: paper-schmidgall-2025-agent-laboratory-research-assistants
+title: "Agent Laboratory: Using LLM Agents as Research Assistants"
+authors:
+  - "Samuel Schmidgall"
+  - "Yusheng Su"
+  - "Ze Wang"
+  - "Ximeng Sun"
+  - "Jialian Wu"
+  - "Xiaodong Yu"
+  - "Jiang Liu"
+  - "Michael Moor"
+  - "Zicheng Liu"
+  - "Emad Barsoum"
+year: 2025
+journal: "arXiv preprint"
+doi: null
+arxiv: "2501.04227"
+theme: agent-runtime-human-in-loop
+category: ai-scientist-system
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: design-pattern-extractor
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Three-stage pipeline: literature review -> experimentation -> report writing"
+  - "Per-stage human feedback gating"
+  - "Driver-LLM ablation across multiple foundation models"
+  - "Researcher-survey + code-quality + cost evaluation"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's expert-in-the-loop (the HelioSI PI) can be framed as the Agent-Laboratory pattern instantiated for heliophysics, with paper-skills replacing free-form literature review."
+  - "[minimal_experiment] Re-run a heliophysics workflow (e.g. PFSS source mapping for one PSP encounter) under two regimes — PI gating each stage vs. no gating — and measure the rate of factually-incorrect intermediate claims."
+depends_on:
+  []
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

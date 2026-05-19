@@ -1,0 +1,25 @@
+slug: paper-jin-2025-third-harmonic-type-ii-2024-09-14
+title: "Third Harmonic Structure in an Interplanetary Type II Radio Burst and Other Energetic Phenomena During the 2024 September 14 Solar Eruption"
+authors:
+  - "TODO verify"
+year: 2025
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2503.23584"
+theme: heliophysics-type-ii-third-harmonic-ip-burst-2024-09-14
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Wind/WAVES + STEREO-A/WAVES radio
+  - PSP/FIELDS LFR/HFR
+methods:
+  - Type II band identification (1f, 2f, 3f)
+  - Band-pair / triplet plasma-frequency inversion
+  - Density profile reconstruction along the shock front
+validation_targets:
+  - Identified 1f / 2f / 3f bands; inferred shock-front density profile (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2503.23584

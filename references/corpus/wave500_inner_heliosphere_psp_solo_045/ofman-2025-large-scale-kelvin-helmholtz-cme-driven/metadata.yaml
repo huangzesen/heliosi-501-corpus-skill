@@ -1,0 +1,49 @@
+slug: ofman-2025-large-scale-kelvin-helmholtz-cme-driven
+title: >-
+  Observation of Large-Scale Kelvin-Helmholtz Instability Wave Driven by a Coronal Mass Ejection
+authors:
+  - L. Ofman
+  - O. Khabarova
+  - R.-Y. Kwon
+  - Yogesh
+  - E. Heifetz
+  - K. Nykyri
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2512.19942"
+theme: cme-kelvin-helmholtz-upper-corona
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+  - Solar Orbiter
+  - other
+regime:
+  - corona
+  - inner-heliosphere
+trigger_keywords:
+  - Kelvin–Helmholtz instability
+  - coronal mass ejection
+  - upper corona vortices
+  - shear flow
+  - CME flank
+data_products:
+  - instrument: STEREO/SECCHI COR or analogous coronagraph
+    level: L1/L2
+    cadence: imaging cadence
+    interval: CME event (TODO date)
+    archive: SDAC / SOAR
+  - instrument: SDO/AIA
+    level: L1
+    cadence: 12 s / 304–171 Å
+    interval: CME event
+    archive: JSOC
+algorithms:
+  - name: Vortex identification in coronagraph difference images
+  - name: Alfvénic-threshold (KH criterion) computation along flank
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/psp_analysis_2020_2026.md §4

@@ -1,0 +1,22 @@
+slug: suprathermal-electron-whistler-scattering-2024
+title: >-
+  Quantifying the Diffusion of Suprathermal Electrons by Whistler Waves Between 0.2 and 1 AU
+authors:
+  - "+ co-authors (TODO verify full list)"
+year: 2024
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2402.06016"
+theme: whistler-suprathermal-electron-diffusion
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - Multi-mission whistler amplitudes
+  - Strahl-PAD data
+methods:
+  - Quasi-linear pitch-angle diffusion
+  - Strahl-width evolution comparison
+validation_targets:
+  - Strahl-width within ±20% of obs (TODO verify)
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2402.06016

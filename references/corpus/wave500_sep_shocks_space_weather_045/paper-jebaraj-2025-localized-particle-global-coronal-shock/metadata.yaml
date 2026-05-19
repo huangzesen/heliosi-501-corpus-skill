@@ -1,0 +1,26 @@
+slug: paper-jebaraj-2025-localized-particle-global-coronal-shock
+title: "Signatures of localised particle acceleration at a global coronal shock wave"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2603.23335"
+theme: heliophysics-localized-particle-acceleration-coronal-shock
+category: primary-observation
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - SDO/AIA + STEREO/SECCHI EUV
+  - Multi-vantage radio (Wind/STEREO/PSP/SOLO)
+  - Multi-mission SEP in-situ
+methods:
+  - Per-instrument localization of acceleration signature
+  - Shock-surface mapping
+  - Connectivity-based observer-to-spot correspondence
+validation_targets:
+  - Identified localized acceleration sites along a global shock (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.23335

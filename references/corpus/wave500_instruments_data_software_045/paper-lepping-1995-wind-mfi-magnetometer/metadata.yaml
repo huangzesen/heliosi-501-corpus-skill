@@ -1,0 +1,27 @@
+slug: paper-lepping-1995-wind-mfi-magnetometer
+title: The WIND Magnetic Field Investigation
+authors:
+  - "Lepping, R. P."
+year: 1995
+journal: Space Science Reviews
+doi: null
+arxiv: null
+ads_bibcode: null
+theme: instrument-wind-mfi
+source_type: paper
+quality_level: stub
+executable_status: contract-specified-not-yet-benchmarked
+required_data:
+  - Wind/MFI L2 (3 s (key), 1 min, 1 hour)
+  - Wind/MFI high-resolution L2 (11 Hz / 22 Hz)
+methods:
+  - Wind/MFI despin and offset correction
+  - Range-auto-switch validity flag interpretation
+validation_targets:
+  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+source_inventory:
+  - ".library/custom/heliophysics-skills/reference/instruments.md (Wind/MFI entry, TODO verify)"
+links:
+  data_repo: https://cdaweb.gsfc.nasa.gov/pub/data/wind/mfi/
+weak_entries:
+  - "DOI not in local inventory; cite Space Sci. Rev. 71, 207 (1995) when verifying"

@@ -1,0 +1,42 @@
+slug: magyar-2024-synthetic-modeling-plasma-frame-psp
+title: >-
+  Solar wind data analysis aided by synthetic modeling: a better understanding of plasma-frame variations from temporal data
+authors:
+  - N. Magyar
+  - J. Verniero
+  - A. Szabo
+year: 2024
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2405.12547"
+theme: synthetic-modeling-plasma-frame-psp
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: other
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+trigger_keywords:
+  - plasma-frame
+  - synthetic modeling
+  - Taylor hypothesis
+  - single-spacecraft inference
+data_products:
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: 1 Hz/burst
+    interval: PSP encounter test intervals
+    archive: SPDF/CDAWeb
+  - instrument: PSP/SWEAP
+    level: L3
+    cadence: encounter cadence
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Synthetic MHD/turbulence model generator
+  - name: Spacecraft-frame → plasma-frame mapping via model-data matching
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 §7

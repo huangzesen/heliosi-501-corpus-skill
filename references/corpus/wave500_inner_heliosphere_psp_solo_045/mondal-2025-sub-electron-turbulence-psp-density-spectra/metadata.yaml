@@ -1,0 +1,46 @@
+slug: mondal-2025-sub-electron-turbulence-psp-density-spectra
+title: >-
+  The Nature of Turbulence at Sub-Electron Scales in the Solar Wind
+authors:
+  - S. Mondal
+  - C. H. K. Chen
+  - D. Manzini
+year: 2025
+journal: arXiv preprint
+doi: TODO_verify_with_full_text
+arxiv: "2509.17061"
+theme: psp-sub-electron-density-spectra-electrostatic
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+kind: paper-skill
+primary_theme: turbulence
+missions:
+  - PSP
+regime:
+  - inner-heliosphere
+  - electron-scale
+  - kinetic
+trigger_keywords:
+  - sub-electron turbulence
+  - density spectrum
+  - spacecraft potential
+  - electron entropy cascade
+  - −10/3 slope
+data_products:
+  - instrument: PSP/FIELDS spacecraft potential
+    level: L2/L3 (density proxy)
+    cadence: burst cadence
+    interval: PSP encounter windows (TODO verify)
+    archive: SPDF/CDAWeb
+  - instrument: PSP/FIELDS MAG
+    level: L2
+    cadence: burst
+    interval: matching intervals
+    archive: SPDF/CDAWeb
+algorithms:
+  - name: Density derivation from spacecraft potential (calibration)
+  - name: Density power-spectral-density computation
+  - name: Spectral-slope fitting in sub-electron range
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 3 §8

@@ -1,0 +1,43 @@
+slug: paper-zhu-2025-ai-scientists-fail-without-implementation
+title: "AI Scientists Fail Without Strong Implementation Capability"
+authors:
+  - "Minjun Zhu"
+  - "Qiujie Xie"
+  - "Yixuan Weng"
+  - "Jian Wu"
+  - "Zhen Lin"
+  - "Linyi Yang"
+year: 2025
+journal: "arXiv preprint"
+doi: null
+arxiv: "2506.01372"
+theme: agent-runtime-critique-implementation
+category: critique
+source_type: agent-runtime-positioning
+quality_level: positioning-skill-not-executable-science
+executable_status: manuscript-checklist-only
+harness_agnostic: true
+required_data:
+  - HelioSI manuscript draft (or any agent-runtime manuscript target)
+  - HelioSI benchmark spec (or any agent-runtime benchmark target)
+  - Sibling paper-skills from this corpus
+methods:
+  - "Quantitative scoring of AI-Scientist outputs across writing vs. implementation axes"
+  - "Identification of implementation-capability gaps"
+  - "Recommendation set for closing the gaps"
+validation_targets:
+  - Manuscript coverage of the central claim with claim_boundary intact
+  - Refusal of out-of-scope overclaims listed in claim_boundary.out_of_scope
+  - Emission of machine-readable research_generation_affordances for graph walkers
+research_generation_affordances:
+  - "[hypothesis] HelioSI's 'paper-skill corpus + executable contracts + benchmark artifacts' design directly addresses the implementation gap this paper diagnoses; the HelioSI manuscript should cite it as one of the diagnoses HelioSI answers."
+  - "[minimal_experiment] Add an implementation-rigor score to HelioSI's benchmark report (fraction of skills with passing contract, fraction with reproducible figure) and compare against the AI-Scientist v2 baseline reported in the critique."
+depends_on:
+  - paper-lu-2024-ai-scientist-fully-automated-discovery
+  - paper-yamada-2025-ai-scientist-v2-agentic-tree-search
+source_inventory:
+  - "sioulas-reproduction/results/paper_skill_corpus/wave500_agent_runtime_eval_design_045/manifest.json"
+  - "sioulas-reproduction/results/agent_runtime_paper_scan_raw.md"
+  - "sioulas-reproduction/results/agent_runtime_2026_only_synthesis.md"
+  - "sioulas-reproduction/results/agent_runtime_additional_exact_metadata.md"
+  - "sioulas-reproduction/results/agent_runtime_comparable_papers_synthesis.md"

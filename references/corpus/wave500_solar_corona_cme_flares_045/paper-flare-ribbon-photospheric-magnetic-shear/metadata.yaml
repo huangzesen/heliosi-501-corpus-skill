@@ -1,0 +1,45 @@
+slug: paper-flare-ribbon-photospheric-magnetic-shear
+title: "Photospheric Magnetic-Flux Reconnection Rate from Flare Ribbon Expansion"
+authors:
+  - "TODO verify (canonical: Qiu et al. 2002; Kazachenko et al. 2017)"
+year: TODO_verify
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+arxiv: TODO_verify
+theme: solar_corona_cme_remote_sensing
+secondary_themes:
+  - flare_modeling
+  - reconnection_diagnostics
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+harness_agnostic: true
+layers:
+  scientific_invariant: true
+  executable_protocol: true
+  adapter_binding_examples: true
+  research_generation_affordance: true
+required_data:
+  - AIA 1600 Å (UV ribbon)
+  - HMI LOS magnetogram
+  - CME poloidal flux (optional, for comparison)
+methods:
+  - Time-resolved ribbon-mask integration
+  - Newly-swept flux accumulation
+  - Reconnection-rate time series
+validation_targets:
+  - Φ_rec vs CME poloidal flux within factor ~2 (TODO verify)
+trigger_keywords:
+  - flare ribbon reconnection flux
+  - Kazachenko 2017
+  - Qiu 2002
+  - photospheric reconnection rate
+  - ribbon magnetogram
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/extended_search.md
+related_local_skills: []
+provenance:
+  generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
+  verified_by: null
+  verified_at: null

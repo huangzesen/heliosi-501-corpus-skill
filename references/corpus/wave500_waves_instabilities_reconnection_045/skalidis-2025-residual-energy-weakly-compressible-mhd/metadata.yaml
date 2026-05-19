@@ -1,0 +1,27 @@
+slug: skalidis-2025-residual-energy-weakly-compressible-mhd
+title: >-
+  Residual Energy in Weakly Compressible Turbulence with a Mean Guide Field
+authors:
+  - R. Skalidis
+  - A. Tritsis
+  - J. R. Beattie
+  - P. F. Hopkins
+year: 2025
+journal: TODO_verify_journal
+doi: TODO_verify_with_full_text
+arxiv: "2512.11973"
+theme: mhd-turbulence-residual-energy-compressible
+quality_level: stub
+executable_status: contract-spec-only-not-yet-runnable
+required_data:
+  - MHD DNS code with mean-field guide and forcing switch
+  - Inertial-range spectral fitter
+methods:
+  - Weakly compressible MHD DNS
+  - Switchable velocity/magnetic forcing
+  - Spectral-slope fitting of residual energy
+validation_targets:
+  - α ≈ −3/2 for magnetic forcing; α ≈ −1 for kinetic forcing
+  - β-dependent slope trend reproduced
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.11973

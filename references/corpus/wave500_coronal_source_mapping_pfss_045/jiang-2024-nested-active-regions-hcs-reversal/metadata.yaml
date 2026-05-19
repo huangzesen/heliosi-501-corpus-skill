@@ -1,0 +1,48 @@
+slug: jiang-2024-nested-active-regions-hcs-reversal
+title: >-
+  Nested Active Regions Anchor the Heliospheric Current Sheet and Stall the Reversal of the Coronal Magnetic Field
+authors:
+  - TODO_verify
+first_author: TODO_verify
+year: 2024
+arxiv: "2410.18244"
+arxiv_date: "2024-10-23"
+journal: TODO_verify_with_full_text
+doi: TODO_verify_with_full_text
+theme: pfss_source_mapping
+secondary_themes:
+  - heliospheric_current_sheet
+  - active_regions
+category: heliophysics-method
+compilation_type: heliophysics-method
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - HMI synoptic Br across the studied maximum.
+  - BMR/AR catalog with emergence locations.
+methods:
+  - Nested ARs are identifiable in HMI synoptic Br.
+  - PFSS HCS is a meaningful proxy for in-situ HCS anchor longitude.
+  - SFT correctly evolves polar field given the BMR catalog.
+validation_targets:
+  - Reproduce the longitude-locked HCS stalls.
+trigger_keywords:
+  - nested AR
+  - HCS anchor
+  - polar reversal
+  - stall
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+related_local_skills:
+  - .library/custom/pfss-tracing/SKILL.md
+todos:
+  - lead author
+  - DOI
+  - nested-AR definition
+  - SFT parameters
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch, 2026-05-18)
+  generated_at: 2026-05-18T00:00:00Z
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_pfss_modeling.json
+  verified_by: null
+  verified_at: null

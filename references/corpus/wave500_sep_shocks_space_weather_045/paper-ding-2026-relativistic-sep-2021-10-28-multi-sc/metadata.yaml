@@ -1,0 +1,23 @@
+slug: paper-ding-2026-relativistic-sep-2021-10-28-multi-sc
+title: "Multi-spacecraft constraints on relativistic solar energetic particle transport in the widespread 28 October 2021 event"
+authors:
+  - "TODO verify"
+year: 2026
+journal: "Journal — TODO_verify_with_full_text"
+doi: TODO_verify_with_full_text
+arxiv: "2603.09839"
+theme: heliophysics-relativistic-sep-2021-10-28-widespread
+category: primary-observation-modeling
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+required_data:
+  - Multi-mission relativistic-proton channels
+methods:
+  - Per-observer relativistic-proton onset / peak
+  - Multi-observer transport-parameter posterior
+validation_targets:
+  - Posterior on κ_par(E_rel), injection / connectivity (TODO_verify numerics).
+weak_entries:
+  - Author list, venue, DOI, exact numerics — TODO_verify_with_full_text
+source_inventory:
+  - sioulas-reproduction/results/arxiv_papers/theme_energetic_particles.json#arxiv:2603.09839
