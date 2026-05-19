@@ -291,6 +291,33 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   provide the reproducible audit (`--json`, `--strict`) and pin the doc ↔
   corpus consistency checks. Closes #58.
 
+### Issue #59 — non-ASCII title characters are intentional scientific typography
+
+- `scripts/audit_title_unicode.py` — stdlib + PyYAML audit that scans
+  manifest `entries[].title` and per-entry `metadata.yaml` `title:` for
+  non-ASCII code points, classifies them against a narrow allowlist
+  (LATIN with diacritics for "Alfvénic" / "Ångström" / author names,
+  EM/EN dash, Greek α/β/δ used as physics parameters, °, ×, and U+0298
+  ISʘIS), and flags suspicious code points (U+FFFD, C0/C1 controls,
+  zero-width / bidi controls, surrogates) plus NFC drift and
+  manifest ↔ metadata.yaml unicode-set divergence. `--json` and
+  `--strict` modes match the conventions used by the other
+  `scripts/audit_*.py` helpers.
+- `references/corpus_qa_report_v2.md` adds §10 "Title-unicode audit
+  (issue #59)" publishing the live counts: 95 / 501 manifest entries
+  carry non-ASCII titles, drawn from exactly 11 unique code points all
+  on the expected allowlist (U+00B0, U+00C5, U+00D7, U+00E4, U+00E9,
+  U+0298, U+03B1, U+03B2, U+03B4, U+2013, U+2014); 0 suspicious chars;
+  0 NFC drift; 0 unicode-set divergences between manifest and
+  metadata.yaml; 3 unrelated content-length divergences are flagged as
+  out-of-scope. The previous §10 "Acceptance summary" is renumbered to
+  §11 and gains a new row pinning the issue-#59 audit.
+- `tests/test_title_unicode.py` runs the script in `--json --strict`
+  mode and pins both the audit-output invariants (no suspicious /
+  unexpected / NFC-drifted / unicode-set-divergent titles) and the
+  doc ↔ corpus consistency (`corpus_qa_report_v2.md` §10 cites the
+  live 95-entry / 11-unique-code-point headline). Closes #59.
+
 ### Added
 - `LICENSE` (MIT for the bundle code; explanatory note that the per-entry
   corpus content paraphrases third-party papers whose copyright remains
@@ -371,8 +398,10 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   authorship-placeholder canonicalization, `layer2_stub` flag,
   `authors_verified` parity mirror, and
   `research_generation_affordances_present` flag).
-- The v2 roll-up Markdown files (`corpus_index_v2.md`,
-  `corpus_qa_report_v2.md`). Counts and tier distributions are unchanged.
+- The v2 index roll-up (`corpus_index_v2.md`) and manifest `totals.*` block
+  remain unchanged by the title-unicode audit; `corpus_qa_report_v2.md` is
+  changed only to add the issue-#59 audit section and renumber the acceptance
+  summary.
 - Manifest `totals.*` block — every count and slug-uniqueness assertion is
   byte-identical to the 0.1.0 snapshot.
 - All security-labeled issues (#5 manifest-path traversal, #31 external
@@ -380,7 +409,7 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   are intentionally **out of scope** for this batch and remain open.
   They need a security-focused review.
 - The remaining non-security docs / corpus-curation issues (#18–#22,
-  #33, #34, #39, #41, #44, #55–#57, #59, #61) are NOT addressed here —
+  #33, #34, #39, #41, #44, #55–#57, #61) are NOT addressed here —
   they require curatorial or roadmap decisions about the corpus itself
   (unifying per-batch manifest schemas, populating Layer-2 contracts,
   reconciling `quality` vs `quality_level`, deciding the next roadmap,

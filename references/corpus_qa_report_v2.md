@@ -353,7 +353,99 @@ mode and asserts the numbers in this section match what the corpus
 actually contains, so any future change to the underlying entries
 surfaces as a test failure in CI rather than silent doc drift.
 
-## 10. Acceptance summary
+## 10. Title-unicode audit (issue #59)
+
+Issue #59 flagged that 95 / 501 manifest entries carry non-ASCII characters
+in their `title` field (e.g. `'SunPy — Python for Solar Physics'` with a
+U+2014 EM DASH, `'Alfvénic solar wind …'` with U+00E9, `'(ISʘIS)'` with
+U+0298). The likely correct fix is **not** to ASCII-normalize the titles —
+scientific typography (Greek parameter names, accented author names, the
+ISʘIS solar-disk glyph, the degree sign, Å, ×) is intentional and the
+ASCII-stripped form would lose information. The audit therefore confirms,
+rather than rewrites, the corpus: every non-ASCII title character must fall
+on an expected scientific/typographic allowlist, and no title may carry a
+Unicode-replacement glyph (U+FFFD), a C0/C1 control, or a zero-width /
+bidi-control character. The numbers below are computed by
+`scripts/audit_title_unicode.py` and pinned by
+`tests/test_title_unicode.py`.
+
+**Headline counts (manifest `entries[].title` surface):**
+
+| Metric | Value |
+|---|---:|
+| Entries with non-ASCII title | **95 / 501** |
+| Unique non-ASCII code points | **11 unique non-ASCII** |
+| Suspicious (U+FFFD / Cc / Cf / Co / Cs) | **0** |
+| NFC-drifted titles | **0** |
+| Non-ASCII code points outside the expected allowlist | **0** |
+
+The `metadata.yaml` top-level `title:` surface independently shows the same
+95 / 501 entries with non-ASCII titles and the same 11 unique code points;
+the audit also confirms there are 0 unicode-set divergences between the two
+surfaces, so the 95-entry headline is honest across surfaces. Three entries
+(`bale-2016-fields-instrument-suite-psp`,
+`ai-farside-synchronic-coronal-field-extrapolation`,
+`paper-panigrahi-2026-heurekabench-pipeline-construction-method`) have a
+content-length divergence between the manifest and the metadata.yaml title
+(one carries a longer subtitle than the other); that divergence is real but
+not a unicode-set divergence and is therefore tracked separately from this
+audit.
+
+**Expected non-ASCII allowlist (the 11 code points actually used):**
+
+| Code point | Glyph | Unicode name | Count (manifest) | Intent |
+|---|---:|---|---:|---|
+| U+00B0 | ° | DEGREE SIGN | 1 | angular / temperature unit |
+| U+00C5 | Å | LATIN CAPITAL LETTER A WITH RING ABOVE | 1 | "Ångström" |
+| U+00D7 | × | MULTIPLICATION SIGN | 1 | physics multiplication |
+| U+00E4 | ä | LATIN SMALL LETTER A WITH DIAERESIS | 1 | author name (German) |
+| U+00E9 | é | LATIN SMALL LETTER E WITH ACUTE | 51 | "Alfvénic", author names |
+| U+0298 | ʘ | LATIN LETTER BILABIAL CLICK | 1 | IS☉IS instrument glyph (proxy for solar disk) |
+| U+03B1 | α | GREEK SMALL LETTER ALPHA | 1 | physics parameter |
+| U+03B2 | β | GREEK SMALL LETTER BETA | 2 | physics parameter |
+| U+03B4 | δ | GREEK SMALL LETTER DELTA | 1 | physics parameter |
+| U+2013 | – | EN DASH | 11 | typographic ranges |
+| U+2014 | — | EM DASH | 31 | title separator |
+
+The allowlist is intentionally narrow: a new code point requires a
+deliberate update to `EXPECTED_ALLOWLIST` in
+`scripts/audit_title_unicode.py`, which makes any future change visible in
+code review. If the audit ever reports an `unexpected_non_ascii` code
+point, the curator must either fix the title or extend the allowlist after
+confirming the new glyph is intentional.
+
+**How to read these numbers:**
+
+- The 95-entry count is **expected**, not a defect. The corpus paraphrases
+  third-party papers whose titles legitimately use scientific typography;
+  forcing ASCII would silently mis-cite "Alfvénic" as "Alfvenic" and the
+  ISʘIS instrument as ISIS (a different mission).
+- The audit fails strict-mode only on the **real** failure modes: a
+  suspicious code point (replacement / control / format / surrogate), an
+  unexpected non-ASCII code point outside the allowlist, an NFC drift, or
+  a manifest ↔ metadata.yaml divergence on the *set* of non-ASCII code
+  points used. None of these are present today.
+- Content-length divergences between the manifest and metadata.yaml
+  `title` fields are reported by the audit but do **not** fail strict
+  mode — they are out of scope for issue #59 and tracked separately.
+
+**Reproducibility:**
+
+```bash
+python3 scripts/audit_title_unicode.py            # human-readable
+python3 scripts/audit_title_unicode.py --json     # machine-readable
+python3 scripts/audit_title_unicode.py --strict   # CI: non-zero on
+                                                  # suspicious / unexpected /
+                                                  # NFC drift / unicode-set
+                                                  # divergence
+```
+
+`tests/test_title_unicode.py` runs the script in `--json --strict` mode and
+asserts the numbers in this section match what the corpus actually
+contains, so any future change to the underlying entries surfaces as a
+test failure rather than silent doc drift.
+
+## 11. Acceptance summary
 
 | Requirement | Status |
 |---|---|
@@ -366,6 +458,7 @@ surfaces as a test failure in CI rather than silent doc drift.
 | (7) Weak entries / TODO classes by batch | ✓ — §6 + per-batch manifests (unchanged) |
 | (8) Validate JSON parses; counts match 501; duplicate slugs zero; three v2 files exist | ✓ — §1–2; one-liner provided |
 | (9) Publish fully/partially-populated `layers:` counts; reword aggregator headline (issue #58) | ✓ — §9 here + `SKILL.md` / `README.md` / `corpus_index_v2.md` §2 |
+| (10) Audit non-ASCII title characters; confirm intentional scientific typography (issue #59) | ✓ — §10 here + `scripts/audit_title_unicode.py` + `tests/test_title_unicode.py` |
 | Do not touch `.library/custom/` or live skill catalog | ✓ — only writes are under `paper_skill_corpus/` |
 | Do not overwrite v1 roll-up files | ✓ — `corpus_manifest.json`, `corpus_index.md`, `corpus_qa_report.md` preserved unchanged; v2 files are new |
 | Do not rewrite existing paper-skills | ✓ — only the three v2 roll-up files were written |
