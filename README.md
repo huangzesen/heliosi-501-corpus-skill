@@ -224,6 +224,27 @@ The CLI also supports `--maturity-tier T1|T2|...|T7` (repeatable) for
 plain tier filtering, and either filter can be combined with `--query`
 or used standalone (no separate command needed).
 
+### Internalization-readiness audit
+
+`scripts/audit_internalization_readiness.py` scores every entry on
+**bibliographic anchor + Layer-1 claim + Layer-2 protocol + validation
+target + Layer-4 affordance + identity completeness**, with a TODO
+density penalty layered on top. The audit is **non-blocking by default**;
+the optional `--strict-active` flag fails CI only when entries flagged
+as active (quality_level in `{method-ready, paper-grounded-locally-
+reproduced, pilot, pilot_weak_attribution}`) drop below the configured
+`--min-active-score`. Pre-generated reports live at:
+
+- `reports/internalization_readiness_report.md` — human prose with the
+  worst-debt ranking, per-batch recommendations, and concrete next
+  parallel batches for content-internalization daemons.
+- `reports/internalization_readiness_audit.json` — compact JSON summary
+  (top-100 worst-debt entries + per-batch / per-quality means).
+
+Run `python3 scripts/audit_internalization_readiness.py --top 30` for an
+on-demand snapshot. Tests pinning the audit's stable invariants live in
+`tests/test_internalization_readiness.py`.
+
 ## Companion MCP adapters (external, not bundled)
 
 Two domain MCPs are first-class companions to this skill. They live in

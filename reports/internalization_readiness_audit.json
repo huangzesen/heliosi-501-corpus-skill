@@ -1,0 +1,2247 @@
+{
+  "schema_version": "internalization-readiness-1.0",
+  "summary": {
+    "total_entries": 501,
+    "active_entries": 51,
+    "mean_score": 60.85,
+    "median_score": 61.34,
+    "min_score": 24.14,
+    "max_score": 79.0,
+    "histogram": {
+      "0-24": 1,
+      "25-49": 21,
+      "50-69": 429,
+      "70-84": 50,
+      "85-100": 0
+    },
+    "by_batch_mean": {
+      "batch_mission_instruments_data_products": 53.22,
+      "batch_solar_wind_segmentation_ml": 53.64,
+      "wave500_waves_instabilities_reconnection_045": 53.7,
+      "wave500_inner_heliosphere_psp_solo_045": 55.37,
+      "batch_turbulence_heating_apj": 56.42,
+      "wave500_solar_corona_cme_flares_045": 57.16,
+      "pilot_2026_and_runtime": 58.34,
+      "wave500_turbulence_intermit_heating_045": 58.48,
+      "wave500_sw_classification_ml_foundation_045": 58.77,
+      "pilot_turbulence": 60.56,
+      "batch_heliophysics_software_infrastructure": 61.05,
+      "wave500_agent_runtime_eval_design_045": 63.42,
+      "wave500_sep_shocks_space_weather_045": 64.9,
+      "wave500_instruments_data_software_045": 66.75,
+      "wave500_coronal_source_mapping_pfss_045": 67.98,
+      "batch_psp_switchbacks_magnetic": 69.11,
+      "batch_sep_energetic_particles": 69.37,
+      "batch_pfss_source_mapping": 70.1
+    },
+    "by_quality_mean": {
+      "stub-historical-ecosystem-map": 56.23,
+      "pilot": 56.3,
+      "stub": 58.66,
+      "pilot_weak_attribution": 59.8,
+      "paper-grounded-pending-full-text": 61.97,
+      "stub-historical-anchor": 62.0,
+      "positioning-skill-not-executable-science": 63.24,
+      "stub-infrastructure": 64.33,
+      "method-ready": 66.07,
+      "link-only-cross-batch": 69.41,
+      "paper-grounded-locally-reproduced": 70.73
+    },
+    "active_score_min": 50.5,
+    "active_score_mean": 60.48
+  },
+  "weights": {
+    "bibliographic_anchor": 25,
+    "identity": 10,
+    "layer1_claim": 25,
+    "layer2_protocol": 20,
+    "validation_target": 10,
+    "layer4_affordance": 10,
+    "max_todo_penalty": 15
+  },
+  "min_active_score_default": 55.0,
+  "worst_debt_top_100": [
+    {
+      "rank": 1,
+      "score": 24.14,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "chandran-2010-stochastic-heating-perp-alfven",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 20,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 2,
+      "score": 37.53,
+      "batch": "wave500_turbulence_intermit_heating_045",
+      "slug": "paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 0,
+        "validation_target": 1,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 3,
+      "score": 38.06,
+      "batch": "wave500_turbulence_intermit_heating_045",
+      "slug": "paper-cuesta-2022-intermittency-psp-helios-voyager",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 0,
+        "validation_target": 1,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 4,
+      "score": 38.65,
+      "batch": "wave500_turbulence_intermit_heating_045",
+      "slug": "paper-andres-2021-incompressible-cascade-anisotropic-pp",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 9,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 0,
+        "validation_target": 1,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 5,
+      "score": 39.23,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "kelvin-helmholtz-cme-large-scale-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 6,
+      "score": 39.37,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "oblique-drift-instability-solar-wind-heating-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 7,
+      "score": 39.46,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "interchange-reconnection-pseudostreamer-metis-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 8,
+      "score": 39.51,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "wave-particle-equilibria-heavy-ions-2026",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 9,
+      "score": 39.53,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "ion-acoustic-damping-instability-solo-2026",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 10,
+      "score": 39.56,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "anti-equilibrium-alfven-ion-cyclotron-effects-2023",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 11,
+      "score": 39.96,
+      "batch": "wave500_turbulence_intermit_heating_045",
+      "slug": "paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 8,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 0,
+        "validation_target": 1,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 12,
+      "score": 41.62,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "rotational-discontinuity-proton-beam-generation-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 13,
+      "score": 41.69,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "stochastic-heating-sub-alfvenic-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 14,
+      "score": 41.82,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "regulation-proton-alpha-flow-compressive-2023",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 3,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 15,
+      "score": 42.43,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "klein-2018-multispecies-stability-anisotropy",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 16,
+      "score": 47.3,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "pulupa-2020-fields-merged-scm-fluxgate-product",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 19,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 17,
+      "score": 47.67,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 8,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 18,
+      "score": 47.9,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "sinjan-2026-solo-phi-hrt-stray-light-calibration",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 19,
+      "score": 48.02,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "schwadron-2022-switchback-deflections-beyond-early-encounters",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 20,
+      "score": 48.2,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-so-phi-hrt-vector-magnetogram-radial-distance",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 3,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 21,
+      "score": 48.61,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "hcs-reconnection-statistics-psp-encounter-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 5,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 22,
+      "score": 49.04,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-coronal-plume-substructure-eui-high-cadence",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 9,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 3,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 23,
+      "score": 50.15,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-gong-network-synoptic-magnetogram-product",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 24,
+      "score": 50.34,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "bandyopadhyay-2025-helios-mission-archival-reanalysis",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 7,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 25,
+      "score": 50.4,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "halekas-2024-coronal-heating-switchback-budget-ruled-out",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 26,
+      "score": 50.5,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 25,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 27,
+      "score": 50.56,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "free-energy-sources-ion-scale-waves-psp-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 28,
+      "score": 50.69,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "ion-acoustic-velocity-space-signatures-2026",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 29,
+      "score": 50.7,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 30,
+      "score": 50.72,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "whistler-counter-propagating-encounter1-2023",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 31,
+      "score": 50.87,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-lasco-c2-c3-streamer-belt-density-radial-profile",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 32,
+      "score": 50.96,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "proton-alpha-aic-driven-instabilities-2023",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 33,
+      "score": 50.99,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-mdi-hmi-cross-calibration-synoptic-flux",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 34,
+      "score": 50.99,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-suvi-multi-wavelength-temperature-dem-corona",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 9,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 35,
+      "score": 51.0,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-trotta-2025-shock-detection-multispacecraft-ml",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 20,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 36,
+      "score": 51.29,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-source-surface-radius-optimization-eclipse-streamer",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 37,
+      "score": 51.35,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "suprathermal-electron-whistler-scattering-2024",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 38,
+      "score": 51.71,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "ion-driven-instabilities-classification-2023",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 39,
+      "score": 51.8,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-bloch-2024-uncertainty-nn-solar-wind-types",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 34,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 40,
+      "score": 51.9,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "vourlidas-2016-wispr-imaging-instrument-psp",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 41,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-collados-2024-mhd-emulator-coronal-wind",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 42,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-davila-2024-shapelet-solar-wind-discontinuities",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 43,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-grajeda-2025-acwe-magnetic-ch-extension-radio-microwave",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 44,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-jarolim-2024-ch-segmentation-cycle-validation",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 45,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-li-2020-solar-wind-supervised-extension-multi-mission",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 46,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-nguyen-2018-ml-icme-detection-svm",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 47,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-pal-2024-cir-stream-interaction-region-ml",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 48,
+      "score": 51.9,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-xu-borovsky-categorization-extension-1au",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 17,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 49,
+      "score": 52.0,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-cdflib-cdf-reader",
+      "quality_level": "method-ready",
+      "is_active": true,
+      "n_todo": 0,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 11,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 50,
+      "score": 52.0,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-plasmapy-plasma-physics-python",
+      "quality_level": "stub-infrastructure",
+      "is_active": false,
+      "n_todo": 0,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 11,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 51,
+      "score": 52.1,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-hu-2022-deep-swim-cnn-discontinuities",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 33,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 52,
+      "score": 52.1,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 33,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 53,
+      "score": 52.3,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "damicis-2025-solo-swa-alfvenic-streams-validation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 9,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 54,
+      "score": 52.74,
+      "batch": "pilot_turbulence",
+      "slug": "sioulas-2024-higher-order-3d-anisotropy",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 7,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 55,
+      "score": 52.8,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "muller-2020-solar-orbiter-mission-overview",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 56,
+      "score": 52.8,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "martinovic-2024-slow-wind-imbalanced-alfven-wave-heating",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 57,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-bloch-2022-bayesian-nn-solar-wind-classification",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 58,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-camporeale-2020-icme-classification-ml-benchmark",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 59,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-deep-swim-extension-cnn-window-stack",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 60,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-fung-2019-clustering-helio-streams",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 61,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-helio-scientific-llm-agent-discovery",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 62,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-li-2018-self-organizing-maps-solar-wind",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 63,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-moestl-2022-icmecat-helcats-catalog-baseline",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 64,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-rotter-2014-coronal-hole-detection-extension",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 65,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-rudisser-2024-icme-unet-realtime-deployment",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 66,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-stansby-2025-flux-tube-segmentation",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 67,
+      "score": 52.8,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "tool-skill-helioml-curated-ml-ready-helio-datasets",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 68,
+      "score": 53.1,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "fox-2016-psp-mission-design-orbit-encounters",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 13,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 69,
+      "score": 53.1,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "horbury-2020-solo-mag-vector-magnetometer",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 13,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 70,
+      "score": 53.1,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "owen-2020-solo-swa-plasma-suite",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 13,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 71,
+      "score": 53.1,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "paper-bloch-2024-uncertainty-nn-extension-1au",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 13,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 72,
+      "score": 53.1,
+      "batch": "wave500_sw_classification_ml_foundation_045",
+      "slug": "tool-skill-sktime-time-series-classification-for-helio",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 13,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 20,
+        "validation_target": 1,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 73,
+      "score": 53.21,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-rhessi-hxr-footpoint-asymmetry-flare",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 3,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 74,
+      "score": 53.3,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-coronal-hole-jet-population-statistics-aia",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 3,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 75,
+      "score": 53.32,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "torsional-alfven-firehose-plasma-heating-2024",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 76,
+      "score": 53.36,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "suprathermal-anisotropy-instabilities-stimulated-2024",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 77,
+      "score": 53.37,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "surface-waves-switchback-boundaries-psp-2025",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 78,
+      "score": 53.4,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "mccomas-2016-isois-energetic-particle-investigation-psp",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 12,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 79,
+      "score": 53.55,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-coronal-hole-deep-darkening-elemental-abundance",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 4,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 3,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 80,
+      "score": 53.58,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "bowen-2024-cyclotron-heating-rates-ion-scale-waves",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 81,
+      "score": 53.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-roy-2025-surya-heliophysics-foundation-model",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 82,
+      "score": 53.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-roy-2025-suryabench-ml-benchmark-dataset",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 83,
+      "score": 53.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-rudisser-2022-icme-unet-automatic-detection",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 84,
+      "score": 53.65,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "sun-2024-magnetic-island-wispr-psp",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 7,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 85,
+      "score": 53.67,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "extreme-minor-ion-heating-imbalanced-turbulence-2024",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 86,
+      "score": 53.7,
+      "batch": "batch_mission_instruments_data_products",
+      "slug": "kasper-2016-sweap-investigation-psp",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 12,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 1,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 87,
+      "score": 53.7,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 88,
+      "score": 53.7,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "sun-2026-compound-reconnection-exhaust-mirror-modes-hcs",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 8,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 89,
+      "score": 53.77,
+      "batch": "wave500_waves_instabilities_reconnection_045",
+      "slug": "helicity-barrier-evidence-transition-range-2024",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 15,
+        "validation_target": 0,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 90,
+      "score": 53.9,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 27,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 91,
+      "score": 53.99,
+      "batch": "wave500_agent_runtime_eval_design_045",
+      "slug": "paper-mcgranaghan-2021-machine-learning-heliophysics-perspective",
+      "quality_level": "positioning-skill-not-executable-science",
+      "is_active": false,
+      "n_todo": 3,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 8,
+        "validation_target": 6,
+        "layer4_affordance": 10
+      }
+    },
+    {
+      "rank": 92,
+      "score": 54.0,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "bowen-2023-landau-damping-proton-electron-heating",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 93,
+      "score": 54.0,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "bowen-2024-extended-cyclotron-resonant-heating",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 94,
+      "score": 54.0,
+      "batch": "pilot_2026_and_runtime",
+      "slug": "tenerani-2026-spherically-polarized-magnetic-fields",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 95,
+      "score": 54.24,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 96,
+      "score": 54.29,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "ofman-2025-large-scale-kelvin-helmholtz-cme-driven",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 97,
+      "score": 54.3,
+      "batch": "wave500_inner_heliosphere_psp_solo_045",
+      "slug": "zhao-2025-mode-composition-magnetic-anisotropy-solar-wind",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 6,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 25,
+        "layer2_protocol": 8,
+        "validation_target": 0,
+        "layer4_affordance": 8
+      }
+    },
+    {
+      "rank": 98,
+      "score": 54.5,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-camporeale-2017-knn-solar-wind-categorization",
+      "quality_level": "pilot",
+      "is_active": true,
+      "n_todo": 25,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 99,
+      "score": 54.51,
+      "batch": "wave500_solar_corona_cme_flares_045",
+      "slug": "paper-magnetogram-noise-floor-quiet-sun-disambiguation",
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
+      "n_todo": 8,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 7,
+        "layer1_claim": 25,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 100,
+      "score": 54.76,
+      "batch": "wave500_instruments_data_software_045",
+      "slug": "paper-irispy-lmsal-sunpy-affiliated-iris-loader",
+      "quality_level": "stub",
+      "is_active": false,
+      "n_todo": 2,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    }
+  ],
+  "worst_debt_active_top_30": [
+    {
+      "rank": 1,
+      "score": 50.5,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation",
+      "quality_level": "pilot",
+      "n_todo": 25,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 2,
+      "score": 50.7,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
+      "quality_level": "pilot",
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 0,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 3,
+      "score": 51.8,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-bloch-2024-uncertainty-nn-solar-wind-types",
+      "quality_level": "pilot",
+      "n_todo": 34,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 4,
+      "score": 52.0,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-cdflib-cdf-reader",
+      "quality_level": "method-ready",
+      "n_todo": 0,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 11,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 5,
+      "score": 52.1,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-hu-2022-deep-swim-cnn-discontinuities",
+      "quality_level": "pilot",
+      "n_todo": 33,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 6,
+      "score": 52.1,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml",
+      "quality_level": "pilot",
+      "n_todo": 33,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 7,
+      "score": 52.74,
+      "batch": "pilot_turbulence",
+      "slug": "sioulas-2024-higher-order-3d-anisotropy",
+      "quality_level": "pilot",
+      "n_todo": 7,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 8,
+      "score": 52.8,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "martinovic-2024-slow-wind-imbalanced-alfven-wave-heating",
+      "quality_level": "pilot",
+      "n_todo": 14,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 9,
+      "score": 53.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-roy-2025-surya-heliophysics-foundation-model",
+      "quality_level": "pilot",
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 10,
+      "score": 53.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-roy-2025-suryabench-ml-benchmark-dataset",
+      "quality_level": "pilot",
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 11,
+      "score": 53.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-rudisser-2022-icme-unet-automatic-detection",
+      "quality_level": "pilot",
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 12,
+      "score": 53.7,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "quality_level": "pilot",
+      "n_todo": 11,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 13,
+      "score": 53.9,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation",
+      "quality_level": "pilot",
+      "n_todo": 27,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 14,
+      "score": 54.0,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "bowen-2023-landau-damping-proton-electron-heating",
+      "quality_level": "pilot",
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 15,
+      "score": 54.0,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "bowen-2024-extended-cyclotron-resonant-heating",
+      "quality_level": "pilot",
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 16,
+      "score": 54.5,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-camporeale-2017-knn-solar-wind-categorization",
+      "quality_level": "pilot",
+      "n_todo": 25,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 17,
+      "score": 55.4,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-katsavrias-2025-periodic-density-structures-solar-orbiter",
+      "quality_level": "pilot",
+      "n_todo": 22,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 18,
+      "score": 55.53,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-sunkit-magex-magnetic-field-extrapolation",
+      "quality_level": "method-ready",
+      "n_todo": 1,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 19,
+      "score": 55.76,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "pecora-2022-coherent-structures-proton-electron-heating",
+      "quality_level": "pilot",
+      "n_todo": 9,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 20,
+      "score": 56.0,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-cdaweb-heliophysics-archive",
+      "quality_level": "method-ready",
+      "n_todo": 0,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 21,
+      "score": 56.0,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-koikkalainen-2025-complexity-solar-wind-streams",
+      "quality_level": "pilot",
+      "n_todo": 20,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 22,
+      "score": 56.0,
+      "batch": "wave500_instruments_data_software_045",
+      "slug": "paper-psp-soc-science-operations-center-archive",
+      "quality_level": "method-ready",
+      "n_todo": 0,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 10,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 23,
+      "score": 56.21,
+      "batch": "pilot_turbulence",
+      "slug": "telloni-2021-psp-solo-radial-alignment-turbulence",
+      "quality_level": "pilot",
+      "n_todo": 5,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 6,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 24,
+      "score": 56.6,
+      "batch": "batch_solar_wind_segmentation_ml",
+      "slug": "paper-regan-2026-mars-solar-wind-ml-classification",
+      "quality_level": "pilot",
+      "n_todo": 28,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 5
+      }
+    },
+    {
+      "rank": 25,
+      "score": 57.0,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "cuesta-2022-compressible-turbulence-psp-themis-maven",
+      "quality_level": "pilot",
+      "n_todo": 10,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 26,
+      "score": 58.24,
+      "batch": "pilot_turbulence",
+      "slug": "chen-2021-near-sun-streamer-belt-turbulence",
+      "quality_level": "pilot",
+      "n_todo": 2,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 7,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 27,
+      "score": 58.72,
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "telloni-2025-psp-solo-radial-alignment-2022-december",
+      "quality_level": "pilot",
+      "n_todo": 9,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 28,
+      "score": 59.55,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-sioulas-sw-scanner-js-segmentation",
+      "quality_level": "method-ready",
+      "n_todo": 1,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 3
+      }
+    },
+    {
+      "rank": 29,
+      "score": 59.8,
+      "batch": "pilot_turbulence",
+      "slug": "damicis-2021-alfvenic-nonalfvenic-psp",
+      "quality_level": "pilot_weak_attribution",
+      "n_todo": 7,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 21,
+        "layer2_protocol": 15,
+        "validation_target": 10,
+        "layer4_affordance": 0
+      }
+    },
+    {
+      "rank": 30,
+      "score": 61.0,
+      "batch": "batch_heliophysics_software_infrastructure",
+      "slug": "paper-pyspedas-multimission-data-access",
+      "quality_level": "method-ready",
+      "n_todo": 0,
+      "component_scores": {
+        "bibliographic_anchor": 6,
+        "identity": 10,
+        "layer1_claim": 16,
+        "layer2_protocol": 20,
+        "validation_target": 6,
+        "layer4_affordance": 3
+      }
+    }
+  ]
+}

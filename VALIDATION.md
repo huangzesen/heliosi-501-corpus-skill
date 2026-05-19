@@ -147,6 +147,17 @@ total skills:                                  501
 
 Returns absolute paths for both `SKILL.md` and `metadata.yaml`, both reported `exists=True`. This is the sole T1 (locally reproduced) entry.
 
+### 4e. `python3 scripts/audit_internalization_readiness.py --top 30`
+
+Scores all 501 entries on bibliographic anchor + Layer-1 claim + Layer-2 protocol + validation + Layer-4 affordance + identity, with a TODO-density penalty. Exits 0 by default and prints a ranked worst-debt list; intended as a **non-blocking** debt thermometer rather than a CI gate. The optional `--strict-active` mode raises a non-zero exit only when entries flagged as active drop below `--min-active-score` (default 55), keeping the corpus's existing 85 % T3+T4 debt out of CI.
+
+Companion artifacts under `reports/`:
+
+- `reports/internalization_readiness_report.md` — worst-debt ranking, per-batch recommendations, and concrete next parallel batches for content-internalization daemons.
+- `reports/internalization_readiness_audit.json` — compact JSON summary (top-100 worst entries, per-batch / per-quality means, top-30 worst active).
+
+Stability invariants are pinned by `tests/test_internalization_readiness.py` (22 tests: 7 unit signal tests, 5 fixture-corpus tests, 10 live-corpus invariants).
+
 ## 5. SKILL.md aggregator integrity
 
 - Frontmatter present with `name: heliosi-501-corpus`, trigger-only `description`, `allowed-tools: Read, Grep, Glob, Bash`.

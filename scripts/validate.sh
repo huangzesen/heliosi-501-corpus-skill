@@ -809,4 +809,21 @@ if [[ -n "${skill_version}" ]] && ! echo "${version_out}" | grep -q "${skill_ver
   fail "--version (${version_out}) does not match SKILL.md version: ${skill_version}"
 fi
 
+# -- S5 internalization-readiness audit (non-blocking, --strict-active) -----
+# Runs the readiness audit in strict-active mode so the validator fails CI
+# only when a *currently-active* entry (quality_level in {method-ready,
+# paper-grounded-locally-reproduced, pilot, pilot_weak_attribution}) drops
+# below the floor. Non-active entries' debt is reported by the audit but
+# is intentionally not a CI-blocker -- 85 % of the corpus is T3+T4, so a
+# global score floor would block CI on by-design debt. The floor here
+# (50) is below the current active minimum (50.5) so this section is a
+# no-op until somebody regresses an active entry; raise the floor as
+# active entries are internalized.
+section "S5 internalization-readiness audit (active entries only)"
+
+python3 scripts/audit_internalization_readiness.py \
+    --strict-active --min-active-score 50 >/dev/null || \
+    fail "audit_internalization_readiness.py reported active entries below the floor"
+log "internalization-readiness audit ok (no active entries below floor)"
+
 printf 'validate.sh: OK -- all checks passed\n'
