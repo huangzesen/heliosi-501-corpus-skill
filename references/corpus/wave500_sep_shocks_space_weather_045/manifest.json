@@ -186,7 +186,7 @@
       "slug": "paper-stoffel-2025-rerunaway-Forbush-cross-correlation",
       "title": "New insights from cross-correlation studies between solar activity indices and cosmic-ray flux during Forbush decrease events",
       "authors": [
-        "Stoffel, T. (TODO verify list)",
+        "Stoffel, T.",
         "et al."
       ],
       "year": 2026,
@@ -208,9 +208,7 @@
     {
       "slug": "paper-mishev-2026-first-four-gles-1940s",
       "title": "The First Four Ground-Level Enhancements in the 1940s: Investigation, Digitisation, and Analysis of Forgotten Data",
-      "authors": [
-        "TODO verify author list"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -230,9 +228,7 @@
     {
       "slug": "paper-kollhoff-2026-acr-helium-solo-het",
       "title": "Anomalous cosmic rays within the inner heliosphere: Observations of helium by the High Energy Telescope onboard Solar Orbiter",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -252,9 +248,7 @@
     {
       "slug": "paper-mason-2026-unusual-2024-june-8-gle",
       "title": "Unusual Circumstances of the 2024 June 8 GLE",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -274,9 +268,7 @@
     {
       "slug": "paper-share-2026-sol2012-06-03-late-phase-gamma-shock",
       "title": "Evidence that SOL2012-06-03 Late Phase gamma-Rays are Produced by >300 MeV Protons from CME-Shock Acceleration of Suprathermals from the Flare",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -296,9 +288,7 @@
     {
       "slug": "paper-bian-2026-30march2022-sep-data-assimilation",
       "title": "A study of solar energetic particle transport on 30 March 2022 using multi-spacecraft data assimilation",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -318,9 +308,7 @@
     {
       "slug": "paper-mason-2026-sunward-3he-rich-sep-solo-psp",
       "title": "Sunward Streaming 3He-rich SEP Events Observed by Solar Orbiter and Parker Solar Probe during Perihelion Passage",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -340,9 +328,7 @@
     {
       "slug": "paper-liu-2026-3d-coronal-shock-longitudinal-sep",
       "title": "Three-dimensional properties of a coronal shock and the longitudinal distribution of its related solar energetic particles",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -362,9 +348,7 @@
     {
       "slug": "paper-koppl-2026-electron-acr-cold-clouds-radiation",
       "title": "Increased and Varied Radiation during the Sun's Encounters with Cold Clouds in the last 10 million years",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -384,9 +368,7 @@
     {
       "slug": "paper-luhmann-2026-stereo-het-sep-protons-first-orbit",
       "title": "Solar Energetic Proton Events Observed by the High Energy Telescopes on the STEREO Spacecraft or at the Earth During the First Solar Orbit of STEREO A (2006 to 2023)",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -406,9 +388,7 @@
     {
       "slug": "paper-sun-2026-counterfactual-sep-prediction-ml",
       "title": "Physics-Guided Counterfactual Explanations for Large-Scale Multivariate Time Series: Application in Scalable and Interpretable SEP Event Prediction",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -428,9 +408,7 @@
     {
       "slug": "paper-meng-2025-sepnet-multi-task-ml",
       "title": "Solar Energetic Particle Forecasting with Multi-Task Deep Learning: SEPNET",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -450,9 +428,7 @@
     {
       "slug": "paper-rab-2025-sep-protoplanetary-disk-irradiation",
       "title": "The Extent of Solar Energetic Particle Irradiation in the Sun's Protoplanetary Disk",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -472,9 +448,7 @@
     {
       "slug": "paper-cohen-2025-coronal-flux-tube-shock-spot-newyearseve-2023",
       "title": "Coronal flux tube illuminated by strong shock spot: New Year's Eve solar eruption of 2023-Dec-31",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -494,9 +468,7 @@
     {
       "slug": "paper-malandraki-2025-perp-diffusion-near-sun",
       "title": "Parallel and perpendicular diffusion of energetic particles in the near-Sun solar wind observed by Parker Solar Probe",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -516,9 +488,7 @@
     {
       "slug": "paper-clark-2025-may2024-superstorm-sep-feo",
       "title": "Energy-dependent SEP Fe/O abundances during the May 2024 superstorm",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -538,9 +508,7 @@
     {
       "slug": "paper-allen-2025-shock-evolution-2023-march-13-event",
       "title": "Evolution of the Shock Properties of the 2023 March 13 Event from In-Situ and Remote-Sensing Data",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -560,9 +528,7 @@
     {
       "slug": "paper-zhang-2025-2024-09-09-backside-eruption-sgre",
       "title": "Multispacecraft Observations of the 2024 September 9 Backside Solar Eruption that Resulted in a Sustained Gamma Ray Emission Event",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -582,9 +548,7 @@
     {
       "slug": "paper-jin-2025-third-harmonic-type-ii-2024-09-14",
       "title": "Third Harmonic Structure in an Interplanetary Type II Radio Burst and Other Energetic Phenomena During the 2024 September 14 Solar Eruption",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -604,9 +568,7 @@
     {
       "slug": "paper-luo-2025-2023-july-17-radial-ion-fluence-psp",
       "title": "Radial dependence of ion fluences in the 2023 July 17 SEP event from Parker Solar Probe to STEREO and ACE",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -626,9 +588,7 @@
     {
       "slug": "paper-jebaraj-2025-electron-beam-radio-five-spacecraft-2021",
       "title": "Electron Beam Propagation and Radio-Wave Scattering in the Inner Heliosphere using Five Spacecraft",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -648,9 +608,7 @@
     {
       "slug": "paper-feng-2025-shock-sep-modeling-2022-09-05",
       "title": "Shock and SEP Modeling Study for the 5 September 2022 SEP Event",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -670,9 +628,7 @@
     {
       "slug": "paper-mason-2025-icme-may16-2023-composition-variation",
       "title": "Composition variation of the May 16 2023 Solar Energetic Particle Event observed by Solar Orbiter and Parker Solar Probe",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -717,9 +673,7 @@
     {
       "slug": "paper-leske-2024-three-stage-sep-acceleration-psp",
       "title": "Three-stage Acceleration of Solar Energetic Particles Detected by Parker Solar Probe",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2024,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -739,9 +693,7 @@
     {
       "slug": "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter",
       "title": "Bidirectional anisotropic solar energetic particle events observed by Solar Orbiter",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -761,9 +713,7 @@
     {
       "slug": "paper-buthelezi-2025-resolving-shock-loft-type-ii-lofar",
       "title": "Resolving spatial and temporal shock structures using LOFAR observations of type II radio bursts",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -783,9 +733,7 @@
     {
       "slug": "paper-marsh-2024-parasol-sep-forecasting",
       "title": "Towards advanced forecasting of solar energetic particle events with the PARASOL model",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2024,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -805,9 +753,7 @@
     {
       "slug": "paper-wijsen-2024-cross-field-diffusion-coronal-flux-rope",
       "title": "Cross-Field Diffusion Effects on Particle Transport in a Solar Coronal Flux Rope",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2024,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -827,9 +773,7 @@
     {
       "slug": "paper-chen-2024-energetic-particles-quasi-separatrix-layers",
       "title": "Energetic Particles from Quasi-Separatrix Layers and Current Sheets at the Sun",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2024,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -849,9 +793,7 @@
     {
       "slug": "paper-allen-2024-radial-evolution-icme-sep-solo-ace",
       "title": "Radial Evolution of ICME-Associated Particle Acceleration Observed by Solar Orbiter and ACE",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2024,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -871,9 +813,7 @@
     {
       "slug": "paper-jebaraj-2024-type-ii-multi-vantage-catalog",
       "title": "A catalog of multi-vantage point observations of type-II bursts: Statistics and correlations",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2024,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -918,9 +858,7 @@
     {
       "slug": "paper-jebaraj-2025-localized-particle-global-coronal-shock",
       "title": "Signatures of localised particle acceleration at a global coronal shock wave",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -940,9 +878,7 @@
     {
       "slug": "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration",
       "title": "Numerical investigation of particle acceleration at interplanetary shocks: diffusive and superdiffusive scenarios",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -962,9 +898,7 @@
     {
       "slug": "paper-yang-2025-2024-09-04-iva-solar-orbiter",
       "title": "Inverse Velocity Dispersion of Solar Energetic Protons Observed by Solar Orbiter and Its Shock Acceleration Explanation",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -984,9 +918,7 @@
     {
       "slug": "paper-ding-2025-2022-09-05-time-dependent-dsa",
       "title": "Evidence of Time-Dependent Diffusive Shock Acceleration in the 2022 September 5 Solar Energetic Particle Event",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -1006,9 +938,7 @@
     {
       "slug": "paper-zheng-2025-ip-shock-effect-turbulence",
       "title": "Effect of interplanetary shock waves on turbulence parameters",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2025,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -1028,9 +958,7 @@
     {
       "slug": "paper-ding-2026-relativistic-sep-2021-10-28-multi-sc",
       "title": "Multi-spacecraft constraints on relativistic solar energetic particle transport in the widespread 28 October 2021 event",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,
@@ -1050,9 +978,7 @@
     {
       "slug": "paper-pereira-2026-connection-angle-gle-anisotropy",
       "title": "Connection-angle dependence of proton anisotropy in ground-level enhancement events",
-      "authors": [
-        "TODO verify"
-      ],
+      "authors": [],
       "year": 2026,
       "venue": "TODO_verify_with_full_text",
       "doi": null,

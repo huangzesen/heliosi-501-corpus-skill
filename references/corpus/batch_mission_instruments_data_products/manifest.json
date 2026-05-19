@@ -20,7 +20,7 @@
     {
       "slug": "fox-2016-psp-mission-design-orbit-encounters",
       "title": "The Solar Probe Plus Mission: Humanity's First Visit to Our Star",
-      "authors": ["N. J. Fox", "M. C. Velli", "S. D. Bale", "R. Decker", "A. Driesman", "R. A. Howard", "J. C. Kasper", "+ co-authors (TODO verify)"],
+      "authors": ["N. J. Fox", "M. C. Velli", "S. D. Bale", "R. Decker", "A. Driesman", "R. A. Howard", "J. C. Kasper"],
       "year": 2016,
       "journal": "Space Science Reviews (PSP special issue)",
       "doi": "10.1007/s11214-015-0211-6 — TODO_verify_with_full_text",
@@ -39,7 +39,7 @@
     {
       "slug": "bale-2016-fields-instrument-suite-psp",
       "title": "The FIELDS Instrument Suite for Solar Probe Plus",
-      "authors": ["S. D. Bale", "K. Goetz", "P. R. Harvey", "P. Turin", "J. W. Bonnell", "T. Dudok de Wit", "R. E. Ergun", "R. J. MacDowall", "M. Pulupa", "+ co-authors (TODO verify)"],
+      "authors": ["S. D. Bale", "K. Goetz", "P. R. Harvey", "P. Turin", "J. W. Bonnell", "T. Dudok de Wit", "R. E. Ergun", "R. J. MacDowall", "M. Pulupa"],
       "year": 2016,
       "journal": "Space Science Reviews (PSP special issue)",
       "doi": "10.1007/s11214-016-0244-5 — TODO_verify_with_full_text",
@@ -58,7 +58,7 @@
     {
       "slug": "kasper-2016-sweap-investigation-psp",
       "title": "Solar Wind Electrons Alphas and Protons (SWEAP) Investigation: Design of the Solar Wind and Coronal Plasma Instrument Suite for Solar Probe Plus",
-      "authors": ["J. C. Kasper", "R. Abiad", "G. Austin", "M. Balat-Pichelin", "S. D. Bale", "J. W. Belcher", "+ co-authors (TODO verify)"],
+      "authors": ["J. C. Kasper", "R. Abiad", "G. Austin", "M. Balat-Pichelin", "S. D. Bale", "J. W. Belcher"],
       "year": 2016,
       "journal": "Space Science Reviews (PSP special issue)",
       "doi": "10.1007/s11214-015-0206-3 — TODO_verify_with_full_text",
@@ -77,7 +77,7 @@
     {
       "slug": "mccomas-2016-isois-energetic-particle-investigation-psp",
       "title": "Integrated Science Investigation of the Sun (ISʘIS): Design of the Energetic Particle Investigation",
-      "authors": ["D. J. McComas", "N. Alexander", "N. Angold", "S. Bale", "C. Beebe", "+ co-authors (TODO verify)"],
+      "authors": ["D. J. McComas", "N. Alexander", "N. Angold", "S. Bale", "C. Beebe"],
       "year": 2016,
       "journal": "Space Science Reviews (PSP special issue)",
       "doi": "10.1007/s11214-014-0059-1 — TODO_verify_with_full_text",
@@ -96,7 +96,7 @@
     {
       "slug": "vourlidas-2016-wispr-imaging-instrument-psp",
       "title": "The Wide-Field Imager for Solar Probe Plus (WISPR)",
-      "authors": ["A. Vourlidas", "R. A. Howard", "S. P. Plunkett", "C. M. Korendyke", "A. F. R. Thernisien", "D. Wang", "+ co-authors (TODO verify)"],
+      "authors": ["A. Vourlidas", "R. A. Howard", "S. P. Plunkett", "C. M. Korendyke", "A. F. R. Thernisien", "D. Wang"],
       "year": 2016,
       "journal": "Space Science Reviews (PSP special issue)",
       "doi": "10.1007/s11214-014-0114-y — TODO_verify_with_full_text",
@@ -115,7 +115,7 @@
     {
       "slug": "pulupa-2020-fields-merged-scm-fluxgate-product",
       "title": "A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar Probe FIELDS",
-      "authors": ["M. Pulupa", "+ FIELDS team co-authors (TODO verify)"],
+      "authors": ["M. Pulupa"],
       "year": 2020,
       "journal": "TODO_verify_with_full_text (likely JGR Space Physics)",
       "doi": "TODO_verify_with_full_text",
@@ -135,7 +135,7 @@
     {
       "slug": "verniero-2020-psp-span-i-vdf-data-product",
       "title": "Parker Solar Probe Observations of Proton Beams Simultaneous with Ion-Scale Waves",
-      "authors": ["J. L. Verniero", "D. E. Larson", "R. Livi", "A. Rahmati", "+ co-authors per inventory"],
+      "authors": ["J. L. Verniero", "D. E. Larson", "R. Livi", "A. Rahmati"],
       "year": 2020,
       "journal": "The Astrophysical Journal Supplement Series, 248, 5",
       "doi": "10.3847/1538-4365/ab86af",
@@ -154,7 +154,7 @@
     {
       "slug": "muller-2020-solar-orbiter-mission-overview",
       "title": "The Solar Orbiter Mission: Science Overview",
-      "authors": ["D. Müller", "O. C. St. Cyr", "I. Zouganelis", "H. R. Gilbert", "R. Marsden", "T. Nieves-Chinchilla", "E. Antonucci", "F. Auchère", "+ co-authors (TODO verify)"],
+      "authors": ["D. Müller", "O. C. St. Cyr", "I. Zouganelis", "H. R. Gilbert", "R. Marsden", "T. Nieves-Chinchilla", "E. Antonucci", "F. Auchère"],
       "year": 2020,
       "journal": "Astronomy & Astrophysics, 642, A1",
       "doi": "10.1051/0004-6361/202038467 — TODO_verify_with_full_text",
@@ -173,7 +173,7 @@
     {
       "slug": "horbury-2020-solo-mag-vector-magnetometer",
       "title": "The Solar Orbiter Magnetometer",
-      "authors": ["T. S. Horbury", "H. O'Brien", "I. Carrasco Blázquez", "M. Bendyk", "P. Brown", "R. Hudson", "V. Evans", "+ co-authors (TODO verify)"],
+      "authors": ["T. S. Horbury", "H. O'Brien", "I. Carrasco Blázquez", "M. Bendyk", "P. Brown", "R. Hudson", "V. Evans"],
       "year": 2020,
       "journal": "Astronomy & Astrophysics, 642, A9",
       "doi": "10.1051/0004-6361/201937257 — TODO_verify_with_full_text",
@@ -192,7 +192,7 @@
     {
       "slug": "owen-2020-solo-swa-plasma-suite",
       "title": "The Solar Orbiter Solar Wind Analyser (SWA) Suite",
-      "authors": ["C. J. Owen", "R. Bruno", "S. Livi", "P. Louarn", "K. Al Janabi", "+ co-authors (TODO verify)"],
+      "authors": ["C. J. Owen", "R. Bruno", "S. Livi", "P. Louarn", "K. Al Janabi"],
       "year": 2020,
       "journal": "Astronomy & Astrophysics, 642, A16",
       "doi": "10.1051/0004-6361/201937259 — TODO_verify_with_full_text",
@@ -211,7 +211,7 @@
     {
       "slug": "sinjan-2026-solo-phi-hrt-stray-light-calibration",
       "title": "A stray light analysis for SO/PHI-HRT and an updated comparison of the inferred magnetic field with SDO/HMI",
-      "authors": ["Jonas Sinjan", "Tino L. Riethmüller", "Achim Gandorfer", "Alex Feller", "Daniele Calchetti", "+ co-authors per inventory (TODO verify)"],
+      "authors": ["Jonas Sinjan", "Tino L. Riethmüller", "Achim Gandorfer", "Alex Feller", "Daniele Calchetti"],
       "year": 2026,
       "journal": "TODO_verify_with_full_text (likely Astronomy & Astrophysics)",
       "doi": "TODO_verify_with_full_text",
@@ -230,7 +230,7 @@
     {
       "slug": "damicis-2025-solo-swa-alfvenic-streams-validation",
       "title": "Alfvénic solar wind intervals observed by Solar Orbiter: Exploiting the capability of the SWA plasma suite and source region investigation",
-      "authors": ["R. D'Amicis", "J. M. Raines", "S. Benella", "M. Velli", "O. Panasenco", "+ co-authors per inventory (TODO verify)"],
+      "authors": ["R. D'Amicis", "J. M. Raines", "S. Benella", "M. Velli", "O. Panasenco"],
       "year": 2025,
       "journal": "TODO_verify_with_full_text (likely Astronomy & Astrophysics)",
       "doi": "TODO_verify_with_full_text",

@@ -257,12 +257,18 @@ except ImportError:
 
 STARTS_TODO = re.compile(r'^\s*(?:TODO|TBD)', re.IGNORECASE)
 PAREN_TODO = re.compile(r'\((?:[^)]*\b)?(?:TODO|TBD)\b[^)]*\)', re.IGNORECASE)
+# "+ co-authors", "+ co-authors per inventory", "+ FIELDS team co-authors" --
+# template-only stand-ins for an unverified author tail. Treated as
+# placeholders even when no TODO marker is attached (issue #65).
+CO_AUTHORS = re.compile(r'\+\s*[^()]*\bco-?authors\b', re.IGNORECASE)
 
 
 def is_todo(s):
     if not isinstance(s, str):
         return False
-    return bool(STARTS_TODO.search(s) or PAREN_TODO.search(s))
+    return bool(
+        STARTS_TODO.search(s) or PAREN_TODO.search(s) or CO_AUTHORS.search(s)
+    )
 
 
 def check_authors_field(value, label, path, violations):
@@ -688,6 +694,90 @@ section "S4h unflagged numeric claims (issue #39)"
 
 python3 scripts/audit_numeric_claims.py --strict >/dev/null
 log "numeric-claims audit ok (no new unflagged tokens; allowlist clean)"
+
+# -- S4i per-batch manifest.json authorship hygiene (issue #65) --------------
+# Asserts that no per-batch ``references/corpus/*/manifest.json`` ships an
+# authorship placeholder string. The check walks every value in every
+# manifest and flags any string whose dotted key path includes a segment
+# containing ``author`` (case-insensitive) -- this catches first_author,
+# lead_author, authors[], and any future *author* field without having to
+# enumerate them. Forbidden patterns (mirrors S4d):
+#   - starts with TODO / TBD (case-insensitive)
+#   - parenthetical (... TODO/TBD ...) anywhere in the string
+#   - ``+ co-authors`` template (with or without a TODO marker)
+# Stdlib-only, no PyYAML dependency.
+section "S4i per-batch manifest.json authorship hygiene"
+
+python3 - <<'PY'
+import json
+import re
+import sys
+from pathlib import Path
+
+STARTS_TODO = re.compile(r'^\s*(?:TODO|TBD)', re.IGNORECASE)
+PAREN_TODO = re.compile(r'\((?:[^)]*\b)?(?:TODO|TBD)\b[^)]*\)', re.IGNORECASE)
+CO_AUTHORS = re.compile(r'\+\s*[^()]*\bco-?authors\b', re.IGNORECASE)
+AUTHOR_KEY = re.compile(r'author', re.IGNORECASE)
+
+
+def is_placeholder(s):
+    if not isinstance(s, str):
+        return False
+    return bool(
+        STARTS_TODO.search(s) or PAREN_TODO.search(s) or CO_AUTHORS.search(s)
+    )
+
+
+def walk(node, key_path, hits):
+    if isinstance(node, dict):
+        for k, v in node.items():
+            walk(v, key_path + [str(k)], hits)
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            walk(v, key_path + [f'[{i}]'], hits)
+    else:
+        if not any(AUTHOR_KEY.search(p) for p in key_path):
+            return
+        if is_placeholder(node):
+            hits.append(('.'.join(key_path), node))
+
+
+ROOT = Path('references/corpus')
+manifests = sorted(ROOT.glob('*/manifest.json'))
+if not manifests:
+    print('validate.sh: FAIL -- no per-batch manifest.json found', file=sys.stderr)
+    sys.exit(1)
+
+violations = []
+for mf in manifests:
+    try:
+        with open(mf) as f:
+            data = json.load(f)
+    except Exception as e:
+        violations.append(f'{mf}: JSON parse failure: {e}')
+        continue
+    hits = []
+    walk(data, [], hits)
+    for path, val in hits:
+        violations.append(f'{mf}: {path} placeholder: {val!r}')
+
+if violations:
+    print(
+        f'validate.sh: FAIL -- {len(violations)} manifest.json '
+        f'authorship-hygiene violations:',
+        file=sys.stderr,
+    )
+    for v in violations[:10]:
+        print('  - ' + v, file=sys.stderr)
+    if len(violations) > 10:
+        print(f'  ... and {len(violations) - 10} more', file=sys.stderr)
+    sys.exit(1)
+
+print(
+    f'manifest.json authorship hygiene ok '
+    f'({len(manifests)} manifests scanned, no placeholders)'
+)
+PY
 
 # -- S4 helper-script smoke tests -------------------------------------------
 section "S4 helper-script smoke tests"

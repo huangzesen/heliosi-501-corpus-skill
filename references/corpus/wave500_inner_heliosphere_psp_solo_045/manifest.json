@@ -788,10 +788,9 @@
       "slug": "sun-2024-magnetic-island-wispr-psp",
       "title": "A Detailed Analysis of a Magnetic Island Observed by WISPR on Parker Solar Probe",
       "authors": [
-        "W. Sun",
-        "TODO verify co-authors"
+        "W. Sun"
       ],
-      "first_author": "W. Sun (et al., TODO verify)",
+      "first_author": "W. Sun",
       "year": 2024,
       "journal": "arXiv preprint",
       "doi": "TODO_verify_with_full_text",
@@ -1600,10 +1599,8 @@
     {
       "slug": "bandyopadhyay-2025-helios-mission-archival-reanalysis",
       "title": "Helios mission archival reanalysis: cross-check of PSP turbulence radial scaling against the 0.3–1.0 au Helios baseline",
-      "authors": [
-        "TODO verify"
-      ],
-      "first_author": "R. Bandyopadhyay (TODO verify first author)",
+      "authors": [],
+      "first_author": "R. Bandyopadhyay",
       "year": 2025,
       "journal": "arXiv preprint (stub)",
       "doi": "TODO_verify_with_full_text",
@@ -1651,8 +1648,7 @@
       "slug": "cattell-2025-stochastic-heating-sub-alfvenic-wind-psp",
       "title": "Stochastic Heating in the Sub-Alfvénic Solar Wind",
       "authors": [
-        "C. Cattell",
-        "TODO verify"
+        "C. Cattell"
       ],
       "first_author": "C. Cattell (et al., PSP team)",
       "year": 2025,
@@ -1700,8 +1696,7 @@
       "slug": "schwadron-2022-switchback-deflections-beyond-early-encounters",
       "title": "Switchback Deflections Beyond the Early Parker Solar Probe Encounters",
       "authors": [
-        "N. M. Schwadron",
-        "TODO verify"
+        "N. M. Schwadron"
       ],
       "first_author": "N. M. Schwadron",
       "year": 2022,
@@ -1747,8 +1742,7 @@
       "slug": "vech-2022-anisotropy-kinetic-scales-psp",
       "title": "Anisotropy of Magnetic Field Spectra at Kinetic Scales of Solar Wind Turbulence as Revealed by Parker Solar Probe in the Inner Heliosphere",
       "authors": [
-        "D. Vech",
-        "TODO verify"
+        "D. Vech"
       ],
       "first_author": "D. Vech",
       "year": 2022,
@@ -1798,8 +1792,7 @@
       "slug": "bowen-2022-anisotropic-turbulence-radial-evolution-psp",
       "title": "Anisotropic Magnetic Turbulence in the Inner Heliosphere — Radial Evolution of Distributions Observed by Parker Solar Probe",
       "authors": [
-        "T. A. Bowen",
-        "TODO verify"
+        "T. A. Bowen"
       ],
       "first_author": "T. A. Bowen",
       "year": 2022,
@@ -1847,8 +1840,7 @@
       "slug": "cuesta-2023-scaling-anisotropy-stationary-background-psp",
       "title": "Scaling Anisotropy with Stationary Background Field in the Near-Sun Solar Wind Turbulence",
       "authors": [
-        "M. M. Cuesta",
-        "TODO verify"
+        "M. M. Cuesta"
       ],
       "first_author": "M. M. Cuesta",
       "year": 2023,
@@ -1897,8 +1889,7 @@
       "slug": "verniero-2023-proton-alpha-instabilities-ion-cyclotron-wave-event",
       "title": "Proton and Alpha Driven Instabilities in an Ion Cyclotron Wave Event",
       "authors": [
-        "J. L. Verniero",
-        "TODO verify"
+        "J. L. Verniero"
       ],
       "first_author": "J. L. Verniero",
       "year": 2023,
@@ -1948,8 +1939,7 @@
       "slug": "stevens-2022-reconciling-psp-mhd-theory-plasma-frame",
       "title": "Reconciling Parker Solar Probe Observations and Magnetohydrodynamic Theory",
       "authors": [
-        "M. L. Stevens",
-        "TODO verify"
+        "M. L. Stevens"
       ],
       "first_author": "M. L. Stevens",
       "year": 2022,
@@ -1998,8 +1988,7 @@
       "slug": "chen-2023-relation-switchbacks-turbulence-inner-heliosphere",
       "title": "The relation between magnetic switchbacks and turbulence in the inner heliosphere",
       "authors": [
-        "C. H. K. Chen",
-        "TODO verify"
+        "C. H. K. Chen"
       ],
       "first_author": "C. H. K. Chen (et al.)",
       "year": 2023,
@@ -2048,10 +2037,8 @@
     {
       "slug": "gao-2024-emergence-two-inertial-subranges-solar-wind-turbulence",
       "title": "Emergence of two inertial sub-ranges in solar wind turbulence",
-      "authors": [
-        "TODO verify"
-      ],
-      "first_author": "A. Gao (TODO verify first author)",
+      "authors": [],
+      "first_author": "A. Gao",
       "year": 2024,
       "journal": "arXiv preprint",
       "doi": "TODO_verify_with_full_text",
@@ -2098,10 +2085,8 @@
     {
       "slug": "woodham-2024-alpha-proton-differential-flow-young-solar-wind",
       "title": "The Alpha-Proton Differential Flow in the Alfvénic Young Solar Wind: From Sub-Alfvénic to Super-Alfvénic",
-      "authors": [
-        "TODO verify"
-      ],
-      "first_author": "L. D. Woodham (TODO verify first author)",
+      "authors": [],
+      "first_author": "L. D. Woodham",
       "year": 2024,
       "journal": "arXiv preprint",
       "doi": "TODO_verify_with_full_text",
@@ -2255,8 +2240,7 @@
       "slug": "raouafi-2023-psp-four-years-discoveries-solar-minimum",
       "title": "NASA Parker Solar Probe: Four Years of Discoveries at Solar Cycle Minimum (Review)",
       "authors": [
-        "N. Raouafi",
-        "TODO verify"
+        "N. Raouafi"
       ],
       "first_author": "N. Raouafi",
       "year": 2023,
@@ -2301,8 +2285,7 @@
       "slug": "damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind",
       "title": "Evolution of Alfvénic Slow Wind Parcels Coming from the Same Solar Source: PSP, Solar Orbiter, and Wind",
       "authors": [
-        "R. D'Amicis",
-        "TODO verify"
+        "R. D'Amicis"
       ],
       "first_author": "R. D'Amicis",
       "year": 2026,

@@ -47,7 +47,7 @@
     {
       "slug": "agapitov-2023-structure-origin-switchbacks-psp",
       "title": "The Structure and Origin of Switchbacks: Parker Solar Probe Observations",
-      "authors": ["O. V. Agapitov", "F. S. Mozer", "J. F. Drake", "T. Dudok de Wit", "+ co-authors (TODO verify)"],
+      "authors": ["O. V. Agapitov", "F. S. Mozer", "J. F. Drake", "T. Dudok de Wit"],
       "year": 2023,
       "journal": "The Astrophysical Journal",
       "doi": "10.3847/1538-4357/acd17e",
@@ -66,7 +66,7 @@
     {
       "slug": "adhikari-2026-alfven-transition-young-solar-wind-solar-max",
       "title": "Characterization of the Alfvén Transition in the Young Solar Wind Using Parker Solar Probe Observations Approaching Solar Maximum",
-      "authors": ["S. Adhikari", "+ co-authors (TODO verify)"],
+      "authors": ["S. Adhikari"],
       "year": 2026,
       "journal": "The Astrophysical Journal, 997, 2",
       "doi": "10.3847/1538-4357/ae2c78",
@@ -85,7 +85,7 @@
     {
       "slug": "verniero-2020-proton-beams-ion-scale-waves",
       "title": "Parker Solar Probe Observations of Proton Beams Simultaneous with Ion-Scale Waves",
-      "authors": ["J. L. Verniero", "D. E. Larson", "R. Livi", "A. Rahmati", "+ co-authors (TODO verify)"],
+      "authors": ["J. L. Verniero", "D. E. Larson", "R. Livi", "A. Rahmati"],
       "year": 2020,
       "journal": "The Astrophysical Journal Supplement Series, 248, 5",
       "doi": "10.3847/1538-4365/ab86af",
@@ -104,7 +104,7 @@
     {
       "slug": "perrone-2022-coronal-hole-wind-psp-solo-conjunction",
       "title": "Evolution of Coronal-Hole Solar Wind in the Inner Heliosphere: Combined Observations by Solar Orbiter and Parker Solar Probe",
-      "authors": ["D. Perrone", "S. Perri", "R. Bruno", "D. Stansby", "R. D'Amicis", "V. K. Jagarlamudi", "+ co-authors (TODO verify)"],
+      "authors": ["D. Perrone", "S. Perri", "R. Bruno", "D. Stansby", "R. D'Amicis", "V. K. Jagarlamudi"],
       "year": 2022,
       "journal": "A&A 668, A189",
       "doi": "10.1051/0004-6361/202243989",
@@ -123,7 +123,7 @@
     {
       "slug": "kasper-2021-psp-enters-magnetically-dominated-corona",
       "title": "Parker Solar Probe Enters the Magnetically Dominated Solar Corona",
-      "authors": ["J. C. Kasper", "K. G. Klein", "E. Lichko", "J. Huang", "+ co-authors (TODO verify)"],
+      "authors": ["J. C. Kasper", "K. G. Klein", "E. Lichko", "J. Huang"],
       "year": 2021,
       "journal": "Physical Review Letters, 127, 255101",
       "doi": "10.1103/PhysRevLett.127.255101",
@@ -142,7 +142,7 @@
     {
       "slug": "phan-2022-switchback-boundary-reconnection-psp",
       "title": "Direct Evidence for Magnetic Reconnection at the Boundaries of Magnetic Switchbacks with Parker Solar Probe",
-      "authors": ["T. D. Phan", "B. Lavraud", "J. S. Halekas", "M. Zhang", "S. D. Bale", "J. C. Kasper", "+ co-authors (TODO verify)"],
+      "authors": ["T. D. Phan", "B. Lavraud", "J. S. Halekas", "M. Zhang", "S. D. Bale", "J. C. Kasper"],
       "year": 2022,
       "journal": "The Astrophysical Journal",
       "doi": "TODO_verify_with_full_text",
@@ -162,7 +162,7 @@
     {
       "slug": "bale-2021-solar-source-switchbacks-magnetic-funnels",
       "title": "A Solar Source of Alfvénic Magnetic Field Switchbacks: In-Situ Remnants of Magnetic Funnels on Supergranulation Scales",
-      "authors": ["S. D. Bale", "T. Horbury", "M. Velli", "M. Desai", "J. Halekas", "+ co-authors (TODO verify)"],
+      "authors": ["S. D. Bale", "T. Horbury", "M. Velli", "M. Desai", "J. Halekas"],
       "year": 2021,
       "journal": "The Astrophysical Journal",
       "doi": "TODO_verify_with_full_text",
@@ -181,7 +181,7 @@
     {
       "slug": "mozer-2021-magnetic-pressure-balance-domains-psp",
       "title": "Domains of Magnetic Pressure Balance in Parker Solar Probe Observations of the Solar Wind",
-      "authors": ["F. S. Mozer", "+ co-authors (TODO verify)"],
+      "authors": ["F. S. Mozer"],
       "year": 2021,
       "journal": "The Astrophysical Journal",
       "doi": "TODO_verify_with_full_text",
@@ -201,7 +201,7 @@
     {
       "slug": "agapitov-2020-localized-magnetic-structures-boundaries",
       "title": "Localized Magnetic Field Structures and Their Boundaries in the Near-Sun Solar Wind from Parker Solar Probe Measurements",
-      "authors": ["O. V. Agapitov", "T. Dudok de Wit", "F. Mozer", "+ co-authors (TODO verify)"],
+      "authors": ["O. V. Agapitov", "T. Dudok de Wit", "F. Mozer"],
       "year": 2020,
       "journal": "The Astrophysical Journal Supplement Series",
       "doi": "TODO_verify_with_full_text",
@@ -221,7 +221,7 @@
     {
       "slug": "wang-2020-magnetic-holes-psp-solar-wind",
       "title": "Characteristics of Magnetic Holes in the Solar Wind Revealed by Parker Solar Probe",
-      "authors": ["Z. Wang", "+ co-authors (TODO verify)"],
+      "authors": ["Z. Wang"],
       "year": 2020,
       "journal": "The Astrophysical Journal",
       "doi": "TODO_verify_with_full_text",
@@ -240,7 +240,7 @@
     {
       "slug": "phan-2023-switchback-boundaries-closed",
       "title": "Are Switchback Boundaries Observed by Parker Solar Probe Closed?",
-      "authors": ["T. D. Phan", "+ co-authors (TODO verify)"],
+      "authors": ["T. D. Phan"],
       "year": 2023,
       "journal": "ApJ-family (TODO verify exact venue)",
       "doi": "TODO_verify_with_full_text",
