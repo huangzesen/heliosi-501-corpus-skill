@@ -10,10 +10,213 @@ rollup-2.0` describes the **manifest data schema**, not the bundle release.
 
 Hygiene + critical/high-priority bug-fix batch. Targets the load-bearing
 defects flagged in the public issue tracker (#1, #3, #4, #6, #10, #12, #17)
-plus the previously-batched docs/script UX issues. No corpus content
-(per-entry `SKILL.md` / `metadata.yaml`) changes; no `totals.*` change in
-the manifest. Slug uniqueness and structural counts are unchanged
-(501 entries, 18 batches, `totals.duplicate_slugs == {}`).
+plus the docs/script UX, corpus-integrity, authorship-hygiene,
+arXiv-provenance, layer-2-stub-audit, workflow-gating, authorship-parity,
+and research-generation-affordance batches that landed on top. Per-entry
+surface changes are limited to the per-entry hygiene fixes called out in
+each section below (minimal `SKILL.md` frontmatter on 222 entries, 5
+metadata.yaml parse fixes, authorship-placeholder canonicalization on the
+affected entries, `layer2_stub` flags on 55 entries, `authors_verified`
+mirroring on the affected entries, and
+`research_generation_affordances_present` flags on the affected entries);
+the structural manifest invariants are unchanged (501 entries, 18 batches,
+`totals.duplicate_slugs == {}`, `totals.*` counts unchanged).
+
+### Issue #11/#23/#24/#25/#26/#27/#28/#29/#30/#32 — `search_corpus.py` UX hardening
+
+- `scripts/search_corpus.py` — machine-readable `--json` output for
+  `--query`, `--show`, `--batches`, and `--maturity` (the no-match `--query`
+  path also emits JSON when `--json` is passed). Closes #32.
+- `scripts/search_corpus.py` — `--in skill` now short-circuits at
+  `--limit` (no longer scans all 501 SKILL.md files when only a handful
+  of hits are needed) and prints a one-line stderr `scanning N SKILL.md
+  files (limit=…)` progress notice so the otherwise-silent multi-second
+  walk is observable. OSError on file open is surfaced with the offending
+  slug, and a per-file warning fires when the UTF-8 decoder substitutes
+  U+FFFD (since a replacement adjacent to a search token causes a false
+  negative). Closes #11.
+- `scripts/search_corpus.py` — `--show <SLUG>` is now case-insensitive
+  (slugs are canonical lowercase, but pasted UPPERCASE / MixedCase input
+  resolves to the same entry). Closes #23.
+- `scripts/search_corpus.py` — `--show` partial-match fallback is
+  boundary-aware: results are ranked prefix > dash-token > weak
+  substring, so e.g. `--show wu-2026` lists `wu-2026-*` entries above
+  `hwu-2026-*`. Weak (mid-token) matches are tagged `(weak match)` in
+  the human output and `match_kind` in `--json`. Closes #24.
+- `scripts/search_corpus.py` — `null` / missing / empty-string manifest
+  fields render as `n/a` in `--show` output (rather than leaking the
+  literal Python `None`). List/dict values render as compact JSON.
+  Closes #25.
+- `scripts/search_corpus.py` — `--batches` synthesizes a per-batch
+  theme when `batches[i].theme` is null/blank by majority-voting the
+  constituent entries' themes; synthesized themes are tagged ` (synth)`
+  in the human output and `theme_synthesized: true` in `--json`.
+  Closes #26.
+- `scripts/search_corpus.py` — empty / whitespace-only `--query` is
+  rejected by the argument parser *before* the manifest is loaded
+  (previously the validation fired only after the 501-entry manifest
+  read). Closes #27.
+- `scripts/search_corpus.py` — pairing `--in` or `--limit` with
+  `--batches` / `--maturity` / `--show` now emits a stderr warning that
+  the flag is ignored (only `--query` consumes them), so callers don't
+  think the output was silently filtered. Closes #28.
+- `scripts/search_corpus.py` — non-integer / null manifest count fields
+  no longer raise an unhandled `TypeError`; they coerce via a labelled
+  warning and fall back to `0`. Closes #29.
+- `scripts/search_corpus.py` — under `--in both`, manifest-matched
+  entries are not re-read from disk: the per-row provenance tag is now
+  exactly one of `[manifest]` or `[skill]` (the previous `[both]` tag
+  is no longer produced, and the body-grep pass only walks entries that
+  the manifest did not already match). Closes #30.
+- `tests/test_search_corpus.py` — twenty additional unit tests covering
+  every UX change above (JSON parseability, case-insensitive `--show`,
+  partial-match ranking, null-field rendering, ignored-flag warnings,
+  early empty-query validation, etc.). The suite count grows from
+  23 → 43.
+
+### Issue #2/#7 — corpus integrity validation
+
+- 222 per-entry `SKILL.md` files were missing a YAML frontmatter block;
+  all of them now carry a minimal `name:` (and where appropriate
+  `description:` / `paper:`) frontmatter so consumers can introspect
+  them programmatically. Five `metadata.yaml` files had parse failures
+  (unquoted colons, unescaped `%`, stray BOM bytes); they parse cleanly
+  under PyYAML now. Closes #2, #7.
+- `scripts/validate.sh` — adds two new sections:
+  - `S4b per-entry SKILL.md frontmatter coverage` asserts every one of
+    the 501 per-entry `SKILL.md` files starts with `---` and has a
+    non-empty `name:` field. Stdlib-only, so it runs without PyYAML.
+  - `S4c per-entry metadata.yaml parses` parses every one of the 501
+    `metadata.yaml` files under PyYAML when available, and `SKIP`s
+    cleanly when PyYAML is missing (PyYAML is not a runtime
+    dependency).
+- `tests/test_corpus_integrity.py` — new unittest suite that mirrors
+  S4b/S4c programmatically (skips when PyYAML is missing). CI installs
+  PyYAML, so the parse check runs there unconditionally.
+- `README.md`, `SKILL.md` — new prominent "Verification status (read
+  first)" section calling out the T3/T4 dominance, the 449/501 entries
+  carrying `TODO_verify_with_full_text` markers somewhere, and the
+  single T1 reproduction. Also hardens the install snippet with
+  `REPO_DIR="$(pwd)/heliosi-501-corpus-skill"` and a sanity check, so
+  users who `cd` into the clone before symlinking don't end up with a
+  doubled-up `heliosi-501-corpus-skill/heliosi-501-corpus-skill` path.
+
+### Issue #8 — authorship-field hygiene
+
+- All `metadata.yaml` `first_author` / `authors[]` and all per-entry
+  `SKILL.md` `paper.first_author` / `paper.authors[]` frontmatter
+  values are guaranteed to contain **no** `TODO` / `TBD` placeholder
+  strings. Where the source could not be verified, the value is `null`
+  (scalar) or `[]` (list) and the entry carries an explicit
+  `authors_verified: false` flag; partially-recovered lists carry
+  `authors_complete: false`. The slug surname (e.g. `paper-mason-2026-…`)
+  is **not** asserted as the verified first author. Closes #8.
+- `scripts/validate.sh` — new section `S4d authorship-field hygiene`
+  re-asserts the invariant: any `TODO` / `TBD` string under those four
+  field paths fails the validator. Skips cleanly when PyYAML is missing.
+- `tests/test_authorship_hygiene.py` — new unittest suite mirroring
+  S4d, plus targeted regression checks for the canonical
+  parenthetical-TODO patterns (`Mason, G. M. (TODO verify)`,
+  `+ co-authors (TODO verify full list)`, etc.) that were the dominant
+  failure mode pre-canonicalization.
+- `README.md`, `SKILL.md` — new "Authorship fields are intentionally
+  null / unverified" subsection documenting the policy and the
+  `authors_verified` / `authors_complete` flags.
+
+### Issue #9 — arXiv ID provenance hygiene
+
+- `scripts/verify_arxiv_ids.py` — new opt-in verifier that fetches the
+  arxiv.org abstract page for an entry's advertised arXiv ID, compares
+  the HTML `<title>` against the entry's recorded title, and stamps a
+  `provenance.id_verifications[]` record back into `metadata.yaml`
+  (`status: arxiv-http-title-match` on success; `title-mismatch`,
+  `http-non-200`, `network-error`, `no-title-tag`, `invalid-id-format`,
+  or `no-recorded-title` otherwise). Not run in CI — verification is a
+  curatorial step, not a smoke test. Closes #9 (provenance honesty
+  axis; high arXiv numeric suffix alone is not evidence of
+  hallucination).
+- `scripts/validate.sh` — new section `S4e arXiv ID provenance hygiene`
+  is structural-only (no live HTTP): it asserts every advertised
+  `arxiv` / `paper.arxiv_id` value matches the canonical arXiv ID
+  regex, every `provenance.id_verifications[]` record has a
+  well-formed `url` / `arxiv_id` / `status` / `http_status`, and that
+  `status: arxiv-http-title-match` requires `http_status: 200`,
+  `title_match: true`, and a non-empty `fetched_title` (entries can't
+  claim verification they don't have). 6 / 516 advertised IDs carry a
+  verified provenance record at the current snapshot.
+- `tests/test_arxiv_provenance.py` — new unittest suite mirroring S4e.
+
+### Issue #14/#60 — Layer-2-stub audit + workflow gating (`--ready-for`, `--maturity-tier`)
+
+- `scripts/search_corpus.py` — adds workflow-gating CLI:
+  - `--ready-for {discovery,hypothesis,experiment,verify}` exposes the
+    honest subset for each downstream use case. `discovery` = all 501
+    entries; `hypothesis` = T1/T2 plus T3 entries with a populated
+    Layer 4, excluding the 55 Layer-2 stubs; `experiment` = strictly
+    T1+T2 minus Layer-2 stubs (23 entries); `verify` = T3/T4/T7 plus
+    Layer-2 stubs plus `weak_flag_count > 0` plus DOI starting
+    `TODO`/`TBD`, with T1 and T6 excluded (433 entries). Both filters
+    apply to `--query` and can be used standalone.
+  - `--maturity-tier T1|T2|…|T7` (repeatable) restricts to one or more
+    derived maturity tiers. The tier is derived deterministically from
+    `(quality, executable_status)` and the derived counts match
+    `--maturity` exactly (T1=1, T2=22, T3=260, T4=164, T5=52, T6=1,
+    T7=1, total=501).
+  - Both filters also apply to `--batches` (counts are recomputed for
+    the filtered subset and the header is annotated as `(filtered:
+    …)`).
+- `scripts/audit_layer2_stubs.py` — new audit/backfill tool that scans
+  the two Layer-2-stub-prone batches
+  (`wave500_inner_heliosphere_psp_solo_045`,
+  `wave500_waves_instabilities_reconnection_045`) for entries whose
+  Layer-2 contract is still a placeholder, and writes the
+  `layer2_stub: true` / `layer2_status: <reason>` flag pair into the
+  corresponding `metadata.yaml`. 55 entries are flagged at the current
+  snapshot (45 + 10 across the two batches). The audit is idempotent.
+  Closes #14.
+- `scripts/audit_layer_schemas.py` — new audit that scans every
+  per-entry `metadata.yaml` for the canonical four-layer schema
+  (`layer1`, `layer2`, `layer3`, `layer4` keys), reports missing /
+  extra keys per batch, and exits non-zero on schema drift. Run
+  on-demand from CI.
+- `tests/test_workflow_gating.py` — new unittest suite covering tier
+  derivation parity with `--maturity` (per-tier counts and
+  multi-tier union), the four `--ready-for` buckets (including the
+  hypothesis ⊇ experiment invariant and Layer-2-stub exclusion), and
+  the standalone vs `--query`-paired call shapes.
+- `tests/test_layer2_stubs.py` — new unittest suite covering the
+  `audit_layer2_stubs.py` placeholder-detection rule and the
+  metadata splice (idempotent, no-overwrite on hand-curated `false`).
+- `tests/test_layer_schemas.py` — new unittest suite covering
+  `audit_layer_schemas.py`'s canonical-key set and per-batch
+  enumeration.
+- `README.md`, `SKILL.md` — new "Workflow eligibility filter
+  (`--ready-for`, issue #60)" subsection with the four-row eligibility
+  table, the explicit caveat that `discovery` is **not** a synonym for
+  "workflow-ready", and the per-workflow gating language in the four
+  numbered workflows (hypothesis, experiment, verify). The "Companion
+  MCP adapters (external, not bundled)" section is also new and
+  documents `xhelio-spice` + `xhelio-cdaweb` as separate-repo
+  optional MCPs, replacing the older "the only LingTai domain MCP" line.
+
+### Issue #62 — `authors_verified` parity between metadata.yaml and SKILL.md frontmatter
+
+- Per-entry `SKILL.md` frontmatter `paper.authors_verified: false` is
+  now kept in bidirectional parity with `metadata.yaml`'s top-level
+  `authors_verified: false`. A consumer reading either surface alone
+  sees the same disclosure. Current steady-state count is 173 / 501 on
+  both sides (up from a pre-parity 59 / 173 split that risked a
+  consumer reading only the SKILL.md surface silently citing
+  unverified authors). Closes #62.
+- `scripts/validate.sh` — new section `S4f authors_verified parity`
+  fails the validator on any forward (`metadata` flagged but `SKILL`
+  not) or reverse (`SKILL` flagged but `metadata` not) violation.
+  Skips cleanly when PyYAML is missing.
+- `tests/test_authorship_flag_parity.py` — new unittest suite covering
+  the forward direction, the reverse direction, and a redundant
+  count-equality guard.
+- `README.md`, `SKILL.md` — updated to call out the bidirectional
+  parity rule and the enforcement points (S4f + the new test).
 
 ### Issue #63 — `--ready-for hypothesis` no longer collapses to `experiment`
 
@@ -137,21 +340,30 @@ the manifest. Slug uniqueness and structural counts are unchanged
   `*.bz2`, `*.xz`, `*.rar`, `*.dmg`). Closes #40.
 
 ### Unchanged (intentionally)
-- All 501 per-entry `SKILL.md` / `metadata.yaml` files. They are a
-  snapshot of the upstream corpus and remain read-only here.
+- The per-entry corpus content remains a snapshot of the upstream
+  generator output: the four-layer prose, the Layer-1 / Layer-2 claim
+  bodies, the `quality` / `executable_status` labels, and the slug
+  assignments are byte-identical to the 0.1.0 snapshot. The only
+  per-entry edits in this batch are the structural hygiene fixes
+  documented above (frontmatter coverage, YAML parse fixes,
+  authorship-placeholder canonicalization, `layer2_stub` flag,
+  `authors_verified` parity mirror, and
+  `research_generation_affordances_present` flag).
 - The v2 roll-up Markdown files (`corpus_index_v2.md`,
   `corpus_qa_report_v2.md`). Counts and tier distributions are unchanged.
 - Manifest `totals.*` block — every count and slug-uniqueness assertion is
   byte-identical to the 0.1.0 snapshot.
-- All security-labeled issues (#5 manifest-path traversal, #36 broader
-  `allowed-tools: Bash` scope) are intentionally **out of scope** for
-  this batch and remain open. They need a security-focused review.
-- The structural-content issues (#2, #7, #8, #9, #13, #14, #15, #16, #18-
-  #34, #39, #41, #44, #55-#60) are NOT addressed here — they require
-  curatorial decisions about the corpus itself (verifying DOIs / arxiv
-  IDs, unifying per-batch manifest schemas, populating Layer-2 contracts,
-  reconciling `quality` vs `quality_level`, etc.) rather than mechanical
-  hygiene. They remain open.
+- All security-labeled issues (#5 manifest-path traversal, #31 external
+  link / supply-chain hardening, #36 broader `allowed-tools: Bash` scope)
+  are intentionally **out of scope** for this batch and remain open.
+  They need a security-focused review.
+- The remaining non-security docs / corpus-curation issues (#18–#22,
+  #33, #34, #39, #41, #44, #55–#59, #61) are NOT addressed here — they
+  require curatorial or roadmap decisions about the corpus itself
+  (unifying per-batch manifest schemas, populating Layer-2 contracts,
+  reconciling `quality` vs `quality_level`, deciding the next roadmap,
+  etc.) rather than the mechanical / audit hygiene this batch covers.
+  They remain open.
 
 ## [0.1.0] — 2026-05-18
 
