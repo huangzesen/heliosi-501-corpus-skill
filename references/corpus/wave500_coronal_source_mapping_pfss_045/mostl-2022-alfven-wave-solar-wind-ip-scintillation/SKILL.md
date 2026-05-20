@@ -95,8 +95,8 @@ Recover the global agreement and polar residuals.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-mostl-2022-alfven-wave-solar-wind-ip-scintillation]] + [[paper-reville-2025-solo-psp-open-closed-magnetic-outflows]] for IPS↔in-situ joint validation.
-- Generative hypothesis: IPS residuals at high latitudes correlate with polar-completeness ensembles ([[paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]).
+- Compose with [[mostl-2022-alfven-wave-solar-wind-ip-scintillation]] + [[reville-2025-solo-psp-open-closed-magnetic-outflows]] for IPS↔in-situ joint validation.
+- Generative hypothesis: IPS residuals at high latitudes correlate with polar-completeness ensembles ([[sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]).
 
 ---
 

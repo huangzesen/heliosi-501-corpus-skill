@@ -98,15 +98,15 @@ Reproduce the cycle-phase-dependent attribution.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-ai-farside-synchronic-coronal-field-extrapolation]] — uncertainty quantification of the AI-farside skill itself.
-- Tension with [[paper-wsa-l1-errors-2025]] — overlap in topology-error attribution.
+- Compose with [[ai-farside-synchronic-coronal-field-extrapolation]] — uncertainty quantification of the AI-farside skill itself.
+- Tension with [[wsa-l1-errors-2025]] — overlap in topology-error attribution.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-ai-farside-synchronic-coronal-field-extrapolation]]
-- [[paper-wsa-l1-errors-2025]]
+- [[ai-farside-synchronic-coronal-field-extrapolation]]
+- [[wsa-l1-errors-2025]]
 
 ## Links
 

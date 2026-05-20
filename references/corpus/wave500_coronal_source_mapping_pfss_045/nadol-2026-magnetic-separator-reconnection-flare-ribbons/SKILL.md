@@ -98,15 +98,15 @@ Reproduce the separator-flux–ribbon-flux scatter.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-mackay-2026-tracking-magnetic-topology-change-corona]] — track separator continuity across ribbon evolution.
-- Generative hypothesis: ribbon→separator alignment quality predicts dimming morphology ([[paper-razquin-2026-coronal-dimming-magnetic-flux-may2024]]).
+- Compose with [[mackay-2026-tracking-magnetic-topology-change-corona]] — track separator continuity across ribbon evolution.
+- Generative hypothesis: ribbon→separator alignment quality predicts dimming morphology ([[razquin-2026-coronal-dimming-magnetic-flux-may2024]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-mackay-2026-tracking-magnetic-topology-change-corona]]
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[mackay-2026-tracking-magnetic-topology-change-corona]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 
 ## Links
 

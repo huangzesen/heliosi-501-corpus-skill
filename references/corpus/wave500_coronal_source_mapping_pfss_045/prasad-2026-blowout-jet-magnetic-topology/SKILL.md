@@ -95,15 +95,15 @@ Match QSL footprint to AIA jet base.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-raouafi-2025-switchback-coronal-jet-precursors]] — blowout-jet topologies as switchback precursors.
-- Generative hypothesis: fan-spine subclass should correlate with [[paper-nadol-2026-magnetic-separator-reconnection-flare-ribbons]] complex ribbons.
+- Compose with [[raouafi-2025-switchback-coronal-jet-precursors]] — blowout-jet topologies as switchback precursors.
+- Generative hypothesis: fan-spine subclass should correlate with [[nadol-2026-magnetic-separator-reconnection-flare-ribbons]] complex ribbons.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-raouafi-2025-switchback-coronal-jet-precursors]]
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[raouafi-2025-switchback-coronal-jet-precursors]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 
 ## Links
 

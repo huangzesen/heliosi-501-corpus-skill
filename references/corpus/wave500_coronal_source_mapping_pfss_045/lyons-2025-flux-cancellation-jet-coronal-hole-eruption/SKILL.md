@@ -95,14 +95,14 @@ Onset-time vs cancellation-rate scaling.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-raouafi-2025-switchback-coronal-jet-precursors]] for a jet-onset → switchback-precursor causal chain.
+- Compose with [[raouafi-2025-switchback-coronal-jet-precursors]] for a jet-onset → switchback-precursor causal chain.
 - Generative hypothesis: cancellation-rate distribution across PSP encounter footpoints should predict switchback occurrence.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-raouafi-2025-switchback-coronal-jet-precursors]]
+- [[raouafi-2025-switchback-coronal-jet-precursors]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

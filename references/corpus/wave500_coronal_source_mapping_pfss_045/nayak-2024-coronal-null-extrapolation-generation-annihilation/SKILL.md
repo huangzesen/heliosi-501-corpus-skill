@@ -94,15 +94,15 @@ Reproduce null-rate vs flux-emergence relation.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-mackay-2026-tracking-magnetic-topology-change-corona]] for a unified null+separator topology timeline.
+- Compose with [[mackay-2026-tracking-magnetic-topology-change-corona]] for a unified null+separator topology timeline.
 - Generative hypothesis: null-rate fingerprints sympathetic-flare preferred separations.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-mackay-2026-tracking-magnetic-topology-change-corona]]
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[mackay-2026-tracking-magnetic-topology-change-corona]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 
 ## Links
 

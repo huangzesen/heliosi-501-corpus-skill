@@ -72,7 +72,7 @@ adapter_notes: []
 
 research_generation_affordances:
   - type: minimal_experiment
-    statement: "Adapt the heliocentric-discovery test to heliophysics: give an agent PSP MAG + plasma without context, and check if it independently recovers a published claim from a known paper-skill (e.g. cascade-rate enhancement near the Sun, [[paper-bandyopadhyay-2020-energy-transfer-psp]])."
+    statement: "Adapt the heliocentric-discovery test to heliophysics: give an agent PSP MAG + plasma without context, and check if it independently recovers a published claim from a known paper-skill (e.g. cascade-rate enhancement near the Sun, [[bandyopadhyay-2020-energy-transfer-psp]])."
   - type: hypothesis
     statement: "If HelioSI passes one heliophysics-Turing-style test under knowledge-isolation, this is stronger evidence than passing a HeurekaBench-style end-to-end test, because the canonical-law-recovery criterion is harder to game."
 
@@ -209,7 +209,7 @@ No paper-skill dependencies (self-contained positioning/design-pattern source).
 **Research-generation affordances - how this paper helps HelioSI (or
 any heliophysics agent) generate or evaluate new scientific ideas:**
 
-- **Minimal_experiment** - Adapt the heliocentric-discovery test to heliophysics: give an agent PSP MAG + plasma without context, and check if it independently recovers a published claim from a known paper-skill (e.g. cascade-rate enhancement near the Sun, [[paper-bandyopadhyay-2020-energy-transfer-psp]]). Related: n/a.
+- **Minimal_experiment** - Adapt the heliocentric-discovery test to heliophysics: give an agent PSP MAG + plasma without context, and check if it independently recovers a published claim from a known paper-skill (e.g. cascade-rate enhancement near the Sun, [[bandyopadhyay-2020-energy-transfer-psp]]). Related: n/a.
 - **Hypothesis** - If HelioSI passes one heliophysics-Turing-style test under knowledge-isolation, this is stronger evidence than passing a HeurekaBench-style end-to-end test, because the canonical-law-recovery criterion is harder to game. Related: n/a.
 
 ## Notes

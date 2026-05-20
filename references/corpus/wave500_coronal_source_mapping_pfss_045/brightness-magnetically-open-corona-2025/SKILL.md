@@ -99,15 +99,15 @@ Reproduce the paper's brightness-vs-heating-amplitude scaling at fixed column de
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-brooks-2025-active-region-upflows-coronal-coupling]]: do AR-edge upflows live in bright or dim open regions?
-- Generative hypothesis: pairing this with the QRaFT-segmented open-flux map ([[paper-qrft-2025-quasi-radial-field-tracing-open-flux]]) yields a brightness-classified open-flux atlas.
+- Compose with [[brooks-2025-active-region-upflows-coronal-coupling]]: do AR-edge upflows live in bright or dim open regions?
+- Generative hypothesis: pairing this with the QRaFT-segmented open-flux map ([[qrft-2025-quasi-radial-field-tracing-open-flux]]) yields a brightness-classified open-flux atlas.
 
 ---
 
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-brooks-2025-active-region-upflows-coronal-coupling]]
+- [[brooks-2025-active-region-upflows-coronal-coupling]]
 
 ## Links
 

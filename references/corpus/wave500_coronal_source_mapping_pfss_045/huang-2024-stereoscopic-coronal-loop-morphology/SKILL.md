@@ -97,15 +97,15 @@ Reproduce angular-deviation distribution.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-multi-constraint-pfss-extrapolation-model]] — this loop sample is exactly the kind of input that paper consumes.
-- Generative hypothesis: residual deviations should localize in AR cores where [[paper-vanderlinden-2024-flux-rope-magneto-friction-electric-field]] predicts non-potential currents.
+- Compose with [[multi-constraint-pfss-extrapolation-model]] — this loop sample is exactly the kind of input that paper consumes.
+- Generative hypothesis: residual deviations should localize in AR cores where [[vanderlinden-2024-flux-rope-magneto-friction-electric-field]] predicts non-potential currents.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-multi-constraint-pfss-extrapolation-model]]
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[multi-constraint-pfss-extrapolation-model]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 
 ## Links
 

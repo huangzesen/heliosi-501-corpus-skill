@@ -99,14 +99,14 @@ Match the four-burst sequence and M_A≈3.2–3.6 ordering.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-cuddy-2026-pfss-shock-electron-acceleration]] for a unified weak-vs-strong shock acceleration framework.
-- Generative hypothesis: replacing the density model with a QRaFT-segmented open-flux density ([[paper-qrft-2025-quasi-radial-field-tracing-open-flux]]) should change shock-height ordering between the four bursts.
+- Compose with [[cuddy-2026-pfss-shock-electron-acceleration]] for a unified weak-vs-strong shock acceleration framework.
+- Generative hypothesis: replacing the density model with a QRaFT-segmented open-flux density ([[qrft-2025-quasi-radial-field-tracing-open-flux]]) should change shock-height ordering between the four bursts.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-cuddy-2026-pfss-shock-electron-acceleration]]
+- [[cuddy-2026-pfss-shock-electron-acceleration]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

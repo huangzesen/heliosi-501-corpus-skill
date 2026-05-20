@@ -106,16 +106,16 @@ Reproduce 60/9 split and qualitative HCS-proximity ordering.
 
 ## Layer 4 — Research-generation affordances
 
-- Tension with [[paper-jiang-2024-nested-active-regions-hcs-reversal]] — nested ARs stall HCS reversal, so opposite-side events should cluster in stalling phases.
-- Cross-product with [[paper-paper-desai-2024-hcs-reconnection-400kev-protons]]: are opposite-side events those with sources *embedded* in HCS reconnection regions?
+- Tension with [[jiang-2024-nested-active-regions-hcs-reversal]] — nested ARs stall HCS reversal, so opposite-side events should cluster in stalling phases.
+- Cross-product with [[paper-desai-2024-hcs-reconnection-400kev-protons]]: are opposite-side events those with sources *embedded* in HCS reconnection regions?
 - Generative hypothesis: weighting the 4-test vote by strahl coverage quality should reclassify a measurable fraction.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-pfss-test-problems-solar-stellar-magnetic-fields]] — PFSS solver acceptance test.
-- [[paper-paper-desai-2024-hcs-reconnection-400kev-protons]] — sibling HCS-particle skill.
+- [[pfss-test-problems-solar-stellar-magnetic-fields]] — PFSS solver acceptance test.
+- [[paper-desai-2024-hcs-reconnection-400kev-protons]] — sibling HCS-particle skill.
 
 ## Links
 

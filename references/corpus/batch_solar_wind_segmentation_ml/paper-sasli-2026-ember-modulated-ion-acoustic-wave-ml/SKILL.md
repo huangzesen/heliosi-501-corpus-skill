@@ -62,7 +62,7 @@ A future agent should reach for this skill when:
 
 Do NOT use this skill when:
 
-- Looking for **whistler / ion-cyclotron waves** (different polarisation and frequency band; see [[paper-bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance]] for cyclotron context).
+- Looking for **whistler / ion-cyclotron waves** (different polarisation and frequency band; see [[bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance]] for cyclotron context).
 - Working with PSP **survey-mode** (non-burst) FIELDS data — EMBER is trained on burst-mode DBM windows.
 - Asserting causal direction (mIAW → heating) — the paper's association is statistical (cross-validation against SWEAP without using T_e in the detector).
 

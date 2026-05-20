@@ -99,15 +99,15 @@ Recover ~45% → ~24% gap reduction within tolerance and eclipse-angle improveme
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]: NSPF deforms the outer boundary; outflowpy modifies the equation. Stacking the two partitions OSF closure between geometry and physics.
-- Generative hypothesis: outflowpy-optimal params rank-correlate with [[paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]'s BMR-driven OSF rises.
+- Compose with [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]: NSPF deforms the outer boundary; outflowpy modifies the equation. Stacking the two partitions OSF closure between geometry and physics.
+- Generative hypothesis: outflowpy-optimal params rank-correlate with [[yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]'s BMR-driven OSF rises.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
-- [[paper-eclipse-white-light-benchmark-pfss-models]]
+- [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
+- [[eclipse-white-light-benchmark-pfss-models]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

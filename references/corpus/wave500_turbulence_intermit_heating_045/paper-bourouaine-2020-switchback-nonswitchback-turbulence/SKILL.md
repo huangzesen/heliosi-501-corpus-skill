@@ -120,7 +120,7 @@ Do NOT use when:
 - The target is sub-Alfvenic wind (use [[paper-adhikari-2025-trans-alfvenic-turbulence]]).
 - The target is slow non-Alfvenic wind ([[damicis-2021-alfvenic-nonalfvenic-psp]]).
 - A switchback-formation mechanism is in question rather than turbulence
-  conditioning ([[paper-shoda-2021-turbulence-switchback-generation-alfvenic]],
+  conditioning ([[shoda-2021-turbulence-switchback-generation-alfvenic]],
   [[tenerani-2026-spherically-polarized-magnetic-fields]]).
 
 ## 2. Paper claim → verifiable task  *(Layer 1)*
@@ -215,7 +215,7 @@ No adapter examples on file yet.
 ## 9. Skill graph + research-generation affordances  *(Layer 4)*
 
 **Skill graph.**
-- [[paper-bandyopadhyay-2020-energy-transfer-psp]] — upstream cascade-rate
+- [[bandyopadhyay-2020-energy-transfer-psp]] — upstream cascade-rate
   context for the same E1 window.
 - [[paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution]] — sibling
   Alfvenicity-conditioned analysis across E1–E5.
@@ -227,4 +227,4 @@ No adapter examples on file yet.
   Proposed: stub a sibling skill that applies the same rule to E14–E19.
 - **Tension** — If SB and NSB inertial-range spectra are statistically
   indistinguishable at higher orders, the in-situ switchback-generation
-  hypothesis weakens. Related: [[paper-shoda-2021-turbulence-switchback-generation-alfvenic]].
+  hypothesis weakens. Related: [[shoda-2021-turbulence-switchback-generation-alfvenic]].

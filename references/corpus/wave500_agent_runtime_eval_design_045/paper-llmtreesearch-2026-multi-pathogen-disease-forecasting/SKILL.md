@@ -75,7 +75,7 @@ research_generation_affordances:
   - type: hypothesis
     statement: "Replace 'disease forecast accuracy' with 'PSP turbulence diagnostic recovery' and the same loop becomes a HelioSI workflow search: which combination of paper-skills + parameters best reproduces a known finding?"
   - type: minimal_experiment
-    statement: "Run an LLM-guided tree search over (paper-skill, parameter) pairs to reproduce the cascade-rate enhancement claim in [[paper-bandyopadhyay-2020-energy-transfer-psp]]; measure budget vs. reproduction fidelity."
+    statement: "Run an LLM-guided tree search over (paper-skill, parameter) pairs to reproduce the cascade-rate enhancement claim in [[bandyopadhyay-2020-energy-transfer-psp]]; measure budget vs. reproduction fidelity."
 
 provenance:
   generated_by: "HelioSI paper-to-skill factory (Claude Opus 4.7) - wave500_agent_runtime_eval_design_045"
@@ -211,7 +211,7 @@ No paper-skill dependencies (self-contained positioning/design-pattern source).
 any heliophysics agent) generate or evaluate new scientific ideas:**
 
 - **Hypothesis** - Replace 'disease forecast accuracy' with 'PSP turbulence diagnostic recovery' and the same loop becomes a HelioSI workflow search: which combination of paper-skills + parameters best reproduces a known finding? Related: n/a.
-- **Minimal_experiment** - Run an LLM-guided tree search over (paper-skill, parameter) pairs to reproduce the cascade-rate enhancement claim in [[paper-bandyopadhyay-2020-energy-transfer-psp]]; measure budget vs. reproduction fidelity. Related: n/a.
+- **Minimal_experiment** - Run an LLM-guided tree search over (paper-skill, parameter) pairs to reproduce the cascade-rate enhancement claim in [[bandyopadhyay-2020-energy-transfer-psp]]; measure budget vs. reproduction fidelity. Related: n/a.
 
 ## Notes
 

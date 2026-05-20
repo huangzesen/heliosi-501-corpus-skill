@@ -266,6 +266,19 @@ counts, and the planned successor (`corpus_skill_graph.json`) which is
 `tests/test_audit_wikilinks.py` (offline, stdlib-only, tempdir
 fixtures).
 
+The companion `scripts/repair_wikilinks.py` performs one safe,
+mechanical repair class on top of the audit: rewrite `[[paper-foo]]`
+to `[[foo]]` (and `[[paper-foo|label]]` to `[[foo|label]]`) **only
+when** the unresolved target starts with `paper-`, the audit reports
+exactly one suggestion, and that suggestion is the canonical
+prefix-stripped slug on the manifest. Wikilinks marked
+`in_inline_code: true` (placeholder samples) are never rewritten;
+ambiguous or no-suggestion targets are never rewritten. The script
+defaults to dry-run; `--apply` is required to mutate files. The
+first-pass run reduced the unresolved count from 95 to 56 across 58
+files (162 prose occurrences). Tests live in
+`tests/test_repair_wikilinks.py`.
+
 ## Companion MCP adapters (external, not bundled)
 
 Two domain MCPs are first-class companions to this skill. They live in

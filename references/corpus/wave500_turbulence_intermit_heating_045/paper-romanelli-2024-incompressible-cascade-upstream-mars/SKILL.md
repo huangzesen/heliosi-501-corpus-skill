@@ -159,7 +159,7 @@ No adapter examples on file yet.
 
 **Skill graph (depends_on edges):**
 - [[paper-andres-2021-incompressible-cascade-anisotropic-pp]] — sibling/upstream context for the same physics domain.
-- [[paper-bandyopadhyay-2020-energy-transfer-psp]] — sibling/upstream context for the same physics domain.
+- [[bandyopadhyay-2020-energy-transfer-psp]] — sibling/upstream context for the same physics domain.
 
 **Affordances.**
 

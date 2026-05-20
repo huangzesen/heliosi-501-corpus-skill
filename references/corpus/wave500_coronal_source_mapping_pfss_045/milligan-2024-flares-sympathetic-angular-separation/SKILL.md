@@ -94,15 +94,15 @@ Reproduce the preferred-separation feature.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-jiang-2024-nested-active-regions-hcs-reversal]] to test whether nested-AR phases enhance sympathy.
-- Generative hypothesis: PFSS connectivity should be replaced by fluxon connectivity ([[paper-deforest-2024-flux-fluxon-coronal-modeling]]) to resolve the preferred-separation tail.
+- Compose with [[jiang-2024-nested-active-regions-hcs-reversal]] to test whether nested-AR phases enhance sympathy.
+- Generative hypothesis: PFSS connectivity should be replaced by fluxon connectivity ([[deforest-2024-flux-fluxon-coronal-modeling]]) to resolve the preferred-separation tail.
 
 ---
 
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-jiang-2024-nested-active-regions-hcs-reversal]]
+- [[jiang-2024-nested-active-regions-hcs-reversal]]
 
 ## Links
 

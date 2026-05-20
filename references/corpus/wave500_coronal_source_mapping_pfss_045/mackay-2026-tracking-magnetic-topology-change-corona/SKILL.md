@@ -92,14 +92,14 @@ Match null/separator counts at validation snapshots.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-lapenta-2026-magnetic-connectivity-time-dependent-corona]] for a unified topology+connectivity framework.
-- Generative hypothesis: topology-change rate should correlate with sympathetic-flare angular-separation peaks ([[paper-milligan-2024-flares-sympathetic-angular-separation]]).
+- Compose with [[lapenta-2026-magnetic-connectivity-time-dependent-corona]] for a unified topology+connectivity framework.
+- Generative hypothesis: topology-change rate should correlate with sympathetic-flare angular-separation peaks ([[milligan-2024-flares-sympathetic-angular-separation]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-lapenta-2026-magnetic-connectivity-time-dependent-corona]]
+- [[lapenta-2026-magnetic-connectivity-time-dependent-corona]]
 
 ## Links
 

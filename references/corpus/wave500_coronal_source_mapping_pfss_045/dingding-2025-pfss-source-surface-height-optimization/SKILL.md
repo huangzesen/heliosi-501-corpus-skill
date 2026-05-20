@@ -99,14 +99,14 @@ Reproduce systematic cycle-phase variation of optimal R_ss reported by the paper
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-rice-2026-outflowpy-outflow-fields-pfss-alternative]] — outflowpy eliminates R_ss; the residual mismatch between optimal-R_ss PFSS and outflowpy should isolate the outflow physics contribution.
-- Generative hypothesis: optimal R_ss correlates with the effective harmonic degree of the global field ([[paper-hore-2026-dominant-spatial-scales-coronal-field]]).
+- Compose with [[rice-2026-outflowpy-outflow-fields-pfss-alternative]] — outflowpy eliminates R_ss; the residual mismatch between optimal-R_ss PFSS and outflowpy should isolate the outflow physics contribution.
+- Generative hypothesis: optimal R_ss correlates with the effective harmonic degree of the global field ([[hore-2026-dominant-spatial-scales-coronal-field]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-eclipse-white-light-benchmark-pfss-models]]
+- [[eclipse-white-light-benchmark-pfss-models]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

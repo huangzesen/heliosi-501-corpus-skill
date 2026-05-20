@@ -101,15 +101,15 @@ Reproduce the topology-dominant fraction of error reported by the paper.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-dingding-2025-pfss-source-surface-height-optimization]]: optimizing R_ss should shift the topology-vs-kernel attribution.
-- Tension with [[paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]: the topology error here may be largely magnetogram completeness in disguise.
+- Compose with [[dingding-2025-pfss-source-surface-height-optimization]]: optimizing R_ss should shift the topology-vs-kernel attribution.
+- Tension with [[sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]: the topology error here may be largely magnetogram completeness in disguise.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-dingding-2025-pfss-source-surface-height-optimization]]
-- [[paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]
+- [[dingding-2025-pfss-source-surface-height-optimization]]
+- [[sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

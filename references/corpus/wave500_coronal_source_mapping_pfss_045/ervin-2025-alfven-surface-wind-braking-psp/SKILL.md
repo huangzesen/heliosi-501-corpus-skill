@@ -100,16 +100,16 @@ Reproduce the paper's torque value within uncertainty.
 
 ## Layer 4 — Research-generation affordances
 
-- Tension with [[paper-finley-2023-differential-rotation-angular-momentum-loss]] — does differential rotation matter at PSP-relevant latitudes?
-- Compose with [[paper-kasper-2021-psp-enters-magnetically-dominated-corona]] — sub-Alfvénic crossings vs OSF normalization.
+- Tension with [[finley-2023-differential-rotation-angular-momentum-loss]] — does differential rotation matter at PSP-relevant latitudes?
+- Compose with [[kasper-2021-psp-enters-magnetically-dominated-corona]] — sub-Alfvénic crossings vs OSF normalization.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-kasper-2021-psp-enters-magnetically-dominated-corona]]
+- [[kasper-2021-psp-enters-magnetically-dominated-corona]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-finley-2023-differential-rotation-angular-momentum-loss]]
+- [[finley-2023-differential-rotation-angular-momentum-loss]]
 
 ## Links
 

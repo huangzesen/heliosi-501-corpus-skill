@@ -73,30 +73,95 @@ future graph-builder script.
 ## 4. Current state (informational headline)
 
 The audit reports the following on the live 501-entry corpus (the
-numbers below are the snapshot at audit-introduction time; the source of
-truth is whatever `python3 scripts/audit_wikilinks.py` prints today):
+numbers below are the snapshot at the time of the paper-prefix repair
+pass described in §4b; the source of truth is whatever
+`python3 scripts/audit_wikilinks.py` prints today):
 
 - 501 per-entry SKILL.md scanned
 - 442 entries carry at least one wikilink
 - 1752 wikilink occurrences total, of which 648 sit inside inline
   `` ` ``-delimited code spans (mostly placeholder samples like
   `` `[[slug]]` `` shown to the reader as literal template text)
-- 336 unique wikilink targets:
-  - 241 resolve to a canonical manifest slug
-  - **95 are unresolved**
+- 334 unique wikilink targets:
+  - 278 resolve to a canonical manifest slug
+  - **56 are unresolved**
 - 105 / 501 entries carry an explicit
   `## Skill graph → depends_on` section in their prose
 
-The 95 unresolved targets are dominated by a single class of drift: a
-wikilink writes `[[paper-foo]]` but the manifest slug is the bare `foo`
-form (a curation-era artefact from before the `paper-` prefix
-convention settled). The audit's mechanical suggestion (strip the
-`paper-` prefix) covers most of these cases; closing the rest is a
-follow-up curation pass, not a same-PR rewrite.
+The remaining 56 unresolved targets are NOT dominated by paper-prefix
+drift any more — that class was the subject of the repair pass in
+§4b. Breakdown of what is left:
+
+- 22 are inline-code-only occurrences (literal `` `[[slug]]` `` /
+  `` `[[paper-foo]]` `` placeholder samples in docs prose);
+- 31 are prose-only references with no mechanical suggestion (i.e.
+  the wikilink target genuinely does not correspond to any canonical
+  manifest slug, prefix-stripped or otherwise — that is curation debt
+  for a future content-level pass);
+- 3 are mixed prose + inline-code: the prose occurrences still need a
+  human decision about what canonical slug they should point at;
+- 17 of the 56 carry a single suggestion the repair pass refused for
+  one of: not a `paper-` prefix strip (e.g. separator drift like
+  `[[Paper_Foo_Bar]]`), or every occurrence sat inside inline-code.
 
 The unresolved set is **not** a bug list — it is honestly-counted
 curation debt. The audit's job is to surface it; draining it is a
 separate, deliberate motion that will happen across multiple PRs.
+
+## 4b. Paper-prefix repair pass (mechanical, narrowly scoped)
+
+A companion helper at [`scripts/repair_wikilinks.py`](../scripts/repair_wikilinks.py)
+performs exactly one safe, mechanical repair class: rewrite
+`[[paper-foo]]` to `[[foo]]` (and `[[paper-foo|label]]` to
+`[[foo|label]]`) **only when** all of:
+
+1. the unresolved target starts with `paper-`,
+2. the audit reports exactly one suggestion for it,
+3. that single suggestion equals the target with the `paper-` prefix
+   stripped, and
+4. the stripped form is a canonical manifest slug.
+
+Wikilinks marked `in_inline_code: true` by the audit (e.g.
+`` `[[paper-foo]]` `` in a doc snippet) are never rewritten, since they
+are placeholder samples rather than real cross-references. The repair
+defaults to dry-run; `--apply` is required to mutate files.
+
+First-pass result on the live corpus:
+
+| metric                       | before | after | Δ      |
+|------------------------------|-------:|------:|-------:|
+| unique wikilink targets      |    336 |   334 |     -2 |
+| resolved targets             |    241 |   278 |    +37 |
+| unresolved targets           |     95 |    56 |    -39 |
+| eligible repair candidates   |     n/a |    50 |    -    |
+| prose occurrences rewritten  |     n/a |   162 |    -    |
+| files touched                |     n/a |    58 |    -    |
+| no-suggestion (refused)      |     n/a |    39 |    -    |
+| all-inline-code (refused)    |     n/a |     6 |    -    |
+| ambiguous (refused)          |     n/a |     0 |    -    |
+
+The `-2` drop in unique targets (not `-39`) is because some repaired
+`paper-X` keys collapsed onto an existing canonical `X` key the audit
+had already counted; those joins do not change the resolved count, so
+the resolved count grew by `+37`, not `+39`. The two extra targets
+that did not move from unresolved to resolved are accounted for by
+this collapse.
+
+The 50 eligible targets were not 50 separate "fixes" — they were one
+mechanical rewrite rule applied across 162 prose occurrences. No
+ambiguous suggestion was ever accepted; no slug was invented. The
+repair plan is reproducible via:
+
+```
+python3 scripts/repair_wikilinks.py --json --output /tmp/plan.json
+python3 scripts/repair_wikilinks.py --apply --json \
+    --output reports/wikilink_repair.json
+```
+
+The 56 remaining unresolved targets are honestly-counted curation
+debt. Closing them is a content-level question (what does this
+wikilink mean?) rather than a mechanical one and will happen across
+follow-up PRs.
 
 ## 5. Why this section is informational, not CI-blocking
 

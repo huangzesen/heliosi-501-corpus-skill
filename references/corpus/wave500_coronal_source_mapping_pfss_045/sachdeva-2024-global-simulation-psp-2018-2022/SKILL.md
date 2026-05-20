@@ -99,7 +99,7 @@ Reproduce per-encounter agreement level.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-wsa-l1-errors-2025]] for an MHD↔WSA error reconciliation.
+- Compose with [[wsa-l1-errors-2025]] for an MHD↔WSA error reconciliation.
 - Generative hypothesis: PFSS-vs-NSPF inner boundary should shift PSP encounter agreement systematically.
 
 ---
@@ -107,7 +107,7 @@ Reproduce per-encounter agreement level.
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
+- [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
 
 ## Links
 

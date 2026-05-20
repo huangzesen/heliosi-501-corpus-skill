@@ -95,14 +95,14 @@ Recover cycle-phase rotation-rate variation.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-hore-2026-dominant-spatial-scales-coronal-field]] — multipole power vs coronal rotation as a unified framework.
-- Generative hypothesis: source-region drift rate should drop during nested-AR phases ([[paper-jiang-2024-nested-active-regions-hcs-reversal]]).
+- Compose with [[hore-2026-dominant-spatial-scales-coronal-field]] — multipole power vs coronal rotation as a unified framework.
+- Generative hypothesis: source-region drift rate should drop during nested-AR phases ([[jiang-2024-nested-active-regions-hcs-reversal]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-hore-2026-dominant-spatial-scales-coronal-field]]
+- [[hore-2026-dominant-spatial-scales-coronal-field]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

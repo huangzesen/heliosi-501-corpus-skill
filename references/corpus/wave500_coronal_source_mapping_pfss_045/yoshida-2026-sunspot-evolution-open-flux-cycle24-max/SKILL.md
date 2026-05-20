@@ -99,16 +99,16 @@ Reproduce the qualitative doubling and AR-12192 ablation gap.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-tahtinen-2026-dipole-flux-transport-open-flux]] to scan 10^3 BMR counterfactuals on the same window.
-- Tension with [[paper-jiang-2024-nested-active-regions-hcs-reversal]]: AR-12192 dominance and nested-AR HCS stalling should both fingerprint the equatorial dipole.
+- Compose with [[tahtinen-2026-dipole-flux-transport-open-flux]] to scan 10^3 BMR counterfactuals on the same window.
+- Tension with [[jiang-2024-nested-active-regions-hcs-reversal]]: AR-12192 dominance and nested-AR HCS stalling should both fingerprint the equatorial dipole.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-tahtinen-2026-dipole-flux-transport-open-flux]]
+- [[tahtinen-2026-dipole-flux-transport-open-flux]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-jiang-2024-nested-active-regions-hcs-reversal]]
+- [[jiang-2024-nested-active-regions-hcs-reversal]]
 
 ## Links
 

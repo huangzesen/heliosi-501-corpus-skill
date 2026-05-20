@@ -99,14 +99,14 @@ Reproduce the slow-wind/OCB proximity statistic at the paper's level.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-stansby-2025-open-closed-flux-boundary-slow-wind]] itself + [[paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp]] to separate slow-Alfvénic from slow-non-Alfvénic slow wind by OCB distance.
-- Generative hypothesis: OCB-distance metrics under outflowpy ([[paper-rice-2026-outflowpy-outflow-fields-pfss-alternative]]) should give a sharper slow-wind separation.
+- Compose with [[stansby-2025-open-closed-flux-boundary-slow-wind]] itself + [[ervin-2024-slow-alfvenic-source-regions-pfss-psp]] to separate slow-Alfvénic from slow-non-Alfvénic slow wind by OCB distance.
+- Generative hypothesis: OCB-distance metrics under outflowpy ([[rice-2026-outflowpy-outflow-fields-pfss-alternative]]) should give a sharper slow-wind separation.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp]]
+- [[ervin-2024-slow-alfvenic-source-regions-pfss-psp]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

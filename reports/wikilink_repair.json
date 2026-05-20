@@ -1,0 +1,2567 @@
+{
+  "schema_version": "wikilink-repair-1",
+  "mode": "apply",
+  "corpus_root": "references/corpus",
+  "manifest_path": "references/corpus_manifest_v2.json",
+  "unresolved_before": 95,
+  "unresolved_after": 56,
+  "planned_replacements": 162,
+  "applied_replacements": 162,
+  "files_affected": 58,
+  "eligible_targets": [
+    {
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences": 9,
+      "prose_occurrences": 9,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-llmtreesearch-2026-multi-pathogen-disease-forecasting/SKILL.md",
+          "line": 78,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-llmtreesearch-2026-multi-pathogen-disease-forecasting/SKILL.md",
+          "line": 214,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-yin-2024-turing-tests-ai-scientist-benchmark/SKILL.md",
+          "line": 75,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-yin-2024-turing-tests-ai-scientist-benchmark/SKILL.md",
+          "line": 212,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-andres-2021-incompressible-cascade-anisotropic-pp/SKILL.md",
+          "line": 297,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-andres-2021-incompressible-cascade-anisotropic-pp/SKILL.md",
+          "line": 323,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-bourouaine-2020-switchback-nonswitchback-turbulence/SKILL.md",
+          "line": 218,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-jiang-2025-angular-third-order-law/SKILL.md",
+          "line": 166,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-romanelli-2024-incompressible-cascade-upstream-mars/SKILL.md",
+          "line": 162,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-mackay-2026-tracking-magnetic-topology-change-corona",
+      "replacement": "mackay-2026-tracking-magnetic-topology-change-corona",
+      "occurrences": 8,
+      "prose_occurrences": 8,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brennan-2024-tracing-reconnecting-expanding-field-lines/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brennan-2024-tracing-reconnecting-expanding-field-lines/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/lapenta-2026-magnetic-connectivity-time-dependent-corona/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/lapenta-2026-magnetic-connectivity-time-dependent-corona/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+          "line": 101,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+          "line": 108,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nayak-2024-coronal-null-extrapolation-generation-annihilation/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nayak-2024-coronal-null-extrapolation-generation-annihilation/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "replacement": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "occurrences": 19,
+      "prose_occurrences": 8,
+      "inline_occurrences": 11,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/comparison-coronal-extrapolation-cycle-24-hmi/SKILL.md",
+          "line": 154,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/comparison-coronal-extrapolation-cycle-24-hmi/SKILL.md",
+          "line": 179,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/coronal-hole-loop-statistics-potential-field-modeling/SKILL.md",
+          "line": 179,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/eclipse-white-light-benchmark-pfss-models/SKILL.md",
+          "line": 162,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/eclipse-white-light-benchmark-pfss-models/SKILL.md",
+          "line": 186,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 196,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/multi-constraint-pfss-extrapolation-model/SKILL.md",
+          "line": 170,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/multi-constraint-pfss-extrapolation-model/SKILL.md",
+          "line": 193,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/pfss-test-problems-solar-stellar-magnetic-fields/SKILL.md",
+          "line": 174,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/pfss-test-problems-solar-stellar-magnetic-fields/SKILL.md",
+          "line": 190,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/hore-2026-dominant-spatial-scales-coronal-field/SKILL.md",
+          "line": 108,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/jian-2025-backmapping-high-low-latitude-pfss/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/jian-2025-backmapping-high-low-latitude-pfss/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/sachdeva-2024-global-simulation-psp-2018-2022/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+          "line": 101,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+          "line": 108,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-open-flux-problem-in-situ-vs-pfss-discrepancy/SKILL.md",
+          "line": 96,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences": 8,
+      "prose_occurrences": 7,
+      "inline_occurrences": 1,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/multi-constraint-pfss-extrapolation-model/SKILL.md",
+          "line": 190,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+          "line": 108,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nayak-2024-coronal-null-extrapolation-generation-annihilation/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/razquin-2026-coronal-dimming-magnetic-flux-may2024/SKILL.md",
+          "line": 111,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-raouafi-2025-switchback-coronal-jet-precursors",
+      "replacement": "raouafi-2025-switchback-coronal-jet-precursors",
+      "occurrences": 7,
+      "prose_occurrences": 7,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/deforest-2024-flux-fluxon-coronal-modeling/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/lapenta-2026-magnetic-connectivity-time-dependent-corona/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/lyons-2025-flux-cancellation-jet-coronal-hole-eruption/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/lyons-2025-flux-cancellation-jet-coronal-hole-eruption/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2023-3d-reconnection-turbulent-plasmas/SKILL.md",
+          "line": 94,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-jiang-2024-nested-active-regions-hcs-reversal",
+      "replacement": "jiang-2024-nested-active-regions-hcs-reversal",
+      "occurrences": 6,
+      "prose_occurrences": 6,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/milligan-2024-flares-sympathetic-angular-separation/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/milligan-2024-flares-sympathetic-angular-separation/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wang-2023-solar-wind-source-cycle-coronal-rotation/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+          "line": 111,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-multi-constraint-pfss-extrapolation-model",
+      "replacement": "multi-constraint-pfss-extrapolation-model",
+      "occurrences": 14,
+      "prose_occurrences": 6,
+      "inline_occurrences": 8,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/comparison-coronal-extrapolation-cycle-24-hmi/SKILL.md",
+          "line": 155,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/comparison-coronal-extrapolation-cycle-24-hmi/SKILL.md",
+          "line": 177,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/eclipse-white-light-benchmark-pfss-models/SKILL.md",
+          "line": 163,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/flare-precursor-fine-scale-topology-extrapolation/SKILL.md",
+          "line": 162,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/flare-precursor-fine-scale-topology-extrapolation/SKILL.md",
+          "line": 179,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/pfss-test-problems-solar-stellar-magnetic-fields/SKILL.md",
+          "line": 173,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/pfss-test-problems-solar-stellar-magnetic-fields/SKILL.md",
+          "line": 188,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/wu-2026-nonspherical-coronal-magnetic-field-open-flux/SKILL.md",
+          "line": 188,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/hore-2026-dominant-spatial-scales-coronal-field/SKILL.md",
+          "line": 100,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+          "line": 100,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+          "line": 107,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "replacement": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "occurrences": 6,
+      "prose_occurrences": 6,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/koukras-2022-backmapping-uncertainty-fast-wind/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/koukras-2022-backmapping-uncertainty-fast-wind/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/macneil-2024-adapt-aft-flux-transport-in-situ/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wsa-l1-errors-2025/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wsa-l1-errors-2025/SKILL.md",
+          "line": 112,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-stansby-2025-open-closed-flux-boundary-slow-wind",
+      "replacement": "stansby-2025-open-closed-flux-boundary-slow-wind",
+      "occurrences": 6,
+      "prose_occurrences": 6,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/katsavrias-2025-low-db-streams-source-variability/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/katsavrias-2025-low-db-streams-source-variability/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/qrft-2025-quasi-radial-field-tracing-open-flux/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/reville-2025-solo-psp-open-closed-magnetic-outflows/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/reville-2025-solo-psp-open-closed-magnetic-outflows/SKILL.md",
+          "line": 113,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "replacement": "ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "occurrences": 11,
+      "prose_occurrences": 5,
+      "inline_occurrences": 6,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/ai-farside-synchronic-coronal-field-extrapolation/SKILL.md",
+          "line": 160,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/coronal-hole-loop-statistics-potential-field-modeling/SKILL.md",
+          "line": 166,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/dakeyo-2026-source-alignment-psp-solo-method-link/SKILL.md",
+          "line": 154,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brooks-2025-active-region-upflows-coronal-coupling/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brooks-2025-active-region-upflows-coronal-coupling/SKILL.md",
+          "line": 111,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-coronal-hole-deep-darkening-elemental-abundance/SKILL.md",
+          "line": 86,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-coronal-hole-pseudostreamer-boundary-classification/SKILL.md",
+          "line": 88,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-coronal-mhd-alfven-wave-poynting-flux-base/SKILL.md",
+          "line": 84,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-so-phi-hrt-vector-magnetogram-radial-distance/SKILL.md",
+          "line": 224,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "replacement": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "occurrences": 5,
+      "prose_occurrences": 5,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/jiang-2024-nested-active-regions-hcs-reversal/SKILL.md",
+          "line": 101,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/jiang-2024-nested-active-regions-hcs-reversal/SKILL.md",
+          "line": 108,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+          "line": 100,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+          "line": 107,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "replacement": "bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "occurrences": 8,
+      "prose_occurrences": 4,
+      "inline_occurrences": 4,
+      "referrers": [
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+          "line": 35,
+          "in_inline_code": false
+        },
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+          "line": 149,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/raouafi-2025-switchback-coronal-jet-precursors/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/raouafi-2025-switchback-coronal-jet-precursors/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-coronal-hole-jet-population-statistics-aia/SKILL.md",
+          "line": 89,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-coronal-plume-substructure-eui-high-cadence/SKILL.md",
+          "line": 223,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-coronal-plume-substructure-eui-high-cadence/SKILL.md",
+          "line": 228,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-open-flux-problem-in-situ-vs-pfss-discrepancy/SKILL.md",
+          "line": 93,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "replacement": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-gottweis-2025-ai-co-scientist-multi-agent-gemini/SKILL.md",
+          "line": 77,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-gottweis-2025-ai-co-scientist-multi-agent-gemini/SKILL.md",
+          "line": 220,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-liweiwu-2026-ai-co-scientist-ranking-search-models/SKILL.md",
+          "line": 78,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-liweiwu-2026-ai-co-scientist-ranking-search-models/SKILL.md",
+          "line": 219,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-dingding-2025-pfss-source-surface-height-optimization",
+      "replacement": "dingding-2025-pfss-source-surface-height-optimization",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-pfss-iplmf-evaluation-psp/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-pfss-iplmf-evaluation-psp/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wsa-l1-errors-2025/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wsa-l1-errors-2025/SKILL.md",
+          "line": 111,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-eclipse-white-light-benchmark-pfss-models",
+      "replacement": "eclipse-white-light-benchmark-pfss-models",
+      "occurrences": 8,
+      "prose_occurrences": 4,
+      "inline_occurrences": 4,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/coronal-hole-loop-statistics-potential-field-modeling/SKILL.md",
+          "line": 176,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/multi-constraint-pfss-extrapolation-model/SKILL.md",
+          "line": 180,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/wu-2026-nonspherical-coronal-magnetic-field-open-flux/SKILL.md",
+          "line": 211,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-source-surface-radius-optimization-eclipse-streamer/SKILL.md",
+          "line": 93,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-hore-2026-dominant-spatial-scales-coronal-field",
+      "replacement": "hore-2026-dominant-spatial-scales-coronal-field",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/jian-2025-backmapping-high-low-latitude-pfss/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wang-2023-solar-wind-source-cycle-coronal-rotation/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wang-2023-solar-wind-source-cycle-coronal-rotation/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-koukras-2022-backmapping-uncertainty-fast-wind",
+      "replacement": "koukras-2022-backmapping-uncertainty-fast-wind",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-prediction-psp-source-13rs/SKILL.md",
+          "line": 97,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-prediction-psp-source-13rs/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/macneice-2024-fisk-heliospheric-field-source-mapping/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/macneice-2024-fisk-heliospheric-field-source-mapping/SKILL.md",
+          "line": 111,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "replacement": "razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wood-2025-quiet-sun-filament-coronal-hole-formation/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wood-2025-quiet-sun-filament-coronal-hole-formation/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "replacement": "rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-tahtinen-2026-dipole-flux-transport-open-flux",
+      "replacement": "tahtinen-2026-dipole-flux-transport-open-flux",
+      "occurrences": 4,
+      "prose_occurrences": 4,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+          "line": 94,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+          "line": 101,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-ai-farside-synchronic-coronal-field-extrapolation",
+      "replacement": "ai-farside-synchronic-coronal-field-extrapolation",
+      "occurrences": 11,
+      "prose_occurrences": 3,
+      "inline_occurrences": 8,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/coronal-hole-loop-statistics-potential-field-modeling/SKILL.md",
+          "line": 189,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/dakeyo-2026-source-alignment-psp-solo-method-link/SKILL.md",
+          "line": 84,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/dakeyo-2026-source-alignment-psp-solo-method-link/SKILL.md",
+          "line": 167,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 85,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 210,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/wu-2026-nonspherical-coronal-magnetic-field-open-flux/SKILL.md",
+          "line": 195,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/macneil-2024-adapt-aft-flux-transport-in-situ/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+          "line": 101,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+          "line": 108,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-helioseismic-farside-detection-acoustic-holography/SKILL.md",
+          "line": 78,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-open-flux-problem-in-situ-vs-pfss-discrepancy/SKILL.md",
+          "line": 103,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-brightness-magnetically-open-corona-2025",
+      "replacement": "brightness-magnetically-open-corona-2025",
+      "occurrences": 3,
+      "prose_occurrences": 3,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brooks-2025-active-region-upflows-coronal-coupling/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/qrft-2025-quasi-radial-field-tracing-open-flux/SKILL.md",
+          "line": 96,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/qrft-2025-quasi-radial-field-tracing-open-flux/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-brooks-2025-active-region-upflows-coronal-coupling",
+      "replacement": "brooks-2025-active-region-upflows-coronal-coupling",
+      "occurrences": 3,
+      "prose_occurrences": 3,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brightness-magnetically-open-corona-2025/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brightness-magnetically-open-corona-2025/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/katsavrias-2025-low-db-streams-source-variability/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-wsa-l1-errors-2025",
+      "replacement": "wsa-l1-errors-2025",
+      "occurrences": 3,
+      "prose_occurrences": 3,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/sachdeva-2024-global-simulation-psp-2018-2022/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-brennan-2024-tracing-reconnecting-expanding-field-lines",
+      "replacement": "brennan-2024-tracing-reconnecting-expanding-field-lines",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2023-3d-reconnection-turbulent-plasmas/SKILL.md",
+          "line": 93,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2023-3d-reconnection-turbulent-plasmas/SKILL.md",
+          "line": 100,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-cuddy-2026-pfss-shock-electron-acceleration",
+      "replacement": "cuddy-2026-pfss-shock-electron-acceleration",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nedal-2026-pfss-mhd-typeII-shock-may2024/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nedal-2026-pfss-mhd-typeII-shock-may2024/SKILL.md",
+          "line": 109,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-dakeyo-2026-source-alignment-psp-solo-method-link",
+      "replacement": "dakeyo-2026-source-alignment-psp-solo-method-link",
+      "occurrences": 5,
+      "prose_occurrences": 2,
+      "inline_occurrences": 3,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 80,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 182,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 207,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-prediction-psp-source-13rs/SKILL.md",
+          "line": 106,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/reville-2025-solo-psp-open-closed-magnetic-outflows/SKILL.md",
+          "line": 115,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-deforest-2024-flux-fluxon-coronal-modeling",
+      "replacement": "deforest-2024-flux-fluxon-coronal-modeling",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/milligan-2024-flares-sympathetic-angular-separation/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/raouafi-2025-switchback-coronal-jet-precursors/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-ervin-2025-alfven-surface-wind-braking-psp",
+      "replacement": "ervin-2025-alfven-surface-wind-braking-psp",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+          "line": 93,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+          "line": 100,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-finley-2023-differential-rotation-angular-momentum-loss",
+      "replacement": "finley-2023-differential-rotation-angular-momentum-loss",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+          "line": 112,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-huang-2023-psp-one-over-f-spectrum",
+      "replacement": "huang-2023-psp-one-over-f-spectrum",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-gottweis-2025-ai-co-scientist-multi-agent-gemini/SKILL.md",
+          "line": 77,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_agent_runtime_eval_design_045/paper-gottweis-2025-ai-co-scientist-multi-agent-gemini/SKILL.md",
+          "line": 220,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-kasper-2021-psp-enters-magnetically-dominated-corona",
+      "replacement": "kasper-2021-psp-enters-magnetically-dominated-corona",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-lapenta-2026-magnetic-connectivity-time-dependent-corona",
+      "replacement": "lapenta-2026-magnetic-connectivity-time-dependent-corona",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/mackay-2026-tracking-magnetic-topology-change-corona/SKILL.md",
+          "line": 95,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/mackay-2026-tracking-magnetic-topology-change-corona/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-milligan-2024-flares-sympathetic-angular-separation",
+      "replacement": "milligan-2024-flares-sympathetic-angular-separation",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/jiang-2024-nested-active-regions-hcs-reversal/SKILL.md",
+          "line": 102,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/mackay-2026-tracking-magnetic-topology-change-corona/SKILL.md",
+          "line": 96,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "replacement": "nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brennan-2024-tracing-reconnecting-expanding-field-lines/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-paper-desai-2024-hcs-reconnection-400kev-protons",
+      "replacement": "paper-desai-2024-hcs-reconnection-400kev-protons",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+          "line": 110,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+          "line": 118,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-qrft-2025-quasi-radial-field-tracing-open-flux",
+      "replacement": "qrft-2025-quasi-radial-field-tracing-open-flux",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/brightness-magnetically-open-corona-2025/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/nedal-2026-pfss-mhd-typeII-shock-may2024/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-ross-2025-data-constrained-mhd-filament-eruption",
+      "replacement": "ross-2025-data-constrained-mhd-filament-eruption",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+          "line": 105,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-shoda-2021-turbulence-switchback-generation-alfvenic",
+      "replacement": "shoda-2021-turbulence-switchback-generation-alfvenic",
+      "occurrences": 2,
+      "prose_occurrences": 2,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-bourouaine-2020-switchback-nonswitchback-turbulence/SKILL.md",
+          "line": 123,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_turbulence_intermit_heating_045/paper-bourouaine-2020-switchback-nonswitchback-turbulence/SKILL.md",
+          "line": 230,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
+      "replacement": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml/SKILL.md",
+          "line": 65,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
+      "replacement": "carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
+      "occurrences": 2,
+      "prose_occurrences": 1,
+      "inline_occurrences": 1,
+      "referrers": [
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+          "line": 54,
+          "in_inline_code": false
+        },
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+          "line": 146,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-katsavrias-2025-low-db-streams-source-variability",
+      "replacement": "katsavrias-2025-low-db-streams-source-variability",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/wood-2025-quiet-sun-filament-coronal-hole-formation/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-macneice-2024-fisk-heliospheric-field-source-mapping",
+      "replacement": "macneice-2024-fisk-heliospheric-field-source-mapping",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-pfss-iplmf-evaluation-psp/SKILL.md",
+          "line": 99,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-mostl-2022-alfven-wave-solar-wind-ip-scintillation",
+      "replacement": "mostl-2022-alfven-wave-solar-wind-ip-scintillation",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-nedal-2026-pfss-mhd-typeII-shock-may2024",
+      "replacement": "nedal-2026-pfss-mhd-typeII-shock-may2024",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+          "line": 103,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-pecora-2022-coherent-structures-proton-electron-heating",
+      "replacement": "pecora-2022-coherent-structures-proton-electron-heating",
+      "occurrences": 2,
+      "prose_occurrences": 1,
+      "inline_occurrences": 1,
+      "referrers": [
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-hu-2022-deep-swim-cnn-discontinuities/SKILL.md",
+          "line": 51,
+          "in_inline_code": false
+        },
+        {
+          "path": "batch_solar_wind_segmentation_ml/paper-hu-2022-deep-swim-cnn-discontinuities/SKILL.md",
+          "line": 186,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-pfss-test-problems-solar-stellar-magnetic-fields",
+      "replacement": "pfss-test-problems-solar-stellar-magnetic-fields",
+      "occurrences": 11,
+      "prose_occurrences": 1,
+      "inline_occurrences": 10,
+      "referrers": [
+        {
+          "path": "batch_pfss_source_mapping/ai-farside-synchronic-coronal-field-extrapolation/SKILL.md",
+          "line": 180,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/comparison-coronal-extrapolation-cycle-24-hmi/SKILL.md",
+          "line": 175,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/coronal-hole-loop-statistics-potential-field-modeling/SKILL.md",
+          "line": 187,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/dakeyo-2026-source-alignment-psp-solo-method-link/SKILL.md",
+          "line": 165,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/eclipse-white-light-benchmark-pfss-models/SKILL.md",
+          "line": 184,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/ervin-2024-slow-alfvenic-source-regions-pfss-psp/SKILL.md",
+          "line": 205,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/multi-constraint-pfss-extrapolation-model/SKILL.md",
+          "line": 187,
+          "in_inline_code": true
+        },
+        {
+          "path": "batch_pfss_source_mapping/wu-2026-nonspherical-coronal-magnetic-field-open-flux/SKILL.md",
+          "line": 207,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+          "line": 117,
+          "in_inline_code": false
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-csss-current-sheet-source-surface-non-radial-open-flux/SKILL.md",
+          "line": 84,
+          "in_inline_code": true
+        },
+        {
+          "path": "wave500_solar_corona_cme_flares_045/paper-mas-mhd-global-coronal-thermodynamic-model/SKILL.md",
+          "line": 86,
+          "in_inline_code": true
+        }
+      ]
+    },
+    {
+      "target": "paper-prasad-2026-blowout-jet-magnetic-topology",
+      "replacement": "prasad-2026-blowout-jet-magnetic-topology",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/razquin-2026-coronal-dimming-magnetic-flux-may2024/SKILL.md",
+          "line": 104,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-reville-2025-solo-psp-open-closed-magnetic-outflows",
+      "replacement": "reville-2025-solo-psp-open-closed-magnetic-outflows",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+          "line": 98,
+          "in_inline_code": false
+        }
+      ]
+    },
+    {
+      "target": "paper-vanderlinden-2024-flux-rope-magneto-friction-electric-field",
+      "replacement": "vanderlinden-2024-flux-rope-magneto-friction-electric-field",
+      "occurrences": 1,
+      "prose_occurrences": 1,
+      "inline_occurrences": 0,
+      "referrers": [
+        {
+          "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+          "line": 101,
+          "in_inline_code": false
+        }
+      ]
+    }
+  ],
+  "skipped_targets": [
+    {
+      "target": "slug",
+      "occurrences": 45,
+      "occurrences_in_inline_code": 45,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "pfss-tracing",
+      "occurrences": 9,
+      "occurrences_in_inline_code": 8,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-comparison-coronal-extrapolation-cycle-24-hmi",
+      "occurrences": 6,
+      "occurrences_in_inline_code": 6,
+      "reason": "all-inline-code",
+      "suggestions": [
+        "comparison-coronal-extrapolation-cycle-24-hmi"
+      ]
+    },
+    {
+      "target": "paper-coronal-hole-loop-statistics-potential-field-modeling",
+      "occurrences": 4,
+      "occurrences_in_inline_code": 4,
+      "reason": "all-inline-code",
+      "suggestions": [
+        "coronal-hole-loop-statistics-potential-field-modeling"
+      ]
+    },
+    {
+      "target": "paper-sioulas-2023-anisotropic-scaling",
+      "occurrences": 4,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "wikilinks",
+      "occurrences": 3,
+      "occurrences_in_inline_code": 1,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-bourouaine-2019-stochastic-heating-near-sun",
+      "occurrences": 2,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-klein-2017-stochastic-heating-beta-amplitude",
+      "occurrences": 2,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "raouafi-2023-psp-four-years-discoveries-review",
+      "occurrences": 2,
+      "occurrences_in_inline_code": 1,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "\"Te_perp\", \"Te_par\", \"Te_over_Ti\"",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "bowen-2024-cyclotron-resonance",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "hall-mhd-residual-classifier",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "messenger-mag-loader",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "messenger-solar-wind-filter",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "multi-spacecraft-particle-profile-correlation",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "nspf-fem",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-adhikari-2026-alfven-transition-young-solar-wind-solar-max",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "all-inline-code",
+      "suggestions": [
+        "adhikari-2026-alfven-transition-young-solar-wind-solar-max"
+      ]
+    },
+    {
+      "target": "paper-bowen-2023-landau-damping-proton-electron-heating",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "all-inline-code",
+      "suggestions": [
+        "bowen-2023-landau-damping-proton-electron-heating"
+      ]
+    },
+    {
+      "target": "paper-cao-2026-sep-rise-time-earth-mars",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-chandran-2013-stochastic-heating-alpha-proton",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-dakeyo-2026-source-alignment-psp-solo",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "all-inline-code",
+      "suggestions": [
+        "dakeyo-2026-source-alignment-psp-solo"
+      ]
+    },
+    {
+      "target": "paper-duan-2026-...",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-kilpua-2022-icme-sheath-psp-segmentation",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-landeros-2024-stride-ch-chromospheric-ensemble",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-livadiotis-2024-kappa-tail-technique",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-pop-corn-2026-cnn-ch-detection",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-stevens-2022-mhd-theory-psp-reconcile",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "paper-vourlidas-2016-wispr-imaging-instrument-psp",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 1,
+      "reason": "all-inline-code",
+      "suggestions": [
+        "vourlidas-2016-wispr-imaging-instrument-psp"
+      ]
+    },
+    {
+      "target": "paper-walker-2024-icme-shock-solo-ace-radial-evolution",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "parker-spiral-propagator",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "parker-transport-sde-solver",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "pfss-footpoint-mapper",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "psp-fields-efield-loader",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "psp-fields-mag-hcs-identifier",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "psp-isois-epi-data-loader",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "psp-sweap-bulk-loader",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "psp-walen-test-classifier",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "rotational-discontinuity-finder-mhd",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "shankarappa-2025-free-energy-sources-ion-scale-waves",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "so-swa-bulk-loader",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "stverak-2026-solo-swa-eas-spacecraft-electron-contamination",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "switchback-boundary-finder",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "synthetic-switchback-generator",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "trace-psd-broken-power-law-fitter",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    },
+    {
+      "target": "verniero-2023-proton-alpha-instabilities-ion-cyclotron",
+      "occurrences": 1,
+      "occurrences_in_inline_code": 0,
+      "reason": "no-suggestion",
+      "suggestions": []
+    }
+  ],
+  "file_edits": [
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-hu-2022-deep-swim-cnn-discontinuities/SKILL.md",
+      "target": "paper-pecora-2022-coherent-structures-proton-electron-heating",
+      "replacement": "pecora-2022-coherent-structures-proton-electron-heating",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+      "target": "paper-bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "replacement": "bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-katsavrias-2025-periodic-density-structures-solar-orbiter/SKILL.md",
+      "target": "paper-carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
+      "replacement": "carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "batch_solar_wind_segmentation_ml/paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml/SKILL.md",
+      "target": "paper-bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
+      "replacement": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_agent_runtime_eval_design_045/paper-gottweis-2025-ai-co-scientist-multi-agent-gemini/SKILL.md",
+      "target": "paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "replacement": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_agent_runtime_eval_design_045/paper-gottweis-2025-ai-co-scientist-multi-agent-gemini/SKILL.md",
+      "target": "paper-huang-2023-psp-one-over-f-spectrum",
+      "replacement": "huang-2023-psp-one-over-f-spectrum",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_agent_runtime_eval_design_045/paper-liweiwu-2026-ai-co-scientist-ranking-search-models/SKILL.md",
+      "target": "paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "replacement": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_agent_runtime_eval_design_045/paper-llmtreesearch-2026-multi-pathogen-disease-forecasting/SKILL.md",
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_agent_runtime_eval_design_045/paper-yin-2024-turing-tests-ai-scientist-benchmark/SKILL.md",
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-pfss-iplmf-evaluation-psp/SKILL.md",
+      "target": "paper-dingding-2025-pfss-source-surface-height-optimization",
+      "replacement": "dingding-2025-pfss-source-surface-height-optimization",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-pfss-iplmf-evaluation-psp/SKILL.md",
+      "target": "paper-macneice-2024-fisk-heliospheric-field-source-mapping",
+      "replacement": "macneice-2024-fisk-heliospheric-field-source-mapping",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-prediction-psp-source-13rs/SKILL.md",
+      "target": "paper-koukras-2022-backmapping-uncertainty-fast-wind",
+      "replacement": "koukras-2022-backmapping-uncertainty-fast-wind",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/badman-2023-prediction-psp-source-13rs/SKILL.md",
+      "target": "paper-dakeyo-2026-source-alignment-psp-solo-method-link",
+      "replacement": "dakeyo-2026-source-alignment-psp-solo-method-link",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/brennan-2024-tracing-reconnecting-expanding-field-lines/SKILL.md",
+      "target": "paper-mackay-2026-tracking-magnetic-topology-change-corona",
+      "replacement": "mackay-2026-tracking-magnetic-topology-change-corona",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/brennan-2024-tracing-reconnecting-expanding-field-lines/SKILL.md",
+      "target": "paper-nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "replacement": "nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/brightness-magnetically-open-corona-2025/SKILL.md",
+      "target": "paper-brooks-2025-active-region-upflows-coronal-coupling",
+      "replacement": "brooks-2025-active-region-upflows-coronal-coupling",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/brightness-magnetically-open-corona-2025/SKILL.md",
+      "target": "paper-qrft-2025-quasi-radial-field-tracing-open-flux",
+      "replacement": "qrft-2025-quasi-radial-field-tracing-open-flux",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/brooks-2025-active-region-upflows-coronal-coupling/SKILL.md",
+      "target": "paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "replacement": "ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/brooks-2025-active-region-upflows-coronal-coupling/SKILL.md",
+      "target": "paper-brightness-magnetically-open-corona-2025",
+      "replacement": "brightness-magnetically-open-corona-2025",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+      "target": "paper-eclipse-white-light-benchmark-pfss-models",
+      "replacement": "eclipse-white-light-benchmark-pfss-models",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+      "target": "paper-rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "replacement": "rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/cuddy-2026-pfss-shock-electron-acceleration/SKILL.md",
+      "target": "paper-nedal-2026-pfss-mhd-typeII-shock-may2024",
+      "replacement": "nedal-2026-pfss-mhd-typeII-shock-may2024",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/deforest-2024-flux-fluxon-coronal-modeling/SKILL.md",
+      "target": "paper-raouafi-2025-switchback-coronal-jet-precursors",
+      "replacement": "raouafi-2025-switchback-coronal-jet-precursors",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+      "target": "paper-eclipse-white-light-benchmark-pfss-models",
+      "replacement": "eclipse-white-light-benchmark-pfss-models",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+      "target": "paper-hore-2026-dominant-spatial-scales-coronal-field",
+      "replacement": "hore-2026-dominant-spatial-scales-coronal-field",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/dingding-2025-pfss-source-surface-height-optimization/SKILL.md",
+      "target": "paper-rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "replacement": "rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+      "target": "paper-finley-2023-differential-rotation-angular-momentum-loss",
+      "replacement": "finley-2023-differential-rotation-angular-momentum-loss",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/ervin-2025-alfven-surface-wind-braking-psp/SKILL.md",
+      "target": "paper-kasper-2021-psp-enters-magnetically-dominated-corona",
+      "replacement": "kasper-2021-psp-enters-magnetically-dominated-corona",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+      "target": "paper-tahtinen-2026-dipole-flux-transport-open-flux",
+      "replacement": "tahtinen-2026-dipole-flux-transport-open-flux",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/finley-2023-differential-rotation-angular-momentum-loss/SKILL.md",
+      "target": "paper-ervin-2025-alfven-surface-wind-braking-psp",
+      "replacement": "ervin-2025-alfven-surface-wind-braking-psp",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+      "target": "paper-jiang-2024-nested-active-regions-hcs-reversal",
+      "replacement": "jiang-2024-nested-active-regions-hcs-reversal",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+      "target": "paper-paper-desai-2024-hcs-reconnection-400kev-protons",
+      "replacement": "paper-desai-2024-hcs-reconnection-400kev-protons",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/han-2026-energetic-electrons-hcs-pfss-polarity/SKILL.md",
+      "target": "paper-pfss-test-problems-solar-stellar-magnetic-fields",
+      "replacement": "pfss-test-problems-solar-stellar-magnetic-fields",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/hore-2026-dominant-spatial-scales-coronal-field/SKILL.md",
+      "target": "paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "replacement": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/hore-2026-dominant-spatial-scales-coronal-field/SKILL.md",
+      "target": "paper-multi-constraint-pfss-extrapolation-model",
+      "replacement": "multi-constraint-pfss-extrapolation-model",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+      "target": "paper-multi-constraint-pfss-extrapolation-model",
+      "replacement": "multi-constraint-pfss-extrapolation-model",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/huang-2024-stereoscopic-coronal-loop-morphology/SKILL.md",
+      "target": "paper-vanderlinden-2024-flux-rope-magneto-friction-electric-field",
+      "replacement": "vanderlinden-2024-flux-rope-magneto-friction-electric-field",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/jian-2025-backmapping-high-low-latitude-pfss/SKILL.md",
+      "target": "paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "replacement": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/jian-2025-backmapping-high-low-latitude-pfss/SKILL.md",
+      "target": "paper-hore-2026-dominant-spatial-scales-coronal-field",
+      "replacement": "hore-2026-dominant-spatial-scales-coronal-field",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/jiang-2024-nested-active-regions-hcs-reversal/SKILL.md",
+      "target": "paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "replacement": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/jiang-2024-nested-active-regions-hcs-reversal/SKILL.md",
+      "target": "paper-milligan-2024-flares-sympathetic-angular-separation",
+      "replacement": "milligan-2024-flares-sympathetic-angular-separation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/katsavrias-2025-low-db-streams-source-variability/SKILL.md",
+      "target": "paper-stansby-2025-open-closed-flux-boundary-slow-wind",
+      "replacement": "stansby-2025-open-closed-flux-boundary-slow-wind",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/katsavrias-2025-low-db-streams-source-variability/SKILL.md",
+      "target": "paper-brooks-2025-active-region-upflows-coronal-coupling",
+      "replacement": "brooks-2025-active-region-upflows-coronal-coupling",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/koukras-2022-backmapping-uncertainty-fast-wind/SKILL.md",
+      "target": "paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "replacement": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ/SKILL.md",
+      "target": "paper-eclipse-white-light-benchmark-pfss-models",
+      "replacement": "eclipse-white-light-benchmark-pfss-models",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/kouloumvakos-2024-refinement-coronal-iplmf-remote-in-situ/SKILL.md",
+      "target": "paper-rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "replacement": "rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/lapenta-2026-magnetic-connectivity-time-dependent-corona/SKILL.md",
+      "target": "paper-mackay-2026-tracking-magnetic-topology-change-corona",
+      "replacement": "mackay-2026-tracking-magnetic-topology-change-corona",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/lapenta-2026-magnetic-connectivity-time-dependent-corona/SKILL.md",
+      "target": "paper-raouafi-2025-switchback-coronal-jet-precursors",
+      "replacement": "raouafi-2025-switchback-coronal-jet-precursors",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/lyons-2025-flux-cancellation-jet-coronal-hole-eruption/SKILL.md",
+      "target": "paper-raouafi-2025-switchback-coronal-jet-precursors",
+      "replacement": "raouafi-2025-switchback-coronal-jet-precursors",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/mackay-2026-tracking-magnetic-topology-change-corona/SKILL.md",
+      "target": "paper-lapenta-2026-magnetic-connectivity-time-dependent-corona",
+      "replacement": "lapenta-2026-magnetic-connectivity-time-dependent-corona",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/mackay-2026-tracking-magnetic-topology-change-corona/SKILL.md",
+      "target": "paper-milligan-2024-flares-sympathetic-angular-separation",
+      "replacement": "milligan-2024-flares-sympathetic-angular-separation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/macneice-2024-fisk-heliospheric-field-source-mapping/SKILL.md",
+      "target": "paper-koukras-2022-backmapping-uncertainty-fast-wind",
+      "replacement": "koukras-2022-backmapping-uncertainty-fast-wind",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/macneil-2024-adapt-aft-flux-transport-in-situ/SKILL.md",
+      "target": "paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "replacement": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/macneil-2024-adapt-aft-flux-transport-in-situ/SKILL.md",
+      "target": "paper-ai-farside-synchronic-coronal-field-extrapolation",
+      "replacement": "ai-farside-synchronic-coronal-field-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/milligan-2024-flares-sympathetic-angular-separation/SKILL.md",
+      "target": "paper-jiang-2024-nested-active-regions-hcs-reversal",
+      "replacement": "jiang-2024-nested-active-regions-hcs-reversal",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/milligan-2024-flares-sympathetic-angular-separation/SKILL.md",
+      "target": "paper-deforest-2024-flux-fluxon-coronal-modeling",
+      "replacement": "deforest-2024-flux-fluxon-coronal-modeling",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+      "target": "paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "replacement": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+      "target": "paper-mostl-2022-alfven-wave-solar-wind-ip-scintillation",
+      "replacement": "mostl-2022-alfven-wave-solar-wind-ip-scintillation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/mostl-2022-alfven-wave-solar-wind-ip-scintillation/SKILL.md",
+      "target": "paper-reville-2025-solo-psp-open-closed-magnetic-outflows",
+      "replacement": "reville-2025-solo-psp-open-closed-magnetic-outflows",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+      "target": "paper-mackay-2026-tracking-magnetic-topology-change-corona",
+      "replacement": "mackay-2026-tracking-magnetic-topology-change-corona",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nadol-2026-magnetic-separator-reconnection-flare-ribbons/SKILL.md",
+      "target": "paper-razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "replacement": "razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nayak-2024-coronal-null-extrapolation-generation-annihilation/SKILL.md",
+      "target": "paper-mackay-2026-tracking-magnetic-topology-change-corona",
+      "replacement": "mackay-2026-tracking-magnetic-topology-change-corona",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nayak-2024-coronal-null-extrapolation-generation-annihilation/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nedal-2026-pfss-mhd-typeII-shock-may2024/SKILL.md",
+      "target": "paper-cuddy-2026-pfss-shock-electron-acceleration",
+      "replacement": "cuddy-2026-pfss-shock-electron-acceleration",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/nedal-2026-pfss-mhd-typeII-shock-may2024/SKILL.md",
+      "target": "paper-qrft-2025-quasi-radial-field-tracing-open-flux",
+      "replacement": "qrft-2025-quasi-radial-field-tracing-open-flux",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/prasad-2023-3d-reconnection-turbulent-plasmas/SKILL.md",
+      "target": "paper-raouafi-2025-switchback-coronal-jet-precursors",
+      "replacement": "raouafi-2025-switchback-coronal-jet-precursors",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/prasad-2023-3d-reconnection-turbulent-plasmas/SKILL.md",
+      "target": "paper-brennan-2024-tracing-reconnecting-expanding-field-lines",
+      "replacement": "brennan-2024-tracing-reconnecting-expanding-field-lines",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+      "target": "paper-raouafi-2025-switchback-coronal-jet-precursors",
+      "replacement": "raouafi-2025-switchback-coronal-jet-precursors",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/prasad-2026-blowout-jet-magnetic-topology/SKILL.md",
+      "target": "paper-nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "replacement": "nadol-2026-magnetic-separator-reconnection-flare-ribbons",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/qrft-2025-quasi-radial-field-tracing-open-flux/SKILL.md",
+      "target": "paper-stansby-2025-open-closed-flux-boundary-slow-wind",
+      "replacement": "stansby-2025-open-closed-flux-boundary-slow-wind",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/qrft-2025-quasi-radial-field-tracing-open-flux/SKILL.md",
+      "target": "paper-brightness-magnetically-open-corona-2025",
+      "replacement": "brightness-magnetically-open-corona-2025",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/raouafi-2025-switchback-coronal-jet-precursors/SKILL.md",
+      "target": "paper-bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "replacement": "bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/raouafi-2025-switchback-coronal-jet-precursors/SKILL.md",
+      "target": "paper-deforest-2024-flux-fluxon-coronal-modeling",
+      "replacement": "deforest-2024-flux-fluxon-coronal-modeling",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/razquin-2026-coronal-dimming-magnetic-flux-may2024/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/razquin-2026-coronal-dimming-magnetic-flux-may2024/SKILL.md",
+      "target": "paper-prasad-2026-blowout-jet-magnetic-topology",
+      "replacement": "prasad-2026-blowout-jet-magnetic-topology",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/reville-2025-solo-psp-open-closed-magnetic-outflows/SKILL.md",
+      "target": "paper-stansby-2025-open-closed-flux-boundary-slow-wind",
+      "replacement": "stansby-2025-open-closed-flux-boundary-slow-wind",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/reville-2025-solo-psp-open-closed-magnetic-outflows/SKILL.md",
+      "target": "paper-dakeyo-2026-source-alignment-psp-solo-method-link",
+      "replacement": "dakeyo-2026-source-alignment-psp-solo-method-link",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+      "target": "paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "replacement": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+      "target": "paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "replacement": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/rice-2026-outflowpy-outflow-fields-pfss-alternative/SKILL.md",
+      "target": "paper-eclipse-white-light-benchmark-pfss-models",
+      "replacement": "eclipse-white-light-benchmark-pfss-models",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+      "target": "paper-multi-constraint-pfss-extrapolation-model",
+      "replacement": "multi-constraint-pfss-extrapolation-model",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/ross-2025-data-constrained-mhd-filament-eruption/SKILL.md",
+      "target": "paper-razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "replacement": "razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/sachdeva-2024-global-simulation-psp-2018-2022/SKILL.md",
+      "target": "paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "replacement": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/sachdeva-2024-global-simulation-psp-2018-2022/SKILL.md",
+      "target": "paper-wsa-l1-errors-2025",
+      "replacement": "wsa-l1-errors-2025",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+      "target": "paper-ai-farside-synchronic-coronal-field-extrapolation",
+      "replacement": "ai-farside-synchronic-coronal-field-extrapolation",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field/SKILL.md",
+      "target": "paper-wsa-l1-errors-2025",
+      "replacement": "wsa-l1-errors-2025",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+      "target": "paper-stansby-2025-open-closed-flux-boundary-slow-wind",
+      "replacement": "stansby-2025-open-closed-flux-boundary-slow-wind",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+      "target": "paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "replacement": "ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/stansby-2025-open-closed-flux-boundary-slow-wind/SKILL.md",
+      "target": "paper-rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "replacement": "rice-2026-outflowpy-outflow-fields-pfss-alternative",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+      "target": "paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "replacement": "wu-2026-nonspherical-coronal-magnetic-field-open-flux",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/tahtinen-2026-dipole-flux-transport-open-flux/SKILL.md",
+      "target": "paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "replacement": "yoshida-2026-sunspot-evolution-open-flux-cycle24-max",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+      "target": "paper-flare-precursor-fine-scale-topology-extrapolation",
+      "replacement": "flare-precursor-fine-scale-topology-extrapolation",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+      "target": "paper-multi-constraint-pfss-extrapolation-model",
+      "replacement": "multi-constraint-pfss-extrapolation-model",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/vanderlinden-2024-flux-rope-magneto-friction-electric-field/SKILL.md",
+      "target": "paper-ross-2025-data-constrained-mhd-filament-eruption",
+      "replacement": "ross-2025-data-constrained-mhd-filament-eruption",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/wang-2023-solar-wind-source-cycle-coronal-rotation/SKILL.md",
+      "target": "paper-jiang-2024-nested-active-regions-hcs-reversal",
+      "replacement": "jiang-2024-nested-active-regions-hcs-reversal",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/wang-2023-solar-wind-source-cycle-coronal-rotation/SKILL.md",
+      "target": "paper-hore-2026-dominant-spatial-scales-coronal-field",
+      "replacement": "hore-2026-dominant-spatial-scales-coronal-field",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/wood-2025-quiet-sun-filament-coronal-hole-formation/SKILL.md",
+      "target": "paper-razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "replacement": "razquin-2026-coronal-dimming-magnetic-flux-may2024",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/wood-2025-quiet-sun-filament-coronal-hole-formation/SKILL.md",
+      "target": "paper-katsavrias-2025-low-db-streams-source-variability",
+      "replacement": "katsavrias-2025-low-db-streams-source-variability",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/wsa-l1-errors-2025/SKILL.md",
+      "target": "paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "replacement": "sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/wsa-l1-errors-2025/SKILL.md",
+      "target": "paper-dingding-2025-pfss-source-surface-height-optimization",
+      "replacement": "dingding-2025-pfss-source-surface-height-optimization",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+      "target": "paper-jiang-2024-nested-active-regions-hcs-reversal",
+      "replacement": "jiang-2024-nested-active-regions-hcs-reversal",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_coronal_source_mapping_pfss_045/yoshida-2026-sunspot-evolution-open-flux-cycle24-max/SKILL.md",
+      "target": "paper-tahtinen-2026-dipole-flux-transport-open-flux",
+      "replacement": "tahtinen-2026-dipole-flux-transport-open-flux",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_solar_corona_cme_flares_045/paper-coronal-plume-substructure-eui-high-cadence/SKILL.md",
+      "target": "paper-bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "replacement": "bale-2021-solar-source-switchbacks-magnetic-funnels",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_solar_corona_cme_flares_045/paper-so-phi-hrt-vector-magnetogram-radial-distance/SKILL.md",
+      "target": "paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "replacement": "ervin-2024-slow-alfvenic-source-regions-pfss-psp",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_turbulence_intermit_heating_045/paper-andres-2021-incompressible-cascade-anisotropic-pp/SKILL.md",
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_turbulence_intermit_heating_045/paper-bourouaine-2020-switchback-nonswitchback-turbulence/SKILL.md",
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_turbulence_intermit_heating_045/paper-bourouaine-2020-switchback-nonswitchback-turbulence/SKILL.md",
+      "target": "paper-shoda-2021-turbulence-switchback-generation-alfvenic",
+      "replacement": "shoda-2021-turbulence-switchback-generation-alfvenic",
+      "occurrences_rewritten": 2
+    },
+    {
+      "path": "wave500_turbulence_intermit_heating_045/paper-jiang-2025-angular-third-order-law/SKILL.md",
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences_rewritten": 1
+    },
+    {
+      "path": "wave500_turbulence_intermit_heating_045/paper-romanelli-2024-incompressible-cascade-upstream-mars/SKILL.md",
+      "target": "paper-bandyopadhyay-2020-energy-transfer-psp",
+      "replacement": "bandyopadhyay-2020-energy-transfer-psp",
+      "occurrences_rewritten": 1
+    }
+  ]
+}

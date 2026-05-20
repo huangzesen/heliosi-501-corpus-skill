@@ -95,7 +95,7 @@ Recover per-product polarity-vs-latitude table.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]] to attribute polar-vs-farside uncertainty.
+- Compose with [[sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]] to attribute polar-vs-farside uncertainty.
 - Generative hypothesis: ADAPT–AFT differential at high latitude predicts which cycle phases need the AI-farside augmentation.
 
 ---
@@ -103,7 +103,7 @@ Recover per-product polarity-vs-latitude table.
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-ai-farside-synchronic-coronal-field-extrapolation]]
+- [[ai-farside-synchronic-coronal-field-extrapolation]]
 
 ## Links
 

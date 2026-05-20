@@ -100,14 +100,14 @@ Recover post-eruption CH appearance in both EUV and PFSS open-field maps.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-razquin-2026-coronal-dimming-magnetic-flux-may2024]] — a single framework for dimming-vs-CH-formation as two outcomes of post-eruption topology.
-- Generative hypothesis: the post-eruption PFSS open-flux change should correlate with subsequent slow-wind source variability ([[paper-katsavrias-2025-low-db-streams-source-variability]]).
+- Compose with [[razquin-2026-coronal-dimming-magnetic-flux-may2024]] — a single framework for dimming-vs-CH-formation as two outcomes of post-eruption topology.
+- Generative hypothesis: the post-eruption PFSS open-flux change should correlate with subsequent slow-wind source variability ([[katsavrias-2025-low-db-streams-source-variability]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-razquin-2026-coronal-dimming-magnetic-flux-may2024]]
+- [[razquin-2026-coronal-dimming-magnetic-flux-may2024]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

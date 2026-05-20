@@ -95,7 +95,7 @@ Reproduce per-spacecraft improvement table.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-rice-2026-outflowpy-outflow-fields-pfss-alternative]] for a joint refinement under outflow physics.
+- Compose with [[rice-2026-outflowpy-outflow-fields-pfss-alternative]] for a joint refinement under outflow physics.
 - Generative hypothesis: cost-surface valleys identify regimes where additional physics (NSPF, multi-constraint PFSS) gives diminishing returns.
 
 ---
@@ -103,7 +103,7 @@ Reproduce per-spacecraft improvement table.
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-eclipse-white-light-benchmark-pfss-models]]
+- [[eclipse-white-light-benchmark-pfss-models]]
 
 ## Links
 

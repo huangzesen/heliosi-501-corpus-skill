@@ -95,15 +95,15 @@ Reproduce per-encounter pass-rate table.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-dingding-2025-pfss-source-surface-height-optimization]] — pass rate vs optimal R_ss should be coherent.
-- Generative hypothesis: replacing Parker spiral with the Fisk field ([[paper-macneice-2024-fisk-heliospheric-field-source-mapping]]) should change perihelion polarity-agreement scores.
+- Compose with [[dingding-2025-pfss-source-surface-height-optimization]] — pass rate vs optimal R_ss should be coherent.
+- Generative hypothesis: replacing Parker spiral with the Fisk field ([[macneice-2024-fisk-heliospheric-field-source-mapping]]) should change perihelion polarity-agreement scores.
 
 ---
 
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-dingding-2025-pfss-source-surface-height-optimization]]
+- [[dingding-2025-pfss-source-surface-height-optimization]]
 
 ## Links
 

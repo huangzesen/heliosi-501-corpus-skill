@@ -294,7 +294,7 @@ kinetic-scale interpretation (the analysis is MHD-scale).
 
 ## 9. Skill graph + Layer-4 affordances
 
-Depends on [[paper-bandyopadhyay-2020-energy-transfer-psp]] (single-PSP-
+Depends on [[bandyopadhyay-2020-energy-transfer-psp]] (single-PSP-
 encounter PP cascade-rate baseline this paper extends to a multi-year survey
 and to anisotropic decomposition).
 
@@ -320,7 +320,7 @@ and to anisotropic decomposition).
 - Parent sub-graph: `wave500_turbulence_intermit_heating_045` (cascade,
   anisotropy, exact relations).
 - Sibling paper-skills:
-  [[paper-bandyopadhyay-2020-energy-transfer-psp]] (single-encounter
+  [[bandyopadhyay-2020-energy-transfer-psp]] (single-encounter
   baseline), [[paper-cuesta-2023-compressible-turbulence-eight-perihelia]]
   (compressible cascade comparator),
   [[paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp]] (sub-ion-scale

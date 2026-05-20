@@ -93,15 +93,15 @@ Boundary IoU improvement at matched cost.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-brightness-magnetically-open-corona-2025]] for brightness-classified open-flux atlas.
-- Generative hypothesis: QRaFT-OCB sharpness predicts in-situ slow-wind/OCB association sharpness ([[paper-stansby-2025-open-closed-flux-boundary-slow-wind]]).
+- Compose with [[brightness-magnetically-open-corona-2025]] for brightness-classified open-flux atlas.
+- Generative hypothesis: QRaFT-OCB sharpness predicts in-situ slow-wind/OCB association sharpness ([[stansby-2025-open-closed-flux-boundary-slow-wind]]).
 
 ---
 
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-brightness-magnetically-open-corona-2025]]
+- [[brightness-magnetically-open-corona-2025]]
 
 ## Links
 

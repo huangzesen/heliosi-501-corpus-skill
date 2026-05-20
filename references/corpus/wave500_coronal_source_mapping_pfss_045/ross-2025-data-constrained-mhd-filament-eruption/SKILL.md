@@ -99,15 +99,15 @@ Match observed eruption-onset time within the paper's tolerance and morphology q
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-razquin-2026-coronal-dimming-magnetic-flux-may2024]] for an end-to-end dimming-vs-MHD-eruption reconciliation skill.
-- Generative hypothesis: replacing NLFFF interior with [[paper-multi-constraint-pfss-extrapolation-model]] should shift the simulated onset time by a measurable amount.
+- Compose with [[razquin-2026-coronal-dimming-magnetic-flux-may2024]] for an end-to-end dimming-vs-MHD-eruption reconciliation skill.
+- Generative hypothesis: replacing NLFFF interior with [[multi-constraint-pfss-extrapolation-model]] should shift the simulated onset time by a measurable amount.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-multi-constraint-pfss-extrapolation-model]]
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[multi-constraint-pfss-extrapolation-model]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 
 ## Links
 

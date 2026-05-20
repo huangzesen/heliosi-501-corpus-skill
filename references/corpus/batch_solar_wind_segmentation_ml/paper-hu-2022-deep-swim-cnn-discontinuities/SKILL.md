@@ -48,7 +48,7 @@ A future agent should reach for this skill when:
 
 - Building a **per-window binary classifier** (discontinuity vs ambient turbulence) on **5-minute Wind/MFI** B-field windows (`B_x, B_y, B_z` stacked as 3 channels).
 - Working with a **very small expert-labelled set** (a single day) plus a noisy heuristic catalog — Deep-SWIM is explicitly a semi-supervised pipeline that combines pseudo-labeling and contrastive learning to compensate.
-- Pre-processing for downstream **coherent-structure / current-sheet** statistics (compare with PVI from [[paper-pecora-2022-coherent-structures-proton-electron-heating]] in the turbulence batch).
+- Pre-processing for downstream **coherent-structure / current-sheet** statistics (compare with PVI from [[pecora-2022-coherent-structures-proton-electron-heating]] in the turbulence batch).
 - Needing a CNN baseline to compare against unsupervised approaches ([[paper-cipher-2025-isax-hdbscan-solar-wind-segmentation]]).
 
 Do NOT use this skill when:

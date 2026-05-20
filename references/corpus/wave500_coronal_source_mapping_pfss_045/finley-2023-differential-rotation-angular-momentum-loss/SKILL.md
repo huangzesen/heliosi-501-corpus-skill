@@ -90,15 +90,15 @@ Reproduce the differential vs rigid correction.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-ervin-2025-alfven-surface-wind-braking-psp]] for differential-rotation effects in the Alfvén-surface wind-braking estimate.
-- Generative hypothesis: differential-rotation corrections rank-correlate with the equatorial-dipole share of OSF ([[paper-tahtinen-2026-dipole-flux-transport-open-flux]]).
+- Compose with [[ervin-2025-alfven-surface-wind-braking-psp]] for differential-rotation effects in the Alfvén-surface wind-braking estimate.
+- Generative hypothesis: differential-rotation corrections rank-correlate with the equatorial-dipole share of OSF ([[tahtinen-2026-dipole-flux-transport-open-flux]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-ervin-2025-alfven-surface-wind-braking-psp]]
-- [[paper-tahtinen-2026-dipole-flux-transport-open-flux]]
+- [[ervin-2025-alfven-surface-wind-braking-psp]]
+- [[tahtinen-2026-dipole-flux-transport-open-flux]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

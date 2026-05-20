@@ -103,16 +103,16 @@ Reproduce the conjunction-window OCB association.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-stansby-2025-open-closed-flux-boundary-slow-wind]] — OCB as a unified slow-wind origin framework.
+- Compose with [[stansby-2025-open-closed-flux-boundary-slow-wind]] — OCB as a unified slow-wind origin framework.
 - Generative hypothesis: replacing PFSS with outflowpy should shift the OCB by amounts predictable from this conjunction dataset.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-stansby-2025-open-closed-flux-boundary-slow-wind]]
+- [[stansby-2025-open-closed-flux-boundary-slow-wind]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-dakeyo-2026-source-alignment-psp-solo-method-link]]
+- [[dakeyo-2026-source-alignment-psp-solo-method-link]]
 
 ## Links
 

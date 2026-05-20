@@ -94,14 +94,14 @@ Reproduce disagreement map.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]] — NSPF as a fourth config to compare against.
-- Generative hypothesis: disagreement-map structure correlates with effective-multipole degree at high latitude ([[paper-hore-2026-dominant-spatial-scales-coronal-field]]).
+- Compose with [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]] — NSPF as a fourth config to compare against.
+- Generative hypothesis: disagreement-map structure correlates with effective-multipole degree at high latitude ([[hore-2026-dominant-spatial-scales-coronal-field]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
+- [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

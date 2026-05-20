@@ -97,7 +97,7 @@ Reach for this skill when you need to justify low-resolution synoptic magnetogra
 
 ## Layer 4 — Research-generation affordances
 
-- Generative hypothesis: residual high-l power that leaks upward at limb-side ARs predicts where loop-constrained corrections ([[paper-multi-constraint-pfss-extrapolation-model]]) matter most.
+- Generative hypothesis: residual high-l power that leaks upward at limb-side ARs predicts where loop-constrained corrections ([[multi-constraint-pfss-extrapolation-model]]) matter most.
 - Composable experiment: re-run on stellar ZDI magnetograms to test low-degree dominance across late-type stars.
 
 ---
@@ -105,7 +105,7 @@ Reach for this skill when you need to justify low-resolution synoptic magnetogra
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
+- [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
 
 ## Links
 

@@ -94,14 +94,14 @@ Classifier vs PFSS agreement.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-mackay-2026-tracking-magnetic-topology-change-corona]] — classifier feeds topology-change tracker.
-- Generative hypothesis: reconnecting-line density correlates with magnetic-separator reconnection flux ([[paper-nadol-2026-magnetic-separator-reconnection-flare-ribbons]]).
+- Compose with [[mackay-2026-tracking-magnetic-topology-change-corona]] — classifier feeds topology-change tracker.
+- Generative hypothesis: reconnecting-line density correlates with magnetic-separator reconnection flux ([[nadol-2026-magnetic-separator-reconnection-flare-ribbons]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-mackay-2026-tracking-magnetic-topology-change-corona]]
+- [[mackay-2026-tracking-magnetic-topology-change-corona]]
 
 ## Links
 

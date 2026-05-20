@@ -96,7 +96,7 @@ Match gridded-PFSS open-field map at convergence.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-raouafi-2025-switchback-coronal-jet-precursors]] — fluxon connectivity should expose jet-driven switchback footpoints missed by gridded PFSS.
+- Compose with [[raouafi-2025-switchback-coronal-jet-precursors]] — fluxon connectivity should expose jet-driven switchback footpoints missed by gridded PFSS.
 - Generative hypothesis: fluxon-density convergence rate is a topology-complexity diagnostic at the CR level.
 
 ---

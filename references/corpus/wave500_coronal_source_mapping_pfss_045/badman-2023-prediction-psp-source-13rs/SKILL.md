@@ -94,16 +94,16 @@ Recover per-encounter accuracy table.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-koukras-2022-backmapping-uncertainty-fast-wind]] for prediction-with-uncertainty.
+- Compose with [[koukras-2022-backmapping-uncertainty-fast-wind]] for prediction-with-uncertainty.
 - Generative hypothesis: ballistic-vs-MHD-driven back-mapping discrepancy diagnoses encounter intervals where PFSS is incomplete.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-koukras-2022-backmapping-uncertainty-fast-wind]]
+- [[koukras-2022-backmapping-uncertainty-fast-wind]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-dakeyo-2026-source-alignment-psp-solo-method-link]]
+- [[dakeyo-2026-source-alignment-psp-solo-method-link]]
 
 ## Links
 

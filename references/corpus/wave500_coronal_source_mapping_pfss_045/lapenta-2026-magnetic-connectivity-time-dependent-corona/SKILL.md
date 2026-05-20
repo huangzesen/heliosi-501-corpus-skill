@@ -95,14 +95,14 @@ Reproduce the discontinuity–event correspondence.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-mackay-2026-tracking-magnetic-topology-change-corona]] for a unified topology-change tracking framework.
-- Generative hypothesis: discontinuities classified by amplitude predict switchback occurrence at PSP ([[paper-raouafi-2025-switchback-coronal-jet-precursors]]).
+- Compose with [[mackay-2026-tracking-magnetic-topology-change-corona]] for a unified topology-change tracking framework.
+- Generative hypothesis: discontinuities classified by amplitude predict switchback occurrence at PSP ([[raouafi-2025-switchback-coronal-jet-precursors]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-mackay-2026-tracking-magnetic-topology-change-corona]]
+- [[mackay-2026-tracking-magnetic-topology-change-corona]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

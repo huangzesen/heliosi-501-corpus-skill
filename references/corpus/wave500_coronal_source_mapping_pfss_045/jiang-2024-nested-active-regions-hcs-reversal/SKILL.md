@@ -98,14 +98,14 @@ Reproduce the longitude-locked HCS stalls.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]: AR 12192 nested-AR effects vs OSF rise.
-- Generative hypothesis: anchor longitudes should leave a fingerprint on sympathetic flares ([[paper-milligan-2024-flares-sympathetic-angular-separation]]).
+- Compose with [[yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]: AR 12192 nested-AR effects vs OSF rise.
+- Generative hypothesis: anchor longitudes should leave a fingerprint on sympathetic flares ([[milligan-2024-flares-sympathetic-angular-separation]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]
+- [[yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

@@ -97,15 +97,15 @@ Compressed propagator-matrix DFT reproduces SFT dipole within ~1% over Cycle 24 
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max]] to scan AR-12192-ablation counterfactuals at 10^3 throughput.
-- Residual between DFT-|dipole|-OSF and NSPF-OSF ([[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]) is a clean budget for non-dipolar open flux.
+- Compose with [[yoshida-2026-sunspot-evolution-open-flux-cycle24-max]] to scan AR-12192-ablation counterfactuals at 10^3 throughput.
+- Residual between DFT-|dipole|-OSF and NSPF-OSF ([[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]) is a clean budget for non-dipolar open flux.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]
-- [[paper-wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
+- [[yoshida-2026-sunspot-evolution-open-flux-cycle24-max]]
+- [[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

@@ -101,14 +101,14 @@ Reproduce the open-field fraction of upflow patches and the lower-atmosphere-dri
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-brightness-magnetically-open-corona-2025]] — do upflows live in the *bright* or *dim* open-field patches?
-- Generative hypothesis: AR-edge upflows that map (via PFSS) to PSP perihelion footpoints predict slow-Alfvénic streams in [[paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp]].
+- Compose with [[brightness-magnetically-open-corona-2025]] — do upflows live in the *bright* or *dim* open-field patches?
+- Generative hypothesis: AR-edge upflows that map (via PFSS) to PSP perihelion footpoints predict slow-Alfvénic streams in [[ervin-2024-slow-alfvenic-source-regions-pfss-psp]].
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-ervin-2024-slow-alfvenic-source-regions-pfss-psp]]
+- [[ervin-2024-slow-alfvenic-source-regions-pfss-psp]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

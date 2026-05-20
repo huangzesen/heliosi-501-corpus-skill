@@ -94,7 +94,7 @@ Reproduce the ellipse-axis decomposition.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]] for a unified uncertainty framework.
+- Compose with [[sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]] for a unified uncertainty framework.
 - Generative hypothesis: outflowpy ellipses should be systematically smaller for fast streams from CH cores.
 
 ---
@@ -102,7 +102,7 @@ Reproduce the ellipse-axis decomposition.
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]
+- [[sasi-2025-uncertainty-solar-wind-incomplete-magnetic-field]]
 
 ## Links
 

@@ -100,14 +100,14 @@ Recover the M_A≈1.005 wavefront and 75–122 keV electron energy range at the 
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-nedal-2026-pfss-mhd-typeII-shock-may2024]]: the local-vs-global acceleration framework should generalize to May 2024 multi-shock sequences.
-- Generative hypothesis: replacing PFSS with outflowpy ([[paper-rice-2026-outflowpy-outflow-fields-pfss-alternative]]) should shift the herringbone source position by a measurable amount.
+- Compose with [[nedal-2026-pfss-mhd-typeII-shock-may2024]]: the local-vs-global acceleration framework should generalize to May 2024 multi-shock sequences.
+- Generative hypothesis: replacing PFSS with outflowpy ([[rice-2026-outflowpy-outflow-fields-pfss-alternative]]) should shift the herringbone source position by a measurable amount.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-eclipse-white-light-benchmark-pfss-models]]
+- [[eclipse-white-light-benchmark-pfss-models]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

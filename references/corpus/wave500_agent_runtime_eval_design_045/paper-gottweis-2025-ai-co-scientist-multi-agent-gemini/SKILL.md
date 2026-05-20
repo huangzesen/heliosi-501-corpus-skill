@@ -74,7 +74,7 @@ adapter_notes: []
 
 research_generation_affordances:
   - type: minimal_experiment
-    statement: "Implement the generate-debate-evolve loop over heliophysics paper-skills: have agents propose follow-up hypotheses to [[paper-huang-2023-psp-one-over-f-spectrum]], debate them against [[paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]], and keep the surviving hypotheses for HelioSI Stage D."
+    statement: "Implement the generate-debate-evolve loop over heliophysics paper-skills: have agents propose follow-up hypotheses to [[huang-2023-psp-one-over-f-spectrum]], debate them against [[chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]], and keep the surviving hypotheses for HelioSI Stage D."
   - type: gap
     statement: "Tournament evolution needs a comparability metric; heliophysics needs a 'do these hypotheses contradict the same paper-skill claim_boundary?' check."
 
@@ -217,7 +217,7 @@ No paper-skill dependencies (self-contained positioning/design-pattern source).
 **Research-generation affordances - how this paper helps HelioSI (or
 any heliophysics agent) generate or evaluate new scientific ideas:**
 
-- **Minimal_experiment** - Implement the generate-debate-evolve loop over heliophysics paper-skills: have agents propose follow-up hypotheses to [[paper-huang-2023-psp-one-over-f-spectrum]], debate them against [[paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]], and keep the surviving hypotheses for HelioSI Stage D. Related: n/a.
+- **Minimal_experiment** - Implement the generate-debate-evolve loop over heliophysics paper-skills: have agents propose follow-up hypotheses to [[huang-2023-psp-one-over-f-spectrum]], debate them against [[chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]], and keep the surviving hypotheses for HelioSI Stage D. Related: n/a.
 - **Gap** - Tournament evolution needs a comparability metric; heliophysics needs a 'do these hypotheses contradict the same paper-skill claim_boundary?' check. Related: n/a.
 
 ## Notes

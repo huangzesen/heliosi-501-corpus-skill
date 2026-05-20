@@ -75,7 +75,7 @@ research_generation_affordances:
   - type: hypothesis
     statement: "HelioSI can borrow the routine-vs-challenging split: routine = data fetch / plot / file IO (single-LLM); challenging = paper-skill cross-reference / hypothesis generation / benchmark interpretation (multi-LLM consensus)."
   - type: minimal_experiment
-    statement: "Pilot multi-LLM consensus on one HelioSI challenge — e.g. interpreting a discrepancy between [[paper-sioulas-2023-anisotropic-scaling]] and [[paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] — and measure agreement vs. expert (HelioSI PI)."
+    statement: "Pilot multi-LLM consensus on one HelioSI challenge — e.g. interpreting a discrepancy between [[paper-sioulas-2023-anisotropic-scaling]] and [[chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] — and measure agreement vs. expert (HelioSI PI)."
 
 provenance:
   generated_by: "HelioSI paper-to-skill factory (Claude Opus 4.7) - wave500_agent_runtime_eval_design_045"
@@ -216,7 +216,7 @@ No paper-skill dependencies (self-contained positioning/design-pattern source).
 any heliophysics agent) generate or evaluate new scientific ideas:**
 
 - **Hypothesis** - HelioSI can borrow the routine-vs-challenging split: routine = data fetch / plot / file IO (single-LLM); challenging = paper-skill cross-reference / hypothesis generation / benchmark interpretation (multi-LLM consensus). Related: n/a.
-- **Minimal_experiment** - Pilot multi-LLM consensus on one HelioSI challenge — e.g. interpreting a discrepancy between [[paper-sioulas-2023-anisotropic-scaling]] and [[paper-chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] — and measure agreement vs. expert (HelioSI PI). Related: n/a.
+- **Minimal_experiment** - Pilot multi-LLM consensus on one HelioSI challenge — e.g. interpreting a discrepancy between [[paper-sioulas-2023-anisotropic-scaling]] and [[chen-2022-magnetic-field-spectral-evolution-inner-heliosphere]] — and measure agreement vs. expert (HelioSI PI). Related: n/a.
 
 ## Notes
 

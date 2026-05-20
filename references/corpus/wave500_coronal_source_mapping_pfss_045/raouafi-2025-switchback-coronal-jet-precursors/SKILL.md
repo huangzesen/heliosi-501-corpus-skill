@@ -100,14 +100,14 @@ Recover the paper's jet–switchback association significance.
 
 ## Layer 4 — Research-generation affordances
 
-- Tension with [[paper-bale-2021-solar-source-switchbacks-magnetic-funnels]]: funnel-driven vs jet-driven switchback origins; the footpoint atlas separates them.
-- Generative hypothesis: re-running with [[paper-deforest-2024-flux-fluxon-coronal-modeling]]'s fluxon-based connectivity should reveal jet associations missed by gridded PFSS.
+- Tension with [[bale-2021-solar-source-switchbacks-magnetic-funnels]]: funnel-driven vs jet-driven switchback origins; the footpoint atlas separates them.
+- Generative hypothesis: re-running with [[deforest-2024-flux-fluxon-coronal-modeling]]'s fluxon-based connectivity should reveal jet associations missed by gridded PFSS.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-bale-2021-solar-source-switchbacks-magnetic-funnels]]
+- [[bale-2021-solar-source-switchbacks-magnetic-funnels]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

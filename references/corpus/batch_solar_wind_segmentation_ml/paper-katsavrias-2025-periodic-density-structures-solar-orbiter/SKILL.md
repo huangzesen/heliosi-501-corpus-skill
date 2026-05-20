@@ -32,7 +32,7 @@ A future agent should reach for this skill when:
 
 Do NOT use this skill when:
 
-- Detecting **switchbacks** (different signature — magnetic-field reversals, not density modulations); see [[paper-bale-2021-solar-source-switchbacks-magnetic-funnels]].
+- Detecting **switchbacks** (different signature — magnetic-field reversals, not density modulations); see [[bale-2021-solar-source-switchbacks-magnetic-funnels]].
 - Detecting **shocks / discontinuities** ([[paper-hu-2022-deep-swim-cnn-discontinuities]]).
 - Working at 1 au only — the value-add is the **radial evolution** from 0.3 au upward.
 
@@ -51,7 +51,7 @@ Do NOT use this skill when:
 ### Algorithm 3.1 — Density ingestion (Solar Orbiter)
 
 - Procedure:
-  1. Pull Solar Orbiter density: RPW spacecraft-potential-derived n_e (cf. [[paper-carbone-2021-electron-density-turbulence-ion-cyclotron-waves]]) and/or SWA/PAS n_p moments. The specific product the paper uses is TODO verify.
+  1. Pull Solar Orbiter density: RPW spacecraft-potential-derived n_e (cf. [[carbone-2021-electron-density-turbulence-ion-cyclotron-waves]]) and/or SWA/PAS n_p moments. The specific product the paper uses is TODO verify.
   2. Restrict to the heliocentric-distance range 0.3–1 au and quality-flag-clean intervals.
 
 ### Algorithm 3.2 — Multitaper spectral detection

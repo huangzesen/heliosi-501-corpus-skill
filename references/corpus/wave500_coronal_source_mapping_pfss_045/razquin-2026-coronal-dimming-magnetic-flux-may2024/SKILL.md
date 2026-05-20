@@ -101,14 +101,14 @@ Recover the southward/northward population split and stronger-than-prior dimming
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-prasad-2026-blowout-jet-magnetic-topology]] — Razquin's eruption flux should match Prasad's blowout-jet topologies on the same AR class.
+- Compose with [[prasad-2026-blowout-jet-magnetic-topology]] — Razquin's eruption flux should match Prasad's blowout-jet topologies on the same AR class.
 - Generative hypothesis: continuous threshold sweeps should saturate dimming–ribbon-flux slope at NLFFF strapping flux.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

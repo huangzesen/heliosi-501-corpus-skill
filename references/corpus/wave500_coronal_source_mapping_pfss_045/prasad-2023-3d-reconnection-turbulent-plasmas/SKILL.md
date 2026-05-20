@@ -90,14 +90,14 @@ Recall-vs-precision curve.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-brennan-2024-tracing-reconnecting-expanding-field-lines]] for a unified reconnection-vs-expansion classification framework.
-- Generative hypothesis: turbulent-reconnection-site density predicts switchback occurrence at footpoints ([[paper-raouafi-2025-switchback-coronal-jet-precursors]]).
+- Compose with [[brennan-2024-tracing-reconnecting-expanding-field-lines]] for a unified reconnection-vs-expansion classification framework.
+- Generative hypothesis: turbulent-reconnection-site density predicts switchback occurrence at footpoints ([[raouafi-2025-switchback-coronal-jet-precursors]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-brennan-2024-tracing-reconnecting-expanding-field-lines]]
+- [[brennan-2024-tracing-reconnecting-expanding-field-lines]]
 
 ## Links
 

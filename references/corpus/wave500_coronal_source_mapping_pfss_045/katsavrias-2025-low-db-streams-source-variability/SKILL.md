@@ -94,14 +94,14 @@ Reproduce δB-vs-size scaling.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-stansby-2025-open-closed-flux-boundary-slow-wind]] — low-δB streams as OCB-proximate slow wind.
-- Generative hypothesis: low-δB sources should overlap with AR-edge upflow patches ([[paper-brooks-2025-active-region-upflows-coronal-coupling]]).
+- Compose with [[stansby-2025-open-closed-flux-boundary-slow-wind]] — low-δB streams as OCB-proximate slow wind.
+- Generative hypothesis: low-δB sources should overlap with AR-edge upflow patches ([[brooks-2025-active-region-upflows-coronal-coupling]]).
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-stansby-2025-open-closed-flux-boundary-slow-wind]]
+- [[stansby-2025-open-closed-flux-boundary-slow-wind]]
 - [[paper-stansby-2020-pfsspy-python-pfss]]
 
 ## Links

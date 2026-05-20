@@ -95,15 +95,15 @@ Match eruption-onset time.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-ross-2025-data-constrained-mhd-filament-eruption]] for an MHD-vs-MF comparison framework.
-- Generative hypothesis: E-field gauge tracking should fingerprint which CRs are eligible for [[paper-multi-constraint-pfss-extrapolation-model]] loop augmentation.
+- Compose with [[ross-2025-data-constrained-mhd-filament-eruption]] for an MHD-vs-MF comparison framework.
+- Generative hypothesis: E-field gauge tracking should fingerprint which CRs are eligible for [[multi-constraint-pfss-extrapolation-model]] loop augmentation.
 
 ---
 
 ## Skill graph → depends_on
 
-- [[paper-ross-2025-data-constrained-mhd-filament-eruption]]
-- [[paper-flare-precursor-fine-scale-topology-extrapolation]]
+- [[ross-2025-data-constrained-mhd-filament-eruption]]
+- [[flare-precursor-fine-scale-topology-extrapolation]]
 
 ## Links
 

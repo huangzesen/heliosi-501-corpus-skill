@@ -100,7 +100,7 @@ Recover Fisk-vs-Parker comparison statistic.
 
 ## Layer 4 — Research-generation affordances
 
-- Compose with [[paper-koukras-2022-backmapping-uncertainty-fast-wind]] for a unified backmapping-uncertainty framework.
+- Compose with [[koukras-2022-backmapping-uncertainty-fast-wind]] for a unified backmapping-uncertainty framework.
 - Generative hypothesis: replacing PFSS with outflowpy under the Fisk topology should change source-region attribution by amounts predictable from latitude.
 
 ---
@@ -108,7 +108,7 @@ Recover Fisk-vs-Parker comparison statistic.
 ## Skill graph → depends_on
 
 - [[paper-stansby-2020-pfsspy-python-pfss]]
-- [[paper-koukras-2022-backmapping-uncertainty-fast-wind]]
+- [[koukras-2022-backmapping-uncertainty-fast-wind]]
 
 ## Links
 
