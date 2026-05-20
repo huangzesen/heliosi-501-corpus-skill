@@ -184,6 +184,17 @@ three-option vocabulary in step 3 above — is recorded at
 The report is informational, edits no SKILL.md, and is not wired
 into `scripts/validate.sh`.
 
+The sister triage for the live `external_reference_candidate`
+bucket (23 entries at commit `4cf4201`), applying the step-4
+disposition vocabulary (keep-as-external / demote-to-backticks-or-
+plain-prose / rename-to-canonical-slug / internalise-via-discovery)
+to runtime / tool / loader names and the small subset of
+paper-shaped slugs that the audit's prefix-stripping heuristic
+misses, is at
+[`reports/wikilink_curation_external_refs.md`](reports/wikilink_curation_external_refs.md).
+Same scope conventions: informational, edits no SKILL.md, not wired
+into `scripts/validate.sh`.
+
 ## 6. Stability commitments
 
 * `schema_version: "corpus-skill-graph-1"` is stable. Any change that
