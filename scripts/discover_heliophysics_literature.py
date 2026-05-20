@@ -129,6 +129,14 @@ USER_AGENT = (
     "(+https://github.com/huangzesen/heliosi-501-corpus-skill)"
 )
 
+
+def _user_agent(mailto: Optional[str] = None) -> str:
+    """Return the User-Agent string; appends ``(mailto:<email>)`` to join
+    the Crossref polite pool when ``mailto`` is set."""
+    if mailto:
+        return f"{USER_AGENT} (mailto:{mailto})"
+    return USER_AGENT
+
 # ---------------------------------------------------------------------------
 # Seed taxonomy.
 #
@@ -309,7 +317,48 @@ def classify_topics(title: Optional[str], abstract: Optional[str]) -> List[str]:
 # Backend query-URL builders (pure functions; tested without network)
 # ---------------------------------------------------------------------------
 
-def build_arxiv_url(query: str, *, max_results: int, start: int = 0) -> str:
+def _ads_year_clause(year_from: Optional[int], year_until: Optional[int]) -> Optional[str]:
+    """Return ADS ``year:`` clause for the supplied range, or None when both bounds are absent."""
+    if year_from is None and year_until is None:
+        return None
+    lo = str(year_from) if year_from is not None else ""
+    hi = str(year_until) if year_until is not None else ""
+    return f"year:{lo}-{hi}"
+
+
+def _openalex_year_filter(year_from: Optional[int], year_until: Optional[int]) -> Optional[str]:
+    """Return OpenAlex ``publication_year:`` filter expression, or None."""
+    if year_from is None and year_until is None:
+        return None
+    lo = str(year_from) if year_from is not None else ""
+    hi = str(year_until) if year_until is not None else ""
+    return f"publication_year:{lo}-{hi}"
+
+
+def _crossref_date_filter(year_from: Optional[int], year_until: Optional[int]) -> Optional[str]:
+    """Return Crossref ``from-pub-date,until-pub-date`` filter expression, or None."""
+    parts: List[str] = []
+    if year_from is not None:
+        parts.append(f"from-pub-date:{year_from}-01-01")
+    if year_until is not None:
+        parts.append(f"until-pub-date:{year_until}-12-31")
+    if not parts:
+        return None
+    return ",".join(parts)
+
+
+def build_arxiv_url(
+    query: str,
+    *,
+    max_results: int,
+    start: int = 0,
+    year_from: Optional[int] = None,
+    year_until: Optional[int] = None,
+) -> str:
+    # arXiv Atom API has no first-class year filter; ``year_from`` /
+    # ``year_until`` are accepted for builder-API symmetry and applied
+    # post-fetch via :func:`filter_records_by_year`.
+    del year_from, year_until  # intentionally unused
     params = {
         "search_query": f"all:{query}",
         "start": str(start),
@@ -320,34 +369,99 @@ def build_arxiv_url(query: str, *, max_results: int, start: int = 0) -> str:
     return "https://export.arxiv.org/api/query?" + urllib.parse.urlencode(params)
 
 
-def build_openalex_url(query: str, *, max_results: int, page: int = 1) -> str:
+def build_openalex_url(
+    query: str,
+    *,
+    max_results: int,
+    page: int = 1,
+    year_from: Optional[int] = None,
+    year_until: Optional[int] = None,
+    mailto: Optional[str] = None,
+) -> str:
     # OpenAlex per-page max is 200. We cap to keep behavior predictable.
     per_page = min(max(max_results, 1), 200)
-    params = {
+    params: Dict[str, str] = {
         "search": query,
         "per-page": str(per_page),
         "page": str(page),
     }
+    yf = _openalex_year_filter(year_from, year_until)
+    if yf is not None:
+        params["filter"] = yf
+    if mailto:
+        params["mailto"] = mailto
     return "https://api.openalex.org/works?" + urllib.parse.urlencode(params)
 
 
-def build_crossref_url(query: str, *, max_results: int, offset: int = 0) -> str:
-    params = {
+def build_crossref_url(
+    query: str,
+    *,
+    max_results: int,
+    offset: int = 0,
+    year_from: Optional[int] = None,
+    year_until: Optional[int] = None,
+) -> str:
+    params: Dict[str, str] = {
         "query": query,
         "rows": str(min(max(max_results, 1), 1000)),
         "offset": str(offset),
     }
+    cf = _crossref_date_filter(year_from, year_until)
+    if cf is not None:
+        params["filter"] = cf
     return "https://api.crossref.org/works?" + urllib.parse.urlencode(params)
 
 
-def build_ads_url(query: str, *, max_results: int, start: int = 0) -> str:
+def build_ads_url(
+    query: str,
+    *,
+    max_results: int,
+    start: int = 0,
+    year_from: Optional[int] = None,
+    year_until: Optional[int] = None,
+) -> str:
+    yc = _ads_year_clause(year_from, year_until)
+    q = f"{query} {yc}" if yc else query
     params = {
-        "q": query,
+        "q": q,
         "rows": str(min(max(max_results, 1), 2000)),
         "start": str(start),
         "fl": "bibcode,title,author,year,doi,abstract,identifier",
     }
     return "https://api.adsabs.harvard.edu/v1/search/query?" + urllib.parse.urlencode(params)
+
+
+def filter_records_by_year(
+    records: Sequence[Dict],
+    *,
+    year_from: Optional[int],
+    year_until: Optional[int],
+) -> List[Dict]:
+    """Post-fetch year filter for backends that lack a native year filter.
+
+    A record passes when:
+      - both bounds are absent (pass-through), OR
+      - ``year`` is an integer in the inclusive ``[year_from, year_until]`` range
+        (open-ended on either side when the corresponding bound is None).
+
+    Records with ``year is None`` are DROPPED when any bound is set: we
+    cannot prove they satisfy the filter, and the alternative -- silently
+    keeping them -- would be an honesty violation when the user asked for
+    a date-bounded sample.
+    """
+    if year_from is None and year_until is None:
+        return list(records)
+    out: List[Dict] = []
+    for r in records:
+        y = r.get("year")
+        if not isinstance(y, int):
+            continue
+        if year_from is not None and y < year_from:
+            continue
+        if year_until is not None and y > year_until:
+            continue
+        out.append(r)
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -603,6 +717,7 @@ def _http_get(
     retry_base_seconds: float = _DEFAULT_RETRY_BASE_SECONDS,
     sleep: "callable" = time.sleep,
     urlopen: "callable" = urllib.request.urlopen,
+    user_agent: Optional[str] = None,
 ) -> bytes:
     """Polite HTTP GET with bounded exponential backoff.
 
@@ -627,7 +742,7 @@ def _http_get(
     """
     if max_retries < 0:
         raise ValueError("max_retries must be >= 0")
-    req_headers = {"User-Agent": USER_AGENT}
+    req_headers = {"User-Agent": user_agent or USER_AGENT}
     if headers:
         req_headers.update(headers)
     req = urllib.request.Request(url, headers=req_headers)
@@ -908,6 +1023,17 @@ def _resolve_ads_token() -> Optional[str]:
     return None
 
 
+def _resolve_mailto(cli_value: Optional[str]) -> Optional[str]:
+    """Resolve the polite-pool email. Precedence: explicit ``--mailto``
+    arg, then ``$LINGTAI_RESEARCH_EMAIL``. Returns ``None`` when neither
+    is set (the script then sends the bare User-Agent and omits the
+    OpenAlex ``mailto=`` query parameter)."""
+    if cli_value:
+        return cli_value.strip() or None
+    env_val = (os.environ.get("LINGTAI_RESEARCH_EMAIL") or "").strip()
+    return env_val or None
+
+
 def fetch_backend(
     backend: str,
     query: str,
@@ -917,6 +1043,9 @@ def fetch_backend(
     ads_token: Optional[str] = None,
     max_retries: int = _DEFAULT_MAX_RETRIES,
     retry_base_seconds: float = _DEFAULT_RETRY_BASE_SECONDS,
+    year_from: Optional[int] = None,
+    year_until: Optional[int] = None,
+    mailto: Optional[str] = None,
 ) -> List[Dict]:
     """Single page fetch + parse for one backend. Returns normalised records.
 
@@ -924,20 +1053,32 @@ def fetch_backend(
     with bounded exponential backoff; permanent failure raises
     :class:`_HTTPRetryError`, which the orchestrator captures as a
     structured ``summary.errors[]`` row.
+
+    ``year_from`` / ``year_until`` are applied via each backend's native
+    year filter (ADS query ``year:`` clause, OpenAlex
+    ``filter=publication_year:``, Crossref ``from-pub-date`` /
+    ``until-pub-date``). arXiv has no first-class year filter, so the
+    fetched Atom payload is filtered post-parse via
+    :func:`filter_records_by_year`.
     """
     http_kwargs = {
         "timeout": timeout,
         "max_retries": max_retries,
         "retry_base_seconds": retry_base_seconds,
+        "user_agent": _user_agent(mailto),
     }
+    year_kwargs = {"year_from": year_from, "year_until": year_until}
     if backend == "arxiv":
-        url = build_arxiv_url(query, max_results=max_results)
-        return parse_arxiv_atom(_http_get(url, **http_kwargs))
+        url = build_arxiv_url(query, max_results=max_results, **year_kwargs)
+        records = parse_arxiv_atom(_http_get(url, **http_kwargs))
+        return filter_records_by_year(records, **year_kwargs)
     if backend == "openalex":
-        url = build_openalex_url(query, max_results=max_results)
+        url = build_openalex_url(
+            query, max_results=max_results, mailto=mailto, **year_kwargs
+        )
         return parse_openalex_json(json.loads(_http_get(url, **http_kwargs)))
     if backend == "crossref":
-        url = build_crossref_url(query, max_results=max_results)
+        url = build_crossref_url(query, max_results=max_results, **year_kwargs)
         return parse_crossref_json(json.loads(_http_get(url, **http_kwargs)))
     if backend == "ads":
         if not ads_token:
@@ -945,7 +1086,7 @@ def fetch_backend(
                 "ADS backend requested but no ADS_API_TOKEN / NASA_ADS_TOKEN "
                 "/ ADS_TOKEN found in environment."
             )
-        url = build_ads_url(query, max_results=max_results)
+        url = build_ads_url(query, max_results=max_results, **year_kwargs)
         payload = _http_get(
             url,
             headers={"Authorization": f"Bearer {ads_token}"},
@@ -969,6 +1110,9 @@ def run_discovery(
     max_retries: int = _DEFAULT_MAX_RETRIES,
     retry_base_seconds: float = _DEFAULT_RETRY_BASE_SECONDS,
     corpus_manifest_path: Optional[Path] = None,
+    year_from: Optional[int] = None,
+    year_until: Optional[int] = None,
+    mailto: Optional[str] = None,
 ) -> Tuple[List[Dict], Dict]:
     """Return (deduped_candidates, summary_dict).
 
@@ -996,7 +1140,11 @@ def run_discovery(
                 f"discover_heliophysics_literature: fixture not found: "
                 f"{fixture_path}"
             )
-        fixture_records = load_fixture(fixture_path)
+        fixture_records = filter_records_by_year(
+            load_fixture(fixture_path),
+            year_from=year_from,
+            year_until=year_until,
+        )
         default_query = queries[0][0] if queries else "dry-run"
         for rec in fixture_records:
             src = rec.get("source") or "unknown"
@@ -1017,6 +1165,9 @@ def run_discovery(
                         ads_token=ads_token,
                         max_retries=max_retries,
                         retry_base_seconds=retry_base_seconds,
+                        year_from=year_from,
+                        year_until=year_until,
+                        mailto=mailto,
                     )
                 except (_HTTPRetryError, urllib.error.URLError, urllib.error.HTTPError, RuntimeError, ET.ParseError, json.JSONDecodeError) as e:
                     errors.append(
@@ -1077,6 +1228,8 @@ def run_discovery(
         "mode": "live" if live else "dry-run",
         "queries": [q for q, _ in queries],
         "backends": list(backends),
+        "year_from": year_from,
+        "year_until": year_until,
         "raw_candidate_count": len(raw),
         "deduped_candidate_count": len(deduped),
         "per_backend_counts": per_backend_counts,
@@ -1084,10 +1237,11 @@ def run_discovery(
         "errors": errors,
         "novelty_join": novelty_join_summary,
         "polite_http": {
-            "user_agent": USER_AGENT,
+            "user_agent": _user_agent(mailto),
             "max_retries": max_retries,
             "retry_base_seconds": retry_base_seconds,
             "retry_statuses": sorted(_TRANSIENT_HTTP_STATUSES),
+            "mailto_polite_pool": bool(mailto),
         },
         "framing": (
             "frontier seed-expansion sample; not a complete survey of the "
@@ -1401,6 +1555,13 @@ def render_run_report(meta: Dict) -> str:
         f"- **Backends:** {', '.join(meta.get('backends') or []) or '(none)'}"
     )
     lines.append(f"- **Query count:** {meta.get('query_count', 0)}")
+    cli_args = meta.get("cli_args") or {}
+    yf = cli_args.get("year_from")
+    yu = cli_args.get("year_until")
+    if yf is not None or yu is not None:
+        lo = str(yf) if yf is not None else "*"
+        hi = str(yu) if yu is not None else "*"
+        lines.append(f"- **Year range:** {lo}-{hi} (inclusive)")
     lines.append("")
 
     dedupe = meta.get("dedupe_summary") or {}
@@ -1628,6 +1789,26 @@ def _build_parser() -> argparse.ArgumentParser:
 
     p.add_argument("--extra-query", action="append", default=[],
                    help="Add an extra query string. May be repeated.")
+    p.add_argument("--year-from", type=int, default=None, metavar="YYYY",
+                   help=("Lower bound (inclusive) for the publication-year "
+                         "filter. Applied per backend: ADS via 'year:Y-Y' in "
+                         "the query, OpenAlex via "
+                         "'filter=publication_year:Y-Y', Crossref via "
+                         "'from-pub-date:Y-01-01'. arXiv has no first-class "
+                         "year filter; its Atom payload is filtered post-fetch."))
+    p.add_argument("--year-until", type=int, default=None, metavar="YYYY",
+                   help=("Upper bound (inclusive) for the publication-year "
+                         "filter. See --year-from for per-backend semantics. "
+                         "When --year-from is also given, --year-until must "
+                         "be >= --year-from."))
+    p.add_argument("--mailto", type=str, default=None, metavar="EMAIL",
+                   help=("Email address to advertise to OpenAlex's "
+                         "'mailto=' polite-pool query param and to Crossref "
+                         "via the User-Agent '(mailto:<email>)' suffix. "
+                         "Defaults to $LINGTAI_RESEARCH_EMAIL so the value "
+                         "stays in the environment. Recorded in "
+                         "run_metadata.json::cli_args -- pass a real email; "
+                         "the script never echoes secret tokens."))
     p.add_argument("--queries-only", action="store_true",
                    help="Print the resolved query slate as JSON and exit 0.")
     p.add_argument("--corpus-manifest", type=str, default=None,
@@ -1711,12 +1892,27 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     backends = _resolve_backends(args)
     queries = _resolve_queries(args)
 
+    if (
+        args.year_from is not None
+        and args.year_until is not None
+        and args.year_from > args.year_until
+    ):
+        sys.stderr.write(
+            "discover_heliophysics_literature: --year-from "
+            f"({args.year_from}) must be <= --year-until ({args.year_until})\n"
+        )
+        return 2
+
+    mailto = _resolve_mailto(args.mailto)
+
     if args.queries_only:
         json.dump(
             {
                 "queries": [{"q": q, "tag": tag} for q, tag in queries],
                 "backends": backends,
                 "mode": "live" if live else "dry-run",
+                "year_from": args.year_from,
+                "year_until": args.year_until,
             },
             sys.stdout,
             indent=2,
@@ -1772,6 +1968,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         max_retries=args.max_retries,
         retry_base_seconds=args.retry_base_seconds,
         corpus_manifest_path=corpus_manifest_path,
+        year_from=args.year_from,
+        year_until=args.year_until,
+        mailto=mailto,
     )
 
     # Optional cross-run dedupe scan. The scan never raises -- a non-existent
@@ -1806,6 +2005,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "no_arxiv": bool(args.no_arxiv),
             "no_openalex": bool(args.no_openalex),
             "extra_query": list(args.extra_query),
+            "year_from": args.year_from,
+            "year_until": args.year_until,
+            "mailto": mailto,
             "corpus_manifest": str(corpus_manifest_path)
             if corpus_manifest_path is not None
             else None,

@@ -583,7 +583,40 @@ Done in earlier increment (§3.5):
       Markdown report counts, prior-run dedupe semantics, and the
       "disabled manifest stays `unjoined`, not `new_candidate`" guard.
 
-Done in this increment (§3.6):
+Done in a subsequent increment (1950-present envelope, §10 of
+[`1950_present_literature_acquisition_plan.md`](1950_present_literature_acquisition_plan.md)):
+
+- [x] `--year-from YYYY` / `--year-until YYYY` first-class CLI knobs.
+      Validated as integers; when both are provided, `--year-from` must
+      be `<= --year-until` or the script exits 2 before any backend
+      call. The bound is applied per backend natively: ADS appends
+      `year:Y-Y` to the search query; OpenAlex adds
+      `filter=publication_year:Y-Y`; Crossref adds
+      `filter=from-pub-date:Y-01-01,until-pub-date:Y-12-31`. arXiv's
+      Atom API has no first-class year filter, so its parsed records
+      are post-filtered via `filter_records_by_year`; records with
+      `year is None` are dropped when any bound is set (silently
+      keeping them would violate the date-bounded sample's honesty
+      surface). The resolved bounds are recorded in
+      `run_metadata.json::cli_args.{year_from,year_until}` and in the
+      `run_report.md` header so an auditor can recover the decade
+      slice from the bundle alone. The pre-1990 synthetic fixture rows
+      added under `tests/fixtures/discovery/sample_records.jsonl`
+      exercise the dedupe/classification path for pre-DOI /
+      pre-arXiv / bibcode-only records.
+- [x] `--mailto EMAIL` polite-pool knob, defaulting to
+      `$LINGTAI_RESEARCH_EMAIL` so secrets / personal addresses stay
+      in environment. OpenAlex requests gain a `mailto=<email>` query
+      parameter; the script-wide User-Agent gains a
+      `(mailto:<email>)` suffix that Crossref's polite-pool path
+      recognises. `polite_http.mailto_polite_pool` in the summary
+      reports whether the polite pool was joined for this run; the
+      resolved email is echoed back via `cli_args.mailto` so the run
+      bundle is self-describing. The script never echoes ADS tokens
+      or other secret material; an email is a deliberate, in-band
+      audit signal here.
+
+Done in an earlier increment (§3.6):
 
 - [x] Per-candidate quarantined draft scaffold generator
       (`scripts/draft_paper_skill_from_candidates.py`) consuming either

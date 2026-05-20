@@ -102,6 +102,330 @@ class TestQueryUrlBuilders(unittest.TestCase):
             self.assertIn(needle, parsed["fl"])
 
 
+class TestYearRangeUrlBuilders(unittest.TestCase):
+    """Pin the per-backend integration of ``--year-from`` / ``--year-until``.
+
+    Each URL builder must accept optional ``year_from`` / ``year_until``
+    kwargs and translate them into the backend's native year-filter syntax
+    without breaking the existing query string. arXiv has no first-class
+    year filter, so its URL is unchanged; the year filter is applied
+    post-fetch (covered by ``TestArxivYearPostFilter`` below).
+    """
+
+    def test_ads_url_appends_year_clause(self):
+        url = discover.build_ads_url(
+            "solar wind", max_results=10, year_from=1958, year_until=1969
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        # Year clause is appended (not replacing) the user query.
+        self.assertIn("solar wind", parsed["q"])
+        self.assertIn("year:1958-1969", parsed["q"])
+
+    def test_ads_url_appends_open_ended_year_range(self):
+        url = discover.build_ads_url(
+            "solar wind", max_results=10, year_from=1990, year_until=None
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertIn("year:1990-", parsed["q"])
+
+        url = discover.build_ads_url(
+            "solar wind", max_results=10, year_from=None, year_until=1989
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertIn("year:-1989", parsed["q"])
+
+    def test_ads_url_without_year_kwargs_is_unchanged(self):
+        # Backwards compatibility: existing callers pass no year kwargs.
+        url = discover.build_ads_url("solar wind", max_results=10)
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["q"], "solar wind")
+        self.assertNotIn("year:", parsed["q"])
+
+    def test_openalex_url_adds_publication_year_filter(self):
+        url = discover.build_openalex_url(
+            "alfvenic turbulence",
+            max_results=10,
+            year_from=2000,
+            year_until=2024,
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["search"], "alfvenic turbulence")
+        # OpenAlex range syntax: publication_year:YYYY-YYYY.
+        self.assertEqual(parsed["filter"], "publication_year:2000-2024")
+
+    def test_openalex_url_open_ended_year_range(self):
+        url = discover.build_openalex_url(
+            "alfvenic turbulence",
+            max_results=10,
+            year_from=2010,
+            year_until=None,
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["filter"], "publication_year:2010-")
+
+        url = discover.build_openalex_url(
+            "alfvenic turbulence",
+            max_results=10,
+            year_from=None,
+            year_until=1989,
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["filter"], "publication_year:-1989")
+
+    def test_openalex_url_without_year_kwargs_omits_filter(self):
+        url = discover.build_openalex_url("alfvenic turbulence", max_results=10)
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertNotIn("filter", parsed)
+
+    def test_crossref_url_adds_pub_date_filter(self):
+        url = discover.build_crossref_url(
+            "CME reconnection",
+            max_results=10,
+            year_from=1970,
+            year_until=1989,
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["query"], "CME reconnection")
+        self.assertEqual(
+            parsed["filter"],
+            "from-pub-date:1970-01-01,until-pub-date:1989-12-31",
+        )
+
+    def test_crossref_url_open_ended_year_range(self):
+        url = discover.build_crossref_url(
+            "CME reconnection",
+            max_results=10,
+            year_from=2010,
+            year_until=None,
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["filter"], "from-pub-date:2010-01-01")
+
+        url = discover.build_crossref_url(
+            "CME reconnection",
+            max_results=10,
+            year_from=None,
+            year_until=1989,
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["filter"], "until-pub-date:1989-12-31")
+
+    def test_crossref_url_without_year_kwargs_omits_filter(self):
+        url = discover.build_crossref_url("CME reconnection", max_results=10)
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertNotIn("filter", parsed)
+
+    def test_arxiv_url_is_unchanged_by_year_kwargs(self):
+        """arXiv's Atom API has no first-class year filter; the URL builder
+        accepts the kwargs for uniformity but produces an identical URL."""
+        base = discover.build_arxiv_url("solar wind", max_results=5)
+        with_years = discover.build_arxiv_url(
+            "solar wind", max_results=5, year_from=2000, year_until=2024
+        )
+        # Both URLs must agree on every query parameter -- the year filter
+        # is applied post-fetch by filter_records_by_year.
+        self.assertEqual(
+            dict(urllib.parse.parse_qsl(urllib.parse.urlparse(base).query)),
+            dict(urllib.parse.parse_qsl(urllib.parse.urlparse(with_years).query)),
+        )
+
+
+class TestYearRangePostFilter(unittest.TestCase):
+    """The arXiv backend (and any future backend that lacks a year filter)
+    must be filtered post-fetch via ``filter_records_by_year``."""
+
+    def _recs(self):
+        return [
+            {"title": "old", "year": 1985},
+            {"title": "edge-low", "year": 2000},
+            {"title": "mid", "year": 2010},
+            {"title": "edge-high", "year": 2024},
+            {"title": "future", "year": 2026},
+            {"title": "no-year", "year": None},
+        ]
+
+    def test_filter_keeps_inclusive_range(self):
+        out = discover.filter_records_by_year(
+            self._recs(), year_from=2000, year_until=2024
+        )
+        kept_years = sorted(r["year"] for r in out)
+        self.assertEqual(kept_years, [2000, 2010, 2024])
+
+    def test_filter_open_ended_year_from_only(self):
+        out = discover.filter_records_by_year(
+            self._recs(), year_from=2010, year_until=None
+        )
+        kept_years = sorted(r["year"] for r in out)
+        self.assertEqual(kept_years, [2010, 2024, 2026])
+
+    def test_filter_open_ended_year_until_only(self):
+        out = discover.filter_records_by_year(
+            self._recs(), year_from=None, year_until=1999
+        )
+        kept_years = sorted(r["year"] for r in out)
+        self.assertEqual(kept_years, [1985])
+
+    def test_filter_drops_records_with_unknown_year_when_any_bound_set(self):
+        """A record whose year is None cannot be proven to satisfy the bound.
+        We DROP it rather than silently keep it; the alternative would be a
+        quiet honesty violation when the user asked for a date-bounded
+        sample."""
+        out = discover.filter_records_by_year(
+            self._recs(), year_from=2000, year_until=2024
+        )
+        self.assertFalse(any(r["year"] is None for r in out))
+
+    def test_filter_passes_through_when_no_bounds(self):
+        out = discover.filter_records_by_year(
+            self._recs(), year_from=None, year_until=None
+        )
+        self.assertEqual(out, self._recs())
+
+
+class TestYearRangeCliValidation(unittest.TestCase):
+    """CLI must validate ``--year-from`` / ``--year-until`` integers and
+    refuse inverted ranges (from > until)."""
+
+    def test_cli_accepts_year_range_and_passes_through(self):
+        rc, out, err = _run_cli(
+            "--queries-only", "--year-from", "1958", "--year-until", "1969"
+        )
+        self.assertEqual(rc, 0, msg=err)
+        payload = json.loads(out)
+        self.assertEqual(payload["year_from"], 1958)
+        self.assertEqual(payload["year_until"], 1969)
+
+    def test_cli_accepts_only_year_from(self):
+        rc, out, _ = _run_cli("--queries-only", "--year-from", "2010")
+        self.assertEqual(rc, 0)
+        payload = json.loads(out)
+        self.assertEqual(payload["year_from"], 2010)
+        self.assertIsNone(payload["year_until"])
+
+    def test_cli_rejects_inverted_year_range(self):
+        rc, _, err = _run_cli(
+            "--queries-only", "--year-from", "2020", "--year-until", "2010"
+        )
+        self.assertNotEqual(rc, 0)
+        self.assertIn("year-from", err.lower())
+
+    def test_cli_rejects_non_integer_year(self):
+        rc, _, err = _run_cli("--queries-only", "--year-from", "not-a-year")
+        self.assertNotEqual(rc, 0)
+        # argparse handles the integer parse; the error message must mention
+        # the offending flag.
+        self.assertIn("year-from", err.lower())
+
+    def test_cli_records_year_range_in_run_metadata(self):
+        tmp = Path(tempfile.mkdtemp(prefix="hsi-year-meta-"))
+        try:
+            run_dir = tmp / "run-y"
+            rc, _, err = _run_cli(
+                "--dry-run",
+                "--run-dir", str(run_dir),
+                "--no-corpus-manifest",
+                "--year-from", "1958",
+                "--year-until", "1989",
+            )
+            self.assertEqual(rc, 0, msg=err)
+            meta = json.loads((run_dir / "run_metadata.json").read_text())
+            self.assertEqual(meta["cli_args"]["year_from"], 1958)
+            self.assertEqual(meta["cli_args"]["year_until"], 1989)
+            # The human report must surface the range too so an auditor can
+            # recover the decade slice from the bundle alone.
+            report = (run_dir / "run_report.md").read_text()
+            self.assertIn("1958", report)
+            self.assertIn("1989", report)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
+class TestMailtoPolitePool(unittest.TestCase):
+    """Pin the OpenAlex ``mailto=`` query parameter and the Crossref
+    User-Agent ``(mailto:<email>)`` suffix used to join the polite pool.
+
+    The knob's default is ``$LINGTAI_RESEARCH_EMAIL`` so secrets / personal
+    addresses stay in environment, not in code.
+    """
+
+    def test_openalex_url_adds_mailto_when_provided(self):
+        url = discover.build_openalex_url(
+            "alfvenic turbulence",
+            max_results=10,
+            mailto="research@example.org",
+        )
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertEqual(parsed["mailto"], "research@example.org")
+
+    def test_openalex_url_omits_mailto_when_absent(self):
+        url = discover.build_openalex_url("alfvenic turbulence", max_results=10)
+        parsed = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(url).query))
+        self.assertNotIn("mailto", parsed)
+
+    def test_user_agent_with_mailto_appends_polite_pool_suffix(self):
+        ua = discover._user_agent(mailto="research@example.org")
+        self.assertIn("(mailto:research@example.org)", ua)
+        # The base USER_AGENT identity is preserved.
+        self.assertIn("heliosi-discover", ua)
+
+    def test_user_agent_without_mailto_is_base_string(self):
+        ua = discover._user_agent(mailto=None)
+        self.assertEqual(ua, discover.USER_AGENT)
+
+    def test_cli_accepts_mailto_and_records_in_cli_args(self):
+        tmp = Path(tempfile.mkdtemp(prefix="hsi-mailto-meta-"))
+        try:
+            run_dir = tmp / "run-m"
+            rc, _, err = _run_cli(
+                "--dry-run",
+                "--run-dir", str(run_dir),
+                "--no-corpus-manifest",
+                "--mailto", "research@example.org",
+            )
+            self.assertEqual(rc, 0, msg=err)
+            meta = json.loads((run_dir / "run_metadata.json").read_text())
+            self.assertEqual(meta["cli_args"]["mailto"], "research@example.org")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_cli_defaults_to_env_lingtai_research_email(self):
+        """When ``--mailto`` is not passed, the script must default to
+        ``$LINGTAI_RESEARCH_EMAIL`` so the polite-pool address stays in env."""
+        tmp = Path(tempfile.mkdtemp(prefix="hsi-mailto-env-"))
+        try:
+            run_dir = tmp / "run-me"
+            rc, _, err = _run_cli(
+                "--dry-run",
+                "--run-dir", str(run_dir),
+                "--no-corpus-manifest",
+                env_extra={"LINGTAI_RESEARCH_EMAIL": "env-default@example.org"},
+            )
+            self.assertEqual(rc, 0, msg=err)
+            meta = json.loads((run_dir / "run_metadata.json").read_text())
+            self.assertEqual(
+                meta["cli_args"]["mailto"], "env-default@example.org"
+            )
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_cli_no_mailto_when_neither_flag_nor_env_set(self):
+        tmp = Path(tempfile.mkdtemp(prefix="hsi-mailto-none-"))
+        try:
+            run_dir = tmp / "run-mn"
+            # Explicitly blank the env var so the default lookup returns None.
+            rc, _, err = _run_cli(
+                "--dry-run",
+                "--run-dir", str(run_dir),
+                "--no-corpus-manifest",
+                env_extra={"LINGTAI_RESEARCH_EMAIL": ""},
+            )
+            self.assertEqual(rc, 0, msg=err)
+            meta = json.loads((run_dir / "run_metadata.json").read_text())
+            self.assertIsNone(meta["cli_args"]["mailto"])
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
 class TestNormaliseHelpers(unittest.TestCase):
     def test_normalize_doi_strips_resolver_and_lowercases(self):
         self.assertEqual(
@@ -202,7 +526,7 @@ class TestParsers(unittest.TestCase):
 class TestDedupeIntegration(unittest.TestCase):
     """End-to-end dedupe via run_discovery in dry-run mode."""
 
-    def test_fixture_dedupes_9_raw_to_7(self):
+    def test_fixture_dedupes_15_raw_to_13(self):
         candidates, summary = discover.run_discovery(
             queries=discover.DEFAULT_QUERIES,
             backends=["arxiv", "openalex"],
@@ -214,18 +538,28 @@ class TestDedupeIntegration(unittest.TestCase):
             ads_token=None,
             now_iso="2026-05-19T00:00:00Z",
         )
-        self.assertEqual(summary["raw_candidate_count"], 9)
-        self.assertEqual(summary["deduped_candidate_count"], 7)
-        self.assertEqual(len(candidates), 7)
+        self.assertEqual(summary["raw_candidate_count"], 15)
+        self.assertEqual(summary["deduped_candidate_count"], 13)
+        self.assertEqual(len(candidates), 13)
         # All dedupe keys must be unique.
         keys = [c["id"] for c in candidates]
-        self.assertEqual(len(set(keys)), 7)
+        self.assertEqual(len(set(keys)), 13)
         # The two backends with duplicates (DOI + arXiv + bibcode collisions)
         # collapse to one record each; surviving keys should include exactly
         # the deterministic strings below.
         self.assertIn("doi:10.1234/psp.switchback.2024", keys)
         self.assertIn("arxiv:2403.04567", keys)
         self.assertIn("bibcode:2023apj...999..123x", keys)
+        # Pre-1990 synthetic fixture rows survive dedupe via their ADS
+        # bibcodes (no DOI, no arXiv); the one row with no bibcode (IMP-8,
+        # 1979) survives via the title+year fallback.
+        self.assertIn("bibcode:1958apj...999..001p", keys)
+        self.assertIn("bibcode:1962sci...999..002n", keys)
+        self.assertTrue(
+            any(k.startswith("title:") for k in keys),
+            "expected the IMP-8 pre-DOI pre-bibcode row to survive via "
+            "title+year fallback",
+        )
 
     def test_dry_run_reports_honest_framing(self):
         _, summary = discover.run_discovery(
@@ -241,6 +575,157 @@ class TestDedupeIntegration(unittest.TestCase):
         self.assertEqual(summary["mode"], "dry-run")
         self.assertIn("frontier", summary["framing"])
         self.assertIn("not a complete survey", summary["framing"])
+
+
+class TestPre1990FixtureBehavior(unittest.TestCase):
+    """Pin dedupe + corpus_status + classification for the pre-1990 synthetic
+    rows added to ``sample_records.jsonl``.
+
+    These rows characterise the 1950-present discovery envelope: no DOI, no
+    arXiv ID, ADS bibcode present where applicable, and the title+year
+    fallback for the one row with no bibcode either. The intent is to lock
+    in the script's behavior on the pre-DOI / pre-arXiv path so the
+    1950-present sweep can rely on stable join semantics.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.candidates, cls.summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=MANIFEST_FIXTURE,
+        )
+        cls.by_id = {c["id"]: c for c in cls.candidates}
+
+    def _get(self, dedupe_id):
+        rec = self.by_id.get(dedupe_id)
+        self.assertIsNotNone(
+            rec, f"expected dedupe id {dedupe_id!r} in candidate set"
+        )
+        return rec
+
+    def test_parker_1958_record_has_no_doi_no_arxiv_bibcode_only(self):
+        rec = self._get("bibcode:1958apj...999..001p")
+        self.assertIsNone(rec["doi"])
+        self.assertIsNone(rec["arxiv_id"])
+        self.assertEqual(rec["bibcode"], "1958ApJ...999..001P")
+        self.assertEqual(rec["year"], 1958)
+        # Pre-1990 fixture rows are NOT in the fixture manifest, so they
+        # must classify as new_candidate even though the join is enabled.
+        self.assertEqual(rec["corpus_status"], "new_candidate")
+        self.assertIsNone(rec["corpus_match_via"])
+        # The taxonomy must still tag the row on title/abstract content.
+        self.assertIn("solar-wind", rec["topic_tags"])
+        self.assertIn("heliosphere", rec["topic_tags"])
+
+    def test_mariner_1962_record_is_pre_arxiv_pre_doi(self):
+        rec = self._get("bibcode:1962sci...999..002n")
+        self.assertIsNone(rec["doi"])
+        self.assertIsNone(rec["arxiv_id"])
+        self.assertEqual(rec["year"], 1962)
+        self.assertEqual(rec["corpus_status"], "new_candidate")
+        self.assertIn("solar-wind", rec["topic_tags"])
+
+    def test_voyager_1984_record_is_outer_heliosphere(self):
+        rec = self._get("bibcode:1984jgr....999..005b")
+        self.assertIsNone(rec["doi"])
+        self.assertIsNone(rec["arxiv_id"])
+        self.assertEqual(rec["year"], 1984)
+        self.assertEqual(rec["corpus_status"], "new_candidate")
+        # Heliosphere keyword must fire on this Voyager record.
+        self.assertIn("heliosphere", rec["topic_tags"])
+
+    def test_imp8_1979_record_falls_back_to_title_year_key(self):
+        # IMP-8 row has no DOI, no arXiv ID, and no bibcode. Its dedupe id
+        # must therefore live on the title+year SHA1 fallback branch.
+        imp8_keys = [
+            k
+            for k, c in self.by_id.items()
+            if c.get("year") == 1979
+            and c.get("doi") is None
+            and c.get("arxiv_id") is None
+            and not c.get("bibcode")
+        ]
+        self.assertEqual(len(imp8_keys), 1)
+        self.assertTrue(imp8_keys[0].startswith("title:"))
+        rec = self.by_id[imp8_keys[0]]
+        self.assertEqual(rec["year"], 1979)
+        self.assertEqual(rec["corpus_status"], "new_candidate")
+        # Classification still works on the title/abstract content.
+        self.assertTrue(
+            "sep" in rec["topic_tags"] or "shock" in rec["topic_tags"],
+            f"expected SEP/shock tag on IMP-8 row, got {rec['topic_tags']}",
+        )
+
+    def test_all_pre_1990_rows_classify_as_new_candidate(self):
+        """The fixture manifest has no pre-1990 entries, so every pre-1990
+        candidate (5 by bibcode + 1 by title+year fallback) must be marked
+        new_candidate when the novelty join is enabled."""
+        pre_1990 = [
+            c for c in self.candidates
+            if c.get("year") is not None and c["year"] < 1990
+        ]
+        self.assertEqual(len(pre_1990), 6)
+        for c in pre_1990:
+            self.assertEqual(
+                c["corpus_status"],
+                "new_candidate",
+                f"pre-1990 row {c['id']} not labelled new_candidate: {c}",
+            )
+            self.assertIsNone(c["corpus_match_via"])
+            # The pre-1990 rows must not silently acquire fake DOI/arXiv
+            # values during normalisation.
+            self.assertIsNone(c["doi"])
+            self.assertIsNone(c["arxiv_id"])
+
+    def test_pre_1990_bibcode_dedupe_keys_are_lowercased(self):
+        """Bibcode-based dedupe keys must be lowercased so case differences
+        between ADS and other sources collapse correctly."""
+        for c in self.candidates:
+            if c.get("year") is not None and c["year"] < 1990 and c.get("bibcode"):
+                self.assertEqual(
+                    c["id"],
+                    f"bibcode:{c['bibcode'].lower()}",
+                    f"pre-1990 row {c['id']} has non-lowercased bibcode id",
+                )
+
+    def test_year_bounded_dry_run_filters_fixture_rows(self):
+        """A dry-run against the multi-decade fixture must honor year bounds.
+
+        The 1950-present pilot workflow is intentionally dry-run-first; if
+        fixture records ignore ``year_from`` / ``year_until`` then the pilot
+        cannot rehearse a date-bounded ADS-era slice before touching live APIs.
+        """
+        candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex", "ads"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            year_from=1958,
+            year_until=1989,
+        )
+        self.assertEqual(summary["mode"], "dry-run")
+        self.assertEqual(summary["year_from"], 1958)
+        self.assertEqual(summary["year_until"], 1989)
+        self.assertEqual(summary["raw_candidate_count"], 6)
+        self.assertEqual(summary["deduped_candidate_count"], 6)
+        self.assertEqual(summary["per_backend_counts"], {"arxiv": 0, "openalex": 0, "ads": 6})
+        self.assertEqual(len(candidates), 6)
+        years = sorted(c["year"] for c in candidates)
+        self.assertEqual(years, [1958, 1962, 1976, 1979, 1981, 1984])
+        self.assertTrue(all(1958 <= y <= 1989 for y in years))
 
 
 class TestHttpRetry(unittest.TestCase):
@@ -368,7 +853,7 @@ class TestCliBehavior(unittest.TestCase):
         rc, out, err = _run_cli("--dry-run", "--output", "-")
         self.assertEqual(rc, 0, msg=err)
         lines = [ln for ln in out.splitlines() if ln.strip()]
-        self.assertEqual(len(lines), 7)  # deduped from fixture
+        self.assertEqual(len(lines), 13)  # deduped from fixture
         first = json.loads(lines[0])
         for required in ("id", "source", "title", "topic_tags", "discovered_at_utc"):
             self.assertIn(required, first)
@@ -376,7 +861,7 @@ class TestCliBehavior(unittest.TestCase):
         summary_line = err.strip().splitlines()[-1]
         summary = json.loads(summary_line)
         self.assertEqual(summary["mode"], "dry-run")
-        self.assertEqual(summary["deduped_candidate_count"], 7)
+        self.assertEqual(summary["deduped_candidate_count"], 13)
 
     def test_extra_query_is_appended(self):
         rc, out, _ = _run_cli("--queries-only", "--extra-query", "magnetotail substorm")
@@ -561,19 +1046,20 @@ class TestNoveltyJoinIntegration(unittest.TestCase):
             self.assertIn("corpus_match_titles", c)
             self.assertIn(c["corpus_status"], {"already_curated", "new_candidate"})
 
-        # The 9-row fixture dedupes to 7 candidates. Three are present in the
-        # fixture manifest (PSP switchback DOI, SolO CME arXiv ID, Wind ML
-        # title+year). The other four are new.
+        # The 15-row fixture dedupes to 13 candidates. Three are present in
+        # the fixture manifest (PSP switchback DOI, SolO CME arXiv ID, Wind
+        # ML title+year). The other ten -- including the six pre-1990
+        # synthetic rows -- are new.
         statuses = [c["corpus_status"] for c in candidates]
         self.assertEqual(sum(s == "already_curated" for s in statuses), 3)
-        self.assertEqual(sum(s == "new_candidate" for s in statuses), 4)
+        self.assertEqual(sum(s == "new_candidate" for s in statuses), 10)
 
         # The summary must surface the count and the manifest source path.
         self.assertIn("novelty_join", summary)
         nj = summary["novelty_join"]
         self.assertEqual(nj["enabled"], True)
         self.assertEqual(nj["already_curated_count"], 3)
-        self.assertEqual(nj["new_candidate_count"], 4)
+        self.assertEqual(nj["new_candidate_count"], 10)
         self.assertEqual(nj["unjoined_count"], 0)
         self.assertEqual(nj["manifest_path"], str(MANIFEST_FIXTURE))
         # The honesty disclosure must call out fallback limits explicitly.
@@ -619,8 +1105,8 @@ class TestCliCorpusManifestFlag(unittest.TestCase):
         )
         self.assertEqual(rc, 0, msg=err)
         lines = [ln for ln in out.splitlines() if ln.strip()]
-        # Same 7 deduped candidates as the no-manifest run.
-        self.assertEqual(len(lines), 7)
+        # Same 13 deduped candidates as the no-manifest run.
+        self.assertEqual(len(lines), 13)
         # Each candidate JSONL row must carry the novelty fields.
         for ln in lines:
             rec = json.loads(ln)
@@ -629,7 +1115,7 @@ class TestCliCorpusManifestFlag(unittest.TestCase):
         summary = json.loads(err.strip().splitlines()[-1])
         self.assertEqual(summary["novelty_join"]["enabled"], True)
         self.assertEqual(summary["novelty_join"]["already_curated_count"], 3)
-        self.assertEqual(summary["novelty_join"]["new_candidate_count"], 4)
+        self.assertEqual(summary["novelty_join"]["new_candidate_count"], 10)
         self.assertEqual(summary["novelty_join"]["unjoined_count"], 0)
 
     def test_cli_no_corpus_manifest_flag_reports_disabled(self):
@@ -699,7 +1185,7 @@ class TestRunBundlePythonAPI(unittest.TestCase):
 
         # candidates.jsonl: one JSON object per line, novelty-annotated.
         lines = paths["candidates_jsonl"].read_text(encoding="utf-8").splitlines()
-        self.assertEqual(len(lines), 7)
+        self.assertEqual(len(lines), 13)
         for ln in lines:
             rec = json.loads(ln)
             self.assertIn("corpus_status", rec)
@@ -713,11 +1199,11 @@ class TestRunBundlePythonAPI(unittest.TestCase):
         self.assertEqual(meta["script_version"], discover.__version__)
         self.assertEqual(meta["mode"], "dry-run")
         self.assertEqual(meta["query_count"], len(discover.DEFAULT_QUERIES))
-        self.assertEqual(meta["dedupe_summary"]["raw_candidate_count"], 9)
-        self.assertEqual(meta["dedupe_summary"]["deduped_candidate_count"], 7)
+        self.assertEqual(meta["dedupe_summary"]["raw_candidate_count"], 15)
+        self.assertEqual(meta["dedupe_summary"]["deduped_candidate_count"], 13)
         self.assertEqual(meta["novelty_join"]["enabled"], True)
         self.assertEqual(meta["candidate_counts_by_corpus_status"]["already_curated"], 3)
-        self.assertEqual(meta["candidate_counts_by_corpus_status"]["new_candidate"], 4)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["new_candidate"], 10)
         self.assertEqual(meta["candidate_counts_by_corpus_status"]["unjoined"], 0)
         self.assertEqual(meta["prior_runs"]["enabled"], False)
         self.assertIn("frontier sample", meta["limits"])
@@ -731,10 +1217,10 @@ class TestRunBundlePythonAPI(unittest.TestCase):
         # run_report.md: human-readable, references the canonical counts.
         report = paths["run_report_md"].read_text(encoding="utf-8")
         self.assertIn("# Discovery run report", report)
-        self.assertIn("Raw candidates fetched: **9**", report)
-        self.assertIn("Deduped candidates emitted: **7**", report)
+        self.assertIn("Raw candidates fetched: **15**", report)
+        self.assertIn("Deduped candidates emitted: **13**", report)
         self.assertIn("Already curated (manifest hit): **3**", report)
-        self.assertIn("New candidates (no manifest hit): **4**", report)
+        self.assertIn("New candidates (no manifest hit): **10**", report)
         self.assertIn("Limits (honest framing)", report)
         self.assertIn("Next actions", report)
         # When prior-run scan is disabled the report should NOT advertise
@@ -764,9 +1250,9 @@ class TestRunBundlePythonAPI(unittest.TestCase):
             report_text=report_text,
         )
         meta = json.loads(paths["run_metadata_json"].read_text(encoding="utf-8"))
-        # All 7 candidates must be 'unjoined', not 'new_candidate'.
+        # All 13 candidates must be 'unjoined', not 'new_candidate'.
         by = meta["candidate_counts_by_corpus_status"]
-        self.assertEqual(by["unjoined"], 7)
+        self.assertEqual(by["unjoined"], 13)
         self.assertEqual(by["already_curated"], 0)
         self.assertEqual(by["new_candidate"], 0)
         self.assertEqual(meta["novelty_join"]["enabled"], False)
@@ -851,7 +1337,7 @@ class TestRunBundlePythonAPI(unittest.TestCase):
         seen = [c for c in annotated if c.get("seen_in_prior_run") is True]
         unseen = [c for c in annotated if c.get("seen_in_prior_run") is False]
         self.assertEqual(len(seen), 1)
-        self.assertEqual(len(unseen), 6)
+        self.assertEqual(len(unseen), 12)
         self.assertIn("older-run", seen[0]["prior_run_ids"])
 
     def test_annotate_with_prior_runs_when_disabled_emits_no_fields(self):
@@ -923,7 +1409,7 @@ class TestRunBundlePythonAPI(unittest.TestCase):
         )
         report = discover.render_run_report(metadata)
         self.assertIn("Seen in a prior run: **1**", report)
-        self.assertIn("Unseen in prior runs: **6**", report)
+        self.assertIn("Unseen in prior runs: **12**", report)
         self.assertIn("`older-run`", report)
         self.assertIn("Prior-run dedupe (when enabled) is scoped", report)
 
@@ -960,10 +1446,10 @@ class TestRunBundleCli(unittest.TestCase):
         self.assertEqual(meta["mode"], "dry-run")
         self.assertEqual(meta["novelty_join"]["enabled"], True)
         self.assertEqual(meta["candidate_counts_by_corpus_status"]["already_curated"], 3)
-        self.assertEqual(meta["candidate_counts_by_corpus_status"]["new_candidate"], 4)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["new_candidate"], 10)
         self.assertEqual(meta["prior_runs"]["enabled"], False)
         rows = (run_dir / "candidates.jsonl").read_text().splitlines()
-        self.assertEqual(len(rows), 7)
+        self.assertEqual(len(rows), 13)
         for ln in rows:
             self.assertIn("corpus_status", json.loads(ln))
 
@@ -1025,7 +1511,7 @@ class TestRunBundleCli(unittest.TestCase):
         self.assertNotIn("run-b", names)
 
         self.assertEqual(
-            meta["candidate_counts_by_prior_run"]["seen_in_prior_run"], 7
+            meta["candidate_counts_by_prior_run"]["seen_in_prior_run"], 13
         )
         self.assertEqual(
             meta["candidate_counts_by_prior_run"]["unseen_in_prior_runs"], 0
@@ -1044,7 +1530,7 @@ class TestRunBundleCli(unittest.TestCase):
 
         # Report must surface the cross-run counts honestly.
         report = (run_b / "run_report.md").read_text()
-        self.assertIn("Seen in a prior run: **7**", report)
+        self.assertIn("Seen in a prior run: **13**", report)
         self.assertIn("Unseen in prior runs: **0**", report)
         self.assertIn("`run-a`", report)
 
@@ -1060,7 +1546,7 @@ class TestRunBundleCli(unittest.TestCase):
         self.assertEqual(rc, 0, msg=err)
         meta = json.loads((run_dir / "run_metadata.json").read_text())
         by = meta["candidate_counts_by_corpus_status"]
-        self.assertEqual(by["unjoined"], 7)
+        self.assertEqual(by["unjoined"], 13)
         self.assertEqual(by["already_curated"], 0)
         self.assertEqual(by["new_candidate"], 0)
         rows = (run_dir / "candidates.jsonl").read_text().splitlines()
