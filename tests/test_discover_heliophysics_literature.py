@@ -826,6 +826,27 @@ class TestHttpRetry(unittest.TestCase):
         # 404 is not in the transient set -> exactly one call, no backoff.
         self.assertEqual(calls["n"], 1)
 
+    def test_timeout_error_is_retried_and_wrapped(self):
+        calls = {"n": 0}
+        sleeps = []
+
+        def fake_urlopen(req, timeout=None):
+            calls["n"] += 1
+            raise TimeoutError("read operation timed out")
+
+        with self.assertRaises(discover._HTTPRetryError) as cm:
+            discover._http_get(
+                "https://example.invalid/x",
+                timeout=1.0,
+                max_retries=2,
+                retry_base_seconds=0.01,
+                sleep=sleeps.append,
+                urlopen=fake_urlopen,
+            )
+        self.assertIn("TimeoutError", str(cm.exception))
+        self.assertEqual(calls["n"], 3)
+        self.assertEqual(sleeps, [0.01, 0.02])
+
 
 class TestCliBehavior(unittest.TestCase):
     def test_help_advertises_dry_run_default(self):

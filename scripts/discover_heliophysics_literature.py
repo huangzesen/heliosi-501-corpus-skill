@@ -771,6 +771,14 @@ def _http_get(
                 f"URLError for {url} after {attempt + 1}/{attempts} "
                 f"attempts: {e.reason}"
             ) from e
+        except TimeoutError as e:
+            last_exc = e
+            if attempt < attempts - 1:
+                continue
+            raise _HTTPRetryError(
+                f"TimeoutError for {url} after {attempt + 1}/{attempts} "
+                f"attempts: {e}"
+            ) from e
     # Unreachable -- the loop either returns or raises.
     raise _HTTPRetryError(
         f"unreachable retry path for {url}: last_exc={last_exc!r}"
