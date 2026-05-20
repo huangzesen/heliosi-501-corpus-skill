@@ -1,37 +1,71 @@
 slug: paper-cipher-2025-isax-hdbscan-solar-wind-segmentation
 title: "CIPHER: Scalable Time Series Analysis for Physical Sciences with Application to Solar Wind Phenomena"
-authors: []
-authors_verified: false
+authors:
+  - "Jasmine R. Kobayashi"
+  - "Daniela Martin"
+  - "Valmir P. Moraes Filho"
+  - "Connor O'Brien"
+  - "Jinsu Hong"
+  - "Sudeshna Boro Saikia"
+  - "Hala Lamdouar"
+  - "Nathan D. Miles"
+  - "Marcella Scoczynski"
+  - "Mavis Stone"
+  - "Sairam Sundaresan"
+  - "Anna Jungbluth"
+  - "Andrés Muñoz-Jaramillo"
+  - "Evangelia Samara"
+  - "Joseph Gallego"
+authors_verified: true
+co_first_authors: ["Jasmine R. Kobayashi", "Daniela Martin"]
 year: 2025
-journal: "TODO verify (arXiv:2510.21022)"
-doi: null
+journal: "NeurIPS 2025 Machine Learning and the Physical Sciences workshop (5 pages; arXiv:2510.21022)"
+doi: "10.48550/arXiv.2510.21022"
 arxiv: "2510.21022"
 ads_bibcode: null
 primary_theme: solar_wind_segmentation
-secondary_themes: [machine-learning, unsupervised, time-series-mining, human-in-the-loop]
-missions: [other]
-regime: ["1au", "inner-heliosphere"]
-quality_level: pilot
+secondary_themes: [machine-learning, unsupervised, time-series-mining, human-in-the-loop, omni, cme, sir]
+missions: [OMNI]
+regime: ["1au"]
+quality_level: paper-grounded-pending-full-text
 executable_status: scaffold
 required_data:
-  - "Solar-wind in-situ time series (mission TODO verify)"
-  - "Optional ICME / CIR catalog for HITL anchoring"
+  - "NASA OMNI 1-min L1 (bulk flow speed V, proton density N_p, proton temperature T_p, B and components)"
+  - "Richardson-Cane / HelioForecast ICME catalog for HITL anchoring on CME clusters (https://helioforecast.space/icmecat)"
 methods:
-  - isax-symbolic-compression-with-word-length-and-cardinality
-  - hdbscan-density-clustering-on-symbolic-words
-  - human-in-the-loop-cluster-validation
-  - scalable-offline-time-series-mining
+  - optional-detrending-smoothing-zscore-normalisation
+  - isax-symbolic-compression-chunk-35h-word-8
+  - hdbscan-density-clustering-min-cluster-5-min-samples-5
+  - optional-noise-reclustering-relaxed-density
+  - human-in-the-loop-medoid-validation
+  - cluster-wide-label-propagation
 validation_targets:
-  - "Cluster count + cluster medoids reproducible from the paper's iSAX + HDBSCAN params"
-  - "HITL acceptance rate matches the paper's reported value (TODO verify)"
-  - "Wall-clock scaling consistent with the paper's scalability claim"
+  - "Recovers a cluster containing the 2021-03-11/12 CME with the four substructures (forward shock, compressed sheath, magnetic ejecta, trailing wind) visible in raw OMNI panels (Figure 1)"
+  - "Recovers a SIR-class cluster on flow speed (Figure 2)"
+  - "Cluster medoids show narrow 5-95% confidence intervals on preprocessed sequences, indicating physical coherence"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.9"
 verification_flags:
-  - "Lead author surname + full author list TODO verify."
-  - "Publication venue + DOI TODO verify."
-  - "iSAX word length and cardinality TODO verify."
-  - "HDBSCAN min_cluster_size and min_samples TODO verify."
-  - "Mission(s) used in the demonstration TODO verify."
-  - "Specific solar-wind phenomena identified by the cluster output TODO verify."
-  - "HITL protocol + inter-rater agreement TODO verify."
+  - "arXiv ID + abstract + author list + OMNI 1-min data source + hyperparameters (chunk=35h, word=8, min_cluster_size=5, min_samples=5) + CME case study (2021-03-11/12) + code repo URL verified via arxiv.org abs page and full PDF on 2026-05-19."
+  - "Supplemental sensitivity-sweep ranges for (chunk, word, min_cluster_size, min_samples) TODO verify from the supplemental material."
+  - "Specific iSAX index level used for HDBSCAN clustering in the headline figure TODO verify."
+  - "Slug reuses system name 'cipher'; verified co-first authors are Jasmine R. Kobayashi (SwRI) and Daniela Martin (U. Delaware)."
+provenance:
+  id_verifications:
+    - arxiv_id: "2510.21022"
+      url: "https://arxiv.org/abs/2510.21022"
+      http_status: 200
+      fetched_title: "CIPHER: Scalable Time Series Analysis for Physical Sciences with Application to Solar Wind Phenomena"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T23:43:15Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://arxiv.org/pdf/2510.21022"
+      status: full-pdf-confirms-pipeline-and-hyperparameters
+      fetched_at: "2026-05-19T23:55:00Z"
+      notes: "Workshop PDF (v1) verified: 15 authors led by Kobayashi & Martin (co-equal); NASA OMNI 1-min focusing on V, N_p, T_p, B components; pipeline iSAX (chunk 35h, word 8) → HDBSCAN (min_cluster_size=5, min_samples=5) → HITL → label propagation; recovers CMEs (2021-03-11/12 case) and SIRs; code at https://github.com/spaceml-org/CIPHER."
+    - artifact_url: "https://github.com/spaceml-org/CIPHER"
+      status: code-repo-advertised-in-broader-impact-section
+      fetched_at: "2026-05-19T23:58:00Z"
+      notes: "Code repository URL is published in the paper's Broader Impact section. Repo not separately fetched at verification time."

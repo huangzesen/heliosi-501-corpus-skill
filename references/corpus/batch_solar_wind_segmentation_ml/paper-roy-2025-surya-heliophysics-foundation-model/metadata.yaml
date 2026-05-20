@@ -7,24 +7,53 @@ authors:
   - "Vishal Gaur"
   - "Marcus Freitag"
   - "Julian Kuehnert"
+  - "Theodore van Kessel"
+  - "Dinesha V. Hegde"
+  - "Andrés Muñoz-Jaramillo"
+  - "Johannes Jakubik"
+  - "Etienne Vos"
+  - "Kshitiz Mandal"
+  - "Ata Akbari Asanjan"
+  - "Joao Lucas de Sousa Almeida"
+  - "Amy Lin"
+  - "Talwinder Singh"
+  - "Kang Yang"
+  - "Chetraj Pandey"
+  - "Jinsu Hong"
+  - "Berkay Aydin"
+  - "Thorsten Kurth"
+  - "Ryan McGranaghan"
+  - "Spiridon Kasapis"
+  - "Vishal Upendran"
+  - "Shah Bahauddin"
+  - "Daniel da Silva"
+  - "Nikolai V. Pogorelov"
+  - "Anne Spalding"
+  - "Campbell Watson"
+  - "Manil Maskey"
+  - "Madhulika Guhathakurta"
+  - "Juan Bernabe-Moreno"
+  - "Rahul Ramachandran"
+authors_verified: true
 year: 2025
-journal: "TODO verify (arXiv:2508.14112)"
-doi: null
+journal: "preprint (arXiv:2508.14112 v2; no journal DOI assigned as of 2026-05-19)"
+doi: "10.48550/arXiv.2508.14112"
 arxiv: "2508.14112"
 ads_bibcode: null
 primary_theme: solar_wind_segmentation
 secondary_themes: [machine-learning, foundation-model, sdo, transformer, lora, multi-task]
 missions: [SDO]
 regime: ["corona"]
-quality_level: pilot
+quality_level: paper-grounded-pending-full-text
 executable_status: scaffold
 required_data:
-  - "SDO AIA L1 — 8 EUV channels (full-resolution)"
-  - "SDO HMI L1.5/L2 — 5 products (full-resolution)"
-  - "Solar-wind-speed labels at L1/ACE/DSCOVR (for downstream task)"
-  - "Active-region segmentation labels"
+  - "SDO AIA L1 — 8 EUV/UV channels (full-resolution 4096×4096; exact channel list TODO verify)"
+  - "SDO HMI L1.5/L2 — 5 products (full-resolution; exact product list TODO verify)"
+  - "Solar-wind-speed labels at L1 (OMNI hourly, 2010-05-13 – 2024-12-31)"
+  - "Active-region segmentation labels (SuryaBench supplementary)"
   - "GOES flare catalog"
   - "EVE EUV reference spectra"
+  - "Released backbone weights: Hugging Face nasa-ibm-ai4science/Surya-1.0 (surya.366m.v1.pt; Apache-2.0)"
 methods:
   - spatiotemporal-transformer-architecture
   - spectral-gating-plus-long-short-attention
@@ -33,16 +62,31 @@ methods:
   - lora-parameter-efficient-fine-tuning
   - multi-task-downstream-evaluation
 validation_targets:
-  - "Zero-shot solar-dynamics + flare-forecasting metrics (TODO verify specific values)"
-  - "LoRA fine-tuning beats per-task baselines on solar-wind-speed, AR-segmentation, flare-forecasting, EUV-spectra"
+  - "Zero-shot solar-dynamics + flare-forecasting metrics on the SuryaBench splits (TODO verify specific values)"
+  - "LoRA fine-tuning beats per-task baselines on solar-wind-speed (L1), AR-segmentation, flare-forecasting, EUV-spectra, AR-emergence forecasting, coronal-field extrapolation (per-task scores TODO verify)"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json entry arxiv_id=2508.14112"
 verification_flags:
-  - "Publication venue + DOI TODO verify."
-  - "Exact 8 AIA channels + 5 HMI products used in pretraining TODO verify."
-  - "Training resolution (raw 4096×4096 vs downsampled) TODO verify."
+  - "arXiv ID + abstract + author list verified via arxiv.org abs page and Hugging Face model card on 2026-05-19."
+  - "Journal venue + journal DOI TODO verify (no journal-ref on the abs page at verification time)."
+  - "Exact 8 AIA channels + 5 HMI products used in pretraining TODO verify against full PDF or GitHub config."
   - "Spectral-gating implementation (FNO-style vs other) TODO verify."
   - "Long-short attention windowing pattern TODO verify."
   - "LoRA rank + injected layers TODO verify."
   - "Per-task numerical scores and baselines TODO verify."
-  - "Pretrained weights public-release path TODO verify."
+  - "Autoregressive rollout horizon used in pretraining stage 2 TODO verify."
+provenance:
+  id_verifications:
+    - arxiv_id: "2508.14112"
+      url: "https://arxiv.org/abs/2508.14112"
+      http_status: 200
+      fetched_title: "Surya: Foundation Model for Heliophysics"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T23:43:15Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://huggingface.co/nasa-ibm-ai4science/Surya-1.0"
+      status: hf-model-card-confirms-arch-and-weights
+      fetched_at: "2026-05-19T23:48:00Z"
+      notes: "model card confirms 366M parameters, 8 AIA + 5 HMI, 4096x4096 native input, 2010-2019 pretraining window, Apache-2.0 weights `surya.366m.v1.pt`"

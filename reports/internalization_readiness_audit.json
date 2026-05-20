@@ -2,21 +2,20 @@
   "schema_version": "internalization-readiness-1.0",
   "summary": {
     "total_entries": 501,
-    "active_entries": 51,
-    "mean_score": 61.15,
-    "median_score": 61.37,
+    "active_entries": 45,
+    "mean_score": 61.36,
+    "median_score": 61.69,
     "min_score": 24.14,
     "max_score": 84.53,
     "histogram": {
       "0-24": 1,
       "25-49": 21,
-      "50-69": 422,
-      "70-84": 57,
+      "50-69": 418,
+      "70-84": 61,
       "85-100": 0
     },
     "by_batch_mean": {
       "batch_mission_instruments_data_products": 53.22,
-      "batch_solar_wind_segmentation_ml": 53.64,
       "wave500_waves_instabilities_reconnection_045": 53.7,
       "wave500_inner_heliosphere_psp_solo_045": 55.37,
       "wave500_solar_corona_cme_flares_045": 57.16,
@@ -25,6 +24,7 @@
       "wave500_turbulence_intermit_heating_045": 58.48,
       "wave500_sw_classification_ml_foundation_045": 60.35,
       "batch_heliophysics_software_infrastructure": 61.05,
+      "batch_solar_wind_segmentation_ml": 62.41,
       "wave500_agent_runtime_eval_design_045": 63.42,
       "wave500_sep_shocks_space_weather_045": 64.9,
       "wave500_instruments_data_software_045": 66.75,
@@ -36,11 +36,11 @@
     },
     "by_quality_mean": {
       "stub-historical-ecosystem-map": 56.23,
-      "pilot": 58.98,
       "stub": 59.08,
       "pilot_weak_attribution": 59.8,
-      "paper-grounded-pending-full-text": 61.97,
+      "pilot": 60.58,
       "stub-historical-anchor": 62.0,
+      "paper-grounded-pending-full-text": 62.18,
       "positioning-skill-not-executable-science": 63.24,
       "stub-infrastructure": 64.33,
       "method-ready": 66.07,
@@ -48,7 +48,7 @@
       "paper-grounded-locally-reproduced": 70.73
     },
     "active_score_min": 50.5,
-    "active_score_mean": 62.01
+    "active_score_mean": 63.23
   },
   "weights": {
     "bibliographic_anchor": 25,
@@ -4762,35 +4762,35 @@
     {
       "batch": "batch_solar_wind_segmentation_ml",
       "slug": "paper-bloch-2024-uncertainty-nn-solar-wind-types",
-      "quality_level": "pilot",
-      "is_active": true,
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 34,
-      "score": 51.8,
-      "raw_score": 64,
-      "todo_penalty": 12.2,
+      "n_todo": 15,
+      "score": 70.5,
+      "raw_score": 77,
+      "todo_penalty": 6.5,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -4924,35 +4924,35 @@
     {
       "batch": "batch_solar_wind_segmentation_ml",
       "slug": "paper-cipher-2025-isax-hdbscan-solar-wind-segmentation",
-      "quality_level": "pilot",
-      "is_active": true,
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 27,
-      "score": 53.9,
-      "raw_score": 64,
-      "todo_penalty": 10.1,
+      "n_todo": 8,
+      "score": 75.79,
+      "raw_score": 77,
+      "todo_penalty": 1.21,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -4963,7 +4963,7 @@
             "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
-            "has_targets": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
@@ -5086,35 +5086,35 @@
     {
       "batch": "batch_solar_wind_segmentation_ml",
       "slug": "paper-hu-2022-deep-swim-cnn-discontinuities",
-      "quality_level": "pilot",
-      "is_active": true,
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 33,
-      "score": 52.1,
-      "raw_score": 64,
-      "todo_penalty": 11.9,
+      "n_todo": 8,
+      "score": 75.71,
+      "raw_score": 77,
+      "todo_penalty": 1.29,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -5410,35 +5410,35 @@
     {
       "batch": "batch_solar_wind_segmentation_ml",
       "slug": "paper-roy-2025-surya-heliophysics-foundation-model",
-      "quality_level": "pilot",
-      "is_active": true,
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 28,
-      "score": 53.6,
-      "raw_score": 64,
-      "todo_penalty": 10.4,
+      "n_todo": 27,
+      "score": 62.9,
+      "raw_score": 73,
+      "todo_penalty": 10.1,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -5449,7 +5449,7 @@
             "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
-            "has_targets": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
@@ -5466,10 +5466,10 @@
           }
         },
         "validation_target": {
-          "score": 10,
+          "score": 6,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": true,
+            "has_meta_validation_targets": false,
             "has_section": true,
             "has_numeric_reference": true,
             "boilerplate": false
@@ -5491,35 +5491,35 @@
     {
       "batch": "batch_solar_wind_segmentation_ml",
       "slug": "paper-roy-2025-suryabench-ml-benchmark-dataset",
-      "quality_level": "pilot",
-      "is_active": true,
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 28,
-      "score": 53.6,
-      "raw_score": 64,
-      "todo_penalty": 10.4,
+      "n_todo": 26,
+      "score": 67.2,
+      "raw_score": 77,
+      "todo_penalty": 9.8,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -5653,35 +5653,35 @@
     {
       "batch": "batch_solar_wind_segmentation_ml",
       "slug": "paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml",
-      "quality_level": "pilot",
-      "is_active": true,
+      "quality_level": "paper-grounded-pending-full-text",
+      "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 33,
-      "score": 52.1,
-      "raw_score": 64,
-      "todo_penalty": 11.9,
+      "n_todo": 16,
+      "score": 70.2,
+      "raw_score": 77,
+      "todo_penalty": 6.8,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {

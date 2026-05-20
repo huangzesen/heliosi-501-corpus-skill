@@ -4,37 +4,56 @@ authors:
   - "Argyro Sasli"
   - "Karish Seebaluck"
   - "Chris Colpitts"
+  - "Michael Coughlin"
+authors_verified: true
 year: 2026
-journal: "TODO verify (preprint arXiv:2605.00162)"
-doi: null
+journal: "preprint submitted to Earth and Space Science (arXiv:2605.00162 v1, 2026-04-30)"
+doi: "10.48550/arXiv.2605.00162"
 arxiv: "2605.00162"
 ads_bibcode: null
 primary_theme: solar_wind_segmentation
-secondary_themes: [machine-learning, waves-instabilities, psp_data, electron-heating]
+secondary_themes: [machine-learning, anomaly-detection, waves-instabilities, psp_data, electron-heating]
 missions: [PSP]
 regime: ["inner-heliosphere", "kinetic", "electron-scale"]
-quality_level: pilot
+quality_level: paper-grounded-pending-full-text
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS DFB/TDS burst-mode E-field waveforms (L2)"
-  - "PSP SWEAP/SPAN-e core-electron moments (T_e_core, anisotropy, q_e)"
+  - "PSP FIELDS DBM burst-mode E-field voltage waveforms (~524 288 samples per burst), L2, Encounters 6, 7, 8, 9, 15"
+  - "PSP SWEAP/SPAN-e core-electron moments (core T_e perpendicular and parallel, T_e/T_i)"
   - "PSP SWEAP/SPC + SPAN-i proton moments (n_p, V_RTN, T_p)"
   - "Auxiliary FIELDS MAG L2 for context"
 methods:
-  - waveform-window-labeling
-  - spectrogram-or-raw-waveform-representation
-  - supervised-ml-event-detector
-  - event-level-train-test-split
-  - mIAW-electron-heating-association-statistics
+  - log-scaled-fourier-spectrogram-representation
+  - ensemble-of-16-background-only-anomaly-detectors
+  - physics-motivated-detectors
+  - classical-outlier-detectors
+  - deep-learning-anomaly-detectors
+  - heating-association-cross-check-no-Te-in-detector
 validation_targets:
-  - "Recall ~93% on held-out PSP burst-mode test set (TODO verify exact metric)"
-  - "Statistically significant anomalous core-electron heating in mIAW-positive windows"
+  - "Recall ≈ 93 % at ≈ 1 % FAR (≈ 1 false positive per 100 held-out backgrounds), explicitly flagged as approximate due to limited background statistics"
+  - "Catalog: 42 anomalous + 496 background DBM spectrograms drawn from PSP Encounters 6, 7, 8, 9, 15"
+  - "Flagged intervals show core perpendicular T_e above the adiabatic-cooling expectation and elevated T_e/T_i"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md Topic 2 entry #4"
 verification_flags:
-  - "Publication venue TODO verify."
-  - "Model architecture (CNN / transformer / other) TODO verify."
-  - "Training-set definition + label rule (modulation criterion) TODO verify."
-  - "Exact metric reported as 93% (recall vs accuracy vs F1) TODO verify."
-  - "Encounter list and TDS / DFB burst-capture source TODO verify."
-  - "SPAN-e T_e calibration version TODO verify."
+  - "arXiv ID + abstract + Key Points block + authors + encounter list + catalog counts (42 anomalous + 496 background) + ensemble size (16 detectors) + headline metric (93 % at 1 % FAR) + venue (Earth and Space Science submission) verified via arxiv.org abs page and full PDF on 2026-05-19."
+  - "Journal DOI (Earth and Space Science) TODO verify once issued."
+  - "Per-detector weights inside the 16-member ensemble TODO verify from §3."
+  - "Exact GitHub URL for the open-source EMBER pipeline TODO verify from §3 or supplementary."
+  - "SPAN-e T_e calibration version used for the heating-association cross-check TODO verify."
+  - "Per-encounter distribution of the 42 positives TODO verify from §4."
+provenance:
+  id_verifications:
+    - arxiv_id: "2605.00162"
+      url: "https://arxiv.org/abs/2605.00162"
+      http_status: 200
+      fetched_title: "EMBER: Machine-Learning Detection of Modulated Ion Acoustic Waves and Associated Core-Electron Heating in the Solar Wind with Parker Solar Probe"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T23:43:15Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://arxiv.org/pdf/2605.00162"
+      status: full-pdf-confirms-method-ensemble-and-catalog
+      fetched_at: "2026-05-19T23:58:00Z"
+      notes: "Full PDF v1 verified: 4 authors at U. Minnesota (Sasli, Seebaluck, Colpitts, Coughlin); PSP FIELDS DBM bursts on Encounters 6-9 and 15; log-scaled Fourier spectrograms; ensemble of 16 background-only anomaly detectors (physics + classical + deep); curated catalog 42 anomalous + 496 background; 93% recall at 1% FAR (paper flags both numbers as approximate due to limited background statistics); SWEAP/SPAN-e cross-check shows core T_perp above adiabatic and elevated T_e/T_i; open-source pipeline advertised in Key Points block."

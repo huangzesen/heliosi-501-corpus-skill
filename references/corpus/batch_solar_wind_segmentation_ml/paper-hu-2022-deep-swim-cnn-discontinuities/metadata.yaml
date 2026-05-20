@@ -1,37 +1,66 @@
 slug: paper-hu-2022-deep-swim-cnn-discontinuities
 title: "Deep-SWIM: A few-shot learning approach to classify Solar WInd Magnetic field structures"
-authors: []
-authors_verified: false
+authors:
+  - "Hala Lamdouar"
+  - "Sairam Sundaresan"
+  - "Anna Jungbluth"
+  - "Sudeshna Boro Saikia"
+  - "Amanda Joy Camarata"
+  - "Nathan Miles"
+  - "Marcella Scoczynski"
+  - "Mavis Stone"
+  - "Anthony Sarah"
+  - "Andrés Muñoz-Jaramillo"
+  - "Ayris Narock"
+  - "Adam Szabo"
+authors_verified: true
+slug_first_author_misnomer: "Legacy slug retains 'hu' for cross-batch link stability; verified lead author is Hala Lamdouar (University of Oxford)."
 year: 2022
-journal: "TODO verify (arXiv:2203.01184)"
-doi: null
+journal: "NeurIPS 2021 Fourth Workshop on Machine Learning and the Physical Sciences (arXiv:2203.01184)"
+doi: "10.48550/arXiv.2203.01184"
 arxiv: "2203.01184"
 ads_bibcode: null
 primary_theme: solar_wind_segmentation
-secondary_themes: [machine-learning, cnn, few-shot, discontinuity-detection]
-missions: [Wind, ACE, other]
+secondary_themes: [machine-learning, cnn, contrastive-learning, pseudo-labeling, ohem, discontinuity-detection]
+missions: [Wind]
 regime: ["1au"]
-quality_level: pilot
+quality_level: paper-grounded-pending-full-text
 executable_status: scaffold
 required_data:
-  - "L2 in-situ magnetic-field time series with ≥0.1 Hz cadence"
-  - "Discontinuity catalog (Tsurutani-Smith / Vasquez / hand-labelled — TODO verify)"
+  - "Wind/MFI L2 11 Hz B (GSE), smoothed and resampled to 3 s cadence"
+  - "Expert hand-labels for 2018-11-18 (286 segments, 39 discontinuities)"
+  - "Heuristic rotation-angle discontinuity catalog (2006–2021) provided by co-authors Szabo & Narock"
 methods:
-  - five-minute-windowing-with-stride
-  - three-component-channel-stacking
-  - few-shot-cnn-meta-learning
-  - binary-discontinuity-classification
+  - five-minute-windowing
+  - three-component-channel-stacking-Bx-By-Bz
+  - four-layer-1d-cnn
+  - contrastive-learning-with-anchor-positive-negative
+  - pseudo-labeling-with-epoch-scheduled-alpha
+  - online-hard-example-mining
+  - svm-and-2d-cnn-gaf-baselines
 validation_targets:
-  - "Per-window binary accuracy / F1 (numerical value TODO verify)"
-  - "Accuracy-vs-shots-K curve reproduces few-shot behaviour reported by the paper"
+  - "Best 1D-CNN + contrastive + pseudo-labeling + OHEM: AUC ≈ 0.90 on the 10 % validation set"
+  - "On the 2018-11-18 hand-labelled test set: precision 0.52, recall 0.73, AUC 0.82"
+  - "Seed-variability MAD: MAD_precision ≈ 0.014, MAD_recall ≈ 0.000, MAD_AUC ≈ 0.003"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.7"
 verification_flags:
-  - "Lead author surname + full author list TODO verify."
-  - "Publication venue + DOI TODO verify."
-  - "Source mission (Wind vs ACE vs Cluster) TODO verify."
-  - "Discontinuity catalog identity TODO verify."
-  - "CNN architecture + few-shot paradigm TODO verify."
-  - "Component frame (GSE vs RTN) TODO verify."
-  - "Window stride and overlap TODO verify."
-  - "Headline accuracy / F1 numbers TODO verify."
+  - "arXiv ID + abstract + author list + Wind/MFI 11 Hz data + 3 s resampling + 5-min windowing + ablation table + headline AUC numbers verified via arxiv.org abs page and full PDF on 2026-05-19."
+  - "Public release URL for the heuristic rotation-angle catalog and the 2018-11-18 hand-labels TODO verify (paper references Szabo & Narock as the providers but does not advertise a URL)."
+  - "Code repository URL TODO verify (workshop paper does not publish one)."
+  - "Slug retains legacy 'hu' first-author placeholder; verified lead author is Hala Lamdouar."
+provenance:
+  id_verifications:
+    - arxiv_id: "2203.01184"
+      url: "https://arxiv.org/abs/2203.01184"
+      http_status: 200
+      fetched_title: "Deep-SWIM: A few-shot learning approach to classify Solar WInd Magnetic field structures"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T23:43:15Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://ml4physicalsciences.github.io/2021/files/NeurIPS_ML4PS_2021_138.pdf"
+      status: workshop-pdf-confirms-authors-methods-and-numbers
+      fetched_at: "2026-05-19T23:55:00Z"
+      notes: "NeurIPS 2021 ML4PS workshop PDF verified: lead author Hala Lamdouar (Oxford); Wind/MFI 11 Hz → 3 s; 4-layer 1D-CNN + contrastive + pseudo-labeling (α_f=3, T1=5, T2=100) + OHEM (ω=0.8, top 70 %); AUC 0.90 on validation; precision 0.52 / recall 0.73 / AUC 0.82 on 2018-11-18 hand-labelled test."

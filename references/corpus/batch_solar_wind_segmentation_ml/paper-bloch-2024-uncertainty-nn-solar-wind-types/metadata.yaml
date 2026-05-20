@@ -1,37 +1,60 @@
 slug: paper-bloch-2024-uncertainty-nn-solar-wind-types
 title: "Classifying different types of solar wind plasma with uncertainty estimations using machine learning"
-authors: []
-authors_verified: false
+authors:
+  - "Tom Narock"
+  - "Sanchita Pal"
+  - "Aryana Arsham"
+  - "Ayris Narock"
+  - "Teresa Nieves-Chinchilla"
+authors_verified: true
+slug_first_author_misnomer: "Legacy slug retains 'bloch' for cross-batch link stability; verified lead author is Tom Narock (Goucher College)."
 year: 2024
-journal: "TODO verify (arXiv:2409.09230)"
-doi: null
+journal: "Solar Physics (in press; arXiv:2409.09230 v1)"
+doi: "10.48550/arXiv.2409.09230"
 arxiv: "2409.09230"
 ads_bibcode: null
 primary_theme: solar_wind_segmentation
-secondary_themes: [machine-learning, uncertainty-quantification, neural-network, four-class]
-missions: [ACE, Wind, other]
+secondary_themes: [machine-learning, uncertainty-quantification, probabilistic-neural-network, four-class, five-class]
+missions: [Wind]
 regime: ["1au"]
-quality_level: pilot
+quality_level: paper-grounded-pending-full-text
 executable_status: scaffold
 required_data:
-  - "ACE / Wind / OMNI 1-au plasma + magnetic field moments"
-  - "4-class Xu-Borovsky / Stansby labels (label rule TODO verify)"
+  - "Wind/MFI L2 1-min B (GSE)"
+  - "Wind/SWE L2 1-min plasma moments (n_p, V_sw, T_p)"
+  - "Nieves-Chinchilla magnetic-obstacle catalog for MO labels (catalog URL TODO verify)"
+  - "Xu–Borovsky 2015 classification rule (computed from MFI+SWE features)"
 methods:
-  - neural-network-four-class-classifier
-  - uncertainty-method-tbd-mc-dropout-or-ensemble-or-evidential
-  - calibration-evaluation-ece-or-brier
-  - abstention-curve-accuracy-vs-coverage
+  - probabilistic-neural-network-with-softmax-output
+  - shannon-entropy-aleatoric-uncertainty
+  - 3-parameter-Xu-Borovsky-features
+  - 8-parameter-extended-features
+  - integrated-gradients-feature-importance
+  - threshold-based-abstention-via-shannon-entropy
 validation_targets:
-  - "Per-class accuracy on 4-class 1-au labelling (TODO verify numbers)"
-  - "Calibrated uncertainty (ECE or Brier — TODO verify which)"
-  - "Abstention curve (accuracy vs coverage) reproduces paper's operating point"
+  - "3PNN: macro-F1 ≈ 0.8764, accuracy ≈ 87.79 % on 4-class (CH/SB/SR/MO) on the paper's blocked test set"
+  - "8PNN: macro-F1 ≈ 0.9628, accuracy ≈ 96.32 % on the same 4-class scheme"
+  - "5-class (+SH) extension reproduces the known SH↔MO confusion the paper reports (per-class numbers TODO verify by reading Figure 1/Table 2)"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/extended_search.md §6.3"
 verification_flags:
-  - "Lead author surname + full author list TODO verify."
-  - "Publication venue + DOI TODO verify."
-  - "Labelling rule (Xu-Borovsky vs Stansby vs Owens) TODO verify."
-  - "NN architecture (MLP depth, width) TODO verify."
-  - "Uncertainty method (MC-Dropout / ensembles / Bayesian / evidential) TODO verify."
-  - "Calibration metric reported (ECE / Brier / NLL) TODO verify."
-  - "Operating point on abstention curve TODO verify."
+  - "arXiv ID + abstract + author list + headline accuracy + Wind MFI+SWE 1-min data source verified via arxiv.org abs page and PDF on 2026-05-19."
+  - "Final Solar Physics DOI TODO verify (PDF header carries placeholder 10.1007/...)."
+  - "Per-class confusion-matrix entries TODO verify by reading Figure 1 of the PDF."
+  - "Recommended Shannon-entropy operating-point threshold TODO verify."
+  - "Slug retains legacy 'bloch' first-author placeholder; verified lead author is Tom Narock."
+provenance:
+  id_verifications:
+    - arxiv_id: "2409.09230"
+      url: "https://arxiv.org/abs/2409.09230"
+      http_status: 200
+      fetched_title: "Classifying different types of solar wind plasma with uncertainty estimations using machine learning"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T23:43:15Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://arxiv.org/pdf/2409.09230"
+      status: full-pdf-confirms-narock-authorship-and-headline-numbers
+      fetched_at: "2026-05-19T23:55:00Z"
+      notes: "Full PDF (v1) verified: lead author Tom Narock (Goucher College); Wind MFI + SWE 1-min L2 data; 3PNN macro-F1 0.8764 / accuracy 87.79 % and 8PNN macro-F1 0.9628 / accuracy 96.32 %; Shannon-entropy uncertainty on softmax output; submission to Solar Physics."

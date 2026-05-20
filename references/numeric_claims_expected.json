@@ -140,12 +140,6 @@
       "body_line": 92
     },
     {
-      "path": "batch_solar_wind_segmentation_ml/paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml/SKILL.md",
-      "pattern": "plus-minus",
-      "match": "±2 percentage",
-      "body_line": 93
-    },
-    {
       "path": "pilot_2026_and_runtime/dakeyo-2026-source-alignment-psp-solo/SKILL.md",
       "pattern": "plus-minus",
       "match": "±20%",

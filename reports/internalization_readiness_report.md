@@ -1,18 +1,17 @@
-internalization-readiness audit — 501 entries scanned (51 active)
+internalization-readiness audit — 501 entries scanned (45 active)
 ========================================================================
-  mean score   : 61.15/100   median: 61.37   min: 24.14   max: 84.53
-  active mean  : 62.01   active min: 50.5
+  mean score   : 61.36/100   median: 61.69   min: 24.14   max: 84.53
+  active mean  : 63.23   active min: 50.5
 
   score histogram (lower = more internalization debt):
     0-24       1  #
     25-49     21  ######
-    50-69    422  ############################################################
-    70-84     57  ###############
+    50-69    418  ############################################################
+    70-84     61  ################
     85-100     0  
 
   per-batch mean (ascending — worst-debt batch first):
     batch_mission_instruments_data_products              53.22
-    batch_solar_wind_segmentation_ml                     53.64
     wave500_waves_instabilities_reconnection_045         53.7
     wave500_inner_heliosphere_psp_solo_045               55.37
     wave500_solar_corona_cme_flares_045                  57.16
@@ -21,6 +20,7 @@ internalization-readiness audit — 501 entries scanned (51 active)
     wave500_turbulence_intermit_heating_045              58.48
     wave500_sw_classification_ml_foundation_045          60.35
     batch_heliophysics_software_infrastructure           61.05
+    batch_solar_wind_segmentation_ml                     62.41
     wave500_agent_runtime_eval_design_045                63.42
     wave500_sep_shocks_space_weather_045                 64.9
     wave500_instruments_data_software_045                66.75
@@ -32,11 +32,11 @@ internalization-readiness audit — 501 entries scanned (51 active)
 
   per-quality_level mean (ascending):
     stub-historical-ecosystem-map                    56.23
-    pilot                                            58.98
     stub                                             59.08
     pilot_weak_attribution                           59.8
-    paper-grounded-pending-full-text                 61.97
+    pilot                                            60.58
     stub-historical-anchor                           62.0
+    paper-grounded-pending-full-text                 62.18
     positioning-skill-not-executable-science         63.24
     stub-infrastructure                              64.33
     method-ready                                     66.07
