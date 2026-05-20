@@ -3,15 +3,15 @@
   "summary": {
     "total_entries": 501,
     "active_entries": 51,
-    "mean_score": 61.01,
-    "median_score": 61.34,
+    "mean_score": 61.15,
+    "median_score": 61.37,
     "min_score": 24.14,
     "max_score": 84.53,
     "histogram": {
       "0-24": 1,
       "25-49": 21,
-      "50-69": 425,
-      "70-84": 54,
+      "50-69": 422,
+      "70-84": 57,
       "85-100": 0
     },
     "by_batch_mean": {
@@ -23,7 +23,7 @@
       "batch_turbulence_heating_apj": 57.56,
       "pilot_2026_and_runtime": 58.34,
       "wave500_turbulence_intermit_heating_045": 58.48,
-      "wave500_sw_classification_ml_foundation_045": 58.77,
+      "wave500_sw_classification_ml_foundation_045": 60.35,
       "batch_heliophysics_software_infrastructure": 61.05,
       "wave500_agent_runtime_eval_design_045": 63.42,
       "wave500_sep_shocks_space_weather_045": 64.9,
@@ -36,8 +36,8 @@
     },
     "by_quality_mean": {
       "stub-historical-ecosystem-map": 56.23,
-      "stub": 58.66,
       "pilot": 58.98,
+      "stub": 59.08,
       "pilot_weak_attribution": 59.8,
       "paper-grounded-pending-full-text": 61.97,
       "stub-historical-anchor": 62.0,
@@ -31336,29 +31336,29 @@
       "tier_class": null,
       "layer2_stub": null,
       "n_todo": 17,
-      "score": 51.9,
-      "raw_score": 59,
+      "score": 75.9,
+      "raw_score": 83,
       "todo_penalty": 7.1,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 21,
           "max": 25,
           "bits": {
-            "arxiv": false,
-            "doi": false,
-            "ads": false,
-            "url_or_code": false,
+            "arxiv": true,
+            "doi": true,
+            "ads": true,
+            "url_or_code": true,
             "id_verifications": false,
-            "external_links": false
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -31374,25 +31374,25 @@
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 6,
           "max": 10,
           "bits": {
             "has_meta_validation_targets": false,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
@@ -32793,30 +32793,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 14,
-      "score": 52.8,
-      "raw_score": 59,
-      "todo_penalty": 6.2,
+      "n_todo": 18,
+      "score": 72.6,
+      "raw_score": 80,
+      "todo_penalty": 7.4,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 18,
           "max": 25,
           "bits": {
-            "arxiv": false,
-            "doi": false,
+            "arxiv": true,
+            "doi": true,
             "ads": false,
-            "url_or_code": false,
+            "url_or_code": true,
             "id_verifications": false,
-            "external_links": false
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -32827,30 +32827,30 @@
             "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
-            "has_targets": true,
+            "has_targets": false,
             "todo_dense": false
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 6,
           "max": 10,
           "bits": {
             "has_meta_validation_targets": false,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
@@ -33117,30 +33117,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 17,
-      "score": 51.9,
-      "raw_score": 59,
-      "todo_penalty": 7.1,
+      "n_todo": 8,
+      "score": 79.27,
+      "raw_score": 81,
+      "todo_penalty": 1.73,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 15,
           "max": 25,
           "bits": {
             "arxiv": false,
-            "doi": false,
-            "ads": false,
-            "url_or_code": false,
+            "doi": true,
+            "ads": true,
+            "url_or_code": true,
             "id_verifications": false,
-            "external_links": false
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -33156,25 +33156,25 @@
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {

@@ -140,6 +140,13 @@ KNOWN_SLUG_YEAR_MISMATCHES = {
     "paper-li-2026-3he-rich-bidirectional-sep-solar-orbiter",
     "paper-niemiec-2025-numerical-superdiffusive-particle-acceleration",
     "paper-stoffel-2025-rerunaway-Forbush-cross-correlation",
+    # ARCANE (Rüdisser et al.): slug encodes year 2024 (factory-generated
+    # successor-lineage stub) but the verified primary source is
+    # arXiv:2505.09365 (May 2025 preprint, Space Weather 2026,
+    # doi:10.1029/2025SW004537). The bibliographic block is authoritative;
+    # the slug name is preserved for stable cross-references. Internalized
+    # 2026-05-19 in feat/internalize-wave500-ml-batch1.
+    "paper-rudisser-2024-icme-unet-realtime-deployment",
 }
 
 

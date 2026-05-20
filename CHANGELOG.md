@@ -331,6 +331,75 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   provide the reproducible audit (`--json`, `--strict`) and pin the doc ↔
   corpus consistency checks. Closes #58.
 
+### Wave500 ML-foundation batch 1 — Layer-1 internalization for 3 high-debt entries (2026-05-19)
+
+Drains content debt on three entries under
+`references/corpus/wave500_sw_classification_ml_foundation_045/` by
+internalizing verified Layer-1 (scientific invariant) content from
+publicly-available abstracts and bibliographic anchors. No new
+verification machinery; per-entry SKILL.md bodies replace factory
+placeholder prose with sourced narrow-form claims, abstract executable
+protocols, and failure-mode skill memory. The structural manifest
+invariants are unchanged (501 entries, 18 batches,
+`totals.duplicate_slugs == {}`).
+
+- `paper-xu-borovsky-categorization-extension-1au` — anchored to the
+  verified parent scheme **Xu, F. & Borovsky, J. E. (2015)**, "A new
+  four-plasma categorization scheme for the solar wind", *JGR Space
+  Physics*, 120(1):70-100, doi:10.1002/2014JA020412 (ADS:
+  2015JGRA..120...70X). The "extension to 1 au" tail of the slug name
+  is preserved for stable cross-references; the bibliographic block now
+  reflects the parent scheme and the L4 affordances list enumerates
+  candidate extension papers (no fabricated extension citation).
+- `paper-li-2020-solar-wind-supervised-extension-multi-mission` —
+  anchored to the verified primary paper **Li, H., Wang, C., Tu, C.,
+  Xu, F. (2020)**, "Machine Learning Approach for Solar Wind
+  Categorization", *Earth and Space Science*, 7(5):e2019EA000997,
+  doi:10.1029/2019EA000997, arXiv:1811.02323 (ADS:
+  2020E&SS....700997L). The slug's "multi-mission" framing is preserved
+  for stable cross-references but moved from a paper-side claim to a
+  Layer-4 research target (the primary paper benchmarks 10 supervised
+  models on Xu-Borovsky labels with ACE-derived 1-au hourly data, not
+  cross-mission Wind+ACE+STEREO). Headline KNN overall accuracy = 92.8%
+  is anchored.
+- `paper-rudisser-2024-icme-unet-realtime-deployment` — anchored to
+  the verified primary paper **Rüdisser, H. T., Nguyen, G.,
+  Le Louëdec, J., Davies, E. E., Möstl, C. (2026)**, "ARCANE — Early
+  Detection of Interplanetary Coronal Mass Ejections", *Space Weather*,
+  24:e2025SW004537, doi:10.1029/2025SW004537, arXiv:2505.09365. The
+  slug encodes year `2024` (factory-generated successor-lineage stub);
+  the verified primary source is the 2026 journal article (2025
+  preprint). The slug is added to
+  `tests/test_corpus_hygiene_56_57.py:KNOWN_SLUG_YEAR_MISMATCHES` with
+  justification. Slug's "U-Net" tag is the broader family label; the
+  verified architecture is ResUNet++. Headline F1 = 0.37 and average
+  detection-delay-fraction = 24.5% of event duration are anchored.
+
+Out-of-scope findings (NOT modified in this batch; documented for a
+future pass):
+
+- `paper-bloch-2022-bayesian-nn-solar-wind-classification` — no
+  Bloch-authored Bayesian-NN solar-wind classification paper located;
+  the nearest verified match is **Narock, Pal, Arsham, Narock,
+  Nieves-Chinchilla (2024)**, "Classifying Different Types of
+  Solar-Wind Plasma with Uncertainty Estimations Using Machine
+  Learning" (arXiv:2409.09230, Solar Physics 2024). Author attribution
+  is a factory hallucination; out-of-scope to silently rewire.
+- `paper-camporeale-2017-knn-supervised-comparison-ten-models` and
+  `paper-camporeale-2018-knn-solar-wind-classification-validation` —
+  both carry arXiv ID `1811.02323` and list `E. Camporeale` as
+  first_author, but arXiv:1811.02323 is the Li-Wang-Tu-Xu (2020)
+  paper, not a Camporeale paper. Author attribution is a factory
+  misattribution; out-of-scope to silently rewire (would risk
+  double-binding the Li 2020 paper across slugs without an
+  audit-log entry).
+- `paper-trotta-2025-shock-detection-multispacecraft-ml` — Trotta et
+  al. (2025) "An Overview of Solar Orbiter Observations of
+  Interplanetary Shocks in Solar Cycle 25" (ApJS) exists and matches
+  the lineage, but explicitly uses *traditional shock identification
+  methodology, not machine learning*. The slug's "ML-assisted"
+  framing does not match the parent paper; out-of-scope to rebind.
+
 ### Issue #59 — non-ASCII title characters are intentional scientific typography
 
 - `scripts/audit_title_unicode.py` — stdlib + PyYAML audit that scans

@@ -1,5 +1,5 @@
 slug: paper-rudisser-2024-icme-unet-realtime-deployment
-title: "Real-time deployment of a U-Net ICME detector on Wind / STEREO / Solar Orbiter telemetry"
+title: "ARCANE — Early Detection of Interplanetary Coronal Mass Ejections (real-time ICME deep-learning detector)"
 kind: paper-skill
 quality: stub
 harness_agnostic: true
@@ -8,34 +8,53 @@ layers:
   executable_protocol: false
   adapter_binding_examples: false
   research_generation_affordance: false
+# Slug year ("2024") is preserved for stable cross-references but does
+# NOT match the verified primary source: the ARCANE paper was submitted
+# to arXiv in May 2025 (arXiv:2505.09365) and is published in Space
+# Weather, 2026 (doi:10.1029/2025SW004537). The year discrepancy is
+# flagged in failure_modes; the bibliographic block reflects the real
+# anchor.
+first_author: "H. T. Rüdisser"
 authors:
-  - "H. T. Rüdisser (successor lineage)"
-year: 2024
-venue: "TODO verify (likely Space Weather)"
-doi: null
-arxiv: null
+  - "H. T. Rüdisser"
+  - "G. Nguyen"
+  - "J. Le Louëdec"
+  - "E. E. Davies"
+  - "C. Möstl"
+authors_verified: false
+year: 2026
+venue: "Space Weather, 24, e2025SW004537"
+doi: "10.1029/2025SW004537"
+arxiv: "2505.09365"
 ads_bibcode: null
 primary_theme: solar_wind_segmentation
-secondary_themes: ["event-detection", "icme", "unet", "real-time"]
-missions: ["Wind", "STEREO", "SolO"]
-regime: []
+secondary_themes: ["event-detection", "icme", "deep-learning", "real-time", "operational"]
+missions: ["Wind"]
+regime: ["1au"]
 quality_level: stub
 executable_status: stub
 required_data:
-  - "TODO verify — abstract data products to be defined at method-ready promotion."
+  - "Wind real-time solar-wind (RTSW) telemetry: magnetic field (B, components) + bulk plasma (n_p, T_p, v_sw) at near-real-time cadence. Real-time stream used by the operational evaluator."
+  - "Wind high-resolution science data (post-processing) used as a comparator to confirm minimal performance degradation between RTSW and science-grade inputs."
+  - "ICMECAT / HELCATS-style ground-truth ICME catalog for training labels (TODO_verify_with_full_text — exact catalog version)."
 methods:
-  - "TODO verify — algorithm names + abstract procedures from the primary source."
+  - "ResUNet++ deep segmentation network (NOT a vanilla U-Net) applied to multivariate solar-wind time series."
+  - "Streaming-mode evaluator that operates on partial / not-yet-complete events under operational latency constraints."
+  - "Comparison vs threshold-based baseline to quantify the gain from deep segmentation, especially on high-impact events."
 validation_targets:
-  - "TODO verify — replace with `validation_target.metric` + tolerance from the primary source."
+  - "Reported overall F1-score = 0.37 on the early-detection task (Rüdisser et al. 2026 abstract; figure / table reference TODO_verify_with_full_text)."
+  - "Reported average detection delay = 24.5% of event duration, measured against ground-truth event end times (Rüdisser et al. 2026 abstract; methodology TODO_verify_with_full_text)."
+  - "Outperformance of a threshold-based baseline reported as 'especially on high-impact events' (Rüdisser et al. 2026 abstract; exact baseline identity TODO_verify_with_full_text)."
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json"
   - "sioulas-reproduction/results/arxiv_papers/extended_search.md"
-  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md"
-  - "sioulas-reproduction/results/arxiv_papers/all_papers_index.json"
+  - "Rüdisser et al. 2026 (ARCANE), Space Weather 24:e2025SW004537, doi:10.1029/2025SW004537, arXiv:2505.09365 (web-verified 2026-05-19)"
 verification_flags:
-  - "Primary citation (venue, DOI, author list) TODO verify against the source PDF / arXiv landing page."
-  - "Numerical metrics quoted in the description / claim are stub-level paraphrases of the abstract or extended-search snippet; do NOT treat as benchmarked."
-  - "Skill must remain harness-agnostic at promotion — bindings to specific runtimes / MCPs go in `adapter_notes` only."
+  - "Bibliographic anchor (authors, journal, DOI, arXiv ID) web-verified 2026-05-19 via AGU + arXiv landing-page snippets."
+  - "Slug year is '2024' for stable cross-references; the verified primary source is arXiv:2505.09365 (May 2025 preprint, Space Weather 2026). Year-of-record mismatch is documented in failure_modes."
+  - "Architecture flagged as 'U-Net' in the slug description; the actual ARCANE paper uses ResUNet++ (a deeper, residual variant), not a vanilla U-Net."
+  - "Headline metrics (F1 = 0.37, average detection delay 24.5% of event duration) are quoted from the publicly-available abstract; the per-event-bin breakdown and the baseline identity remain TODO_verify_with_full_text."
+  - "Authors_verified is false because we have not cross-checked the author affiliation list against the published journal PDF."
 depends_on:
   - paper-rudisser-2022-icme-unet-automatic-detection
 tags:

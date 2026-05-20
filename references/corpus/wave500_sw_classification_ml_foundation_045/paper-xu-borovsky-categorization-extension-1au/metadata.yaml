@@ -1,5 +1,5 @@
 slug: paper-xu-borovsky-categorization-extension-1au
-title: "Extension and operational refinement of the Xu–Borovsky 4-class 1-au solar-wind labelling"
+title: "A new four-plasma categorization scheme for the solar wind (parent scheme; extension lineage anchor)"
 kind: paper-skill
 quality: stub
 harness_agnostic: true
@@ -8,34 +8,46 @@ layers:
   executable_protocol: false
   adapter_binding_examples: false
   research_generation_affordance: false
-authors: []
+# This slug is the extension-lineage anchor for the Xu & Borovsky (2015)
+# four-plasma categorization scheme. The extension paper itself is not
+# verified against the primary literature; the L1 invariant below is
+# grounded in the verified parent (Xu & Borovsky 2015, JGR 120(1):70-100,
+# doi:10.1002/2014JA020412). Downstream extension work (re-thresholding,
+# 1-au revisits) is enumerated as L4 research affordances, not as a single
+# extension paper.
+first_author: "F. Xu (parent scheme; extension authorship not yet anchored)"
+authors:
+  - "F. Xu"
+  - "J. E. Borovsky"
 authors_verified: false
-year: 2020
-venue: "TODO verify (likely J. Geophys. Res. Space Phys.)"
-doi: null
+year: 2015
+venue: "Journal of Geophysical Research: Space Physics, 120(1), 70-100 (parent scheme)"
+doi: "10.1002/2014JA020412"
 arxiv: null
-ads_bibcode: null
+ads_bibcode: "2015JGRA..120...70X"
 primary_theme: solar_wind_segmentation
 secondary_themes: ["machine-learning", "labelling-rules", "1au"]
 missions: ["ACE", "Wind", "OMNI"]
-regime: []
+regime: ["1au"]
 quality_level: stub
 executable_status: stub
 required_data:
-  - "TODO verify — abstract data products to be defined at method-ready promotion."
+  - "OMNI2 1-hour cadence solar-wind proton density (N_p), proton temperature (T_p), magnetic field magnitude (B), bulk solar-wind speed (v_sw) — 1963-2013 baseline in the parent scheme."
+  - "ACE/SWEPAM + ACE/MAG L2 1-hour solar wind plasma + magnetic field — 1998-2008 baseline in the parent scheme."
 methods:
-  - "TODO verify — algorithm names + abstract procedures from the primary source."
+  - "Three-parameter algebraic classifier on (S_p = T_p / n_p^{2/3}, v_A, T_p / T_exp(v_sw)). Decision boundaries are explicit threshold cuts; not ML."
+  - "Extension lineage (TODO_verify_with_full_text): re-threshold for ML-friendly soft-label training (e.g. Camporeale 2017, Li 2020)."
 validation_targets:
-  - "TODO verify — replace with `validation_target.metric` + tolerance from the primary source."
+  - "Parent: comparison vs prior Zhao 2009 / Stakhiv 2015 schemes on OMNI2 1963-2013 — Xu & Borovsky 2015 §5-§6 (figures show coronal-hole / streamer-belt / sector-reversal / ejecta separation)."
+  - "Extension target (TODO_verify_with_full_text): pinpoint the specific 1-au extension paper that re-thresholds Xu-Borovsky for ML pipelines."
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/theme_solar_wind_segmentation.json"
   - "sioulas-reproduction/results/arxiv_papers/extended_search.md"
-  - "sioulas-reproduction/results/arxiv_papers/more_papers_2020_2026.md"
-  - "sioulas-reproduction/results/arxiv_papers/all_papers_index.json"
+  - "Xu & Borovsky 2015, JGR Space Phys 120(1):70-100, doi:10.1002/2014JA020412 (parent scheme, web-verified 2026-05-19)"
 verification_flags:
-  - "Primary citation (venue, DOI, author list) TODO verify against the source PDF / arXiv landing page."
-  - "Numerical metrics quoted in the description / claim are stub-level paraphrases of the abstract or extended-search snippet; do NOT treat as benchmarked."
-  - "Skill must remain harness-agnostic at promotion — bindings to specific runtimes / MCPs go in `adapter_notes` only."
+  - "L1 (Xu-Borovsky 2015 parent scheme) is bibliographically anchored via DOI / journal / ADS bibcode (web-verified 2026-05-19); arXiv preprint not located (likely not on arXiv)."
+  - "The 'extension to 1au' lineage in the slug name is NOT anchored to a single verified extension paper — the L4 affordances list candidate extension papers as research targets."
+  - "Numerical classifier thresholds in §3 are taken from Xu & Borovsky 2015; the slug-level claim about ε ≈ class-balanced accuracy is removed (the parent paper does not report ML-style accuracy)."
 depends_on:
   - paper-camporeale-2017-knn-solar-wind-categorization
 tags:

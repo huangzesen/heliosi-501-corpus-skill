@@ -4,7 +4,7 @@
   "batch": "wave500_sw_classification_ml_foundation_045",
   "generated_at": "2026-05-18T00:00:00Z",
   "generated_by": "HelioSI paper-to-skill factory (wave500 batch, 2026-05-18, Claude Code)",
-  "harness_framing": "harness-agnostic v0.2 \u2014 paper-skills + tool-skills are agent-native scientific objects; any sufficiently capable runtime (LingTai, Claude Code, MCP, Python notebook) is an adapter.",
+  "harness_framing": "harness-agnostic v0.2 — paper-skills + tool-skills are agent-native scientific objects; any sufficiently capable runtime (LingTai, Claude Code, MCP, Python notebook) is an adapter.",
   "factory_spec": "sioulas-reproduction/results/paper_skill_factory/paper_to_skill_factory_spec.md (v0.2)",
   "factory_template": "sioulas-reproduction/results/paper_skill_factory/paper_skill_template.md",
   "compilation_framing": {
@@ -95,22 +95,21 @@
       "n": 2,
       "slug": "paper-li-2020-solar-wind-supervised-extension-multi-mission",
       "kind": "paper-skill",
-      "title": "Multi-mission extension of supervised solar-wind classification (Wind + ACE + STEREO)",
-      "first_author": null,
+      "title": "Machine Learning Approach for Solar Wind Categorization",
+      "first_author": "H. Li",
       "year": 2020,
-      "venue": "TODO verify",
-      "doi": null,
-      "arxiv": null,
+      "venue": "Earth and Space Science, 7(5), e2019EA000997",
+      "doi": "10.1029/2019EA000997",
+      "arxiv": "1811.02323",
       "primary_theme": "solar_wind_segmentation",
       "secondary_themes": [
         "machine-learning",
         "supervised-classification",
-        "multi-mission"
+        "ten-model-benchmark",
+        "1au"
       ],
       "missions": [
-        "Wind",
-        "ACE",
-        "STEREO"
+        "ACE"
       ],
       "quality_level": "stub",
       "executable_status": "stub",
@@ -124,24 +123,25 @@
       "skill_md": "paper-li-2020-solar-wind-supervised-extension-multi-mission/SKILL.md",
       "metadata_yaml": "paper-li-2020-solar-wind-supervised-extension-multi-mission/metadata.yaml",
       "depends_on": [
-        "paper-camporeale-2017-knn-solar-wind-categorization"
+        "paper-camporeale-2017-knn-solar-wind-categorization",
+        "paper-xu-borovsky-categorization-extension-1au"
       ],
       "topical_group": "A. In-situ supervised classification",
       "verification_flags": [
-        "Primary citation TODO verify against the source PDF / arXiv landing page.",
-        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
-        "Adapter bindings TODO leave empty until real examples are exercised."
+        "Bibliographic anchor (authors, year, journal, DOI, arXiv ID) web-verified 2026-05-19 via Wiley AGU + Semantic Scholar + arXiv landing-page snippets.",
+        "Headline accuracy (92.8%) and improvement (~9.6 pp) quoted from the publicly-available abstract; per-figure/table number and the identity of the manual-classification baseline TODO_verify_with_full_text against the published §4.",
+        "Slug name retains 'extension-multi-mission' tail for stable cross-references; the primary paper is single-source (ACE-derived at 1 au) — the 'multi-mission extension' framing is a Layer-4 research target, not a paper-side claim."
       ]
     },
     {
       "n": 3,
       "slug": "paper-xu-borovsky-categorization-extension-1au",
       "kind": "paper-skill",
-      "title": "Extension and operational refinement of the Xu\u2013Borovsky 4-class 1-au solar-wind labelling",
-      "first_author": null,
-      "year": 2020,
-      "venue": "TODO verify (likely J. Geophys. Res. Space Phys.)",
-      "doi": null,
+      "title": "A new four-plasma categorization scheme for the solar wind (parent scheme; extension lineage anchor)",
+      "first_author": "F. Xu",
+      "year": 2015,
+      "venue": "Journal of Geophysical Research: Space Physics, 120(1), 70-100",
+      "doi": "10.1002/2014JA020412",
       "arxiv": null,
       "primary_theme": "solar_wind_segmentation",
       "secondary_themes": [
@@ -170,9 +170,9 @@
       ],
       "topical_group": "A. In-situ supervised classification",
       "verification_flags": [
-        "Primary citation TODO verify against the source PDF / arXiv landing page.",
-        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
-        "Adapter bindings TODO leave empty until real examples are exercised."
+        "Parent scheme (Xu & Borovsky 2015, JGR Space Phys 120(1):70-100, doi:10.1002/2014JA020412) web-verified 2026-05-19 via ADS + AGU search.",
+        "L1 invariant anchored to the verified parent; the 'extension to 1 au' tail of the slug name remains a research-affordance label (no single verified extension paper bound).",
+        "Numeric scheme thresholds in §3 are anchored to the parent paper; the original stub-level 'ε ≈ class-balanced accuracy' claim is removed (the parent paper does not report ML-style accuracy)."
       ]
     },
     {
@@ -720,7 +720,7 @@
       "n": 17,
       "slug": "paper-uritsky-2025-qraft-open-flux-segmentation",
       "kind": "paper-skill",
-      "title": "QRaFT \u2014 adaptive segmentation of the open-flux solar corona",
+      "title": "QRaFT — adaptive segmentation of the open-flux solar corona",
       "first_author": "V. M. Uritsky",
       "year": 2025,
       "venue": "TODO verify (likely ApJ)",
@@ -888,7 +888,7 @@
       "n": 21,
       "slug": "paper-bizoulasso-2025-pop-corn-neural-ch-validation",
       "kind": "paper-skill",
-      "title": "POP-CORN \u2014 neural-network coronal-hole detection tool with cross-instrument validation",
+      "title": "POP-CORN — neural-network coronal-hole detection tool with cross-instrument validation",
       "first_author": null,
       "year": 2025,
       "venue": "TODO verify",
@@ -1061,23 +1061,22 @@
       "n": 25,
       "slug": "paper-rudisser-2024-icme-unet-realtime-deployment",
       "kind": "paper-skill",
-      "title": "Real-time deployment of a U-Net ICME detector on Wind / STEREO / Solar Orbiter telemetry",
-      "first_author": "H. T. R\u00fcdisser (successor lineage)",
-      "year": 2024,
-      "venue": "TODO verify (likely Space Weather)",
-      "doi": null,
-      "arxiv": null,
+      "title": "ARCANE — Early Detection of Interplanetary Coronal Mass Ejections (real-time ICME deep-learning detector)",
+      "first_author": "H. T. Rüdisser",
+      "year": 2026,
+      "venue": "Space Weather, 24, e2025SW004537",
+      "doi": "10.1029/2025SW004537",
+      "arxiv": "2505.09365",
       "primary_theme": "solar_wind_segmentation",
       "secondary_themes": [
         "event-detection",
         "icme",
-        "unet",
-        "real-time"
+        "deep-learning",
+        "real-time",
+        "operational"
       ],
       "missions": [
-        "Wind",
-        "STEREO",
-        "SolO"
+        "Wind"
       ],
       "quality_level": "stub",
       "executable_status": "stub",
@@ -1095,9 +1094,11 @@
       ],
       "topical_group": "E. ICME / CME / shock event detection",
       "verification_flags": [
-        "Primary citation TODO verify against the source PDF / arXiv landing page.",
-        "Layer 2 (algorithms, data products, validation target) TODO populate at method-ready promotion.",
-        "Adapter bindings TODO leave empty until real examples are exercised."
+        "Bibliographic anchor (authors, journal, DOI, arXiv ID) web-verified 2026-05-19 via AGU + arXiv landing-page snippets.",
+        "Slug year (2024) intentionally diverges from paper.year (2026) — see KNOWN_SLUG_YEAR_MISMATCHES entry; the verified primary source is arXiv:2505.09365 (May 2025 preprint, Space Weather 2026, doi:10.1029/2025SW004537).",
+        "Slug 'U-Net' tag refers to the broader U-Net family; the verified architecture is ResUNet++ (a residual U-Net variant), not vanilla U-Net.",
+        "Headline F1 = 0.37 and average detection-delay-fraction = 24.5% of event duration quoted from the publicly-available abstract; per-event-bin breakdown TODO_verify_with_full_text against §4 tables.",
+        "Slug 'Wind / STEREO / Solar Orbiter' framing is a Layer-4 research affordance; the published evaluator is Wind-only."
       ]
     },
     {
@@ -1190,7 +1191,7 @@
       "slug": "paper-moestl-2022-icmecat-helcats-catalog-baseline",
       "kind": "paper-skill",
       "title": "ICMECAT / HELCATS ICME catalog as ML training-set baseline",
-      "first_author": "C. M\u00f6stl",
+      "first_author": "C. Möstl",
       "year": 2022,
       "venue": "TODO verify (Space Weather; or HELCATS dataset paper)",
       "doi": null,
@@ -1322,7 +1323,7 @@
       "n": 31,
       "slug": "paper-roy-2025-suryabench-active-region-segmentation-benchmark",
       "kind": "paper-skill",
-      "title": "SuryaBench \u2014 active-region segmentation benchmark task",
+      "title": "SuryaBench — active-region segmentation benchmark task",
       "first_author": "S. Roy",
       "year": 2025,
       "venue": "TODO verify",
@@ -1362,7 +1363,7 @@
       "n": 32,
       "slug": "paper-roy-2025-suryabench-solar-wind-speed-benchmark",
       "kind": "paper-skill",
-      "title": "SuryaBench \u2014 solar-wind speed estimation benchmark task",
+      "title": "SuryaBench — solar-wind speed estimation benchmark task",
       "first_author": "S. Roy",
       "year": 2025,
       "venue": "TODO verify",
@@ -1403,7 +1404,7 @@
       "n": 33,
       "slug": "paper-roy-2025-suryabench-flare-forecast-benchmark",
       "kind": "paper-skill",
-      "title": "SuryaBench \u2014 solar flare forecasting benchmark task",
+      "title": "SuryaBench — solar flare forecasting benchmark task",
       "first_author": "S. Roy",
       "year": 2025,
       "venue": "TODO verify",
@@ -1444,7 +1445,7 @@
       "n": 34,
       "slug": "paper-roy-2025-suryabench-coronal-field-extrapolation-benchmark",
       "kind": "paper-skill",
-      "title": "SuryaBench \u2014 coronal-field extrapolation benchmark task",
+      "title": "SuryaBench — coronal-field extrapolation benchmark task",
       "first_author": "S. Roy",
       "year": 2025,
       "venue": "TODO verify",
@@ -1486,7 +1487,7 @@
       "n": 35,
       "slug": "paper-roy-2025-suryabench-euv-spectra-benchmark",
       "kind": "paper-skill",
-      "title": "SuryaBench \u2014 EUV spectra forecasting benchmark task",
+      "title": "SuryaBench — EUV spectra forecasting benchmark task",
       "first_author": "S. Roy",
       "year": 2025,
       "venue": "TODO verify",
@@ -1527,7 +1528,7 @@
       "n": 36,
       "slug": "tool-skill-helioml-curated-ml-ready-helio-datasets",
       "kind": "tool-skill",
-      "title": "HelioML \u2014 curated catalog of ML-ready heliophysics datasets and notebooks",
+      "title": "HelioML — curated catalog of ML-ready heliophysics datasets and notebooks",
       "first_author": "M. Bobra et al. (HelioML editorial collective)",
       "year": 2019,
       "venue": "TODO verify (book / online resource)",
@@ -1610,7 +1611,7 @@
       "n": 38,
       "slug": "paper-cipher-2025-isax-extension-hdbscan-clustering-runs",
       "kind": "paper-skill",
-      "title": "CIPHER iSAX+HDBSCAN extension \u2014 clustering-run reproducibility study",
+      "title": "CIPHER iSAX+HDBSCAN extension — clustering-run reproducibility study",
       "first_author": null,
       "year": 2025,
       "venue": "TODO verify",
@@ -1737,8 +1738,8 @@
       "n": 41,
       "slug": "tool-skill-sktime-time-series-classification-for-helio",
       "kind": "tool-skill",
-      "title": "sktime \u2014 abstract time-series classification capability for heliophysics workflows",
-      "first_author": "M. L\u00f6ning et al.",
+      "title": "sktime — abstract time-series classification capability for heliophysics workflows",
+      "first_author": "M. Löning et al.",
       "year": 2022,
       "venue": "TODO verify (JMLR or sktime documentation)",
       "doi": null,
@@ -1776,7 +1777,7 @@
       "n": 42,
       "slug": "paper-multimodal-encoder-decoder-l1-solar-wind-forecast",
       "kind": "paper-skill",
-      "title": "Multi-modal encoder\u2013decoder neural network for L1 solar-wind speed forecasting",
+      "title": "Multi-modal encoder–decoder neural network for L1 solar-wind speed forecasting",
       "first_author": null,
       "year": 2025,
       "venue": "TODO verify",
