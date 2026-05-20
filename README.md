@@ -340,7 +340,11 @@ discovery → run bundle → quarantined draft → manual promotion gate —
 see [`reports/candidate_lifecycle_demo.md`](reports/candidate_lifecycle_demo.md).
 Drafts produced by either path are **not** corpus entries and must
 clear the per-draft `promotion_gate` before any promotion into
-`references/corpus/`.
+`references/corpus/`. The operational governance — lifecycle states,
+promotion gates, rejection / negative-decision vocabulary, source-
+coverage limits, and the automation boundary that keeps verified-
+corpus promotion an evidence-review step — lives in
+[`DISCOVERY_POLICY.md`](DISCOVERY_POLICY.md).
 
 ## Companion MCP adapters (external, not bundled)
 
