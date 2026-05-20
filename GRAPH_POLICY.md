@@ -175,6 +175,15 @@ The expectation is that the unresolved set shrinks over time but is
 not driven to zero in a single PR. Reducing it is a content motion,
 not a mechanical one.
 
+A worked triage of the live `paper_reference_needs_curation` bucket
+(10 entries at commit `db895b1`) — one row per unresolved target,
+with referrer line context, an `(author, year)` partial-match probe
+against the manifest, and a candidate disposition drawn from the
+three-option vocabulary in step 3 above — is recorded at
+[`reports/wikilink_curation_paper_refs.md`](reports/wikilink_curation_paper_refs.md).
+The report is informational, edits no SKILL.md, and is not wired
+into `scripts/validate.sh`.
+
 ## 6. Stability commitments
 
 * `schema_version: "corpus-skill-graph-1"` is stable. Any change that
