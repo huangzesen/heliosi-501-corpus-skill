@@ -321,6 +321,27 @@ the full policy — including what the graph deliberately does NOT
 claim — and `tests/test_build_corpus_skill_graph.py` for the
 offline fixtures that pin the schema.
 
+### Open-ended literature discovery & candidate lifecycle
+
+The bundle ships two offline-by-default scripts that extend the corpus
+*outward* without modifying the curated 501 entries:
+
+- `scripts/discover_heliophysics_literature.py` — dry-run discovery
+  against public bibliographic backends (fixture-driven in CI; opt-in
+  `--live`), dedupe, seed-taxonomy tagging, and novelty join against
+  `references/corpus_manifest_v2.json`. Pipeline design and limits in
+  [`reports/literature_discovery_pipeline.md`](reports/literature_discovery_pipeline.md).
+- `scripts/draft_paper_skill_from_candidates.py` — offline scaffolding
+  of **quarantined draft paper-skills** from candidate JSONL or a
+  discovery run bundle; refuses to write under `references/corpus/`.
+
+For a reproducible offline walk-through of the full lifecycle —
+discovery → run bundle → quarantined draft → manual promotion gate —
+see [`reports/candidate_lifecycle_demo.md`](reports/candidate_lifecycle_demo.md).
+Drafts produced by either path are **not** corpus entries and must
+clear the per-draft `promotion_gate` before any promotion into
+`references/corpus/`.
+
 ## Companion MCP adapters (external, not bundled)
 
 Two domain MCPs are first-class companions to this skill. They live in
