@@ -1,32 +1,45 @@
 slug: bowen-2023-landau-damping-proton-electron-heating
+slug_note: "slug retained for backwards compatibility; published lead author of arXiv:2301.09713 / DOI 10.3847/1538-4357/acb542 is N. Shankarappa, NOT T. A. Bowen (verified 2026-05-19 via arXiv landing page and IOPscience). The inventory paraphrase in apj_aa_heliophysics_papers.md §1.6 is an attribution error. See first_author and authors[] for the correct attribution."
 title: "Estimation of Turbulent Proton and Electron Heating Rates via Landau Damping Constrained by Parker Solar Probe Observations"
+first_author: "N. Shankarappa"
 authors:
-  - "T. A. Bowen"
-  - "S. D. Bale"
-  - "J. C. Kasper"
-  - "M. Pulupa"
+  - "N. Shankarappa"
+  - "K. G. Klein"
+  - "M. M. Martinović"
+authors_verified: true
 year: 2023
-journal: "TODO verify (ApJ submission per inventory; arXiv preprint)"
-doi: null
+journal: "The Astrophysical Journal"
+volume: "946"
+doi: "10.3847/1538-4357/acb542"
+doi_url: "https://doi.org/10.3847/1538-4357/acb542"
 arxiv: "2301.09713"
+arxiv_url: "https://arxiv.org/abs/2301.09713"
+ads_bibcode_candidate: "2023ApJ...946...20S"
+links_verified_on: "2026-05-19"
+links_verified_method: "arXiv landing page for 2301.09713 returns authors Niranjana Shankarappa, Kristopher G. Klein, Mihailo M. Martinović and journal-ref DOI 10.3847/1538-4357/acb542; IOPscience page for the journal DOI confirms title 'Estimation of Turbulent Proton and Electron Heating Rates via Landau Damping...', ApJ vol 946 (2023), authors Niranjana, Klein, Martinović, and the abstract's '39.4% of intervals' numeric. ADS bibcode 2023ApJ...946...20S is a candidate guess, not directly resolved against ADS UI on 2026-05-19."
 theme: coronal_heating
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS MAG L2 RTN trace PSD covering ion break"
-  - "PSP SWEAP/SPC L3 proton moments"
-  - "PSP SWEAP/SPAN-e L3 electron moments"
+  - "PSP FIELDS MAG L2 RTN trace PSD covering ion break (E1, E2)"
+  - "PSP SWEAP/SPC L3 proton moments (E1, E2)"
+  - "PSP SWEAP/SPAN-e L3 electron moments (E1, E2)"
 methods:
   - linear-vlasov-gamma-of-k
-  - quasilinear-landau-damping-cascade-model
+  - howes-class-quasilinear-cascade-model
   - proton-electron-heating-partition
   - empirical-heating-from-radial-temperature-gradient
+  - beta-dependent-partition-analysis
 validation_targets:
-  - "Model Q_p, Q_e from Landau-damping partition match empirical values in PSP E1-E2"
-  - "Q_p/Q_e ratio consistent with paper's stated tolerance (TODO verify exact value)"
+  - "Howes cascade model accurately describes observed kinetic-range energy spectrum in >=39.4% of PSP E1-E2 intervals (abstract-verified numeric)"
+  - "Model Q_p / Q_e ratio exhibits strong dependence on plasma beta (abstract-verified qualitative)"
+  - "Model heating rates aligned with independent empirical estimates (qualitative; per-interval Q_p, Q_e tolerance TODO_verify against ApJ 946 figures)"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.6"
 verification_flags:
-  - "Publication venue / status (ApJ submission) TODO verify."
-  - "Specific Vlasov solver used (PLUME / NHDS / LEOPARD) TODO verify in full text."
-  - "Quantitative tolerance for Q_p/Q_e agreement TODO verify."
+  - "Lead-author attribution dispute: inventory says 'Bowen et al.'; arXiv 2301.09713 + DOI 10.3847/1538-4357/acb542 confirm Shankarappa, Klein, Martinović. Verified 2026-05-19. Slug retained for backwards compatibility."
+  - "Specific linear-Vlasov dispersion solver used (PLUME / NHDS / LEOPARD / other) TODO_verify in §2 of full text."
+  - "Characterisation of the ~60% of intervals where the Howes-model fit is not accepted TODO_verify."
+  - "Quantitative per-interval Q_p / Q_e values and the empirical-comparison tolerance TODO_verify."
+  - "ADS bibcode 2023ApJ...946...20S is a candidate guess; not directly verified."
+research_generation_affordances_present: true

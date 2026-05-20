@@ -1,32 +1,75 @@
 slug: carbone-2021-electron-density-turbulence-ion-cyclotron-waves
 title: "Statistical Study of Electron Density Turbulence and Ion-Cyclotron Waves in the Inner Heliosphere: Solar Orbiter Observations"
+first_author: "F. Carbone"
 authors:
   - "F. Carbone"
-  - "D. Telloni"
   - "L. Sorriso-Valvo"
+  - "Yu. V. Khotyaintsev"
+  - "K. Steinvall"
+  - "A. Vecchio"
+  - "D. Telloni"
+  - "E. Yordanova"
+  - "D. B. Graham"
+  - "N. J. T. Edberg"
+  - "A. I. Eriksson"
+  - "E. P. G. Johansson"
+  - "C. L. Vásconez"
+  - "M. Maksimovic"
+  - "R. Bruno"
+  - "R. D'Amicis"
+  - "S. D. Bale"
+  - "T. Chust"
+  - "V. Krasnoselskikh"
+  - "M. Kretzschmar"
+  - "E. Lorfèvre"
+  - "D. Plettemeier"
+  - "J. Souček"
+  - "M. Steller"
+  - "Š. Štverák"
+  - "P. Trávníček"
+  - "A. Vaivads"
+  - "T. S. Horbury"
+  - "H. O'Brien"
+  - "V. Angelini"
+  - "V. Evans"
+authors_verified: true
 year: 2021
 journal: "Astronomy & Astrophysics"
+volume: "656"
+pages: "A16"
 doi: "10.1051/0004-6361/202140931"
+doi_url: "https://doi.org/10.1051/0004-6361/202140931"
 arxiv: "2105.07790"
+arxiv_url: "https://arxiv.org/abs/2105.07790"
+ads_bibcode_candidate: "2021A&A...656A..16C"
+links_verified_on: "2026-05-19"
+links_verified_method: "aanda.org DOI page for 10.1051/0004-6361/202140931 verified — full 30-author list (Carbone first, Sorriso-Valvo second, Khotyaintsev third, etc.); A&A 656, A16 (2021); abstract confirms 36 intervals in June 2020, 21 standard Kolmogorov-like subgroup, ICW-vs-intermittency anti-correlation. ADS bibcode 2021A&A...656A..16C is a candidate guess, not directly resolved against ADS UI on 2026-05-19."
 theme: waves_instabilities
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "Solar Orbiter RPW spacecraft-potential-derived n_e L2/L3"
-  - "Solar Orbiter MAG L2 RTN"
-  - "Solar Orbiter SWA/PAS L2 plasma moments (cross-check)"
+  - "Solar Orbiter RPW spacecraft-potential-derived n_e L2/L3 (June 2020)"
+  - "Solar Orbiter MAG L2 RTN (June 2020)"
+  - "Solar Orbiter SWA/PAS L2 plasma moments (cross-check, June 2020)"
 methods:
   - rpw-spacecraft-potential-to-electron-density
+  - empirical-mode-decomposition
   - density-power-spectral-density
-  - density-intermittency-structure-functions
+  - density-intermittency-kurtosis
   - wavelet-magnetic-helicity
   - ion-cyclotron-wave-event-detection
+  - three-group-clustering
 validation_targets:
-  - "RPW-derived n_e PSD slope and intermittency at ~0.5 au match paper statistics"
-  - "Wavelet-identified ICW occurrence rate matches paper (TODO verify rate)"
+  - "Across 36 SO June 2020 intervals, RPW-derived n_e PSD shows well-defined inertial-range power law in most intervals (abstract-verified concrete sample size)"
+  - "21 of 36 intervals exhibit standard Kolmogorov-like turbulence properties (abstract-verified count, ~58%)"
+  - "Intervals with enhanced ICW activity correlate with reduced density intermittency (abstract-verified anti-correlation)"
+  - "Exact n_e PSD slope values and ICW occurrence rates TODO_verify against A&A 656, A16 figures"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.14"
 verification_flags:
-  - "Exact SO encounter list / time windows TODO verify."
-  - "RPW V_sc -> n_e calibration version TODO verify."
-  - "Quantitative ICW occurrence rate and density slope TODO verify in full paper."
+  - "Full 30-author list and venue (A&A 656, A16, 2021) verified on 2026-05-19 via aanda.org DOI page."
+  - "ADS bibcode 2021A&A...656A..16C is a candidate guess; not directly verified."
+  - "RPW V_sc -> n_e calibration version used by the paper TODO_verify."
+  - "Quantitative density-PSD slope and per-group ICW occurrence rate TODO_verify."
+  - "Identity of the third group beyond '21 Kolmogorov + anomalous' (precise per-group counts) TODO_verify."
+research_generation_affordances_present: true

@@ -1,29 +1,71 @@
 slug: chen-2022-magnetic-field-spectral-evolution-inner-heliosphere
+slug_note: "slug retained for backwards compatibility; published lead author of arXiv:2209.02451 / DOI 10.3847/2041-8213/acaeff is N. Sioulas, NOT C. H. K. Chen, and the publication year is 2023 (ApJL 943), NOT 2022 (verified 2026-05-19 via arXiv landing page and IOPscience). The inventory paraphrase in apj_aa_heliophysics_papers.md §1.15 is an attribution AND year error. See first_author and authors[] for the correct attribution."
 title: "Magnetic Field Spectral Evolution in the Inner Heliosphere"
+first_author: "N. Sioulas"
 authors:
-  - "C. H. K. Chen"
-year: 2022
-journal: "TODO verify (arXiv preprint per inventory)"
-doi: null
+  - "N. Sioulas"
+  - "Z. Huang"
+  - "C. Shi"
+  - "M. Velli"
+  - "A. Tenerani"
+  - "T. A. Bowen"
+  - "S. D. Bale"
+  - "J. Huang"
+  - "L. Vlahos"
+  - "L. D. Woodham"
+  - "T. S. Horbury"
+  - "T. Dudok de Wit"
+  - "D. Larson"
+  - "J. Kasper"
+  - "C. J. Owen"
+  - "M. L. Stevens"
+  - "A. Case"
+  - "M. Pulupa"
+  - "D. M. Malaspina"
+  - "J. W. Bonnell"
+  - "R. Livi"
+  - "K. Goetz"
+  - "P. R. Harvey"
+  - "R. J. MacDowall"
+  - "M. Maksimović"
+  - "P. Louarn"
+  - "A. Fedorov"
+authors_verified: true
+year: 2023
+journal: "The Astrophysical Journal Letters"
+volume: "943"
+doi: "10.3847/2041-8213/acaeff"
+doi_url: "https://doi.org/10.3847/2041-8213/acaeff"
 arxiv: "2209.02451"
+arxiv_url: "https://arxiv.org/abs/2209.02451"
+ads_bibcode_candidate: "2023ApJ...943L...8S"
+links_verified_on: "2026-05-19"
+links_verified_method: "arXiv landing page for 2209.02451 returns first author Nikos Sioulas with 27-author tail and journal-ref DOI 10.3847/2041-8213/acaeff; IOPscience page for the journal DOI confirms title 'Magnetic Field Spectral Evolution in the Inner Heliosphere', ApJL vol 943 (2023), Sioulas first author. ADS bibcode 2023ApJ...943L...8S is a candidate guess, not directly verified."
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
 required_data:
   - "PSP FIELDS MAG L2 RTN (~0.1-0.3 au)"
-  - "Helios reprocessed MAG L2 (~0.3-1 au)"
-  - "Wind MFI L2 (~1 au)"
+  - "Solar Orbiter MAG L2 RTN (~0.3-1 au)"
+  - "(optional 1-au reference) Wind MFI L2"
+  - "(optional) PSP SWEAP + SO SWA/PAS for stream-class tagging (sigma_c, V_sw)"
 methods:
   - trace-power-spectral-density
   - inertial-range-bounds-determination
   - slope-fitting
+  - alfvenicity-stream-class-stratification
   - multi-mission-pooled-radial-evolution
 validation_targets:
-  - "alpha_B steepens from ~-3/2 near the Sun to ~-5/3 by ~0.6 au (PSP+Helios+Wind pooled)"
-  - "Wind 1-au asymptote consistent with -5/3 (TODO verify exact transition distance)"
+  - "alpha_B narrows near the Sun and is close to -3/2 (PSP), gradually transitioning toward -5/3 with increasing heliocentric distance (abstract-verified qualitative)"
+  - "Slower / less Alfvenic streams show steeper spectra than highly Alfvenic streams at fixed r (abstract-verified qualitative)"
+  - "Operational QC: Delta_alpha_B = alpha_B(slow) - alpha_B(Alfvenic) < 0 at a chosen reference r bin"
+  - "Exact transition heliocentric distance and per-bin alpha_B numerical values TODO_verify against ApJL 943 figures"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.15"
 verification_flags:
-  - "Publication venue TODO verify (arXiv-only in inventory)."
-  - "Stream-class conditioning (fast/slow split) TODO verify in full paper."
-  - "Per-bin alpha_B numerical values TODO verify."
+  - "Lead-author + year attribution dispute: inventory says 'Chen et al. 2022, arXiv:2209.02451'; arXiv and IOPscience confirm Sioulas et al. 2023, ApJL 943, DOI 10.3847/2041-8213/acaeff. Verified 2026-05-19. Slug retained for backwards compatibility."
+  - "Mission scope: the abstract uses PSP + SO; do NOT fold in Helios / Wind as if they were directly used by the paper (the prior SKILL.md draft did so — corrected on 2026-05-19)."
+  - "Exact transition heliocentric distance at which alpha_B = -5/3 is recovered TODO_verify (abstract says 'gradual transition', not a specific r)."
+  - "Per-stream-class alpha_B numerical values and the stream-class threshold rule TODO_verify."
+  - "ADS bibcode 2023ApJ...943L...8S is a candidate guess; not directly verified."
+research_generation_affordances_present: true

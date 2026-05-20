@@ -1,14 +1,30 @@
 slug: bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance
 title: "Mediation of Collisionless Turbulent Dissipation Through Cyclotron Resonance"
+first_author: "T. A. Bowen"
 authors:
   - "T. A. Bowen"
   - "S. D. Bale"
   - "B. D. G. Chandran"
+  - "A. Chasapis"
+  - "C. H. K. Chen"
+  - "T. Dudok de Wit"
+  - "A. Mallet"
+  - "R. Meyrand"
+  - "J. Squire"
+authors_verified: true
 year: 2024
 journal: "Nature Astronomy"
-doi: null
+volume: "8"
+issue: "4"
+pages: "482-490"
+doi: "10.1038/s41550-023-02186-4"
+doi_url: "https://doi.org/10.1038/s41550-023-02186-4"
 arxiv: null
 pmid: "38659611"
+pmid_url: "https://pubmed.ncbi.nlm.nih.gov/38659611/"
+ads_bibcode_candidate: "2024NatAs...8..482B"
+links_verified_on: "2026-05-19"
+links_verified_method: "PubMed citation page (PMID 38659611) provides full nine-author list, journal (Nat Astron 8(4), 482-490, 2024) and DOI 10.1038/s41550-023-02186-4; abstract verified to support 'ion cyclotron waves provide a major pathway for dissipation and plasma heating'; ADS bibcode 2024NatAs...8..482B not directly verified against ADS UI on 2026-05-19, listed as candidate only."
 theme: waves_instabilities
 quality_level: pilot
 executable_status: scaffold
@@ -23,10 +39,14 @@ methods:
   - quasilinear-cyclotron-heating
   - comparison-to-landau-channel
 validation_targets:
-  - "Ion-scale LH-circular polarisation signatures with resonance overlap consistent with cyclotron-mediated dissipation"
-  - "Q_p,cyc / Q_p,Landau ratio matches paper conclusion (TODO verify magnitude)"
+  - "Ion-scale LH-circular polarisation signatures with resonance overlap consistent with cyclotron resonance acting as a major (not necessarily unique) collisionless dissipation pathway in PSP fluctuations (abstract-verified wording)"
+  - "Q_p,cyc non-negligible relative to Q_p,Landau on shared intervals; per-encounter magnitudes TODO_verify against Nat. Astron. 8 (2024), pp. 482-490 figures"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.9"
 verification_flags:
-  - "Nature Astronomy DOI TODO verify; arXiv ID (if any) TODO verify."
-  - "Encounter list and Q ratios TODO verify in full paper."
+  - "DOI 10.1038/s41550-023-02186-4 verified via PubMed (PMID 38659611) on 2026-05-19; full author list and venue (Nat. Astron. 8(4), 482-490, 2024) verified."
+  - "arXiv preprint (if any) not located on 2026-05-19; arxiv set to null until verified."
+  - "ADS bibcode 2024NatAs...8..482B is a candidate guess; not directly resolved against ADS on 2026-05-19."
+  - "Quantitative per-encounter Q_p,cyc and any Q_p,cyc / Q_p,Landau ratios remain TODO_verify against full text."
+  - "Abstract wording is 'a major pathway' — do not silently widen to 'the dominant' or 'unique' channel in any downstream rollup."
+research_generation_affordances_present: true

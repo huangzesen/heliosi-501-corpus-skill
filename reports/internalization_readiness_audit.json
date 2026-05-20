@@ -3,20 +3,19 @@
   "summary": {
     "total_entries": 501,
     "active_entries": 45,
-    "mean_score": 63.48,
-    "median_score": 63.12,
+    "mean_score": 63.77,
+    "median_score": 64.2,
     "min_score": 42.43,
     "max_score": 92.0,
     "histogram": {
       "0-24": 0,
       "25-49": 4,
-      "50-69": 406,
-      "70-84": 83,
+      "50-69": 400,
+      "70-84": 89,
       "85-100": 8
     },
     "by_batch_mean": {
       "wave500_inner_heliosphere_psp_solo_045": 55.37,
-      "batch_turbulence_heating_apj": 57.56,
       "pilot_2026_and_runtime": 58.34,
       "wave500_solar_corona_cme_flares_045": 59.09,
       "wave500_sw_classification_ml_foundation_045": 60.35,
@@ -31,6 +30,7 @@
       "wave500_coronal_source_mapping_pfss_045": 67.98,
       "batch_psp_switchbacks_magnetic": 69.11,
       "batch_sep_energetic_particles": 69.37,
+      "batch_turbulence_heating_apj": 71.84,
       "batch_pfss_source_mapping": 71.95,
       "pilot_turbulence": 73.81
     },
@@ -39,16 +39,16 @@
       "pilot_weak_attribution": 59.8,
       "stub-historical-anchor": 62.0,
       "stub": 62.11,
-      "pilot": 62.3,
       "positioning-skill-not-executable-science": 63.24,
       "paper-grounded-pending-full-text": 63.99,
       "stub-infrastructure": 64.33,
+      "pilot": 68.51,
       "method-ready": 69.38,
       "link-only-cross-batch": 69.41,
       "paper-grounded-locally-reproduced": 89.22
     },
     "active_score_min": 50.5,
-    "active_score_mean": 65.99
+    "active_score_mean": 69.16
   },
   "weights": {
     "bibliographic_anchor": 25,
@@ -5739,253 +5739,10 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 10,
-      "score": 54.0,
-      "raw_score": 59,
-      "todo_penalty": 5.0,
-      "components": {
-        "bibliographic_anchor": {
-          "score": 6,
-          "max": 25,
-          "bits": {
-            "arxiv": true,
-            "doi": false,
-            "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
-          }
-        },
-        "identity": {
-          "score": 7,
-          "max": 10,
-          "bits": {
-            "title": true,
-            "year": true,
-            "venue": false
-          }
-        },
-        "layer1_claim": {
-          "score": 21,
-          "max": 25,
-          "bits": {
-            "has_section": true,
-            "long_enough": true,
-            "has_claim": true,
-            "has_failure_modes": false,
-            "has_targets": false,
-            "todo_dense": false
-          }
-        },
-        "layer2_protocol": {
-          "score": 15,
-          "max": 20,
-          "bits": {
-            "has_section": true,
-            "long_enough": true,
-            "has_capabilities": false,
-            "has_procedure": true,
-            "boilerplate": false,
-            "layer2_stub_flag": false
-          }
-        },
-        "validation_target": {
-          "score": 10,
-          "max": 10,
-          "bits": {
-            "has_meta_validation_targets": true,
-            "has_section": true,
-            "has_numeric_reference": true,
-            "boilerplate": false
-          }
-        },
-        "layer4_affordance": {
-          "score": 0,
-          "max": 10,
-          "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
-            "has_skill_fm_affordances": false,
-            "boilerplate": false
-          }
-        }
-      }
-    },
-    {
-      "batch": "batch_turbulence_heating_apj",
-      "slug": "bowen-2024-extended-cyclotron-resonant-heating",
-      "quality_level": "pilot",
-      "is_active": true,
-      "pending": null,
-      "tier_class": null,
-      "layer2_stub": null,
-      "n_todo": 10,
-      "score": 54.0,
-      "raw_score": 59,
-      "todo_penalty": 5.0,
-      "components": {
-        "bibliographic_anchor": {
-          "score": 6,
-          "max": 25,
-          "bits": {
-            "arxiv": true,
-            "doi": false,
-            "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
-          }
-        },
-        "identity": {
-          "score": 7,
-          "max": 10,
-          "bits": {
-            "title": true,
-            "year": true,
-            "venue": false
-          }
-        },
-        "layer1_claim": {
-          "score": 21,
-          "max": 25,
-          "bits": {
-            "has_section": true,
-            "long_enough": true,
-            "has_claim": true,
-            "has_failure_modes": false,
-            "has_targets": false,
-            "todo_dense": false
-          }
-        },
-        "layer2_protocol": {
-          "score": 15,
-          "max": 20,
-          "bits": {
-            "has_section": true,
-            "long_enough": true,
-            "has_capabilities": false,
-            "has_procedure": true,
-            "boilerplate": false,
-            "layer2_stub_flag": false
-          }
-        },
-        "validation_target": {
-          "score": 10,
-          "max": 10,
-          "bits": {
-            "has_meta_validation_targets": true,
-            "has_section": true,
-            "has_numeric_reference": true,
-            "boilerplate": false
-          }
-        },
-        "layer4_affordance": {
-          "score": 0,
-          "max": 10,
-          "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
-            "has_skill_fm_affordances": false,
-            "boilerplate": false
-          }
-        }
-      }
-    },
-    {
-      "batch": "batch_turbulence_heating_apj",
-      "slug": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
-      "quality_level": "pilot",
-      "is_active": true,
-      "pending": null,
-      "tier_class": null,
-      "layer2_stub": null,
-      "n_todo": 11,
-      "score": 50.7,
-      "raw_score": 56,
-      "todo_penalty": 5.3,
-      "components": {
-        "bibliographic_anchor": {
-          "score": 0,
-          "max": 25,
-          "bits": {
-            "arxiv": false,
-            "doi": false,
-            "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
-          }
-        },
-        "identity": {
-          "score": 10,
-          "max": 10,
-          "bits": {
-            "title": true,
-            "year": true,
-            "venue": true
-          }
-        },
-        "layer1_claim": {
-          "score": 21,
-          "max": 25,
-          "bits": {
-            "has_section": true,
-            "long_enough": true,
-            "has_claim": true,
-            "has_failure_modes": false,
-            "has_targets": false,
-            "todo_dense": false
-          }
-        },
-        "layer2_protocol": {
-          "score": 15,
-          "max": 20,
-          "bits": {
-            "has_section": true,
-            "long_enough": true,
-            "has_capabilities": false,
-            "has_procedure": true,
-            "boilerplate": false,
-            "layer2_stub_flag": false
-          }
-        },
-        "validation_target": {
-          "score": 10,
-          "max": 10,
-          "bits": {
-            "has_meta_validation_targets": true,
-            "has_section": true,
-            "has_numeric_reference": true,
-            "boilerplate": false
-          }
-        },
-        "layer4_affordance": {
-          "score": 0,
-          "max": 10,
-          "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
-            "has_skill_fm_affordances": false,
-            "boilerplate": false
-          }
-        }
-      }
-    },
-    {
-      "batch": "batch_turbulence_heating_apj",
-      "slug": "carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
-      "quality_level": "pilot",
-      "is_active": true,
-      "pending": null,
-      "tier_class": null,
-      "layer2_stub": null,
-      "n_todo": 9,
-      "score": 64.78,
-      "raw_score": 68,
-      "todo_penalty": 3.22,
+      "n_todo": 12,
+      "score": 76.4,
+      "raw_score": 82,
+      "todo_penalty": 5.6,
       "components": {
         "bibliographic_anchor": {
           "score": 12,
@@ -6009,13 +5766,13 @@
           }
         },
         "layer1_claim": {
-          "score": 21,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": false,
+            "has_failure_modes": true,
             "has_targets": false,
             "todo_dense": false
           }
@@ -6043,12 +5800,12 @@
           }
         },
         "layer4_affordance": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -6057,16 +5814,16 @@
     },
     {
       "batch": "batch_turbulence_heating_apj",
-      "slug": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "slug": "bowen-2024-extended-cyclotron-resonant-heating",
       "quality_level": "pilot",
       "is_active": true,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 11,
-      "score": 53.7,
-      "raw_score": 59,
-      "todo_penalty": 5.3,
+      "n_todo": 16,
+      "score": 69.2,
+      "raw_score": 76,
+      "todo_penalty": 6.8,
       "components": {
         "bibliographic_anchor": {
           "score": 6,
@@ -6081,23 +5838,23 @@
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 21,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": false,
-            "has_targets": false,
+            "has_failure_modes": true,
+            "has_targets": true,
             "todo_dense": false
           }
         },
@@ -6124,12 +5881,12 @@
           }
         },
         "layer4_affordance": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -6138,15 +5895,15 @@
     },
     {
       "batch": "batch_turbulence_heating_apj",
-      "slug": "cuesta-2022-compressible-turbulence-psp-themis-maven",
+      "slug": "bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance",
       "quality_level": "pilot",
       "is_active": true,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
       "n_todo": 10,
-      "score": 57.0,
-      "raw_score": 62,
+      "score": 71.0,
+      "raw_score": 76,
       "todo_penalty": 5.0,
       "components": {
         "bibliographic_anchor": {
@@ -6171,13 +5928,13 @@
           }
         },
         "layer1_claim": {
-          "score": 21,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": false,
+            "has_failure_modes": true,
             "has_targets": false,
             "todo_dense": false
           }
@@ -6205,12 +5962,255 @@
           }
         },
         "layer4_affordance": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
+            "has_skill_fm_affordances": false,
+            "boilerplate": false
+          }
+        }
+      }
+    },
+    {
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "carbone-2021-electron-density-turbulence-ion-cyclotron-waves",
+      "quality_level": "pilot",
+      "is_active": true,
+      "pending": null,
+      "tier_class": null,
+      "layer2_stub": null,
+      "n_todo": 15,
+      "score": 75.5,
+      "raw_score": 82,
+      "todo_penalty": 6.5,
+      "components": {
+        "bibliographic_anchor": {
+          "score": 12,
+          "max": 25,
+          "bits": {
+            "arxiv": true,
+            "doi": true,
+            "ads": false,
+            "url_or_code": false,
+            "id_verifications": false,
+            "external_links": false
+          }
+        },
+        "identity": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "title": true,
+            "year": true,
+            "venue": true
+          }
+        },
+        "layer1_claim": {
+          "score": 25,
+          "max": 25,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_claim": true,
+            "has_failure_modes": true,
+            "has_targets": false,
+            "todo_dense": false
+          }
+        },
+        "layer2_protocol": {
+          "score": 15,
+          "max": 20,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": false,
+            "has_procedure": true,
+            "boilerplate": false,
+            "layer2_stub_flag": false
+          }
+        },
+        "validation_target": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
+            "boilerplate": false
+          }
+        },
+        "layer4_affordance": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
+            "has_skill_fm_affordances": false,
+            "boilerplate": false
+          }
+        }
+      }
+    },
+    {
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "quality_level": "pilot",
+      "is_active": true,
+      "pending": null,
+      "tier_class": null,
+      "layer2_stub": null,
+      "n_todo": 11,
+      "score": 76.7,
+      "raw_score": 82,
+      "todo_penalty": 5.3,
+      "components": {
+        "bibliographic_anchor": {
+          "score": 12,
+          "max": 25,
+          "bits": {
+            "arxiv": true,
+            "doi": true,
+            "ads": false,
+            "url_or_code": false,
+            "id_verifications": false,
+            "external_links": false
+          }
+        },
+        "identity": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "title": true,
+            "year": true,
+            "venue": true
+          }
+        },
+        "layer1_claim": {
+          "score": 25,
+          "max": 25,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_claim": true,
+            "has_failure_modes": true,
+            "has_targets": true,
+            "todo_dense": false
+          }
+        },
+        "layer2_protocol": {
+          "score": 15,
+          "max": 20,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": false,
+            "has_procedure": true,
+            "boilerplate": false,
+            "layer2_stub_flag": false
+          }
+        },
+        "validation_target": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
+            "boilerplate": false
+          }
+        },
+        "layer4_affordance": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
+            "has_skill_fm_affordances": false,
+            "boilerplate": false
+          }
+        }
+      }
+    },
+    {
+      "batch": "batch_turbulence_heating_apj",
+      "slug": "cuesta-2022-compressible-turbulence-psp-themis-maven",
+      "quality_level": "pilot",
+      "is_active": true,
+      "pending": null,
+      "tier_class": null,
+      "layer2_stub": null,
+      "n_todo": 11,
+      "score": 61.7,
+      "raw_score": 67,
+      "todo_penalty": 5.3,
+      "components": {
+        "bibliographic_anchor": {
+          "score": 0,
+          "max": 25,
+          "bits": {
+            "arxiv": false,
+            "doi": false,
+            "ads": false,
+            "url_or_code": false,
+            "id_verifications": false,
+            "external_links": false
+          }
+        },
+        "identity": {
+          "score": 7,
+          "max": 10,
+          "bits": {
+            "title": true,
+            "year": true,
+            "venue": false
+          }
+        },
+        "layer1_claim": {
+          "score": 25,
+          "max": 25,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_claim": true,
+            "has_failure_modes": true,
+            "has_targets": true,
+            "todo_dense": false
+          }
+        },
+        "layer2_protocol": {
+          "score": 15,
+          "max": 20,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": false,
+            "has_procedure": true,
+            "boilerplate": false,
+            "layer2_stub_flag": false
+          }
+        },
+        "validation_target": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
+            "boilerplate": false
+          }
+        },
+        "layer4_affordance": {
+          "score": 10,
+          "max": 10,
+          "bits": {
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -6225,10 +6225,10 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 14,
-      "score": 52.8,
-      "raw_score": 59,
-      "todo_penalty": 6.2,
+      "n_todo": 22,
+      "score": 67.4,
+      "raw_score": 76,
+      "todo_penalty": 8.6,
       "components": {
         "bibliographic_anchor": {
           "score": 6,
@@ -6243,22 +6243,22 @@
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 21,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": false,
+            "has_failure_modes": true,
             "has_targets": false,
             "todo_dense": false
           }
@@ -6286,12 +6286,12 @@
           }
         },
         "layer4_affordance": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -6306,17 +6306,17 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 9,
-      "score": 55.76,
-      "raw_score": 59,
-      "todo_penalty": 3.24,
+      "n_todo": 12,
+      "score": 76.4,
+      "raw_score": 82,
+      "todo_penalty": 5.6,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 12,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
             "id_verifications": false,
@@ -6324,22 +6324,22 @@
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 21,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": false,
+            "has_failure_modes": true,
             "has_targets": false,
             "todo_dense": false
           }
@@ -6367,12 +6367,12 @@
           }
         },
         "layer4_affordance": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -6468,10 +6468,10 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 7,
-      "score": 62.79,
-      "raw_score": 65,
-      "todo_penalty": 2.21,
+      "n_todo": 10,
+      "score": 74.0,
+      "raw_score": 79,
+      "todo_penalty": 5.0,
       "components": {
         "bibliographic_anchor": {
           "score": 9,
@@ -6495,14 +6495,14 @@
           }
         },
         "layer1_claim": {
-          "score": 21,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": false,
-            "has_targets": false,
+            "has_failure_modes": true,
+            "has_targets": true,
             "todo_dense": false
           }
         },
@@ -6529,12 +6529,12 @@
           }
         },
         "layer4_affordance": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }

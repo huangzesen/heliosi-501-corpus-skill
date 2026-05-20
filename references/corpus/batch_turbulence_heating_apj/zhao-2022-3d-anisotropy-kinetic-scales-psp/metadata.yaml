@@ -1,30 +1,46 @@
 slug: zhao-2022-3d-anisotropy-kinetic-scales-psp
-title: "Three-Dimensional Anisotropy and Scaling Properties of Solar Wind Turbulence at Kinetic Scales in the Inner Heliosphere: Parker Solar Probe Observations"
+slug_note: "slug retained for backwards compatibility; the published paper at DOI 10.3847/2041-8213/ac4415 is titled 'Inertial-range Magnetic-fluctuation Anisotropy Observed from Parker Solar Probe's First Seven Orbits' and analyses the inertial range under a 2D + slab transport framework — NOT a kinetic-range three-axis local-frame structure-function decomposition (verified 2026-05-19 via IOPscience). The inventory paraphrase in apj_aa_heliophysics_papers.md §1.3 ('Three-Dimensional Anisotropy ... at Kinetic Scales') is a scope error. See first_author, authors[], and title below for the published record."
+title: "Inertial-range Magnetic-fluctuation Anisotropy Observed from Parker Solar Probe's First Seven Orbits"
+first_author: "L.-L. Zhao"
 authors:
   - "L.-L. Zhao"
   - "G. P. Zank"
   - "L. Adhikari"
+  - "M. Nakanotani"
+authors_verified: true
 year: 2022
 journal: "The Astrophysical Journal Letters"
+volume: "924"
+pages: "L21"
 doi: "10.3847/2041-8213/ac4415"
+doi_url: "https://doi.org/10.3847/2041-8213/ac4415"
 ads_bibcode: "2022ApJ...924L..21Z"
 arxiv: null
+links_verified_on: "2026-05-19"
+links_verified_method: "IOPscience page for DOI 10.3847/2041-8213/ac4415 verified — title 'Inertial-range Magnetic-fluctuation Anisotropy Observed from Parker Solar Probe's First Seven Orbits', four-author list (Zhao, Zank, Adhikari, Nakanotani), ApJL 924, L21 (2022), 2D + slab transport-framework abstract with first-seven-orbits / 0.1-0.6 au scope. ADS bibcode 2022ApJ...924L..21Z is the inventory-supplied anchor, not directly re-verified against ADS UI on 2026-05-19."
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS MAG L2 RTN (survey + burst-mode where available)"
-  - "PSP SWEAP/SPC or SPAN-I L3 plasma moments"
+  - "PSP FIELDS MAG L2 RTN (Orbits 1-7, ~0.1-0.6 au)"
+  - "PSP SWEAP/SPC or SPAN-I L3 plasma moments (Orbits 1-7)"
 methods:
-  - scale-dependent-local-mean-field
-  - three-axis-local-frame-decomposition-parallel-perpendicular-displacement
-  - second-order-structure-functions
-  - kinetic-range-slope-fitting
+  - inertial-range-trace-psd
+  - inertial-range-magnetic-compressibility
+  - two-d-plus-slab-transport-framework-inversion
+  - radial-distance-binning
+  - radial-trend-test
 validation_targets:
-  - "Per-axis sub-ion-range slopes (alpha_parallel, alpha_disp, alpha_perp) are direction-dependent in PSP FIELDS data"
-  - "Qualitative ordering of slopes matches paper figure (TODO verify exact numerical ordering)"
+  - "PSP first-seven-orbits inertial-range fluctuations are consistent with a 2D + slab turbulence-transport framework (abstract-verified)"
+  - "2D component power fraction diminishes approaching the Sun across the 0.1-0.6 au range (abstract-verified qualitative headline)"
+  - "Operational QC: Spearman rank correlation between fraction_2D and r is positive across the 0.1-0.6 au bins"
+  - "Per-orbit numerical 2D / slab fractions and inertial-range slope values TODO_verify against figures of ApJL 924, L21"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.3"
 verification_flags:
-  - "No arXiv ID in inventory; verify against ADS 2022ApJ...924L..21Z."
-  - "Per-axis numerical exponents and encounter list TODO verify in full paper."
+  - "Title and scope verified 2026-05-19 via IOPscience — the published paper is an INERTIAL-RANGE 2D + slab analysis of PSP first seven orbits, NOT a kinetic-range three-axis structure-function decomposition. Inventory paraphrase is a scope error."
+  - "Author list extended to four (Zhao, Zank, Adhikari, Nakanotani) per IOPscience."
+  - "Specific 2D + slab inversion convention (Bieber-class, Saur-class, paper-specific) TODO_verify against the published Methods."
+  - "Per-orbit / per-bin numerical 2D vs slab fractions TODO_verify against figures."
+  - "ADS bibcode 2022ApJ...924L..21Z is the inventory anchor; not directly re-verified against ADS on 2026-05-19."
+research_generation_affordances_present: true

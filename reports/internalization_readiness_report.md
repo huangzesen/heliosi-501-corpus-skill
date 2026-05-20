@@ -1,18 +1,17 @@
 internalization-readiness audit — 501 entries scanned (45 active)
 ========================================================================
-  mean score   : 63.48/100   median: 63.12   min: 42.43   max: 92.0
-  active mean  : 65.99   active min: 50.5
+  mean score   : 63.77/100   median: 64.2   min: 42.43   max: 92.0
+  active mean  : 69.16   active min: 50.5
 
   score histogram (lower = more internalization debt):
     0-24       0  
     25-49      4  ##
-    50-69    406  ############################################################
-    70-84     83  #####################
+    50-69    400  ############################################################
+    70-84     89  #######################
     85-100     8  ###
 
   per-batch mean (ascending — worst-debt batch first):
     wave500_inner_heliosphere_psp_solo_045               55.37
-    batch_turbulence_heating_apj                         57.56
     pilot_2026_and_runtime                               58.34
     wave500_solar_corona_cme_flares_045                  59.09
     wave500_sw_classification_ml_foundation_045          60.35
@@ -27,6 +26,7 @@ internalization-readiness audit — 501 entries scanned (45 active)
     wave500_coronal_source_mapping_pfss_045              67.98
     batch_psp_switchbacks_magnetic                       69.11
     batch_sep_energetic_particles                        69.37
+    batch_turbulence_heating_apj                         71.84
     batch_pfss_source_mapping                            71.95
     pilot_turbulence                                     73.81
 
@@ -35,10 +35,10 @@ internalization-readiness audit — 501 entries scanned (45 active)
     pilot_weak_attribution                           59.8
     stub-historical-anchor                           62.0
     stub                                             62.11
-    pilot                                            62.3
     positioning-skill-not-executable-science         63.24
     paper-grounded-pending-full-text                 63.99
     stub-infrastructure                              64.33
+    pilot                                            68.51
     method-ready                                     69.38
     link-only-cross-batch                            69.41
     paper-grounded-locally-reproduced                89.22
@@ -54,7 +54,6 @@ internalization-readiness audit — 501 entries scanned (45 active)
      50.5  21  15   6   5   6   7    25   *      batch_solar_wind_segmentation_ml/paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation
     50.56  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/free-energy-sources-ion-scale-waves-psp-2025
     50.69  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/ion-acoustic-velocity-space-signatures-2026
-     50.7  21  15  10   0   0  10    11   *      batch_turbulence_heating_apj/bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance
     50.72  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/whistler-counter-propagating-encounter1-2023
     50.87  25  20   6   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-lasco-c2-c3-streamer-belt-density-radial-profile
     50.96  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/proton-alpha-aic-driven-instabilities-2023
@@ -72,9 +71,10 @@ internalization-readiness audit — 501 entries scanned (45 active)
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-pal-2024-cir-stream-interaction-region-ml
      52.0  16  11   6   3   6  10     0          batch_heliophysics_software_infrastructure/paper-plasmapy-plasma-physics-python
      52.3  21  15   6   0   6   7     9          batch_mission_instruments_data_products/damicis-2025-solo-swa-alfvenic-streams-validation
-     52.8  21  15  10   0   6   7    14   *      batch_turbulence_heating_apj/martinovic-2024-slow-wind-imbalanced-alfven-wave-heating
      52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-bloch-2022-bayesian-nn-solar-wind-classification
      52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-camporeale-2020-icme-classification-ml-benchmark
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-deep-swim-extension-cnn-window-stack
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-fung-2019-clustering-helio-streams
 
   legend: L1=Layer-1 claim, L2=Layer-2 protocol, Val=validation,
           L4=Layer-4 affordance, Bib=bibliographic anchor,

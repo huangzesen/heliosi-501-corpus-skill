@@ -1,33 +1,44 @@
 slug: cuesta-2022-compressible-turbulence-psp-themis-maven
+slug_note: "Identifier dispute (verified 2026-05-19): inventory cites DOI 10.3847/1538-4357/ac0af5 under 'Cuesta et al. 2022, ApJ', but the DOI resolves to Andrés et al. 2021, ApJ 919 — same verbatim title 'The Evolution of Compressible Solar Wind Turbulence in the Inner Heliosphere: PSP, THEMIS, and MAVEN Observations', PSP+THEMIS+MAVEN scope (~0.2-1.7 au), eight authors (Andrés, Sahraoui, Hadid, Huang, Romanelli, Galtier, DiBraccio, Halekas). Either the inventory paraphrase confused two papers in a shared title family, OR a distinct Cuesta-led 2022 paper exists at a different DOI. Canonical DOI / arxiv intentionally set to null here pending curator resolution. See SKILL.md banner."
 title: "Evolution of Compressible Solar Wind Turbulence in the Inner Heliosphere: PSP, THEMIS, and MAVEN Observations"
+first_author: "M. M. Cuesta"
 authors:
   - "M. M. Cuesta"
   - "R. Chhiber"
   - "T. N. Parashar"
   - "W. H. Matthaeus"
+authors_verified: false
 year: 2022
-journal: "The Astrophysical Journal"
-doi: "10.3847/1538-4357/ac0af5"
+journal: "TODO_verify (identifier dispute)"
+doi: null
 arxiv: null
+ads_bibcode_candidate: null
+links_verified_on: "2026-05-19"
+links_verified_method: "IOPscience page for DOI 10.3847/1538-4357/ac0af5 verified — the DOI resolves to Andrés et al. 2021, ApJ 919, NOT Cuesta et al. 2022 as the inventory states. Same verbatim title. Whether a separate Cuesta 2022 paper exists at a different DOI is not yet checked against ADS. Canonical identifiers left null until a curator pass resolves the dispute."
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS MAG L2 + SWEAP/SPC L3 (~0.17 au)"
+  - "PSP FIELDS MAG L2 + SWEAP/SPC L3 (~0.17 au, or ~0.2 au per Andres scope)"
   - "THEMIS FGM + ESA L2 (~1 au)"
-  - "MAVEN MAG + SWIA L2 (upstream solar wind only, ~1.5 au)"
+  - "MAVEN MAG + SWIA L2 (upstream solar wind only, ~1.5-1.7 au)"
 methods:
   - density-fluctuation-psd
   - magnetic-trace-psd
   - compressibility-metric
+  - exact-isothermal-mhd-cascade-rate-if-andres
   - heliocentric-radial-binning
   - multi-spacecraft-comparison
 validation_targets:
-  - "Compressibility metric C_n shows systematic radial trend 0.17-1.5 au across PSP/THEMIS/MAVEN"
-  - "Slope of C_n vs r matches paper figure (TODO verify exact value)"
+  - "Compressibility / density-PSD radial trend 0.17-1.5 au across PSP/THEMIS/MAVEN (inventory scope; identifier-disputed)"
+  - "If the canonical paper turns out to be Andrés et al. 2021 (DOI 10.3847/1538-4357/ac0af5): compressible cascade rate is non-negligible compared to incompressible cascade rate, with compressibility reaching up to 25% near PSP's closest approach (abstract-verified Andres numeric)"
+  - "Per-mission per-bin numerical compressibility values TODO_verify against whichever paper the curator certifies as canonical"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.10"
 verification_flags:
-  - "arXiv ID TODO verify (DOI given but no arXiv in inventory)."
-  - "Exact compressibility-metric definition TODO verify in full paper."
-  - "Stream-class conditioning (fast/slow split) TODO verify."
+  - "IDENTIFIER DISPUTE: inventory DOI 10.3847/1538-4357/ac0af5 resolves to Andrés et al. 2021, NOT Cuesta et al. 2022 (verified 2026-05-19 via IOPscience). Canonical identifiers null until curator resolves."
+  - "Whether a separate Cuesta-led 2022 paper at a different DOI exists TODO_verify by ADS curator search."
+  - "Exact compressibility-metric definition TODO_verify against the certified-canonical paper."
+  - "Stream-class conditioning (fast/slow split) TODO_verify."
+  - "authors_verified: false because the corpus author list (Cuesta, Chhiber, Parashar, Matthaeus) is the inventory's paraphrase, not a verified attribution."
+research_generation_affordances_present: true

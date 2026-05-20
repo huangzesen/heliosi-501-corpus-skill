@@ -15,31 +15,44 @@
   "skills": [
     {
       "slug": "zhao-2022-3d-anisotropy-kinetic-scales-psp",
-      "title": "Three-Dimensional Anisotropy and Scaling Properties of Solar Wind Turbulence at Kinetic Scales in the Inner Heliosphere: Parker Solar Probe Observations",
+      "title": "Inertial-range Magnetic-fluctuation Anisotropy Observed from Parker Solar Probe's First Seven Orbits",
+      "inventory_title_paraphrase": "Three-Dimensional Anisotropy and Scaling Properties of Solar Wind Turbulence at Kinetic Scales in the Inner Heliosphere: Parker Solar Probe Observations",
+      "title_scope_note": "Inventory paraphrase says 'kinetic scales 3D anisotropy'; published paper at this DOI is in fact an INERTIAL-RANGE 2D + slab transport-framework analysis over PSP's first seven orbits (~0.1-0.6 au). Verified 2026-05-19 via IOPscience.",
       "year": 2022,
       "lead_author": "L.-L. Zhao",
+      "authors": [
+        "L.-L. Zhao",
+        "G. P. Zank",
+        "L. Adhikari",
+        "M. Nakanotani"
+      ],
       "journal": "ApJL",
+      "venue": "ApJL 924, L21 (2022)",
       "doi": "10.3847/2041-8213/ac4415",
       "ads_bibcode": "2022ApJ...924L..21Z",
       "arxiv": null,
       "theme": "turbulence",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "PSP kinetic-scale magnetic fluctuations show direction-dependent 3D anisotropy in a local mean-field frame.",
+      "core_claim": "PSP first-seven-orbits (0.1-0.6 au) inertial-range observations are consistent with a 2D + slab turbulence-transport framework; the 2D power fraction diminishes approaching the Sun.",
       "methods": [
-        "scale-dependent-local-mean-field",
-        "three-axis-local-frame-decomposition",
-        "second-order-structure-functions",
-        "kinetic-range-slope-fitting"
+        "inertial-range-trace-psd",
+        "inertial-range-magnetic-compressibility",
+        "two-d-plus-slab-transport-framework-inversion",
+        "radial-distance-binning"
       ],
       "instruments": [
-        "PSP FIELDS MAG L2 (survey + burst)",
+        "PSP FIELDS MAG L2 (Orbits 1-7)",
         "PSP SWEAP/SPC or SPAN-I L3"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "No arXiv ID in inventory; verify against ADS 2022ApJ...924L..21Z.",
-        "Per-axis numerical exponents and encounter list TODO verify."
+        "Title and scope verified 2026-05-19 via IOPscience — published paper is inertial-range 2D+slab analysis, NOT kinetic-range three-axis structure functions as the inventory paraphrases.",
+        "Four-author list (Zhao, Zank, Adhikari, Nakanotani) verified.",
+        "ADS bibcode 2022ApJ...924L..21Z is the inventory-supplied anchor; not directly re-verified against ADS UI on 2026-05-19.",
+        "Specific 2D + slab inversion convention TODO_verify in full text."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.3"
@@ -47,21 +60,31 @@
     },
     {
       "slug": "bowen-2023-landau-damping-proton-electron-heating",
+      "slug_note": "slug retained for backwards compatibility; published lead author of arXiv:2301.09713 / DOI 10.3847/1538-4357/acb542 is N. Shankarappa, NOT T. A. Bowen (verified 2026-05-19).",
       "title": "Estimation of Turbulent Proton and Electron Heating Rates via Landau Damping Constrained by Parker Solar Probe Observations",
       "year": 2023,
-      "lead_author": "T. A. Bowen",
-      "journal": "TODO verify (ApJ submission)",
-      "doi": null,
+      "lead_author": "N. Shankarappa",
+      "authors": [
+        "N. Shankarappa",
+        "K. G. Klein",
+        "M. M. Martinović"
+      ],
+      "inventory_attribution": "Bowen et al. (paraphrase; does not match published record)",
+      "journal": "ApJ",
+      "venue": "ApJ 946 (2023)",
+      "doi": "10.3847/1538-4357/acb542",
       "arxiv": "2301.09713",
+      "ads_bibcode_candidate": "2023ApJ...946...20S",
       "theme": "coronal_heating",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "Linear-Vlasov + quasilinear Landau-damping cascade model constrained by PSP spectra partitions Q_p / Q_e during PSP E1-E2.",
+      "core_claim": "Howes-class quasilinear Landau-damping cascade model constrained by PSP spectra accurately describes the observed kinetic-range spectrum in >=39.4% of PSP E1-E2 intervals; resulting Q_p/Q_e partition depends strongly on plasma beta.",
       "methods": [
         "linear-vlasov-gamma-of-k",
-        "quasilinear-landau-damping-cascade-model",
+        "howes-class-quasilinear-cascade-model",
         "proton-electron-heating-partition",
-        "empirical-heating-from-radial-temperature-gradient"
+        "empirical-heating-from-radial-temperature-gradient",
+        "beta-dependent-partition-analysis"
       ],
       "instruments": [
         "PSP FIELDS MAG L2",
@@ -69,10 +92,14 @@
         "PSP SWEAP/SPAN-e L3"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Publication venue / status TODO verify.",
-        "Specific Vlasov solver TODO verify.",
-        "Q_p/Q_e tolerance TODO verify."
+        "Lead-author attribution dispute: inventory says 'Bowen et al.'; arXiv + DOI confirm Shankarappa, Klein, Martinović (verified 2026-05-19). Slug retained.",
+        "Specific Vlasov dispersion solver used (PLUME/NHDS/LEOPARD/other) TODO_verify in full text.",
+        "Characterisation of the ~60% of intervals where the Howes-model fit is not accepted TODO_verify.",
+        "Quantitative Q_p/Q_e tolerance TODO_verify.",
+        "ADS bibcode candidate 2023ApJ...946...20S not directly verified."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.6"
@@ -80,19 +107,29 @@
     },
     {
       "slug": "pecora-2022-coherent-structures-proton-electron-heating",
-      "title": "Preferential Proton over Electron Heating from Coherent Structures during the First Perihelion of Parker Solar Probe",
+      "slug_note": "slug retained for backwards compatibility; published lead author of arXiv:2206.10671 / DOI 10.3847/2041-8213/ac85de is N. Sioulas, NOT F. Pecora (verified 2026-05-19).",
+      "title": "Preferential Heating of Protons over Electrons from Coherent Structures during the First Perihelion of the Parker Solar Probe",
       "year": 2022,
-      "lead_author": "F. Pecora",
-      "journal": "TODO verify (MNRAS / ApJ 2022)",
-      "doi": null,
+      "lead_author": "N. Sioulas",
+      "authors": [
+        "N. Sioulas",
+        "C. Shi",
+        "Z. Huang",
+        "M. Velli"
+      ],
+      "inventory_attribution": "Pecora et al. (paraphrase; does not match published record)",
+      "journal": "ApJL",
+      "venue": "ApJL 935 (2022)",
+      "doi": "10.3847/2041-8213/ac85de",
       "arxiv": "2206.10671",
+      "ads_bibcode_candidate": "2022ApJ...935L..27S",
       "theme": "coronal_heating",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "Conditional averaging on PVI-flagged coherent structures in PSP E1 shows preferential proton over electron heating.",
+      "core_claim": "Conditional averaging around regions of strong magnetic-field gradients in PSP E1 shows protons experiencing significantly greater temperature increases than electrons, consistent with a nonlinear-turbulent-cascade heating mechanism in the nascent solar wind.",
       "methods": [
-        "partial-variance-of-increments",
-        "pvi-thresholding",
+        "magnetic-gradient-identification",
+        "partial-variance-of-increments-or-equivalent",
         "conditional-superposed-epoch-averaging",
         "proton-vs-electron-heating-signature"
       ],
@@ -102,10 +139,14 @@
         "PSP SWEAP/SPAN-e L3"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Publication venue TODO verify.",
-        "PVI threshold and averaging window TODO verify.",
-        "Quantitative DeltaT_p/DeltaT_e ratio TODO verify."
+        "Lead-author attribution dispute: inventory says 'Pecora et al.'; arXiv + DOI confirm Sioulas, Shi, Huang, Velli (verified 2026-05-19). Slug retained.",
+        "Whether the paper uses PVI specifically vs a related gradient-amplitude diagnostic TODO_verify.",
+        "Exact threshold and averaging window TODO_verify.",
+        "Quantitative DeltaT_p/DeltaT_e ratio TODO_verify.",
+        "ADS bibcode candidate 2022ApJ...935L..27S not directly verified."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.7"
@@ -116,29 +157,48 @@
       "title": "Extended Cyclotron Resonant Heating of the Turbulent Solar Wind",
       "year": 2024,
       "lead_author": "T. A. Bowen",
-      "journal": "TODO verify (ApJ)",
+      "authors": [
+        "T. A. Bowen",
+        "I. Y. Vasko",
+        "S. D. Bale",
+        "B. D. G. Chandran",
+        "A. Chasapis",
+        "T. Dudok de Wit",
+        "A. Mallet",
+        "M. McManus",
+        "R. Meyrand",
+        "M. Pulupa",
+        "J. Squire"
+      ],
+      "journal": "arXiv:2406.10446 (TODO_verify ApJ journal-ref)",
+      "venue": "arXiv:2406.10446 (2024)",
       "doi": null,
       "arxiv": "2406.10446",
       "theme": "waves_instabilities",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "LH-circular ICWs at the spectral break drive extended cyclotron-resonant heating in PSP fast streams ~15-55 R_sun.",
+      "core_claim": "Transition-range steepening at ion scales over ~15-55 R_sun is associated with significant left-hand circularly polarised ion-kinetic-scale waves; quasilinear cyclotron-resonant heating rate is a significant fraction of the turbulent cascade rate.",
       "methods": [
         "spectral-break-detection",
         "magnetic-helicity-polarisation-analysis",
         "left-hand-circular-ion-cyclotron-wave-identification",
         "cyclotron-resonance-condition",
-        "quasilinear-cyclotron-heating-estimate"
+        "quasilinear-cyclotron-heating-estimate",
+        "cascade-rate-normalisation"
       ],
       "instruments": [
-        "PSP FIELDS MAG L2 (burst)",
+        "PSP FIELDS MAG L2 (burst preferred)",
         "PSP SWEAP/SPC or SPAN-I L3"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Publication venue TODO verify.",
-        "Quasilinear Q_p,ICW formula TODO verify.",
-        "Encounter list TODO verify."
+        "Full 11-author list verified 2026-05-19 via arXiv:2406.10446 landing page.",
+        "ApJ journal DOI / venue TODO_verify (not registered as of 2026-05-19).",
+        "Quasilinear Q_p,ICW formula TODO_verify in full Methods.",
+        "Whether conditioning is fast-wind-only or all-Alfvenic TODO_verify.",
+        "Per-encounter list TODO_verify."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.8"
@@ -149,14 +209,27 @@
       "title": "Mediation of Collisionless Turbulent Dissipation Through Cyclotron Resonance",
       "year": 2024,
       "lead_author": "T. A. Bowen",
+      "authors": [
+        "T. A. Bowen",
+        "S. D. Bale",
+        "B. D. G. Chandran",
+        "A. Chasapis",
+        "C. H. K. Chen",
+        "T. Dudok de Wit",
+        "A. Mallet",
+        "R. Meyrand",
+        "J. Squire"
+      ],
       "journal": "Nature Astronomy",
-      "doi": null,
+      "venue": "Nature Astronomy 8(4), 482-490 (2024)",
+      "doi": "10.1038/s41550-023-02186-4",
       "arxiv": null,
       "pmid": "38659611",
+      "ads_bibcode_candidate": "2024NatAs...8..482B",
       "theme": "waves_instabilities",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "Ion-scale PSP polarisation signatures + resonance overlap imply cyclotron resonance mediates collisionless turbulent dissipation.",
+      "core_claim": "Ion-scale PSP FIELDS polarisation signatures and resonant-heating diagnostics show that ion-cyclotron waves provide a major pathway for collisionless dissipation and plasma heating in the solar wind (abstract-verified 'major pathway' wording; not exclusive channel).",
       "methods": [
         "mean-field-aligned-frame",
         "reduced-magnetic-helicity-sigma-m",
@@ -170,9 +243,14 @@
         "PSP SWEAP/SPC, SPAN-I L3"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Nature Astronomy DOI TODO verify.",
-        "Encounter list and Q ratios TODO verify."
+        "DOI 10.1038/s41550-023-02186-4 verified via PubMed (PMID 38659611) on 2026-05-19; full nine-author list, Nat. Astron. 8(4), 482-490 (2024) venue verified.",
+        "arXiv preprint (if any) not located on 2026-05-19; arxiv set to null.",
+        "ADS bibcode 2024NatAs...8..482B is candidate guess; not directly verified.",
+        "Quantitative per-encounter Q_p,cyc and any Q_p,cyc/Q_p,Landau ratios TODO_verify.",
+        "Abstract wording 'a major pathway' — do not silently widen to 'dominant' or 'unique' channel."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.9"
@@ -181,19 +259,25 @@
     {
       "slug": "cuesta-2022-compressible-turbulence-psp-themis-maven",
       "title": "Evolution of Compressible Solar Wind Turbulence in the Inner Heliosphere: PSP, THEMIS, and MAVEN Observations",
+      "slug_note": "IDENTIFIER DISPUTE (verified 2026-05-19): inventory DOI 10.3847/1538-4357/ac0af5 resolves to Andres et al. 2021, ApJ 919 (same verbatim title), NOT Cuesta et al. 2022. Either inventory paraphrase confused two papers or a separate Cuesta 2022 paper exists at a different DOI. Canonical identifiers null until curator resolves.",
       "year": 2022,
       "lead_author": "M. M. Cuesta",
-      "journal": "ApJ",
-      "doi": "10.3847/1538-4357/ac0af5",
+      "inventory_attribution": "Cuesta et al. 2022 (paraphrase; does not match DOI as resolved 2026-05-19)",
+      "doi_inventory": "10.3847/1538-4357/ac0af5",
+      "doi_inventory_actually_resolves_to": "Andres, Sahraoui, Hadid, Huang, Romanelli, Galtier, DiBraccio, Halekas (2021), ApJ 919",
+      "doi": null,
       "arxiv": null,
+      "ads_bibcode_candidate": null,
+      "journal": "TODO_verify (identifier dispute)",
       "theme": "turbulence",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "Compressibility / density-fluctuation spectra of solar-wind turbulence evolve systematically from 0.17 au (PSP) to ~1.5 au (MAVEN).",
+      "core_claim": "Compressibility / density-fluctuation spectra of solar-wind turbulence evolve systematically across heliocentric distance using PSP+THEMIS+MAVEN (inventory scope, ~0.17-1.5 au). Identifier dispute pending; canonical numerical targets to be re-verified once the canonical paper is resolved.",
       "methods": [
         "density-fluctuation-psd",
         "magnetic-trace-psd",
         "compressibility-metric",
+        "exact-isothermal-mhd-cascade-rate-if-andres",
         "heliocentric-radial-binning",
         "multi-spacecraft-comparison"
       ],
@@ -203,11 +287,13 @@
         "THEMIS FGM + ESA L2",
         "MAVEN MAG + SWIA L2 (upstream only)"
       ],
-      "weak_attribution": false,
+      "weak_attribution": true,
+      "authors_verified": false,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "arXiv ID TODO verify (DOI in inventory, no arXiv).",
-        "Compressibility-metric definition TODO verify.",
-        "Stream-class conditioning TODO verify."
+        "IDENTIFIER DISPUTE: inventory DOI 10.3847/1538-4357/ac0af5 resolves to Andres et al. 2021 (verified 2026-05-19 via IOPscience), not Cuesta et al. 2022.",
+        "Whether a separate Cuesta-led 2022 paper exists at a different DOI TODO_verify by curator ADS search.",
+        "Quantitative compressibility targets TODO_verify against whichever paper the curator certifies as canonical."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.10"
@@ -253,19 +339,55 @@
       "title": "Statistical Study of Electron Density Turbulence and Ion-Cyclotron Waves in the Inner Heliosphere: Solar Orbiter Observations",
       "year": 2021,
       "lead_author": "F. Carbone",
+      "authors": [
+        "F. Carbone",
+        "L. Sorriso-Valvo",
+        "Yu. V. Khotyaintsev",
+        "K. Steinvall",
+        "A. Vecchio",
+        "D. Telloni",
+        "E. Yordanova",
+        "D. B. Graham",
+        "N. J. T. Edberg",
+        "A. I. Eriksson",
+        "E. P. G. Johansson",
+        "C. L. Vásconez",
+        "M. Maksimovic",
+        "R. Bruno",
+        "R. D'Amicis",
+        "S. D. Bale",
+        "T. Chust",
+        "V. Krasnoselskikh",
+        "M. Kretzschmar",
+        "E. Lorfèvre",
+        "D. Plettemeier",
+        "J. Souček",
+        "M. Steller",
+        "Š. Štverák",
+        "P. Trávníček",
+        "A. Vaivads",
+        "T. S. Horbury",
+        "H. O'Brien",
+        "V. Angelini",
+        "V. Evans"
+      ],
       "journal": "A&A",
+      "venue": "A&A 656, A16 (2021)",
       "doi": "10.1051/0004-6361/202140931",
       "arxiv": "2105.07790",
+      "ads_bibcode_candidate": "2021A&A...656A..16C",
       "theme": "waves_instabilities",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "SO RPW spacecraft-potential-derived n_e at ~0.5 au yields density turbulence statistics and wavelet-identified ICW events.",
+      "core_claim": "Across 36 Solar Orbiter intervals in June 2020, RPW spacecraft-potential-derived n_e shows well-defined inertial-range power-law scaling in most intervals; 21 of 36 are consistent with standard Kolmogorov-like turbulence; intervals with enhanced ion-cyclotron wave activity correlate with reduced density intermittency.",
       "methods": [
         "rpw-spacecraft-potential-to-electron-density",
+        "empirical-mode-decomposition",
         "density-power-spectral-density",
-        "density-intermittency-structure-functions",
+        "density-intermittency-kurtosis",
         "wavelet-magnetic-helicity",
-        "ion-cyclotron-wave-event-detection"
+        "ion-cyclotron-wave-event-detection",
+        "three-group-clustering"
       ],
       "instruments": [
         "Solar Orbiter RPW L2/L3 (V_sc -> n_e)",
@@ -273,10 +395,15 @@
         "Solar Orbiter SWA/PAS L2"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Encounter list / cruise-phase windows TODO verify.",
-        "RPW V_sc -> n_e calibration version TODO verify.",
-        "Quantitative ICW occurrence rate and density slope TODO verify."
+        "Full 30-author list and A&A 656, A16 (2021) venue verified via aanda.org DOI page on 2026-05-19.",
+        "Concrete sample: 36 intervals in June 2020, 21/36 standard Kolmogorov-like subgroup verified from abstract.",
+        "RPW V_sc -> n_e calibration version used by paper TODO_verify.",
+        "Quantitative ICW occurrence rate and density-PSD slope TODO_verify.",
+        "Identity of the third group beyond '21 standard + anomalous' TODO_verify.",
+        "ADS bibcode 2021A&A...656A..16C is candidate guess; not directly verified."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.14"
@@ -284,32 +411,42 @@
     },
     {
       "slug": "chen-2022-magnetic-field-spectral-evolution-inner-heliosphere",
+      "slug_note": "slug retained for backwards compatibility; published lead author of arXiv:2209.02451 / DOI 10.3847/2041-8213/acaeff is N. Sioulas, NOT C. H. K. Chen, and the publication year is 2023 (ApJL 943), NOT 2022. Inventory has attribution + year errors. Verified 2026-05-19.",
       "title": "Magnetic Field Spectral Evolution in the Inner Heliosphere",
-      "year": 2022,
-      "lead_author": "C. H. K. Chen",
-      "journal": "TODO verify (arXiv preprint in inventory)",
-      "doi": null,
+      "year": 2023,
+      "year_inventory": 2022,
+      "lead_author": "N. Sioulas",
+      "inventory_attribution": "Chen et al. 2022 (paraphrase; does not match published record)",
+      "journal": "ApJL",
+      "venue": "ApJL 943 (2023)",
+      "doi": "10.3847/2041-8213/acaeff",
       "arxiv": "2209.02451",
+      "ads_bibcode_candidate": "2023ApJ...943L...8S",
       "theme": "turbulence",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "Combined PSP+Helios+Wind PSDs show inertial-range slope steepening from ~-3/2 near the Sun to ~-5/3 by ~0.6 au.",
+      "core_claim": "Near the Sun (PSP), inertial range is narrow with alpha_B ~ -3/2; with increasing heliocentric distance the inertial range broadens and alpha_B gradually transitions toward -5/3; slower/less-Alfvenic streams have steeper spectra than highly Alfvenic intervals at fixed r.",
       "methods": [
         "trace-power-spectral-density",
         "inertial-range-bounds-determination",
         "slope-fitting",
+        "alfvenicity-stream-class-stratification",
         "multi-mission-pooled-radial-evolution"
       ],
       "instruments": [
         "PSP FIELDS MAG L2",
-        "Helios reprocessed MAG L2",
-        "Wind MFI L2"
+        "Solar Orbiter MAG L2",
+        "(optional 1-au reference) Wind MFI L2"
       ],
       "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Publication venue TODO verify.",
-        "Stream-class conditioning TODO verify.",
-        "Per-bin alpha_B numerical values TODO verify."
+        "Lead-author + year attribution dispute: inventory says 'Chen et al. 2022'; arXiv + DOI confirm Sioulas et al. 2023, ApJL 943, DOI 10.3847/2041-8213/acaeff. Verified 2026-05-19. Slug retained.",
+        "Mission scope correction: paper uses PSP + SO; inventory's 'PSP+Helios+Wind' is incorrect and the prior SKILL.md draft inherited this error (now fixed).",
+        "Exact transition heliocentric distance at which alpha_B reaches -5/3 TODO_verify (abstract says 'gradual transition', not a specific r).",
+        "Per-stream-class alpha_B numerical values TODO_verify.",
+        "ADS bibcode 2023ApJ...943L...8S is candidate guess; not directly verified."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.15"
@@ -317,23 +454,35 @@
     },
     {
       "slug": "martinovic-2024-slow-wind-imbalanced-alfven-wave-heating",
-      "title": "Heating of the Slow Solar Wind by Imbalanced Alfvén-Wave Turbulence from 0.06 au to 1 au: PSP and SO Observations",
+      "slug_note": "slug retained for backwards compatibility; published lead author of arXiv:2403.17352 is S. Bourouaine, NOT M. M. Martinović (verified 2026-05-19 via arXiv landing page). Inventory paraphrase 'Martinović and collaborators' is attribution error.",
+      "title": "On the Heating of the Slow Solar-Wind by Imbalanced Alfvén-Wave Turbulence from 0.06 au to 1 au: Parker Solar Probe and Solar Orbiter Observations",
       "year": 2024,
-      "lead_author": "M. M. Martinović",
-      "journal": "TODO verify (arXiv preprint in inventory)",
+      "lead_author": "S. Bourouaine",
+      "authors": [
+        "S. Bourouaine",
+        "J. C. Perez",
+        "B. D. G. Chandran",
+        "V. K. Jagarlamudi",
+        "N. E. Raouafi",
+        "J. S. Halekas"
+      ],
+      "inventory_attribution": "Martinović and collaborators (paraphrase; does not match published record)",
+      "journal": "ApJL accepted",
+      "venue": "ApJL accepted; arXiv:2403.17352",
       "doi": null,
       "arxiv": "2403.17352",
       "theme": "coronal_heating",
       "quality_level": "pilot",
       "executable_status": "scaffold",
-      "core_claim": "Reflection-driven imbalanced AW cascade model fitted to PSP+SO slow-wind intervals matches empirical Q_p from 0.06 to 1 au.",
+      "core_claim": "Reflection-driven imbalanced Alfvén-wave cascade model fitted to PSP+SO slow-wind intervals between 0.06 and 1 au has a radial-profile trend similar to the empirical proton heating rate from temperature gradients; AW turbulence is a significant contributor (not the sole contributor) to slow-wind ion heating.",
       "methods": [
         "slow-wind-interval-selection",
         "elsasser-z-plus-minus-amplitudes",
         "imbalance-z-plus-over-z-minus-ratio",
         "correlation-length-from-autocorrelation",
         "reflection-driven-aw-cascade-heating-model",
-        "empirical-q-p-from-radial-temperature-gradient"
+        "empirical-q-p-from-radial-temperature-gradient",
+        "radial-trend-comparison"
       ],
       "instruments": [
         "PSP FIELDS MAG L2",
@@ -341,11 +490,15 @@
         "Solar Orbiter MAG L2",
         "Solar Orbiter SWA/PAS L2"
       ],
-      "weak_attribution": true,
+      "weak_attribution": false,
+      "authors_verified": true,
+      "links_verified_on": "2026-05-19",
       "verification_flags": [
-        "Publication venue and full author list TODO verify (inventory: 'M. M. Martinović and collaborators').",
-        "Reflection-driven AW model variant TODO verify.",
-        "Q_AW / Q_p tolerance and per-bin ratios TODO verify."
+        "Lead-author attribution dispute: inventory says 'Martinović and collaborators'; arXiv:2403.17352 confirms Bourouaine, Perez, Chandran, Jagarlamudi, Raouafi, Halekas (verified 2026-05-19). Slug retained.",
+        "Final ApJL volume / DOI / ADS bibcode TODO_verify (not registered as of 2026-05-19).",
+        "Specific reflection-driven AW model variant TODO_verify.",
+        "Slow-wind selection rule TODO_verify.",
+        "Per-bin Q_AW / Q_p ratios TODO_verify."
       ],
       "source_inventory_refs": [
         "apj_aa_heliophysics_papers.md §1.16"

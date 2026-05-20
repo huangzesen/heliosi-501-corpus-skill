@@ -1,18 +1,29 @@
 slug: martinovic-2024-slow-wind-imbalanced-alfven-wave-heating
-title: "Heating of the Slow Solar Wind by Imbalanced Alfvén-Wave Turbulence from 0.06 au to 1 au: PSP and SO Observations"
+slug_note: "slug retained for backwards compatibility; published lead author of arXiv:2403.17352 is S. Bourouaine, NOT M. M. Martinović (verified 2026-05-19 via arXiv landing page). The inventory paraphrase in apj_aa_heliophysics_papers.md §1.16 ('Martinović and collaborators') is an attribution error. See first_author and authors[] for the correct attribution."
+title: "On the Heating of the Slow Solar-Wind by Imbalanced Alfvén-Wave Turbulence from 0.06 au to 1 au: Parker Solar Probe and Solar Orbiter Observations"
+first_author: "S. Bourouaine"
 authors:
-  - "M. M. Martinović"
+  - "S. Bourouaine"
+  - "J. C. Perez"
+  - "B. D. G. Chandran"
+  - "V. K. Jagarlamudi"
+  - "N. E. Raouafi"
+  - "J. S. Halekas"
+authors_verified: true
 year: 2024
-journal: "TODO verify (arXiv preprint per inventory)"
+journal: "The Astrophysical Journal Letters (accepted)"
 doi: null
 arxiv: "2403.17352"
+arxiv_url: "https://arxiv.org/abs/2403.17352"
+links_verified_on: "2026-05-19"
+links_verified_method: "arXiv landing page for 2403.17352 verified — full six-author list (Bourouaine, Perez, Chandran, Jagarlamudi, Raouafi, Halekas); abstract confirms 'imbalanced Alfvén-Wave turbulent fluctuations', 0.06-1 au range, 'radial profile trend is similar to the proton heating rate', and ApJL acceptance status. Journal-ref DOI / ADS bibcode not yet registered on 2026-05-19."
 theme: coronal_heating
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS MAG L2 + SWEAP L3 (slow-wind intervals)"
-  - "Solar Orbiter MAG L2 + SWA/PAS L2 (slow-wind intervals)"
-  - "Reflection-driven imbalanced AW cascade model (external code)"
+  - "PSP FIELDS MAG L2 + SWEAP L3 (slow-wind intervals, 0.06-1 au)"
+  - "Solar Orbiter MAG L2 + SWA/PAS L2 (slow-wind intervals, 0.06-1 au)"
+  - "Reflection-driven imbalanced AW cascade model (external code; variant TODO_verify)"
 methods:
   - slow-wind-interval-selection
   - elsasser-z-plus-minus-amplitudes
@@ -20,13 +31,19 @@ methods:
   - correlation-length-from-autocorrelation
   - reflection-driven-aw-cascade-heating-model
   - empirical-q-p-from-radial-temperature-gradient
+  - radial-trend-comparison
 validation_targets:
-  - "Model Q_AW matches empirical Q_p in PSP + SO slow-wind bins from 0.06 to 1 au"
-  - "Median Q_AW / Q_p ratio within paper-stated tolerance (TODO verify value)"
+  - "Model Q_AW(r) radial trend is similar to empirical Q_p(r) trend across PSP+SO slow-wind bins from 0.06 to 1 au (abstract-verified qualitative claim — 'trend is similar', not 'magnitudes match')"
+  - "AW turbulence is shown to be a significant contributor (not the sole contributor) to slow-wind ion heating (abstract-verified wording)"
+  - "Operational QC: monotonic positive Spearman rank correlation between Q_AW(r) and Q_p(r) across radial bins"
+  - "Per-bin Q_AW / Q_p magnitudes and any quantitative tolerance TODO_verify against accepted ApJL version"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.16"
 verification_flags:
-  - "Publication venue TODO verify (arXiv-only in inventory)."
-  - "Specific reflection-driven AW model variant (Chandran-Hollweg / van Ballegooijen / other) TODO verify."
-  - "Quantitative tolerance and per-bin Q_AW / Q_p ratios TODO verify."
-  - "Full author list TODO verify."
+  - "Lead-author attribution dispute: inventory says 'Martinović and collaborators'; arXiv 2403.17352 confirms Bourouaine, Perez, Chandran, Jagarlamudi, Raouafi, Halekas. Verified 2026-05-19. Slug retained for backwards compatibility."
+  - "Final ApJL volume / DOI and ADS bibcode TODO_verify (not registered as of 2026-05-19)."
+  - "Specific reflection-driven AW model variant (Chandran-Hollweg / van Ballegooijen / paper-specific closed form) TODO_verify in §2 of accepted version."
+  - "Slow-wind selection rule (V_sw threshold only vs Alfvenicity + composition conditioning) TODO_verify."
+  - "Correlation-length estimator and integration cutoff TODO_verify."
+  - "Per-bin Q_AW / Q_p ratios and adiabatic-baseline choice for Q_p_empirical TODO_verify."
+research_generation_affordances_present: true

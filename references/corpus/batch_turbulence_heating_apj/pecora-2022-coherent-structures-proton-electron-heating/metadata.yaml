@@ -1,35 +1,47 @@
 slug: pecora-2022-coherent-structures-proton-electron-heating
-title: "Preferential Proton over Electron Heating from Coherent Structures during the First Perihelion of Parker Solar Probe"
+slug_note: "slug retained for backwards compatibility; published lead author of arXiv:2206.10671 / DOI 10.3847/2041-8213/ac85de is N. Sioulas, NOT F. Pecora (verified 2026-05-19 via arXiv landing page and IOPscience). The inventory paraphrase in apj_aa_heliophysics_papers.md §1.7 is an attribution error — the authors are N. Sioulas, C. Shi, Z. Huang, M. Velli (four-author Sioulas-led paper). See first_author and authors[] for the correct attribution."
+title: "Preferential Heating of Protons over Electrons from Coherent Structures during the First Perihelion of the Parker Solar Probe"
+first_author: "N. Sioulas"
 authors:
-  - "F. Pecora"
-  - "R. Bandyopadhyay"
-  - "D. Ruffolo"
-  - "W. H. Matthaeus"
-  - "T. N. Parashar"
-  - "R. Chhiber"
-  - "A. Chasapis"
+  - "N. Sioulas"
+  - "C. Shi"
+  - "Z. Huang"
+  - "M. Velli"
+authors_verified: true
 year: 2022
-journal: "TODO verify (MNRAS or ApJ 2022 per inventory)"
-doi: null
+journal: "The Astrophysical Journal Letters"
+volume: "935"
+doi: "10.3847/2041-8213/ac85de"
+doi_url: "https://doi.org/10.3847/2041-8213/ac85de"
 arxiv: "2206.10671"
+arxiv_url: "https://arxiv.org/abs/2206.10671"
+ads_bibcode_candidate: "2022ApJ...935L..27S"
+links_verified_on: "2026-05-19"
+links_verified_method: "arXiv landing page for 2206.10671 returns authors Nikos Sioulas, Chen Shi, Zesen Huang, Marco Velli and journal-ref DOI 10.3847/2041-8213/ac85de; IOPscience page for the journal DOI confirms title 'Preferential Heating of Protons over Electrons from Coherent Structures during the First Perihelion of the Parker Solar Probe', ApJL vol 935 (2022), Sioulas first author. ADS bibcode 2022ApJ...935L..27S is a candidate guess, not directly verified."
 theme: coronal_heating
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS MAG L2 RTN (PSP E1)"
-  - "PSP SWEAP/SPC L3 proton moments"
-  - "PSP SWEAP/SPAN-e L3 electron moments"
+  - "PSP FIELDS MAG L2 RTN (PSP E1, ~2018-11)"
+  - "PSP SWEAP/SPC L3 proton moments (PSP E1)"
+  - "PSP SWEAP/SPAN-e L3 electron moments (PSP E1)"
 methods:
-  - partial-variance-of-increments
-  - pvi-thresholding
+  - magnetic-gradient-identification
+  - partial-variance-of-increments-or-equivalent
+  - threshold-event-cataloging
   - conditional-superposed-epoch-averaging
   - proton-vs-electron-heating-signature
 validation_targets:
-  - "Conditional Delta T_p exceeds Delta T_e at high-PVI events in PSP E1 (preferential proton heating signature)"
-  - "Sign and qualitative magnitude match paper figure (TODO verify ratio)"
+  - "Conditional Delta T_p significantly exceeds Delta T_e at strong-magnetic-gradient events in PSP E1 (preferential proton heating signature; abstract-verified qualitative wording 'significantly greater')"
+  - "Heating attributed to a nonlinear turbulent cascade in the nascent solar wind (abstract-verified mechanism wording)"
+  - "Operational QC: (Delta T_p / <T_p>) / (Delta T_e / <T_e>) > 1 at the chosen threshold"
+  - "Quantitative Delta T_p / Delta T_e ratio TODO_verify in full paper (abstract uses qualitative 'significantly greater')"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.7"
 verification_flags:
-  - "Publication venue (MNRAS / ApJ) TODO verify."
-  - "Exact PVI threshold and averaging window used in paper TODO verify."
-  - "Quantitative Delta T_p/Delta T_e ratio TODO verify in full paper."
+  - "Lead-author attribution dispute: inventory says 'Pecora et al.'; arXiv 2206.10671 + DOI 10.3847/2041-8213/ac85de confirm Sioulas, Shi, Huang, Velli (four authors). Verified 2026-05-19. Slug retained for backwards compatibility."
+  - "Whether the paper uses the PVI metric specifically or a related gradient-amplitude diagnostic TODO_verify against §2 of the published paper."
+  - "PVI / gradient threshold and averaging window TODO_verify."
+  - "Quantitative Delta T_p / Delta T_e ratio TODO_verify against figures."
+  - "ADS bibcode 2022ApJ...935L..27S is a candidate guess; not directly verified."
+research_generation_affordances_present: true

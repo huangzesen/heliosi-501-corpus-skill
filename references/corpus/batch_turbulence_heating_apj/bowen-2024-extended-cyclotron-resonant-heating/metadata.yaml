@@ -1,19 +1,31 @@
 slug: bowen-2024-extended-cyclotron-resonant-heating
 title: "Extended Cyclotron Resonant Heating of the Turbulent Solar Wind"
+first_author: "T. A. Bowen"
 authors:
   - "T. A. Bowen"
-  - "A. Mallet"
-  - "J. Squire"
+  - "I. Y. Vasko"
   - "S. D. Bale"
+  - "B. D. G. Chandran"
+  - "A. Chasapis"
+  - "T. Dudok de Wit"
+  - "A. Mallet"
+  - "M. McManus"
+  - "R. Meyrand"
+  - "M. Pulupa"
+  - "J. Squire"
+authors_verified: true
 year: 2024
-journal: "TODO verify (ApJ per inventory)"
+journal: "arXiv:2406.10446 (TODO_verify ApJ journal-ref)"
 doi: null
 arxiv: "2406.10446"
+arxiv_url: "https://arxiv.org/abs/2406.10446"
+links_verified_on: "2026-05-19"
+links_verified_method: "arXiv landing page for 2406.10446 verified — full 11-author list (Bowen, Vasko, Bale, Chandran, Chasapis, Dudok de Wit, Mallet, McManus, Meyrand, Pulupa, Squire); abstract confirms ~15-55 R_sun range, LH ion-kinetic-scale wave signature at the transition range, and 'significant dissipation mechanism' conclusion. Journal DOI / ADS bibcode not yet registered on 2026-05-19."
 theme: waves_instabilities
 quality_level: pilot
 executable_status: scaffold
 required_data:
-  - "PSP FIELDS MAG L2 RTN at ion-scale resolution (Burst-mode)"
+  - "PSP FIELDS MAG L2 RTN at ion-scale resolution (Burst-mode preferred)"
   - "PSP SWEAP/SPC or SPAN-I L3 plasma moments"
 methods:
   - spectral-break-detection
@@ -21,12 +33,17 @@ methods:
   - left-hand-circular-ion-cyclotron-wave-identification
   - cyclotron-resonance-condition
   - quasilinear-cyclotron-heating-estimate
+  - cascade-rate-normalisation
 validation_targets:
-  - "LH-polarised ICW band detected near the spectral break across PSP fast streams ~15-55 R_sun"
-  - "Q_p,ICW radial profile consistent with paper (TODO verify magnitudes)"
+  - "LH-polarised ion-kinetic-scale wave band detected near the transition-range break across PSP intervals ~15-55 R_sun (abstract-verified)"
+  - "Q_p,ICW estimated from quasilinear theory + empirical f_p(v) is a 'significant fraction' of the turbulent cascade rate epsilon (abstract wording — do not widen to 'dominant')"
+  - "Per-interval Q_p,ICW magnitudes and radial Q_p,ICW(r) profile TODO_verify against figures of arXiv:2406.10446"
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.8"
 verification_flags:
-  - "Publication venue (ApJ) TODO verify."
-  - "Specific quasilinear Q_p,ICW formula TODO verify in full paper."
-  - "Encounter list / interval count TODO verify."
+  - "Full 11-author list and arXiv ID verified on 2026-05-19 via arxiv.org/abs/2406.10446."
+  - "Publication venue / journal DOI / ADS bibcode TODO_verify (not registered as of 2026-05-19)."
+  - "Specific quasilinear Q_p,ICW closed-form formula TODO_verify in full paper Methods."
+  - "Whether the conditioning is fast-wind-only or all-Alfvenic-intervals TODO_verify (abstract refers to 'the turbulent solar wind' without explicit stream-class threshold)."
+  - "Per-encounter list / interval count TODO_verify."
+research_generation_affordances_present: true
