@@ -16,9 +16,31 @@ required_data:
   - PSP/SWEAP L2 / L3 (various)
   - PSP/ISʘIS L2 / L3 (various)
 methods:
-  []
+  - per-instrument-archive-discovery
+  - signed-off-version-resolution
+  - direct-team-archive-fetch
+  - cdaweb-mirror-cross-check
 validation_targets:
-  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+  - "For a chosen PSP encounter (e.g. E10 perihelion), the FIELDS archive at https://fields.ssl.berkeley.edu/ exposes at least one signed-off L2 MAG product; SWEAP at http://sweap.cfa.harvard.edu/ exposes SPC + SPAN-I L3 moments; ISʘIS at https://spp-isois.princeton.edu/ exposes EPI-Lo / EPI-Hi L2 rates"
+  - "Direct team-archive fetch and the CDAWeb mirror dataset for the same encounter / product either match (bit-identity on arrays + same calibration version) or differ, in which case the diff is recorded as a verification flag — silently picking one is forbidden"
+  - "ISʘIS L3 'rates' files require explicit pitch-angle reconstruction; a reproduction that consumes them without pitch-angle reconstruction must error, not warn"
+research_generation_affordances:
+  - type: gap
+    statement: "No single canonical 'PSP archive paper' exists. The skill aggregates per-instrument archive URLs (FIELDS @ Berkeley, SWEAP @ SAO, ISʘIS @ Princeton, WISPR @ NRL) and is anchored by mission-overview + per-instrument hardware papers."
+    related_skills: ["bale-2016-fields-instrument-suite-psp", "kasper-2016-sweap-investigation-psp", "mccomas-2016-isois-energetic-particle-investigation-psp"]
+    proposed_action: "Treat the missing single citation as an immutable verification flag; cite the per-instrument hardware papers and the mission overview together, never silently bundle them into a single 'archive paper'."
+  - type: tension
+    statement: "CDAWeb mirrors PSP data but typically lags the SOC archives for recent encounters. A skill that defaults to CDAWeb for current-encounter PSP work silently retrieves stale or empty data. Conversely, defaulting to SOC means handling authentication and per-instrument URL drift."
+    related_skills: ["paper-cdaweb-heliophysics-archive"]
+    proposed_action: "Add a corpus-level routing rule: current-encounter PSP work routes through SOC; older (post-release) encounters route through CDAWeb. Record the rule in adapter_notes of downstream PSP paper-skills."
+  - type: minimal_experiment
+    statement: "For a single PSP encounter fully released to CDAWeb, fetch the same FIELDS MAG L2 product from SOC (Berkeley) and from CDAWeb and diff arrays + calibration version. Expected: bit-identity once mirroring is complete; any persistent diff is a calibration-version or mirroring-lag finding."
+    related_skills: ["paper-cdaweb-heliophysics-archive", "paper-cdflib-cdf-reader"]
+    proposed_action: "Commit the SOC vs CDAWeb diff harness; persistent divergence on a fully-released encounter blocks promotion of downstream PSP loaders past method-ready."
+  - type: open_question
+    statement: "ISʘIS L3 'rates' files require pitch-angle reconstruction (skill_memory failure mode). The corpus does not expose a reusable pitch-angle reconstruction sub-skill — every ISʘIS-consuming entry must rebuild it from L3 metadata."
+    related_skills: ["mccomas-2016-isois-energetic-particle-investigation-psp"]
+    proposed_action: "Add a shared pitch-angle reconstruction sub-skill at SEP/shocks promotion; surface the missing sub-skill as a verification flag on every ISʘIS-consuming paper-skill until it lands."
 source_inventory:
   - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
 links:

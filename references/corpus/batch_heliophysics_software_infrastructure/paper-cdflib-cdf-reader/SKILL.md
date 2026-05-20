@@ -45,7 +45,13 @@ algorithms:
     equation_refs: []
     external_implementations:
       - "https://github.com/MAVENSDC/cdflib"
-validation_target: null
+validation_target: >-
+  cdflib.CDF(known_psp_or_wind_cdf).cdf_info().zVariables matches the file's
+  published variable list (set equality); cdflib.cdfepoch.to_datetime
+  round-trips CDF_EPOCH, CDF_EPOCH16, and CDF_TIME_TT2000 samples to within
+  1 ns of their ISO-8601 timestamps with leap-seconds preserved on TT2000;
+  read/write/read on a synthetic CDF preserves shapes, dtypes, FILLVALs,
+  and attribute byte/str values bit-identically.
 links:
   doi_url: null
   arxiv_url: null
@@ -161,12 +167,30 @@ WebFetch).
 
 ## 5. Validation target → benchmark artifact
 
-> Not benchmarked yet — `method-ready`. Promotion to `executable`
-> requires:
-> - Reading a known PSP/Wind CDF, confirming variable names match an
->   archived `cdf_info` snapshot.
-> - Round-trip read/write/read of a small synthetic CDF without data
->   loss.
+**Concrete benchmark targets** (no numerical-tolerance file is shipped at
+`method-ready` tier; the targets are exact-equality / 1 ns checks):
+
+1. **Variable enumeration parity.** For at least one published PSP / Wind
+   / ACE CDF whose variable list is known (either from the file's own
+   catalog or from the CDAWeb `AvailableData` metadata),
+   `cdflib.CDF(path).cdf_info().zVariables` returns the *exact same set*
+   of variable names. Pass = set equality. A missing or extra variable
+   is a regression.
+2. **Epoch round-trip parity, all three epoch dtypes.** For each of
+   `CDF_EPOCH`, `CDF_EPOCH16`, and `CDF_TIME_TT2000`, a sample epoch
+   converted via `cdflib.cdfepoch.to_datetime` and then back to the
+   native CDF type must match the original to within **1 ns**. On
+   `CDF_TIME_TT2000` specifically, the round-trip must preserve leap
+   seconds (i.e. it cannot be a UNIX-epoch approximation).
+3. **Round-trip read/write/read parity.** On a small synthetic CDF
+   exercising at least one numerical variable, one epoch variable, one
+   `FILLVAL`, and one string attribute, the second read must be
+   bit-identical to the first across variable shapes, dtypes, fill
+   masks, and bytes-vs-str attribute values. No silent UTF-8 coercion
+   is allowed.
+
+`executable` promotion requires shipping a runnable harness for the three
+targets above plus a checked-in synthetic CDF.
 
 ## 6. Failure modes → skill memory
 
@@ -208,6 +232,44 @@ WebFetch).
 - `[[paper-spacepy-2022-twelve-years]]` — sibling tool (PyCDF) with
   different dependency footprint; cdflib is the modern lightweight
   default.
+
+## 10. Research-generation affordances  *(Layer 4)*
+
+- **Gap.** No dedicated JOSS / methods paper for cdflib has been
+  located in the local inventory. The skill is the *de-facto*
+  infrastructure anchor for the wave500 in-situ family but without a
+  citation surface. Until a JOSS paper exists, downstream paper-skills
+  should cite the GitHub repo and surface the missing citation as a
+  verification flag, not silently paper over it.
+- **Minimal experiment.** Run cdflib and SpacePy PyCDF on the same
+  PSP / Wind CDF and diff the returned arrays + epoch conversions. The
+  expected result is bit-identity; any silent disagreement is itself a
+  science finding (epoch-type handling drift, FILLVAL masking
+  asymmetry, attribute-encoding drift). Record divergences as
+  verification flags on this skill before promoting any downstream
+  loader.
+- **Composable experiment.** Compose cdflib with
+  `[[paper-cdaweb-heliophysics-archive]]` and
+  `[[paper-pyspedas-multimission-data-access]]` to build a regression
+  sweep: download a fixed PSP/FIELDS interval via three different
+  routes (cdas API + cdflib direct read, sunpy.net.cdaweb + cdflib,
+  pyspedas tplot) and confirm the resulting numpy arrays are
+  byte-identical. Any cross-route disagreement is a corpus-level
+  consistency bug, not a user error.
+- **Open question.** How tightly is the wave500 in-situ family's
+  contract coupled to cdflib's per-epoch-type return dtype? A breaking
+  change in cdflib's epoch handling would propagate silently to every
+  PSP / Wind / ACE consumer, because the contract is *return-dtype*
+  rather than *return-shape*. A future hardening step is to add a
+  graph-wide regression sweep that re-validates downstream loaders on
+  every cdflib release pin.
+- **Tension.** cdflib's "pure-Python, no C library" pitch makes it the
+  default for portability — but full-day high-cadence reads can stress
+  Python memory in ways that the NASA C library plus PyCDF avoid (the
+  C reader streams). A composable experiment would benchmark the two
+  on a representative PSP encounter day and document the regime in
+  which PyCDF still beats cdflib; the corpus-level recommendation
+  should not be "always cdflib" without that benchmark.
 
 ## Notes
 

@@ -11,21 +11,30 @@ year: 2021
 journal: "The Astrophysical Journal Letters"
 volume_page: "912, L21"
 doi: "10.3847/2041-8213/abf7d1"
+doi_url: "https://doi.org/10.3847/2041-8213/abf7d1"
 arxiv: null
+links_verified_on: "2026-05-19"
+links_verified_method: "IOPscience DOI resolves; conjunction window (PSP 2020-09-27 / SO 2020-10-02) and longitude tolerance (±1.5°) extracted from article"
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
 required_data:
   - "PSP FIELDS MAG L2, SWEAP L3 during first PSP-SO radial alignment"
   - "Solar Orbiter MAG L2, SWA/PAS L2/L3 during first PSP-SO radial alignment"
+  - "Spacecraft ephemerides for ±1.5° heliographic-longitude conjunction window"
 methods:
   - psp-solo-conjunction-identification
+  - ballistic-or-parker-spiral-parcel-mapping
   - elsasser-variables
   - normalised-cross-helicity-sigma-c
   - residual-energy-sigma-R
   - politano-pouquet-cascade-rate
+  - magnetic-trace-psd-slope-fit
 validation_targets:
-  - "sigma_c, sigma_R, epsilon computed at PSP (~0.1 au) and SO (~1 au); direction of evolution matches paper's reported trend (TODO verify direction in full paper)"
+  - "Conjunction window: PSP at ~0.1 au on 2020-09-27 maps to SO at ~1 au around 2020-10-02 within ±1.5° heliographic longitude and ±5 km/s V_sw tolerance (article-verified 2026-05-19)"
+  - "Magnetic-trace spectral exponent evolves from ~-3/2 at PSP toward Kolmogorov ~-5/3 at SO (article-verified 2026-05-19)"
+  - "Plasma evolves from highly Alfvénic, less-developed turbulence (high sigma_c, low |sigma_R|) at PSP to fully developed intermittent turbulence at SO (article-verified 2026-05-19; per-spacecraft sigma_c/sigma_R numerical values not extracted at this verification depth)"
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.11"
   - ".library/custom/heliophysics-skills/SKILL.md (Solar Wind Turbulence and Heating #11)"

@@ -107,7 +107,7 @@ class TestLayerPopulationAuditMatchesDocs(unittest.TestCase):
         # the roundtrip through JSON produces string keys.
         self.assertEqual(
             s["distribution_by_n_true"],
-            {"1": 90, "2": 39, "3": 96},
+            {"1": 87, "2": 42, "3": 96},
         )
         self.assertEqual(
             s["per_layer_true"],
@@ -115,7 +115,7 @@ class TestLayerPopulationAuditMatchesDocs(unittest.TestCase):
                 "scientific_invariant": 225,
                 "executable_protocol": 96,
                 "adapter_binding_examples": 0,
-                "research_generation_affordance": 135,
+                "research_generation_affordance": 138,
             },
         )
 

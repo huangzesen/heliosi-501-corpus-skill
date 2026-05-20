@@ -21,15 +21,25 @@ This is the **3D follow-up** to [[sioulas-2023-anisotropic-scaling-inner-heliosp
 
 ## Paper identity and claim boundary
 
-- **Citation**: Sioulas, N., Zikopoulos, T., Shi, C., Velli, M. (2024). *Higher-Order Analysis of Three-Dimensional Anisotropy in Imbalanced Alfvénic Turbulence*.
-- **arXiv**: [2404.04055](https://arxiv.org/abs/2404.04055)
+- **Citation**: Sioulas, N., Zikopoulos, T., Shi, C., Velli, M., Bowen, T., Mallet, A., Sorriso-Valvo, L., Verdini, A., Chandran, B. D. G., Martinović, M. M., Cerri, S. S., Davis, N., Dunn, C. (2024). *Higher-Order Analysis of Three-Dimensional Anisotropy in Imbalanced Alfvénic Turbulence*.
+- **arXiv**: [2404.04055](https://arxiv.org/abs/2404.04055) (verified 2026-05-19; full author list from arXiv abstract page)
+- **Venue**: arXiv preprint as of 2026-05-19; no peer-reviewed venue confirmed at this verification depth.
 - **Source inventory**: `sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md` entry #11 (2024). Also referenced in `apj_aa_heliophysics_papers.md` §1.2 as the "companion 2404.04055 for 3D anisotropy follow-up" to Sioulas 2023.
 
-**Claim boundary** — supported by inventory:
+**Evidence boundary — what the abstract supports (verified 2026-05-19 via arXiv 2404.04055 abstract):**
 
-> 3D structure-function analysis (n up to high order) decomposed into parallel/perpendicular/fluctuation-direction axes; tests of Critical Balance vs Scale-Dependent Dynamic Alignment for z± modes; exponents ζ_n binned by σ_c; identification of two sub-inertial segments and an "anomalous coherence" regime.
+- 3D structure-function analysis of imbalanced solar-wind turbulence, decomposed by axis, evaluating Critical Balance (CB) vs Scale-Dependent Dynamic Alignment (SDDA).
+- **Cascade regimes for z± modes**: outgoing z+ modes remain *weakly cascading* across the inertial range; ingoing z- modes *transition to strong cascading* at λ ≈ 3 × 10⁴ d_i.
+- **Eddy topology evolution**: field-aligned-tube topology onsets around λ ≳ 100 d_i; current-sheet-like structures appear at smaller scales; the system becomes quasi-isotropic near λ ≈ 8 d_i (i.e. anisotropy *reverses* at this scale).
+- **Higher-order exponents**: ζ_n of conditional structure functions match Chandran et al. (2015) / Mallet et al. (2017) SDDA-tightening predictions at larger scales (multifractal, strongly intermittent); below λ ≈ 100 d_i, ζ_n is *linear in n* (monofractal regime).
+- **Methodological**: a **5-point** structure-function estimator is used as a higher-resolution alternative to the conventional 2-point estimator, particularly important for steeper scalings at small scales.
 
-The specific functional forms of CB / SDDA predictions, the exact ζ_n numbers, and the boundary scales of the two sub-inertial segments are **TODO verify in full paper**.
+**Out-of-evidence-boundary at this verification depth (still TODO_verify_with_full_text):**
+
+- The exact σ_c-bin thresholds used to define "imbalanced", and the highest moment order n for which ζ_n is reported.
+- The specific PSP encounter list and interval-duration distribution.
+- The numerical values of zeta_n^a per (axis, σ_c bin, n) — extracted only from the table set in the full paper, not the abstract.
+- Whether the small-scale ζ_n linearity is interpreted in the paper as evidence for *tearing-driven* sub-inertial cascade or for the *ion-cyclotron / helicity-barrier* alternative — both are noted in the abstract as candidate mechanisms; the abstract does not adjudicate.
 
 ## Scientific claim to reproduce or operationalize
 
@@ -59,12 +69,19 @@ Time range: PSP encounters with high-quality MAG + SPC/SPAN-I coverage on interv
 
 ## Minimal executable benchmark or validation target
 
-**Target**: a per-σ_c-bin set of ζ_n^∥, ζ_n^⊥, ζ_n^fluct profiles in the inertial range that (qualitatively) selects between CB and SDDA in the direction reported by the paper (TODO verify direction in full paper).
+**Primary targets** (abstract-verified 2026-05-19):
+
+1. **Cascade-strength asymmetry**: across the inertial range, the outgoing z+ mode stays weakly cascading; the ingoing z- mode crosses to strong cascading near λ ≈ 3 × 10⁴ d_i. The crossing scale (in d_i) should be recovered to within a factor ~2 on a comparable PSP imbalanced-Alfvénic interval set.
+2. **Topology / anisotropy reversal**: eddies are field-aligned tubes for λ ≳ 100 d_i, evolve to current-sheet-like structures at smaller scales, and reach quasi-isotropy near λ ≈ 8 d_i. The pipeline must reproduce both crossover scales qualitatively (order-of-magnitude tolerance) on the same intervals.
+3. **ζ_n behaviour**: at large scales (λ above the topology-transition scale), ζ_n follows the SDDA-tightening template of Chandran et al. (2015) / Mallet et al. (2017); below λ ≈ 100 d_i, ζ_n becomes *linear in n* (monofractal). The qualitative break in the ζ_n(n) curve at the topology-transition scale is the discriminator.
+
+**Methodological constraint** (paper-specified): use a 5-point structure-function estimator rather than the 2-point estimator for steep small-scale slopes. Reporting a 2-point-only result is *not* a faithful reproduction of this paper's method.
 
 Artifacts:
 
-- `sioulas2024_zeta_n.csv` — columns: sigma_c_bin, axis (par/perp/fluct), n, zeta_n, fit_uncertainty.
-- a multi-panel ζ_n^a vs n figure overlaid with CB / SDDA reference curves.
+- `sioulas2024_zeta_n.csv` — columns: sigma_c_bin, axis (par/perp/fluct), lambda_over_di, n, zeta_n, fit_uncertainty, estimator (2pt|5pt).
+- A multi-panel ζ_n^a vs n figure overlaid with CB / SDDA reference curves and a vertical guide at λ ≈ 100 d_i and λ ≈ 8 d_i.
+- A scalar QC: scale of the z- weak→strong cascade transition (target ~3 × 10⁴ d_i).
 
 ## Known pitfalls / failure modes
 
@@ -86,6 +103,15 @@ Compiled as an agent-native Anthropic-style Skill:
 
 The Claude Code harness is the **general-purpose runtime**; HelioSI is its **domain instantiation as a skill graph**.
 
+## Layer 4 — Research-generation affordances
+
+- **Gap:** the abstract names *two* candidate mechanisms for the small-scale ζ_n linearity — tearing-instability-driven reconnection and ion-cyclotron-wave-driven dissipation via a helicity-barrier transition — but does not adjudicate. The clean composable question is: *does the topology-transition scale (~100 d_i) coincide with the helicity-barrier scale inferred independently in the same intervals?* If yes, the helicity-barrier interpretation is favoured; if not, the tearing interpretation gains weight.
+- **Tension:** the 2D predecessor [[sioulas-2023-anisotropic-scaling-inner-heliosphere]] interprets the inertial-range scaling in a CB-friendly framework, while this 3D follow-up reports SDDA-tightening at large scales and ζ_n linearity at small scales. The contradiction is not actual — the two papers operate on different *axes* — but agents synthesizing both must report the projection convention before claiming either CB or SDDA "won".
+- **Hypothesis:** the z+ vs z- cascade-strength asymmetry (weak vs strong, transition at ~3 × 10⁴ d_i for z-) should *strengthen* with stronger imbalance (|σ_c| → 1) and *weaken* toward σ_c → 0 — a falsifiable prediction by stratifying the same pipeline across σ_c bins finer than the paper's reported bins.
+- **Minimal_experiment:** re-run the 5-point structure-function pipeline on a *balanced* (|σ_c| < 0.3) PSP interval set; the topology transition at ~100 d_i and the isotropy crossover at ~8 d_i should *disappear or shift* if these features are imbalance-driven rather than universal. If they persist, they are signatures of the kinetic transition itself, not of the cascade-strength asymmetry.
+- **Composable experiment:** join the per-σ_c-bin ζ_n table to [[sioulas-2022-magnetic-field-intermittency-psp-solo]]'s κ(r) intermittency table — testing whether ζ_n in the field-aligned-tube regime (λ > 100 d_i) co-varies with κ(r) would tell us whether the SDDA-tightening at large scales is the *same* phenomenon as the small-scale radial monotonicity in κ. Layer 4 of sioulas-2022 already names this composition as worth doing; this entry is the natural 3D counterpart.
+- **Open_question:** is the methodological switch from 2-point to 5-point structure functions a *necessary* condition to see the linear-ζ_n regime below ~100 d_i, or a *sufficient* one? Running both estimators side-by-side on the same intervals at a tier-promotion benchmark would isolate the estimator effect from the physics.
+
 ## Relation to HelioSI harness + skills + MCPs
 
 - **Parent skill**: HelioSI `solar-wind-turbulence` sub-graph.
@@ -100,4 +126,6 @@ The Claude Code harness is the **general-purpose runtime**; HelioSI is its **dom
 
 - Inventory: `solar_wind_turbulence_2020_2026.md` entry #11 (2024).
 - Inventory cross-reference: `apj_aa_heliophysics_papers.md` §1.2 ("companion 2404.04055").
-- arXiv: https://arxiv.org/abs/2404.04055
+- arXiv: https://arxiv.org/abs/2404.04055 (abstract verified 2026-05-19; full author list and scale transitions ~3×10⁴ d_i, ~100 d_i, ~8 d_i extracted from abstract)
+- Chandran, Schekochihin, Mallet (2015) — SDDA theoretical framework (referenced by the paper's abstract).
+- Mallet, Schekochihin, Chandran (2017) — refined SDDA / dynamic-alignment scaling (referenced by the paper's abstract).

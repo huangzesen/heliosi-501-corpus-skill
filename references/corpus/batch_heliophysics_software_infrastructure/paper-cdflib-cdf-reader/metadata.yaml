@@ -17,9 +17,19 @@ methods:
   - Epoch conversion (CDF_EPOCH / CDF_EPOCH16 / CDF_TIME_TT2000)
   - CDF writer (cdflib.cdfwrite)
 validation_targets:
-  - Open known PSP/Wind CDF and enumerate variables
-  - Epoch conversion matches expected ISO timestamps
-  - Round-trip read/write/read on synthetic CDF
+  - "cdflib.CDF(<known PSP/Wind CDF>).cdf_info().zVariables enumerates the file's published variable list (set equality against AvailableData metadata or the file's own catalog)"
+  - "cdflib.cdfepoch.to_datetime applied to CDF_EPOCH, CDF_EPOCH16, and CDF_TIME_TT2000 samples round-trips to within 1 ns of the corresponding ISO-8601 timestamp; TT2000 case preserves leap-seconds"
+  - "Round-trip read/write/read of a small synthetic CDF preserves variable shapes, dtypes, FILLVAL attributes, and bytes-vs-str attribute values bit-identically"
+research_generation_affordances:
+  - type: gap
+    statement: "No dedicated JOSS / methods paper has been located in the local inventory; cdflib is the de-facto infrastructure anchor without a citation surface."
+    proposed_action: "Locate or sponsor a JOSS publication for cdflib; until then, downstream paper-skills should cite the GitHub repo (https://github.com/MAVENSDC/cdflib) and surface the missing citation as a verification_flag."
+  - type: minimal_experiment
+    statement: "Run cdflib and SpacePy PyCDF on the same PSP/FIELDS L2 CDF and diff arrays + epoch conversions. Any silent disagreement is a science result, not a debugging step — record it as a verification flag on cdflib."
+    proposed_action: "Promote to executable tier by committing the diff script and a checked-in synthetic CDF; gate the wave500 in-situ family on a green diff."
+  - type: open_question
+    statement: "How much of the wave500 in-situ family's contract is silently coupled to cdflib's per-epoch-type return dtype? A breaking cdflib upgrade would propagate to every PSP / Wind / ACE consumer in the corpus."
+    proposed_action: "Treat this skill as a depends_on root and add a corpus-graph regression sweep that re-validates downstream loaders on every cdflib release pin."
 source_inventory:
   - .library/custom/heliophysics-skills/sub-skills/github-repos.md (cdflib entry)
   - .library/custom/heliophysics-skills/reference/databases.md (cdflib usage pattern)

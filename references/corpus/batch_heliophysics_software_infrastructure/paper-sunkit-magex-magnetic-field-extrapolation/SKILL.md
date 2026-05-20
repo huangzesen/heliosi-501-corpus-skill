@@ -52,7 +52,13 @@ algorithms:
     equation_refs: []
     external_implementations:
       - "https://github.com/sunpy/sunkit-magex"
-validation_target: null
+validation_target: >-
+  PFSS on a chosen synoptic magnetogram reproduces input B_r at r = R_sun
+  to within 1e-12 relative residual (boundary-condition numerical sanity);
+  SCS extension matches the Schatten 1971 construction inside [R_ss, R_cs]
+  with R_cs set explicitly per run; pfsspy and sunkit-magex on identical
+  (nr, R_ss) inputs agree at the source surface to within a documented
+  tolerance, and any larger residual is reported as a science result.
 links:
   doi_url: null
   arxiv_url: null
@@ -172,12 +178,32 @@ Same as `[[paper-stansby-2020-pfsspy-python-pfss]]`. Inputs:
 
 ## 5. Validation target → benchmark artifact
 
-> Not benchmarked yet — `method-ready` tier. Promotion to `executable`
-> requires:
-> - Running PFSS + SCS on a chosen CR.
-> - Producing a side-by-side comparison with pfsspy on the same CR.
-> - Emitting `metrics.json` with `{max_dB_per_pixel, mean_dB_per_pixel}`
->   between pfsspy and sunkit-magex.
+**Concrete benchmark targets** (`method-ready` tier; these are the
+gates an executable-tier promotion must pass):
+
+1. **PFSS boundary-condition residual.** On a chosen synoptic
+   magnetogram with chosen `(nr, R_ss)`, the PFSS solution must
+   reproduce the input `B_r(theta, phi)` at `r = R_sun` to within
+   **`1e-12`** relative residual per pixel. This is a numerical
+   sanity check on the solver, not a science target.
+2. **SCS continuity at R_ss and matching to Schatten 1971.** With an
+   explicitly chosen `R_cs > R_ss`, the SCS field inside
+   `[R_ss, R_cs]` must match the Schatten 1971 construction to within
+   a documented tolerance. `R_cs` is set per run; there is no
+   implicit default. Skills that need a default must record it as an
+   adapter note, not infer it.
+3. **Side-by-side pfsspy / sunkit-magex parity.** Running pfsspy and
+   sunkit-magex on the *same* HMI/GONG synoptic CR with the *same*
+   `(nr, R_ss)` settings, per-pixel `B` at the source surface must
+   agree to within a documented tolerance. Any residual exceeding the
+   tolerance is itself a science result and must be reported (not
+   silently absorbed into either tool's output). `metrics.json`
+   carries `{max_dB_per_pixel, mean_dB_per_pixel, R_ss, nr, CR}`.
+
+`executable` promotion requires shipping a runnable harness for these
+targets *and* the result of running the harness on at least one
+Carrington rotation (e.g. CR 2282, paired with the Wu 2026 open-flux
+reproduction target in `[[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]`).
 
 ## 6. Failure modes → skill memory
 
@@ -219,6 +245,46 @@ maintained successor to pfsspy.
   test-problem validation history.
 - `[[paper-sunpy-2023-interoperable-ecosystem]]` — sunkit-magex is an
   affiliated package and inherits the SunPy interop contract.
+
+## 10. Research-generation affordances  *(Layer 4)*
+
+- **Gap.** No companion JOSS / A&A publication for sunkit-magex has
+  been located in the local inventory. Downstream PFSS paper-skills
+  that call sunkit-magex (rather than pfsspy) inherit this missing
+  citation as a verification flag. The choice of solver is itself a
+  methodological decision and must be recorded explicitly, not
+  silently defaulted.
+- **Minimal experiment.** On a single Carrington rotation (e.g.
+  CR 2282, which carries the Wu 2026 open-flux target), run pfsspy
+  and sunkit-magex with identical `(nr, R_ss)` and compute
+  `max |dB|/|B|` and `mean |dB|/|B|` at the source surface. If
+  `max |dB|/|B| > 1%`, the discrepancy is the discovery and must be
+  reported in `metrics.json`. This experiment is the natural
+  executable-tier promotion gate for this skill.
+- **Tension.** The corpus's only end-to-end-reproduced PFSS entry,
+  `[[wu-2026-nonspherical-coronal-magnetic-field-open-flux]]`,
+  used **pfsspy** and obtained open flux 9.09 vs paper 9.19
+  G·R²_sun (1.1% error) on GONG CR 2282 with `R_ss = 2.5`. Re-running
+  that exact configuration on sunkit-magex would either *confirm*
+  cross-solver robustness or *break* it. The corpus has no claim
+  one way or the other yet — do not promote sunkit-magex past
+  `method-ready` until that delta is known and documented.
+- **Open question.** Is sunkit-magex's SCS module a complete
+  numerical re-implementation of Schatten 1971, or a thin wrapper
+  over a different scheme? Without a methods paper, the corpus must
+  verify against the source rather than against a published spec.
+  Audit the SCS code path against Schatten 1971 equation-by-equation
+  and record the mapping in `adapter_notes`.
+- **Composable experiment.** Compose sunkit-magex with
+  `[[paper-jsoc-stanford-aia-hmi-archive]]` to pull a fresh HMI
+  synoptic, run PFSS + SCS, and feed the resulting magnetic
+  connectivity into a PSP / SO footpoint-mapping paper-skill — a
+  full coronal-to-in-situ chain whose *cross-solver* sensitivity is
+  unknown until the diff experiment above is run.
+- **Cross-corpus dependency surface.** sunkit-magex is an upstream
+  surface for every "PFSS-based footpoint mapping" downstream skill;
+  a solver behaviour change here propagates silently. Treat this
+  skill as a watch point for the wave500 PFSS family.
 
 ## Notes
 

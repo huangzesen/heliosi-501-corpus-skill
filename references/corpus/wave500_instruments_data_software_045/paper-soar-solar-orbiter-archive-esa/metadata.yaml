@@ -18,10 +18,29 @@ required_data:
   - SO/METIS L2 (campaign-dependent)
   - SO/EPD L2 (varies)
 methods:
-  - TAP (Table Access Protocol) query for SO observations
-  - sunpy.net.Fido SOAR provider
+  - "TAP (Table Access Protocol) query for SO observations"
+  - "sunpy.net.Fido SOAR provider (sunpy.net.dataretriever.SOARClient)"
+  - "data-rights / proprietary-window awareness"
+  - "calibration-version pinning per release notes"
 validation_targets:
-  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+  - "A TAP query for SO/MAG L2 over a chosen released interval (post proprietary window) returns a non-empty observation list with the expected file metadata (calibration version, time bounds, file size)"
+  - "sunpy.net.Fido SOARClient on the same interval returns the same observation set as TAP (cross-client parity); any mismatch is a Fido-side bug or a TAP-side filter mismatch and must be flagged"
+  - "A query for an in-flight encounter inside the proprietary window returns an empty result deterministically (not a 5xx); the skill MUST distinguish 'data exists but is proprietary' from 'data does not exist' and surface the former to the user"
+research_generation_affordances:
+  - type: gap
+    statement: "Companion paper Sanchez et al. 2024 A&A on SOAR is referenced in metadata but the exact DOI is not verified in the local inventory. The skill should anchor the SOAR description to a verified A&A DOI rather than to ESA documentation alone."
+    proposed_action: "Locate Sanchez et al. 2024 A&A DOI via ADS (search title 'Solar Orbiter Archive') and add to verified_links; until then, treat the missing DOI as a verification flag."
+  - type: tension
+    statement: "SOAR holds calibrated L1+L2 (and some L3) products, but many L3 products live in PI repositories first and only migrate to SOAR later. A skill that assumes SOAR is complete for L3 will silently miss in-PI products."
+    related_skills: ["paper-cdaweb-heliophysics-archive"]
+    proposed_action: "Add an L3-routing rule to downstream SO paper-skills: query SOAR; on empty L3, surface the missing-from-SOAR status rather than auto-substituting a CDAWeb mirror (which lags) or claiming the L3 does not exist."
+  - type: minimal_experiment
+    statement: "For a fully-released SO encounter, pull the same SO/MAG L2 dataset from SOAR and from its CDAWeb mirror and diff arrays + calibration version. Expected: bit-identity once mirroring is complete; any persistent diff reveals a mirroring lag or a calibration-version skew."
+    related_skills: ["paper-cdaweb-heliophysics-archive", "paper-psp-soc-science-operations-center-archive"]
+    proposed_action: "Commit the SOAR vs CDAWeb diff harness; treat persistent divergence as a blocker for promoting downstream SO paper-skills past method-ready."
+  - type: open_question
+    statement: "Proprietary windows are typically 3 months but vary by instrument and data-rights agreement. The corpus has no per-instrument proprietary-window table; a paper-skill targeting a recent encounter cannot determine in advance whether the data is fetchable."
+    proposed_action: "Add a per-instrument proprietary-window table (SO/MAG, SO/SWA, SO/EPD, SO/EUI, SO/METIS, SO/PHI, SO/SPICE, SO/STIX, SO/RPW) to adapter_notes; refresh it from the SOAR release-notes page at executable-tier promotion."
 source_inventory:
   - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
 links:

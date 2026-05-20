@@ -13,7 +13,7 @@ layers:
   scientific_invariant: true
   executable_protocol: false
   adapter_binding_examples: false
-  research_generation_affordance: false
+  research_generation_affordance: true
 paper:
   title: The Solar Orbiter Archive (SOAR)
   first_author: ESAC Solar Orbiter Archive team
@@ -73,7 +73,14 @@ algorithms:
     equation_refs: []
     external_implementations:
       - sunpy.net.dataretriever.SOARClient
-validation_target: null
+validation_target: >-
+  A TAP query for SO/MAG L2 over a chosen released interval returns a
+  non-empty observation list with expected calibration-version and time
+  bounds; sunpy.net.Fido SOARClient on the same interval returns the
+  same observation set as TAP (cross-client parity); an in-flight
+  encounter inside the proprietary window returns deterministically
+  empty (not 5xx) and the skill distinguishes 'proprietary' from
+  'absent'.
 links:
   doi_url: null
   arxiv_url: null
@@ -96,7 +103,21 @@ failure_modes:
 depends_on:
   - muller-2020-solar-orbiter-mission-overview
 adapter_notes: []
-research_generation_affordances: []
+research_generation_affordances:
+  - type: gap
+    statement: "Companion paper Sanchez et al. 2024 A&A on SOAR is referenced but the exact DOI is not verified in the local inventory."
+    proposed_action: "Locate Sanchez et al. 2024 A&A DOI via ADS and add to verified_links; until then, treat the missing DOI as a verification flag."
+  - type: tension
+    statement: "SOAR holds calibrated L1+L2 (and some L3) products, but many L3 products live in PI repositories first. A skill assuming SOAR is complete for L3 silently misses in-PI products."
+    related_skills: ["paper-cdaweb-heliophysics-archive"]
+    proposed_action: "Add an L3-routing rule to downstream SO paper-skills: query SOAR; on empty L3, surface the missing-from-SOAR status rather than auto-substituting a CDAWeb mirror or claiming the L3 does not exist."
+  - type: minimal_experiment
+    statement: "For a fully-released SO encounter, pull the same SO/MAG L2 dataset from SOAR and from its CDAWeb mirror and diff arrays + calibration version. Expected: bit-identity once mirroring is complete; any persistent diff reveals a mirroring lag or calibration-version skew."
+    related_skills: ["paper-cdaweb-heliophysics-archive", "paper-psp-soc-science-operations-center-archive"]
+    proposed_action: "Commit the SOAR vs CDAWeb diff harness; persistent divergence blocks promotion of downstream SO paper-skills past method-ready."
+  - type: open_question
+    statement: "Proprietary windows vary by instrument and data-rights agreement. The corpus has no per-instrument proprietary-window table; a paper-skill targeting a recent encounter cannot pre-determine fetchability."
+    proposed_action: "Add a per-instrument proprietary-window table (SO/MAG, SWA, EPD, EUI, METIS, PHI, SPICE, STIX, RPW) to adapter_notes; refresh from SOAR release notes at executable-tier promotion."
 provenance:
   generated_by: "HelioSI paper-to-skill factory@2026-05-18"
   generated_at: "2026-05-18T00:00:00Z"
@@ -157,7 +178,28 @@ Each row is a *capability requirement*: a runtime adapter must be able to discov
 
 ## 5. Validation target → benchmark artifact  *(Layer 2)*
 
-> Not benchmarked yet — `method-ready`. Promotion to `executable` requires (a) a smoke-test that exercises the §4 contract end-to-end and (b) setting `validation_target` to a numerical / observational target with tolerance.
+**Concrete benchmark targets** (`method-ready` tier):
+
+1. **TAP query parity.** A TAP query for SO/MAG L2 over a chosen
+   released interval (post-proprietary window) returns a non-empty
+   observation list with the expected file metadata: calibration
+   version, time bounds, file size. The published time bounds must
+   match the encounter timeline.
+2. **Fido SOARClient cross-client parity.** `sunpy.net.Fido` with
+   the SOAR provider on the same interval returns the same
+   observation set as the direct TAP query. Any mismatch is a
+   Fido-side bug or a TAP-side filter mismatch and must be
+   flagged, not silently absorbed.
+3. **Proprietary-vs-absent discrimination.** A query for an
+   in-flight encounter inside the proprietary window must return
+   deterministically empty (not a 5xx) *and* the skill must
+   distinguish "data exists but is proprietary" from "data does
+   not exist". The two cases call for different downstream
+   actions — silently treating both as "no data" is a silent-
+   wrong-answer failure mode.
+
+`executable` promotion requires running these three checks on at
+least one released and one proprietary-window interval.
 
 ## 6. Failure modes → skill memory  *(Layer 1)*
 
@@ -193,7 +235,49 @@ No adapter binding examples recorded; the §4 contract is sufficient for any har
 
 **Research-generation affordances.**
 
-No research-generation affordances identified yet.
+- **Gap.** Companion paper Sanchez et al. 2024 A&A on SOAR is
+  referenced in the corpus but the exact DOI is not verified in
+  the local inventory. Until the DOI is located via ADS and added
+  to `verified_links`, the missing citation is a verification
+  flag on this skill and on every downstream SO paper-skill that
+  cites SOAR.
+- **Tension.** SOAR holds calibrated L1+L2 (and some L3) products,
+  but many L3 products live in PI repositories first and only
+  migrate to SOAR later. A skill that assumes SOAR is complete
+  for L3 will silently miss in-PI products. The corpus-level
+  resolution is an L3-routing rule on downstream SO paper-skills:
+  query SOAR; on empty L3, surface the *missing-from-SOAR* status
+  rather than auto-substituting the CDAWeb mirror (which lags)
+  or claiming the L3 does not exist.
+- **Minimal experiment.** For a fully-released SO encounter, pull
+  the same SO/MAG L2 dataset from SOAR and from its CDAWeb mirror
+  and diff arrays + calibration version. Expected: bit-identity
+  once mirroring is complete. Any persistent diff reveals a
+  mirroring lag or calibration-version skew, and is a blocker for
+  promoting downstream SO paper-skills past `method-ready`. This
+  is the SO counterpart of the SOC-vs-CDAWeb experiment in
+  `[[paper-psp-soc-science-operations-center-archive]]`.
+- **Open question.** Proprietary windows are typically 3 months
+  but vary by instrument and data-rights agreement. The corpus
+  has no per-instrument proprietary-window table; a paper-skill
+  targeting a recent encounter cannot pre-determine fetchability.
+  A future hardening step is a per-instrument proprietary-window
+  table (SO/MAG, SO/SWA, SO/EPD, SO/EUI, SO/METIS, SO/PHI,
+  SO/SPICE, SO/STIX, SO/RPW), refreshed from SOAR release notes
+  at executable-tier promotion.
+- **Composable experiment.** Compose SOAR with
+  `[[paper-psp-soc-science-operations-center-archive]]` for a
+  *cross-mission Lagrangian conjunction* probe: given a SOAR
+  query window matching a PSP encounter (e.g. the 2020-09-27 /
+  2020-10-02 first radial alignment from
+  `[[telloni-2021-psp-solo-radial-alignment-turbulence]]`),
+  return matched PSP + SO product pairs ready for downstream
+  cascade-rate / σ_c analysis.
+- **Cross-corpus dependency surface.** Every downstream SO
+  paper-skill resolves through SOAR; behaviour change here
+  (TAP schema change, proprietary-window policy change, Fido
+  client drift) propagates silently. Treat this skill as a watch
+  point for the wave500 SO family.
 
 ## Weak entries / citation TODOs
 

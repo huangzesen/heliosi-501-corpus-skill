@@ -18,9 +18,24 @@ methods:
   - PFSS solver (sunkit-magex.pfss)
   - Schatten Current Sheet (SCS) extension
 validation_targets:
-  - PFSS on a synoptic map reproduces input B_r at r=R_sun
-  - SCS field matches Schatten construction inside [R_ss, R_cs]
-  - Side-by-side numerical agreement with pfsspy on identical inputs (discrepancy reported)
+  - "PFSS solution on a chosen synoptic magnetogram reproduces the input B_r(theta, phi) at r = R_sun to within 1e-12 relative residual (boundary-condition numerical sanity check)"
+  - "Schatten Current Sheet (SCS) extension matches the Schatten 1971 construction inside [R_ss, R_cs]; R_cs is set explicitly per run (no implicit default)"
+  - "pfsspy and sunkit-magex on the same HMI/GONG synoptic CR with identical (nr, R_ss) produce per-pixel B at the source surface that agree to within a documented tolerance; any residual exceeding the tolerance is the science result and must be reported"
+research_generation_affordances:
+  - type: gap
+    statement: "No companion JOSS/A&A publication for sunkit-magex has been located in the local inventory; the package is the supported successor to pfsspy but is cited via GitHub only."
+    proposed_action: "Surface the missing citation as a verification flag on every downstream PFSS paper-skill that calls sunkit-magex (vs pfsspy); the solver choice is itself a methodological decision the corpus should record."
+  - type: minimal_experiment
+    statement: "On a single Carrington rotation (e.g. CR 2282) with HMI/GONG synoptic maps, run pfsspy and sunkit-magex with identical (nr, R_ss). Compute max and mean |dB|/|B| at the source surface. If max |dB|/|B| > 1%, the discrepancy is the discovery."
+    related_skills: ["paper-stansby-2020-pfsspy-python-pfss", "wu-2026-nonspherical-coronal-magnetic-field-open-flux"]
+    proposed_action: "Commit the diff harness as the executable-tier promotion gate for sunkit-magex; gate the wave500 PFSS family on a green diff."
+  - type: tension
+    statement: "Wu 2026 (the corpus's only locally-reproduced PFSS entry) used pfsspy to obtain open flux 9.09 vs paper 9.19 G·R_sun^2 (1.1%). Re-running with sunkit-magex on the identical GONG map could either confirm (cross-solver robust) or break (solver-sensitive) that result."
+    related_skills: ["wu-2026-nonspherical-coronal-magnetic-field-open-flux"]
+    proposed_action: "Add a tier-promotion target that runs the Wu 2026 reproduction on sunkit-magex and reports the open-flux delta; do not promote sunkit-magex past method-ready until that delta is known and documented."
+  - type: open_question
+    statement: "Is sunkit-magex's SCS module a complete numerical re-implementation of Schatten 1971 or a thin wrapper over a different scheme? Without a methods paper, the corpus must audit the source rather than the spec."
+    proposed_action: "Audit the SCS code path against Schatten 1971 directly and document the equation-level mapping in adapter_notes when method-ready promotion lands."
 source_inventory:
   - .library/custom/heliophysics-skills/sub-skills/pfss-modeling.md (sunkit_magex SCS example)
   - .library/custom/heliophysics-skills/sub-skills/github-repos.md (sunkit-magex entry)

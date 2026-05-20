@@ -35,7 +35,7 @@
       "scientific_invariant": 225,
       "executable_protocol": 96,
       "adapter_binding_examples": 0,
-      "research_generation_affordance": 135,
+      "research_generation_affordance": 138,
       "note": "Counts reflect entries that EXPLICITLY author a layers:{} block on the SKILL.md frontmatter (225/501 entries). Many baseline-batch skills predate the booleans; their layer coverage is described prose-side and audited by scripts/audit_layer_schemas.py instead. See references/corpus_qa_report_v2.md S9 for the fully-populated vs partially-populated breakdown (issue #58) and the metadata.yaml-side counts (90/501 entries: 45 fully populated, 45 partially populated). Recompute with `python3 scripts/audit_layer_population.py --json`; pinned by `tests/test_layer_population.py`."
     },
     "compilation_table": {
@@ -2850,7 +2850,7 @@
       "executable_status": "scaffold",
       "harness_agnostic": null,
       "layers": null,
-      "research_generation_affordances_present": false,
+      "research_generation_affordances_present": true,
       "research_generation_affordances_count": 0,
       "weak_flag_count": 0,
       "skill_md_exists": true,
@@ -2916,7 +2916,7 @@
       "executable_status": "scaffold",
       "harness_agnostic": null,
       "layers": null,
-      "research_generation_affordances_present": false,
+      "research_generation_affordances_present": true,
       "research_generation_affordances_count": 0,
       "weak_flag_count": 1,
       "skill_md_exists": true,

@@ -22,8 +22,24 @@ methods:
   - HAPI streaming
   - Multiple Python clients (sunpy.net.cdaweb, pyspedas, cdasws)
 validation_targets:
-  - AvailableData query returns expected dataset list
-  - Round-trip download + cdflib read matches metadata
+  - "AvailableData query for a known mission (e.g. observatory=PSP) returns a non-empty dataset list containing at least the canonical IDs PSP_FLD_L2_MAG_RTN, PSP_FLD_L2_MAG_RTN_4_SA_PER_CYC, PSP_SWP_SPI_SF00_L3_MOM (set membership, not equality — CDAWeb adds datasets over time)"
+  - "Round-trip download + cdflib read of a chosen fixed-version CDF returns variable names and dtypes matching the AvailableData metadata exactly (set equality on variables, dtype equality per variable)"
+  - "HAPI streaming on a chosen 6-hour interval for the same dataset returns an array length consistent with the dataset's published cadence; HAPI and cdas/cdflib paths produce byte-identical numpy arrays for the same interval (cross-protocol parity)"
+research_generation_affordances:
+  - type: gap
+    statement: "There is no formal publication for the CDAWeb archive itself; nor a single canonical HAPI server citation. The corpus's in-situ family treats CDAWeb as an unconditional root, but it has no citable surface."
+    proposed_action: "Surface this as an immutable verification flag on every in-situ paper-skill that grounds its data contract in CDAWeb. The archive is infrastructure, not a paper — never silently bibliographicise it."
+  - type: minimal_experiment
+    statement: "On a fixed 24-hour PSP interval, download the same PSP_FLD_L2_MAG_RTN CDF via three routes (cdas Web API + cdflib, sunpy.net.cdaweb + cdflib, pyspedas) and diff the resulting numpy arrays byte-by-byte. Expected: bit-identity. Any divergence is a corpus-level consistency bug."
+    related_skills: ["paper-cdflib-cdf-reader", "paper-pyspedas-multimission-data-access"]
+    proposed_action: "Commit the diff harness; treat a divergence on the diff as a blocker for promoting any downstream in-situ skill past method-ready."
+  - type: tension
+    statement: "CDAWeb mirrors Solar Orbiter products but typically *lags* SOAR for recent encounters. A skill that defaults silently to CDAWeb for SO will retrieve stale or empty data for in-flight encounters."
+    related_skills: ["paper-soar-solar-orbiter-archive-esa", "paper-psp-soc-science-operations-center-archive"]
+    proposed_action: "Add a routing rule: for Solar Orbiter, prefer SOAR; for in-flight PSP encounters, prefer the per-instrument SOC archives; CDAWeb is the canonical *post-release* mirror. Record the routing rule in the wave500 instruments family contract."
+  - type: open_question
+    statement: "Variable names within a dataset can change subtly across instrument-version revisions. The corpus does not currently track dataset-version pins; a paper-skill that loads PSP_FLD_L2_MAG_RTN today and the same dataset 18 months from now may silently pick a different variable schema."
+    proposed_action: "Add per-skill dataset-version pinning (e.g. via cdf_info() snapshots committed alongside the skill) at executable-tier promotion."
 source_inventory:
   - .library/custom/heliophysics-skills/reference/databases.md (CDAWeb / SPDF / OMNI / PSP SOC / SOAR / VSO entries)
   - .library/custom/heliophysics-skills/SKILL.md (databases table)

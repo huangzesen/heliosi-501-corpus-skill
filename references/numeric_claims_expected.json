@@ -1,5 +1,5 @@
 {
-  "_comment": "Curation-debt allowlist for scripts/audit_numeric_claims.py (issue #39). Each entry is a (path, pattern, match) tuple that the audit currently reports but is documented as known. Drain this list by adding 'TODO_verify' near each match in the source SKILL.md (not by silencing the audit).",
+  "_comment": "Curation-debt allowlist for scripts/audit_numeric_claims.py (issue #39). Each entry pins an unflagged numeric tolerance / factor / ratio token in a per-entry SKILL.md body that the audit currently reports. Landing this allowlist documents the current curation debt explicitly so subsequent PRs cannot add NEW unflagged numerics silently. Drain by adding a TODO_verify (or TBD / provisional / unverified) marker directly attached to the numeric claim in the source SKILL.md, then remove the row from this file. A small number of rows may be verified numerics whose lines intentionally do not carry TODO_verify; those rows carry _note fields.",
   "expected": [
     {
       "path": "batch_heliophysics_software_infrastructure/paper-gieseler-2022-solar-mach-magnetic-connection/SKILL.md",
@@ -152,6 +152,34 @@
       "body_line": 81
     },
     {
+      "path": "pilot_turbulence/telloni-2021-psp-solo-radial-alignment-turbulence/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1.5°",
+      "body_line": 60,
+      "_note": "Article-verified Telloni+ 2021 ApJL conjunction tolerance, DOI 10.3847/2041-8213/abf7d1, verified 2026-05-19"
+    },
+    {
+      "path": "pilot_turbulence/telloni-2021-psp-solo-radial-alignment-turbulence/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±5 km/s",
+      "body_line": 60,
+      "_note": "Article-verified Telloni+ 2021 ApJL conjunction tolerance, DOI 10.3847/2041-8213/abf7d1, verified 2026-05-19"
+    },
+    {
+      "path": "pilot_turbulence/telloni-2021-psp-solo-radial-alignment-turbulence/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±1.5°",
+      "body_line": 114,
+      "_note": "Article-verified Telloni+ 2021 ApJL conjunction tolerance, DOI 10.3847/2041-8213/abf7d1, verified 2026-05-19"
+    },
+    {
+      "path": "pilot_turbulence/telloni-2021-psp-solo-radial-alignment-turbulence/SKILL.md",
+      "pattern": "plus-minus",
+      "match": "±5 km/s",
+      "body_line": 114,
+      "_note": "Article-verified Telloni+ 2021 ApJL conjunction tolerance, DOI 10.3847/2041-8213/abf7d1, verified 2026-05-19"
+    },
+    {
       "path": "wave500_instruments_data_software_045/paper-case-2020-psp-sweap-spc-faraday-cup-data-product/SKILL.md",
       "pattern": "plus-minus",
       "match": "±30°",
@@ -265,5 +293,6 @@
       "match": "±20%",
       "body_line": 57
     }
-  ]
+  ],
+  "_comment_telloni_2021": "Telloni-2021 ±1.5° and ±5 km/s rows record article-verified conjunction tolerances (IOPscience DOI 10.3847/2041-8213/abf7d1, verified 2026-05-19). They are not curation debt, but the audit's TODO_verify-family check cannot tell verified numerics from unverified ones. The allowlist is the correct escape valve; adding TODO_verify would falsely imply the numbers are unverified."
 }

@@ -17,8 +17,29 @@ required_data:
   - mdi.fd_M_96m_lev182 L2 legacy (96 min)
 methods:
   - "DRMS query (jsoc_info, jsoc_fetch)"
+  - "JSOC export-queue submission with registered-email cap lift"
+  - "drms Python client query"
+  - "VSO-vs-JSOC series-name reconciliation"
 validation_targets:
-  - smoke-test the §4 contract end-to-end and set validation_target at executable tier
+  - "drms.Client().query('aia.lev1_euv_12s[2024-01-01T00:00:00Z/12s]') returns metadata for one AIA frame at 193 Å (or equivalent for a chosen wavelength + interval); FITS download via drms.Client().export succeeds within the anonymous-export ~1 GB cap"
+  - "hmi.sharp_720s_cea SHARP cutout for a documented active region (e.g. NOAA AR12673) returns the published bounding box and CEA-projected magnetogram (set of HARP-aligned variables matches the published SHARP schema)"
+  - "Series naming reconciliation: a JSOC series name (e.g. hmi.M_45s) and the corresponding VSO query for the same product return the same FITS file body bit-identically (cross-archive parity)"
+research_generation_affordances:
+  - type: gap
+    statement: "No single canonical 'JSOC paper'. The skill aggregates DRMS-backed series (aia.lev1, hmi.M_*, hmi.B_*, hmi.sharp_*, mdi.fd_M_*) and is anchored by AIA/HMI/MDI hardware papers + Couvidat et al. 2016 (HMI processing). The package is the de-facto SDO authority without a single citation surface."
+    related_skills: ["paper-lemen-2012-sdo-aia-atmospheric-imaging-assembly", "paper-scherrer-2012-sdo-hmi-helioseismic-magnetic-imager", "paper-glogowski-2019-drms-jsoc-data-client"]
+    proposed_action: "Treat the missing single citation as an immutable verification flag; cite the per-instrument hardware papers and Couvidat 2016 together, never silently fabricate a 'JSOC paper' citation."
+  - type: tension
+    statement: "VSO and CDAWeb mirror JSOC-exposed datasets but the series naming differs (e.g. hmi.M_45s on JSOC vs the VSO/sunpy.net.Fido conventions). A skill that defaults to one without verifying the other can silently load a different product."
+    related_skills: ["paper-glogowski-2019-drms-jsoc-data-client"]
+    proposed_action: "Add a series-name reconciliation table to adapter_notes of downstream SDO paper-skills; gate any VSO/JSOC switch on the reconciliation table."
+  - type: minimal_experiment
+    statement: "On a fixed AIA observation (e.g. 2017-09-06 X9.3 flare, 193 Å frame), download via JSOC drms and via VSO sunpy.net.Fido and diff the FITS bodies byte-by-byte. Expected: bit-identity; any divergence is a mirror-side calibration-version skew."
+    related_skills: ["paper-glogowski-2019-drms-jsoc-data-client"]
+    proposed_action: "Commit the JSOC vs VSO diff harness; treat persistent divergence as a blocker for promoting downstream SDO paper-skills past method-ready."
+  - type: open_question
+    statement: "How many JSOC series are internal-only vs externally exposed? The corpus has no automated probe — a paper-skill that depends on an internal-only series will fail silently at promotion."
+    proposed_action: "Add a periodic discovery probe that enumerates jsoc_info series via the public DRMS API and diffs against the depends_on slugs in the corpus manifest; flag any depends_on series that is no longer publicly enumerable."
 source_inventory:
   - sioulas-reproduction/results/paper_skill_corpus/wave500_instruments_data_software_045/ (citation TODOs flagged for software-package stubs)
 links:

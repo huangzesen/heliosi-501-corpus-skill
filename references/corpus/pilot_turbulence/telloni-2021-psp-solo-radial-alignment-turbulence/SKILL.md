@@ -20,14 +20,20 @@ Load this skill when you need to:
 ## Paper identity and claim boundary
 
 - **Citation**: Telloni, D., Sorriso-Valvo, L., Woodham, L. D., Panasenco, O., Velli, M., Carbone, F., et al. (2021). *Evolution of Solar Wind Turbulence from 0.1 to 1 au during the First Parker Solar Probe–Solar Orbiter Radial Alignment*. **ApJL 912, L21**.
-- **DOI**: 10.3847/2041-8213/abf7d1
+- **DOI**: [10.3847/2041-8213/abf7d1](https://doi.org/10.3847/2041-8213/abf7d1) (IOPscience; resolves to ApJL 912, L21; verified 2026-05-19)
 - **Source inventory**: `apj_aa_heliophysics_papers.md` §1.11.
 
-**Claim boundary** — supported by inventory:
+**Evidence boundary — what the article body supports (verified 2026-05-19 via IOPscience DOI):**
 
-> PSP + SO radial conjunction; cross-helicity, residual energy, and cascade-rate evolution from 0.1 to 1 au.
+- **Conjunction window**: PSP at ~0.1 au on **2020-09-27** is radially aligned with Solar Orbiter at ~1 au on **2020-10-02**. Alignment is identified within **±1.5° heliographic longitude** and ±5 km/s in V_sw — these are the published conjunction tolerances.
+- **Spectral evolution**: the magnetic-trace inertial-range spectral exponent shifts from **~ -3/2** at PSP (closer to a Iroshnikov–Kraichnan-like / SDDA-flat slope near the Sun) toward **~ -5/3** (Kolmogorov-like) at SO.
+- **Turbulence state evolution**: the plasma evolves from a *highly Alfvénic, less-developed* turbulence state near the Sun — high cross-helicity σ_c and good equipartition between magnetic and kinetic energies (i.e. low |σ_R|) — to *fully developed, intermittent* turbulence at 1 au.
 
-Exact σ_c, σ_R, and ε numbers at each spacecraft, and the exact conjunction date / duration, are **TODO verify in full paper**.
+**Out-of-evidence-boundary at this verification depth (still TODO_verify_with_full_text):**
+
+- Exact numerical σ_c, σ_R, and ε per spacecraft (the abstract / article body verified at this depth quotes the qualitative direction and the spectral exponents but not the σ_c / σ_R / ε numerical triples).
+- The Politano–Pouquet ε derivation choices on this short conjunction window (third-order moment vs Yaglom-law form) — the article describes "energy dissipation rates show directional change" but the specific formula and uncertainty are not extracted here.
+- Whether the Parker-spiral or ballistic mapping is the canonical one in the article; both are workflow options consistent with the ±1.5° / ±5 km/s tolerance.
 
 ## Scientific claim to reproduce or operationalize
 
@@ -57,12 +63,19 @@ Time range: first PSP–SO radial-alignment conjunction (TODO verify exact date 
 
 ## Minimal executable benchmark or validation target
 
-**Target**: σ_c, σ_R, and ε computed at PSP (~0.1 au) and SO (~1 au) for the first-alignment interval; the *direction* of evolution (toward more or less Alfvénic, toward larger or smaller ε, etc.) is consistent with the paper's reported trend (TODO verify direction in full paper).
+**Primary targets** (article-verified 2026-05-19):
+
+1. **Conjunction reproduction**: independent of the science, the conjunction-selection step must return the 2020-09-27 (PSP) / 2020-10-02 (SO) pair within the published tolerance window of ±1.5° heliographic longitude and ±5 km/s in V_sw. A reproduction that misses this window is failing at the data layer, not the science layer.
+2. **Spectral-slope evolution**: the fitted inertial-range exponent α_B is ≈ −3/2 at PSP and ≈ −5/3 at SO on the matched intervals. The qualitative *direction* of evolution (steepening with r) is the science target; the exact transition profile is single-event and not required to match.
+3. **Turbulence-state evolution**: σ_c is *higher* at PSP than at SO; |σ_R| is *lower* at PSP than at SO (i.e. better magnetic–kinetic equipartition near the Sun). The sign of both Δσ_c and Δ|σ_R| across the conjunction is the discriminator.
+
+The numerical σ_c, σ_R, and ε triples per spacecraft are *not* a target at this verification depth — the article describes the qualitative direction and the spectral exponents, and the third-order ε formula choice was not extracted from the article body here.
 
 Artifacts:
 
-- `telloni2021_conjunction.csv` — rows: spacecraft, t_start, t_end, r_au, sigma_c, sigma_R, epsilon.
-- a side-by-side figure: PSP vs SO spectra of |z⁺|² and |z⁻|².
+- `telloni2021_conjunction.csv` — rows: spacecraft, t_start, t_end, r_au, alpha_B, sigma_c, sigma_R, epsilon, alpha_B_err.
+- A side-by-side figure: PSP vs SO trace PSDs with the −3/2 and −5/3 reference slopes overlaid.
+- A scalar QC: sign(Δσ_c) and sign(Δ|σ_R|) across the conjunction (PSP → SO).
 
 ## Known pitfalls / failure modes
 
@@ -84,6 +97,15 @@ Compiled as an agent-native Anthropic-style Skill:
 
 The Claude Code harness is the **general-purpose runtime**; HelioSI is its **domain instantiation as a skill graph**.
 
+## Layer 4 — Research-generation affordances
+
+- **Gap:** the article verifies *direction* of σ_c, σ_R, and α_B evolution across the conjunction but the σ_c, σ_R, ε *numerical* triples at each spacecraft are not extracted at this verification depth. Promotion to method-ready requires reading §3 of the published article and copying the per-spacecraft numbers into the validation_targets list. Until then, downstream consumers should treat σ_c, σ_R, ε targets as **qualitative-direction tests only**.
+- **Tension:** the article's qualitative claim is that the plasma reaches "fully developed and intermittent turbulence at 1 au". The statistical-ensemble companion [[sioulas-2023-anisotropic-scaling-inner-heliosphere]] reports radial evolution of anisotropic scaling using *many* PSP intervals — but a single conjunction is *one realisation*, not an ensemble. The two methodologies should *agree in direction* but may disagree in *magnitude*; if the conjunction shows a stronger σ_c drop than the statistical ensemble, the conjunction is biased by stream class or by parcel-mapping error rather than constituting a counter-example.
+- **Hypothesis:** the steepening from −3/2 to −5/3 across the conjunction is driven by the development of *non-Alfvénic* turbulence components during transit (i.e. by σ_c → 0); stratifying the same conjunction by σ_c sub-window should show that the windows with the largest σ_c drop also carry the largest spectral-slope steepening. The cleanest test is to compute α_B(t) at PSP in σ_c sub-windows and at SO in σ_c sub-windows that map ballistically to the PSP sub-windows.
+- **Minimal_experiment:** rerun the conjunction pipeline with *two* parcel-mapping conventions side-by-side — strict ballistic (V_sw uniform) and Parker-spiral (V_sw with rotation). The published tolerance window already permits both; if the σ_c / α_B trends are robust across the two conventions, the conjunction inference is mapping-insensitive (good). If they flip, the result is mapping-driven and the article-level claim needs to be re-stated.
+- **Composable experiment:** join the per-spacecraft (α_B, σ_c, σ_R) row from this conjunction with [[bandyopadhyay-2020-energy-transfer-psp]]'s near-Sun ε estimate and the SO-side ε from a Politano–Pouquet evaluation on the matched interval — the *consistent* Lagrangian ε(r) evolution across one realisation is the quantity downstream cascade-rate skills should ingest.
+- **Follow-up:** the 2022-Dec second-alignment paper [[telloni-2025-psp-solo-radial-alignment-2022-december]] (already internalized in batch-1) is a *natural ensemble counterpart* to this single-event paper — comparing the two-conjunction trend direction is itself a research output, not a check.
+
 ## Relation to HelioSI harness + skills + MCPs
 
 - **Parent skill**: HelioSI `solar-wind-turbulence` sub-graph.
@@ -97,5 +119,5 @@ The Claude Code harness is the **general-purpose runtime**; HelioSI is its **dom
 ## References
 
 - Inventory: `apj_aa_heliophysics_papers.md` §1.11.
-- DOI: 10.3847/2041-8213/abf7d1
+- DOI: https://doi.org/10.3847/2041-8213/abf7d1 (IOPscience; ApJL 912, L21, 2021; verified 2026-05-19; conjunction window 2020-09-27 PSP / 2020-10-02 SO; ±1.5° longitude and ±5 km/s tolerance; spectral exponent ~ −3/2 → ~ −5/3)
 - ResearchGate (cited in inventory sources): https://www.researchgate.net/publication/351386965_Evolution_of_Solar_Wind_Turbulence_from_01_to_1_au_during_the_First_Parker_Solar_Probe-Solar_Orbiter_Radial_Alignment

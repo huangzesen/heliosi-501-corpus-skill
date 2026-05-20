@@ -5,10 +5,23 @@ authors:
   - "T. Zikopoulos"
   - "C. Shi"
   - "M. Velli"
+  - "T. Bowen"
+  - "A. Mallet"
+  - "L. Sorriso-Valvo"
+  - "A. Verdini"
+  - "B. D. G. Chandran"
+  - "M. M. Martinovic"
+  - "S. S. Cerri"
+  - "N. Davis"
+  - "C. Dunn"
+authors_verified: true
 year: 2024
-journal: null
-doi: null
+journal: "arXiv preprint (no peer-reviewed venue verified at 2026-05-19)"
+doi: "10.48550/arXiv.2404.04055"
 arxiv: "2404.04055"
+arxiv_url: "https://arxiv.org/abs/2404.04055"
+links_verified_on: "2026-05-19"
+links_verified_method: "arXiv abstract retrieved 2026-05-19; full author list and scale-transition values (~3e4 d_i, ~100 d_i, ~8 d_i) cross-checked against abstract"
 theme: turbulence
 quality_level: pilot
 executable_status: scaffold
@@ -21,11 +34,14 @@ methods:
   - local-mean-field-frame
   - three-axis-decomposition-parallel-perpendicular-fluctuation
   - higher-order-structure-functions
+  - five-point-structure-function-estimator
   - critical-balance-vs-scale-dependent-dynamic-alignment-test
   - sigma_c-binning
 validation_targets:
-  - "Per-sigma_c-bin zeta_n^a profiles in the inertial range select between CB and SDDA in the direction reported by the paper (TODO verify direction in full paper)"
-  - "Identification of two sub-inertial-range segments and an 'anomalous coherence' regime (qualitative; TODO verify exact scale boundaries)"
+  - "Outgoing z+ modes remain weakly cascading across the inertial range; ingoing z- modes transition to strong cascading at lambda ~ 3e4 d_i (abstract-verified 2026-05-19)"
+  - "Eddy topology evolves from field-aligned tubes (lambda >~ 100 d_i) to current-sheet-like structures, becoming quasi-isotropic near lambda ~ 8 d_i (abstract-verified 2026-05-19)"
+  - "Conditional structure-function exponents zeta_n match Chandran et al. 2015 / Mallet et al. 2017 SDDA-tightening predictions at large scales; zeta_n scales linearly in n below lambda ~ 100 d_i (monofractal regime; abstract-verified 2026-05-19)"
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md entry #11 (2024)"
   - "sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md §1.2 (companion 2404.04055)"

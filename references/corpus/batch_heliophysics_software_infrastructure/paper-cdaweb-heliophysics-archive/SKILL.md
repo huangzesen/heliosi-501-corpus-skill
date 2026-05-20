@@ -66,7 +66,14 @@ algorithms:
     external_implementations:
       - "https://hapi-server.org/"
       - "https://github.com/hapi-server/client-python"
-validation_target: null
+validation_target: >-
+  AvailableData on observatory=PSP returns a dataset list that includes
+  PSP_FLD_L2_MAG_RTN, PSP_FLD_L2_MAG_RTN_4_SA_PER_CYC, and
+  PSP_SWP_SPI_SF00_L3_MOM (set membership); a round-trip download +
+  cdflib read of a fixed-version CDF matches the AvailableData metadata
+  exactly on variables and dtypes; HAPI streaming over a chosen 6-hour
+  interval returns the expected sample count for the dataset's cadence
+  and produces byte-identical numpy arrays vs the cdas + cdflib path.
 links:
   doi_url: null
   arxiv_url: null
@@ -208,12 +215,29 @@ guaranteed surface. A `mcp:cdaweb` is **not** assumed.
 
 ## 5. Validation target → benchmark artifact
 
-> Not benchmarked yet — `method-ready`. Promotion to `executable`
-> requires:
-> - Parameterized `AvailableData` query producing the expected dataset
->   list.
-> - Round-trip download + cdflib open + variable enumeration matching
->   the metadata.
+**Concrete benchmark targets** (`method-ready` tier):
+
+1. **AvailableData membership.** A parameterised `AvailableData`
+   query for `observatory=PSP` returns a non-empty list that contains
+   at least the canonical IDs `PSP_FLD_L2_MAG_RTN`,
+   `PSP_FLD_L2_MAG_RTN_4_SA_PER_CYC`, and `PSP_SWP_SPI_SF00_L3_MOM`.
+   The target is *set membership*, not *set equality*: CDAWeb adds
+   datasets over time and the target must not break when new IDs
+   appear.
+2. **Round-trip metadata parity.** Downloading a chosen
+   fixed-version CDF and opening it with cdflib returns variable
+   names and dtypes matching the AvailableData metadata exactly
+   (set equality on variables, dtype equality per variable). A
+   silent variable rename across CDAWeb versions is a regression.
+3. **Cross-protocol parity (HAPI vs cdas).** Streaming the same
+   6-hour interval of the same dataset via HAPI and via the
+   cdas Web API + cdflib path must produce byte-identical numpy
+   arrays. Any divergence is a corpus-level consistency bug and
+   must be reported on this skill before downstream loaders use
+   either path.
+
+`executable` promotion ships a runnable harness for the three
+targets above.
 
 ## 6. Failure modes → skill memory
 
@@ -252,6 +276,51 @@ missions via CDAWeb / SPDF endpoints.
 - `[[paper-cdflib-cdf-reader]]` — needed to open any downloaded CDF.
 - `[[paper-pyspedas-multimission-data-access]]` — high-level Python
   client; resolves through CDAWeb under the hood.
+
+## 10. Research-generation affordances  *(Layer 4)*
+
+- **Gap.** There is no formal publication for the CDAWeb archive
+  itself, and no single canonical HAPI server citation in the local
+  inventory. The corpus's in-situ family treats CDAWeb as an
+  unconditional root, but it has no citable surface. This must be
+  surfaced as an immutable verification flag on every downstream
+  in-situ paper-skill — never silently bibliographicise the archive.
+- **Minimal experiment.** On a fixed 24-hour PSP interval, download
+  `PSP_FLD_L2_MAG_RTN` via three routes (cdas Web API + cdflib,
+  sunpy.net.cdaweb + cdflib, pyspedas) and diff the resulting numpy
+  arrays byte-by-byte. Expected: bit-identity. Any divergence is a
+  corpus-level consistency bug and a blocker for promoting downstream
+  in-situ skills past method-ready. This is the composable experiment
+  shared with `[[paper-cdflib-cdf-reader]]`.
+- **Tension.** CDAWeb mirrors Solar Orbiter products but typically
+  *lags* SOAR for recent encounters. A skill that defaults silently
+  to CDAWeb for SO will retrieve stale or empty data for in-flight
+  encounters. The corpus must therefore route Solar Orbiter through
+  `[[paper-soar-solar-orbiter-archive-esa]]` and in-flight PSP
+  encounters through the per-instrument SOC archives
+  (`[[paper-psp-soc-science-operations-center-archive]]`). CDAWeb is
+  the canonical *post-release* mirror, not the canonical source for
+  current science.
+- **Open question.** Variable names within a single dataset ID can
+  change subtly across instrument-version revisions. The corpus does
+  not currently track dataset-version pins. A paper-skill that loads
+  `PSP_FLD_L2_MAG_RTN` today and the same ID 18 months later may
+  silently pick a different variable schema. A future hardening step
+  is per-skill dataset-version pinning via committed `cdf_info()`
+  snapshots, gated at executable-tier promotion.
+- **Composable experiment.** Pair this skill with
+  `[[paper-soar-solar-orbiter-archive-esa]]` for a *cross-archive
+  parity* probe: for an SO interval that has been mirrored from SOAR
+  to CDAWeb, fetch from both and diff. The expected result is
+  bit-identity once the mirror is complete; any persistent diff
+  exposes the mirror's lag or a calibration-version skew, and is the
+  signal that downstream SO skills should not yet route through
+  CDAWeb.
+- **Cross-corpus dependency surface.** Most in-situ paper-skills in
+  the wave500 family resolve through CDAWeb; a behaviour change here
+  (rate-limits tightening, schema changes, dataset-ID renames)
+  propagates silently to every consumer. Treat this skill as a watch
+  point for the wave500 in-situ family.
 
 ## Notes
 
