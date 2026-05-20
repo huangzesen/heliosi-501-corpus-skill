@@ -121,8 +121,8 @@ Each of the 501 skills falls into exactly one bucket. The bucket is derived dete
 |---|---|---|
 | T1_locally_reproduced | End-to-end numerical reproduction achieved locally. | 1 |
 | T2_method_ready_executable_pilot | Method-ready or runnable-from-* status; pipeline bound to ≥1 runtime example. | 22 |
-| T3_paper_grounded_pending_full_text | Claim and Layer-2 contract authored; full-text / DOI / figure tolerance verification pending. | 260 |
-| T4_stub_or_scaffold_paper_grounded | Stub, scaffold, or contract-spec-only; paper-anchored but methods/equations not yet authored to method-ready. | 164 |
+| T3_paper_grounded_pending_full_text | Claim and Layer-2 contract authored; full-text / DOI / figure tolerance verification pending. | 266 |
+| T4_stub_or_scaffold_paper_grounded | Stub, scaffold, or contract-spec-only; paper-anchored but methods/equations not yet authored to method-ready. | 158 |
 | T5_agent_runtime_or_design_precedent | Agent-runtime, benchmark, review-routing, ecosystem-diff, or historical-citation skill. Compiled design precedent, not executable heliophysics. | 52 |
 | T6_link_only_or_routing | Cross-batch link or routing-hub; validation flows to the canonical skill it points at. | 1 |
 | T7_weak_attribution_or_citation_todo | Citation/authorship TODO blocks promotion past stub. | 1 |

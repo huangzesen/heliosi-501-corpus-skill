@@ -17,7 +17,7 @@ reproduction corpus. Concretely, as of the current snapshot:
   prose fields of their `metadata.yaml` / `SKILL.md` (venue, DOI, numerical
   targets, etc.). These are intentional triage markers, **not** claims.
 - **T3 + T4 = 424 / 501 entries (85 %)** are in the
-  `paper-grounded-pending-full-text` (T3, 260) or `stub` / `scaffold` (T4, 164)
+  `paper-grounded-pending-full-text` (T3, 266) or `stub` / `scaffold` (T4, 158)
   maturity tiers — i.e. the Layer-1 claim and Layer-2 contract are authored
   but the paper has not been verified end-to-end against full text and no
   end-to-end run has been recorded against the bundled corpus.
@@ -85,6 +85,8 @@ of `https://arxiv.org/abs/<id>` returned HTTP 200 *and* the live page's
 checks this block **structurally** (`scripts/validate.sh` S4e and
 `tests/test_arxiv_provenance.py`) without doing any live network call;
 live verification is the responsibility of `scripts/verify_arxiv_ids.py`.
+
+**Current snapshot:** only **28 / 531** advertised arXiv-ID slots have a structured `id_verifications[]` HTTP-title-match record (~5 % verified); treat the rest as advertised-but-unverified until a live check records provenance.
 
 **Without a `provenance.id_verifications[]` record, treat an arXiv ID as
 unverified, regardless of how plausible its numeric suffix looks.** Issue
@@ -327,8 +329,8 @@ Preserve the **four-layer separation** when summarizing: never collapse Layer-3 
 |------|---------|------:|
 | T1 | locally reproduced end-to-end | 1 |
 | T2 | method-ready / executable pilot | 22 |
-| T3 | paper-grounded, full-text pending (largest tier) | 260 |
-| T4 | stub or scaffold, paper-anchored | 164 |
+| T3 | paper-grounded, full-text pending (largest tier) | 266 |
+| T4 | stub or scaffold, paper-anchored | 158 |
 | T5 | agent-runtime / design-precedent (not executable science) | 52 |
 | T6 | link-only / routing hub | 1 |
 | T7 | weak attribution / citation TODO | 1 |

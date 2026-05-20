@@ -98,8 +98,8 @@ Buckets are derived deterministically from `quality` + `executable_status` per t
 |---|---|---|
 | `T1_locally_reproduced` | End-to-end numerical reproduction against published numbers achieved locally. | 1 |
 | `T2_method_ready_executable_pilot` | Method-ready or runnable from a real data product / cached input; the named pipeline can be exercised under at least one runtime example. | 22 |
-| `T3_paper_grounded_pending_full_text` | Bibliographic anchor identified, claim and Layer-2 contract specified, full-text verification still pending. Largest tier. | 260 |
-| `T4_stub_or_scaffold_paper_grounded` | Stub or scaffold whose claim is paper-anchored but methods/equations and validation tolerances are not yet authored to method-ready. | 164 |
+| `T3_paper_grounded_pending_full_text` | Bibliographic anchor identified, claim and Layer-2 contract specified, full-text verification still pending. Largest tier. | 266 |
+| `T4_stub_or_scaffold_paper_grounded` | Stub or scaffold whose claim is paper-anchored but methods/equations and validation tolerances are not yet authored to method-ready. | 158 |
 | `T5_agent_runtime_or_design_precedent` | Agent-runtime, benchmark, review-routing, ecosystem-diff, or historical-citation skill. Useful as compiled design precedent, not as executable heliophysics science. | 52 |
 | `T6_link_only_or_routing` | Cross-batch link or routing-hub. Validation flows to the canonical skill it points at. | 1 |
 | `T7_weak_attribution_or_citation_todo` | Software/package or team-paper entry with a citation/authorship TODO that blocks promotion past stub. | 1 |

@@ -25,8 +25,8 @@ reproduction corpus.
   etc.). These markers were intentionally retained for triage and are
   **not** authorship claims.
 - **T3 + T4 = 424 / 501 entries (85 %)** are
-  `paper-grounded-pending-full-text` (T3, 260) or `stub` / `scaffold`
-  (T4, 164) — i.e. the Layer-1 claim and Layer-2 contract are authored but
+  `paper-grounded-pending-full-text` (T3, 266) or `stub` / `scaffold`
+  (T4, 158) — i.e. the Layer-1 claim and Layer-2 contract are authored but
   full-text verification and any end-to-end reproduction are pending.
 - **Only 1 / 501 entries** carries a documented local numerical
   reproduction (the T1 entry `wu-2026-nonspherical-coronal-magnetic-field-open-flux`).
@@ -52,7 +52,7 @@ ship placeholder strings as data:
   bidirectional parity: if `metadata.yaml` top-level
   `authors_verified: false`, the per-entry `SKILL.md` frontmatter
   `paper.authors_verified: false` is required (and vice versa). Currently
-  **173 / 501** `metadata.yaml` entries and **173 / 501** `SKILL.md`
+  **160 / 501** `metadata.yaml` entries and **160 / 501** `SKILL.md`
   frontmatter blocks are stamped `authors_verified: false` (enforced by
   `scripts/validate.sh` section S4f and
   `tests/test_authorship_flag_parity.py`).
@@ -99,6 +99,8 @@ of `https://arxiv.org/abs/<id>` returned HTTP 200 *and* the live page's
 other `status` value (`title-mismatch`, `http-non-200`, `network-error`,
 `no-title-tag`, `invalid-id-format`, `no-recorded-title`, `unverified`)
 indicates a known unresolved condition that must be treated cautiously.
+
+**Current snapshot:** `scripts/validate.sh` S4e reports **28 / 531** advertised arXiv-ID slots have a structured `id_verifications[]` HTTP-title-match record (~5 % verified); all other advertised IDs should be treated as unverified until checked.
 
 **An entry with no `provenance.id_verifications[]` block is unverified.**
 CI does not run live network checks — the gate (`scripts/validate.sh`
@@ -186,8 +188,8 @@ safe/unsafe lists.
 |------|---------|------:|
 | T1 | locally reproduced end-to-end | 1 |
 | T2 | method-ready / executable pilot | 22 |
-| T3 | paper-grounded, full-text pending (largest tier) | 260 |
-| T4 | stub or scaffold, paper-anchored | 164 |
+| T3 | paper-grounded, full-text pending (largest tier) | 266 |
+| T4 | stub or scaffold, paper-anchored | 158 |
 | T5 | agent-runtime / design-precedent (not executable science) | 52 |
 | T6 | link-only / routing hub | 1 |
 | T7 | weak attribution / citation TODO | 1 |

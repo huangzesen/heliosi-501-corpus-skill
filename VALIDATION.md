@@ -105,8 +105,8 @@ maturity tiers (from corpus_manifest_v2.json)
 --------------------------------------------------------------------------------
   T1_locally_reproduced                            1
   T2_method_ready_executable_pilot                22
-  T3_paper_grounded_pending_full_text            260
-  T4_stub_or_scaffold_paper_grounded             164
+  T3_paper_grounded_pending_full_text            266
+  T4_stub_or_scaffold_paper_grounded             158
   T5_agent_runtime_or_design_precedent            52
   T6_link_only_or_routing                          1
   T7_weak_attribution_or_citation_todo             1
@@ -114,7 +114,7 @@ maturity tiers (from corpus_manifest_v2.json)
   TOTAL                                          501
 ```
 
-→ Tier counts match `corpus_qa_report_v2.md` §4 (1 + 22 + 260 + 164 + 52 + 1 + 1 = 501).
+→ Tier counts match `corpus_qa_report_v2.md` §4 (1 + 22 + 266 + 158 + 52 + 1 + 1 = 501).
 
 ### 4c. `python3 scripts/search_corpus.py --batches`
 

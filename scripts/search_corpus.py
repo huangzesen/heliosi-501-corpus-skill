@@ -215,8 +215,8 @@ def _entry_haystack(entry: dict) -> str:
 # derive the per-entry tier deterministically from the manifest's
 # `quality` + `executable_status` pair, using a rule reverse-engineered
 # from the per-batch counts in `references/corpus_qa_report_v2.md` §4.
-# The derived counts match the manifest exactly: T1=1, T2=22, T3=260,
-# T4=164, T5=52, T6=1, T7=1, total=501. The rule lives here, and the
+# The derived counts match the manifest exactly: T1=1, T2=22, T3=266,
+# T4=158, T5=52, T6=1, T7=1, total=501. The rule lives here, and the
 # unit test `tests/test_workflow_gating.py` re-asserts the totals so any
 # corpus update that changes the rule must update the test in lockstep.
 

@@ -586,7 +586,7 @@ PY
 # reverse direction ("SKILL flagged ==> metadata flagged") guards against
 # the two surfaces disagreeing in the other sense. After d4799bf and the
 # issue-#62 fixup the expected steady-state count is identical on both
-# sides (currently 173 / 501). Uses PyYAML; SKIPs cleanly without it.
+# sides (currently 160 / 501). Uses PyYAML; SKIPs cleanly without it.
 section "S4f authors_verified parity (PyYAML if available)"
 
 python3 - <<'PY'
