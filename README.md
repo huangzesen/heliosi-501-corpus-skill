@@ -261,10 +261,9 @@ unresolved-link debt a CI-blocker in the same PR that introduced the
 audit. `--strict` flips the exit code to 1 on any unresolved target and
 is reserved for future graph-hardening work. See
 `reports/wikilink_audit.md` for the rationale, the current headline
-counts, and the planned successor (`corpus_skill_graph.json`) which is
-**not** shipped in this increment. Tests live in
-`tests/test_audit_wikilinks.py` (offline, stdlib-only, tempdir
-fixtures).
+counts, and the shipped successor (`references/corpus_skill_graph.json`)
+described below. Tests live in `tests/test_audit_wikilinks.py`
+(offline, stdlib-only, tempdir fixtures).
 
 The companion `scripts/repair_wikilinks.py` performs one safe,
 mechanical repair class on top of the audit: rewrite `[[paper-foo]]`
@@ -278,6 +277,49 @@ defaults to dry-run; `--apply` is required to mutate files. The
 first-pass run reduced the unresolved count from 95 to 56 across 58
 files (162 prose occurrences). Tests live in
 `tests/test_repair_wikilinks.py`.
+
+### Machine-readable corpus skill graph
+
+`scripts/build_corpus_skill_graph.py` joins the canonical manifest
+with the wikilink-audit output and emits a single artifact at
+`references/corpus_skill_graph.json`
+(schema_version `corpus-skill-graph-1`). It is the natural successor
+to the wikilink audit that `reports/wikilink_audit.md` §6 predicted,
+shipped behind an explicit policy so the artifact does not
+overclaim. The graph carries:
+
+- **`nodes[]`** — one per manifest entry; fields are forwarded
+  verbatim (`slug`, `path`, `batch`, `title`, `first_author`, `year`,
+  `theme`, `source_type`, `quality`, `executable_status`, `layers`,
+  `harness_agnostic`, `research_generation_affordances_*`,
+  `weak_flag_count`) with a derived `depends_on_section_present`
+  bool. Manifest-absent fields are emitted as `null`, never guessed.
+- **`edges[]`** — resolved-and-non-inline-code wikilinks, one per
+  `(source_slug, target_slug)` pair, with `provenance[]` records that
+  preserve `path`, 1-based `line`, and `context` of
+  `depends_on_section` (the link sits under a `## Skill graph →
+  depends_on` header) or `wikilink_prose` (everywhere else).
+- **`unresolved_references[]`** — every unresolved target from the
+  audit, forwarded verbatim plus a conservative `classification`
+  label (`inline_code_literal`,
+  `inline_code_canonical_suggestion`, `paper_reference_needs_curation`,
+  `external_reference_candidate`, `unresolved_no_suggestion`).
+- **`external_reference_candidates[]`** — non-authoritative roll-up
+  of unresolved targets that look like runtime / tool / loader names
+  (`pfss-tracing`, `nspf-fem`, `psp-sweap-bulk-loader`, …). NOT
+  promoted to nodes.
+
+On the live 501-entry corpus the build emits 501 nodes, 688 edges
+(of which 93 sit in an explicit `## Skill graph → depends_on`
+section), 518 inline-code wikilink occurrences excluded as doc
+samples, 56 unresolved targets classified into the buckets above,
+and 24 external-reference candidates. The artifact is regenerated
+with `python3 scripts/build_corpus_skill_graph.py --no-timestamp`
+(the `--no-timestamp` flag pins `generated_at: null` so the JSON is
+byte-deterministic). See [`GRAPH_POLICY.md`](GRAPH_POLICY.md) for
+the full policy — including what the graph deliberately does NOT
+claim — and `tests/test_build_corpus_skill_graph.py` for the
+offline fixtures that pin the schema.
 
 ## Companion MCP adapters (external, not bundled)
 

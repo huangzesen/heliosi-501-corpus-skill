@@ -186,25 +186,29 @@ summary line driven by the audit's JSON output) and always exits zero
 for this section. Promoting S6 to a `--strict` gate is a follow-up,
 not a same-PR change.
 
-## 6. Skill-graph emission (next step)
+## 6. Skill-graph emission (shipped — see GRAPH_POLICY.md)
 
-The natural successor to this audit is a machine-readable graph file at
-`references/corpus_skill_graph.json` that joins manifest nodes with the
-*resolved* `[[target]]` edges. We deliberately did **not** emit it in
-the same PR:
+The natural successor to this audit was a machine-readable graph file
+at `references/corpus_skill_graph.json` that joins manifest nodes with
+the *resolved* `[[target]]` edges. It is now shipped via
+[`scripts/build_corpus_skill_graph.py`](../scripts/build_corpus_skill_graph.py)
+under [`GRAPH_POLICY.md`](../GRAPH_POLICY.md), which addresses the two
+concerns raised in this section's original draft:
 
-- 26% of unique targets are unresolved today. Either the graph would
-  silently drop them — making the graph look more complete than it is —
-  or it would carry "unresolved" sentinels alongside real edges, which
-  is a new schema-design question that deserves its own review.
-- A graph-emission step is naturally consumed by tooling (visualisers,
-  novelty-join, draft generation). Shipping it before the consumer side
-  is in motion would pin a schema with no concrete user.
+- The 56 unresolved targets are **not** silently dropped from the
+  graph. They are forwarded verbatim under `unresolved_references[]`
+  alongside their referrers + audit suggestions, and tagged with a
+  conservative `classification` label so a consumer can distinguish
+  doc placeholders from honest curation debt.
+- The schema (`corpus-skill-graph-1`) is shipped *together with* its
+  policy document and the validate.sh **S7 (informational)** smoke
+  check, so the artifact has a concrete contract from day one.
 
-Plan: once a follow-up curation pass closes most of the unresolved
-targets (or surfaces them as deliberately-unresolved with a
-`see_also`-style annotation), introduce `corpus_skill_graph.json` in a
-separate PR with its own schema commitment and consumer.
+The graph build is read-only and never makes CI fail on
+unresolved-reference debt — that remains the audit's S6 (also
+informational) responsibility. See `GRAPH_POLICY.md` for the full
+classification rules, what the graph deliberately does NOT claim, and
+the recommended curation workflow for unresolved targets.
 
 ## 7. Operational notes
 

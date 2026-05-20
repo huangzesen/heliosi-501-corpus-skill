@@ -858,4 +858,68 @@ print(
 )
 PY
 
+# -- S7 corpus skill graph build (informational smoke) -----------------------
+# Builds the machine-readable corpus skill graph into a temporary file
+# and asserts:
+#   1. the script exits 0;
+#   2. the artifact carries the documented schema_version;
+#   3. totals.nodes equals the manifest entry count;
+#   4. totals.unresolved_targets equals the wikilink audit's count.
+# The build is read-only (writes to /tmp), does not depend on network
+# access, and never fails CI on unresolved-reference debt -- that is the
+# audit's job. See GRAPH_POLICY.md for the full policy. To regenerate
+# the checked-in artifact at references/corpus_skill_graph.json run
+# `python3 scripts/build_corpus_skill_graph.py --no-timestamp`.
+section "S7 corpus skill graph build (informational)"
+
+python3 scripts/build_corpus_skill_graph.py \
+    --no-timestamp \
+    --output /tmp/heliosi_corpus_skill_graph.json >/dev/null || \
+  fail "build_corpus_skill_graph.py crashed -- see /tmp/heliosi_corpus_skill_graph.json"
+
+python3 - <<'PY'
+import json
+import sys
+
+with open('/tmp/heliosi_corpus_skill_graph.json') as f:
+    g = json.load(f)
+with open('/tmp/heliosi_wikilink_audit.json') as f:
+    a = json.load(f)
+
+problems = []
+if g.get('schema_version') != 'corpus-skill-graph-1':
+    problems.append(
+        f"schema_version != 'corpus-skill-graph-1' "
+        f"(got {g.get('schema_version')!r})"
+    )
+if g['totals']['nodes'] != a['totals']['corpus_entries_in_manifest']:
+    problems.append(
+        f"totals.nodes ({g['totals']['nodes']}) != manifest entries "
+        f"({a['totals']['corpus_entries_in_manifest']})"
+    )
+if g['totals']['unresolved_targets'] != a['totals']['unresolved_targets']:
+    problems.append(
+        f"totals.unresolved_targets ({g['totals']['unresolved_targets']}) "
+        f"!= audit unresolved ({a['totals']['unresolved_targets']})"
+    )
+
+if problems:
+    print('validate.sh: FAIL -- corpus skill graph smoke check:',
+          file=sys.stderr)
+    for p in problems:
+        print('  - ' + p, file=sys.stderr)
+    sys.exit(1)
+
+t = g['totals']
+print(
+    f"corpus skill graph ok ("
+    f"{t['nodes']} nodes, "
+    f"{t['edges']} edges "
+    f"({t['edges_in_depends_on_section']} in depends_on section, "
+    f"{t['edges_inline_code_excluded']} inline-code occurrences excluded), "
+    f"{t['unresolved_targets']} unresolved, "
+    f"{t['external_reference_candidates']} external-reference candidates)"
+)
+PY
+
 printf 'validate.sh: OK -- all checks passed\n'
