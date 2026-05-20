@@ -1,24 +1,67 @@
 slug: ion-acoustic-damping-instability-solo-2026
 title: >-
   The Damping and Instability of Ion-Acoustic Waves in the Solar Wind: Solar Orbiter Observations
-authors: []
-authors_verified: false
+authors:
+  - Hao Ran
+  - Daniel Verscharen
+  - Jesse Coburn
+  - Georgios Nicolaou
+  - Charalambos Ioannou
+  - Xiangyu Wu
+  - Jingting Liu
+  - Kristopher G. Klein
+  - Christopher J. Owen
+authors_verified: true
+authors_complete: true
 year: 2026
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: The Astrophysical Journal
+venue: "ApJ accepted (Apr 2026)"
+doi: null
 arxiv: "2604.14311"
+arxiv_date: "2026-04-15"
 theme: ion-acoustic-damping-instability-solo
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - SolO RPW + SWA inputs
+  - SolO RPW LFR/TDS spectral products covering candidate ion-acoustic-wave intervals
+  - SolO SWA-PAS (proton) + SWA-EAS (electron) moments for (T_e, T_i, drift)
+  - Linear-Vlasov dispersion solver for the IA branch with finite k λ_D
 methods:
-  - Linear-Vlasov IA dispersion
-  - Event classification
+  - Identify ion-acoustic-wave intervals from SolO RPW spectral signatures
+  - Assemble (T_e, T_i, v_drift) per interval from SWA-PAS + SWA-EAS
+  - Solve the linear-Vlasov dispersion for the IA branch and emit γ(T_e/T_i, drift)
+  - Classify each interval as damped (γ < 0) or unstable (γ > 0) and aggregate the population
+  - Bonus: cross-check with the modulated-IAW ML detector for label consistency
 validation_targets:
-  - Damped/unstable split at (T_e/T_i) threshold (TODO verify)
+  - The damped / unstable split sits at the (T_e/T_i) threshold reported by the paper (TODO_verify_with_full_text for the exact threshold)
+  - Recovery of the same event tags as the paper on the overlap subset to within ≲ 5 % count discrepancy
+  - On a labelled ML-detected subset ([[paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml]]), the linear-theory classifier and the ML detector agree on the dominant label
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2604.14311
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2604.14311"
+  arxiv_pdf: "https://arxiv.org/pdf/2604.14311"
+  code_repo: "Code released by the authors under MIT (URL TODO_verify_with_full_text)"
+research_generation_affordances:
+  - "[composability] Compose with [[paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml]]: tag ML-detected events with linear-theory damped/unstable labels and report agreement / disagreement rates."
+  - "[composability] Compose with [[ion-acoustic-velocity-space-signatures-2026]]: the velocity-space-signature analysis is the energy-transfer-direction counterpart to the linear-theory γ sign."
+  - "[minimal_experiment] Apply the linear-Vlasov contract to the SolO RPW Level-2 IA-wave catalogue and report the global damped/unstable fraction as a function of stream type."
+  - "[gap] The classification is linear; intervals near marginal stability are sensitive to T_e estimation systematics that the paper bounds only with stated bars."
+  - "[hypothesis] The damped/unstable fraction varies systematically with stream type (Alfvénic / non-Alfvénic / CIR-adjacent) and is testable against an independent stream classifier."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2604.14311
+  id_verifications:
+    - arxiv_id: "2604.14311"
+      url: "https://arxiv.org/abs/2604.14311"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "The Damping and Instability of Ion-acoustic Waves in the Solar Wind: Solar Orbiter Observations"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2604.14311 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; the released code (MIT licensed) is example Layer-3 not bound here"

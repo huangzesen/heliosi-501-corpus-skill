@@ -1,25 +1,64 @@
 slug: oblique-drift-instability-solar-wind-heating-2025
 title: >-
-  How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution
-authors: []
-authors_verified: false
+  How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution of Solar Wind Observations
+authors:
+  - Mihailo M. Martinovic
+  - Kristopher G. Klein
+  - Leon Ofman
+  - Yogesh
+  - Jaye L. Verniero
+  - Peter H. Yoon
+  - Gregory G. Howes
+  - Daniel Verscharen
+  - Benjamin L. Alterman
+authors_verified: true
+authors_complete: true
 year: 2025
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: preprint
+venue: "arXiv preprint (Dec 2025; revised Feb 2026)"
+doi: null
 arxiv: "2512.18485"
+arxiv_date: "2025-12-20"
 theme: oblique-drift-instability-heating
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - Linear-Vlasov oblique-k solver
-  - Hybrid simulation
+  - In-situ proton + alpha VDF (or proton + electron in the drift configuration of interest)
+  - Linear-Vlasov solver with full (k_∥, k_⊥) coverage (e.g. ALPS, PLUME, NHDS)
+  - Optional: hybrid-PIC code to verify nonlinear Q partition
 methods:
-  - Oblique linear-Vlasov scan
-  - Hybrid simulation
+  - Solve the linear-Vlasov dispersion in the (k_∥, k_⊥) plane for the observed drift VDF, scanning the oblique branch
+  - Compare γ_max(oblique) to γ_max(parallel-only) for matched VDF parameters
+  - Map intervals onto the (β_∥, Δv_pα / v_A) plane and overlay marginal-stability contours from the oblique-branch solver
+  - Optional: run a hybrid simulation initialized at marginal stability to verify the heating-channel partition
 validation_targets:
-  - Q-oblique vs Q-parallel ratio (TODO verify)
+  - Q-oblique / Q-parallel ratio recovered to within stated bars (paper Fig. TODO_verify_with_full_text)
+  - Marginal-stability locus in the (β_∥, Δv_pα/v_A) plane shifted relative to parallel-only models by a paper-specified factor
+  - Observed VDFs cluster against the oblique-instability locus more tightly than against parallel-only loci
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.18485
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2512.18485"
+  arxiv_pdf: "https://arxiv.org/pdf/2512.18485"
+research_generation_affordances:
+  - "[composability] Combine with [[proton-alpha-aic-driven-instabilities-2023]] and [[ion-driven-instabilities-classification-2023]] to test whether VDF features previously attributed to AIC are better explained by the oblique branch."
+  - "[minimal_experiment] Run the oblique-branch contract on a labelled PSP / SolO subset where AIC was previously diagnosed; report the fraction reclassified."
+  - "[gap] The paper bounds oblique-mode marginal stability with linear theory; the nonlinear saturation level (and thus the true Q partition) is bounded only by limited hybrid runs — extending the hybrid coverage is an open agenda."
+  - "[hypothesis] Parallel-only stability surveys systematically *under-constrain* VDFs in regimes where the oblique branch dominates; the bias should be quantifiable as a function of (β_∥, Δv)."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.18485
+  id_verifications:
+    - arxiv_id: "2512.18485"
+      url: "https://arxiv.org/abs/2512.18485"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "How the Oblique Drift Instability Alters Solar Wind Heating and Constrains the Distribution of Solar Wind Observations"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2512.18485 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; oblique-branch solver bindings are example Layer-3 and require careful k-grid choices"

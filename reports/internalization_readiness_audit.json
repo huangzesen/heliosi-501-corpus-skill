@@ -3,20 +3,19 @@
   "summary": {
     "total_entries": 501,
     "active_entries": 45,
-    "mean_score": 61.36,
-    "median_score": 61.69,
-    "min_score": 24.14,
-    "max_score": 84.53,
+    "mean_score": 62.19,
+    "median_score": 61.9,
+    "min_score": 37.53,
+    "max_score": 89.22,
     "histogram": {
-      "0-24": 1,
-      "25-49": 21,
+      "0-24": 0,
+      "25-49": 12,
       "50-69": 418,
-      "70-84": 61,
-      "85-100": 0
+      "70-84": 69,
+      "85-100": 2
     },
     "by_batch_mean": {
       "batch_mission_instruments_data_products": 53.22,
-      "wave500_waves_instabilities_reconnection_045": 53.7,
       "wave500_inner_heliosphere_psp_solo_045": 55.37,
       "wave500_solar_corona_cme_flares_045": 57.16,
       "batch_turbulence_heating_apj": 57.56,
@@ -25,6 +24,7 @@
       "wave500_sw_classification_ml_foundation_045": 60.35,
       "batch_heliophysics_software_infrastructure": 61.05,
       "batch_solar_wind_segmentation_ml": 62.41,
+      "wave500_waves_instabilities_reconnection_045": 62.54,
       "wave500_agent_runtime_eval_design_045": 63.42,
       "wave500_sep_shocks_space_weather_045": 64.9,
       "wave500_instruments_data_software_045": 66.75,
@@ -32,23 +32,23 @@
       "pilot_turbulence": 68.85,
       "batch_psp_switchbacks_magnetic": 69.11,
       "batch_sep_energetic_particles": 69.37,
-      "batch_pfss_source_mapping": 70.1
+      "batch_pfss_source_mapping": 71.95
     },
     "by_quality_mean": {
       "stub-historical-ecosystem-map": 56.23,
-      "stub": 59.08,
       "pilot_weak_attribution": 59.8,
       "pilot": 60.58,
+      "stub": 61.47,
       "stub-historical-anchor": 62.0,
       "paper-grounded-pending-full-text": 62.18,
       "positioning-skill-not-executable-science": 63.24,
       "stub-infrastructure": 64.33,
       "method-ready": 66.07,
       "link-only-cross-batch": 69.41,
-      "paper-grounded-locally-reproduced": 70.73
+      "paper-grounded-locally-reproduced": 89.22
     },
     "active_score_min": 50.5,
-    "active_score_mean": 63.23
+    "active_score_mean": 63.64
   },
   "weights": {
     "bibliographic_anchor": 25,
@@ -2742,30 +2742,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 9,
-      "score": 70.73,
-      "raw_score": 73,
-      "todo_penalty": 2.27,
+      "n_todo": 8,
+      "score": 89.22,
+      "raw_score": 91,
+      "todo_penalty": 1.78,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -2803,12 +2803,12 @@
           }
         },
         "layer4_affordance": {
-          "score": 5,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_meta_affordances": false,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -37248,30 +37248,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 39.56,
-      "raw_score": 44,
-      "todo_penalty": 4.44,
+      "n_todo": 4,
+      "score": 77.94,
+      "raw_score": 79,
+      "todo_penalty": 1.06,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -37287,11 +37287,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -37299,22 +37299,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -37491,38 +37491,38 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 11,
-      "score": 24.14,
-      "raw_score": 33,
-      "todo_penalty": 8.86,
+      "n_todo": 2,
+      "score": 87.57,
+      "raw_score": 88,
+      "todo_penalty": 0.43,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 25,
           "max": 25,
           "bits": {
-            "arxiv": false,
-            "doi": false,
-            "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "arxiv": true,
+            "doi": true,
+            "ads": true,
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 20,
+          "score": 25,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": true,
             "has_targets": true,
@@ -37530,11 +37530,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -37542,22 +37542,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -38220,30 +38220,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 39.46,
-      "raw_score": 44,
-      "todo_penalty": 4.54,
+      "n_todo": 4,
+      "score": 77.96,
+      "raw_score": 79,
+      "todo_penalty": 1.04,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -38259,11 +38259,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -38271,22 +38271,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -38301,30 +38301,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 39.53,
-      "raw_score": 44,
-      "todo_penalty": 4.47,
+      "n_todo": 7,
+      "score": 77.2,
+      "raw_score": 79,
+      "todo_penalty": 1.8,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -38340,11 +38340,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -38352,22 +38352,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -38625,30 +38625,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 39.23,
-      "raw_score": 44,
-      "todo_penalty": 4.77,
+      "n_todo": 3,
+      "score": 78.22,
+      "raw_score": 79,
+      "todo_penalty": 0.78,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -38664,11 +38664,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -38676,22 +38676,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -39111,30 +39111,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 39.37,
-      "raw_score": 44,
-      "todo_penalty": 4.63,
+      "n_todo": 4,
+      "score": 76.0,
+      "raw_score": 77,
+      "todo_penalty": 1.0,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -39150,11 +39150,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -39162,22 +39162,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 8,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
             "has_numeric_reference": false,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -39516,30 +39516,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 41.82,
-      "raw_score": 46,
-      "todo_penalty": 4.18,
+      "n_todo": 7,
+      "score": 77.24,
+      "raw_score": 79,
+      "todo_penalty": 1.76,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -39555,11 +39555,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -39567,22 +39567,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 5,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_meta_affordances": false,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -39597,30 +39597,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 41.62,
-      "raw_score": 46,
-      "todo_penalty": 4.38,
+      "n_todo": 4,
+      "score": 78.01,
+      "raw_score": 79,
+      "todo_penalty": 0.99,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -39636,11 +39636,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -39648,22 +39648,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 5,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_meta_affordances": false,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -40002,30 +40002,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 41.69,
-      "raw_score": 46,
-      "todo_penalty": 4.31,
+      "n_todo": 4,
+      "score": 75.98,
+      "raw_score": 77,
+      "todo_penalty": 1.02,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -40041,11 +40041,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -40053,22 +40053,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 8,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
             "has_numeric_reference": false,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 5,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_meta_affordances": false,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -40407,30 +40407,30 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": true,
-      "n_todo": 6,
-      "score": 39.51,
-      "raw_score": 44,
-      "todo_penalty": 4.49,
+      "n_todo": 4,
+      "score": 77.96,
+      "raw_score": 79,
+      "todo_penalty": 1.04,
       "components": {
         "bibliographic_anchor": {
-          "score": 6,
+          "score": 16,
           "max": 25,
           "bits": {
             "arxiv": true,
             "doi": false,
             "ads": false,
-            "url_or_code": false,
-            "id_verifications": false,
-            "external_links": false
+            "url_or_code": true,
+            "id_verifications": true,
+            "external_links": true
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
@@ -40446,11 +40446,11 @@
           }
         },
         "layer2_protocol": {
-          "score": 3,
+          "score": 8,
           "max": 20,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_capabilities": true,
             "has_procedure": true,
             "boilerplate": false,
@@ -40458,22 +40458,22 @@
           }
         },
         "validation_target": {
-          "score": 0,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
-            "has_section": false,
-            "has_numeric_reference": false,
+            "has_meta_validation_targets": true,
+            "has_section": true,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }

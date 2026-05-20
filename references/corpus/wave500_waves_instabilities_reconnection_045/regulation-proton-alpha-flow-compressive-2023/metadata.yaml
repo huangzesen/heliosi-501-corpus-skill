@@ -1,24 +1,61 @@
 slug: regulation-proton-alpha-flow-compressive-2023
 title: >-
-  Regulation of Proton-α Differential Flow by Compressive Fluctuations and Ion-Scale Instabilities
-authors: []
-authors_verified: false
+  Regulation of Proton-α Differential Flow by Compressive Fluctuations and Ion-Scale Instabilities in the Solar Wind
+authors:
+  - Xingyu Zhu
+  - Daniel Verscharen
+  - Jiansen He
+  - Bennett A. Maruca
+  - Christopher J. Owen
+authors_verified: true
+authors_complete: true
 year: 2023
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: The Astrophysical Journal
+venue: "ApJ accepted (Aug 2023; 13 pages, 9 figures)"
+doi: null
 arxiv: "2308.02036"
+arxiv_date: "2023-08-03"
 theme: proton-alpha-differential-flow-regulation
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - Hybrid simulation with proton + α populations
+  - Hybrid-PIC code with proton + α support, including a prescribed compressive-fluctuation driver
+  - In-situ Δv_pα(r) statistics (Wind/SWE, Helios, or PSP SPAN-i α observations)
+  - Drift-instability threshold evaluator (parallel and oblique branches)
 methods:
-  - Hybrid simulation with compressive forcing
-  - Drift-instability action
+  - Initialise hybrid simulation with proton + α populations at chosen Δv_pα,0 and prescribed compressive-fluctuation amplitude δn/n
+  - Evolve and track Δv_pα(t); identify the marginal-stability locus
+  - Decompose the Δv_pα evolution into (compressive-scattering, drift-instability) contributions
+  - Compare to observed Δv_pα(r) envelope across heliocentric distance
 validation_targets:
-  - Δv_pα(r) within in-situ envelope (TODO verify)
+  - Δv_pα(r) profile lies within the in-situ envelope from the paper's reference dataset (TODO_verify_with_full_text for exact envelope band)
+  - The dependence of Δv_pα-decay on compressive-fluctuation amplitude δn/n reproduces the paper's reference figure (slope and intercept within stated bars)
+  - The decomposition into (compressive, instability) contributions matches the paper's Table TODO_verify_with_full_text within ≲ 15 % per channel
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.02036
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2308.02036"
+  arxiv_pdf: "https://arxiv.org/pdf/2308.02036"
+research_generation_affordances:
+  - "[composability] Extend [[bianco-2025-alfven-wave-proton-beam-evolution-hebox]] (proton-beam evolution under AW driving) to multi-species drift evolution by composing the compressive-fluctuation driver with the AW driver."
+  - "[composability] Use the drift-instability threshold from [[verniero-2020-proton-beams-ion-scale-waves]] (PSP ion-scale-wave occurrence) as the regulator the present skill quantifies."
+  - "[minimal_experiment] Apply the compressive-amplitude diagnostic to CIR-adjacent intervals in the Wind / PSP archives and test whether enhanced δn/n correlates with faster Δv_pα decay."
+  - "[gap] The simulations use a *prescribed* compressive driver; the self-consistent generation of compressive fluctuations from the same instabilities is not closed."
+  - "[hypothesis] CIR-adjacent intervals where compressive fluctuations are enhanced show measurably faster Δv_pα decay than ambient stream intervals at matched heliocentric distance."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.02036
+  id_verifications:
+    - arxiv_id: "2308.02036"
+      url: "https://arxiv.org/abs/2308.02036"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Regulation of Proton-α Differential Flow by Compressive Fluctuations and Ion-scale Instabilities in the Solar Wind"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2308.02036 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; hybrid-PIC bindings with multi-species + compressive forcing are example Layer-3 and require careful initial-condition design"

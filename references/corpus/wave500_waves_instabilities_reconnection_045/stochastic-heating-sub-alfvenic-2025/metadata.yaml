@@ -1,23 +1,67 @@
 slug: stochastic-heating-sub-alfvenic-2025
 title: >-
   Stochastic Heating in the Sub-Alfvénic Solar Wind
-authors: []
-authors_verified: false
+authors:
+  - Trevor A. Bowen
+  - Tamar Ervin
+  - Alfred Mallet
+  - Benjamin D. G. Chandran
+  - Nikos Sioulas
+  - Philip A. Isenberg
+  - Stuart D. Bale
+  - Jonathan Squire
+  - Kristopher G. Klein
+  - Oreste Pezzi
+authors_verified: true
+authors_complete: true
 year: 2025
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: preprint
+venue: "arXiv preprint (Sep 2025)"
+doi: null
 arxiv: "2509.20654"
+arxiv_date: "2025-09-25"
 theme: stochastic-heating-sub-alfvenic
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - PSP MAG + plasma sub-Alfvénic intervals
+  - PSP MAG + SPC/SPAN-i high-cadence data for the identified sub-Alfvénic intervals (M_A < 1)
+  - The Chandran-2010 stochastic-heating closure ([[chandran-2010-stochastic-heating-perp-alfven]])
+  - Density estimate adequate for ρ_i inference at the relevant cadence
 methods:
-  - Stochastic-heating prescription evaluation
+  - Identify sub-Alfvénic intervals via M_A = v_sw / v_A < 1 from PSP MAG + SPC
+  - Estimate δv_⊥(ρ_i) from the perpendicular velocity / magnetic-field spectrum at the gyroscale
+  - Evaluate Q_⊥ via the Chandran-2010 closure with (c_1, c_2) = (0.75, 0.34)
+  - Compare Q_⊥ to an independent heating budget (turbulent cascade rate, observed T_⊥(r) evolution)
+  - Report the Q_⊥-closure fraction per interval
 validation_targets:
-  - Q_⊥ closure within stated fraction (TODO verify)
+  - Q_⊥ closes a paper-stated fraction of the inferred perpendicular heating budget (TODO_verify_with_full_text for exact fraction)
+  - ε = δv_⊥ / v_⊥,p sits in the calibration band (ε ∈ [0.05, 0.5]) for most analysed intervals; out-of-calibration fraction reported
+  - Q_⊥(r) profile in the sub-Alfvénic regime reproduces the paper's reference-figure shape
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.20654
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2509.20654"
+  arxiv_pdf: "https://arxiv.org/pdf/2509.20654"
+research_generation_affordances:
+  - "[composability] Directly anchored to [[chandran-2010-stochastic-heating-perp-alfven]] (analytic closure) and to [[kasper-2021-psp-enters-magnetically-dominated-corona]] (sub-Alfvénic regime); the joint diagnostic ties the analytic prediction to the first M_A < 1 interval."
+  - "[tension] [[bowen-2024-cyclotron-heating-rates-ion-scale-waves]] proposes a parallel cyclotron-resonant channel; in the sub-Alfvénic regime the channel partition is not yet settled, and the present skill provides the perpendicular-channel side of the partition."
+  - "[minimal_experiment] Run the closure on the labelled sub-Alfvénic intervals from PSP encounters E08–E14 and report the Q_⊥-closure fraction histogram."
+  - "[gap] The Chandran-2010 (c_1, c_2) calibration is for balanced AW turbulence; in sub-Alfvénic intervals σ_c is often large, so the closure is out-of-calibration in those regions and the residual is uncontrolled."
+  - "[hypothesis] Sub-Alfvénic stochastic heating accounts for the near-Sun T_⊥ enhancement that the cascade-only budget under-predicts."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2509.20654
+  id_verifications:
+    - arxiv_id: "2509.20654"
+      url: "https://arxiv.org/abs/2509.20654"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Stochastic Heating in the Sub-Alfvénic Solar Wind"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2509.20654 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; gyroscale-amplitude extrapolation from MAG spectra is the load-bearing systematic and is not bound here"

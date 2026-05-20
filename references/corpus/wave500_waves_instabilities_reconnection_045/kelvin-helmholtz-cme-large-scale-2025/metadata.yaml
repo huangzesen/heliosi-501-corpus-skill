@@ -1,24 +1,61 @@
 slug: kelvin-helmholtz-cme-large-scale-2025
 title: >-
   Observation of Large-Scale Kelvin–Helmholtz Instability Wave Driven by a Coronal Mass Ejection
-authors: []
-authors_verified: false
+authors:
+  - Leon Ofman
+  - Olga Khabarova
+  - Ryun-Yong Kwon
+  - Yogesh
+  - Eyal Heifetz
+  - Katariina Nykyri
+authors_verified: true
+authors_complete: true
 year: 2025
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: The Astrophysical Journal Letters
+venue: "ApJL accepted (Dec 2025)"
+doi: null
 arxiv: "2512.19942"
+arxiv_date: "2025-12-23"
 theme: kelvin-helmholtz-cme-driven
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - CME imagery + in-situ shear data
+  - White-light coronagraph imagery covering the CME flank and the candidate KH event window
+  - In-situ shear-flow measurements (Δv, ΔB) across the CME sheath–ambient boundary if available
+  - Local plasma parameters (n, T, B) needed to evaluate the magnetised KH threshold
 methods:
-  - Linear KH threshold
-  - Wavelength extraction from imagery
+  - Identify the CME-flank shear interface in coronagraph time series and measure transverse wavelength λ
+  - Evaluate the magnetised KH stability criterion ρ_1 ρ_2 (v_1-v_2)^2 / (ρ_1+ρ_2)^2 > (B_∥1^2 + B_∥2^2) / (4π (ρ_1+ρ_2))
+  - Compare measured λ against the linear-theory wavelength of maximum growth λ_max(shear width L)
+  - Cross-check with in-situ ICME-sheath boundary signatures (if a CDAWeb/HelioSpacePy hit on the event is available)
 validation_targets:
-  - KH wavelength matches linear theory (TODO verify)
+  - Measured KH wavelength λ within the linear-theory band λ_max ± a factor of ≲ 2 (paper-stated; exact tolerance TODO_verify_with_full_text)
+  - Magnetised KH criterion is satisfied at the identified interface within stated uncertainties
+  - Event reproduction: identification of the same CME and the same KH-wave train in coronagraph data
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.19942
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2512.19942"
+  arxiv_pdf: "https://arxiv.org/pdf/2512.19942"
+research_generation_affordances:
+  - "[composability] Compose with [[hcs-reconnection-statistics-psp-encounter-2025]] to test whether KH-driven mixing at CME flanks correlates with downstream reconnection statistics at the HCS."
+  - "[minimal_experiment] Apply the KH-criterion contract to the CDAW LASCO CME catalogue, restricted to fast halo-CME flanks observed by both LASCO/COR2 and Metis; produce a yield rate for KH-wave-train identification."
+  - "[gap] The paper is a single-event study; the statistical KH-occurrence rate on CME flanks is not constrained, and is the next composable agenda item."
+  - "[hypothesis] KH-active CME flanks should produce enhanced suprathermal-particle populations downstream via reconnection seeded at the mixing layer; testable against post-CME SEP onset statistics."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2512.19942
+  id_verifications:
+    - arxiv_id: "2512.19942"
+      url: "https://arxiv.org/abs/2512.19942"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Observation of Large-Scale Kelvin-Helmholtz Instability Wave Driven by a Coronal Mass Ejection"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2512.19942 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: event-study Layer 2 is contract-only; the full image-tracking pipeline depends on a specific coronagraph package not bound here"

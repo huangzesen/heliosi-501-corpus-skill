@@ -1,24 +1,62 @@
 slug: anti-equilibrium-alfven-ion-cyclotron-effects-2023
 title: >-
   The Effects of Non-Equilibrium Velocity Distributions on Alfvén Ion-Cyclotron Waves in the Solar Wind
-authors: []
-authors_verified: false
+authors:
+  - Jada Walters
+  - Kristopher G. Klein
+  - Emily Lichko
+  - Michael L. Stevens
+  - Daniel Verscharen
+  - Benjamin D. G. Chandran
+authors_verified: true
+authors_complete: true
 year: 2023
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: The Astrophysical Journal
+venue: "ApJ accepted (Aug 2023)"
+doi: null
 arxiv: "2308.14944"
+arxiv_date: "2023-08-28"
 theme: aic-non-equilibrium-vdf-effects
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - Free-form VDF data
-  - Free-form linear-Vlasov solver
+  - In-situ VDF in distribution-function form (PSP SPAN-i or Wind/SWE/3DP)
+  - Linear-Vlasov solver with arbitrary-VDF input (e.g. ALPS or LEOPARD)
+  - Optional: bi-Maxwellian baseline fit for the same intervals
 methods:
-  - Free-form-VDF linear-Vlasov dispersion
+  - Solve the linear-Vlasov dispersion using the observed VDF as input
+  - Solve the same dispersion using a bi-Maxwellian fit to the VDF as input
+  - Emit γ_max(observed VDF) / γ_max(bi-Maxwellian fit) per interval
+  - Aggregate to identify intervals where the bi-Maxwellian closure mis-calls AIC stability
 validation_targets:
-  - γ_max ratio reproduced (TODO verify)
+  - γ_max ratio reproduced on the paper's labelled events to within stated bars (TODO_verify_with_full_text for exact tolerance, paper §IV)
+  - Sign of the bi-Maxwellian bias is reproduced (under-estimate when the observed VDF carries beams; over-estimate at certain anisotropy configurations)
+  - The set of intervals reclassified by the free-form-VDF closure overlaps the paper's set within ≲ 10 % count discrepancy
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.14944
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2308.14944"
+  arxiv_pdf: "https://arxiv.org/pdf/2308.14944"
+research_generation_affordances:
+  - "[composability] Provide the free-form-VDF closure to [[verniero-2020-proton-beams-ion-scale-waves]]: re-evaluate AIC occurrence predictions on the Verniero PSP-encounter sample using the observed VDF rather than a bi-Maxwellian fit."
+  - "[composability] Combine with [[klein-2018-multispecies-stability-anisotropy]]: the multispecies stability constraints are themselves bi-Maxwellian-based; the bias quantified here propagates into them."
+  - "[minimal_experiment] On the PSP SPAN-i AIC-event catalogue, evaluate γ_max ratio (observed VDF / bi-Maxwellian fit) and report the reclassification rate."
+  - "[gap] The paper bounds the bi-Maxwellian bias for AIC waves only; the analogous bias for other ion-cyclotron-family branches (oblique AIC, mirror) is not closed."
+  - "[hypothesis] A non-trivial fraction of historical AIC-stability calls in the Wind / Helios archives are mis-classifications because the underlying VDFs carried beams that the bi-Maxwellian fit smoothed away."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2308.14944
+  id_verifications:
+    - arxiv_id: "2308.14944"
+      url: "https://arxiv.org/abs/2308.14944"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "The Effects of Non-Equilibrium Velocity Distributions on Alfvén Ion-Cyclotron Waves in the Solar Wind"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2308.14944 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; ALPS / LEOPARD bindings for free-form-VDF input are example Layer-3 and require careful gridding"

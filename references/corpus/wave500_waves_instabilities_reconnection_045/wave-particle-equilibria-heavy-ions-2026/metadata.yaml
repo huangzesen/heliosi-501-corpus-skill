@@ -1,25 +1,60 @@
 slug: wave-particle-equilibria-heavy-ions-2026
 title: >-
   Wave-Particle Equilibria with Heavy Ions in Weakly Collisional Space Plasmas
-authors: []
-authors_verified: false
+authors:
+  - Nicolás Villarroel-Sepúlveda
+  - Daniel Verscharen
+  - Pablo S. Moya
+  - Rodrigo A. López
+  - Kristopher G. Klein
+authors_verified: true
+authors_complete: true
 year: 2026
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: The Astrophysical Journal
+venue: "ApJ accepted (Mar 2026)"
+doi: null
 arxiv: "2603.22613"
+arxiv_date: "2026-03-23"
 theme: wave-particle-equilibria-heavy-ions
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - Wave-spectrum prescription
-  - Heavy-ion-capable hybrid PIC
+  - Wave spectrum prescription (e.g. observed RPW/SCM δB(f) extrapolated to the resonant frequency band)
+  - Heavy-ion VDF measurement (SolO SWA HIS or PSP SWEAP α/heavy-ion mode)
+  - Hybrid-PIC code with heavy-ion species support (for the verification step)
 methods:
-  - Wave-particle equilibrium derivation
-  - Hybrid PIC verification
+  - Derive the wave-particle equilibrium VDF F_eq(v) for the heavy-ion species in the prescribed wave spectrum
+  - Compare F_eq(v) against the measured heavy-ion VDF, in T_⊥/T_∥ and in the higher-order moments
+  - Verify the equilibrium with a hybrid-PIC run initialised away from F_eq and evolved to relaxation
+  - Quantify the residual collisional / non-equilibrium driver if F_eq is not matched
 validation_targets:
-  - F_eq locus matches in-situ (TODO verify)
+  - F_eq(v) locus matches in-situ heavy-ion VDFs within stated bars (TODO_verify_with_full_text exact tolerance)
+  - T_⊥/T_∥ for heavy ions sits on the F_eq locus more tightly than on the bi-Maxwellian-equilibrium locus
+  - Hybrid run relaxes to F_eq within a paper-stated number of cyclotron times
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2603.22613
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2603.22613"
+  arxiv_pdf: "https://arxiv.org/pdf/2603.22613"
+research_generation_affordances:
+  - "[composability] Use the equilibrium framework as the null hypothesis for [[extreme-minor-ion-heating-imbalanced-turbulence-2024]]; intervals where the observed heavy-ion T_⊥/T_∥ departs from F_eq are precisely the extreme-heating regime."
+  - "[minimal_experiment] Apply F_eq prediction to SolO SWA HIS heavy-ion data over a labelled set of streams; report the fraction in-equilibrium vs out-of-equilibrium."
+  - "[gap] The framework assumes a *prescribed* wave spectrum; the back-reaction of heavy-ion absorption on the spectrum is not closed self-consistently."
+  - "[hypothesis] Heavy-ion VDFs in well-developed Alfvénic streams sit on F_eq; those in compressive / shock-adjacent intervals do not — the dichotomy is observable in the SWA HIS archive."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2603.22613
+  id_verifications:
+    - arxiv_id: "2603.22613"
+      url: "https://arxiv.org/abs/2603.22613"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Wave-particle equilibria with heavy ions in weakly collisional space plasmas"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2603.22613 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; heavy-ion hybrid-PIC verification requires non-trivial code support not bound here"

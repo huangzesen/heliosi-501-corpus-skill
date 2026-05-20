@@ -1,24 +1,62 @@
 slug: chandran-2010-stochastic-heating-perp-alfven
 title: >-
-  Stochastic Perpendicular Ion Heating from Large-Amplitude Alfvénic Turbulence
+  Perpendicular Ion Heating by Low-Frequency Alfvén-Wave Turbulence in the Solar Wind
 authors:
-  - B. D. G. Chandran
-authors_complete: false
+  - Benjamin D. G. Chandran
+  - Bo Li
+  - Barrett N. Rogers
+  - Eliot Quataert
+  - Kai Germaschewski
+authors_verified: true
+authors_complete: true
 year: 2010
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
-arxiv: "TODO_verify_with_full_text"
+journal: The Astrophysical Journal
+venue: "ApJ 720, 503"
+doi: "10.1088/0004-637X/720/1/503"
+arxiv: "1001.2069"
+arxiv_date: "2010-01-13"
+ads_bibcode: "2010ApJ...720..503C"
 theme: stochastic-heating-foundational
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - (δv_⊥, v_⊥, ρ_i) inputs
+  - Turbulence amplitude δv_⊥ at the proton-gyroscale ρ_i (from in-situ MAG/SPC or from a turbulence model)
+  - Local proton thermal speed v_⊥ (or v_⊥,p ≈ v_th,p)
+  - Local proton gyroradius ρ_i (from B and T_⊥,p)
 methods:
-  - Analytic Q_⊥ closure evaluation
+  - Evaluate ε = δv_⊥(ρ_i)/v_⊥
+  - Evaluate Q_⊥ = c_1 (δv_⊥)^3 / ρ_i · exp(−c_2/ε) with the paper's calibration (c_1 ≈ 0.75, c_2 ≈ 0.34 for randomly-phased AW turbulence)
+  - Compare Q_⊥ against an independent heating budget (turbulent cascade, observed T_⊥(r) evolution)
 validation_targets:
-  - Reproduces analytic Q_⊥(ε) curve (TODO verify)
+  - Reproduce Figure 3 Q_⊥(ε) curve shape: stochastic suppression for ε ≲ 0.1, near-power-law growth for ε ≳ 0.2
+  - Recover the calibration c_1 ≈ 0.75, c_2 ≈ 0.34 when fitting the published test-particle dataset
+  - Q_⊥ approaches the cascade rate ε_T ≈ ρ̄ (δv_⊥)^3/L_⊥ within stated bars when ε is order unity
 source_inventory:
-  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md (TODO verify section)
+  - sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md (Chandran 2010 ApJ 720 503)
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/1001.2069"
+  arxiv_pdf: "https://arxiv.org/pdf/1001.2069"
+  doi: "https://doi.org/10.1088/0004-637X/720/1/503"
+  ads: "https://ui.adsabs.harvard.edu/abs/2010ApJ...720..503C"
+research_generation_affordances:
+  - "[composability] Acts as the analytic closure cited by [[stochastic-heating-sub-alfvenic-2025]] and [[peng-2025-chaotic-ion-motion-finite-amplitude-alfven]]; ε criterion and chaos parameter P_eff are independent diagnostics that can be jointly evaluated per PSP interval."
+  - "[minimal_experiment] Evaluate ε(r) along a single PSP encounter using SPC/MAG; tag intervals as stochastic-on (ε > 0.1) vs stochastic-off (ε ≤ 0.1) and test whether the bimodal distribution Chandran et al. predict is observed."
+  - "[gap] The c_1, c_2 constants are calibrated against test-particle integration in randomly-phased Alfvén turbulence; their robustness to imbalance (cross-helicity ≠ 0) and to compressive admixtures is not constrained by this paper."
+  - "[hypothesis] Sub-Alfvénic intervals (M_A < 1) sit in a different (β, ε) regime than the calibration set, so the c_2/ε exponent could be miscalibrated near the Sun — [[stochastic-heating-sub-alfvenic-2025]] is the appropriate sanity check."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/apj_aa_heliophysics_papers.md
+  id_verifications:
+    - arxiv_id: "1001.2069"
+      url: "https://arxiv.org/abs/1001.2069"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Perpendicular Ion Heating by Low-Frequency Alfven-Wave Turbulence in the Solar Wind"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/1001.2069 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is the analytic-closure contract only; downstream sub-Alfvénic application lives in [[stochastic-heating-sub-alfvenic-2025]]"

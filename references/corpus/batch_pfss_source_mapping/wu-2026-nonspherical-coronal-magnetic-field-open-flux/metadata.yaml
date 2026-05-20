@@ -3,14 +3,24 @@ title: >-
   Addressing the Open Flux Problem with a Non-Spherical Solar Coronal
   Magnetic Field Model
 authors:
-  - Wu
-  - He
-  - Hou
-authors_complete: false
+  - Ziqi Wu
+  - Jiansen He
+  - Chuanpeng Hou
+  - Tom van Doorsselaere
+  - Rui Zhuo
+  - Tianhang Chen
+  - Liping Yang
+  - David Pontin
+  - Daniel Verscharen
+  - Fang Shen
+authors_complete: true
+authors_verified: true
 year: 2026
-journal: TODO_verify_with_full_text
+journal: The Astrophysical Journal Letters
+venue: "ApJL submitted (Apr 2026)"
 doi: TODO_verify_with_full_text
 arxiv: "2604.01028"
+arxiv_date: "2026-04-01"
 theme: pfss_source_mapping
 secondary_themes:
   - magnetic_field
@@ -49,9 +59,28 @@ source_inventory:
 related_local_skills:
   - .library/custom/nspf-fem/SKILL.md  # primary reproduction implementation
   - .library/custom/pfss-tracing/SKILL.md
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2604.01028"
+  arxiv_pdf: "https://arxiv.org/pdf/2604.01028"
+research_generation_affordances:
+  - "[reproduction] Locally reproduced end-to-end: open flux 9.09 G·R²_sun (vs 9.19 paper) for GONG CR 2282 at R_init = 2.5, 1.1 % error — see .library/custom/nspf-fem/SKILL.md."
+  - "[composability] Provides the NSPF open-flux value that other PFSS source-mapping skills (e.g. [[stansby-2025-open-closed-flux-boundary-slow-wind]]) can cross-reference."
+  - "[gap] The local reproduction uses GONG CR 2282 only; the NSPF / PFSS ratio is not bounded statistically across the cycle."
+  - "[hypothesis] The NSPF open-flux enhancement varies systematically with cycle phase / synoptic-map source; testable by running the NSPF pipeline across the GONG / HMI archive."
+research_generation_affordances_present: true
 provenance:
   generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
   generated_at: 2026-05-18T00:00:00Z
   source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md §2.5
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19 (author list + venue verified, external_links and affordances added)
+  id_verifications:
+    - arxiv_id: "2604.01028"
+      url: "https://arxiv.org/abs/2604.01028"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Addressing the open flux problem with a non-spherical solar coronal magnetic field model"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2604.01028 on 2026-05-19"
   verified_by: null
   verified_at: null

@@ -1,25 +1,91 @@
 slug: interchange-reconnection-pseudostreamer-metis-2025
 title: >-
   Metis Observations of Alfvénic Outflows Driven by Interchange Reconnection in a Pseudostreamer
-authors: []
-authors_verified: false
+authors:
+  - P. Romano
+  - P. Wyper
+  - V. Andretta
+  - S. Antiochos
+  - G. Russano
+  - D. Spadaro
+  - L. Abbo
+  - L. Contarino
+  - A. Elmhamdi
+  - F. Ferrente
+  - R. Lionello
+  - B. J. Lynch
+  - P. MacNeice
+  - M. Romoli
+  - R. Ventura
+  - N. Viall
+  - A. Bemporad
+  - A. Burtovoi
+  - V. Da Deppo
+  - Y. De Leo
+  - S. Fineschi
+  - F. Frassati
+  - S. Giordano
+  - S. L. Guglielmino
+  - C. Grimani
+  - P. Heinzel
+  - G. Jerse
+  - F. Landini
+  - G. Naletto
+  - M. Pancrazzi
+  - C. Sasso
+  - M. Stangalini
+  - R. Susino
+  - D. Telloni
+  - L. Teriaca
+  - M. Uslenghi
+authors_verified: true
+authors_complete: false
 year: 2025
-journal: TODO_verify_journal
-doi: TODO_verify_with_full_text
+journal: preprint
+venue: "arXiv preprint (Feb 2025)"
+doi: null
 arxiv: "2502.08015"
+arxiv_date: "2025-02-11"
 theme: interchange-reconnection-pseudostreamer-metis
 quality_level: stub
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - Metis coronagraph data
-  - PFSS topology model
+  - Metis VL + UV imagery covering a candidate pseudostreamer outflow window
+  - PFSS or analogous magnetic-topology model for the parent active region / coronal-hole pair
+  - SolO context EUV (EUI, SPICE) for footpoint identification (optional but recommended)
 methods:
-  - Coronagraph time-series outflow tracking
-  - Pseudostreamer-topology PFSS
+  - Identify a pseudostreamer footpoint configuration in the PFSS topology
+  - Track outflow brightness features in Metis imagery and extract apparent outflow speed v_⊥(t, r)
+  - Compare outflow speed against the local Alfvén speed v_A from a coronal model
+  - Cross-check footpoint position against EUI / SPICE coronal-hole / active-region boundary
 validation_targets:
-  - Outflow speed within expected range (TODO verify)
+  - Outflow speed v_⊥ lies within a paper-stated band around v_A (TODO_verify_with_full_text for exact band)
+  - PFSS topology at the candidate footpoint is pseudostreamer (closed-closed-open configuration)
+  - The same outflow event is recovered in coordinated SolO EUI / SPICE products where available
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2502.08015
+external_links:
+  arxiv_abs: "https://arxiv.org/abs/2502.08015"
+  arxiv_pdf: "https://arxiv.org/pdf/2502.08015"
+research_generation_affordances:
+  - "[composability] Compose with [[ervin-2024-slow-alfvenic-source-regions-pfss-psp]] to test whether the slow-Alfvénic streams it identifies in PSP map back to interchange-reconnection events at Metis-imaged pseudostreamers."
+  - "[minimal_experiment] Apply the topology + outflow-tracking contract to the Metis pseudostreamer catalogue; report the yield rate for Alfvénic-outflow identification."
+  - "[gap] The paper is a single-event study; a survey of pseudostreamer outflows across the SolO mission is the natural composable agenda."
+  - "[hypothesis] Slow-Alfvénic streams seen in PSP at given latitudes / Carrington longitudes are statistically traceable to Metis-imaged interchange-reconnection events earlier in the time series."
+research_generation_affordances_present: true
+provenance:
+  generated_by: HelioSI paper-to-skill factory (wave500 batch)
+  internalized_by: HelioSI waves-layer2 internalization 2026-05-19
+  source_record: sioulas-reproduction/results/arxiv_papers/theme_wave_analysis.json arxiv_id=2502.08015
+  id_verifications:
+    - arxiv_id: "2502.08015"
+      url: "https://arxiv.org/abs/2502.08015"
+      status: arxiv-http-title-match
+      http_status: 200
+      title_match: true
+      fetched_title: "Metis Observations of Alfvénic Outflows Driven by Interchange Reconnection in a Pseudostreamer"
+      verified_at: "2026-05-19"
+      verified_via: "WebFetch of https://arxiv.org/abs/2502.08015 on 2026-05-19"
 layer2_stub: true
 layer2_status: stub
-layer2_banner_reason: "issue-14: placeholder executable protocol"
+layer2_banner_reason: "issue-14: Layer 2 is contract-only; full Metis image pipeline + PFSS pseudostreamer detector are example Layer-3 bindings"

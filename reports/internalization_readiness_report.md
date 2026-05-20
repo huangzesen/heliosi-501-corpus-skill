@@ -1,18 +1,17 @@
 internalization-readiness audit — 501 entries scanned (45 active)
 ========================================================================
-  mean score   : 61.36/100   median: 61.69   min: 24.14   max: 84.53
-  active mean  : 63.23   active min: 50.5
+  mean score   : 62.19/100   median: 61.9   min: 37.53   max: 89.22
+  active mean  : 63.64   active min: 50.5
 
   score histogram (lower = more internalization debt):
-    0-24       1  #
-    25-49     21  ######
+    0-24       0  
+    25-49     12  ####
     50-69    418  ############################################################
-    70-84     61  ################
-    85-100     0  
+    70-84     69  ##################
+    85-100     2  #
 
   per-batch mean (ascending — worst-debt batch first):
     batch_mission_instruments_data_products              53.22
-    wave500_waves_instabilities_reconnection_045         53.7
     wave500_inner_heliosphere_psp_solo_045               55.37
     wave500_solar_corona_cme_flares_045                  57.16
     batch_turbulence_heating_apj                         57.56
@@ -21,6 +20,7 @@ internalization-readiness audit — 501 entries scanned (45 active)
     wave500_sw_classification_ml_foundation_045          60.35
     batch_heliophysics_software_infrastructure           61.05
     batch_solar_wind_segmentation_ml                     62.41
+    wave500_waves_instabilities_reconnection_045         62.54
     wave500_agent_runtime_eval_design_045                63.42
     wave500_sep_shocks_space_weather_045                 64.9
     wave500_instruments_data_software_045                66.75
@@ -28,37 +28,27 @@ internalization-readiness audit — 501 entries scanned (45 active)
     pilot_turbulence                                     68.85
     batch_psp_switchbacks_magnetic                       69.11
     batch_sep_energetic_particles                        69.37
-    batch_pfss_source_mapping                            70.1
+    batch_pfss_source_mapping                            71.95
 
   per-quality_level mean (ascending):
     stub-historical-ecosystem-map                    56.23
-    stub                                             59.08
     pilot_weak_attribution                           59.8
     pilot                                            60.58
+    stub                                             61.47
     stub-historical-anchor                           62.0
     paper-grounded-pending-full-text                 62.18
     positioning-skill-not-executable-science         63.24
     stub-infrastructure                              64.33
     method-ready                                     66.07
     link-only-cross-batch                            69.41
-    paper-grounded-locally-reproduced                70.73
+    paper-grounded-locally-reproduced                89.22
 
-  worst-debt entries (lowest score first, top 30):
+  worst-debt entries (lowest score first, top 50):
     score  L1  L2  Val L4  Bib Id  TODOs  active  batch/slug
-    24.14  20   3   0   3   0   7    11          wave500_waves_instabilities_reconnection_045/chandran-2010-stochastic-heating-perp-alfven
     37.53  16   0   1   8  12  10    11          wave500_turbulence_intermit_heating_045/paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp
     38.06  16   0   1   8  12  10    10          wave500_turbulence_intermit_heating_045/paper-cuesta-2022-intermittency-psp-helios-voyager
     38.65  16   0   1   8  12  10     9          wave500_turbulence_intermit_heating_045/paper-andres-2021-incompressible-cascade-anisotropic-pp
-    39.23  25   3   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/kelvin-helmholtz-cme-large-scale-2025
-    39.37  25   3   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/oblique-drift-instability-solar-wind-heating-2025
-    39.46  25   3   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/interchange-reconnection-pseudostreamer-metis-2025
-    39.51  25   3   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/wave-particle-equilibria-heavy-ions-2026
-    39.53  25   3   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/ion-acoustic-damping-instability-solo-2026
-    39.56  25   3   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/anti-equilibrium-alfven-ion-cyclotron-effects-2023
     39.96  16   0   1   8  12  10     8          wave500_turbulence_intermit_heating_045/paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution
-    41.62  25   3   0   5   6   7     6          wave500_waves_instabilities_reconnection_045/rotational-discontinuity-proton-beam-generation-2025
-    41.69  25   3   0   5   6   7     6          wave500_waves_instabilities_reconnection_045/stochastic-heating-sub-alfvenic-2025
-    41.82  25   3   0   5   6   7     6          wave500_waves_instabilities_reconnection_045/regulation-proton-alpha-flow-compressive-2023
     42.43  25  15   0   3   0   7    10          wave500_waves_instabilities_reconnection_045/klein-2018-multispecies-stability-anisotropy
      47.3  21  15   6   0   6   7    19          batch_mission_instruments_data_products/pulupa-2020-fields-merged-scm-fluxgate-product
     47.67  25   8   0   8   0  10     8          wave500_inner_heliosphere_psp_solo_045/damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind
@@ -75,6 +65,36 @@ internalization-readiness audit — 501 entries scanned (45 active)
     50.69  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/ion-acoustic-velocity-space-signatures-2026
      50.7  21  15  10   0   0  10    11   *      batch_turbulence_heating_apj/bowen-2024-mediation-collisionless-dissipation-cyclotron-resonance
     50.72  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/whistler-counter-propagating-encounter1-2023
+    50.87  25  20   6   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-lasco-c2-c3-streamer-belt-density-radial-profile
+    50.96  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/proton-alpha-aic-driven-instabilities-2023
+    50.99  25  20   6   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-mdi-hmi-cross-calibration-synoptic-flux
+    50.99  25  20   6   3   0   4     9          wave500_solar_corona_cme_flares_045/paper-suvi-multi-wavelength-temperature-dem-corona
+     51.0  21  20   1  10   0   7    20          wave500_sw_classification_ml_foundation_045/paper-trotta-2025-shock-detection-multispacecraft-ml
+    51.29  25  20   6   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-source-surface-radius-optimization-eclipse-streamer
+    51.35  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/suprathermal-electron-whistler-scattering-2024
+    51.71  25  15   0   3   6   7     6          wave500_waves_instabilities_reconnection_045/ion-driven-instabilities-classification-2023
+     51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-collados-2024-mhd-emulator-coronal-wind
+     51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-davila-2024-shapelet-solar-wind-discontinuities
+     51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-grajeda-2025-acwe-magnetic-ch-extension-radio-microwave
+     51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-jarolim-2024-ch-segmentation-cycle-validation
+     51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-nguyen-2018-ml-icme-detection-svm
+     51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-pal-2024-cir-stream-interaction-region-ml
+     51.9  21  15   1   0  12  10    17          batch_mission_instruments_data_products/vourlidas-2016-wispr-imaging-instrument-psp
+     52.0  16  11   6   3   6  10     0   *      batch_heliophysics_software_infrastructure/paper-cdflib-cdf-reader
+     52.0  16  11   6   3   6  10     0          batch_heliophysics_software_infrastructure/paper-plasmapy-plasma-physics-python
+     52.3  21  15   6   0   6   7     9          batch_mission_instruments_data_products/damicis-2025-solo-swa-alfvenic-streams-validation
+    52.74  21  15   6   0   6   7     7   *      pilot_turbulence/sioulas-2024-higher-order-3d-anisotropy
+     52.8  21  15  10   0   6   7    14   *      batch_turbulence_heating_apj/martinovic-2024-slow-wind-imbalanced-alfven-wave-heating
+     52.8  21  15   1   0  12  10    14          batch_mission_instruments_data_products/muller-2020-solar-orbiter-mission-overview
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-bloch-2022-bayesian-nn-solar-wind-classification
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-camporeale-2020-icme-classification-ml-benchmark
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-deep-swim-extension-cnn-window-stack
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-fung-2019-clustering-helio-streams
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-helio-scientific-llm-agent-discovery
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-li-2018-self-organizing-maps-solar-wind
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-moestl-2022-icmecat-helcats-catalog-baseline
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-rotter-2014-coronal-hole-detection-extension
+     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-stansby-2025-flux-tube-segmentation
 
   legend: L1=Layer-1 claim, L2=Layer-2 protocol, Val=validation,
           L4=Layer-4 affordance, Bib=bibliographic anchor,
