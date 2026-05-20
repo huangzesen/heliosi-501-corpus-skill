@@ -86,10 +86,12 @@ EXPECTED_BATCH_FAMILIES = {
         "numbered_layer_v0_2_explicit": 45,
     },
     "wave500_turbulence_intermit_heating_045": {
-        # Hybrid: 41 carry the *(Layer 1)* tag, 4 carry the abbreviated
-        # form (## 9. Skill graph + affordances).
-        "numbered_layer_v0_2_explicit": 41,
-        "numbered_layer_v0_2_abbreviated": 4,
+        # All 45 entries now carry the explicit *(Layer 1)* tag after the
+        # 2026-05-19 internalization batches (feat/internalize-wave500-
+        # turbulence-batch1 promoted the remaining 4 abbreviated stubs to
+        # the explicit form when rewriting their bodies with verified
+        # paper content).
+        "numbered_layer_v0_2_explicit": 45,
     },
     "wave500_waves_instabilities_reconnection_045": {
         "five_layer_scientific_invariant": 45,

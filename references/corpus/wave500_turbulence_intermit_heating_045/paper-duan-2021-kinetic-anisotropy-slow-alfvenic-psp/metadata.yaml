@@ -5,28 +5,50 @@ authors:
   - "Jiansen He"
   - "Trevor A. Bowen"
   - "Lloyd D. Woodham"
+  - "Tieyan Wang"
+  - "Christopher H. K. Chen"
+  - "Alfred Mallet"
+  - "Stuart D. Bale"
 year: 2021
-journal: "TODO verify (arXiv:2102.13294)"
-doi: null
+journal: "Astrophysical Journal Letters 915, L8"
+doi: "10.3847/2041-8213/ac07ac"
 arxiv: "2102.13294"
+ads_bibcode: "2021ApJ...915L...8D"
 primary_theme: turbulence
-secondary_themes: [anisotropy, kinetic-scale, KAW]
+secondary_themes: [anisotropy, kinetic-scale, KAW, transition-range]
 missions: [PSP]
-regime: [inner-heliosphere, ion-scale, kinetic]
-quality_level: stub
+regime: [inner-heliosphere, ion-scale, kinetic, sub-ion]
+quality_level: paper-grounded-pending-full-text
 harness_agnostic: true
 required_data:
-  - "PSP FIELDS MAG L2 burst-mode"
+  - "PSP FIELDS MAG L2 burst-mode (E1, 2018 November 5–7)"
+  - "(optional) PSP SWEAP ion moments for beta_p, V_SW, sigma_c"
 methods:
-  - wavelet-trace-component-spectra
+  - wavelet-trace-and-component-PSD
+  - scale-dependent-local-mean-field-projection
+  - theta-kB-angle-binning
+  - per-bin-power-law-fit
   - magnetic-compressibility-c-parallel
-  - angle-binned-sub-ion-spectral-index
+  - linear-Vlasov-KAW-reference
 validation_targets:
-  - "Sub-ion perpendicular slope and C|| consistent with paper (numbers TODO verify)"
+  - "Transition-range slopes: alpha_t_parallel = -5.7 ± 1.0; alpha_t_perp = -3.7 ± 0.3."
+  - "Kinetic-range slopes: alpha_k_parallel = -3.12 ± 0.22; alpha_k_perp = -2.57 ± 0.09."
+  - "Wavevector anisotropy scaling: k_par ~ k_perp^{0.71 ± 0.17} (transition), k_par ~ k_perp^{0.38 ± 0.09} (kinetic)."
+  - "Kinetic-range power anisotropy P_perp/P_parallel > 10, exceeding transition-range and 1 au comparators."
+  - "Magnetic compressibility C||(k d_i) qualitatively matches linear-Vlasov KAW prediction below the ion break."
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2021 item 5"
 verification_flags:
-  - "Specific PSP encounters analysed TODO verify."
-  - "Reported sub-ion spectral indices TODO verify."
-  - "Compressibility numerical tolerance TODO verify."
-  - "Publication venue/DOI TODO verify."
+  - "Specific theta_kB bin centers, frequency windows for each fit, and per-bin sample counts: pending full-text verification."
+  - "C|| quantitative tolerance for KAW match: pending full-text verification."
+  - "DOI 10.3847/2041-8213/ac07ac and venue ApJL 915, L8: verified 2026-05-19 from IOPscience landing."
+  - "arXiv 2102.13294 abstract: verified 2026-05-19."
+  - "ADS bibcode 2021ApJ...915L...8D: inferred from ApJL 915 L8 pattern; not independently verified via ADS UI (JS-rendered)."
+provenance:
+  verified_by: "internalization-batch 2026-05-19 (feat/internalize-wave500-turbulence-batch1)"
+  verified_at: "2026-05-19"
+  verification_notes:
+    - "field=doi value=10.3847/2041-8213/ac07ac source=IOPscience-landing verified_at=2026-05-19"
+    - "field=venue value=ApJL-915-L8 source=IOPscience-landing verified_at=2026-05-19"
+    - "field=arxiv_id value=2102.13294 source=arXiv-abs-page verified_at=2026-05-19"

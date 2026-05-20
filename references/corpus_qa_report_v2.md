@@ -297,8 +297,8 @@ drift from reality silently. The numbers below are computed by
 | # layers `true` | Entries | Batches |
 |---:|---:|---|
 | 1 / 4 | 90 | `wave500_instruments_data_software_045` (45), `wave500_sw_classification_ml_foundation_045` (45) |
-| 2 / 4 | 45 | `wave500_turbulence_intermit_heating_045` (45) |
-| 3 / 4 | 90 | `wave500_agent_runtime_eval_design_045` (45), `wave500_sep_shocks_space_weather_045` (45) |
+| 2 / 4 | 39 | `wave500_turbulence_intermit_heating_045` (39) — 6 entries promoted to 3/4 by the 2026-05-19 internalization batch |
+| 3 / 4 | 96 | `wave500_agent_runtime_eval_design_045` (45), `wave500_sep_shocks_space_weather_045` (45), `wave500_turbulence_intermit_heating_045` (6 promoted entries: Duan 2021, Cuesta 2022, Andrés 2022 [slug carries 2021], Shi 2021, Soljento 2023, McIntyre 2024 [slug; published 2025]) |
 | 4 / 4 | 0 | (none on this surface) |
 | **TOTAL with block** | **225** | |
 
@@ -307,7 +307,7 @@ drift from reality silently. The numbers below are computed by
 | Layer key | Entries with `true` |
 |---|---:|
 | `scientific_invariant` | 225 |
-| `executable_protocol` | 90 |
+| `executable_protocol` | 96 |
 | `adapter_binding_examples` | 0 |
 | `research_generation_affordance` | 135 |
 

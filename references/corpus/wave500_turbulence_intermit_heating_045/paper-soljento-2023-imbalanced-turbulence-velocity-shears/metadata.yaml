@@ -2,28 +2,47 @@ slug: paper-soljento-2023-imbalanced-turbulence-velocity-shears
 title: "Imbalanced Turbulence Modified by Large-scale Velocity Shears in the Solar Wind"
 authors:
   - "Juska E. Soljento"
+  - "Simon W. Good"
+  - "Adnane Osmane"
+  - "Emilia K. J. Kilpua"
 year: 2023
-journal: "TODO verify (arXiv:2303.04006)"
-doi: null
+journal: "Astrophysical Journal Letters (DOI 10.3847/2041-8213/acc071)"
+doi: "10.3847/2041-8213/acc071"
 arxiv: "2303.04006"
 ads_bibcode: null
 primary_theme: turbulence
-secondary_themes: [imbalanced, velocity-shear, large-scale]
-missions: [other]
-regime: [1au, MHD-scale]
-quality_level: stub
+secondary_themes: [imbalanced, velocity-shear, ICME-sheath, Kelvin-Helmholtz, large-scale]
+missions: [Wind]
+regime: [1au, MHD-scale, ICME-sheath]
+quality_level: paper-grounded-pending-full-text
 harness_agnostic: true
 required_data:
-  - "In-situ MAG (mission TODO verify) L2 (TODO verify)"
-  - "Corresponding plasma L2/L3 (Same)"
+  - "Wind MFI (MAG) L2 — 74 ICME-sheath windows 1997–2018 plus upstream and ejecta"
+  - "Wind SWE (proton moments) L2/L3 (~92 s) — same intervals"
 methods:
-  - large-scale-velocity-shear-estimator
-  - cross-helicity-per-shear-binned-subsample
-  - drift-trend-regression-vs-shear-strength
+  - thirty-min-large-scale-velocity-shear-estimator
+  - linear-Kelvin-Helmholtz-threshold-normalisation
+  - cross-helicity-and-elsasser-ratio
+  - magnetic-compressibility-C-parallel
+  - shear-amplitude-binned-aggregation
 validation_targets:
-  - "TODO verify numerical targets against published figures."
+  - "Sample: 74 ICME sheaths observed by Wind at 1 au, 1997–2018."
+  - "Shear timescale: 30 min; shear amplitude normalised by linear KH threshold."
+  - "Below KH threshold: imbalance approximately invariant or weakly rising vs shear (abstract-level)."
+  - "Above KH threshold: imbalance trends toward balanced state; magnetic compressibility rises (abstract-level)."
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2303.04006v1)"
 verification_flags:
-  - "Publication venue / DOI TODO verify."
-  - "Numerical values for the central claim TODO verify against full text."
+  - "Per-bin numerical σ_c, Elsasser-ratio, and C|| values: pending full-text verification."
+  - "Exact functional form of the linear KH threshold used: pending full-text verification."
+  - "DOI 10.3847/2041-8213/acc071 (ApJL): verified 2026-05-19 from arXiv journal-reference field."
+  - "Author list (Soljento, Good, Osmane, Kilpua): verified 2026-05-19 from arXiv abs page (factory metadata listed only first author)."
+  - "ADS bibcode not asserted (ADS UI is JS-rendered)."
+provenance:
+  verified_by: "internalization-batch 2026-05-19 (feat/internalize-wave500-turbulence-batch1)"
+  verified_at: "2026-05-19"
+  verification_notes:
+    - "field=doi value=10.3847/2041-8213/acc071 source=arXiv-journal-ref verified_at=2026-05-19"
+    - "field=arxiv_id value=2303.04006 source=arXiv-abs-page verified_at=2026-05-19"
+    - "field=author_list value=four-authors-Soljento-Good-Osmane-Kilpua source=arXiv-abs-page verified_at=2026-05-19"

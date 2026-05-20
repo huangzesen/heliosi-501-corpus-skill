@@ -147,6 +147,17 @@ KNOWN_SLUG_YEAR_MISMATCHES = {
     # the slug name is preserved for stable cross-references. Internalized
     # 2026-05-19 in feat/internalize-wave500-ml-batch1.
     "paper-rudisser-2024-icme-unet-realtime-deployment",
+    # Andrés et al.: slug encodes 2021 (arXiv submission Dec 2021) but the
+    # paper appeared in A&A 661, A116 in 2022. Slug preserved for stable
+    # cross-skill [[wikilinks]]; bibliographic block carries the publication
+    # year. Internalized 2026-05-19 in feat/internalize-wave500-turbulence-batch1.
+    "paper-andres-2021-incompressible-cascade-anisotropic-pp",
+    # McIntyre et al.: slug encodes 2024 (arXiv submission Jul 2024) but the
+    # paper appeared in Phys. Rev. X 15, 031008 in 2025. Slug preserved for
+    # stable cross-skill [[wikilinks]]; bibliographic block carries the
+    # publication year. Internalized 2026-05-19 in
+    # feat/internalize-wave500-turbulence-batch1.
+    "paper-mcintyre-2024-helicity-barrier-transition-range",
 }
 
 

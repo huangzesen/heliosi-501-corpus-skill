@@ -1,32 +1,53 @@
 slug: paper-andres-2021-incompressible-cascade-anisotropic-pp
 title: "The incompressible energy cascade rate in anisotropic solar wind turbulence"
 authors:
-  - "N. Andres"
+  - "N. Andrés"
   - "F. Sahraoui"
   - "S. Huang"
   - "L. Z. Hadid"
-year: 2021
-journal: "TODO verify (arXiv:2112.13748)"
-doi: null
+  - "S. Galtier"
+year: 2022
+journal: "Astronomy & Astrophysics 661, A116"
+doi: "10.1051/0004-6361/202142994"
 arxiv: "2112.13748"
+ads_bibcode: "2022A&A...661A.116A"
 primary_theme: turbulence
-secondary_themes: [cascade-rate, anisotropy, exact-relation]
+secondary_themes: [cascade-rate, anisotropy, exact-relation, MHD, geometry-2D-vs-slab]
 missions: [PSP]
 regime: [inner-heliosphere, MHD-scale]
-quality_level: stub
+quality_level: paper-grounded-pending-full-text
 harness_agnostic: true
 required_data:
-  - "PSP FIELDS MAG L2"
-  - "PSP SWEAP SPC/SPAN-I L3 moments"
+  - "PSP FIELDS MAG L2 (>2 yr spanning 0.2–0.8 au)"
+  - "PSP SWEAP SPC L3 moments (early portion of span)"
+  - "PSP SWEAP SPAN-I L3 moments (later portion of span)"
 methods:
-  - politano-pouquet-third-order-law
-  - anisotropic-cascade-rate-decomposition
-  - isotropic-anisotropic-comparison
+  - politano-pouquet-third-order-law-incompressible
+  - elsasser-variable-construction
+  - scale-dependent-local-mean-field-projection
+  - parallel-perpendicular-epsilon-decomposition
+  - two-dimensional-vs-slab-geometric-decomposition
+  - variance-anisotropy-cross-helicity-residual-energy
 validation_targets:
-  - "Per-direction PP cascade rate distinct from isotropic estimate (numbers TODO verify)"
+  - "Variance anisotropy ratio independent of heliocentric distance over 0.2–0.8 au (abstract-level verified)."
+  - "Perpendicular cascade dominates over parallel cascade as PSP approaches the Sun (abstract-level)."
+  - "2D cascade geometry dominates over slab in slow solar wind at the largest MHD scales (abstract-level)."
+  - "Strong positive correlation between isotropic and anisotropic ε and proton temperature (abstract-level)."
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2021 item 6"
 verification_flags:
-  - "Encounter set analysed TODO verify."
-  - "Reported per-direction epsilon numbers TODO verify."
-  - "Publication venue/DOI TODO verify."
+  - "Per-direction numerical ε values, encounter-by-encounter interval list, and exact 2D/slab split values: pending full-text verification."
+  - "DOI 10.1051/0004-6361/202142994 and venue A&A 661, A116 (2022): verified 2026-05-19 from A&A landing."
+  - "arXiv 2112.13748 abstract: verified 2026-05-19."
+  - "Slug 'andres-2021-...' preserves arXiv-submission year; publication year is 2022 — slug kept stable to protect cross-skill [[wikilinks]]."
+  - "Fifth author S. Galtier added to author list (missing from original factory metadata)."
+  - "ADS bibcode 2022A&A...661A.116A: inferred from A&A 661 A116 pattern; not independently verified via ADS UI."
+provenance:
+  verified_by: "internalization-batch 2026-05-19 (feat/internalize-wave500-turbulence-batch1)"
+  verified_at: "2026-05-19"
+  verification_notes:
+    - "field=doi value=10.1051/0004-6361/202142994 source=A-and-A-landing-661-A116 verified_at=2026-05-19"
+    - "field=venue value=A-and-A-661-A116-2022 source=A-and-A-landing verified_at=2026-05-19"
+    - "field=arxiv_id value=2112.13748 source=arXiv-abs-page verified_at=2026-05-19"
+    - "field=author_list value=five-authors-with-Galtier-added source=A-and-A-landing verified_at=2026-05-19"

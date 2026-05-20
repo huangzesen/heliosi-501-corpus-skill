@@ -6,30 +6,44 @@ authors:
   - "Rohit Chhiber"
   - "William H. Matthaeus"
 year: 2022
-journal: "TODO verify (arXiv:2202.01874)"
-doi: null
+journal: "Astrophysical Journal Supplement Series 259, 23"
+doi: "10.3847/1538-4365/ac45fa"
 arxiv: "2202.01874"
+ads_bibcode: "2022ApJS..259...23C"
 primary_theme: turbulence
-secondary_themes: [intermittency, radial-evolution, multi-spacecraft]
+secondary_themes: [intermittency, radial-evolution, multi-spacecraft, kurtosis, Reynolds-number]
 missions: [PSP, Helios, Voyager]
 regime: [inner-heliosphere, 1au, outer-heliosphere]
-quality_level: stub
+quality_level: paper-grounded-pending-full-text
 harness_agnostic: true
 required_data:
-  - "PSP FIELDS MAG L2 perihelion"
-  - "Helios 1 MAG L2"
-  - "Voyager 1 MAG L2"
+  - "PSP FIELDS MAG L2 (perihelion ~0.16 au)"
+  - "Helios 1 MAG L2 (selected intervals 0.3–1 au)"
+  - "Voyager 1 MAG L2 (selected intervals 1–10 au)"
+  - "Per-mission proton density n_p (for d_i normalisation)"
 methods:
-  - autocorrelation-correlation-length
-  - structure-function-S_n
-  - scale-dependent-kurtosis-sdk
-  - radial-distance-binning-d_i-normalisation
+  - auto-correlation-and-correlation-length
+  - structure-functions-Sn
+  - scale-dependent-kurtosis-SDK
+  - effective-Reynolds-number-lambda_C-over-di
+  - distance-binned-aggregation
 validation_targets:
-  - "Monotonic radial trend of lambda_C/d_i across three missions (numbers TODO verify)"
+  - "Three distance bands: PSP ~0.16 au, Helios 1 0.3–1 au, Voyager 1 1–10 au."
+  - "Lower Re_eff at fixed physical scale → lower kurtosis (qualitative monotonic ordering, abstract-level verified)."
+  - "Single uniform pipeline reproduces R(τ), λ_C, S_n, SDK across all three missions."
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2022 item 7"
 verification_flags:
-  - "Helios cadence used TODO verify."
-  - "Voyager cadence used TODO verify."
-  - "Reported numerical trend slope TODO verify."
-  - "Publication venue/DOI TODO verify."
+  - "Per-band numerical SDK values and the exact Re_eff functional form: pending full-text verification."
+  - "Exact interval lists and resampling cadence: pending full-text verification."
+  - "DOI 10.3847/1538-4365/ac45fa and venue ApJS 259, 23: verified 2026-05-19 from IOPscience landing."
+  - "arXiv 2202.01874 abstract: verified 2026-05-19."
+  - "ADS bibcode 2022ApJS..259...23C: inferred from ApJS 259 23 pattern; not independently verified via ADS UI."
+provenance:
+  verified_by: "internalization-batch 2026-05-19 (feat/internalize-wave500-turbulence-batch1)"
+  verified_at: "2026-05-19"
+  verification_notes:
+    - "field=doi value=10.3847/1538-4365/ac45fa source=IOPscience-landing verified_at=2026-05-19"
+    - "field=venue value=ApJS-259-23-2022 source=IOPscience-landing verified_at=2026-05-19"
+    - "field=arxiv_id value=2202.01874 source=arXiv-abs-page verified_at=2026-05-19"

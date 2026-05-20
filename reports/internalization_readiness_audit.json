@@ -3,16 +3,16 @@
   "summary": {
     "total_entries": 501,
     "active_entries": 45,
-    "mean_score": 62.19,
-    "median_score": 61.9,
-    "min_score": 37.53,
-    "max_score": 89.22,
+    "mean_score": 62.75,
+    "median_score": 61.99,
+    "min_score": 42.43,
+    "max_score": 92.0,
     "histogram": {
       "0-24": 0,
-      "25-49": 12,
-      "50-69": 418,
+      "25-49": 8,
+      "50-69": 416,
       "70-84": 69,
-      "85-100": 2
+      "85-100": 8
     },
     "by_batch_mean": {
       "batch_mission_instruments_data_products": 53.22,
@@ -20,12 +20,12 @@
       "wave500_solar_corona_cme_flares_045": 57.16,
       "batch_turbulence_heating_apj": 57.56,
       "pilot_2026_and_runtime": 58.34,
-      "wave500_turbulence_intermit_heating_045": 58.48,
       "wave500_sw_classification_ml_foundation_045": 60.35,
       "batch_heliophysics_software_infrastructure": 61.05,
       "batch_solar_wind_segmentation_ml": 62.41,
       "wave500_waves_instabilities_reconnection_045": 62.54,
       "wave500_agent_runtime_eval_design_045": 63.42,
+      "wave500_turbulence_intermit_heating_045": 64.68,
       "wave500_sep_shocks_space_weather_045": 64.9,
       "wave500_instruments_data_software_045": 66.75,
       "wave500_coronal_source_mapping_pfss_045": 67.98,
@@ -38,9 +38,9 @@
       "stub-historical-ecosystem-map": 56.23,
       "pilot_weak_attribution": 59.8,
       "pilot": 60.58,
-      "stub": 61.47,
       "stub-historical-anchor": 62.0,
-      "paper-grounded-pending-full-text": 62.18,
+      "stub": 62.11,
+      "paper-grounded-pending-full-text": 62.9,
       "positioning-skill-not-executable-science": 63.24,
       "stub-infrastructure": 64.33,
       "method-ready": 66.07,
@@ -33436,23 +33436,23 @@
     {
       "batch": "wave500_turbulence_intermit_heating_045",
       "slug": "paper-andres-2021-incompressible-cascade-anisotropic-pp",
-      "quality_level": "stub",
+      "quality_level": "paper-grounded-pending-full-text",
       "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 9,
-      "score": 38.65,
-      "raw_score": 47,
-      "todo_penalty": 8.35,
+      "n_todo": 0,
+      "score": 92.0,
+      "raw_score": 92,
+      "todo_penalty": 0.0,
       "components": {
         "bibliographic_anchor": {
-          "score": 12,
+          "score": 21,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
-            "ads": false,
+            "doi": true,
+            "ads": true,
             "url_or_code": true,
             "id_verifications": false,
             "external_links": true
@@ -33468,11 +33468,11 @@
           }
         },
         "layer1_claim": {
-          "score": 16,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
             "has_targets": false,
@@ -33480,34 +33480,34 @@
           }
         },
         "layer2_protocol": {
-          "score": 0,
+          "score": 20,
           "max": 20,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_capabilities": false,
-            "has_procedure": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": true,
+            "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 8,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": true,
             "boilerplate": false
           }
@@ -33841,23 +33841,23 @@
     {
       "batch": "wave500_turbulence_intermit_heating_045",
       "slug": "paper-cuesta-2022-intermittency-psp-helios-voyager",
-      "quality_level": "stub",
+      "quality_level": "paper-grounded-pending-full-text",
       "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 10,
-      "score": 38.06,
-      "raw_score": 47,
-      "todo_penalty": 8.94,
+      "n_todo": 0,
+      "score": 92.0,
+      "raw_score": 92,
+      "todo_penalty": 0.0,
       "components": {
         "bibliographic_anchor": {
-          "score": 12,
+          "score": 21,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
-            "ads": false,
+            "doi": true,
+            "ads": true,
             "url_or_code": true,
             "id_verifications": false,
             "external_links": true
@@ -33873,11 +33873,11 @@
           }
         },
         "layer1_claim": {
-          "score": 16,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
             "has_targets": false,
@@ -33885,34 +33885,34 @@
           }
         },
         "layer2_protocol": {
-          "score": 0,
+          "score": 20,
           "max": 20,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_capabilities": false,
-            "has_procedure": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": true,
+            "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 8,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": true,
             "boilerplate": false
           }
@@ -34165,23 +34165,23 @@
     {
       "batch": "wave500_turbulence_intermit_heating_045",
       "slug": "paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp",
-      "quality_level": "stub",
+      "quality_level": "paper-grounded-pending-full-text",
       "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 11,
-      "score": 37.53,
-      "raw_score": 47,
-      "todo_penalty": 9.47,
+      "n_todo": 0,
+      "score": 92.0,
+      "raw_score": 92,
+      "todo_penalty": 0.0,
       "components": {
         "bibliographic_anchor": {
-          "score": 12,
+          "score": 21,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
-            "ads": false,
+            "doi": true,
+            "ads": true,
             "url_or_code": true,
             "id_verifications": false,
             "external_links": true
@@ -34197,46 +34197,46 @@
           }
         },
         "layer1_claim": {
-          "score": 16,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
-            "has_targets": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
         "layer2_protocol": {
-          "score": 0,
+          "score": 20,
           "max": 20,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_capabilities": false,
-            "has_procedure": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": true,
+            "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 8,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": true,
             "boilerplate": false
           }
@@ -35299,22 +35299,22 @@
     {
       "batch": "wave500_turbulence_intermit_heating_045",
       "slug": "paper-mcintyre-2024-helicity-barrier-transition-range",
-      "quality_level": "stub",
+      "quality_level": "paper-grounded-pending-full-text",
       "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 17,
-      "score": 56.31,
-      "raw_score": 67,
-      "todo_penalty": 10.69,
+      "n_todo": 1,
+      "score": 88.75,
+      "raw_score": 89,
+      "todo_penalty": 0.25,
       "components": {
         "bibliographic_anchor": {
-          "score": 12,
+          "score": 18,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": true,
             "id_verifications": false,
@@ -35331,14 +35331,14 @@
           }
         },
         "layer1_claim": {
-          "score": 16,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
-            "has_targets": true,
+            "has_targets": false,
             "todo_dense": false
           }
         },
@@ -35355,22 +35355,22 @@
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 8,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": true,
             "boilerplate": false
           }
@@ -36109,23 +36109,23 @@
     {
       "batch": "wave500_turbulence_intermit_heating_045",
       "slug": "paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution",
-      "quality_level": "stub",
+      "quality_level": "paper-grounded-pending-full-text",
       "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 8,
-      "score": 39.96,
-      "raw_score": 47,
-      "todo_penalty": 7.04,
+      "n_todo": 0,
+      "score": 92.0,
+      "raw_score": 92,
+      "todo_penalty": 0.0,
       "components": {
         "bibliographic_anchor": {
-          "score": 12,
+          "score": 21,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
-            "ads": false,
+            "doi": true,
+            "ads": true,
             "url_or_code": true,
             "id_verifications": false,
             "external_links": true
@@ -36141,11 +36141,11 @@
           }
         },
         "layer1_claim": {
-          "score": 16,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
             "has_targets": false,
@@ -36153,34 +36153,34 @@
           }
         },
         "layer2_protocol": {
-          "score": 0,
+          "score": 20,
           "max": 20,
           "bits": {
-            "has_section": false,
-            "long_enough": false,
-            "has_capabilities": false,
-            "has_procedure": false,
+            "has_section": true,
+            "long_enough": true,
+            "has_capabilities": true,
+            "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 8,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": true,
             "boilerplate": false
           }
@@ -36352,22 +36352,22 @@
     {
       "batch": "wave500_turbulence_intermit_heating_045",
       "slug": "paper-soljento-2023-imbalanced-turbulence-velocity-shears",
-      "quality_level": "stub",
+      "quality_level": "paper-grounded-pending-full-text",
       "is_active": false,
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 18,
-      "score": 55.85,
-      "raw_score": 67,
-      "todo_penalty": 11.15,
+      "n_todo": 0,
+      "score": 89.0,
+      "raw_score": 89,
+      "todo_penalty": 0.0,
       "components": {
         "bibliographic_anchor": {
-          "score": 12,
+          "score": 18,
           "max": 25,
           "bits": {
             "arxiv": true,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": true,
             "id_verifications": false,
@@ -36384,14 +36384,14 @@
           }
         },
         "layer1_claim": {
-          "score": 16,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
-            "long_enough": false,
+            "long_enough": true,
             "has_claim": true,
             "has_failure_modes": false,
-            "has_targets": true,
+            "has_targets": false,
             "todo_dense": false
           }
         },
@@ -36408,22 +36408,22 @@
           }
         },
         "validation_target": {
-          "score": 1,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
-            "boilerplate": true
+            "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 8,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": true,
             "boilerplate": false
           }

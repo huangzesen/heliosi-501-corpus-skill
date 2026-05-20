@@ -1,14 +1,14 @@
 internalization-readiness audit — 501 entries scanned (45 active)
 ========================================================================
-  mean score   : 62.19/100   median: 61.9   min: 37.53   max: 89.22
+  mean score   : 62.75/100   median: 61.99   min: 42.43   max: 92.0
   active mean  : 63.64   active min: 50.5
 
   score histogram (lower = more internalization debt):
     0-24       0  
-    25-49     12  ####
-    50-69    418  ############################################################
+    25-49      8  ###
+    50-69    416  ############################################################
     70-84     69  ##################
-    85-100     2  #
+    85-100     8  ###
 
   per-batch mean (ascending — worst-debt batch first):
     batch_mission_instruments_data_products              53.22
@@ -16,12 +16,12 @@ internalization-readiness audit — 501 entries scanned (45 active)
     wave500_solar_corona_cme_flares_045                  57.16
     batch_turbulence_heating_apj                         57.56
     pilot_2026_and_runtime                               58.34
-    wave500_turbulence_intermit_heating_045              58.48
     wave500_sw_classification_ml_foundation_045          60.35
     batch_heliophysics_software_infrastructure           61.05
     batch_solar_wind_segmentation_ml                     62.41
     wave500_waves_instabilities_reconnection_045         62.54
     wave500_agent_runtime_eval_design_045                63.42
+    wave500_turbulence_intermit_heating_045              64.68
     wave500_sep_shocks_space_weather_045                 64.9
     wave500_instruments_data_software_045                66.75
     wave500_coronal_source_mapping_pfss_045              67.98
@@ -34,21 +34,17 @@ internalization-readiness audit — 501 entries scanned (45 active)
     stub-historical-ecosystem-map                    56.23
     pilot_weak_attribution                           59.8
     pilot                                            60.58
-    stub                                             61.47
     stub-historical-anchor                           62.0
-    paper-grounded-pending-full-text                 62.18
+    stub                                             62.11
+    paper-grounded-pending-full-text                 62.9
     positioning-skill-not-executable-science         63.24
     stub-infrastructure                              64.33
     method-ready                                     66.07
     link-only-cross-batch                            69.41
     paper-grounded-locally-reproduced                89.22
 
-  worst-debt entries (lowest score first, top 50):
+  worst-debt entries (lowest score first, top 30):
     score  L1  L2  Val L4  Bib Id  TODOs  active  batch/slug
-    37.53  16   0   1   8  12  10    11          wave500_turbulence_intermit_heating_045/paper-duan-2021-kinetic-anisotropy-slow-alfvenic-psp
-    38.06  16   0   1   8  12  10    10          wave500_turbulence_intermit_heating_045/paper-cuesta-2022-intermittency-psp-helios-voyager
-    38.65  16   0   1   8  12  10     9          wave500_turbulence_intermit_heating_045/paper-andres-2021-incompressible-cascade-anisotropic-pp
-    39.96  16   0   1   8  12  10     8          wave500_turbulence_intermit_heating_045/paper-shi-2021-alfvenic-vs-nonalfvenic-radial-evolution
     42.43  25  15   0   3   0   7    10          wave500_waves_instabilities_reconnection_045/klein-2018-multispecies-stability-anisotropy
      47.3  21  15   6   0   6   7    19          batch_mission_instruments_data_products/pulupa-2020-fields-merged-scm-fluxgate-product
     47.67  25   8   0   8   0  10     8          wave500_inner_heliosphere_psp_solo_045/damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind
@@ -79,22 +75,6 @@ internalization-readiness audit — 501 entries scanned (45 active)
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-jarolim-2024-ch-segmentation-cycle-validation
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-nguyen-2018-ml-icme-detection-svm
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-pal-2024-cir-stream-interaction-region-ml
-     51.9  21  15   1   0  12  10    17          batch_mission_instruments_data_products/vourlidas-2016-wispr-imaging-instrument-psp
-     52.0  16  11   6   3   6  10     0   *      batch_heliophysics_software_infrastructure/paper-cdflib-cdf-reader
-     52.0  16  11   6   3   6  10     0          batch_heliophysics_software_infrastructure/paper-plasmapy-plasma-physics-python
-     52.3  21  15   6   0   6   7     9          batch_mission_instruments_data_products/damicis-2025-solo-swa-alfvenic-streams-validation
-    52.74  21  15   6   0   6   7     7   *      pilot_turbulence/sioulas-2024-higher-order-3d-anisotropy
-     52.8  21  15  10   0   6   7    14   *      batch_turbulence_heating_apj/martinovic-2024-slow-wind-imbalanced-alfven-wave-heating
-     52.8  21  15   1   0  12  10    14          batch_mission_instruments_data_products/muller-2020-solar-orbiter-mission-overview
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-bloch-2022-bayesian-nn-solar-wind-classification
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-camporeale-2020-icme-classification-ml-benchmark
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-deep-swim-extension-cnn-window-stack
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-fung-2019-clustering-helio-streams
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-helio-scientific-llm-agent-discovery
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-li-2018-self-organizing-maps-solar-wind
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-moestl-2022-icmecat-helcats-catalog-baseline
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-rotter-2014-coronal-hole-detection-extension
-     52.8  21  20   1  10   0   7    14          wave500_sw_classification_ml_foundation_045/paper-stansby-2025-flux-tube-segmentation
 
   legend: L1=Layer-1 claim, L2=Layer-2 protocol, Val=validation,
           L4=Layer-4 affordance, Bib=bibliographic anchor,

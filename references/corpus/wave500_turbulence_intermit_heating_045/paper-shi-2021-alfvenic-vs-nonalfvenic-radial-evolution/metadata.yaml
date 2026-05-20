@@ -5,28 +5,66 @@ authors:
   - "Marco Velli"
   - "Olga Panasenco"
   - "Anna Tenerani"
+  - "Victor Réville"
+  - "Stuart D. Bale"
+  - "Justin Kasper"
+  - "Kelly Korreck"
+  - "J. W. Bonnell"
+  - "Thierry Dudok de Wit"
+  - "David M. Malaspina"
+  - "Keith Goetz"
+  - "Peter R. Harvey"
+  - "Robert J. MacDowall"
+  - "Marc Pulupa"
+  - "Anthony W. Case"
+  - "Davin Larson"
+  - "J. L. Verniero"
+  - "Roberto Livi"
+  - "Michael Stevens"
+  - "Phyllis Whittlesey"
+  - "Milan Maksimovic"
+  - "Michel Moncuquet"
 year: 2021
-journal: "TODO verify (arXiv:2101.00830)"
-doi: null
+journal: "Astronomy & Astrophysics 650, A21"
+doi: "10.1051/0004-6361/202039818"
 arxiv: "2101.00830"
+ads_bibcode: "2021A&A...650A..21S"
 primary_theme: turbulence
-secondary_themes: [alfvenic, classification, radial-evolution]
+secondary_themes: [alfvenic, classification, radial-evolution, stream-origin, current-sheets, velocity-shears]
 missions: [PSP]
 regime: [inner-heliosphere, MHD-scale]
-quality_level: stub
+quality_level: paper-grounded-pending-full-text
 harness_agnostic: true
 required_data:
-  - "PSP FIELDS MAG L2 (E1-E5)"
-  - "PSP SWEAP SPC L3 moments (E1-E5)"
+  - "PSP FIELDS MAG L2 (E1–E5)"
+  - "PSP SWEAP SPC L3 moments (E1–E5)"
 methods:
-  - alfvenicity-classification-sigma-c-sigma-r
-  - per-class-psd-spectral-index
-  - radial-distance-trend-regression
+  - alfvenicity-sigma_c-sigma_R
+  - trace-magnetic-velocity-PSD-and-slope-fit
+  - turbulence-age-constructor
+  - radial-and-class-binned-aggregation
+  - stream-origin-annotation
+  - hcs-and-velocity-shear-annotation
 validation_targets:
-  - "Distinct per-class spectral indices and radial trend (numbers TODO verify)"
+  - "Magnetic-spectrum steepening with r; velocity-spectrum shape unchanged (abstract-level verified)."
+  - "Turbulence-age (r, V_SW) collapses the magnetic-slope radial trend (abstract-level)."
+  - "Faster wind is statistically more Alfvénic; outward-wave dominance weakens with r; magnetic-energy excess grows toward the Sun (abstract-level)."
+  - "Slow wind from polar coronal holes has lower Alfvenicity than slow wind from active regions / pseudostreamers (abstract-level)."
+  - "HCS crossings and velocity shears measurably modify turbulence properties (abstract-level)."
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/solar_wind_turbulence_2020_2026.md #2021 item 4"
 verification_flags:
-  - "Classification thresholds on sigma_c and sigma_R TODO verify."
-  - "Reported per-class spectral indices TODO verify."
-  - "Publication venue/DOI TODO verify."
+  - "Specific (σ_c, σ_R) class-threshold values, exact T_age functional form, per-class numerical slopes: pending full-text verification."
+  - "Per-stream-origin numerical Alfvenicity statistics: pending full-text verification."
+  - "DOI 10.1051/0004-6361/202039818 and venue A&A 650, A21: verified 2026-05-19 from A&A landing."
+  - "arXiv 2101.00830 abstract + full 23-author list: verified 2026-05-19."
+  - "ADS bibcode 2021A&A...650A..21S: inferred from A&A 650 A21 pattern; not independently verified via ADS UI."
+provenance:
+  verified_by: "internalization-batch 2026-05-19 (feat/internalize-wave500-turbulence-batch1)"
+  verified_at: "2026-05-19"
+  verification_notes:
+    - "field=doi value=10.1051/0004-6361/202039818 source=A-and-A-landing-650-A21 verified_at=2026-05-19"
+    - "field=venue value=A-and-A-650-A21-2021 source=A-and-A-landing verified_at=2026-05-19"
+    - "field=arxiv_id value=2101.00830 source=arXiv-abs-page verified_at=2026-05-19"
+    - "field=author_list value=full-23-author-list-restored source=arXiv-abs-page verified_at=2026-05-19"

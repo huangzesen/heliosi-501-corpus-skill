@@ -1,28 +1,52 @@
 slug: paper-mcintyre-2024-helicity-barrier-transition-range
-title: "Evidence for the helicity barrier from measurements of the turbulence transition range"
+title: "Evidence for the helicity barrier from measurements of the turbulence transition range in the solar wind"
 authors:
   - "J. R. McIntyre"
-year: 2024
-journal: "TODO verify (arXiv:2407.10815)"
-doi: null
+  - "C. H. K. Chen"
+  - "J. Squire"
+  - "R. Meyrand"
+  - "P. A. Simon"
+year: 2025
+journal: "Physical Review X 15, 031008"
+doi: "10.1103/PhysRevX.15.031008"
 arxiv: "2407.10815"
 ads_bibcode: null
 primary_theme: turbulence
-secondary_themes: [helicity-barrier, ion-scale, spectral-break]
-missions: [other]
-regime: [1au, ion-scale]
-quality_level: stub
+secondary_themes: [helicity-barrier, ion-scale, transition-range, imbalance, ion-cyclotron]
+missions: [PSP]
+regime: [inner-heliosphere, ion-scale, transition-range]
+quality_level: paper-grounded-pending-full-text
 harness_agnostic: true
 required_data:
-  - "In-situ MAG (Wind/Ulysses/etc. TODO verify) L2 (TODO verify)"
+  - "PSP FIELDS MAG L2 (high-cadence, sub-ion-resolved windows)"
+  - "PSP SWEAP SPC and/or SPAN-I L3 ion moments (for β_p)"
 methods:
-  - ion-scale-transition-range-power-spectrum-fit
+  - magnetic-spectrum-shape-near-ion-gyroradius
   - imbalance-conditioned-subsample-selection
-  - comparison-to-helicity-barrier-prediction
+  - beta_p-conditioned-subsample-selection
+  - comparison-to-helicity-barrier-theoretical-prediction
 validation_targets:
-  - "TODO verify numerical targets against published figures."
+  - "PSP data used (factory metadata hedged as Wind/Ulysses — corrected)."
+  - "Helicity-barrier signature prominent at β_p ≲ 0.5 (abstract-level)."
+  - "Helicity-barrier signature prominent at |σ_c| ≳ 0.4 (abstract-level)."
+  - "Spectrum shape near the ion gyroradius varies systematically with solar-wind parameters in the direction predicted by the helicity-barrier model."
+  - "Conditions (low β_p, high |σ_c|) frequent in the solar wind, especially closer to the Sun."
+research_generation_affordances_present: true
 source_inventory:
   - "sioulas-reproduction/results/arxiv_papers/theme_turbulence.json (2407.10815v1)"
 verification_flags:
-  - "Publication venue / DOI TODO verify."
-  - "Numerical values for the central claim TODO verify against full text."
+  - "Per-(β_p, |σ_c|)-bin spectrum-shape numerical values and exact barrier-prediction functional form: pending full-text verification."
+  - "PSP encounter-by-encounter interval list: pending full-text verification."
+  - "DOI 10.1103/PhysRevX.15.031008 and venue PRX 15, 031008 (2025): verified 2026-05-19 from PRX landing."
+  - "arXiv 2407.10815 abstract + full 5-author list (McIntyre, Chen, Squire, Meyrand, Simon): verified 2026-05-19."
+  - "Slug 'mcintyre-2024-...' preserves arXiv-submission year; publication year is 2025 — slug kept stable to protect cross-skill [[wikilinks]]."
+  - "ADS bibcode not asserted (ADS UI is JS-rendered)."
+provenance:
+  verified_by: "internalization-batch 2026-05-19 (feat/internalize-wave500-turbulence-batch1)"
+  verified_at: "2026-05-19"
+  verification_notes:
+    - "field=doi value=10.1103/PhysRevX.15.031008 source=PRX-landing verified_at=2026-05-19"
+    - "field=venue value=PRX-15-031008-2025 source=PRX-landing verified_at=2026-05-19"
+    - "field=arxiv_id value=2407.10815 source=arXiv-abs-page verified_at=2026-05-19"
+    - "field=author_list value=five-authors-restored source=arXiv-abs-page verified_at=2026-05-19"
+    - "field=mission value=PSP-corrected-from-Wind-Ulysses-hedge source=arXiv-abstract verified_at=2026-05-19"
