@@ -1,17 +1,16 @@
 internalization-readiness audit — 501 entries scanned (45 active)
 ========================================================================
-  mean score   : 62.75/100   median: 61.99   min: 42.43   max: 92.0
+  mean score   : 63.1/100   median: 62.33   min: 42.43   max: 92.0
   active mean  : 63.64   active min: 50.5
 
   score histogram (lower = more internalization debt):
     0-24       0  
-    25-49      8  ###
-    50-69    416  ############################################################
-    70-84     69  ##################
+    25-49      6  ##
+    50-69    411  ############################################################
+    70-84     76  ####################
     85-100     8  ###
 
   per-batch mean (ascending — worst-debt batch first):
-    batch_mission_instruments_data_products              53.22
     wave500_inner_heliosphere_psp_solo_045               55.37
     wave500_solar_corona_cme_flares_045                  57.16
     batch_turbulence_heating_apj                         57.56
@@ -24,6 +23,7 @@ internalization-readiness audit — 501 entries scanned (45 active)
     wave500_turbulence_intermit_heating_045              64.68
     wave500_sep_shocks_space_weather_045                 64.9
     wave500_instruments_data_software_045                66.75
+    batch_mission_instruments_data_products              67.89
     wave500_coronal_source_mapping_pfss_045              67.98
     pilot_turbulence                                     68.85
     batch_psp_switchbacks_magnetic                       69.11
@@ -36,8 +36,8 @@ internalization-readiness audit — 501 entries scanned (45 active)
     pilot                                            60.58
     stub-historical-anchor                           62.0
     stub                                             62.11
-    paper-grounded-pending-full-text                 62.9
     positioning-skill-not-executable-science         63.24
+    paper-grounded-pending-full-text                 63.63
     stub-infrastructure                              64.33
     method-ready                                     66.07
     link-only-cross-batch                            69.41
@@ -46,9 +46,7 @@ internalization-readiness audit — 501 entries scanned (45 active)
   worst-debt entries (lowest score first, top 30):
     score  L1  L2  Val L4  Bib Id  TODOs  active  batch/slug
     42.43  25  15   0   3   0   7    10          wave500_waves_instabilities_reconnection_045/klein-2018-multispecies-stability-anisotropy
-     47.3  21  15   6   0   6   7    19          batch_mission_instruments_data_products/pulupa-2020-fields-merged-scm-fluxgate-product
     47.67  25   8   0   8   0  10     8          wave500_inner_heliosphere_psp_solo_045/damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind
-     47.9  21  15   6   0   6   7    17          batch_mission_instruments_data_products/sinjan-2026-solo-phi-hrt-stray-light-calibration
     48.02  25   8   0   8   0  10     6          wave500_inner_heliosphere_psp_solo_045/schwadron-2022-switchback-deflections-beyond-early-encounters
      48.2  25  20   3   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-so-phi-hrt-vector-magnetogram-radial-distance
     48.61  25  15   5   5   0   7    11          wave500_waves_instabilities_reconnection_045/hcs-reconnection-statistics-psp-encounter-2025
@@ -75,6 +73,8 @@ internalization-readiness audit — 501 entries scanned (45 active)
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-jarolim-2024-ch-segmentation-cycle-validation
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-nguyen-2018-ml-icme-detection-svm
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-pal-2024-cir-stream-interaction-region-ml
+     52.0  16  11   6   3   6  10     0   *      batch_heliophysics_software_infrastructure/paper-cdflib-cdf-reader
+     52.0  16  11   6   3   6  10     0          batch_heliophysics_software_infrastructure/paper-plasmapy-plasma-physics-python
 
   legend: L1=Layer-1 claim, L2=Layer-2 protocol, Val=validation,
           L4=Layer-4 affordance, Bib=bibliographic anchor,

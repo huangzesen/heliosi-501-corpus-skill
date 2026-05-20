@@ -1,38 +1,129 @@
 slug: kasper-2016-sweap-investigation-psp
-title: >-
-  Solar Wind Electrons Alphas and Protons (SWEAP) Investigation: Design of the
-  Solar Wind and Coronal Plasma Instrument Suite for Solar Probe Plus
+title: "Solar Wind Electrons Alphas and Protons (SWEAP) Investigation: Design of the Solar Wind and Coronal Plasma Instrument Suite for Solar Probe Plus"
 authors:
-  - J. C. Kasper
-  - R. Abiad
-  - G. Austin
-  - M. Balat-Pichelin
-  - S. D. Bale
-  - J. W. Belcher
-authors_complete: false
+  - "Justin C. Kasper"
+  - "Robert Abiad"
+  - "Gerry Austin"
+  - "Marianne Balat-Pichelin"
+  - "Stuart D. Bale"
+  - "John W. Belcher"
+  - "Peter Berg"
+  - "Henry Bergner"
+  - "Matthieu Berthomier"
+  - "Jay Bookbinder"
+  - "Etienne Brodu"
+  - "David Caldwell"
+  - "Anthony W. Case"
+  - "Benjamin D. G. Chandran"
+  - "Peter Cheimets"
+  - "Jonathan W. Cirtain"
+  - "Steven R. Cranmer"
+  - "David W. Curtis"
+  - "Peter Daigneau"
+  - "Greg Dalton"
+  - "Brahmananda Dasgupta"
+  - "David DeTomaso"
+  - "Millan Diaz-Aguado"
+  - "Blagoje Djordjevic"
+  - "Bill Donaskowski"
+  - "Michael Effinger"
+  - "Vladimir Florinski"
+  - "Nichola Fox"
+  - "Mark Freeman"
+  - "Dennis Gallagher"
+  - "S. Peter Gary"
+  - "Tom Gauron"
+  - "Richard Gates"
+  - "Melvin Goldstein"
+  - "Leon Golub"
+  - "Dorothy A. Gordon"
+  - "Reid Gurnee"
+  - "Giora Guth"
+  - "Jasper Halekas"
+  - "Ken Hatch"
+  - "Jacob Heerikuisen"
+  - "George Ho"
+  - "Qiang Hu"
+  - "Greg Johnson"
+  - "Steven P. Jordan"
+  - "Kelly E. Korreck"
+  - "Davin Larson"
+  - "Alan J. Lazarus"
+  - "Gang Li"
+  - "Roberto Livi"
+  - "Michael Ludlam"
+  - "Milan Maksimovic"
+  - "James P. McFadden"
+  - "William Marchant"
+  - "Bennet A. Maruca"
+  - "David J. McComas"
+  - "Luciana Messina"
+  - "Tony Mercer"
+  - "Sang Park"
+  - "Andrew M. Peddie"
+  - "Nikolai Pogorelov"
+  - "Matthew J. Reinhart"
+  - "John D. Richardson"
+  - "Miles Robinson"
+  - "Irene Rosen"
+  - "Ruth M. Skoug"
+  - "Amanda Slagle"
+  - "John T. Steinberg"
+  - "Michael L. Stevens"
+  - "Adam Szabo"
+  - "Ellen R. Taylor"
+  - "Chris Tiu"
+  - "Paul Turin"
+  - "Marco Velli"
+  - "Gary Webb"
+  - "Phyllis Whittlesey"
+  - "Ken Wright"
+  - "S. T. Wu"
+  - "Gary Zank"
+authors_complete: true
+authors_verified: true
 year: 2016
-journal: Space Science Reviews (Parker Solar Probe special issue)
-doi: "10.1007/s11214-015-0206-3 — TODO_verify_with_full_text"
+journal: "Space Science Reviews"
+volume: "204"
+issue: "1-4"
+page: "131-186"
+online_publication_date: "2015-10-29"
+doi: "10.1007/s11214-015-0206-3"
 arxiv: not-in-local-inventory
+ads_bibcode: "2016SSRv..204..131K"
 theme: mission-instrumentation-psp-sweap
 quality_level: paper-grounded-pending-full-text
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - PSP/SWEAP SPC L3i proton moments
-  - PSP/SWEAP SPAN-Ai L2/L3 ion VDFs and moments (spi_sf00, spi_moms)
-  - PSP/SWEAP SPAN-Ae and SPAN-B L2 electron VDFs/moments
+  - "PSP/SWEAP SPC L3i proton moments"
+  - "PSP/SWEAP SPAN-Ai L2/L3 ion VDFs and moments (spi_sf00, spi_moms)"
+  - "PSP/SWEAP SPAN-Ae and SPAN-B L2 electron VDFs / moments"
 methods:
-  - Sensor selection (SPC vs SPAN-Ai vs SPAN-Ae/B)
-  - Product / level / cadence contract
-  - SPAN-Ai partial-FoV gating
-  - Pairing with FIELDS MAG for Alfvénicity / cascade workflows
+  - sensor-selection-spc-vs-span-ai-vs-span-ae-b
+  - product-level-cadence-contract
+  - span-ai-partial-fov-gating-by-beam-heat-shield-geometry
+  - pairing-with-fields-mag-for-alfvenicity-cascade
 validation_targets:
-  - SPC vs SPAN-Ai moment agreement within ~10% in unsaturated unbiased intervals (TODO verify with full text)
+  - "SPC vs SPAN-Ai moment agreement within ~10 % in unsaturated, beam-in-FoV intervals on a named PSP encounter (exact cross-calibration tolerance TODO_verify_with_full_text)"
+  - "SWEAP product nomenclature (PSP_SWP_SPC_L3I / PSP_SWP_SPI_SF00 / PSP_SWP_SPI_MOMS / PSP_SWP_SPE_*) consistent with SPDF naming conventions on a sample interval"
 source_inventory:
-  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+  - "not-in-local-inventory — bibliographic anchor re-derived 2026-05-19 via Crossref"
+verification_flags:
+  - "Title, full 79-author list, SSRv 204, 131–186, DOI 10.1007/s11214-015-0206-3, and online publication date 2015-10-29 verified via api.crossref.org on 2026-05-19."
+  - "ADS bibcode 2016SSRv..204..131K derived from journal coordinates; not fetched directly."
+  - "Exact SPC energy range / cadence numbers and SPAN-Ai energy / angular resolution remain TODO_verify_with_full_text — these are paper-internal tables."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
-  source_record: "project-knowledge:Kasper-et-al-2016-SWEAP; not-in-local-inventory"
-  verified_by: null
-  verified_at: null
+  source_record: "project-knowledge:Kasper-et-al-2016-SWEAP; bibliographic anchor re-derived via Crossref 2026-05-19"
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T17:55:00Z"
+  doi_verifications:
+    - doi: "10.1007/s11214-015-0206-3"
+      url: "https://api.crossref.org/works/10.1007/s11214-015-0206-3"
+      http_status: 200
+      fetched_title: "Solar Wind Electrons Alphas and Protons (SWEAP) Investigation: Design of the Solar Wind and Coronal Plasma Instrument Suite for Solar Probe Plus"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:34:00Z"
+      source: live

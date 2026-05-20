@@ -41,7 +41,12 @@ EXPECTED_BATCH_FAMILIES = {
         "numbered_executable_workflow_v1": 12,
     },
     "batch_mission_instruments_data_products": {
-        "prose_engineering_instrument": 12,
+        # Hybrid since the 2026-05-19 internalization pass: 9 entries
+        # retain the original prose-engineering form; 3 entries
+        # (pulupa, sinjan, vourlidas) were rewritten end-to-end in the
+        # numbered executable-workflow form during internalization.
+        "prose_engineering_instrument": 9,
+        "numbered_executable_workflow_v1": 3,
     },
     "batch_pfss_source_mapping": {
         "prose_pfss_layered": 10,

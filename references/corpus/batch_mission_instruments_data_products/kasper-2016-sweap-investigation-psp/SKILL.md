@@ -34,12 +34,30 @@ Do NOT invoke this skill when:
   Design of the Solar Wind and Coronal Plasma Instrument Suite for Solar
   Probe Plus
 - **First author:** Justin C. Kasper
-- **Authors:** J. C. Kasper, R. Abiad, G. Austin, M. Balat-Pichelin,
-  S. D. Bale, J. W. Belcher, P. Berg, et al. ("+ many co-authors —
-  TODO verify full list with primary source")
-- **Year:** 2016
-- **Venue:** Space Science Reviews — *Parker Solar Probe* special issue
-- **DOI:** 10.1007/s11214-015-0206-3 (TODO verify with primary source)
+- **Authors:** 79-author paper led by J. C. Kasper, R. Abiad, G. Austin,
+  M. Balat-Pichelin, S. D. Bale, J. W. Belcher, P. Berg, H. Bergner,
+  M. Berthomier, J. Bookbinder, E. Brodu, D. Caldwell, A. W. Case,
+  B. D. G. Chandran, P. Cheimets, J. W. Cirtain, S. R. Cranmer,
+  D. W. Curtis, P. Daigneau, G. Dalton, B. Dasgupta, D. DeTomaso,
+  M. Diaz-Aguado, B. Djordjevic, B. Donaskowski, M. Effinger,
+  V. Florinski, N. Fox, M. Freeman, D. Gallagher, S. P. Gary, T. Gauron,
+  R. Gates, M. Goldstein, L. Golub, D. A. Gordon, R. Gurnee, G. Guth,
+  J. Halekas, K. Hatch, J. Heerikuisen, G. Ho, Q. Hu, G. Johnson,
+  S. P. Jordan, K. E. Korreck, D. Larson, A. J. Lazarus, G. Li, R. Livi,
+  M. Ludlam, M. Maksimovic, J. P. McFadden, W. Marchant, B. A. Maruca,
+  D. J. McComas, L. Messina, T. Mercer, S. Park, A. M. Peddie,
+  N. Pogorelov, M. J. Reinhart, J. D. Richardson, M. Robinson, I. Rosen,
+  R. M. Skoug, A. Slagle, J. T. Steinberg, M. L. Stevens, A. Szabo,
+  E. R. Taylor, C. Tiu, P. Turin, M. Velli, G. Webb, P. Whittlesey,
+  K. Wright, S. T. Wu, G. Zank — full 79-author list verified via
+  api.crossref.org on 2026-05-19.
+- **Year:** 2016 (online 2015-10-29; SSRv volume 204 issue 1–4)
+- **Venue:** *Space Science Reviews* 204, 131–186 — *Parker Solar Probe*
+  special issue
+- **DOI:** 10.1007/s11214-015-0206-3 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2016SSRv..204..131K (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory.
 - **Claim boundary:** Describes SWEAP's **as-designed** capability:
   SPC (Faraday cup pointing at the Sun through the heat shield) and SPAN
@@ -162,11 +180,35 @@ provider* — it does not certify on-orbit numerical performance.
 
 ## Links
 
-- DOI: 10.1007/s11214-015-0206-3 — TODO verify with primary source.
+- DOI: https://doi.org/10.1007/s11214-015-0206-3 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a (Space Science Reviews; not in local inventory).
-- ADS: TODO_verify_with_full_text.
+- ADS: 2016SSRv..204..131K — derived from journal coordinates
+  (SSRv 204, 131–186); not directly fetched.
 - Code: n/a.
-- Data: NASA SPDF / CDAWeb — `PSP_SWP_*`.
+- Data: NASA SPDF / CDAWeb — `PSP_SWP_*` family.
+
+## Research-generation affordances
+
+- **SPC vs SPAN-Ai cross-calibration ladder.** Per-encounter, in
+  intervals where both sensors are unsaturated and the beam lies inside
+  SPAN-Ai's geometric FoV, publish the SPC-vs-SPAN-Ai moment-ratio
+  distribution; trends across encounters reveal calibration drift not
+  visible in any single encounter and bound the systematic for
+  downstream cascade / Alfvénicity work.
+- **Partial-FoV flag as a first-class data layer.** A per-time-step
+  `span_ai_fov_complete: bool` flag computed from beam-direction +
+  heat-shield geometry would let downstream pipelines auto-degrade to
+  SPC moments when SPAN-Ai is geometrically biased — currently this
+  inference happens *ad hoc* in event-specific papers.
+- **Electron-secondary correction publication.** Below ~ 20 eV the
+  electron ESAs see spacecraft photoelectron contamination; a
+  per-encounter contamination model would help quiet-Sun
+  electron-distribution science that is currently bounded out of scope.
+- **Ion-beam VDF retrieval audit.** Use SPAN-Ai VDF coarse-binning to
+  bound the recoverable thin-beam fraction; this directly bounds
+  ion-beam-driven instability statistics
+  (cf. [[verniero-2020-psp-span-i-vdf-data-product]]).
 
 ## Skill graph → depends_on
 

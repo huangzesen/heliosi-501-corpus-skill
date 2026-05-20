@@ -1,38 +1,102 @@
 slug: mccomas-2016-isois-energetic-particle-investigation-psp
-title: >-
-  Integrated Science Investigation of the Sun (ISʘIS): Design of the Energetic
-  Particle Investigation
+title: "Integrated Science Investigation of the Sun (ISʘIS): Design of the Energetic Particle Investigation"
 authors:
-  - D. J. McComas
-  - N. Alexander
-  - N. Angold
-  - S. Bale
-  - C. Beebe
-authors_complete: false
+  - "D. J. McComas"
+  - "N. Alexander"
+  - "N. Angold"
+  - "S. Bale"
+  - "C. Beebe"
+  - "B. Birdwell"
+  - "M. Boyle"
+  - "J. M. Burgum"
+  - "J. A. Burnham"
+  - "E. R. Christian"
+  - "W. R. Cook"
+  - "S. A. Cooper"
+  - "A. C. Cummings"
+  - "A. J. Davis"
+  - "M. I. Desai"
+  - "J. Dickinson"
+  - "G. Dirks"
+  - "D. H. Do"
+  - "N. Fox"
+  - "J. Giacalone"
+  - "R. E. Gold"
+  - "R. S. Gurnee"
+  - "J. R. Hayes"
+  - "M. E. Hill"
+  - "J. C. Kasper"
+  - "B. Kecman"
+  - "J. Klemic"
+  - "S. M. Krimigis"
+  - "A. W. Labrador"
+  - "R. S. Layman"
+  - "R. A. Leske"
+  - "S. Livi"
+  - "W. H. Matthaeus"
+  - "R. L. McNutt Jr."
+  - "R. A. Mewaldt"
+  - "D. G. Mitchell"
+  - "K. S. Nelson"
+  - "C. Parker"
+  - "J. S. Rankin"
+  - "E. C. Roelof"
+  - "N. A. Schwadron"
+  - "H. Seifert"
+  - "S. Shuman"
+  - "M. R. Stokes"
+  - "E. C. Stone"
+  - "J. D. Vandegriff"
+  - "M. Velli"
+  - "T. T. von Rosenvinge"
+  - "S. E. Weidner"
+  - "M. E. Wiedenbeck"
+  - "P. Wilson IV"
+authors_complete: true
+authors_verified: true
 year: 2016
-journal: Space Science Reviews (Parker Solar Probe special issue)
-doi: "10.1007/s11214-014-0059-1 — TODO_verify_with_full_text"
+journal: "Space Science Reviews"
+volume: "204"
+issue: "1-4"
+page: "187-256"
+online_publication_date: "2014-07-05"
+doi: "10.1007/s11214-014-0059-1"
 arxiv: not-in-local-inventory
+ads_bibcode: "2016SSRv..204..187M"
 theme: mission-instrumentation-psp-isois
 quality_level: paper-grounded-pending-full-text
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - PSP/ISʘIS EPI-Lo L2 (suprathermal ions ~30 keV/nuc–1 MeV/nuc, electrons)
-  - PSP/ISʘIS EPI-Hi LETA/LETB L2 (~1–20 MeV/nuc ions)
-  - PSP/ISʘIS EPI-Hi HETA/HETB L2 (~10–100 MeV/nuc ions, MeV electrons)
-  - PSP/ISʘIS L3 summary products (TODO verify exact names)
+  - "PSP/ISʘIS EPI-Lo L2 (suprathermal ions ~30 keV/nuc–1 MeV/nuc, electrons)"
+  - "PSP/ISʘIS EPI-Hi LETA / LETB L2 (~1–20 MeV/nuc ions)"
+  - "PSP/ISʘIS EPI-Hi HETA / HETB L2 (~10–100 MeV/nuc ions, MeV electrons)"
+  - "PSP/ISʘIS L3 summary products (exact CDF naming TODO verify)"
 methods:
-  - Telescope selection by energy / species
-  - Pixel / look-direction selection
-  - Pitch-angle reconstruction against FIELDS MAG
-  - SEP event onset / fluence detection
+  - telescope-selection-by-energy-species
+  - pixel-look-direction-selection
+  - pitch-angle-reconstruction-against-fields-mag
+  - sep-event-onset-and-fluence-detection
 validation_targets:
-  - Reproduce a published SEP onset time and power-law spectral index within ~20% (TODO supply event from full text)
+  - "Reproduce a published SEP onset time and power-law spectral index within ~20 % on a named encounter event (event-specific reference TODO supply from full text)"
+  - "Pixel-vote pitch-angle reconstruction with FIELDS MAG B at matched cadence consistent within published bin uncertainties"
 source_inventory:
-  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+  - "not-in-local-inventory — bibliographic anchor re-derived 2026-05-19 via Crossref"
+verification_flags:
+  - "Title, full 50-author list, SSRv 204, 187–256, DOI 10.1007/s11214-014-0059-1, and online publication date 2014-07-05 verified via api.crossref.org on 2026-05-19."
+  - "ADS bibcode 2016SSRv..204..187M derived from journal coordinates; not fetched directly."
+  - "Exact pixel-by-pixel response calibration, L3 product names, and pile-up live-time correction recipes remain TODO_verify_with_full_text — these are paper-internal."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
-  source_record: "project-knowledge:McComas-et-al-2016-ISOIS; not-in-local-inventory"
-  verified_by: null
-  verified_at: null
+  source_record: "project-knowledge:McComas-et-al-2016-ISOIS; bibliographic anchor re-derived via Crossref 2026-05-19"
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T18:00:00Z"
+  doi_verifications:
+    - doi: "10.1007/s11214-014-0059-1"
+      url: "https://api.crossref.org/works/10.1007/s11214-014-0059-1"
+      http_status: 200
+      fetched_title: "Integrated Science Investigation of the Sun (ISIS): Design of the Energetic Particle Investigation"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:36:00Z"
+      source: live

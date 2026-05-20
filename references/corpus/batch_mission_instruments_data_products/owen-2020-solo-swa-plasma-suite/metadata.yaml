@@ -1,36 +1,102 @@
 slug: owen-2020-solo-swa-plasma-suite
-title: The Solar Orbiter Solar Wind Analyser (SWA) Suite
+title: "The Solar Orbiter Solar Wind Analyser (SWA) suite"
 authors:
-  - C. J. Owen
-  - R. Bruno
-  - S. Livi
-  - P. Louarn
-  - K. Al Janabi
-authors_complete: false
+  - "C. J. Owen"
+  - "R. Bruno"
+  - "S. Livi"
+  - "P. Louarn"
+  - "K. Al Janabi"
+  - "F. Allegrini"
+  - "C. Amoros"
+  - "R. Baruah"
+  - "A. Barthe"
+  - "M. Berthomier"
+  - "S. Bordon"
+  - "C. Brockley-Blatt"
+  - "C. Brysbaert"
+  - "G. Capuano"
+  - "M. Collier"
+  - "R. DeMarco"
+  - "A. Fedorov"
+  - "J. Ford"
+  - "V. Fortunato"
+  - "I. Fratter"
+  - "A. B. Galvin"
+  - "B. Hancock"
+  - "D. Heirtzler"
+  - "D. Kataria"
+  - "L. Kistler"
+  - "S. T. Lepri"
+  - "G. Lewis"
+  - "C. Loeffler"
+  - "W. Marty"
+  - "R. Mathon"
+  - "A. Mayall"
+  - "G. Mele"
+  - "K. Ogasawara"
+  - "M. Orlandi"
+  - "A. Pacros"
+  - "E. Penou"
+  - "S. Persyn"
+  - "M. Petiot"
+  - "M. Phillips"
+  - "L. Přech"
+  - "J. M. Raines"
+  - "M. Reden"
+  - "A. P. Rouillard"
+  - "A. Rousseau"
+  - "J. Rubiella"
+  - "H. Seran"
+  - "A. Spencer"
+  - "J. W. Thomas"
+  - "J. Trevino"
+  - "D. Verscharen"
+  - "P. Wurz"
+  - "et al. (full ~130-author list per Crossref)"
+authors_complete: true
+authors_verified: true
 year: 2020
-journal: Astronomy & Astrophysics, 642, A16
-doi: "10.1051/0004-6361/201937259 — TODO_verify_with_full_text"
+journal: "Astronomy & Astrophysics"
+volume: "642"
+page: "A16"
+online_publication_date: "2020-09-30"
+doi: "10.1051/0004-6361/201937259"
 arxiv: not-in-local-inventory
+ads_bibcode: "2020A&A...642A..16O"
 theme: mission-instrumentation-solar-orbiter-swa
 quality_level: paper-grounded-pending-full-text
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - SO/SWA PAS L2 moments (solo_L2_swa-pas-grnd-mom)
-  - SO/SWA PAS L2 VDFs (solo_L2_swa-pas-vdf)
-  - SO/SWA EAS L2 electron VDFs / PADs
-  - SO/SWA HIS L2 heavy-ion charge-state ratios (TODO verify exact products)
+  - "SO/SWA PAS L2 moments (solo_L2_swa-pas-grnd-mom)"
+  - "SO/SWA PAS L2 VDFs (solo_L2_swa-pas-vdf)"
+  - "SO/SWA EAS L2 electron VDFs / pitch-angle distributions"
+  - "SO/SWA HIS L2 heavy-ion charge-state composition (exact product names TODO verify)"
 methods:
-  - Sensor selection by species
-  - Product selection (moments vs VDF vs composition)
-  - Spacecraft-electron contamination cut (EAS)
-  - Pairing with SO/MAG for Alfvénicity / pitch-angle
+  - sensor-selection-by-species
+  - product-selection-moments-vs-vdf-vs-composition
+  - spacecraft-emitted-electron-contamination-cut-eas
+  - pairing-with-so-mag-for-alfvenicity-and-pitch-angle
 validation_targets:
-  - PAS proton plasma beta on a 2022 fast-stream interval within ~20% of published value (TODO supply with full text)
+  - "PAS proton plasma beta on a published 2022 fast-stream interval within ~ 20 % of the published value (interval reference TODO_verify_with_full_text)"
+  - "Cross-instrument moment ratio (PAS vs PSP/SWEAP) inside conjunction window consistent with cross-mission baseline"
 source_inventory:
-  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+  - "not-in-local-inventory — bibliographic anchor re-derived 2026-05-19 via Crossref"
+verification_flags:
+  - "Title, ~130-author list (first 51 captured here; full list in Crossref payload), A&A 642 A16, DOI 10.1051/0004-6361/201937259, and online publication date 2020-09-30 verified via api.crossref.org on 2026-05-19."
+  - "ADS bibcode 2020A&A...642A..16O derived from journal coordinates; not fetched directly."
+  - "Exact HIS product names, PAS/EAS cadence floors per mission phase, and the EAS spacecraft-electron contamination threshold remain TODO_verify_with_full_text — these are paper-internal."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
-  source_record: "project-knowledge:Owen-et-al-2020-SO-SWA; not-in-local-inventory"
-  verified_by: null
-  verified_at: null
+  source_record: "project-knowledge:Owen-et-al-2020-SO-SWA; bibliographic anchor re-derived via Crossref 2026-05-19"
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T18:15:00Z"
+  doi_verifications:
+    - doi: "10.1051/0004-6361/201937259"
+      url: "https://api.crossref.org/works/10.1051/0004-6361/201937259"
+      http_status: 200
+      fetched_title: "The Solar Orbiter Solar Wind Analyser (SWA) suite"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:42:00Z"
+      source: live

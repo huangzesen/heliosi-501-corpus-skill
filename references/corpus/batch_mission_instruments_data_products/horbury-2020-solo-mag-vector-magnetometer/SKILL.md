@@ -31,12 +31,26 @@ Do NOT invoke this skill when:
 
 - **Title:** The Solar Orbiter Magnetometer
 - **First author:** Timothy S. Horbury
-- **Authors:** T. S. Horbury, H. O'Brien, I. Carrasco Blázquez,
-  M. Bendyk, P. Brown, R. Hudson, V. Evans, et al. ("+ co-authors —
-  TODO verify full list with primary source")
-- **Year:** 2020
-- **Venue:** Astronomy & Astrophysics, 642, A9 (Solar Orbiter special issue)
-- **DOI:** 10.1051/0004-6361/201937257 (TODO verify with primary source)
+- **Authors:** 52-author paper led by T. S. Horbury, H. O'Brien,
+  I. Carrasco Blazquez, M. Bendyk, P. Brown, R. Hudson, V. Evans,
+  T. M. Oddy, C. M. Carr, T. J. Beek, E. Cupido, S. Bhattacharya,
+  J.-A. Dominguez, L. Matthews, V. R. Myklebust, B. Whiteside,
+  S. D. Bale, W. Baumjohann, D. Burgess, V. Carbone, P. Cargill,
+  J. Eastwood, G. Erdös, L. Fletcher, R. Forsyth, J. Giacalone,
+  K.-H. Glassmeier, M. L. Goldstein, T. Hoeksema, M. Lockwood,
+  W. Magnes, M. Maksimovic, E. Marsch, W. H. Matthaeus, N. Murphy,
+  V. M. Nakariakov, C. J. Owen, M. Owens, J. Rodriguez-Pacheco,
+  I. Richter, P. Riley, C. T. Russell, S. Schwartz, R. Vainio, M. Velli,
+  S. Vennerstrom, R. Walsh, R. F. Wimmer-Schweingruber, G. Zank,
+  D. Müller, I. Zouganelis, A. P. Walsh — full 52-author list verified
+  via api.crossref.org on 2026-05-19.
+- **Year:** 2020 (online 2020-09-30)
+- **Venue:** *Astronomy & Astrophysics* 642, A9 (Solar Orbiter
+  special issue)
+- **DOI:** 10.1051/0004-6361/201937257 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2020A&A...642A...9H (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory.
 - **Claim boundary:** Describes MAG **as designed and commissioned in
   2020**: sensors, electronics, observing modes (normal / burst), nominal
@@ -145,11 +159,33 @@ modes, nominal cadence, calibration plan, intended L2 products.
 
 ## Links
 
-- DOI: 10.1051/0004-6361/201937257 — TODO verify with primary source.
+- DOI: https://doi.org/10.1051/0004-6361/201937257 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a.
-- ADS: TODO_verify_with_full_text.
+- ADS: 2020A&A...642A...9H — derived from journal coordinates
+  (A&A 642, A9); not directly fetched.
 - Code: `pyspedas.solar_orbiter.mag` loaders.
-- Data: ESA SOAR; CDAWeb mirror.
+- Data: ESA SOAR (https://soar.esac.esa.int/); CDAWeb mirror.
+
+## Research-generation affordances
+
+- **MAG-IBS vs MAG-OBS cross-validation tracker.** The two redundant
+  fluxgate sensors provide a built-in cross-check; per-encounter
+  publication of the IBS↔OBS residual spectrum bounds the
+  spacecraft-magnetic-cleanliness contribution to inferred turbulence /
+  switchback metrics.
+- **PSP–Solar Orbiter B cross-calibration anchor.** When PSP and SolO
+  share approximately radial alignment, a MAG–MAG cross-calibration on
+  shared field lines tests the absolute scale of each instrument; a
+  rolling cross-calibration would catch slow drifts otherwise invisible.
+- **Burst-mode duty-cycle audit.** The 64 vec/s burst is event-triggered
+  and limited in total duration; quantifying per-encounter burst-mode
+  duty cycle bounds the kinetic-scale-statistics sample available for
+  any campaign.
+- **Cleanliness-monitor causal model.** Building a published causal map
+  from spacecraft housekeeping (heater currents, thruster firings,
+  solar-array reconfigurations) to MAG residuals would turn
+  case-by-case data exclusion into an auditable algorithmic decision.
 
 ## Skill graph → depends_on
 

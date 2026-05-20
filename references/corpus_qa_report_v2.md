@@ -225,7 +225,7 @@ Per-batch rendering distribution (auto-generated via
 | Batch | Skills | Rendering family/families | Notes |
 |---|---:|---|---|
 | `batch_heliophysics_software_infrastructure` | 12 | `numbered_executable_workflow_v1` × 12 |  |
-| `batch_mission_instruments_data_products` | 12 | `prose_engineering_instrument` × 12 |  |
+| `batch_mission_instruments_data_products` | 12 | `prose_engineering_instrument` × 9 + `numbered_executable_workflow_v1` × 3 | hybrid after 2026-05-19 internalization pass (pulupa, sinjan, vourlidas rewritten end-to-end in numbered form) |
 | `batch_pfss_source_mapping` | 10 | `prose_pfss_layered` × 10 |  |
 | `batch_psp_switchbacks_magnetic` | 12 | `five_layer_scientific_invariant` × 12 |  |
 | `batch_sep_energetic_particles` | 12 | `numbered_executable_workflow_v1` × 12 |  |

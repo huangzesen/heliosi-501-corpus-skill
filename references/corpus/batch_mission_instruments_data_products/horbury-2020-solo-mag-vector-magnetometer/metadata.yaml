@@ -1,37 +1,101 @@
 slug: horbury-2020-solo-mag-vector-magnetometer
-title: The Solar Orbiter Magnetometer
+title: "The Solar Orbiter magnetometer"
 authors:
-  - T. S. Horbury
-  - H. O'Brien
-  - I. Carrasco Blázquez
-  - M. Bendyk
-  - P. Brown
-  - R. Hudson
-  - V. Evans
-authors_complete: false
+  - "T. S. Horbury"
+  - "H. O'Brien"
+  - "I. Carrasco Blazquez"
+  - "M. Bendyk"
+  - "P. Brown"
+  - "R. Hudson"
+  - "V. Evans"
+  - "T. M. Oddy"
+  - "C. M. Carr"
+  - "T. J. Beek"
+  - "E. Cupido"
+  - "S. Bhattacharya"
+  - "J.-A. Dominguez"
+  - "L. Matthews"
+  - "V. R. Myklebust"
+  - "B. Whiteside"
+  - "S. D. Bale"
+  - "W. Baumjohann"
+  - "D. Burgess"
+  - "V. Carbone"
+  - "P. Cargill"
+  - "J. Eastwood"
+  - "G. Erdös"
+  - "L. Fletcher"
+  - "R. Forsyth"
+  - "J. Giacalone"
+  - "K.-H. Glassmeier"
+  - "M. L. Goldstein"
+  - "T. Hoeksema"
+  - "M. Lockwood"
+  - "W. Magnes"
+  - "M. Maksimovic"
+  - "E. Marsch"
+  - "W. H. Matthaeus"
+  - "N. Murphy"
+  - "V. M. Nakariakov"
+  - "C. J. Owen"
+  - "M. Owens"
+  - "J. Rodriguez-Pacheco"
+  - "I. Richter"
+  - "P. Riley"
+  - "C. T. Russell"
+  - "S. Schwartz"
+  - "R. Vainio"
+  - "M. Velli"
+  - "S. Vennerstrom"
+  - "R. Walsh"
+  - "R. F. Wimmer-Schweingruber"
+  - "G. Zank"
+  - "D. Müller"
+  - "I. Zouganelis"
+  - "A. P. Walsh"
+authors_complete: true
+authors_verified: true
 year: 2020
-journal: Astronomy & Astrophysics, 642, A9
-doi: "10.1051/0004-6361/201937257 — TODO_verify_with_full_text"
+journal: "Astronomy & Astrophysics"
+volume: "642"
+page: "A9"
+online_publication_date: "2020-09-30"
+doi: "10.1051/0004-6361/201937257"
 arxiv: not-in-local-inventory
+ads_bibcode: "2020A&A...642A...9H"
 theme: mission-instrumentation-solar-orbiter-mag
 quality_level: paper-grounded-pending-full-text
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - SO/MAG IBS L2 normal mode (~8 vec/s; TODO verify)
-  - SO/MAG OBS L2 normal mode (~8 vec/s; cross-check)
-  - SO/MAG burst L2 (~64 vec/s; event-triggered; TODO verify)
+  - "SO/MAG IBS L2 normal mode (vector cadence per paper; ~8 vec/s placeholder TODO verify)"
+  - "SO/MAG OBS L2 normal mode (~8 vec/s; cross-check sensor)"
+  - "SO/MAG burst L2 (~64 vec/s; event-triggered; exact rate TODO verify)"
 methods:
-  - Sensor (IBS vs OBS) and mode selection
-  - Frame management (RTN, SRF, J2000)
-  - IBS – OBS residual for spacecraft-field flagging
-  - Burst-window gating
+  - sensor-ibs-vs-obs-and-mode-selection
+  - frame-management-rtn-srf-j2000
+  - ibs-obs-residual-for-spacecraft-field-flagging
+  - burst-window-gating-and-duty-cycle-audit
 validation_targets:
-  - Median |B| at 0.3 au sample interval within ~5% of published value (TODO supply with full text)
+  - "Median |B| at a 0.3-au sample interval within ~ 5 % of the published value on a named encounter (specific encounter interval TODO_verify_with_full_text)"
+  - "IBS – OBS residual spectrum below the paper's quoted spacecraft-cleanliness ceiling at the chosen interval"
 source_inventory:
-  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+  - "not-in-local-inventory — bibliographic anchor re-derived 2026-05-19 via Crossref"
+verification_flags:
+  - "Title, full 52-author list, A&A 642 A9, DOI 10.1051/0004-6361/201937257, and online publication date 2020-09-30 verified via api.crossref.org on 2026-05-19."
+  - "ADS bibcode 2020A&A...642A...9H derived from journal coordinates; not fetched directly."
+  - "Exact normal-mode (~8 vec/s) and burst-mode (~64 vec/s) cadence numbers, on-orbit noise floors, and the exact cleanliness ceiling remain TODO_verify_with_full_text — these are paper-internal."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
-  source_record: "project-knowledge:Horbury-et-al-2020-SO-MAG; not-in-local-inventory"
-  verified_by: null
-  verified_at: null
+  source_record: "project-knowledge:Horbury-et-al-2020-SO-MAG; bibliographic anchor re-derived via Crossref 2026-05-19"
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T18:10:00Z"
+  doi_verifications:
+    - doi: "10.1051/0004-6361/201937257"
+      url: "https://api.crossref.org/works/10.1051/0004-6361/201937257"
+      http_status: 200
+      fetched_title: "The Solar Orbiter magnetometer"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:40:00Z"
+      source: live

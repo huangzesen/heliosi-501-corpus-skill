@@ -36,12 +36,22 @@ Do NOT invoke this skill when:
 
 - **Title:** The Solar Orbiter Mission — Science Overview
 - **First author:** Daniel Müller
-- **Authors:** D. Müller, O. C. St. Cyr, I. Zouganelis, H. R. Gilbert,
-  R. Marsden, T. Nieves-Chinchilla, E. Antonucci, F. Auchère, et al.
-  ("+ co-authors — TODO verify full list with primary source")
-- **Year:** 2020
-- **Venue:** Astronomy & Astrophysics, 642, A1 (Solar Orbiter special issue)
-- **DOI:** 10.1051/0004-6361/202038467 (TODO verify with primary source)
+- **Authors:** 35-author paper: D. Müller, O. C. St. Cyr, I. Zouganelis,
+  H. R. Gilbert, R. Marsden, T. Nieves-Chinchilla, E. Antonucci,
+  F. Auchère, D. Berghmans, T. S. Horbury, R. A. Howard, S. Krucker,
+  M. Maksimovic, C. J. Owen, P. Rochus, J. Rodriguez-Pacheco, M. Romoli,
+  S. K. Solanki, R. Bruno, M. Carlsson, A. Fludra, L. Harra,
+  D. M. Hassler, S. Livi, P. Louarn, H. Peter, U. Schühle, L. Teriaca,
+  J. C. del Toro Iniesta, R. F. Wimmer-Schweingruber, E. Marsch,
+  M. Velli, A. De Groof, A. Walsh, D. Williams — full 35-author list
+  verified via api.crossref.org on 2026-05-19.
+- **Year:** 2020 (online 2020-09-30)
+- **Venue:** *Astronomy & Astrophysics* 642, A1 (Solar Orbiter
+  special issue)
+- **DOI:** 10.1051/0004-6361/202038467 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2020A&A...642A...1M (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory.
 - **Claim boundary:** Describes the mission **as planned/launched in 2020**:
   payload, orbit ladder, observation windows, science objectives, archive
@@ -142,11 +152,30 @@ operations plan.
 
 ## Links
 
-- DOI: 10.1051/0004-6361/202038467 — TODO verify with primary source.
+- DOI: https://doi.org/10.1051/0004-6361/202038467 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a.
-- ADS: TODO_verify_with_full_text.
+- ADS: 2020A&A...642A...1M — derived from journal coordinates
+  (A&A 642, A1); not directly fetched.
 - Code: `spiceypy`, `pyspedas.solar_orbiter`, SOAR REST API.
-- Data: SOAR https://soar.esac.esa.int/soar (TODO verify URL).
+- Data: ESA Solar Orbiter Archive (SOAR), https://soar.esac.esa.int/.
+
+## Research-generation affordances
+
+- **PSP–Solar Orbiter conjunction calendar as a callable contract.**
+  Build a queryable per-encounter table of Solar Orbiter perihelia,
+  inferior conjunctions, and quadrature windows with PSP; this is the
+  structural prerequisite for any joint inner-heliosphere science and
+  is currently rebuilt ad-hoc per paper.
+- **Cruise-vs-nominal-phase data-availability fingerprint.** Several
+  instruments have different L2/L3 cadence floors in cruise vs nominal
+  vs extended phase; publishing the per-instrument availability map as
+  a single contract would prevent silent under-sampling in downstream
+  workflows.
+- **Remote-sensing window optimisation.** Solar Orbiter's high-latitude
+  perihelia are limited; pre-computing the optimal remote-sensing
+  window for a given heliographic latitude / longitude target turns a
+  one-off planning exercise into a reusable agent capability.
 
 ## Skill graph → depends_on
 

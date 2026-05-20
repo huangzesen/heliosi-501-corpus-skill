@@ -1,174 +1,322 @@
 ---
 name: pulupa-2020-fields-merged-scm-fluxgate-product
-description: Per-entry paper-skill in batch_mission_instruments_data_products (HelioSI 501-corpus). See body and metadata.yaml for paper identity and claim boundary.
+description: >-
+  Use when a HelioSI workflow needs the PSP/FIELDS merged search-coil and
+  fluxgate magnetometer ("SCaM") product — a single broadband B time series
+  whose merge of MAG and SCM channels provides usable PSD power from DC to
+  the SCM upper bandwidth (~1 MHz at the highest burst rate). Central paper
+  is Bowen, Bale, Bonnell, Dudok de Wit, Goetz, Goodrich, Gruesbeck,
+  Harvey, Jannet, Koval, MacDowall, Malaspina, Pulupa, Revillet, Sheppard,
+  Szabo (2020), *JGR: Space Physics* 125(5) e2020JA027813,
+  doi:10.1029/2020JA027813 (arXiv:2001.04587). The legacy slug retains
+  "pulupa-2020" for cross-batch link stability; verified first author is
+  T. A. Bowen.
+version: 0.1.0
+tags:
+  - parker-solar-probe
+  - fields
+  - mag
+  - scm
+  - scam
+  - merged-data-product
+  - broadband-magnetic-field
+  - psd-continuity
+  - turbulence
+  - waves
+quality_level: paper-grounded-pending-full-text
+executable_status: pipeline-specified-not-yet-runnable
+paper:
+  authors_verified: true
 ---
 
-# pulupa-2020-fields-merged-scm-fluxgate-product
+# Bowen 2020 — Merged Search-Coil + Fluxgate (SCaM) Broadband B Product for PSP/FIELDS
 
-## When to use this paper-skill
+> Compiled from Bowen, Bale, Bonnell, Dudok de Wit, Goetz, Goodrich,
+> Gruesbeck, Harvey, Jannet, Koval, MacDowall, Malaspina, Pulupa,
+> Revillet, Sheppard, Szabo (2020), *A Merged Search-Coil and Fluxgate
+> Magnetometer Data Product for Parker Solar Probe FIELDS*, JGR Space
+> Physics 125(5) e2020JA027813, doi:10.1029/2020JA027813 (arXiv:2001.04587).
+> Title, full 16-author list, journal/volume/article, DOI, and the
+> abstract's "bandwidth ranging from DC to 1 MHz" claim were
+> cross-checked via api.crossref.org and arxiv.org on 2026-05-19. The
+> legacy slug `pulupa-2020-…` is retained for cross-batch link stability;
+> verified first author is **T. A. Bowen** (UC Berkeley / SSL).
+> **Quality tier**: `paper-grounded-pending-full-text` — citation,
+> author order, DOI, bandwidth headline, and the algorithm's optimal-SNR
+> framing are anchored to the live abstract / journal metadata; exact
+> crossover frequencies, blending-filter coefficients, and figure
+> numbers remain `TODO_verify_with_full_text` until the full PDF is
+> available.
 
-Invoke when a HelioSI workflow needs **broadband (DC to ~ kHz) PSP/FIELDS
-magnetic-field time series** that combines the DC-accurate fluxgate (MAG)
-with the high-frequency search-coil (SCM) — i.e. the **merged SCaM
-product** described in Pulupa et al. 2020. Typical triggers:
+This file is the agent-native compiled form of the paper, not a summary.
 
-- Turbulence / wave-event workflows requiring a single continuous B
-  spectrum across the inertial → ion-kinetic → electron-kinetic range.
-- Switchback-boundary analysis where the gradient lies above the MAG
-  Nyquist but below the SCM rolloff.
-- Helmholtz / spectral-break analyses that fail when MAG alone is used
-  because of aliasing near Nyquist.
-- Cross-comparison of MAG vs SCM measurements during calibration.
+---
 
-Do NOT invoke this skill when:
+## 1. Trigger
 
-- The workflow needs only inertial-range MHD turbulence — MAG L2 alone
+A future agent should reach for this skill when:
+
+- A workflow needs a **single, continuous PSP/FIELDS B time series** that
+  is valid through the MHD inertial range *and* into the ion-kinetic and
+  electron-kinetic ranges (i.e. spans the MAG Nyquist and beyond) — the
+  use-case the merged "SCaM" product was built for.
+- An analysis requires **broadband PSDs of B without an inertial-to-kinetic
+  spectral step** caused by MAG aliasing near Nyquist or SCM low-frequency
+  rolloff.
+- Switchback-boundary, kinetic-wave, or stochastic-heating workflows need
+  gradients that lie **above MAG Nyquist but below the SCM upper
+  bandwidth**.
+- Cross-comparison of MAG vs SCM measurements during calibration or
+  inter-instrument validation.
+
+Do NOT use this skill when:
+
+- Only inertial-range MHD turbulence is needed — MAG L2 alone usually
   suffices (see [[bale-2016-fields-instrument-suite-psp]]).
-- The workflow needs only AC bursts above 10 Hz — SCM alone may suffice.
+- Only AC bursts above ~10 Hz are needed — SCM L2 alone may suffice.
+- The science requires wave-mode identification from the full DFB burst
+  product (different L2/L3 stream; not the SCaM merge).
 
-## Paper identity and claim boundary
+## 2. Paper claim → verifiable task
 
-- **Title:** A Merged Search-Coil and Fluxgate Magnetometer Data Product
-  for Parker Solar Probe FIELDS
-- **First author:** Marc Pulupa (TODO verify with full text — inventory
-  records arXiv ID only)
-- **Authors:** M. Pulupa et al. ("+ FIELDS team co-authors — TODO verify
-  full list with primary source")
-- **Year:** 2020
-- **Venue:** Journal of Geophysical Research: Space Physics (TODO verify)
-- **DOI:** TODO_verify_with_full_text
-- **arXiv:** 2001.04587 — in local inventory
-  (`arxiv_papers/extended_search.md §3.3` and §3.9 mirror).
-- **Claim boundary:** Describes a **merged data product** combining MAG
-  and SCM channels in their respective optimal frequency ranges with a
-  documented blending function. The claim is bounded to the SCaM product
-  as released, on PSP encounters available at publication
-  (E1–E4 era).
+**Claim (narrow form, anchored to the verified abstract).** Combining
+the two PSP/FIELDS fluxgate magnetometers (MAGs) with the inductively
+coupled search-coil magnetometer (SCM) into a single merged "SCaM"
+waveform product yields B(t) measurements whose noise floor in each
+frequency band is set by the more-sensitive sensor for that band, with a
+**total bandwidth from DC to ~1 MHz** at the highest burst sample rate.
+The merge algorithm operates on FIELDS waveform telemetry from multiple
+sensors with optimal signal-to-noise characteristics.
 
-## Scientific or methodological claim to operationalize
+**Verifiable task.** A reproduction succeeds when an agent:
 
-> The Search-Coil and Magnetometer (SCaM) product merges the DC-accurate
-> fluxgate (MAG) measurement with the high-frequency search-coil (SCM)
-> measurement using a frequency-domain blending function so that the
-> resulting time series is **valid from DC to the SCM upper bandwidth**,
-> while remaining noise-floor-limited only by the better sensor in each
-> band.
+1. Loads, for a named PSP encounter interval, the canonical SCaM
+   waveform product (CDAWeb / Berkeley FIELDS archive product name TODO
+   verify against the v01/v02 CDF naming used by the FIELDS team) and
+   the corresponding MAG L2 and SCM L2 streams.
+2. Computes trace PSDs of all three (MAG-only, SCM-only, SCaM) over a
+   quiet-interval window inside the same encounter.
+3. Confirms that SCaM PSD tracks the MAG PSD below the crossover band
+   (within instrumental noise), tracks the SCM PSD above the crossover
+   band (within instrumental noise), and shows **no step / kink at the
+   crossover band**.
+4. Carries instrument-caveat metadata (SCM gain transitions, SCM
+   low-frequency rolloff, MAG bandwidth limit, burst-mode availability)
+   into all downstream products that use the merged stream.
+5. (Promotion criterion) Reports the crossover band, blending-filter
+   form, and tolerance numbers from the full PDF — currently TODO.
 
-A HelioSI skill operationalizes this by: given an encounter interval,
-return a contract for the SCaM product (cadence, blending crossover, gain
-limitations) and a validation that its PSD smoothly interpolates between
-the MAG and SCM PSDs over the crossover band.
+## 3. Methods / equations → executable workflow
 
-## Required data / instruments / code / archives
+### Algorithm 3.1 — Source-stream load and frame harmonization
 
-- **PSP/FIELDS MAG L2** (fluxgate vector B, ~ 4 Sa/cyc default; up to ~ 293
-  Sa/s burst — TODO verify).
-- **PSP/FIELDS SCM L2** (search-coil 3-axis; up to ~ MHz).
-- **PSP/FIELDS SCaM L3** (merged product; cadence and naming TODO verify
-  with primary source — likely `PSP_FLD_L3_MERGED_MAG_SCM_*`).
-- **Archives:** NASA SPDF / CDAWeb; FIELDS Berkeley data center.
-- **Reference frames:** RTN by default; SC frame on request.
-- **Inventory snippet:** "FIELDS instrument provides in-situ EM-field
-  measurements via two fluxgate magnetometers and a search-coil
-  magnetometer; merged data product is described."
-  (`extended_search.md §3.3`)
+- Procedure:
+  1. Pull PSP/FIELDS MAG L2 vector B (RTN or SC) at its native cadence
+     for the requested interval.
+  2. Pull PSP/FIELDS SCM L2 vector B (search-coil) at its native cadence
+     for the same interval; record the burst-mode availability mask.
+  3. Rotate to a common frame (RTN by default). MAG and SCM internal
+     reference frames differ; merging requires a consistent rotation
+     before any waveform blending.
+  4. Resample both streams onto a common uniform time grid (millisecond
+     timing offsets between sensors must be removed; the FIELDS pipeline
+     uses sub-survey-period alignment).
 
-## Algorithm / workflow steps
+### Algorithm 3.2 — Frequency-domain blending (SCaM merge contract)
 
-1. **Resolve interval, encounter, frame** using
-   [[fox-2016-psp-mission-design-orbit-encounters]].
-2. **Load SCaM L3** for the interval; on miss, fall back to loading MAG
-   L2 + SCM L2 and merging locally per the paper's blending recipe (TODO
-   reproduce blending function from full text).
-3. **Identify crossover band** (Hz range where MAG noise floor crosses
-   SCM noise floor; ~ 1 – 10 Hz, TODO verify exact band).
-4. **Validate PSD continuity** by computing PSD of SCaM and comparing to
-   MAG-only PSD below crossover and SCM-only PSD above; require a smooth
-   transition (no step).
-5. **Carry caveat metadata** into downstream products: SCaM gain
-   transitions in burst-mode regions, SCM low-frequency rolloff, MAG
-   bandwidth limit.
+- Procedure:
+  1. Window the aligned MAG and SCM streams; take per-channel DFTs.
+  2. Apply the published merge weights — high weight to MAG at f below
+     the SCM low-frequency rolloff (~order 10 Hz; **exact crossover band
+     TODO verify with full PDF**) and high weight to SCM above MAG's
+     useful upper bandwidth.
+  3. Invert the merged spectrum to time-domain B(t) on the common grid.
+  4. Persist caveat metadata: `gain_state[]` time series for the SCM
+     analog chain, `mag_burst_state[]` for the MAG, and a SCaM
+     `quality_flag[]` per sample carrying "good", "gain-transition",
+     "scm-rolloff", "mag-nyquist", or "burst-edge".
+
+### Algorithm 3.3 — PSD-continuity check (validation contract)
+
+- Procedure:
+  1. Pick a quiet sub-interval inside the same encounter (no shocks, no
+     gain-state transitions, no burst-edge artifacts).
+  2. Compute trace PSDs of MAG L2, SCM L2, and SCaM over the same
+     window (Welch periodogram with matched detrend / overlap).
+  3. Quantify the SCaM-vs-blend residual `|log10 PSD_SCaM − log10
+     PSD_blend(MAG, SCM)|` band-by-band across the crossover band.
+  4. Report the median residual and worst-frequency residual. (Numerical
+     tolerance: TODO supply from full PDF — the SKILL has historically
+     used a 0.05-dex placeholder.)
+
+Code skeleton (scaffold tier; runnable once the product name and merge
+weights are wired):
 
 ```python
 def load_scam(encounter, interval, frame="RTN"):
-    cdf = fetch_cdf("PSP_FLD_L3_MERGED_MAG_SCM_*", interval)  # TODO verify product name
-    return SCaM(b_vec=cdf["B"], frame=frame, cadence=cdf["CADENCE"],
-                caveats=["check_gain_transition", "scm_rolloff_low",
-                         "mag_nyquist_high"])
+    cdf = fetch_cdf("PSP_FLD_L3_*_MAG_SCM_MERGED_*", interval)  # TODO verify product name
+    return SCaM(
+        b_vec=cdf["B"],
+        frame=frame,
+        cadence=cdf["CADENCE"],
+        gain_state=cdf.get("SCM_GAIN_STATE"),
+        burst_state=cdf.get("MAG_BURST_STATE"),
+        quality_flag=cdf.get("QUALITY_FLAG"),
+    )
+
+def psd_continuity_residual(mag, scm, scam, fmin_Hz, fmax_Hz):
+    f, P_mag = welch(mag.b_vec)
+    _, P_scm = welch(scm.b_vec)
+    _, P_scam = welch(scam.b_vec)
+    blend = blend_psd(P_mag, P_scm, fmin_Hz, fmax_Hz)  # TODO verify blending coefficients
+    band = (f >= fmin_Hz) & (f <= fmax_Hz)
+    resid = np.abs(np.log10(P_scam[band]) - np.log10(blend[band]))
+    return resid.mean(), resid.max()
 ```
 
-## Minimal executable benchmark or validation target
+## 4. Data / instruments → tool contracts
 
-- **Claim:** SCaM PSD smoothly interpolates between MAG and SCM PSDs.
-- **Metric:** | log10(PSD_SCaM) − log10(PSD_blend(MAG, SCM)) | over the
-  crossover band.
-- **Tolerance:** ≤ 0.05 dex on average across the crossover band on at
-  least one named encounter interval (TODO supply specific interval from
-  full text).
-- **Reference figure:** Figure showing combined PSD (TODO identify figure
-  number from full text).
+| Instrument | Quantity | Level / cadence | Interval | Archive | Fetch hint |
+|---|---|---|---|---|---|
+| PSP/FIELDS MAG (×2 fluxgates) | B (RTN or SC), DC-accurate | L2 vector; survey-rate sampling, burst available | E1+ (PSP launch 2018-08; first encounter 2018-11) | NASA SPDF / CDAWeb; UCB FIELDS data center | `cdaweb` |
+| PSP/FIELDS SCM (search-coil) | B (RTN or SC), AC, up to ~1 MHz at highest burst | L2 vector | E1+ | NASA SPDF / CDAWeb; UCB FIELDS data center | `cdaweb` |
+| PSP/FIELDS SCaM (merged) | B (RTN), DC – ~1 MHz | L3 merged waveform; exact product name TODO verify | E1+ as released | UCB FIELDS data center; NASA SPDF (mirror status TODO verify) | `cdaweb` |
+| SPICE ephemeris | spacecraft position, attitude, frame transforms | L1 | Mission | NAIF | `spiceypy` / `xhelio-spice` |
 
-## Known pitfalls / failure modes
+## 5. Validation target → benchmark artifact
 
-- **Gain transitions.** SCM electronics include gain-switching; merged
-  product can show step artefacts at transitions — flag using gain bits.
-- **SCM low-frequency rolloff.** Below ~ 10 Hz the SCM transfer function
-  rolls off; the blending function must give weight to MAG there. Using
-  SCM alone for inertial-range slopes is incorrect.
-- **MAG aliasing near Nyquist.** When MAG alone is used at 4 Sa/cyc
-  cadence, power above Nyquist aliases into the inertial range; SCaM
-  avoids this.
-- **Frame mismatch between MAG and SCM.** Internal frames differ; merging
-  requires consistent rotation to a common frame before blending.
-- **Time-tag alignment.** MAG and SCM may have small (ms) timing offsets;
-  resampling onto a common grid is required.
-- **Burst-mode availability.** SCaM cadence drops outside burst windows;
-  do not assume uniform sampling across an encounter.
+- **Claim**: SCaM waveform's PSD smoothly interpolates between the MAG
+  PSD (below crossover) and the SCM PSD (above crossover), with the
+  merged-stream noise floor inheriting the more-sensitive sensor in each
+  band.
+- **Metric**: Mean and maximum of `|log10 PSD_SCaM − log10 PSD_blend|`
+  over the crossover band on a quiet sub-interval of a named encounter.
+- **Tolerance**: TODO verify — the in-corpus placeholder is `≤ 0.05 dex`
+  mean across the crossover band on one encounter interval; the exact
+  number is paper-internal and not in the abstract.
+- **Reference figure**: A SCaM-vs-MAG-vs-SCM combined PSD figure exists
+  in the published article (figure number TODO verify against the full
+  PDF).
 
-## Compilation into an Anthropic-style agent-native Skill
+Recommended check artifacts:
 
-| Paper element | Agent-native form |
-|---|---|
-| Claim — SCaM merged broadband B product | **Verifiable task:** `load_scam(encounter, interval) -> SCaM` + PSD-continuity check |
-| Methods — frequency-domain blending of MAG + SCM | **Executable workflow:** §"Algorithm / workflow steps" 1–5 |
-| Data / instruments — MAG L2, SCM L2, SCaM L3 | **MCP / tool contracts:** `cdaweb-mcp.get_psp_fld_*` or harness fallback |
-| Caveats — gain transitions, rolloff, aliasing, frame, time-tag, burst gaps | **Skill memory:** §"Known pitfalls / failure modes" |
-| Figure — combined PSD example | **Benchmark artifact:** PSD overlay PNG comparing MAG / SCM / SCaM |
+- `scam_psd_continuity.csv` — one row per (encounter, sub-interval): the
+  median and worst residuals, fmin/fmax of the crossover band used,
+  Welch parameters.
+- `scam_psd_overlay.png` — log–log PSD overlay of MAG, SCM, SCaM with
+  the crossover band shaded.
 
-## Claim boundary
+## 6. Failure modes → skill memory
 
-**In scope.** The merged SCaM product as released for PSP/FIELDS,
-restricted to encounters available at publication (E1–E4 era; TODO verify
-explicit list with full text). The skill validates broadband B for use
-across inertial, ion-kinetic, and electron-kinetic ranges only inside
-this restriction.
+- **SCM gain transitions.** The SCM analog chain switches gain states;
+  raw merging across a transition produces step artefacts. Gate on the
+  SCM gain-state metadata and exclude transitions from PSD-continuity
+  checks.
+- **SCM low-frequency rolloff.** Below the crossover band (order 10 Hz,
+  exact value TODO verify), the SCM transfer function rolls off sharply.
+  Inferring inertial-range spectral slopes from SCM alone is incorrect;
+  the merge places weight on MAG there for exactly this reason.
+- **MAG aliasing near Nyquist.** Using MAG alone at survey-rate cadence
+  aliases above-Nyquist power into the inertial range. The merged
+  product is the canonical fix — but only inside the SCaM bandwidth.
+- **Frame mismatch.** MAG and SCM internal frames differ; merging in
+  raw frames yields a non-physical mixed-frame vector. Always rotate to
+  a common frame before blending.
+- **Time-tag misalignment.** Millisecond timing offsets between MAG and
+  SCM channels must be removed before blending. The FIELDS pipeline
+  documents sub-survey-period timing accuracy.
+- **Burst-mode availability.** SCaM cadence is not uniform across an
+  encounter: outside burst windows, the merged product drops back to
+  survey-rate effective cadence. Do not assume a flat cadence.
+- **Mission-evolution drift.** Calibration coefficients may change with
+  encounter / firmware revisions. Always pin the product version when
+  citing SCaM-derived numbers.
+- **Spin / shadow biases.** The MAG-side spin / shadow caveats from the
+  FIELDS instrument paper still apply to the merged product; SCaM does
+  not eliminate them (see [[bale-2016-fields-instrument-suite-psp]]).
 
-**Out of scope — do NOT generalize beyond:**
+## 7. Claim boundary
 
-- Do not assume the same blending function applies unchanged to later
-  encounters / firmware updates without checking the L3 product version.
-- Do not infer that SCaM removes spin / shadow biases — those caveats from
-  [[bale-2016-fields-instrument-suite-psp]] still apply.
-- Do not use SCaM as a substitute for full DFB AC-bandwidth bursts in
-  wave-mode identification — different products.
+**In scope.** The merged SCaM waveform product as released for
+PSP/FIELDS — broadband B(t) from DC to ~1 MHz at highest burst rate,
+operating on the FIELDS MAG + SCM telemetry, validated by PSD continuity
+across the published crossover band. The SCaM contract is the canonical
+way to extract a single broadband B time series from FIELDS.
 
-## Links
+**Out of scope — do NOT generalise beyond:**
 
-- DOI: TODO_verify_with_full_text.
-- arXiv: https://arxiv.org/abs/2001.04587
-- ADS: TODO_verify_with_full_text.
-- Code: TODO — community FIELDS-Berkeley readers may exist.
-- Data: NASA SPDF / CDAWeb; FIELDS Berkeley data center.
+- The exact crossover band, blending coefficients, and figure-numbered
+  tolerances reside in the paper PDF and are TODO verify; do not quote
+  numerical values for these without verifying against the source.
+- Do not assume the published blending function applies unchanged to
+  later FIELDS firmware revisions or future encounters without checking
+  the L3 product version.
+- Do not infer spin / shadow / sensor-cross-talk corrections from this
+  paper — those are documented in the FIELDS instrument paper and in
+  later calibration notes, not here.
+- Do not use SCaM as a substitute for DFB AC-bandwidth burst products
+  in wave-mode identification — those are different L2/L3 streams.
 
-## Skill graph → depends_on
+If a downstream task asks for a generalisation listed above, refuse it
+and route to the FIELDS instrument paper-skill or to the appropriate
+calibration paper.
 
-- `[[bale-2016-fields-instrument-suite-psp]]` — FIELDS sensor inventory and
-  caveats.
-- `[[fox-2016-psp-mission-design-orbit-encounters]]` — encounter / burst-
-  window context.
+## 8. Links
 
-## References
+- DOI: https://doi.org/10.1029/2020JA027813 — verified via Crossref
+  on 2026-05-19.
+- arXiv: https://arxiv.org/abs/2001.04587 — abstract verified 2026-05-19;
+  16-author list confirmed.
+- ADS: 2020JGRA..12527813B — derived from journal coordinates (JGR Space
+  Physics 125, e2020JA027813); not directly fetched.
+- Code: FIELDS Berkeley readers and the SPDF CDF tools (no single
+  canonical SCaM-reader repo is published with the paper).
+- Data: NASA SPDF / CDAWeb; UCB FIELDS data center
+  (https://fields.ssl.berkeley.edu/).
 
-- Pulupa et al. (2020), arXiv:2001.04587. Inventory entry:
-  `sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3`
-  (and §3.9 mirror).
+## 9. Skill graph → depends_on
+
+- `[[bale-2016-fields-instrument-suite-psp]]` — FIELDS sensor inventory
+  and instrument-level caveats (gain stages, sensor cross-talk, spin /
+  shadow biases) that survive the SCaM merge.
+- `[[fox-2016-psp-mission-design-orbit-encounters]]` — encounter and
+  burst-window calendar; required to pick valid intervals for
+  PSD-continuity validation.
+
+## 10. Research-generation affordances
+
+- **Cross-encounter merge-quality drift.** Repeat the PSD-continuity
+  benchmark on a matched quiet sub-interval inside each PSP encounter
+  (E1 onward) and report the median residual as a time series. Trend
+  changes flag firmware-revision-induced merge-quality drift not visible
+  in any single-encounter analysis.
+- **Switchback boundary spectral leak.** Use SCaM in the immediate
+  inboard / outboard neighbourhood of catalogued switchback boundaries
+  (cf. switchbacks batch) and quantify how much above-Nyquist power
+  would have aliased into inertial-range spectral fits if MAG-only had
+  been used. This makes "use SCaM, not MAG-only" actionable rather than
+  aesthetic.
+- **Joint MAG/SCM cross-calibration anchor.** The PSD-continuity
+  contract here is a re-usable cross-calibration anchor for any
+  workflow that combines magnetic-field channels from heterogeneous
+  sensors (PSP/FIELDS, but also Solar Orbiter MAG vs RPW, see
+  [[horbury-2020-solo-mag-vector-magnetometer]]).
+- **Wave-mode identification with continuous broadband B.** Where DFB
+  bursts are unavailable, SCaM enables identification of cyclotron-
+  resonant features that previously required dedicated burst snapshots.
+  Quantifying detection efficiency vs the DFB-only baseline is a
+  testable affordance.
+
+## Notes
+
+- The legacy slug `pulupa-2020-fields-merged-scm-fluxgate-product`
+  reflects an earlier inventory-time misattribution; verified first
+  author is **T. A. Bowen** (UC Berkeley / SSL) and the paper is
+  published as Bowen et al. 2020 in *JGR: Space Physics*. The slug is
+  preserved for cross-batch link stability; the
+  `slug_first_author_misnomer` metadata field carries the explicit
+  correction.
+- The "DC to 1 MHz" bandwidth is a published headline of the merged
+  product and is verified against the abstract. The exact MAG/SCM
+  crossover band and the blending-filter form are paper-internal and
+  remain `TODO_verify_with_full_text`.

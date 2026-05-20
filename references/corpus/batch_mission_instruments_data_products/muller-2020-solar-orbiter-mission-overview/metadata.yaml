@@ -1,38 +1,83 @@
 slug: muller-2020-solar-orbiter-mission-overview
-title: "The Solar Orbiter Mission: Science Overview"
+title: "The Solar Orbiter mission: Science overview"
 authors:
-  - D. Müller
-  - O. C. St. Cyr
-  - I. Zouganelis
-  - H. R. Gilbert
-  - R. Marsden
-  - T. Nieves-Chinchilla
-  - E. Antonucci
-  - F. Auchère
-authors_complete: false
+  - "D. Müller"
+  - "O. C. St. Cyr"
+  - "I. Zouganelis"
+  - "H. R. Gilbert"
+  - "R. Marsden"
+  - "T. Nieves-Chinchilla"
+  - "E. Antonucci"
+  - "F. Auchère"
+  - "D. Berghmans"
+  - "T. S. Horbury"
+  - "R. A. Howard"
+  - "S. Krucker"
+  - "M. Maksimovic"
+  - "C. J. Owen"
+  - "P. Rochus"
+  - "J. Rodriguez-Pacheco"
+  - "M. Romoli"
+  - "S. K. Solanki"
+  - "R. Bruno"
+  - "M. Carlsson"
+  - "A. Fludra"
+  - "L. Harra"
+  - "D. M. Hassler"
+  - "S. Livi"
+  - "P. Louarn"
+  - "H. Peter"
+  - "U. Schühle"
+  - "L. Teriaca"
+  - "J. C. del Toro Iniesta"
+  - "R. F. Wimmer-Schweingruber"
+  - "E. Marsch"
+  - "M. Velli"
+  - "A. De Groof"
+  - "A. Walsh"
+  - "D. Williams"
+authors_complete: true
+authors_verified: true
 year: 2020
-journal: Astronomy & Astrophysics, 642, A1
-doi: "10.1051/0004-6361/202038467 — TODO_verify_with_full_text"
+journal: "Astronomy & Astrophysics"
+volume: "642"
+page: "A1"
+online_publication_date: "2020-09-30"
+doi: "10.1051/0004-6361/202038467"
 arxiv: not-in-local-inventory
+ads_bibcode: "2020A&A...642A...1M"
 theme: mission-design-solar-orbiter-orbit-ephemeris-operations
 quality_level: paper-grounded-pending-full-text
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - Solar Orbiter SPICE kernels (NAIF / ESA)
-  - SOAR archive (https://soar.esac.esa.int/soar — TODO verify URL)
-  - Encounter calendar / RSW schedule from SO SOC
+  - "Solar Orbiter SPICE kernels (NAIF / ESA SPICE service)"
+  - "ESA Solar Orbiter Archive (SOAR) at https://soar.esac.esa.int/"
+  - "Encounter calendar and Remote-Sensing-Window (RSW) schedule from Solar Orbiter SOC"
 methods:
-  - SPICE ephemeris queries with explicit frame
-  - Remote-Sensing-Window (RSW) gating
-  - Mission-phase resolution (cruise / nominal / extended)
-  - SOAR product-pattern selection per instrument
+  - SPICE-ephemeris-queries-with-explicit-frame
+  - remote-sensing-window-gating
+  - mission-phase-resolution-cruise-nominal-extended
+  - soar-product-pattern-selection-per-instrument
 validation_targets:
-  - For UTC 2022-03-26T12:00 return r ≈ 0.32 au within 0.02 au, HGI lat consistent with mission plan (TODO verify with full text)
+  - "For UTC 2022-03-26T12:00 return r ≈ 0.32 au within 0.02 au tolerance and an HGI latitude consistent with the published mission-design ladder (specific perihelion table TODO_verify_with_full_text)"
 source_inventory:
-  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+  - "not-in-local-inventory — bibliographic anchor re-derived 2026-05-19 via Crossref"
+verification_flags:
+  - "Title, full 35-author list, A&A 642 A1, DOI 10.1051/0004-6361/202038467, and online publication date 2020-09-30 verified via api.crossref.org on 2026-05-19."
+  - "ADS bibcode 2020A&A...642A...1M derived from journal coordinates; not fetched directly."
+  - "Exact per-perihelion radii / heliographic latitudes and the SOAR product-naming conventions per instrument remain TODO_verify_with_full_text — these are paper-internal tables."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
-  source_record: "project-knowledge:Mueller-et-al-2020-Solar-Orbiter; not-in-local-inventory"
-  verified_by: null
-  verified_at: null
+  source_record: "project-knowledge:Mueller-et-al-2020-Solar-Orbiter; bibliographic anchor re-derived via Crossref 2026-05-19"
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T18:05:00Z"
+  doi_verifications:
+    - doi: "10.1051/0004-6361/202038467"
+      url: "https://api.crossref.org/works/10.1051/0004-6361/202038467"
+      http_status: 200
+      fetched_title: "The Solar Orbiter mission: Science overview"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:38:00Z"
+      source: live

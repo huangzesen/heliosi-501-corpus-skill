@@ -1,36 +1,88 @@
 slug: vourlidas-2016-wispr-imaging-instrument-psp
-title: The Wide-Field Imager for Solar Probe Plus (WISPR)
+title: "The Wide-Field Imager for Solar Probe Plus (WISPR)"
 authors:
-  - A. Vourlidas
-  - R. A. Howard
-  - S. P. Plunkett
-  - C. M. Korendyke
-  - A. F. R. Thernisien
-  - D. Wang
-authors_complete: false
+  - "Angelos Vourlidas"
+  - "Russell A. Howard"
+  - "Simon P. Plunkett"
+  - "Clarence M. Korendyke"
+  - "Arnaud F. R. Thernisien"
+  - "Dennis Wang"
+  - "Nathan Rich"
+  - "Michael T. Carter"
+  - "Damien H. Chua"
+  - "Dennis G. Socker"
+  - "Mark G. Linton"
+  - "Jeff S. Morrill"
+  - "Sean Lynch"
+  - "Adam Thurn"
+  - "Peter Van Duyne"
+  - "Robert Hagood"
+  - "Greg Clifford"
+  - "Phares J. Grey"
+  - "Marco Velli"
+  - "Paulett C. Liewer"
+  - "Jeffrey R. Hall"
+  - "Eric M. DeJong"
+  - "Zoran Mikic"
+  - "Pierre Rochus"
+  - "Emanuel Mazy"
+  - "Volker Bothmer"
+  - "Jens Rodmann"
+authors_complete: true
+authors_verified: true
 year: 2016
-journal: Space Science Reviews (Parker Solar Probe special issue)
-doi: "10.1007/s11214-014-0114-y — TODO_verify_with_full_text"
+journal: "Space Science Reviews"
+volume: "204"
+issue: "1-4"
+page: "83-130"
+online_publication_date: "2015-02-11"
+doi: "10.1007/s11214-014-0114-y"
 arxiv: not-in-local-inventory
+ads_bibcode: "2016SSRv..204...83V"
 theme: mission-instrumentation-psp-wispr
 quality_level: paper-grounded-pending-full-text
 executable_status: contract-spec-only-not-yet-runnable
 required_data:
-  - PSP/WISPR-Inner L2 / L3 visible-light images (~13.5°–53.5° elongation; TODO verify)
-  - PSP/WISPR-Outer L2 / L3 visible-light images (~50.5°–108.5° elongation; TODO verify)
-  - SPICE kernels for WCS (heliographic / helioprojective)
+  - "PSP/WISPR-Inner L1/L2/L3 visible-light images (closer-to-Sun camera; per-camera elongation breakdown ~ 13.5°–53.5° per local inventory, TODO verify exact numbers with §2 of full PDF)"
+  - "PSP/WISPR-Outer L1/L2/L3 visible-light images (wider-angle camera; per-camera elongation ~ 50.5°–108.5° per local inventory, TODO verify exact numbers)"
+  - "SPICE kernels including WISPR optical-distortion model for HPC/HCI WCS conversion"
 methods:
-  - Camera selection by target elongation
-  - L2 vs L3 (F-corona subtracted) level choice
-  - SPICE-kernel WCS alignment
-  - J-map generation for CME tracking
+  - per-camera-selection-by-target-elongation
+  - l2-vs-l3-product-choice-with-rationale
+  - f-corona-subtraction-strategy-explicit-static-or-rolling
+  - spice-wcs-alignment-with-pinned-kernel-version
+  - mid-exposure-time-tag-for-kinematics
+  - j-map-generation-for-cme-tracking
 validation_targets:
-  - J-map track of a published CME within ~1° at fixed time (TODO supply event and figure reference)
+  - "WISPR L3 J-map track of a published CME reproducible within ~ 1° at fixed time (TODO supply named event + figure reference from a follow-up paper)"
+  - "Combined FoV 95° (radial) × 58° (transverse), verified against NRL WISPR instrument page on 2026-05-19"
+  - "Detector technology: radiation-hardened 2K × 2K APS CMOS, verified against NRL WISPR instrument page on 2026-05-19"
+  - "Image cadence: up to 1 image/s at perihelion, verified against NRL WISPR instrument page on 2026-05-19"
 source_inventory:
-  - not-in-local-inventory — paper cited from project knowledge; identity TODO_verify_with_full_text
+  - "not-in-local-inventory — bibliographic anchor re-derived 2026-05-19 via Crossref + NRL WISPR page (originally cited as 'TODO_verify_with_full_text')"
+verification_flags:
+  - "Title, full 27-author list, Space Science Reviews 204, 83–130, DOI 10.1007/s11214-014-0114-y, and online publication date 2015-02-11 verified via api.crossref.org on 2026-05-19."
+  - "Combined-FoV (95° × 58°) and 2K × 2K APS CMOS detector technology verified against the NRL WISPR instrument page on 2026-05-19."
+  - "Per-camera elongation breakdown (~ 13.5°–53.5° / ~ 50.5°–108.5°) and exact pixel scale per camera remain TODO_verify_with_full_text — they are paper-internal (§2 of the Vourlidas+ 2016 SSRv PDF)."
+  - "Vignetting-function mathematical form and stray-light suppression diagram numbers remain TODO_verify_with_full_text."
+  - "ADS bibcode 2016SSRv..204...83V derived from journal coordinates; not fetched directly."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
   source_record: "project-knowledge:Vourlidas-et-al-2016-WISPR; not-in-local-inventory"
-  verified_by: null
-  verified_at: null
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T17:40:00Z"
+  doi_verifications:
+    - doi: "10.1007/s11214-014-0114-y"
+      url: "https://api.crossref.org/works/10.1007/s11214-014-0114-y"
+      http_status: 200
+      fetched_title: "The Wide-Field Imager for Solar Probe Plus (WISPR)"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:15:00Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://wispr.nrl.navy.mil/"
+      status: nrl-instrument-page-corroborates-combined-fov-and-aps-cmos
+      fetched_at: "2026-05-19T17:18:00Z"
+      notes: "NRL WISPR page corroborates combined FoV 95° × 58°, two nested wide-field telescopes with 2K × 2K APS CMOS detectors, image cadence up to 1 image/s at perihelion."

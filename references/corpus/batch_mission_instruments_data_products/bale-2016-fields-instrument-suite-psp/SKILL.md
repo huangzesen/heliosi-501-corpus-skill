@@ -35,15 +35,34 @@ Do NOT invoke this skill when:
   Coronal Plasma and Magnetic Field, Plasma Waves and Turbulence, and Radio
   Signatures of Solar Transients
 - **First author:** Stuart D. Bale
-- **Authors:** S. D. Bale, K. Goetz, P. R. Harvey, P. Turin, J. W. Bonnell,
-  T. Dudok de Wit, R. E. Ergun, R. J. MacDowall, M. Pulupa, M. Andre,
-  M. Bolton, J.-L. Bougeret, T. A. Bowen, D. Burgess, C. A. Cattell, et al.
-  ("+ many co-authors — TODO verify full list with primary source")
-- **Year:** 2016
-- **Venue:** Space Science Reviews — *Parker Solar Probe* special issue
-- **DOI:** 10.1007/s11214-016-0244-5 (TODO verify with primary source)
+- **Authors:** 83-author paper: S. D. Bale, K. Goetz, P. R. Harvey,
+  P. Turin, J. W. Bonnell, T. Dudok de Wit, R. E. Ergun, R. J. MacDowall,
+  M. Pulupa, M. Andre, M. Bolton, J.-L. Bougeret, T. A. Bowen,
+  D. Burgess, C. A. Cattell, B. D. G. Chandran, C. C. Chaston, C. H. K.
+  Chen, M. K. Choi, J. E. Connerney, S. Cranmer, M. Diaz-Aguado,
+  W. Donakowski, J. F. Drake, W. M. Farrell, P. Fergeau, J. Fermin,
+  J. Fischer, N. Fox, D. Glaser, M. Goldstein, D. Gordon, E. Hanson,
+  S. E. Harris, L. M. Hayes, J. J. Hinze, J. V. Hollweg, T. S. Horbury,
+  R. A. Howard, V. Hoxie, G. Jannet, M. Karlsson, J. C. Kasper,
+  P. J. Kellogg, M. Kien, J. A. Klimchuk, V. V. Krasnoselskikh,
+  S. Krucker, J. J. Lynch, M. Maksimovic, D. M. Malaspina, S. Marker,
+  P. Martin, J. Martinez-Oliveros, J. McCauley, D. J. McComas,
+  T. McDonald, N. Meyer-Vernet, M. Moncuquet, S. J. Monson, F. S. Mozer,
+  S. D. Murphy, J. Odom, R. Oliverson, J. Olson, E. N. Parker,
+  D. Pankow, T. Phan, E. Quataert, T. Quinn, S. W. Ruplin, C. Salem,
+  D. Seitz, D. A. Sheppard, A. Siy, K. Stevens, D. Summers, A. Szabo,
+  M. Timofeeva, A. Vaivads, M. Velli, A. Yehle, D. Werthimer,
+  J. R. Wygant — full 83-author list verified via api.crossref.org on
+  2026-05-19.
+- **Year:** 2016 (online December 2016; SSRv volume 204 issue 1–4)
+- **Venue:** *Space Science Reviews* 204, 49–82 — *Parker Solar Probe*
+  special issue
+- **DOI:** 10.1007/s11214-016-0244-5 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2016SSRv..204...49B (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory — paper not present in
-  `arxiv_papers/*.md`; cited from project knowledge only.
+  `arxiv_papers/*.md`; cited directly from the SSRv-published article.
 - **Claim boundary:** This paper describes the **engineering design and
   intended data products** of FIELDS as launched in 2018. It does not
   certify on-orbit performance over Encounters 1–N — encounter-specific
@@ -181,11 +200,39 @@ nominal coordinate frames. Any agent using this skill stays inside the
 
 ## Links
 
-- DOI: 10.1007/s11214-016-0244-5 — TODO verify with primary source.
+- DOI: https://doi.org/10.1007/s11214-016-0244-5 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a (Space Science Reviews; preprint not located in inventory).
-- ADS: TODO_verify_with_full_text.
+- ADS: 2016SSRv..204...49B — derived from journal coordinates
+  (SSRv 204, 49–82); not directly fetched.
 - Code: n/a (instrument paper).
-- Data: NASA SPDF / CDAWeb — `PSP_FLD_L2_*`.
+- Data: NASA SPDF / CDAWeb — `PSP_FLD_L2_*` family; UCB FIELDS data
+  center (https://fields.ssl.berkeley.edu/).
+
+## Research-generation affordances
+
+- **Per-encounter caveat-propagation audit.** Build a table of which of
+  the six pitfalls (spin tone, antenna-shadow asymmetry, gain
+  switching, MAG saturation, SCM rolloff, frame-mismatch) actually
+  manifested in each encounter's FIELDS L2 stream. Many downstream
+  papers reuse the contract without re-checking the per-encounter
+  flag rates; the table reveals where this is safe.
+- **Sensor-selection rubric as a teachable contract.** The
+  question-to-sensor mapping (B vector → MAG, B AC → SCM, E low-freq →
+  dV12/dV34, E AC → DFB, radio bursts → RFS) is informally encoded
+  across PSP/FIELDS papers; explicitly publishing it as an
+  agent-callable contract would reduce sensor-misuse failures in
+  community code.
+- **Cross-validation against Solar Orbiter MAG.** When PSP and Solar
+  Orbiter share Sun–spacecraft alignment windows, the FIELDS
+  MAG-vs-Horbury-MAG comparison (see
+  [[horbury-2020-solo-mag-vector-magnetometer]]) is a load-bearing
+  cross-instrument calibration anchor; the FIELDS contract built here
+  is its structural prerequisite.
+- **Antenna-shadow geometry impact on DC-E science.** The shadow-plane
+  V1–V4 geometry is rarely modelled explicitly outside FIELDS-team
+  papers; a published per-encounter shadow-asymmetry diagnostic would
+  bound the systematic on any DC-E-driven inference.
 
 ## Skill graph → depends_on
 

@@ -1,33 +1,80 @@
 slug: pulupa-2020-fields-merged-scm-fluxgate-product
-title: >-
-  A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar
-  Probe FIELDS
+title: "A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar Probe FIELDS"
 authors:
-  - M. Pulupa
-authors_complete: false
+  - "T. A. Bowen"
+  - "S. D. Bale"
+  - "J. W. Bonnell"
+  - "T. Dudok de Wit"
+  - "K. Goetz"
+  - "K. Goodrich"
+  - "J. Gruesbeck"
+  - "P. R. Harvey"
+  - "G. Jannet"
+  - "A. Koval"
+  - "R. J. MacDowall"
+  - "D. M. Malaspina"
+  - "M. Pulupa"
+  - "C. Revillet"
+  - "D. Sheppard"
+  - "A. Szabo"
+authors_complete: true
+authors_verified: true
+slug_first_author_misnomer: "Legacy slug retains 'pulupa-2020' for cross-batch link stability; verified first author is T. A. Bowen (UC Berkeley / SSL)."
 year: 2020
-journal: TODO_verify_with_full_text (likely J. Geophys. Res. Space Physics)
-doi: TODO_verify_with_full_text
+journal: "Journal of Geophysical Research: Space Physics"
+volume: "125"
+issue: "5"
+article_number: "e2020JA027813"
+doi: "10.1029/2020JA027813"
 arxiv: "2001.04587"
+ads_bibcode: "2020JGRA..12527813B"
 theme: data-product-psp-fields-scam-merged-broadband-B
 quality_level: paper-grounded-pending-full-text
 executable_status: pipeline-specified-not-yet-runnable
 required_data:
-  - PSP/FIELDS MAG L2 (fluxgate vector B)
-  - PSP/FIELDS SCM L2 (search-coil vector B)
-  - PSP/FIELDS SCaM L3 merged product (exact product name TODO verify)
+  - "PSP/FIELDS MAG L2 vector B (two fluxgate magnetometers, DC-accurate)"
+  - "PSP/FIELDS SCM L2 vector B (search-coil magnetometer, AC, up to ~1 MHz at highest burst rate)"
+  - "PSP/FIELDS SCaM L3 merged waveform product (exact CDF product name TODO verify against UCB FIELDS naming convention)"
+  - "SPICE kernels for spacecraft attitude / frame transforms"
 methods:
-  - Frequency-domain blending of MAG and SCM channels
-  - PSD-continuity validation across crossover band
-  - Burst-mode availability gating
+  - frame-harmonization-MAG-and-SCM
+  - frequency-domain-blending
+  - psd-continuity-validation
+  - gain-state-and-burst-state-flagging
+  - mission-evolution-version-pinning
 validation_targets:
-  - PSD continuity at MAG/SCM crossover within 0.05 dex on a named encounter interval (TODO supply with full text)
+  - "PSD-continuity residual across MAG/SCM crossover band on a named PSP encounter quiet sub-interval (in-corpus placeholder tolerance ≤ 0.05 dex mean; exact paper tolerance TODO_verify_with_full_text)"
+  - "SCaM bandwidth verified to span DC to ~1 MHz at the highest burst sample rate (consistent with abstract)"
 source_inventory:
-  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3
-  - sioulas-reproduction/results/arxiv_papers/extended_search.md §3.9 (mirror)
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3"
+  - "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.9 (mirror)"
+verification_flags:
+  - "Title, full 16-author list, JGR Space Physics 125(5) e2020JA027813, DOI 10.1029/2020JA027813, and arXiv 2001.04587 verified via api.crossref.org and arxiv.org on 2026-05-19."
+  - "ADS bibcode 2020JGRA..12527813B derived from journal coordinates (JGR Space Physics 125, e2020JA027813); not fetched directly."
+  - "Abstract sentence 'bandwidth ranging from DC to 1 MHz' verified against the arXiv abs page on 2026-05-19."
+  - "Exact MAG/SCM crossover frequency band, blending-filter mathematical form, and figure number for the combined-PSD figure remain TODO_verify_with_full_text."
+  - "Legacy slug 'pulupa-2020' retained for cross-batch link stability; verified first author is T. A. Bowen."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
   source_record: "sioulas-reproduction/results/arxiv_papers/extended_search.md §3.3"
-  verified_by: null
-  verified_at: null
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T17:30:00Z"
+  id_verifications:
+    - arxiv_id: "2001.04587"
+      url: "https://arxiv.org/abs/2001.04587"
+      http_status: 200
+      fetched_title: "A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar Probe FIELDS"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T17:25:00Z"
+      source: live
+  doi_verifications:
+    - doi: "10.1029/2020JA027813"
+      url: "https://api.crossref.org/works/10.1029/2020JA027813"
+      http_status: 200
+      fetched_title: "A Merged Search-Coil and Fluxgate Magnetometer Data Product for Parker Solar Probe FIELDS"
+      title_match: true
+      status: crossref-doi-resolves
+      fetched_at: "2026-05-19T17:26:00Z"
+      source: live

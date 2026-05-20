@@ -33,12 +33,28 @@ Do NOT invoke this skill when:
 - **Title:** Integrated Science Investigation of the Sun (ISʘIS) — Design
   of the Energetic Particle Investigation
 - **First author:** David J. McComas
-- **Authors:** D. J. McComas, N. Alexander, N. Angold, S. Bale, C. Beebe,
-  B. Birdwell, M. Boyle, J. M. Burgum, J. A. Burnham, et al. ("+ many co-
-  authors — TODO verify full list with primary source")
-- **Year:** 2016
-- **Venue:** Space Science Reviews — *Parker Solar Probe* special issue
-- **DOI:** 10.1007/s11214-014-0059-1 (TODO verify with primary source)
+- **Authors:** 50-author paper led by D. J. McComas, N. Alexander,
+  N. Angold, S. Bale, C. Beebe, B. Birdwell, M. Boyle, J. M. Burgum,
+  J. A. Burnham, E. R. Christian, W. R. Cook, S. A. Cooper,
+  A. C. Cummings, A. J. Davis, M. I. Desai, J. Dickinson, G. Dirks,
+  D. H. Do, N. Fox, J. Giacalone, R. E. Gold, R. S. Gurnee, J. R. Hayes,
+  M. E. Hill, J. C. Kasper, B. Kecman, J. Klemic, S. M. Krimigis,
+  A. W. Labrador, R. S. Layman, R. A. Leske, S. Livi, W. H. Matthaeus,
+  R. L. McNutt Jr., R. A. Mewaldt, D. G. Mitchell, K. S. Nelson,
+  C. Parker, J. S. Rankin, E. C. Roelof, N. A. Schwadron, H. Seifert,
+  S. Shuman, M. R. Stokes, E. C. Stone, J. D. Vandegriff, M. Velli,
+  T. T. von Rosenvinge, S. E. Weidner, M. E. Wiedenbeck, P. Wilson IV —
+  full 50-author list verified via api.crossref.org on 2026-05-19.
+  (Note: Crossref's spelling drops the open-circle character; the
+  instrument acronym is canonically rendered as "ISʘIS" in the
+  published paper title.)
+- **Year:** 2016 (online 2014-07-05; SSRv volume 204 issue 1–4)
+- **Venue:** *Space Science Reviews* 204, 187–256 — *Parker Solar Probe*
+  special issue
+- **DOI:** 10.1007/s11214-014-0059-1 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2016SSRv..204..187M (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory.
 - **Claim boundary:** Describes ISʘIS **as designed**: EPI-Lo (8 octagonal
   Time-of-Flight + energy windows) and EPI-Hi (LET / HET silicon
@@ -149,11 +165,35 @@ The skill returns contracts, not science conclusions.
 
 ## Links
 
-- DOI: 10.1007/s11214-014-0059-1 — TODO verify with primary source.
+- DOI: https://doi.org/10.1007/s11214-014-0059-1 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a.
-- ADS: TODO_verify_with_full_text.
+- ADS: 2016SSRv..204..187M — derived from journal coordinates
+  (SSRv 204, 187–256); not directly fetched.
 - Code: n/a (instrument paper).
 - Data: NASA SPDF / CDAWeb — `PSP_ISOIS_*`; Princeton SOC mirror.
+
+## Research-generation affordances
+
+- **Onset-time vs FIELDS-B-anchored release-window cross-check.** For
+  each catalogued SEP event, compute the EPI-Hi onset time and compare
+  to the FIELDS-B-anchored field-line connection-back window from the
+  same encounter. The residual quantifies how often the observed onset
+  is consistent with magnetic connection to the inferred release site
+  vs. requires a cross-field transport contribution.
+- **Pixel-vote sensor-systematics tracker.** Build a per-encounter
+  table of inferred SEP intensity computed independently for each
+  EPI-Hi pixel; spread across pixels bounds the per-event pitch-angle
+  systematic that is usually swept into a single "omnidirectional"
+  number.
+- **Pile-up flag rate by encounter.** Publish per-encounter live-time
+  / pile-up-flag fractions for EPI-Hi HET channels; reproducibility of
+  intense-event spectra is conditional on this fraction.
+- **Cross-mission SEP intensity-ladder.** Per published SEP event,
+  intercalibrate PSP/ISʘIS EPI-Hi with SolO/EPD HET-equivalent
+  channels (cf. Rodríguez-Pacheco+ 2020) on shared field lines; the
+  cross-instrument residual is a load-bearing input for SEP
+  source-location inversions.
 
 ## Skill graph → depends_on
 

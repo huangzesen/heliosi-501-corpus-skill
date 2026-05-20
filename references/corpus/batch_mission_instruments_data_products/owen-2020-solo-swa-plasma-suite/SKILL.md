@@ -31,12 +31,25 @@ Do NOT invoke this skill when:
 
 - **Title:** The Solar Orbiter Solar Wind Analyser (SWA) Suite
 - **First author:** Christopher J. Owen
-- **Authors:** C. J. Owen, R. Bruno, S. Livi, P. Louarn, K. Al Janabi,
-  F. Allegrini, C. Amoros, R. Baruah, A. Barthe, et al. ("+ co-authors —
-  TODO verify full list with primary source")
-- **Year:** 2020
-- **Venue:** Astronomy & Astrophysics, 642, A16 (Solar Orbiter special issue)
-- **DOI:** 10.1051/0004-6361/201937259 (TODO verify with primary source)
+- **Authors:** ~130-author paper led by C. J. Owen, R. Bruno, S. Livi,
+  P. Louarn, K. Al Janabi, F. Allegrini, C. Amoros, R. Baruah,
+  A. Barthe, M. Berthomier, S. Bordon, C. Brockley-Blatt,
+  C. Brysbaert, G. Capuano, M. Collier, R. DeMarco, A. Fedorov,
+  J. Ford, V. Fortunato, I. Fratter, A. B. Galvin, B. Hancock,
+  D. Heirtzler, D. Kataria, L. Kistler, S. T. Lepri, G. Lewis,
+  C. Loeffler, W. Marty, R. Mathon, A. Mayall, G. Mele, K. Ogasawara,
+  M. Orlandi, A. Pacros, E. Penou, S. Persyn, M. Petiot, M. Phillips,
+  L. Přech, J. M. Raines, M. Reden, A. P. Rouillard, A. Rousseau,
+  J. Rubiella, H. Seran, A. Spencer, J. W. Thomas, J. Trevino,
+  D. Verscharen, P. Wurz et al. (full author list, ~130 names,
+  verified via api.crossref.org on 2026-05-19).
+- **Year:** 2020 (online 2020-09-30)
+- **Venue:** *Astronomy & Astrophysics* 642, A16 (Solar Orbiter
+  special issue)
+- **DOI:** 10.1051/0004-6361/201937259 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2020A&A...642A..16O (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory.
 - **Claim boundary:** Describes SWA **as designed and commissioned in
   2020**. Charge-state composition (HIS) was approaching nominal at
@@ -151,11 +164,36 @@ later commissioning literature.
 
 ## Links
 
-- DOI: 10.1051/0004-6361/201937259 — TODO verify with primary source.
+- DOI: https://doi.org/10.1051/0004-6361/201937259 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a.
-- ADS: TODO_verify_with_full_text.
+- ADS: 2020A&A...642A..16O — derived from journal coordinates
+  (A&A 642, A16); not directly fetched.
 - Code: `pyspedas.solar_orbiter.swa` loaders.
-- Data: ESA SOAR; CDAWeb mirror.
+- Data: ESA SOAR (https://soar.esac.esa.int/); CDAWeb mirror.
+
+## Research-generation affordances
+
+- **PAS-vs-EAS-vs-HIS contract triage.** A per-encounter table of which
+  SWA sub-instruments delivered nominal moments in a given window would
+  turn instrument-availability triage from an event-by-event question
+  into a queryable agent capability — directly useful for any
+  Alfvénicity / cross-helicity workflow that pairs SWA with SO/MAG.
+- **EAS contamination model release-target.** Spacecraft-emitted
+  photo/secondary electrons bias EAS at low energy; publishing a per-
+  encounter contamination model (cf. forthcoming
+  Štverák-style follow-up papers) as a callable correction would lift
+  the strong "do not use EAS below ~ 30 eV" caveat into a quantitatively
+  bounded recommendation.
+- **HIS duty-cycle vs charge-state-variability bound.** HIS has lower
+  duty cycle than PAS; quantifying the resulting sampling-rate effect
+  on derived charge-state variability is a missing systematic in any
+  cross-encounter heavy-ion study.
+- **Cross-instrument plasma intercept with PSP/SWEAP.** When PSP and
+  SolO are radially aligned, SWA-PAS↔SPC/SPAN-Ai moment-ratio
+  publication on shared field lines bounds the cross-mission plasma
+  scale and is a structural prerequisite for radial-evolution studies
+  spanning the two missions.
 
 ## Skill graph → depends_on
 

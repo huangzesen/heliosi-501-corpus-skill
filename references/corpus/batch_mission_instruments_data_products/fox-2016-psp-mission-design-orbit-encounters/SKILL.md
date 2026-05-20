@@ -37,11 +37,15 @@ Do NOT invoke this skill when:
 - **First author:** Nicola J. Fox
 - **Authors:** N. J. Fox, M. C. Velli, S. D. Bale, R. Decker, A. Driesman,
   R. A. Howard, J. C. Kasper, J. Kinnison, M. Kusterer, D. Lario,
-  M. K. Lockwood, D. J. McComas, N. E. Raouafi, A. Szabo, et al.
-  ("+ co-authors — TODO verify full list with primary source")
-- **Year:** 2016
-- **Venue:** Space Science Reviews — *Parker Solar Probe* special issue
-- **DOI:** 10.1007/s11214-015-0211-6 (TODO verify with primary source)
+  M. K. Lockwood, D. J. McComas, N. E. Raouafi, A. Szabo (full 14-author
+  list verified via api.crossref.org on 2026-05-19).
+- **Year:** 2016 (online 2015-11-11; SSRv volume 204 issue 1–4)
+- **Venue:** *Space Science Reviews* 204, 7–48 — *Parker Solar Probe*
+  special issue
+- **DOI:** 10.1007/s11214-015-0211-6 — verified via Crossref on
+  2026-05-19.
+- **ADS:** 2016SSRv..204....7F (derived from journal coordinates; not
+  fetched directly).
 - **arXiv:** not-in-local-inventory.
 - **Claim boundary:** Describes the mission **as planned at launch**: orbit
   design, VGA cadence, target perihelia (down to 9.86 R_sun by 2024–2025),
@@ -150,12 +154,38 @@ queries against SPICE kernels.
 
 ## Links
 
-- DOI: 10.1007/s11214-015-0211-6 — TODO verify with primary source.
+- DOI: https://doi.org/10.1007/s11214-015-0211-6 — verified via Crossref
+  on 2026-05-19.
 - arXiv: n/a.
-- ADS: TODO_verify_with_full_text.
+- ADS: 2016SSRv..204....7F — derived from journal coordinates
+  (SSRv 204, 7–48); not directly fetched.
 - Code: `spiceypy` (`https://spiceypy.readthedocs.io/`), `pyspedas` PSP
   ephemeris loaders.
 - Data: NAIF SPICE PSP kernels; PSP SOC.
+
+## Research-generation affordances
+
+- **Encounter-by-encounter perihelion-radius reconstruction vs plan.**
+  Re-derive each E1+ perihelion radius from the reconstructed SPICE
+  kernels and compare against the launch-time mission-design ladder
+  this paper publishes; the residual quantifies how much PSP's actual
+  trajectory diverged from plan and is a prerequisite for any
+  long-baseline radial-evolution analysis (e.g.
+  [[dakeyo-2026-source-alignment-psp-solo]]).
+- **Encounter-window definition sensitivity.** Repeat any
+  encounter-binned statistic (PSD slope, switchback density, SEP onset
+  count) under both `r ≤ 0.25 au` and `r ≤ 0.3 au` definitions and
+  report the per-encounter delta — the encounter-definition choice is a
+  load-bearing methodological decision rarely reported as a single
+  number.
+- **VGA-split bias detector.** Flag every multi-encounter analysis
+  whose time window straddles a Venus gravity assist and, where the
+  result depends on orbital eccentricity or perihelion latitude,
+  recommend the pre-VGA / post-VGA split as a separate inference.
+- **Kernel-version reproducibility audit.** Build a per-result table
+  showing which SPICE kernel hash was used; any result that fails to
+  reproduce under a re-released reconstructed kernel deserves
+  investigation rather than silent acceptance.
 
 ## Skill graph → depends_on
 

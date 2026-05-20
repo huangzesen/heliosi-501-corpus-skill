@@ -1,37 +1,63 @@
 slug: sinjan-2026-solo-phi-hrt-stray-light-calibration
-title: >-
-  A stray light analysis for SO/PHI-HRT and an updated comparison of the inferred
-  magnetic field with SDO/HMI
+title: "A stray light analysis for SO/PHI-HRT and an updated comparison of the inferred magnetic field with SDO/HMI"
 authors:
-  - Jonas Sinjan
-  - Tino L. Riethmüller
-  - Achim Gandorfer
-  - Alex Feller
-  - Daniele Calchetti
-authors_complete: false
+  - "Jonas Sinjan"
+  - "Tino L. Riethmüller"
+  - "Achim Gandorfer"
+  - "Alex Feller"
+  - "Daniele Calchetti"
+  - "Francisco J. Bailén"
+  - "Johann Hirzberger"
+  - "Gherardo Valori"
+  - "Sami K. Solanki"
+authors_complete: true
+authors_verified: true
 year: 2026
-journal: TODO_verify_with_full_text (likely Astronomy & Astrophysics)
-doi: TODO_verify_with_full_text
+journal: "Submitted to Astronomy & Astrophysics (A&A) — arXiv:2603.18744 v1 (2026-03-19); A&A DOI TODO_verify_with_full_text once accepted"
+doi: "10.48550/arXiv.2603.18744"
 arxiv: "2603.18744"
+ads_bibcode: "2026arXiv260318744S"
 theme: data-product-solar-orbiter-phi-hrt-stray-light-calibration
 quality_level: paper-grounded-pending-full-text
 executable_status: pipeline-specified-not-yet-runnable
 required_data:
-  - SO/PHI-HRT L2 continuum + vector magnetograms (SOAR; exact product TODO verify)
-  - SDO/HMI vector + LOS magnetograms (JSOC) — 2023 March conjunction
-  - Solar-limb profile data + Mercury-transit imaging (for stray-light quantification)
+  - "SO/PHI-HRT L2 imaging stack (continuum + Stokes I/Q/U/V at Fe I 6173 Å) over the 2023 March Solar Orbiter inferior conjunction (SOAR; exact date TODO verify)"
+  - "SO/PHI-HRT L2 inverted vector magnetograms (B_long, B_trans, azimuth) for the same window (SOAR; pipeline release TODO verify)"
+  - "SDO/HMI hmi.M_45s LOS magnetogram (JSOC) over the same window"
+  - "SDO/HMI hmi.B_720s vector magnetogram (JSOC) over the same window"
+  - "SO/PHI-HRT Mercury-transit image series for stray-light fit (2023 March transit window TODO verify)"
+  - "SO/PHI-HRT solar-limb intensity profiles for stray-light fit (conjunction-adjacent)"
 methods:
-  - PSF / stray-light quantification from solar limb + Mercury transit
-  - Stray-light correction term in image reconstruction
-  - Milne-Eddington inversion (or equivalent) for B inference
-  - Pixel-by-pixel SO/PHI-HRT vs SDO/HMI vector-field comparison
+  - solar-limb-intensity-profile-fit
+  - mercury-transit-stray-light-fit
+  - parametric-scattered-light-model
+  - partial-image-reconstruction-with-correction-term
+  - phi-milne-eddington-inversion-cadence-and-noise-matched
+  - pixel-by-pixel-vector-field-comparison-binned-by-field-strength
 validation_targets:
-  - Reproduce paper's correlation curves / scatter plots within published agreement bands; residual differences only at |B|>1600 G or |B_LOS|>1300 G (TODO refine tolerances with full text)
+  - "Pixel-wise correlation coefficient + RMS difference per vector component (B_long, B_trans, |B|) between stray-light-corrected SO/PHI-HRT and SDO/HMI on the 2023 March inferior conjunction, with cadence + noise matched."
+  - "Residual disagreement after correction confined to |B| > 1600 G or |B_LOS| > 1300 G (verified threshold from abstract)."
+  - "Continuum-intensity contrast in quiet Sun increases and continuum darkens in strong magnetic features post-correction (verified qualitative outcome from abstract)."
+  - "Quantitative correlation / RMS tolerance numbers TODO_verify_with_full_text."
 source_inventory:
-  - sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json (entry arxiv_id 2603.18744v1)
+  - "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json (entry arxiv_id 2603.18744v1)"
+verification_flags:
+  - "Full 9-author list, title, arXiv ID 2603.18744, 2026-03-19 submission date, 'submitted to A&A' venue, 0.28 au observational distance, 2023 March Solar Orbiter inferior-conjunction methodology, and residual disagreement thresholds (1600 G, 1300 G) verified against the arXiv abs page on 2026-05-19."
+  - "Verbatim abstract retained in §2 of the SKILL.md body."
+  - "ADS bibcode 2026arXiv260318744S is provisional (arXiv-derived); will be replaced by the A&A bibcode upon acceptance."
+  - "Parametric form of the scattered-light model, the exact 2023-March dates of the conjunction window, exact figure numbers, and the published correlation / RMS tolerance numbers remain TODO_verify_with_full_text."
 provenance:
-  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18"
+  generated_by: "HelioSI paper-to-skill factory @ 2026-05-18; internalized 2026-05-19"
   generated_at: "2026-05-18T00:00:00Z"
   source_record: "sioulas-reproduction/results/arxiv_papers/theme_solar_orbiter.json#arxiv_id=2603.18744v1"
-  verified_by: null
-  verified_at: null
+  verified_by: "HelioSI internalization daemon (mission-instruments batch1)"
+  verified_at: "2026-05-19T17:35:00Z"
+  id_verifications:
+    - arxiv_id: "2603.18744"
+      url: "https://arxiv.org/abs/2603.18744"
+      http_status: 200
+      fetched_title: "A stray light analysis for SO/PHI-HRT and an updated comparison of the inferred magnetic field with SDO/HMI"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T17:20:00Z"
+      source: live
