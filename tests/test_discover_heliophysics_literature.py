@@ -15,8 +15,10 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
 import urllib.parse
 from pathlib import Path
@@ -642,6 +644,428 @@ class TestCliCorpusManifestFlag(unittest.TestCase):
         self.assertEqual(rc, 0, msg=err)
         summary = json.loads(err.strip().splitlines()[-1])
         self.assertEqual(summary["novelty_join"]["enabled"], False)
+
+
+class TestRunBundlePythonAPI(unittest.TestCase):
+    """The orchestrator + bundle writers are pure Python; test them directly."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="hsi-run-bundle-"))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _run(self, *, manifest_path=None, prior_index=None):
+        candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=manifest_path,
+        )
+        if prior_index is not None:
+            candidates = discover.annotate_with_prior_runs(candidates, prior_index)
+        return candidates, summary
+
+    def test_write_run_bundle_emits_three_artifacts(self):
+        candidates, summary = self._run(manifest_path=MANIFEST_FIXTURE)
+        prior_index = discover.scan_prior_runs(None)
+        run_dir = self.tmp / "run-a"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        metadata = discover.build_run_metadata(
+            summary=summary,
+            candidates=candidates,
+            cli_args={"mode": "dry-run"},
+            prior_index=prior_index,
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        report_text = discover.render_run_report(metadata)
+        paths = discover.write_run_bundle(
+            run_dir,
+            candidates=candidates,
+            metadata=metadata,
+            report_text=report_text,
+        )
+
+        self.assertTrue(paths["candidates_jsonl"].is_file())
+        self.assertTrue(paths["run_metadata_json"].is_file())
+        self.assertTrue(paths["run_report_md"].is_file())
+
+        # candidates.jsonl: one JSON object per line, novelty-annotated.
+        lines = paths["candidates_jsonl"].read_text(encoding="utf-8").splitlines()
+        self.assertEqual(len(lines), 7)
+        for ln in lines:
+            rec = json.loads(ln)
+            self.assertIn("corpus_status", rec)
+            # Prior-run scan was disabled, so those fields must NOT appear.
+            self.assertNotIn("seen_in_prior_run", rec)
+            self.assertNotIn("prior_run_ids", rec)
+
+        # run_metadata.json: pin schema_version + dedupe + novelty + limits.
+        meta = json.loads(paths["run_metadata_json"].read_text(encoding="utf-8"))
+        self.assertEqual(meta["schema_version"], discover.RUN_BUNDLE_SCHEMA_VERSION)
+        self.assertEqual(meta["script_version"], discover.__version__)
+        self.assertEqual(meta["mode"], "dry-run")
+        self.assertEqual(meta["query_count"], len(discover.DEFAULT_QUERIES))
+        self.assertEqual(meta["dedupe_summary"]["raw_candidate_count"], 9)
+        self.assertEqual(meta["dedupe_summary"]["deduped_candidate_count"], 7)
+        self.assertEqual(meta["novelty_join"]["enabled"], True)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["already_curated"], 3)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["new_candidate"], 4)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["unjoined"], 0)
+        self.assertEqual(meta["prior_runs"]["enabled"], False)
+        self.assertIn("frontier sample", meta["limits"])
+        self.assertIn("not verified absence", meta["limits"])
+        self.assertNotIn("candidate_counts_by_prior_run", meta)
+
+        # output_paths must point inside the bundle directory.
+        for k in ("candidates_jsonl", "run_metadata_json", "run_report_md"):
+            self.assertTrue(meta["output_paths"][k].startswith(str(run_dir)))
+
+        # run_report.md: human-readable, references the canonical counts.
+        report = paths["run_report_md"].read_text(encoding="utf-8")
+        self.assertIn("# Discovery run report", report)
+        self.assertIn("Raw candidates fetched: **9**", report)
+        self.assertIn("Deduped candidates emitted: **7**", report)
+        self.assertIn("Already curated (manifest hit): **3**", report)
+        self.assertIn("New candidates (no manifest hit): **4**", report)
+        self.assertIn("Limits (honest framing)", report)
+        self.assertIn("Next actions", report)
+        # When prior-run scan is disabled the report should NOT advertise
+        # seen-in-prior-run counts (those are only emitted when enabled).
+        self.assertNotIn("Seen in a prior run:", report)
+
+    def test_disabled_manifest_join_keeps_unjoined_in_bundle(self):
+        """When the manifest is disabled, candidates must stay 'unjoined',
+        never silently become 'new_candidate'."""
+        candidates, summary = self._run(manifest_path=None)
+        prior_index = discover.scan_prior_runs(None)
+        run_dir = self.tmp / "run-noj"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        metadata = discover.build_run_metadata(
+            summary=summary,
+            candidates=candidates,
+            cli_args={"mode": "dry-run", "no_corpus_manifest": True},
+            prior_index=prior_index,
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        report_text = discover.render_run_report(metadata)
+        paths = discover.write_run_bundle(
+            run_dir,
+            candidates=candidates,
+            metadata=metadata,
+            report_text=report_text,
+        )
+        meta = json.loads(paths["run_metadata_json"].read_text(encoding="utf-8"))
+        # All 7 candidates must be 'unjoined', not 'new_candidate'.
+        by = meta["candidate_counts_by_corpus_status"]
+        self.assertEqual(by["unjoined"], 7)
+        self.assertEqual(by["already_curated"], 0)
+        self.assertEqual(by["new_candidate"], 0)
+        self.assertEqual(meta["novelty_join"]["enabled"], False)
+        # The candidate JSONL itself must agree.
+        rows = [
+            json.loads(ln)
+            for ln in paths["candidates_jsonl"]
+            .read_text(encoding="utf-8")
+            .splitlines()
+        ]
+        for r in rows:
+            self.assertEqual(r["corpus_status"], "unjoined")
+
+    def test_prior_runs_scan_disabled_when_root_missing(self):
+        idx = discover.scan_prior_runs(self.tmp / "does" / "not" / "exist")
+        self.assertEqual(idx["enabled"], False)
+        self.assertEqual(idx["total_prior_keys"], 0)
+        self.assertEqual(idx["runs_scanned"], [])
+
+    def test_prior_runs_scan_indexes_sibling_runs(self):
+        # Create a prior run-dir with a hand-written candidates.jsonl that
+        # carries an explicit `id` field; the scan must reuse that id.
+        prior = self.tmp / "queue" / "older-run"
+        prior.mkdir(parents=True)
+        with (prior / discover.RUN_BUNDLE_CANDIDATES_NAME).open(
+            "w", encoding="utf-8"
+        ) as f:
+            f.write(
+                json.dumps(
+                    {
+                        "id": "doi:10.1234/psp.switchback.2024",
+                        "doi": "10.1234/psp.switchback.2024",
+                        "title": "PSP switchbacks",
+                        "year": 2024,
+                    }
+                )
+                + "\n"
+            )
+            f.write(
+                json.dumps(
+                    {
+                        "id": "arxiv:2403.04567",
+                        "arxiv_id": "2403.04567",
+                        "title": "SolO CME reconnection",
+                        "year": 2024,
+                    }
+                )
+                + "\n"
+            )
+        idx = discover.scan_prior_runs(self.tmp / "queue")
+        self.assertEqual(idx["enabled"], True)
+        self.assertEqual(idx["total_prior_keys"], 2)
+        names = [r["name"] for r in idx["runs_scanned"]]
+        self.assertIn("older-run", names)
+        self.assertIn("doi:10.1234/psp.switchback.2024", idx["key_to_runs"])
+        self.assertIn(
+            "older-run", idx["key_to_runs"]["doi:10.1234/psp.switchback.2024"]
+        )
+
+    def test_annotate_with_prior_runs_marks_seen_and_unseen(self):
+        candidates, _ = self._run(manifest_path=MANIFEST_FIXTURE)
+        # Seed a prior-run dir whose JSONL has only the PSP DOI key. After
+        # annotation, exactly one candidate must report seen_in_prior_run.
+        prior = self.tmp / "queue" / "older-run"
+        prior.mkdir(parents=True)
+        with (prior / discover.RUN_BUNDLE_CANDIDATES_NAME).open(
+            "w", encoding="utf-8"
+        ) as f:
+            f.write(
+                json.dumps(
+                    {
+                        "id": "doi:10.1234/psp.switchback.2024",
+                        "doi": "10.1234/psp.switchback.2024",
+                        "title": "PSP switchbacks",
+                        "year": 2024,
+                    }
+                )
+                + "\n"
+            )
+        idx = discover.scan_prior_runs(self.tmp / "queue")
+        annotated = discover.annotate_with_prior_runs(candidates, idx)
+        seen = [c for c in annotated if c.get("seen_in_prior_run") is True]
+        unseen = [c for c in annotated if c.get("seen_in_prior_run") is False]
+        self.assertEqual(len(seen), 1)
+        self.assertEqual(len(unseen), 6)
+        self.assertIn("older-run", seen[0]["prior_run_ids"])
+
+    def test_annotate_with_prior_runs_when_disabled_emits_no_fields(self):
+        candidates, _ = self._run(manifest_path=MANIFEST_FIXTURE)
+        idx = discover.scan_prior_runs(None)
+        annotated = discover.annotate_with_prior_runs(candidates, idx)
+        # Disabled scan: the annotation function must NOT invent fields.
+        for c in annotated:
+            self.assertNotIn("seen_in_prior_run", c)
+            self.assertNotIn("prior_run_ids", c)
+
+    def test_prepare_run_dir_refuses_non_empty_without_overwrite(self):
+        run_dir = self.tmp / "run-existing"
+        run_dir.mkdir()
+        (run_dir / "leftover.txt").write_text("preserve me")
+        with self.assertRaises(SystemExit):
+            discover._prepare_run_dir(run_dir, overwrite=False)
+        # leftover must survive the failed attempt.
+        self.assertTrue((run_dir / "leftover.txt").is_file())
+        # With --run-dir-overwrite the call must succeed and not delete the
+        # leftover (writers will simply create new files alongside).
+        discover._prepare_run_dir(run_dir, overwrite=True)
+        self.assertTrue((run_dir / "leftover.txt").is_file())
+
+    def test_iter_prior_run_dirs_excludes_current_run_dir(self):
+        queue = self.tmp / "queue"
+        queue.mkdir()
+        # "current" run looks like a prior run (it has a candidates.jsonl)
+        # but should be filtered out by ``exclude=``.
+        current = queue / "current-run"
+        current.mkdir()
+        (current / discover.RUN_BUNDLE_CANDIDATES_NAME).write_text("")
+        # "older" must show up.
+        older = queue / "older-run"
+        older.mkdir()
+        (older / discover.RUN_BUNDLE_CANDIDATES_NAME).write_text("")
+        dirs = discover._iter_prior_run_dirs(queue, exclude=current)
+        names = [d.name for d in dirs]
+        self.assertIn("older-run", names)
+        self.assertNotIn("current-run", names)
+
+    def test_render_run_report_mentions_prior_runs_when_enabled(self):
+        candidates, summary = self._run(manifest_path=MANIFEST_FIXTURE)
+        prior = self.tmp / "queue" / "older-run"
+        prior.mkdir(parents=True)
+        (prior / discover.RUN_BUNDLE_CANDIDATES_NAME).write_text(
+            json.dumps(
+                {
+                    "id": "doi:10.1234/psp.switchback.2024",
+                    "doi": "10.1234/psp.switchback.2024",
+                    "title": "PSP switchbacks",
+                    "year": 2024,
+                }
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        idx = discover.scan_prior_runs(self.tmp / "queue")
+        candidates = discover.annotate_with_prior_runs(candidates, idx)
+        run_dir = self.tmp / "run-with-prior"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        metadata = discover.build_run_metadata(
+            summary=summary,
+            candidates=candidates,
+            cli_args={"mode": "dry-run"},
+            prior_index=idx,
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        report = discover.render_run_report(metadata)
+        self.assertIn("Seen in a prior run: **1**", report)
+        self.assertIn("Unseen in prior runs: **6**", report)
+        self.assertIn("`older-run`", report)
+        self.assertIn("Prior-run dedupe (when enabled) is scoped", report)
+
+
+class TestRunBundleCli(unittest.TestCase):
+    """End-to-end CLI invocation: --run-dir + --prior-runs-root."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="hsi-run-bundle-cli-"))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_cli_run_dir_writes_bundle(self):
+        run_dir = self.tmp / "run-a"
+        rc, _, err = _run_cli(
+            "--dry-run",
+            "--output", str(self.tmp / "ignored.jsonl"),
+            "--run-dir", str(run_dir),
+            "--corpus-manifest", str(MANIFEST_FIXTURE),
+        )
+        self.assertEqual(rc, 0, msg=err)
+        for name in (
+            "candidates.jsonl",
+            "run_metadata.json",
+            "run_report.md",
+        ):
+            self.assertTrue(
+                (run_dir / name).is_file(),
+                f"missing run-bundle artifact: {name}",
+            )
+        meta = json.loads((run_dir / "run_metadata.json").read_text())
+        self.assertEqual(meta["schema_version"], discover.RUN_BUNDLE_SCHEMA_VERSION)
+        self.assertEqual(meta["mode"], "dry-run")
+        self.assertEqual(meta["novelty_join"]["enabled"], True)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["already_curated"], 3)
+        self.assertEqual(meta["candidate_counts_by_corpus_status"]["new_candidate"], 4)
+        self.assertEqual(meta["prior_runs"]["enabled"], False)
+        rows = (run_dir / "candidates.jsonl").read_text().splitlines()
+        self.assertEqual(len(rows), 7)
+        for ln in rows:
+            self.assertIn("corpus_status", json.loads(ln))
+
+    def test_cli_refuses_non_empty_run_dir_without_overwrite(self):
+        run_dir = self.tmp / "run-existing"
+        run_dir.mkdir()
+        (run_dir / "leftover.txt").write_text("preserve me")
+        rc, _, err = _run_cli(
+            "--dry-run",
+            "--run-dir", str(run_dir),
+        )
+        self.assertNotEqual(rc, 0)
+        self.assertIn("non-empty", err)
+        # The leftover file must still be present; we never silently wipe it.
+        self.assertTrue((run_dir / "leftover.txt").is_file())
+
+    def test_cli_run_dir_overwrite_allows_reuse(self):
+        run_dir = self.tmp / "run-existing"
+        run_dir.mkdir()
+        (run_dir / "leftover.txt").write_text("preserve me")
+        rc, _, err = _run_cli(
+            "--dry-run",
+            "--run-dir", str(run_dir),
+            "--run-dir-overwrite",
+            "--no-corpus-manifest",
+        )
+        self.assertEqual(rc, 0, msg=err)
+        self.assertTrue((run_dir / "candidates.jsonl").is_file())
+
+    def test_cli_prior_runs_root_marks_seen_candidates(self):
+        queue = self.tmp / "queue"
+        run_a = queue / "run-a"
+        run_b = queue / "run-b"
+
+        rc, _, err = _run_cli(
+            "--dry-run",
+            "--run-dir", str(run_a),
+            "--no-corpus-manifest",
+        )
+        self.assertEqual(rc, 0, msg=err)
+
+        rc, _, err = _run_cli(
+            "--dry-run",
+            "--run-dir", str(run_b),
+            "--no-corpus-manifest",
+            "--prior-runs-root", str(queue),
+        )
+        self.assertEqual(rc, 0, msg=err)
+
+        meta = json.loads((run_b / "run_metadata.json").read_text())
+        self.assertEqual(meta["prior_runs"]["enabled"], True)
+        self.assertEqual(
+            meta["prior_runs"]["root"], str(queue)
+        )
+        scanned = meta["prior_runs"]["runs_scanned"]
+        names = [r["name"] for r in scanned]
+        self.assertIn("run-a", names)
+        # The CURRENT run-dir (run-b) must NEVER appear in its own prior list.
+        self.assertNotIn("run-b", names)
+
+        self.assertEqual(
+            meta["candidate_counts_by_prior_run"]["seen_in_prior_run"], 7
+        )
+        self.assertEqual(
+            meta["candidate_counts_by_prior_run"]["unseen_in_prior_runs"], 0
+        )
+
+        # Every candidate row must carry the prior-run dedupe fields.
+        rows = [
+            json.loads(ln)
+            for ln in (run_b / "candidates.jsonl")
+            .read_text(encoding="utf-8")
+            .splitlines()
+        ]
+        for r in rows:
+            self.assertTrue(r["seen_in_prior_run"])
+            self.assertIn("run-a", r["prior_run_ids"])
+
+        # Report must surface the cross-run counts honestly.
+        report = (run_b / "run_report.md").read_text()
+        self.assertIn("Seen in a prior run: **7**", report)
+        self.assertIn("Unseen in prior runs: **0**", report)
+        self.assertIn("`run-a`", report)
+
+    def test_cli_disabled_manifest_keeps_unjoined_in_bundle(self):
+        """The --no-corpus-manifest flag must NOT cause candidates to be
+        labelled 'new_candidate' in the run bundle."""
+        run_dir = self.tmp / "run-noj"
+        rc, _, err = _run_cli(
+            "--dry-run",
+            "--run-dir", str(run_dir),
+            "--no-corpus-manifest",
+        )
+        self.assertEqual(rc, 0, msg=err)
+        meta = json.loads((run_dir / "run_metadata.json").read_text())
+        by = meta["candidate_counts_by_corpus_status"]
+        self.assertEqual(by["unjoined"], 7)
+        self.assertEqual(by["already_curated"], 0)
+        self.assertEqual(by["new_candidate"], 0)
+        rows = (run_dir / "candidates.jsonl").read_text().splitlines()
+        for ln in rows:
+            self.assertEqual(json.loads(ln)["corpus_status"], "unjoined")
 
 
 if __name__ == "__main__":

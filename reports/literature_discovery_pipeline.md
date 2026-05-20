@@ -259,6 +259,107 @@ jq -c 'select(.corpus_status == "new_candidate")' candidates.jsonl
 jq -c 'select(.corpus_status == "already_curated") | {id, corpus_match_slugs}' candidates.jsonl
 ```
 
+### 3.5 Persistent run bundle
+
+A single `--output candidates.jsonl` invocation is enough for ad-hoc use,
+but a longer-lived candidate queue benefits from a persistent artifact
+convention. `scripts/discover_heliophysics_literature.py` therefore
+supports a **run bundle**: a directory written via `--run-dir PATH` that
+holds three artifacts side by side.
+
+```
+<run-dir>/
+  candidates.jsonl     # one normalised + annotated candidate per line
+  run_metadata.json    # machine-readable run summary
+  run_report.md        # concise human-readable summary of the same counts
+```
+
+Schema is versioned via
+`scripts/discover_heliophysics_literature.py::RUN_BUNDLE_SCHEMA_VERSION`
+(currently `"discovery-run-bundle/1.0"`). The CLI knobs:
+
+| Flag                    | Purpose                                                                                                                              |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `--run-dir PATH`        | Write the three-file bundle into PATH. The directory must be empty (or missing); see `--run-dir-overwrite`.                          |
+| `--run-dir-overwrite`   | Allow writing into an existing **non-empty** directory. Without it, the script refuses to clobber a prior run.                       |
+| `--prior-runs-root P`   | Scan `P/*/candidates.jsonl` and annotate the current run's candidates with `seen_in_prior_run` / `prior_run_ids`. Read-only on prior runs. |
+
+`run_metadata.json` carries enough state to reproduce the run shape:
+`schema_version`, `script_version`, optional `git_commit`, timestamp,
+`mode` (dry-run vs live), the resolved CLI knobs, the query slate and
+backend list, dedupe + per-backend + per-query counts, backend errors,
+the `novelty_join` block, `candidate_counts_by_corpus_status`, optional
+`candidate_counts_by_prior_run` (only when the prior-run scan is
+enabled), the resolved `output_paths`, the `prior_runs` block (root,
+scanned-run summaries, total prior keys), and an explicit `limits`
+disclosure.
+
+`run_report.md` mirrors the same counts in a short Markdown summary so
+the bundle is reviewable without `jq`: header (mode, timestamp, version,
+git commit, backend list, query count); a **Candidate counts** section
+(raw / deduped / `corpus_status` buckets + optional prior-run buckets);
+a **Novelty join** section; a **Prior-run dedupe** section listing each
+scanned run; backend errors if any; a **Limits (honest framing)**
+paragraph; and a **Next actions** stub.
+
+#### 3.5.1 Cross-run dedupe semantics
+
+When `--prior-runs-root PATH` is given, the script scans every immediate
+subdirectory of PATH that contains a `candidates.jsonl`. For each such
+prior run it recomputes the dedupe key for every row (using the same
+DOI > arXiv > bibcode > title+year logic documented in §3.3) and builds
+a `{dedupe-key -> [prior-run basenames]}` map. The current run's
+candidates are then annotated with:
+
+- `seen_in_prior_run` (bool) — true iff the candidate's dedupe key
+  appears in any prior run under the root;
+- `prior_run_ids` (list of strings) — the basenames of the prior runs
+  that emitted the same key; empty list when not seen.
+
+Both fields are **only** emitted when the prior-run scan is enabled.
+With no `--prior-runs-root` flag the candidate record shape is identical
+to a no-bundle run — no `seen_in_prior_run` field is invented.
+
+The current `--run-dir` is excluded from the scan if it lives under the
+prior-runs root, so re-running with `--run-dir-overwrite` cannot count
+the current run as its own prior. Prior-run files are **only read**; the
+scan never mutates them.
+
+#### 3.5.2 Limits (honest framing)
+
+Captured verbatim in `run_metadata.json::limits` and in the
+`run_report.md` "Limits" section:
+
+- A discovery run is a bounded frontier sample, **not** an exhaustive
+  census of the heliophysics literature.
+- `corpus_status: "new_candidate"` means *no manifest-key hit*, **not**
+  *verified absence from all literature*.
+- Prior-run dedupe (when enabled) is scoped to the supplied
+  `--prior-runs-root` only. A candidate marked `unseen_in_prior_runs`
+  may still have appeared in a run stored elsewhere.
+- The prior-run scan reads only candidate JSONL files under that root;
+  it does not crack open per-entry `SKILL.md` / `metadata.yaml`
+  frontmatter (same limitation as the manifest join in §3.4.3).
+
+#### 3.5.3 Example: two-run queue with cross-run dedupe
+
+```sh
+# First run -- writes queue/run-a/candidates.jsonl + metadata + report.
+python3 scripts/discover_heliophysics_literature.py \
+    --dry-run --run-dir queue/run-a
+
+# Second run -- dedupes against queue/run-a (read-only) and writes its
+# own bundle into queue/run-b. The "current" run-b is excluded from its
+# own prior-run scan.
+python3 scripts/discover_heliophysics_literature.py \
+    --dry-run --run-dir queue/run-b --prior-runs-root queue
+```
+
+After the second run, `queue/run-b/run_metadata.json` carries
+`prior_runs.runs_scanned[].name == "run-a"` and
+`candidate_counts_by_prior_run.seen_in_prior_run` is non-zero, while
+`queue/run-a` is untouched.
+
 ## 4. Relationship to the curated 501-skill corpus
 
 The new pipeline is **strictly additive**. The curated corpus retains its
@@ -310,7 +411,7 @@ Done in earlier increments:
 - [x] Fixture-driven dry-run + unit tests.
 - [x] Polite HTTP layer with bounded retries.
 
-Done in this increment (§3.4):
+Done in earlier increment (§3.4):
 
 - [x] Novelty join against the curated v2 manifest by canonical keys
       (DOI > arXiv ID > bibcode > title+year), with sentinel /
@@ -327,12 +428,30 @@ Done in this increment (§3.4):
 - [x] Offline unit tests for DOI / arXiv / title+year / bibcode-priority
       / non-match / sentinel-arxiv / disabled-join paths.
 
+Done in this increment (§3.5):
+
+- [x] Persistent run-bundle artifact convention: `--run-dir PATH`
+      writes `candidates.jsonl`, `run_metadata.json`, and
+      `run_report.md` side by side; schema version is pinned via
+      `RUN_BUNDLE_SCHEMA_VERSION = "discovery-run-bundle/1.0"`.
+- [x] `run_metadata.json` captures script + schema version, optional
+      git commit, timestamp, mode, resolved CLI knobs, query slate,
+      backend list, dedupe + per-backend + per-query counts, backend
+      errors, novelty-join block, candidate counts by `corpus_status`,
+      output paths, prior-run scan summary, and explicit limits.
+- [x] Cross-run dedupe against prior **candidate batches** via
+      `--prior-runs-root PATH`; emits per-candidate
+      `seen_in_prior_run` + `prior_run_ids`. Prior runs are read-only;
+      the current run-dir is excluded from its own prior scan; the
+      annotation fields are NOT invented when the scan is disabled.
+- [x] `--run-dir-overwrite` is required to write into a non-empty
+      directory; otherwise the script refuses to clobber a prior run.
+- [x] Offline unit + CLI tests for bundle artifacts, metadata schema,
+      Markdown report counts, prior-run dedupe semantics, and the
+      "disabled manifest stays `unjoined`, not `new_candidate`" guard.
+
 Not done (explicit future work — do **not** claim these are present):
 
-- [ ] Persistent candidate queue store (today the JSONL is the queue).
-- [ ] Cross-run dedupe against prior **candidate batches** (this
-      increment only joins against the curated 501-entry manifest, not
-      against previously emitted candidate JSONLs).
 - [ ] Multi-match / disambiguation policy when title+year collapses
       two genuinely distinct papers (today the first manifest entry
       to claim the title-year hash wins).

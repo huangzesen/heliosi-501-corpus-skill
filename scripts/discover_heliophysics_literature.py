@@ -98,6 +98,7 @@ import io
 import json
 import os
 import re
+import subprocess
 import sys
 import textwrap
 import time
@@ -110,6 +111,12 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 __version__ = "0.1.0"
+
+# Run-bundle artifact convention (see _write_run_bundle).
+RUN_BUNDLE_SCHEMA_VERSION = "discovery-run-bundle/1.0"
+RUN_BUNDLE_CANDIDATES_NAME = "candidates.jsonl"
+RUN_BUNDLE_METADATA_NAME = "run_metadata.json"
+RUN_BUNDLE_REPORT_NAME = "run_report.md"
 
 HERE = Path(__file__).resolve().parent
 BUNDLE = HERE.parent
@@ -1092,6 +1099,459 @@ def run_discovery(
 
 
 # ---------------------------------------------------------------------------
+# Run-bundle artifact convention
+#
+# A "run bundle" is the persistent artifact convention for a single discovery
+# run. It is a directory that holds:
+#
+#   <run-dir>/candidates.jsonl   -- the same JSONL the script otherwise writes
+#                                   to --output, with optional prior-run
+#                                   dedupe fields appended.
+#   <run-dir>/run_metadata.json  -- machine-readable metadata (timestamps,
+#                                   script + schema version, git commit when
+#                                   available, mode, query/backend slate,
+#                                   dedupe + novelty + prior-run summaries,
+#                                   explicit limits framing).
+#   <run-dir>/run_report.md      -- short human-readable summary of the run.
+#
+# Prior-run dedupe (optional, opt-in via --prior-runs-root) scans sibling run
+# directories under a queue root, builds the set of dedupe-key strings that
+# previous runs emitted, and annotates the current run's candidates with
+#   - seen_in_prior_run (bool)
+#   - prior_run_ids (list of run-dir basenames where the same dedupe key
+#     was observed; empty list when not seen).
+#
+# When the prior-run scan is NOT requested, those two fields are omitted from
+# the candidate records and from the report, so a no-flag run produces the
+# same record shape as before.
+#
+# Limits (honest disclosure -- mirrors what the report emits):
+#   - prior-run dedupe is scoped to the supplied root: a candidate that is
+#     "unseen" here may still have appeared in a run stored elsewhere;
+#   - "new_candidate" still means "no manifest-key hit" rather than
+#     "verified absent from all literature";
+#   - a single run remains a bounded frontier sample, not a census.
+# ---------------------------------------------------------------------------
+
+
+def _git_commit_for(path: Path) -> Optional[str]:
+    """Best-effort short git commit for the repo containing ``path``.
+
+    Returns None when ``git`` is unavailable, ``path`` is not inside a git
+    work tree, or the call fails for any other reason. We never raise from
+    this helper -- a missing commit is metadata, not a run-stopping
+    condition.
+    """
+    try:
+        proc = subprocess.run(
+            ["git", "-C", str(path), "rev-parse", "--short", "HEAD"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            timeout=5,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    if proc.returncode != 0:
+        return None
+    out = (proc.stdout or "").strip()
+    return out or None
+
+
+def _iter_prior_run_dirs(root: Path, *, exclude: Optional[Path] = None) -> List[Path]:
+    """Return sorted prior-run subdirectories under ``root``.
+
+    A "prior run directory" is any immediate subdirectory of ``root`` that
+    contains a readable ``candidates.jsonl``. We sort by name so the report
+    is stable across invocations. Non-directories, dotfiles, and runs
+    missing the JSONL are silently skipped (the caller can still inspect
+    the root's full listing). When ``exclude`` is given, a child whose
+    resolved path equals ``exclude.resolve()`` is filtered out -- this
+    prevents the current run's own directory from being treated as its own
+    prior when the run-dir lives under the prior-runs-root.
+    """
+    if not root.is_dir():
+        return []
+    excluded_resolved: Optional[Path] = None
+    if exclude is not None:
+        try:
+            excluded_resolved = exclude.resolve()
+        except OSError:
+            excluded_resolved = None
+    runs: List[Path] = []
+    for child in sorted(root.iterdir(), key=lambda p: p.name):
+        if not child.is_dir():
+            continue
+        if child.name.startswith("."):
+            continue
+        if excluded_resolved is not None:
+            try:
+                if child.resolve() == excluded_resolved:
+                    continue
+            except OSError:
+                pass
+        if (child / RUN_BUNDLE_CANDIDATES_NAME).is_file():
+            runs.append(child)
+    return runs
+
+
+def _load_prior_run_keys(run_dir: Path) -> List[str]:
+    """Return dedupe-keys for every candidate in ``<run_dir>/candidates.jsonl``.
+
+    Reads via :func:`load_fixture` (which already understands the comment +
+    blank-line format) and recomputes ``dedupe_key`` so the same canonical
+    DOI / arXiv / bibcode / title+year logic governs prior-run comparison.
+    A candidate record that already carries an ``id`` field is trusted
+    only when it has the expected prefix; otherwise we re-derive the key.
+    """
+    path = run_dir / RUN_BUNDLE_CANDIDATES_NAME
+    if not path.is_file():
+        return []
+    records = load_fixture(path)
+    keys: List[str] = []
+    for rec in records:
+        existing = rec.get("id")
+        if isinstance(existing, str) and (
+            existing.startswith("doi:")
+            or existing.startswith("arxiv:")
+            or existing.startswith("bibcode:")
+            or existing.startswith("title:")
+            or existing.startswith("hash:")
+        ):
+            keys.append(existing)
+        else:
+            keys.append(dedupe_key(rec))
+    return keys
+
+
+def scan_prior_runs(
+    root: Optional[Path], *, exclude_run_dir: Optional[Path] = None
+) -> Dict:
+    """Build a prior-run index for cross-run dedupe.
+
+    Returns a dict with:
+      - ``enabled``           : bool, True iff ``root`` is a readable dir
+      - ``root``              : str or None
+      - ``runs_scanned``      : list of {"name": <basename>, "key_count": int}
+      - ``key_to_runs``       : {dedupe-key -> [run basenames]}
+      - ``total_prior_keys``  : int, unique dedupe keys across all prior runs
+
+    When ``root`` is ``None`` or does not exist, returns an explicit
+    disabled marker rather than raising -- callers can then skip annotation
+    and report the disabled state in the run metadata.
+
+    ``exclude_run_dir`` skips a child whose resolved path equals the
+    supplied path (typically the current ``--run-dir``), so a re-run with
+    ``--run-dir-overwrite`` doesn't accidentally count the current run as
+    its own prior.
+    """
+    if root is None:
+        return {
+            "enabled": False,
+            "root": None,
+            "runs_scanned": [],
+            "key_to_runs": {},
+            "total_prior_keys": 0,
+        }
+    root_path = Path(root)
+    if not root_path.is_dir():
+        return {
+            "enabled": False,
+            "root": str(root_path),
+            "runs_scanned": [],
+            "key_to_runs": {},
+            "total_prior_keys": 0,
+        }
+    runs_scanned: List[Dict] = []
+    key_to_runs: Dict[str, List[str]] = {}
+    for run in _iter_prior_run_dirs(root_path, exclude=exclude_run_dir):
+        keys = _load_prior_run_keys(run)
+        runs_scanned.append({"name": run.name, "key_count": len(keys)})
+        for k in keys:
+            if not k:
+                continue
+            if k not in key_to_runs:
+                key_to_runs[k] = []
+            if run.name not in key_to_runs[k]:
+                key_to_runs[k].append(run.name)
+    return {
+        "enabled": True,
+        "root": str(root_path),
+        "runs_scanned": runs_scanned,
+        "key_to_runs": key_to_runs,
+        "total_prior_keys": len(key_to_runs),
+    }
+
+
+def annotate_with_prior_runs(
+    candidates: Sequence[Dict], prior_index: Dict
+) -> List[Dict]:
+    """Return a new list of candidates with prior-run dedupe fields filled in.
+
+    When ``prior_index['enabled']`` is True, every record gets:
+      - ``seen_in_prior_run``  : bool
+      - ``prior_run_ids``      : list of prior-run directory basenames
+                                 (empty when not seen).
+
+    When the index is disabled, the candidates are returned unchanged --
+    we never silently invent prior-run claims.
+    """
+    if not prior_index.get("enabled"):
+        return [dict(c) for c in candidates]
+    key_to_runs = prior_index.get("key_to_runs") or {}
+    out: List[Dict] = []
+    for c in candidates:
+        rec = dict(c)
+        key = rec.get("id") or dedupe_key(rec)
+        runs = list(key_to_runs.get(key, []))
+        rec["seen_in_prior_run"] = bool(runs)
+        rec["prior_run_ids"] = runs
+        out.append(rec)
+    return out
+
+
+def _candidate_counts_by_corpus_status(records: Sequence[Dict]) -> Dict[str, int]:
+    counts = {"already_curated": 0, "new_candidate": 0, "unjoined": 0}
+    for r in records:
+        s = r.get("corpus_status")
+        if s in counts:
+            counts[s] += 1
+    return counts
+
+
+def _candidate_counts_by_prior_run(records: Sequence[Dict]) -> Dict[str, int]:
+    seen = sum(1 for r in records if r.get("seen_in_prior_run") is True)
+    unseen = sum(1 for r in records if r.get("seen_in_prior_run") is False)
+    return {"seen_in_prior_run": seen, "unseen_in_prior_runs": unseen}
+
+
+def build_run_metadata(
+    *,
+    summary: Dict,
+    candidates: Sequence[Dict],
+    cli_args: Dict,
+    prior_index: Dict,
+    run_dir: Path,
+    git_commit: Optional[str],
+) -> Dict:
+    """Compose the run_metadata.json payload from the orchestrator summary."""
+    meta: Dict = {
+        "schema_version": RUN_BUNDLE_SCHEMA_VERSION,
+        "script_version": __version__,
+        "git_commit": git_commit,
+        "discovered_at_utc": summary.get("discovered_at_utc"),
+        "mode": summary.get("mode"),
+        "cli_args": dict(cli_args),
+        "queries": list(summary.get("queries") or []),
+        "query_count": len(summary.get("queries") or []),
+        "backends": list(summary.get("backends") or []),
+        "dedupe_summary": {
+            "raw_candidate_count": summary.get("raw_candidate_count"),
+            "deduped_candidate_count": summary.get("deduped_candidate_count"),
+            "per_backend_counts": dict(summary.get("per_backend_counts") or {}),
+            "per_query_counts": dict(summary.get("per_query_counts") or {}),
+        },
+        "errors": list(summary.get("errors") or []),
+        "novelty_join": dict(summary.get("novelty_join") or {}),
+        "candidate_counts_by_corpus_status": _candidate_counts_by_corpus_status(candidates),
+        "polite_http": dict(summary.get("polite_http") or {}),
+        "framing": summary.get("framing"),
+        "output_paths": {
+            "candidates_jsonl": str(run_dir / RUN_BUNDLE_CANDIDATES_NAME),
+            "run_metadata_json": str(run_dir / RUN_BUNDLE_METADATA_NAME),
+            "run_report_md": str(run_dir / RUN_BUNDLE_REPORT_NAME),
+        },
+        "prior_runs": {
+            "enabled": bool(prior_index.get("enabled")),
+            "root": prior_index.get("root"),
+            "runs_scanned": list(prior_index.get("runs_scanned") or []),
+            "total_prior_keys": prior_index.get("total_prior_keys", 0),
+        },
+        "limits": (
+            "A discovery run is a bounded frontier sample, not an exhaustive "
+            "census of the heliophysics literature. corpus_status="
+            "'new_candidate' means no manifest-key hit, not verified absence "
+            "from all literature. Prior-run dedupe (when enabled) is scoped "
+            "to the supplied --prior-runs-root only; a candidate marked "
+            "'unseen_in_prior_runs' may still have appeared in a run stored "
+            "elsewhere. The prior-run scan reads only candidate JSONL files "
+            "under that root; it does not crack open per-entry SKILL.md / "
+            "metadata.yaml frontmatter."
+        ),
+    }
+    if prior_index.get("enabled"):
+        meta["candidate_counts_by_prior_run"] = _candidate_counts_by_prior_run(
+            candidates
+        )
+    return meta
+
+
+def render_run_report(meta: Dict) -> str:
+    """Render a concise, human-readable Markdown summary of the run."""
+    lines: List[str] = []
+    lines.append("# Discovery run report")
+    lines.append("")
+    lines.append(f"- **Mode:** {meta.get('mode')}")
+    lines.append(f"- **Timestamp (UTC):** {meta.get('discovered_at_utc')}")
+    lines.append(f"- **Script version:** {meta.get('script_version')}")
+    lines.append(f"- **Run-bundle schema:** {meta.get('schema_version')}")
+    if meta.get("git_commit"):
+        lines.append(f"- **Git commit:** {meta['git_commit']}")
+    lines.append(
+        f"- **Backends:** {', '.join(meta.get('backends') or []) or '(none)'}"
+    )
+    lines.append(f"- **Query count:** {meta.get('query_count', 0)}")
+    lines.append("")
+
+    dedupe = meta.get("dedupe_summary") or {}
+    lines.append("## Candidate counts")
+    lines.append("")
+    lines.append(
+        f"- Raw candidates fetched: **{dedupe.get('raw_candidate_count', 0)}**"
+    )
+    lines.append(
+        f"- Deduped candidates emitted: **{dedupe.get('deduped_candidate_count', 0)}**"
+    )
+    by_status = meta.get("candidate_counts_by_corpus_status") or {}
+    lines.append(
+        f"- Already curated (manifest hit): **{by_status.get('already_curated', 0)}**"
+    )
+    lines.append(
+        f"- New candidates (no manifest hit): **{by_status.get('new_candidate', 0)}**"
+    )
+    lines.append(
+        f"- Unjoined (novelty join disabled): **{by_status.get('unjoined', 0)}**"
+    )
+    if "candidate_counts_by_prior_run" in meta:
+        pr = meta["candidate_counts_by_prior_run"]
+        lines.append(
+            f"- Seen in a prior run: **{pr.get('seen_in_prior_run', 0)}**"
+        )
+        lines.append(
+            f"- Unseen in prior runs: **{pr.get('unseen_in_prior_runs', 0)}**"
+        )
+    lines.append("")
+
+    novelty = meta.get("novelty_join") or {}
+    lines.append("## Novelty join")
+    lines.append("")
+    lines.append(f"- Enabled: **{bool(novelty.get('enabled'))}**")
+    if novelty.get("manifest_path"):
+        lines.append(f"- Manifest: `{novelty['manifest_path']}`")
+    if novelty.get("manifest_entry_count") is not None:
+        lines.append(
+            f"- Manifest entry count: {novelty.get('manifest_entry_count', 0)}"
+        )
+    lines.append("")
+
+    prior = meta.get("prior_runs") or {}
+    lines.append("## Prior-run dedupe")
+    lines.append("")
+    lines.append(f"- Enabled: **{bool(prior.get('enabled'))}**")
+    if prior.get("root"):
+        lines.append(f"- Root: `{prior['root']}`")
+    runs_scanned = prior.get("runs_scanned") or []
+    lines.append(f"- Prior runs scanned: {len(runs_scanned)}")
+    lines.append(f"- Total prior dedupe keys: {prior.get('total_prior_keys', 0)}")
+    if runs_scanned:
+        for r in runs_scanned:
+            lines.append(
+                f"  - `{r.get('name')}` — {r.get('key_count', 0)} keys"
+            )
+    lines.append("")
+
+    errors = meta.get("errors") or []
+    if errors:
+        lines.append("## Backend errors")
+        lines.append("")
+        for e in errors:
+            lines.append(
+                f"- backend=`{e.get('backend')}` query=`{e.get('query')}` "
+                f"error=`{e.get('error')}`"
+            )
+        lines.append("")
+
+    lines.append("## Limits (honest framing)")
+    lines.append("")
+    lines.append(meta.get("limits") or "")
+    lines.append("")
+
+    lines.append("## Next actions")
+    lines.append("")
+    new_count = by_status.get("new_candidate", 0)
+    if new_count > 0:
+        lines.append(
+            f"- Triage the {new_count} new_candidate row(s) before promoting any "
+            "to the curated 501-entry corpus (four-layer authoring model + "
+            "existing validate.sh gauntlet)."
+        )
+    else:
+        lines.append(
+            "- No new_candidate rows in this run; consider broadening the "
+            "query slate (`--extra-query`) or raising `--max-results` for the "
+            "next live run."
+        )
+    if not prior.get("enabled"):
+        lines.append(
+            "- Pass `--prior-runs-root PATH` on the next run to annotate "
+            "candidates that were already emitted by a previous run."
+        )
+    return "\n".join(lines) + "\n"
+
+
+def _prepare_run_dir(run_dir: Path, *, overwrite: bool) -> None:
+    """Create or validate the target run-bundle directory.
+
+    A non-existent path is created. An existing empty directory is reused.
+    An existing non-empty directory raises ``SystemExit`` unless
+    ``overwrite=True`` -- we never silently overwrite a prior run.
+    """
+    if run_dir.exists():
+        if not run_dir.is_dir():
+            raise SystemExit(
+                f"discover_heliophysics_literature: --run-dir target exists "
+                f"and is not a directory: {run_dir}"
+            )
+        contents = list(run_dir.iterdir())
+        if contents and not overwrite:
+            raise SystemExit(
+                f"discover_heliophysics_literature: --run-dir target is "
+                f"non-empty (use --run-dir-overwrite to allow): {run_dir}"
+            )
+    else:
+        run_dir.mkdir(parents=True, exist_ok=True)
+
+
+def write_run_bundle(
+    run_dir: Path,
+    *,
+    candidates: Sequence[Dict],
+    metadata: Dict,
+    report_text: str,
+) -> Dict[str, Path]:
+    """Write the three run-bundle artifacts and return their paths."""
+    candidates_path = run_dir / RUN_BUNDLE_CANDIDATES_NAME
+    metadata_path = run_dir / RUN_BUNDLE_METADATA_NAME
+    report_path = run_dir / RUN_BUNDLE_REPORT_NAME
+
+    with open(candidates_path, "w", encoding="utf-8") as f:
+        for rec in candidates:
+            f.write(json.dumps(rec, ensure_ascii=False, sort_keys=False))
+            f.write("\n")
+    with open(metadata_path, "w", encoding="utf-8") as f:
+        json.dump(metadata, f, ensure_ascii=False, indent=2, sort_keys=False)
+        f.write("\n")
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write(report_text)
+
+    return {
+        "candidates_jsonl": candidates_path,
+        "run_metadata_json": metadata_path,
+        "run_report_md": report_path,
+    }
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -1183,6 +1643,27 @@ def _build_parser() -> argparse.ArgumentParser:
                    help=("Disable the novelty join even if the default "
                          "manifest is present. Candidates are then marked "
                          "corpus_status=unjoined."))
+    p.add_argument("--run-dir", type=str, default=None,
+                   help=("Write a persistent run bundle into PATH. The "
+                         "bundle contains candidates.jsonl, "
+                         "run_metadata.json, and run_report.md. When set, "
+                         "--output may also be used to write the same JSONL "
+                         "to a separate location; if not set, --output is "
+                         "still honoured. The run-dir must be empty unless "
+                         "--run-dir-overwrite is given."))
+    p.add_argument("--run-dir-overwrite", action="store_true",
+                   help=("Allow --run-dir to write into an existing "
+                         "non-empty directory. Without this flag the "
+                         "script refuses to clobber a prior run."))
+    p.add_argument("--prior-runs-root", type=str, default=None,
+                   help=("Optional: scan PATH/*/candidates.jsonl for "
+                         "candidates emitted by previous discovery runs. "
+                         "Every emitted candidate gains a "
+                         "seen_in_prior_run boolean and a prior_run_ids "
+                         "list naming the prior run-dir basenames it "
+                         "matched. The scan never mutates prior runs. "
+                         "Prior-run dedupe is scoped to the supplied root "
+                         "only -- it is not a claim of global novelty."))
     p.add_argument("--version", action="version",
                    version=f"discover_heliophysics_literature {__version__}")
     return p
@@ -1292,6 +1773,63 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         retry_base_seconds=args.retry_base_seconds,
         corpus_manifest_path=corpus_manifest_path,
     )
+
+    # Optional cross-run dedupe scan. The scan never raises -- a non-existent
+    # --prior-runs-root yields a structured "disabled" marker that downstream
+    # report rendering surfaces honestly. The current --run-dir is excluded
+    # from the scan so a re-run with --run-dir-overwrite cannot count itself
+    # as its own prior.
+    prior_runs_root_path: Optional[Path] = (
+        Path(args.prior_runs_root) if args.prior_runs_root else None
+    )
+    run_dir_path: Optional[Path] = Path(args.run_dir) if args.run_dir else None
+    prior_index = scan_prior_runs(
+        prior_runs_root_path, exclude_run_dir=run_dir_path
+    )
+    deduped = annotate_with_prior_runs(deduped, prior_index)
+
+    if args.run_dir:
+        run_dir = run_dir_path  # already resolved above
+        assert run_dir is not None
+        _prepare_run_dir(run_dir, overwrite=bool(args.run_dir_overwrite))
+        cli_args = {
+            "mode": "live" if live else "dry-run",
+            "max_results": args.max_results,
+            "output": args.output,
+            "fixture": str(args.fixture) if not live else None,
+            "timeout": args.timeout,
+            "page_pause_seconds": args.page_pause_seconds,
+            "max_retries": args.max_retries,
+            "retry_base_seconds": args.retry_base_seconds,
+            "enable_crossref": bool(args.enable_crossref),
+            "enable_ads": bool(args.enable_ads),
+            "no_arxiv": bool(args.no_arxiv),
+            "no_openalex": bool(args.no_openalex),
+            "extra_query": list(args.extra_query),
+            "corpus_manifest": str(corpus_manifest_path)
+            if corpus_manifest_path is not None
+            else None,
+            "no_corpus_manifest": bool(args.no_corpus_manifest),
+            "prior_runs_root": str(prior_runs_root_path)
+            if prior_runs_root_path is not None
+            else None,
+            "run_dir_overwrite": bool(args.run_dir_overwrite),
+        }
+        metadata = build_run_metadata(
+            summary=summary,
+            candidates=deduped,
+            cli_args=cli_args,
+            prior_index=prior_index,
+            run_dir=run_dir,
+            git_commit=_git_commit_for(HERE),
+        )
+        report_text = render_run_report(metadata)
+        write_run_bundle(
+            run_dir,
+            candidates=deduped,
+            metadata=metadata,
+            report_text=report_text,
+        )
 
     with _open_output(args.output) as out:
         for rec in deduped:
