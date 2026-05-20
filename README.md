@@ -247,6 +247,25 @@ Run `python3 scripts/audit_internalization_readiness.py --top 30` for an
 on-demand snapshot. Tests pinning the audit's stable invariants live in
 `tests/test_internalization_readiness.py`.
 
+### Skill-graph wikilink audit
+
+`scripts/audit_wikilinks.py` scans every per-entry `SKILL.md` for
+wiki-style `[[target]]` / `[[target|label]]` cross-references and
+resolves them against the canonical slug list in
+`references/corpus_manifest_v2.json`. It is **informational only** by
+default: it reports counts (unique targets, resolved, unresolved,
+referring file+line, mechanical `paper-` prefix suggestions) and exits
+0 even when unresolved links exist, so it can be wired into
+`scripts/validate.sh` (section S6) without making the existing
+unresolved-link debt a CI-blocker in the same PR that introduced the
+audit. `--strict` flips the exit code to 1 on any unresolved target and
+is reserved for future graph-hardening work. See
+`reports/wikilink_audit.md` for the rationale, the current headline
+counts, and the planned successor (`corpus_skill_graph.json`) which is
+**not** shipped in this increment. Tests live in
+`tests/test_audit_wikilinks.py` (offline, stdlib-only, tempdir
+fixtures).
+
 ## Companion MCP adapters (external, not bundled)
 
 Two domain MCPs are first-class companions to this skill. They live in

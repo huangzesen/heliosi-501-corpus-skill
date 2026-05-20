@@ -826,4 +826,36 @@ python3 scripts/audit_internalization_readiness.py \
     fail "audit_internalization_readiness.py reported active entries below the floor"
 log "internalization-readiness audit ok (no active entries below floor)"
 
+# -- S6 wikilink audit (informational) --------------------------------------
+# Resolves every ``[[target]]`` wikilink in per-entry SKILL.md bodies
+# against the canonical slugs in references/corpus_manifest_v2.json and
+# prints a one-line summary. This section is **informational only** --
+# the corpus currently carries legacy unresolved wikilinks (mostly
+# paper-prefix drift between the wikilink and the manifest slug), and
+# failing CI on them in the same PR that introduces the audit would
+# conflate "lint the graph" with "rewrite 95 cross-references". The
+# audit's --strict mode is left available for future graph-hardening
+# work; until then we only assert that the audit itself runs to
+# completion.
+section "S6 wikilink audit (informational)"
+
+python3 scripts/audit_wikilinks.py --json >/tmp/heliosi_wikilink_audit.json || \
+  fail "audit_wikilinks.py crashed -- see /tmp/heliosi_wikilink_audit.json"
+
+python3 - <<'PY'
+import json
+with open('/tmp/heliosi_wikilink_audit.json') as f:
+    s = json.load(f)
+t = s['totals']
+print(
+    f"wikilink audit ok ("
+    f"{t['skill_md_files_scanned']} SKILL.md scanned, "
+    f"{t['wikilink_occurrences']} wikilinks, "
+    f"{t['resolved_targets']}/{t['unique_targets']} unique targets resolved, "
+    f"{t['unresolved_targets']} unresolved, "
+    f"{t['depends_on_section_entries']}/{t['skill_md_files_scanned']} "
+    f"entries carry an explicit '## Skill graph → depends_on' section)"
+)
+PY
+
 printf 'validate.sh: OK -- all checks passed\n'
