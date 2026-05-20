@@ -1222,6 +1222,9 @@ class TestRunBundlePythonAPI(unittest.TestCase):
         self.assertIn("Already curated (manifest hit): **3**", report)
         self.assertIn("New candidates (no manifest hit): **10**", report)
         self.assertIn("Limits (honest framing)", report)
+        # The human run report must carry the same explicit sample-not-census
+        # string as the JSON summary; the pilot exit criteria audit the report.
+        self.assertIn("not a complete survey", report)
         self.assertIn("Next actions", report)
         # When prior-run scan is disabled the report should NOT advertise
         # seen-in-prior-run counts (those are only emitted when enabled).

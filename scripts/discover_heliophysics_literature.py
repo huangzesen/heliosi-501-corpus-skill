@@ -1634,6 +1634,9 @@ def render_run_report(meta: Dict) -> str:
 
     lines.append("## Limits (honest framing)")
     lines.append("")
+    if meta.get("framing"):
+        lines.append(f"Framing: {meta['framing']}")
+        lines.append("")
     lines.append(meta.get("limits") or "")
     lines.append("")
 
