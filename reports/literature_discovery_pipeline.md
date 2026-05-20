@@ -150,6 +150,115 @@ The fixture suite pins this behaviour: 9 raw records → 7 deduped
 (DOI-collision + arXiv-collision + bibcode-collision each collapse to a
 single survivor).
 
+### 3.4 Corpus novelty join
+
+After dedupe, each surviving candidate is compared against the curated v2
+manifest (`references/corpus_manifest_v2.json` by default) so that the
+JSONL queue tells downstream consumers whether a record is **already in
+the 501-entry corpus** or is **genuinely new** to the curated bundle.
+
+The join is implemented in
+`scripts/discover_heliophysics_literature.py::annotate_candidate_with_corpus_status`
+and is wired into `run_discovery()` via the
+`corpus_manifest_path=` keyword. The CLI exposes:
+
+- `--corpus-manifest PATH` — override the default manifest path.
+- `--no-corpus-manifest` — disable the join even when the default
+  manifest is present.
+
+If neither flag is given, the script auto-resolves the default at
+`references/corpus_manifest_v2.json`; if that file is missing, the join
+is silently disabled (the candidates are still emitted, just without a
+novelty claim).
+
+#### 3.4.1 Match keys (priority order)
+
+The lookup tries the canonical identifiers in **the same priority order
+as the dedupe key**, so the join is consistent with the dedupe behaviour
+documented in §3.3:
+
+| Priority | Field         | Manifest source             | Normalisation                                                                                |
+|----------|---------------|------------------------------|----------------------------------------------------------------------------------------------|
+| 1        | `doi`         | `entries[].doi`              | `normalize_doi` — strip resolver prefix, lowercase.                                          |
+| 2        | `arxiv_id`    | `entries[].arxiv`            | `normalize_arxiv_id` — strip `arXiv:` prefix / version suffix; reject sentinel placeholders. |
+| 3        | `bibcode`     | `entries[].bibcode` (future) | lowercased; current manifest carries no bibcodes — the index tolerates them anyway.          |
+| 4        | `title`+`year`| `entries[].title`/`year`     | SHA-1 of `normalize_title(title) + "|" + str(year)`, first 16 hex — identical to `dedupe_key`. |
+
+The first hit wins. The emitted record carries:
+
+- `corpus_status`        — `already_curated`, `new_candidate`, or
+                           `unjoined` (when the join was disabled).
+- `corpus_match_via`     — `doi` / `arxiv` / `bibcode` / `title_year`,
+                           or `null` when no match / disabled.
+- `corpus_match_slugs`   — list of matching `slug` strings from the
+                           manifest (today: zero or one element; the
+                           list shape is forward-compatible with future
+                           multi-match policies).
+- `corpus_match_titles`  — list of matching titles, parallel to
+                           `corpus_match_slugs`.
+
+The JSON summary written to stderr gains a `novelty_join` block:
+
+```json
+"novelty_join": {
+  "enabled": true,
+  "manifest_path": "references/corpus_manifest_v2.json",
+  "manifest_entry_count": 501,
+  "already_curated_count": 3,
+  "new_candidate_count": 4,
+  "unjoined_count": 0,
+  "match_priority": ["doi", "arxiv", "bibcode", "title_year"],
+  "limits": "title+year fallback is sensitive to title-string differences ..."
+}
+```
+
+#### 3.4.2 Sentinels and placeholders
+
+Some manifest rows store non-ID strings under `arxiv:`:
+
+- `"not-in-local-inventory"` — the curated entry has no usable arXiv ID.
+- `"TODO_verify"` / `"TODO_verify_with_full_text"` — pending provenance check.
+
+These are **filtered out** of the `by_arxiv` index by
+`_manifest_arxiv_value`, which routes the raw value through
+`normalize_arxiv_id` after rejecting the sentinel set
+`{"", "none", "n/a", "na", "not-in-local-inventory"}` and any string
+that starts with `TODO` / `TBD`. A candidate that happens to carry the
+literal string `"not-in-local-inventory"` therefore **does not** match
+a manifest row that uses the same sentinel.
+
+#### 3.4.3 Limits (honest disclosure)
+
+The novelty join is **best-effort, not authoritative**:
+
+- Manifest entries without DOI/arXiv/bibcode rely entirely on the
+  title+year fallback. Title strings drift between Crossref, OpenAlex,
+  arXiv, and the manifest (subtitle present vs absent, `"&"` vs
+  `"and"`, smart quotes, etc.). Two records describing the same paper
+  can therefore fall on opposite sides of the join.
+- The join reads **only** the v2 manifest metadata. It does NOT crack
+  open per-entry `SKILL.md` / `metadata.yaml` frontmatter, so any
+  identifier that the curated entry advertises only in prose (or only
+  inside a `provenance.id_verifications[]` block) is not visible to
+  the index.
+- `corpus_status: new_candidate` means *"no manifest hit on the
+  canonical keys"*, not *"verified absent from the curated corpus"*.
+  Downstream consumers must continue to apply human / agent triage
+  before promoting a candidate to a paper-skill.
+- The join makes no provenance claim. A candidate's `corpus_status`
+  field is metadata about the *upstream backend's* identifier match,
+  not a substitute for the existing arXiv-ID provenance gauntlet
+  (`scripts/verify_arxiv_ids.py`, the S4e gate in `scripts/validate.sh`,
+  `tests/test_arxiv_provenance.py`).
+
+The novelty-join fields appear on every emitted candidate, so the JSONL
+queue is filterable with one-liners like:
+
+```sh
+jq -c 'select(.corpus_status == "new_candidate")' candidates.jsonl
+jq -c 'select(.corpus_status == "already_curated") | {id, corpus_match_slugs}' candidates.jsonl
+```
+
 ## 4. Relationship to the curated 501-skill corpus
 
 The new pipeline is **strictly additive**. The curated corpus retains its
@@ -193,7 +302,7 @@ unchanged.
 
 ## 6. Honest roadmap
 
-Done in this increment:
+Done in earlier increments:
 
 - [x] Default no-key backends (arXiv + OpenAlex), opt-in Crossref + ADS.
 - [x] Deterministic dedupe across backends.
@@ -201,11 +310,35 @@ Done in this increment:
 - [x] Fixture-driven dry-run + unit tests.
 - [x] Polite HTTP layer with bounded retries.
 
+Done in this increment (§3.4):
+
+- [x] Novelty join against the curated v2 manifest by canonical keys
+      (DOI > arXiv ID > bibcode > title+year), with sentinel /
+      TODO-placeholder filtering on the manifest side.
+- [x] `corpus_status` / `corpus_match_via` / `corpus_match_slugs` /
+      `corpus_match_titles` on every emitted candidate.
+- [x] `summary.novelty_join` block reporting `enabled`,
+      `manifest_path`, `manifest_entry_count`,
+      `already_curated_count`, `new_candidate_count`,
+      `unjoined_count`, `match_priority`, and an explicit `limits` disclosure.
+- [x] CLI flags `--corpus-manifest PATH` (override) and
+      `--no-corpus-manifest` (disable), with the default resolving to
+      `references/corpus_manifest_v2.json` only when present.
+- [x] Offline unit tests for DOI / arXiv / title+year / bibcode-priority
+      / non-match / sentinel-arxiv / disabled-join paths.
+
 Not done (explicit future work — do **not** claim these are present):
 
 - [ ] Persistent candidate queue store (today the JSONL is the queue).
-- [ ] Cross-run dedupe against the curated corpus and against prior
-      candidate batches.
+- [ ] Cross-run dedupe against prior **candidate batches** (this
+      increment only joins against the curated 501-entry manifest, not
+      against previously emitted candidate JSONLs).
+- [ ] Multi-match / disambiguation policy when title+year collapses
+      two genuinely distinct papers (today the first manifest entry
+      to claim the title-year hash wins).
+- [ ] Join against `SKILL.md` / `metadata.yaml` per-entry frontmatter
+      (currently only the manifest top-level is read; identifiers that
+      live only in the per-entry frontmatter are invisible to the join).
 - [ ] Full-text fetch and section extraction.
 - [ ] Automated four-layer paper-skill drafting from a candidate.
 - [ ] Drift detection (a candidate that contradicts an existing T1 / T2

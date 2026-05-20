@@ -1,0 +1,42 @@
+{
+  "schema_version": "rollup-2.0-fixture",
+  "generated_at": "2026-05-19",
+  "generated_by": "test fixture for tests/test_discover_heliophysics_literature.py — novelty join",
+  "entries": [
+    {
+      "slug": "paper-psp-switchback-2024",
+      "title": "Parker Solar Probe observations of solar wind switchbacks near perihelion",
+      "year": 2024,
+      "doi": "10.1234/psp.switchback.2024",
+      "arxiv": "2401.00001"
+    },
+    {
+      "slug": "paper-solo-cme-2024",
+      "title": "Coronal mass ejection reconnection signatures observed by Solar Orbiter",
+      "year": 2024,
+      "doi": null,
+      "arxiv": "2403.04567"
+    },
+    {
+      "slug": "paper-wind-ml-classification-2022",
+      "title": "Machine learning classification of solar wind types from Wind spacecraft data",
+      "year": 2022,
+      "doi": null,
+      "arxiv": null
+    },
+    {
+      "slug": "paper-sentinel-arxiv-2023",
+      "title": "An entry whose arXiv field is the not-in-local-inventory sentinel",
+      "year": 2023,
+      "doi": "10.9999/sentinel.2023",
+      "arxiv": "not-in-local-inventory"
+    },
+    {
+      "slug": "paper-todo-arxiv-2024",
+      "title": "An entry whose arXiv field is a TODO_verify placeholder",
+      "year": 2024,
+      "doi": null,
+      "arxiv": "TODO_verify"
+    }
+  ]
+}

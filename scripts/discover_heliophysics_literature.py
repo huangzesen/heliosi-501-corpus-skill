@@ -115,6 +115,7 @@ HERE = Path(__file__).resolve().parent
 BUNDLE = HERE.parent
 FIXTURE_DIR = BUNDLE / "tests" / "fixtures" / "discovery"
 DEFAULT_FIXTURE = FIXTURE_DIR / "sample_records.jsonl"
+DEFAULT_CORPUS_MANIFEST = BUNDLE / "references" / "corpus_manifest_v2.json"
 
 USER_AGENT = (
     f"heliosi-discover/{__version__} "
@@ -655,6 +656,189 @@ def _http_get(
 
 
 # ---------------------------------------------------------------------------
+# Corpus manifest novelty join
+#
+# A discovery candidate is "already curated" if it matches an entry in the
+# curated v2 manifest (default: references/corpus_manifest_v2.json) by any
+# of the canonical keys the script already uses for dedupe:
+#
+#   1. DOI (lowercased, resolver prefix stripped)
+#   2. arXiv ID (version suffix stripped, lowercased)
+#   3. ADS bibcode (lowercased) -- manifest currently exposes no bibcodes,
+#      but the index tolerates them so future manifest revisions Just Work
+#   4. Normalised title + year (SHA1-hashed the same way as dedupe_key)
+#
+# The manifest stores some arXiv values as sentinels ("not-in-local-inventory")
+# or TODO placeholders ("TODO_verify", "TODO_verify_with_full_text"). Those
+# strings are NOT valid arXiv IDs and must not match candidates whose arXiv
+# field happens to contain the same string -- ``_manifest_arxiv_value`` runs
+# them through ``normalize_arxiv_id`` which rejects anything that doesn't
+# match the YYMM.NNNNN or category/YYMMNNN format.
+#
+# Limits (honest disclosure; mirror what the report calls out):
+#   - Manifest entries without DOI / arXiv / bibcode can only be matched via
+#     title+year, which is sensitive to author-supplied title differences
+#     (subtitle vs no subtitle, "&" vs "and", etc.). Counts are best-effort,
+#     not authoritative.
+#   - The join is strictly read-only and operates ONLY on the manifest
+#     metadata in references/corpus_manifest_v2.json. It does NOT crack
+#     open per-entry SKILL.md / metadata.yaml frontmatter and so cannot
+#     catch a paper that the curated entry advertises only in prose.
+# ---------------------------------------------------------------------------
+
+
+_MANIFEST_ARXIV_SENTINELS = frozenset(
+    {"", "none", "n/a", "na", "not-in-local-inventory"}
+)
+
+
+def _manifest_arxiv_value(raw: Optional[str]) -> Optional[str]:
+    """Return a normalised arXiv ID for a manifest ``arxiv:`` field value, or
+    ``None`` if the value is a sentinel / TODO placeholder / unparseable."""
+    if not raw or not isinstance(raw, str):
+        return None
+    s = raw.strip()
+    if not s:
+        return None
+    low = s.lower()
+    if low in _MANIFEST_ARXIV_SENTINELS:
+        return None
+    # Reject TODO/TBD placeholders before handing to normalize_arxiv_id, which
+    # would also reject them but with less explicit intent.
+    if re.match(r"^(?:todo|tbd)", low):
+        return None
+    return normalize_arxiv_id(s)
+
+
+def _manifest_title_year_key(title: Optional[str], year) -> Optional[str]:
+    """Reproduce the title+year branch of :func:`dedupe_key` so the manifest
+    index uses an identical hash and lookups collide."""
+    title_norm = normalize_title(title)
+    if not title_norm:
+        return None
+    year_str = year if year is not None else ""
+    h = hashlib.sha1(f"{title_norm}|{year_str}".encode("utf-8")).hexdigest()[:16]
+    return f"title:{h}"
+
+
+def build_corpus_manifest_index(path: Path) -> Dict:
+    """Load a v2 corpus manifest and index it by canonical keys.
+
+    Returns a dict with the following keys:
+
+      - ``by_doi``       : {normalised DOI -> entry-summary dict}
+      - ``by_arxiv``     : {normalised arXiv ID -> entry-summary dict}
+      - ``by_bibcode``   : {lowercased bibcode -> entry-summary dict}
+      - ``by_title_year``: {title-year sha1 key -> entry-summary dict}
+      - ``entry_count``  : int, number of manifest rows seen
+      - ``source_path``  : str, the path the index was built from
+
+    Each entry-summary dict carries ``{"slug": ..., "title": ...}`` so the
+    caller can present a human-readable provenance string back to the user.
+    Sentinel arXiv values (``"not-in-local-inventory"``) and TODO/TBD
+    placeholders are filtered out so they cannot create spurious matches.
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+    entries = manifest.get("entries") or []
+    by_doi: Dict[str, Dict] = {}
+    by_arxiv: Dict[str, Dict] = {}
+    by_bibcode: Dict[str, Dict] = {}
+    by_title_year: Dict[str, Dict] = {}
+    for e in entries:
+        if not isinstance(e, dict):
+            continue
+        summary = {"slug": e.get("slug"), "title": e.get("title")}
+        doi = normalize_doi(e.get("doi"))
+        if doi:
+            by_doi.setdefault(doi, summary)
+        ax = _manifest_arxiv_value(e.get("arxiv"))
+        if ax:
+            by_arxiv.setdefault(ax, summary)
+        bib = (e.get("bibcode") or "")
+        if isinstance(bib, str) and bib.strip():
+            by_bibcode.setdefault(bib.strip().lower(), summary)
+        tk = _manifest_title_year_key(e.get("title"), e.get("year"))
+        if tk:
+            by_title_year.setdefault(tk, summary)
+    return {
+        "by_doi": by_doi,
+        "by_arxiv": by_arxiv,
+        "by_bibcode": by_bibcode,
+        "by_title_year": by_title_year,
+        "entry_count": len(entries),
+        "source_path": str(path),
+    }
+
+
+_NOVELTY_FIELDS_DISABLED: Dict = {
+    "corpus_status": "unjoined",
+    "corpus_match_via": None,
+    "corpus_match_slugs": [],
+    "corpus_match_titles": [],
+}
+
+
+def annotate_candidate_with_corpus_status(
+    record: Dict, index: Optional[Dict]
+) -> Dict:
+    """Return a shallow copy of ``record`` with novelty-join fields filled in.
+
+    If ``index`` is ``None``, the record is annotated as ``unjoined`` -- no
+    novelty claim is made either way. Otherwise the canonical keys are tried
+    in priority order (doi -> arxiv -> bibcode -> title+year) and the FIRST
+    hit wins; the record reports which key produced the match so the caller
+    can audit / debug the join.
+    """
+    out = dict(record)
+    if index is None:
+        out.update(_NOVELTY_FIELDS_DISABLED)
+        return out
+
+    doi = normalize_doi(record.get("doi"))
+    if doi and doi in index["by_doi"]:
+        m = index["by_doi"][doi]
+        out["corpus_status"] = "already_curated"
+        out["corpus_match_via"] = "doi"
+        out["corpus_match_slugs"] = [m.get("slug")] if m.get("slug") else []
+        out["corpus_match_titles"] = [m.get("title")] if m.get("title") else []
+        return out
+
+    ax = normalize_arxiv_id(record.get("arxiv_id"))
+    if ax and ax in index["by_arxiv"]:
+        m = index["by_arxiv"][ax]
+        out["corpus_status"] = "already_curated"
+        out["corpus_match_via"] = "arxiv"
+        out["corpus_match_slugs"] = [m.get("slug")] if m.get("slug") else []
+        out["corpus_match_titles"] = [m.get("title")] if m.get("title") else []
+        return out
+
+    bib = (record.get("bibcode") or "").strip().lower()
+    if bib and bib in index["by_bibcode"]:
+        m = index["by_bibcode"][bib]
+        out["corpus_status"] = "already_curated"
+        out["corpus_match_via"] = "bibcode"
+        out["corpus_match_slugs"] = [m.get("slug")] if m.get("slug") else []
+        out["corpus_match_titles"] = [m.get("title")] if m.get("title") else []
+        return out
+
+    tk = _manifest_title_year_key(record.get("title"), record.get("year"))
+    if tk and tk in index["by_title_year"]:
+        m = index["by_title_year"][tk]
+        out["corpus_status"] = "already_curated"
+        out["corpus_match_via"] = "title_year"
+        out["corpus_match_slugs"] = [m.get("slug")] if m.get("slug") else []
+        out["corpus_match_titles"] = [m.get("title")] if m.get("title") else []
+        return out
+
+    out["corpus_status"] = "new_candidate"
+    out["corpus_match_via"] = None
+    out["corpus_match_slugs"] = []
+    out["corpus_match_titles"] = []
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Orchestration
 # ---------------------------------------------------------------------------
 
@@ -683,6 +867,13 @@ def normalise_candidate(
         "topic_tags",
         "query",
         "discovered_at_utc",
+        # Novelty-join fields are filled in by the orchestrator after dedupe;
+        # they are emitted on every output record so downstream consumers can
+        # filter on corpus_status without an extra pass.
+        "corpus_status",
+        "corpus_match_via",
+        "corpus_match_slugs",
+        "corpus_match_titles",
     ]
     return {k: out.get(k) for k in canonical_keys}
 
@@ -770,10 +961,18 @@ def run_discovery(
     now_iso: Optional[str] = None,
     max_retries: int = _DEFAULT_MAX_RETRIES,
     retry_base_seconds: float = _DEFAULT_RETRY_BASE_SECONDS,
+    corpus_manifest_path: Optional[Path] = None,
 ) -> Tuple[List[Dict], Dict]:
     """Return (deduped_candidates, summary_dict).
 
     Pure-Python orchestration; HTTP only happens when ``live=True``.
+
+    ``corpus_manifest_path`` enables the novelty join: when set to a readable
+    v2 manifest JSON, each deduped candidate is annotated with a
+    ``corpus_status`` of ``already_curated`` or ``new_candidate`` and the
+    summary reports the counts. When ``None`` (or the path does not exist),
+    candidates are annotated ``unjoined`` and the summary records that the
+    join was disabled -- no novelty claim is made.
     """
     now_iso = now_iso or _utc_now_iso()
     raw: List[Dict] = []
@@ -825,6 +1024,48 @@ def run_discovery(
                     time.sleep(page_pause_seconds)
 
     deduped = dedupe(raw)
+
+    # ----- Novelty join against the curated v2 manifest --------------------
+    manifest_index: Optional[Dict] = None
+    manifest_resolved_path: Optional[str] = None
+    if corpus_manifest_path is not None:
+        mp = Path(corpus_manifest_path)
+        if mp.is_file():
+            manifest_index = build_corpus_manifest_index(mp)
+            manifest_resolved_path = str(mp)
+    annotated: List[Dict] = [
+        annotate_candidate_with_corpus_status(rec, manifest_index)
+        for rec in deduped
+    ]
+    already_curated = sum(
+        1 for c in annotated if c.get("corpus_status") == "already_curated"
+    )
+    new_candidates = sum(
+        1 for c in annotated if c.get("corpus_status") == "new_candidate"
+    )
+    unjoined = sum(
+        1 for c in annotated if c.get("corpus_status") == "unjoined"
+    )
+    novelty_join_summary = {
+        "enabled": manifest_index is not None,
+        "manifest_path": manifest_resolved_path,
+        "manifest_entry_count": (
+            manifest_index["entry_count"] if manifest_index is not None else 0
+        ),
+        "already_curated_count": already_curated,
+        "new_candidate_count": new_candidates,
+        "unjoined_count": unjoined,
+        "match_priority": ["doi", "arxiv", "bibcode", "title_year"],
+        "limits": (
+            "title+year fallback is sensitive to title-string differences "
+            "(subtitle vs no subtitle, '&' vs 'and', NFKD-folded accents); "
+            "manifest entries without DOI/arXiv/bibcode rely on this "
+            "fallback and so the join is best-effort, not authoritative. "
+            "The join reads only the v2 manifest metadata -- it does not "
+            "crack open per-entry SKILL.md / metadata.yaml frontmatter."
+        ),
+    }
+
     summary = {
         "mode": "live" if live else "dry-run",
         "queries": [q for q, _ in queries],
@@ -834,6 +1075,7 @@ def run_discovery(
         "per_backend_counts": per_backend_counts,
         "per_query_counts": per_query_counts,
         "errors": errors,
+        "novelty_join": novelty_join_summary,
         "polite_http": {
             "user_agent": USER_AGENT,
             "max_retries": max_retries,
@@ -846,7 +1088,7 @@ def run_discovery(
         ),
         "discovered_at_utc": now_iso,
     }
-    return deduped, summary
+    return annotated, summary
 
 
 # ---------------------------------------------------------------------------
@@ -928,6 +1170,19 @@ def _build_parser() -> argparse.ArgumentParser:
                    help="Add an extra query string. May be repeated.")
     p.add_argument("--queries-only", action="store_true",
                    help="Print the resolved query slate as JSON and exit 0.")
+    p.add_argument("--corpus-manifest", type=str, default=None,
+                   help=("Path to the curated v2 corpus manifest "
+                         "(default: references/corpus_manifest_v2.json if "
+                         "present in the bundle; pass an explicit path to "
+                         "override, or a non-existent path to disable the "
+                         "novelty join). When the manifest resolves, every "
+                         "emitted candidate is annotated with "
+                         "corpus_status=already_curated|new_candidate and "
+                         "the JSON summary reports the count."))
+    p.add_argument("--no-corpus-manifest", action="store_true",
+                   help=("Disable the novelty join even if the default "
+                         "manifest is present. Candidates are then marked "
+                         "corpus_status=unjoined."))
     p.add_argument("--version", action="version",
                    version=f"discover_heliophysics_literature {__version__}")
     return p
@@ -1010,6 +1265,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         )
         return 2
 
+    # Resolve the manifest path for the novelty join. Precedence:
+    #   --no-corpus-manifest      -> disabled
+    #   --corpus-manifest PATH    -> use PATH (missing file => disabled, no fail)
+    #   (neither flag)            -> default to DEFAULT_CORPUS_MANIFEST if it
+    #                                exists, else disabled.
+    if args.no_corpus_manifest:
+        corpus_manifest_path: Optional[Path] = None
+    elif args.corpus_manifest is not None:
+        corpus_manifest_path = Path(args.corpus_manifest)
+    else:
+        corpus_manifest_path = (
+            DEFAULT_CORPUS_MANIFEST if DEFAULT_CORPUS_MANIFEST.is_file() else None
+        )
+
     deduped, summary = run_discovery(
         queries=queries,
         backends=backends,
@@ -1021,6 +1290,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         ads_token=ads_token,
         max_retries=args.max_retries,
         retry_base_seconds=args.retry_base_seconds,
+        corpus_manifest_path=corpus_manifest_path,
     )
 
     with _open_output(args.output) as out:

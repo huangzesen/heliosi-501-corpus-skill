@@ -29,6 +29,7 @@ FIXTURE_DIR = BUNDLE / "tests" / "fixtures" / "discovery"
 JSONL_FIXTURE = FIXTURE_DIR / "sample_records.jsonl"
 ARXIV_FIXTURE = FIXTURE_DIR / "arxiv_sample.xml"
 OPENALEX_FIXTURE = FIXTURE_DIR / "openalex_sample.json"
+MANIFEST_FIXTURE = FIXTURE_DIR / "sample_manifest.json"
 
 
 def _load_module():
@@ -407,6 +408,240 @@ class TestCliBehavior(unittest.TestCase):
         env_extra = {"ADS_API_TOKEN": "", "NASA_ADS_TOKEN": "", "ADS_TOKEN": ""}
         rc, _, _ = _run_cli("--dry-run", "--enable-ads", env_extra=env_extra)
         self.assertEqual(rc, 0)
+
+
+class TestCorpusManifestIndex(unittest.TestCase):
+    """The manifest index drives the novelty join. Test it in isolation."""
+
+    def test_build_index_extracts_canonical_keys(self):
+        idx = discover.build_corpus_manifest_index(MANIFEST_FIXTURE)
+        # DOI map is keyed by normalised DOI (lowercased, no resolver prefix).
+        self.assertIn("10.1234/psp.switchback.2024", idx["by_doi"])
+        psp = idx["by_doi"]["10.1234/psp.switchback.2024"]
+        self.assertEqual(psp["slug"], "paper-psp-switchback-2024")
+
+        # arXiv map is keyed by normalised arXiv ID. The "not-in-local-inventory"
+        # sentinel and the "TODO_verify" placeholder MUST be filtered out --
+        # those values are not valid IDs and must not match a candidate that
+        # happens to have the literal "not-in-local-inventory" string.
+        self.assertIn("2401.00001", idx["by_arxiv"])
+        self.assertIn("2403.04567", idx["by_arxiv"])
+        self.assertNotIn("not-in-local-inventory", idx["by_arxiv"])
+        self.assertNotIn("todo_verify", idx["by_arxiv"])
+        self.assertNotIn("TODO_verify", idx["by_arxiv"])
+
+        # Title+year fallback is keyed by sha1(normalised_title|year) so it
+        # collides with the script's own fallback dedupe key.
+        self.assertTrue(any(k.startswith("title:") for k in idx["by_title_year"]))
+
+    def test_index_total_entries_count_is_reported(self):
+        idx = discover.build_corpus_manifest_index(MANIFEST_FIXTURE)
+        # 5 entries in the fixture manifest. Sentinel / TODO arXiv values
+        # are filtered out of by_arxiv but the entries themselves are still
+        # indexed via DOI / title+year if available.
+        self.assertEqual(idx["entry_count"], 5)
+        self.assertEqual(idx["source_path"], str(MANIFEST_FIXTURE))
+
+
+class TestNoveltyAnnotation(unittest.TestCase):
+    """Test the per-candidate annotation that compares against the manifest."""
+
+    def setUp(self):
+        self.idx = discover.build_corpus_manifest_index(MANIFEST_FIXTURE)
+
+    def _annotate(self, rec):
+        return discover.annotate_candidate_with_corpus_status(rec, self.idx)
+
+    def test_doi_match_marks_already_curated(self):
+        rec = {
+            "id": "doi:10.1234/psp.switchback.2024",
+            "doi": "10.1234/psp.switchback.2024",
+            "title": "anything",
+            "year": 2024,
+        }
+        out = self._annotate(rec)
+        self.assertEqual(out["corpus_status"], "already_curated")
+        self.assertEqual(out["corpus_match_via"], "doi")
+        self.assertIn("paper-psp-switchback-2024", out["corpus_match_slugs"])
+
+    def test_arxiv_match_marks_already_curated_when_no_doi(self):
+        rec = {
+            "id": "arxiv:2403.04567",
+            "doi": None,
+            "arxiv_id": "arXiv:2403.04567v2",
+            "title": "anything",
+            "year": 2024,
+        }
+        out = self._annotate(rec)
+        self.assertEqual(out["corpus_status"], "already_curated")
+        self.assertEqual(out["corpus_match_via"], "arxiv")
+        self.assertIn("paper-solo-cme-2024", out["corpus_match_slugs"])
+
+    def test_title_year_fallback_match(self):
+        rec = {
+            "id": "title:does-not-matter",
+            "doi": None,
+            "arxiv_id": None,
+            "title": "Machine Learning Classification of Solar Wind Types from Wind Spacecraft Data",
+            "year": 2022,
+        }
+        out = self._annotate(rec)
+        self.assertEqual(out["corpus_status"], "already_curated")
+        self.assertEqual(out["corpus_match_via"], "title_year")
+        self.assertIn("paper-wind-ml-classification-2022", out["corpus_match_slugs"])
+
+    def test_non_match_marks_new_candidate(self):
+        rec = {
+            "id": "doi:10.0000/unknown.1",
+            "doi": "10.0000/unknown.1",
+            "arxiv_id": "2999.99999",
+            "title": "Some completely new heliophysics paper not in the curated bundle",
+            "year": 2026,
+        }
+        out = self._annotate(rec)
+        self.assertEqual(out["corpus_status"], "new_candidate")
+        self.assertEqual(out["corpus_match_via"], None)
+        self.assertEqual(out["corpus_match_slugs"], [])
+
+    def test_sentinel_arxiv_does_not_collide(self):
+        """A candidate whose arXiv ID is literally the sentinel string must
+        not match the manifest entry that uses the sentinel."""
+        rec = {
+            "id": "title:whatever",
+            "doi": None,
+            "arxiv_id": "not-in-local-inventory",
+            "title": "A different paper that happens to lack a real arXiv ID",
+            "year": 2025,
+        }
+        out = self._annotate(rec)
+        # Neither the candidate nor the manifest entry should have produced
+        # a valid arXiv key, so this must NOT match the sentinel manifest row.
+        self.assertEqual(out["corpus_status"], "new_candidate")
+        self.assertEqual(out["corpus_match_via"], None)
+
+    def test_doi_match_wins_over_arxiv_when_both_present(self):
+        """If a candidate has both DOI and arXiv ID, the join must report the
+        DOI match (canonical priority), not the arXiv one."""
+        rec = {
+            "id": "doi:10.1234/psp.switchback.2024",
+            "doi": "10.1234/psp.switchback.2024",
+            "arxiv_id": "2401.00001",
+            "title": "anything",
+            "year": 2024,
+        }
+        out = self._annotate(rec)
+        self.assertEqual(out["corpus_match_via"], "doi")
+
+
+class TestNoveltyJoinIntegration(unittest.TestCase):
+    """End-to-end: run_discovery with corpus_manifest_path emits per-record
+    novelty annotations and a top-level summary count."""
+
+    def test_run_discovery_annotates_candidates_and_summary(self):
+        candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=MANIFEST_FIXTURE,
+        )
+
+        # Every candidate must carry the novelty fields.
+        for c in candidates:
+            self.assertIn("corpus_status", c)
+            self.assertIn("corpus_match_via", c)
+            self.assertIn("corpus_match_slugs", c)
+            self.assertIn("corpus_match_titles", c)
+            self.assertIn(c["corpus_status"], {"already_curated", "new_candidate"})
+
+        # The 9-row fixture dedupes to 7 candidates. Three are present in the
+        # fixture manifest (PSP switchback DOI, SolO CME arXiv ID, Wind ML
+        # title+year). The other four are new.
+        statuses = [c["corpus_status"] for c in candidates]
+        self.assertEqual(sum(s == "already_curated" for s in statuses), 3)
+        self.assertEqual(sum(s == "new_candidate" for s in statuses), 4)
+
+        # The summary must surface the count and the manifest source path.
+        self.assertIn("novelty_join", summary)
+        nj = summary["novelty_join"]
+        self.assertEqual(nj["enabled"], True)
+        self.assertEqual(nj["already_curated_count"], 3)
+        self.assertEqual(nj["new_candidate_count"], 4)
+        self.assertEqual(nj["unjoined_count"], 0)
+        self.assertEqual(nj["manifest_path"], str(MANIFEST_FIXTURE))
+        # The honesty disclosure must call out fallback limits explicitly.
+        self.assertIn("title", nj["limits"].lower())
+
+    def test_run_discovery_without_manifest_omits_novelty_annotation(self):
+        """When no manifest is supplied (and the default does not exist),
+        candidates carry corpus_status='unjoined' and the summary records
+        that the join was disabled."""
+        candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=None,
+        )
+        for c in candidates:
+            self.assertEqual(c["corpus_status"], "unjoined")
+            self.assertEqual(c["corpus_match_via"], None)
+            self.assertEqual(c["corpus_match_slugs"], [])
+        self.assertEqual(summary["novelty_join"]["enabled"], False)
+        self.assertEqual(summary["novelty_join"]["already_curated_count"], 0)
+        # When disabled, the script makes no novelty claim either way: every
+        # row is unjoined, not a new_candidate.
+        self.assertEqual(summary["novelty_join"]["new_candidate_count"], 0)
+        self.assertEqual(
+            summary["novelty_join"]["unjoined_count"],
+            summary["deduped_candidate_count"],
+        )
+
+
+class TestCliCorpusManifestFlag(unittest.TestCase):
+    def test_cli_accepts_corpus_manifest_and_reports_counts(self):
+        rc, out, err = _run_cli(
+            "--dry-run",
+            "--output", "-",
+            "--corpus-manifest", str(MANIFEST_FIXTURE),
+        )
+        self.assertEqual(rc, 0, msg=err)
+        lines = [ln for ln in out.splitlines() if ln.strip()]
+        # Same 7 deduped candidates as the no-manifest run.
+        self.assertEqual(len(lines), 7)
+        # Each candidate JSONL row must carry the novelty fields.
+        for ln in lines:
+            rec = json.loads(ln)
+            self.assertIn("corpus_status", rec)
+            self.assertIn(rec["corpus_status"], {"already_curated", "new_candidate"})
+        summary = json.loads(err.strip().splitlines()[-1])
+        self.assertEqual(summary["novelty_join"]["enabled"], True)
+        self.assertEqual(summary["novelty_join"]["already_curated_count"], 3)
+        self.assertEqual(summary["novelty_join"]["new_candidate_count"], 4)
+        self.assertEqual(summary["novelty_join"]["unjoined_count"], 0)
+
+    def test_cli_no_corpus_manifest_flag_reports_disabled(self):
+        # Force the script to skip the manifest by pointing at a path that
+        # does not exist. The CLI must report novelty_join.enabled = False
+        # rather than crashing.
+        rc, out, err = _run_cli(
+            "--dry-run",
+            "--output", "-",
+            "--corpus-manifest", "/nonexistent/path/to/manifest.json",
+        )
+        self.assertEqual(rc, 0, msg=err)
+        summary = json.loads(err.strip().splitlines()[-1])
+        self.assertEqual(summary["novelty_join"]["enabled"], False)
 
 
 if __name__ == "__main__":
