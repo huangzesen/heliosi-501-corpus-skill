@@ -344,6 +344,128 @@ class TestAuditWikilinks(unittest.TestCase):
             )
             self.assertTrue(unresolved[0]["referrers"][0]["in_inline_code"])
 
+    # --- fenced-code-block exclusion ----------------------------------------
+
+    def test_fenced_code_block_wikilink_is_tagged(self):
+        """A ``[[target]]`` token wholly inside a fenced (triple-backtick)
+        code block is a documentation sample, not a real cross-reference.
+
+        The audit's single-line inline-code regex does NOT catch
+        multi-line fenced blocks (this is explicitly documented in
+        GRAPH_POLICY.md §2 as a known under-coverage). The audit must
+        flag such occurrences with ``in_fenced_code_block: True`` so
+        downstream consumers (e.g. the graph builder) can suppress them
+        the same way they already suppress inline-code samples.
+
+        Concrete trigger on the live corpus: the
+        ``paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml``
+        SKILL.md contains a Python snippet whose ``moments[["Te_perp",
+        "Te_par", "Te_over_Ti"]]`` column index parses as a wikilink
+        but is obviously not one.
+        """
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            # Use a non-dedented raw body so the fenced block is preserved
+            # byte-for-byte; textwrap.dedent would chew the leading
+            # whitespace inside the python snippet.
+            body = (
+                "---\n"
+                "name: paper-a\n"
+                "---\n"
+                "# A\n"
+                "\n"
+                "Real link: [[paper-b]].\n"
+                "\n"
+                "```python\n"
+                "# A doc snippet whose array indexing parses as a wikilink:\n"
+                "moments[[\"Te_perp\", \"Te_par\", \"Te_over_Ti\"]]\n"
+                "```\n"
+            )
+            (root / "references" / "corpus"
+             / "batch_x" / "paper-a").mkdir(parents=True)
+            (root / "references" / "corpus"
+             / "batch_x" / "paper-a" / "SKILL.md").write_text(
+                body, encoding="utf-8"
+            )
+            manifest_path = root / "references" / "corpus_manifest_v2.json"
+            manifest_path.write_text(
+                json.dumps({
+                    "schema_version": "rollup-2.0",
+                    "totals": {"skills_in_manifests": 2},
+                    "entries": [
+                        {"slug": "paper-a", "batch": "batch_x",
+                         "path": "batch_x/paper-a"},
+                        {"slug": "paper-b", "batch": "batch_x",
+                         "path": "batch_x/paper-b"},
+                    ],
+                }, indent=2),
+                encoding="utf-8",
+            )
+
+            rc, out, err = _run_audit(
+                root / "references" / "corpus",
+                manifest_path,
+                "--json",
+            )
+            self.assertEqual(rc, 0, msg=err)
+            s = json.loads(out)
+
+            # Two wikilink occurrences total: one resolved prose link,
+            # one fenced-code-block doc sample.
+            self.assertEqual(s["totals"]["wikilink_occurrences"], 2)
+            self.assertEqual(
+                s["totals"]["wikilink_occurrences_in_fenced_code_block"], 1
+            )
+            # The fenced-block occurrence still surfaces under
+            # ``unresolved`` (so the audit stays honest about what it
+            # saw), but every referrer must carry
+            # ``in_fenced_code_block: True`` so consumers can suppress
+            # it the same way they suppress inline-code samples.
+            unresolved = s["unresolved"]
+            self.assertEqual(len(unresolved), 1)
+            rec = unresolved[0]
+            # The target is the raw bracketed content. We do not assert
+            # the exact string (it depends on quote-handling); we DO
+            # assert every referrer is flagged in_fenced_code_block.
+            self.assertEqual(rec["occurrences"], 1)
+            self.assertEqual(rec["occurrences_in_fenced_code_block"], 1)
+            self.assertTrue(rec["referrers"][0]["in_fenced_code_block"])
+            # And the inline-code flag remains False on this referrer,
+            # since the wikilink is in a FENCED block, not an inline
+            # backtick span.
+            self.assertFalse(rec["referrers"][0]["in_inline_code"])
+
+    def test_inline_code_flag_unchanged_by_fenced_addition(self):
+        """A wikilink inside a single-line inline-code span (no fenced
+        block in the file) must still be flagged ``in_inline_code: True``
+        and ``in_fenced_code_block: False``. The new field is additive
+        and does not steal occurrences from the existing field."""
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            corpus, manifest = _make_fixture(
+                root,
+                entries={
+                    "batch_x/paper-a": """
+                        ---
+                        name: paper-a
+                        ---
+                        # A
+                        Inline sample: `[[paper-b]]`.
+                    """,
+                },
+                manifest_slugs=["paper-a", "paper-b"],
+            )
+            rc, out, err = _run_audit(corpus, manifest, "--json")
+            self.assertEqual(rc, 0, msg=err)
+            s = json.loads(out)
+            self.assertEqual(s["totals"]["wikilink_occurrences"], 1)
+            self.assertEqual(
+                s["totals"]["wikilink_occurrences_in_inline_code"], 1
+            )
+            self.assertEqual(
+                s["totals"]["wikilink_occurrences_in_fenced_code_block"], 0
+            )
+
     # --- default exit code is zero ------------------------------------------
 
     def test_default_exit_zero_even_with_unresolved(self):

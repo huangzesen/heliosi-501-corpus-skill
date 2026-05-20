@@ -275,6 +275,77 @@ class TestBuildCorpusSkillGraph(unittest.TestCase):
                 "wikilink_prose",
             )
 
+    def test_fenced_code_block_resolved_target_does_not_produce_edge(self):
+        """A wikilink that resolves but lives inside a fenced (triple-
+        backtick) code block is a documentation snippet, not a real
+        cross-reference. The graph builder must exclude it from
+        ``edges`` and roll it into ``edges_inline_code_excluded`` (the
+        existing "code sample" counter) so the artifact stays honest.
+
+        Concrete trigger on the live corpus: the
+        ``paper-sasli-2026-ember-modulated-ion-acoustic-wave-ml``
+        SKILL.md contains a Python snippet whose
+        ``moments[["Te_perp", "Te_par", "Te_over_Ti"]]`` column index
+        parses as a wikilink. The fenced-code exclusion is the
+        documented fix for GRAPH_POLICY.md §2's "known under-coverage".
+        """
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            # Build the SKILL.md without textwrap.dedent so the fenced
+            # block is preserved exactly. The fenced block contains a
+            # resolved wikilink target (``paper-b``); the graph builder
+            # must NOT emit it as an edge.
+            corpus = root / "references" / "corpus"
+            (corpus / "batch_x" / "paper-a").mkdir(parents=True)
+            (corpus / "batch_x" / "paper-a" / "SKILL.md").write_text(
+                "---\nname: paper-a\n---\n"
+                "# A\n"
+                "\n"
+                "```python\n"
+                "# Doc snippet: the canonical slug is [[paper-b]].\n"
+                "print('hi')\n"
+                "```\n",
+                encoding="utf-8",
+            )
+            (corpus / "batch_x" / "paper-b").mkdir(parents=True)
+            (corpus / "batch_x" / "paper-b" / "SKILL.md").write_text(
+                "Hi.\n", encoding="utf-8",
+            )
+            manifest_path = root / "references" / "corpus_manifest_v2.json"
+            manifest_path.write_text(
+                json.dumps({
+                    "schema_version": "rollup-2.0",
+                    "totals": {"skills_in_manifests": 2},
+                    "entries": [
+                        {"slug": "paper-a", "batch": "batch_x",
+                         "path": "batch_x/paper-a"},
+                        {"slug": "paper-b", "batch": "batch_x",
+                         "path": "batch_x/paper-b"},
+                    ],
+                }, indent=2),
+                encoding="utf-8",
+            )
+
+            out_path = root / "references" / "corpus_skill_graph.json"
+            rc, _, err = _run_builder(
+                corpus, manifest_path,
+                "--output", str(out_path),
+                "--no-timestamp",
+            )
+            self.assertEqual(rc, 0, msg=err)
+            g = json.loads(out_path.read_text(encoding="utf-8"))
+            self.assertEqual(g["edges"], [],
+                             "fenced-code wikilinks must not produce edges")
+            self.assertEqual(g["totals"]["edges_inline_code_excluded"], 1)
+            # The audit total surfaces the fenced occurrence
+            # separately so a consumer can distinguish the two cases.
+            self.assertEqual(
+                g["source_audit"]["totals"][
+                    "wikilink_occurrences_in_fenced_code_block"
+                ],
+                1,
+            )
+
     def test_inline_code_resolved_target_does_not_produce_edge(self):
         """A wikilink that resolves but sits inside an inline code span
         is a documentation sample (showing the canonical slug as text),
@@ -381,6 +452,86 @@ class TestBuildCorpusSkillGraph(unittest.TestCase):
                 rec["classification"], "inline_code_canonical_suggestion"
             )
             self.assertEqual(rec["suggestions"], ["foo"])
+
+    def test_fenced_code_block_unresolved_classified_as_code_sample(self):
+        """An unresolved wikilink whose every occurrence lives inside a
+        fenced (triple-backtick) code block is a doc sample, not honest
+        curation debt. The graph builder must classify it under the
+        same code-sample buckets it already uses for inline-code-only
+        occurrences -- ``inline_code_literal`` when there is no
+        suggestion, ``inline_code_canonical_suggestion`` when there is.
+
+        Concrete trigger on the live corpus: the
+        ``[["Te_perp", "Te_par", "Te_over_Ti"]]`` token inside a Python
+        snippet would otherwise misclassify as
+        ``external_reference_candidate`` (a non-paper target with no
+        suggestion). Treating fenced-block occurrences as code samples
+        keeps the unresolved/external-candidate counters honest.
+        """
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            corpus = root / "references" / "corpus"
+            (corpus / "batch_x" / "paper-a").mkdir(parents=True)
+            (corpus / "batch_x" / "paper-a" / "SKILL.md").write_text(
+                "---\nname: paper-a\n---\n"
+                "# A\n"
+                "\n"
+                "```python\n"
+                "moments[[\"Te_perp\", \"Te_par\", \"Te_over_Ti\"]]\n"
+                "```\n",
+                encoding="utf-8",
+            )
+            manifest_path = root / "references" / "corpus_manifest_v2.json"
+            manifest_path.write_text(
+                json.dumps({
+                    "schema_version": "rollup-2.0",
+                    "totals": {"skills_in_manifests": 1},
+                    "entries": [
+                        {"slug": "paper-a", "batch": "batch_x",
+                         "path": "batch_x/paper-a"},
+                    ],
+                }, indent=2),
+                encoding="utf-8",
+            )
+
+            out_path = root / "references" / "corpus_skill_graph.json"
+            rc, _, err = _run_builder(
+                corpus, manifest_path,
+                "--output", str(out_path),
+                "--no-timestamp",
+            )
+            self.assertEqual(rc, 0, msg=err)
+            g = json.loads(out_path.read_text(encoding="utf-8"))
+            # The fenced-block occurrence must NOT be misclassified as
+            # an external_reference_candidate, since it is not real
+            # off-corpus infrastructure -- it is array indexing inside
+            # a code sample.
+            externals = {e["target"]
+                         for e in g["external_reference_candidates"]}
+            self.assertNotIn(
+                '"Te_perp", "Te_par", "Te_over_Ti"', externals,
+                "fenced-code-block tuple must not be promoted to "
+                "external_reference_candidate",
+            )
+            # The target is still reported under unresolved_references
+            # (so the audit stays honest about what it saw) but is
+            # classified under one of the doc-sample buckets.
+            unresolved = {u["target"]: u for u in g["unresolved_references"]}
+            tuple_key = '"Te_perp", "Te_par", "Te_over_Ti"'
+            self.assertIn(tuple_key, unresolved)
+            rec = unresolved[tuple_key]
+            self.assertIn(
+                rec["classification"],
+                ("inline_code_literal",
+                 "inline_code_canonical_suggestion"),
+            )
+            # The graph builder must forward the audit's per-target
+            # ``occurrences_in_fenced_code_block`` counter so consumers
+            # can tell the two doc-sample contexts apart without
+            # walking referrers themselves.
+            self.assertEqual(rec["occurrences_in_fenced_code_block"], 1)
+            self.assertEqual(rec["occurrences_in_inline_code"], 0)
+            self.assertTrue(rec["referrers"][0]["in_fenced_code_block"])
 
     def test_unresolved_paper_reference_needs_curation(self):
         """Prose ``paper-X`` with no suggestion -> needs curation."""

@@ -51,7 +51,7 @@ different ways. The graph treats them as follows:
 | Prose wikilink | `See [[paper-a]] for context.` | ✅ Edge; `context: "wikilink_prose"`. |
 | Depends-on section | Listed under `## Skill graph → depends_on` | ✅ Edge; `context: "depends_on_section"`. |
 | Inline-code wikilink | `Example: ` `` `[[paper-a]]` `` | ❌ Excluded. Counted in `totals.edges_inline_code_excluded`. |
-| Fenced-code-block reference | ` ```...[[paper-a]]... ``` ` | ⚠️ Audit only treats single-line backtick spans as inline code. A wikilink that lives inside a multi-line fenced code block is currently treated as a prose link. This is a known under-coverage of the audit, not a bug of the graph builder; the graph forwards what the audit reports. |
+| Fenced-code-block reference | ` ```...[[paper-a]]... ``` ` | ❌ Excluded. The audit tracks fenced state with a line-toggle on lines whose first non-whitespace characters are ```, and tags every wikilink between an opener and a closer with `in_fenced_code_block: True`. These are code samples (a Python snippet whose pandas-style column index happens to parse as `[[...]]`, a doc snippet showing canonical slug syntax, …), not real cross-references. Counted under `totals.edges_inline_code_excluded` together with inline-code occurrences; the audit additionally surfaces the per-target count via `totals.wikilink_occurrences_in_fenced_code_block` and per-occurrence via `referrers[].in_fenced_code_block`. |
 
 The `link_type` field is currently always `"wikilink"`. The schema
 reserves the space for future link types (e.g. explicit
@@ -68,28 +68,34 @@ about the underlying paper.
 
 ### 3.1 `inline_code_literal`
 
-Every occurrence sits inside a backtick code span AND the audit has no
-suggestion. Almost always a placeholder example like:
+Every occurrence sits inside a *code-sample context* — either a
+single-line inline-backtick span OR a multi-line ``` fenced block —
+AND the audit has no suggestion. Almost always a placeholder example
+like:
 
 > Unresolved links remain as `` `[[slug]]` `` until they exist.
 
-These are documentation samples, not edges. The graph counts them so
-the totals reconcile against the audit, but a downstream consumer
-should normally ignore them.
+…or an in-snippet token (e.g. a pandas-style column index inside a
+Python fenced block whose `moments[["A", "B"]]` happens to parse as a
+wikilink). These are documentation samples, not edges. The graph
+counts them so the totals reconcile against the audit, but a downstream
+consumer should normally ignore them. The bucket name is retained for
+backwards compatibility with the `corpus-skill-graph-1` schema; the
+predicate is broadened to cover both code-sample contexts.
 
 ### 3.2 `inline_code_canonical_suggestion`
 
-Every occurrence sits inside an inline code span AND the audit has at
-least one mechanical suggestion. Typically a doc snippet showing the
-legacy form of a slug that now exists under a canonical name, e.g.
-`` `[[paper-foo]]` `` in a snippet that explains the wikilink syntax
-when the manifest carries `foo`. Treated the same as
-`inline_code_literal` for graph purposes; the only difference is that
-the audit knows a real slug that *looks like* the placeholder.
+Every occurrence sits inside a code-sample context (inline or fenced)
+AND the audit has at least one mechanical suggestion. Typically a doc
+snippet showing the legacy form of a slug that now exists under a
+canonical name, e.g. `` `[[paper-foo]]` `` in a snippet that explains
+the wikilink syntax when the manifest carries `foo`. Treated the same
+as `inline_code_literal` for graph purposes; the only difference is
+that the audit knows a real slug that *looks like* the placeholder.
 
 ### 3.3 `paper_reference_needs_curation`
 
-Target starts with `paper-`, has at least one prose (non-inline-code)
+Target starts with `paper-`, has at least one prose (non-code-sample)
 occurrence, and the audit has no mechanical suggestion. This is
 honest curation debt: the wikilink reads like a paper-skill reference
 but no manifest slug matches under any prefix or normalization
@@ -100,7 +106,8 @@ out of scope?) and will happen across follow-up PRs.
 ### 3.4 `external_reference_candidate`
 
 Target does NOT start with `paper-`, has at least one prose
-occurrence, and the audit has no mechanical suggestion. The corpus
+(non-code-sample) occurrence, and the audit has no mechanical
+suggestion. The corpus
 prose typically uses this form for runtime / tool / loader names
 (`pfss-tracing`, `nspf-fem`, `psp-sweap-bulk-loader`,
 `switchback-boundary-finder`, …) — i.e. off-corpus infrastructure that
@@ -109,10 +116,10 @@ a paper-skill names but does not internalize. The roll-up at
 
 **Non-authoritative.** The graph does NOT claim these targets exist
 in any registry, and does NOT promote them to nodes. A target landing
-in this bucket can also be a typo of a paper slug or a wikilink that
-slipped through a fenced code block (the audit's inline-code detector
-is single-line only). Treat the bucket as a pointer to off-corpus
-references, not a list of node identifiers.
+in this bucket can also be a typo of a paper slug or another unresolved
+prose token whose meaning cannot be inferred mechanically. Treat the
+bucket as a pointer to off-corpus references, not a list of node
+identifiers.
 
 ### 3.5 `unresolved_no_suggestion`
 

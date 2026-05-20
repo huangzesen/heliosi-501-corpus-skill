@@ -79,9 +79,17 @@ pass described in §4b; the source of truth is whatever
 
 - 501 per-entry SKILL.md scanned
 - 442 entries carry at least one wikilink
-- 1752 wikilink occurrences total, of which 648 sit inside inline
-  `` ` ``-delimited code spans (mostly placeholder samples like
-  `` `[[slug]]` `` shown to the reader as literal template text)
+- 1752 wikilink occurrences total, of which:
+  - 648 sit inside inline `` ` ``-delimited code spans (mostly placeholder
+    samples like `` `[[slug]]` `` shown to the reader as literal template
+    text);
+  - 1 sits inside a multi-line ``` fenced code block (a Python snippet's
+    pandas-style column index `moments[["Te_perp", "Te_par", "Te_over_Ti"]]`
+    that happens to parse as a wikilink — not a real cross-reference).
+    Surfaced under the audit's new
+    `totals.wikilink_occurrences_in_fenced_code_block` counter and per-
+    occurrence via `referrers[].in_fenced_code_block: true`. See
+    GRAPH_POLICY.md §2 for the policy.
 - 334 unique wikilink targets:
   - 278 resolve to a canonical manifest slug
   - **56 are unresolved**

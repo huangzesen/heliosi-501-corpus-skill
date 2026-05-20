@@ -29,14 +29,16 @@ exists in ``references/corpus_manifest_v2.json``.
 Per-occurrence rules
 --------------------
 
-* A wikilink whose audit ``in_inline_code`` flag is True is NEVER
-  rewritten. Inline-code wikilinks are documentation samples
-  (``Unresolved links remain as `[[slug]]` until they exist``) and
-  treating them as edges would silently turn placeholder text into a
-  real cross-reference.
-* When a target appears in BOTH prose and inline-code on different
-  lines, only the prose occurrences are rewritten; the inline-code
-  occurrences are preserved verbatim.
+* A wikilink whose audit ``in_inline_code`` OR
+  ``in_fenced_code_block`` flag is True is NEVER rewritten. Inline-code
+  and fenced-code wikilinks are documentation samples
+  (``Unresolved links remain as `[[slug]]` until they exist``;
+  ``moments[["Te_perp", "Te_par"]]`` inside a Python snippet) and
+  treating them as edges would silently turn placeholder / code text into
+  a real cross-reference.
+* When a target appears in BOTH prose and code-sample contexts on
+  different lines, only the prose occurrences are rewritten; the
+  code-sample occurrences are preserved verbatim.
 * Display labels are preserved: ``[[paper-foo|Foo (2025)]]`` becomes
   ``[[foo|Foo (2025)]]``.
 
@@ -147,46 +149,51 @@ def _is_safe_paper_prefix_repair(record: dict, slug_set: set) -> tuple:
 
 
 def _replace_in_text(text: str, target: str, replacement: str,
-                     inline_code_lines: set) -> tuple:
+                     inline_code_spans: set, fenced_lines: set) -> tuple:
     """Replace every ``[[target]]`` and ``[[target|label]]`` occurrence
     in ``text`` with ``[[replacement]]`` / ``[[replacement|label]]``,
-    UNLESS the wikilink span sits inside a single-line backtick code
-    span. Returns ``(new_text, n_replaced, n_skipped_inline)``.
+    UNLESS the wikilink span sits inside a code-sample context (a
+    single-line backtick span OR a multi-line fenced code block). Returns
+    ``(new_text, n_replaced, n_skipped_code_sample)``.
 
-    ``inline_code_lines`` is computed once per file from
+    ``inline_code_spans`` is computed once per file from
     ``audit_wikilinks.INLINE_CODE_RE`` and is the set of ``(start, end)``
-    character spans for each inline-code run.
+    character spans for each inline-code run. ``fenced_lines`` is the
+    1-based set returned by ``audit_wikilinks._fenced_lines``.
     """
     pattern = re.compile(
         r"\[\[" + re.escape(target) + r"(\|[^\]\n]*)?\]\]"
     )
     n_replaced = 0
-    n_skipped_inline = 0
+    n_skipped_code_sample = 0
 
     def _repl(m: re.Match) -> str:
-        nonlocal n_replaced, n_skipped_inline
+        nonlocal n_replaced, n_skipped_code_sample
         start, end = m.span()
         in_code = any(cs <= start and end <= ce
-                      for cs, ce in inline_code_lines)
-        if in_code:
-            n_skipped_inline += 1
+                      for cs, ce in inline_code_spans)
+        line_no = text.count("\n", 0, start) + 1
+        in_fenced = line_no in fenced_lines
+        if in_code or in_fenced:
+            n_skipped_code_sample += 1
             return m.group(0)
         label = m.group(1) or ""
         n_replaced += 1
         return f"[[{replacement}{label}]]"
 
     new_text = pattern.sub(_repl, text)
-    return new_text, n_replaced, n_skipped_inline
+    return new_text, n_replaced, n_skipped_code_sample
 
 
 def _build_repair_plan(audit_summary: dict, slug_set: set) -> tuple:
     """Classify every unresolved audit record into ``eligible_targets``
     (a list of ``{target, replacement, occurrences, prose_occurrences,
-    inline_occurrences, referrers}``) and ``skipped_targets`` (a list of
-    ``{target, occurrences, reason}``). Targets that are eligible by the
-    rule but have zero prose occurrences (i.e. they are entirely inside
-    inline-code spans) are demoted to ``skipped`` with reason
-    ``all-inline-code``, since the per-occurrence rule would skip every
+    inline_occurrences, fenced_occurrences, referrers}``) and
+    ``skipped_targets`` (a list of ``{target, occurrences, reason}``).
+    Targets that are eligible by the rule but have zero prose
+    occurrences (i.e. they are entirely inside inline-code spans or
+    fenced code blocks) are demoted to ``skipped`` with reason
+    ``all-code-sample``, since the per-occurrence rule would skip every
     occurrence anyway.
     """
     eligible_targets = []
@@ -200,21 +207,26 @@ def _build_repair_plan(audit_summary: dict, slug_set: set) -> tuple:
                 "occurrences": rec["occurrences"],
                 "occurrences_in_inline_code":
                     rec["occurrences_in_inline_code"],
+                "occurrences_in_fenced_code_block":
+                    rec.get("occurrences_in_fenced_code_block", 0),
                 "reason": reason,
                 "suggestions": rec["suggestions"],
             })
             continue
-        prose_occs = rec["occurrences"] - rec["occurrences_in_inline_code"]
+        inline_occs = rec["occurrences_in_inline_code"]
+        fenced_occs = rec.get("occurrences_in_fenced_code_block", 0)
+        code_sample_occs = min(rec["occurrences"], inline_occs + fenced_occs)
+        prose_occs = rec["occurrences"] - code_sample_occs
         if prose_occs == 0:
-            # Eligible by name but every reference is inside a backtick
-            # span. The per-occurrence rule would skip them all; record
+            # Eligible by name but every reference is inside a code-sample
+            # context. The per-occurrence rule would skip them all; record
             # the skip honestly so the report shows them.
             skipped_targets.append({
                 "target": rec["target"],
                 "occurrences": rec["occurrences"],
-                "occurrences_in_inline_code":
-                    rec["occurrences_in_inline_code"],
-                "reason": "all-inline-code",
+                "occurrences_in_inline_code": inline_occs,
+                "occurrences_in_fenced_code_block": fenced_occs,
+                "reason": "all-code-sample",
                 "suggestions": rec["suggestions"],
             })
             continue
@@ -223,7 +235,8 @@ def _build_repair_plan(audit_summary: dict, slug_set: set) -> tuple:
             "replacement": replacement,
             "occurrences": rec["occurrences"],
             "prose_occurrences": prose_occs,
-            "inline_occurrences": rec["occurrences_in_inline_code"],
+            "inline_occurrences": inline_occs,
+            "fenced_occurrences": fenced_occs,
             "referrers": rec["referrers"],
         })
 
@@ -245,7 +258,7 @@ def _files_to_touch(eligible_targets: list) -> dict:
     by_file: dict = {}
     for entry in eligible_targets:
         for ref in entry["referrers"]:
-            if ref["in_inline_code"]:
+            if ref["in_inline_code"] or ref.get("in_fenced_code_block", False):
                 continue
             by_file.setdefault(ref["path"], [])
             tup = (entry["target"], entry["replacement"])
@@ -280,12 +293,13 @@ def _execute_repairs(
 
         code_spans = [(m.start(), m.end())
                       for m in INLINE_CODE_RE.finditer(text)]
+        fenced_lines = audit_module._fenced_lines(text)
 
         new_text = text
         per_file_count = 0
         for target, replacement in edits:
             new_text, n_replaced, _ = _replace_in_text(
-                new_text, target, replacement, set(code_spans),
+                new_text, target, replacement, set(code_spans), fenced_lines,
             )
             if n_replaced:
                 per_file_count += n_replaced
@@ -299,6 +313,7 @@ def _execute_repairs(
             # target in the same file does not pick up shifted offsets.
             code_spans = [(m.start(), m.end())
                           for m in INLINE_CODE_RE.finditer(new_text)]
+            fenced_lines = audit_module._fenced_lines(new_text)
 
         planned += per_file_count
         if per_file_count > 0:
@@ -333,8 +348,12 @@ def _render_human(payload: dict, eligible_targets: list,
         lines.append("-" * 72)
         for r in eligible_targets:
             note = ""
-            if r["inline_occurrences"]:
-                note = (f" ({r['inline_occurrences']} inline-code "
+            code_sample_count = (
+                r.get("inline_occurrences", 0)
+                + r.get("fenced_occurrences", 0)
+            )
+            if code_sample_count:
+                note = (f" ({code_sample_count} code-sample "
                         f"occurrence(s) preserved)")
             lines.append(
                 f"  * [[{r['target']}]] -> [[{r['replacement']}]]"

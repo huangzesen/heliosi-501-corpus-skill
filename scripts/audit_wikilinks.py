@@ -70,6 +70,20 @@ WIKILINK_RE = re.compile(r"\[\[([^\]\|\n]+?)(?:\|[^\]\n]*)?\]\]")
 # documentation samples.
 INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
 
+# Fenced code block opener / closer (triple-backtick). Wikilinks that
+# sit inside a fenced block are also documentation samples -- e.g. a
+# Python snippet whose pandas-style column index ``moments[["a", "b"]]``
+# happens to parse as a wikilink even though it is array indexing, not
+# a cross-reference. The single-line INLINE_CODE_RE above does not
+# catch these (the wikilink and the surrounding backticks live on
+# different lines), so we track fenced state with a separate single-
+# line opener regex and toggle on each match. This is intentionally a
+# coarse rule -- it does not honour CommonMark's matching-fence-length
+# / matching-info-string semantics -- because the corpus uses fences
+# in a uniform ``` form and a sanity check on the live 501-entry
+# corpus shows every per-entry SKILL.md has an even fence count.
+FENCED_CODE_OPENER_RE = re.compile(r"^\s*```")
+
 # Header that introduces the prose ``Skill graph → depends_on`` section.
 # Some entries use the unicode arrow, others use ``->`` or ``-``; allow
 # both. We only care that the heading exists; the list under it is parsed
@@ -117,18 +131,50 @@ def _iter_skill_files(corpus_root: Path):
         yield rel, p
 
 
+def _fenced_lines(text: str) -> set[int]:
+    """Return the 1-based line numbers that sit *inside* a fenced
+    code block in ``text``.
+
+    A fenced block is delimited by lines whose first non-whitespace
+    characters are ``` (triple backtick). The opener and closer lines
+    themselves are NOT considered "inside" the block; only the lines
+    between them. This matches the intuition that a ``[[target]]`` token
+    on a fence opener line is part of the surrounding prose, not the
+    code sample.
+    """
+    inside: set[int] = set()
+    in_fence = False
+    for i, ln in enumerate(text.splitlines(), start=1):
+        if FENCED_CODE_OPENER_RE.match(ln):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            inside.add(i)
+    return inside
+
+
 def _find_wikilinks(text: str):
-    """Yield ``(target, line_number, in_inline_code)`` for every
-    ``[[...]]`` in ``text``.
+    """Yield ``(target, line_number, in_inline_code, in_fenced_code_block)``
+    for every ``[[...]]`` in ``text``.
 
     ``line_number`` is 1-based and counts only lines (not bytes).
     ``in_inline_code`` is True when the wikilink's full ``[[...]]`` span
     is wholly contained inside a single-line backtick code span, e.g.
-    ``Unresolved links remain as `[[slug]]` until they exist``. Whitespace
-    inside the target is stripped.
+    ``Unresolved links remain as `[[slug]]` until they exist``.
+    ``in_fenced_code_block`` is True when the wikilink lives on a line
+    that sits between a pair of triple-backtick fence delimiters --
+    a documentation snippet rather than a real cross-reference.
+    Whitespace inside the target is stripped.
+
+    The two code-context flags are independent: an occurrence is
+    flagged ``in_inline_code`` iff the inline-backtick regex covers
+    it AND ``in_fenced_code_block`` iff its line is inside a fenced
+    block. In practice the live corpus contains zero wikilinks where
+    both flags are True simultaneously, but the schema allows it.
     """
     code_spans = [(m.start(), m.end())
                   for m in INLINE_CODE_RE.finditer(text)]
+    fenced_lines = _fenced_lines(text)
     for m in WIKILINK_RE.finditer(text):
         target = m.group(1).strip()
         if not target:
@@ -137,7 +183,8 @@ def _find_wikilinks(text: str):
         in_code = any(cs <= start and end <= ce
                       for cs, ce in code_spans)
         line_no = text.count("\n", 0, start) + 1
-        yield target, line_no, in_code
+        in_fenced = line_no in fenced_lines
+        yield target, line_no, in_code, in_fenced
 
 
 def _suggest(unresolved_target: str, slug_set: set[str],
@@ -196,6 +243,7 @@ def compute_audit(
             "files_with_wikilinks": 442,
             "wikilink_occurrences": 1752,
             "wikilink_occurrences_in_inline_code": 648,
+            "wikilink_occurrences_in_fenced_code_block": 1,
             "unique_targets": 336,
             "resolved_targets": 241,
             "unresolved_targets": 95,
@@ -206,9 +254,12 @@ def compute_audit(
               "target": "paper-foo",
               "occurrences": 3,
               "occurrences_in_inline_code": 0,
+              "occurrences_in_fenced_code_block": 0,
               "referrers": [
                 {"path": "batch_x/slug/SKILL.md",
-                 "line": 102, "in_inline_code": false},
+                 "line": 102,
+                 "in_inline_code": false,
+                 "in_fenced_code_block": false},
                 ...
               ],
               "suggestions": ["foo"]
@@ -231,11 +282,12 @@ def compute_audit(
     for k in normalized_index:
         normalized_index[k].sort()
 
-    # Map target -> list of {path, line, in_inline_code}. occurrences
-    # inferred from len.
+    # Map target -> list of {path, line, in_inline_code,
+    # in_fenced_code_block}. occurrences inferred from len.
     occurrences: dict[str, list[dict]] = {}
     total_occurrences = 0
     in_code_occurrences = 0
+    in_fenced_occurrences = 0
     files_with_wikilinks = 0
     files_scanned = 0
     entries_with_depends_section: list[str] = []
@@ -251,13 +303,18 @@ def compute_audit(
             text = abs_path.read_text(encoding="latin-1")
 
         had_any = False
-        for target, line_no, in_code in _find_wikilinks(text):
-            occurrences.setdefault(target, []).append(
-                {"path": rel, "line": line_no, "in_inline_code": in_code}
-            )
+        for target, line_no, in_code, in_fenced in _find_wikilinks(text):
+            occurrences.setdefault(target, []).append({
+                "path": rel,
+                "line": line_no,
+                "in_inline_code": in_code,
+                "in_fenced_code_block": in_fenced,
+            })
             total_occurrences += 1
             if in_code:
                 in_code_occurrences += 1
+            if in_fenced:
+                in_fenced_occurrences += 1
             had_any = True
         if had_any:
             files_with_wikilinks += 1
@@ -276,10 +333,12 @@ def compute_audit(
     for target in unresolved:
         refs = occurrences[target]
         in_code = sum(1 for r in refs if r["in_inline_code"])
+        in_fenced = sum(1 for r in refs if r["in_fenced_code_block"])
         unresolved_records.append({
             "target": target,
             "occurrences": len(refs),
             "occurrences_in_inline_code": in_code,
+            "occurrences_in_fenced_code_block": in_fenced,
             "referrers": refs,
             "suggestions": _suggest(target, slug_set, normalized_index),
         })
@@ -299,6 +358,8 @@ def compute_audit(
             "files_with_wikilinks": files_with_wikilinks,
             "wikilink_occurrences": total_occurrences,
             "wikilink_occurrences_in_inline_code": in_code_occurrences,
+            "wikilink_occurrences_in_fenced_code_block":
+                in_fenced_occurrences,
             "unique_targets": len(unique_targets),
             "resolved_targets": len(resolved),
             "unresolved_targets": len(unresolved),
@@ -331,7 +392,9 @@ def _render_human(summary: dict) -> str:
     lines.append(
         f"  total wikilinks    : {t['wikilink_occurrences']}"
         f"  ({t['wikilink_occurrences_in_inline_code']} inside"
-        f" inline `code` spans — likely doc/placeholder samples)"
+        f" inline `code` spans, "
+        f"{t['wikilink_occurrences_in_fenced_code_block']} inside"
+        f" ``` fenced blocks — likely doc/placeholder samples)"
     )
     lines.append(
         f"  unique targets     : {t['unique_targets']}"
@@ -361,10 +424,16 @@ def _render_human(summary: dict) -> str:
             f"  ⟶ suggest: {', '.join(rec['suggestions'])}"
             if rec["suggestions"] else ""
         )
-        code_note = (
-            f" [{rec['occurrences_in_inline_code']} inline-code]"
-            if rec["occurrences_in_inline_code"] else ""
-        )
+        code_bits = []
+        if rec["occurrences_in_inline_code"]:
+            code_bits.append(
+                f"{rec['occurrences_in_inline_code']} inline-code"
+            )
+        if rec.get("occurrences_in_fenced_code_block"):
+            code_bits.append(
+                f"{rec['occurrences_in_fenced_code_block']} fenced-code"
+            )
+        code_note = f" [{', '.join(code_bits)}]" if code_bits else ""
         lines.append(
             f"  ! [[{rec['target']}]] "
             f"({rec['occurrences']} occurrence"
@@ -372,7 +441,12 @@ def _render_human(summary: dict) -> str:
             f"{suff}"
         )
         for ref in rec["referrers"][:5]:
-            tag = " (in code)" if ref["in_inline_code"] else ""
+            if ref["in_inline_code"]:
+                tag = " (in inline code)"
+            elif ref.get("in_fenced_code_block"):
+                tag = " (in fenced code block)"
+            else:
+                tag = ""
             lines.append(
                 f"      - {ref['path']}:{ref['line']}{tag}"
             )

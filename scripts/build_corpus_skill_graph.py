@@ -133,16 +133,21 @@ def _classify_unresolved(rec: dict) -> str:
     point at. Buckets:
 
     * ``inline_code_literal`` -- every occurrence sits inside a
-      backtick code span AND the audit has no suggestion. Almost always
-      a placeholder example like ``Unresolved links remain as
-      `[[slug]]` ...``.
+      code-sample context (a single-line backtick span OR a multi-line
+      ``` fenced block) AND the audit has no suggestion. Almost always
+      a placeholder example (``Unresolved links remain as `[[slug]]`
+      ...``) or an in-snippet token (e.g. a pandas-style column index
+      that happens to parse as a wikilink). The bucket name is
+      retained for backwards compatibility with consumers of the
+      ``corpus-skill-graph-1`` schema; the predicate is broadened to
+      cover both inline-code spans and fenced blocks.
     * ``inline_code_canonical_suggestion`` -- every occurrence sits
-      inside inline code AND the audit has at least one suggestion.
-      Typically a doc snippet showing the legacy form of a slug that
-      now exists under a canonical name; the snippet is not really an
-      edge.
+      inside a code-sample context AND the audit has at least one
+      suggestion. Typically a doc snippet showing the legacy form of a
+      slug that now exists under a canonical name; the snippet is not
+      really an edge.
     * ``paper_reference_needs_curation`` -- target starts with
-      ``paper-``, has at least one prose (non-inline-code) occurrence,
+      ``paper-``, has at least one prose (non-code-sample) occurrence,
       and the audit has no mechanical suggestion. This is honest
       curation debt: the wikilink looks like a paper-skill reference
       that does not exist in the manifest under any prefix variation.
@@ -156,11 +161,22 @@ def _classify_unresolved(rec: dict) -> str:
       function is total. Should rarely fire on the live corpus.
     """
     in_code = rec["occurrences_in_inline_code"]
+    # ``occurrences_in_fenced_code_block`` was added alongside the
+    # audit's fenced-block detection; older audit payloads may omit
+    # it, so default to 0 for backwards compatibility.
+    in_fenced = rec.get("occurrences_in_fenced_code_block", 0)
     total = rec["occurrences"]
     target = rec["target"]
     has_sug = bool(rec["suggestions"])
 
-    if total > 0 and in_code == total:
+    # An occurrence is a "code sample" iff it sits inside inline code
+    # OR a fenced block. On the live corpus these are disjoint sets,
+    # but the schema allows both flags to be True on the same
+    # referrer; we sum and cap at total so a hypothetical overlap
+    # never pushes the count above 100 %.
+    in_code_sample = min(total, in_code + in_fenced)
+
+    if total > 0 and in_code_sample == total:
         return (
             "inline_code_canonical_suggestion" if has_sug
             else "inline_code_literal"
@@ -335,10 +351,16 @@ def _build_edges(
 
         ranges = depends_on_index.get(rel, [])
 
-        for target, line_no, in_code in _find_wikilinks(text):
+        for target, line_no, in_code, in_fenced in _find_wikilinks(text):
             if target not in slug_set:
                 continue  # unresolved -- handled separately
-            if in_code:
+            if in_code or in_fenced:
+                # Both inline-code spans and fenced ``` blocks are
+                # documentation samples, not real cross-references.
+                # Excluded counts roll into edges_inline_code_excluded
+                # for backwards-compatible reporting; fenced occurrences
+                # are surfaced separately via the audit's
+                # ``wikilink_occurrences_in_fenced_code_block`` total.
                 inline_code_excluded += 1
                 continue
             context = (
@@ -390,6 +412,8 @@ def _build_unresolved(audit: dict) -> tuple[list[dict], list[dict]]:
             "occurrences": rec["occurrences"],
             "occurrences_in_inline_code":
                 rec["occurrences_in_inline_code"],
+            "occurrences_in_fenced_code_block":
+                rec.get("occurrences_in_fenced_code_block", 0),
             "classification": cls,
             "referrers": rec["referrers"],
             "suggestions": rec["suggestions"],

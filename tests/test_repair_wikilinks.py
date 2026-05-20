@@ -209,6 +209,38 @@ class TestRepairWikilinks(unittest.TestCase):
             payload = json.loads(out)
             self.assertEqual(payload["applied_replacements"], 1)
 
+
+    def test_apply_does_not_touch_fenced_code(self):
+        body = """
+            ---
+            name: foo
+            ---
+            # foo
+            Real link: [[paper-foo]].
+
+            ```python
+            # This is a code sample, not a graph edge.
+            refs = ["[[paper-foo]]"]
+            ```
+        """
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            corpus, manifest = _make_fixture(
+                root,
+                entries={"batch_x/foo": body},
+                manifest_slugs=["foo"],
+            )
+            skill_path = corpus / "batch_x/foo/SKILL.md"
+            rc, out, err = _run_repair(corpus, manifest, "--apply", "--json")
+            self.assertEqual(rc, 0, msg=err)
+            after = skill_path.read_text(encoding="utf-8")
+            # The prose occurrence is rewritten.
+            self.assertIn("Real link: [[foo]].", after)
+            # The fenced-code occurrence is NOT rewritten.
+            self.assertIn('refs = ["[[paper-foo]]"]', after)
+            payload = json.loads(out)
+            self.assertEqual(payload["applied_replacements"], 1)
+
     # --- ambiguous suggestions skipped --------------------------------------
 
     def test_skip_when_audit_offers_multiple_suggestions(self):
