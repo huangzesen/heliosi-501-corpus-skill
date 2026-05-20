@@ -105,8 +105,26 @@ VALIDATION_BOILERPLATE = (
     "Not benchmarked yet -- this is a",
 )
 
+# Layer-1 surface boilerplate. Detected in §"Figure / numerical targets"
+# (or any Layer-1 sub-section) — flags that the entry declares the
+# *shape* of a numeric anchor without an anchor. Confirmed by grep on
+# 2026-05-20: 40 entries in the corpus carry this exact phrase. This is
+# the L1 analogue of LAYER2_BOILERPLATE and converts the G-L2-BOILER
+# observation in reports/skill_quality_alignment_audit.md §4.9 into a
+# CI-visible signal.
+LAYER1_BOILERPLATE = (
+    "pending full-text verification",
+)
+
 LAYER4_BOILERPLATE = (
     "Adapter notes intentionally empty",
+    # ~42 entries ship the §4.7-style stub-promotion affordance template
+    # ("Promote to method-ready by populating §3/§4/§5 against the full
+    # text of the primary source.") as their sole Layer-4 affordance.
+    # This pattern is honest inside a stub-tier entry but does not feed
+    # a hypothesis-generation loop — the skill-quality rubric (R4) docks
+    # it explicitly. Confirmed by grep on 2026-05-20.
+    "promote to method-ready by populating",
 )
 
 # Markers that flag a TODO/placeholder string in metadata.yaml /
@@ -366,6 +384,7 @@ def _layer1_signal(body, meta):
     has_claim = False
     has_failure = False
     has_targets = False
+    boilerplate = False
     if has_section:
         low = sec.lower()
         if "claim" in low and ("narrow" in low or "boundary" in low or "verifiable" in low):
@@ -379,6 +398,10 @@ def _layer1_signal(body, meta):
             or re.search(r"\d", sec) is not None and "target" in low
         ):
             has_targets = True
+        for needle in LAYER1_BOILERPLATE:
+            if needle.lower() in low:
+                boilerplate = True
+                break
     # Pure TODO check: if the section is mostly TODO placeholders, dock.
     todo_in_section = len(TODO_RE.findall(sec)) if has_section else 0
     todo_dense = (
@@ -405,6 +428,14 @@ def _layer1_signal(body, meta):
         pts += 3
     if todo_dense:
         pts = max(0, pts - 5)
+    if boilerplate:
+        # Modest dock (-3): the entry self-flags the L1 numeric-anchor
+        # as pending. The penalty is smaller than L2's because the
+        # phrase is also used inside otherwise-authored L1 sections as
+        # a per-claim boundary marker; we want to surface the signal
+        # without nuking the L1 score on entries that are otherwise
+        # honest.
+        pts = max(0, pts - 3)
     return min(pts, WEIGHT_LAYER1), {
         "has_section": has_section,
         "long_enough": long_enough,
@@ -412,6 +443,7 @@ def _layer1_signal(body, meta):
         "has_failure_modes": has_failure,
         "has_targets": has_targets,
         "todo_dense": todo_dense,
+        "boilerplate": boilerplate,
     }
 
 
@@ -514,17 +546,34 @@ def _layer4_signal(body, meta, skill_fm):
     long_enough = len(sec) >= 400
     has_meta_affordances = False
     has_skill_fm_affordances = False
+    has_meta_affordance_list = False
+    has_skill_fm_affordance_list = False
+    affordances_flag_present = False
     if isinstance(meta, dict):
         if _is_meaningful_list(meta.get("research_generation_affordances")):
             has_meta_affordances = True
+            has_meta_affordance_list = True
         # The 213-entry SKILL.md-frontmatter family puts these on the
         # frontmatter only and flags them via the
         # ``research_generation_affordances_present`` boolean.
         if meta.get("research_generation_affordances_present") is True:
             has_meta_affordances = True
+            affordances_flag_present = True
     if isinstance(skill_fm, dict):
         if _is_meaningful_list(skill_fm.get("research_generation_affordances")):
             has_skill_fm_affordances = True
+            has_skill_fm_affordance_list = True
+    # Flag/count divergence: metadata.yaml declares
+    # ``research_generation_affordances_present: true`` but neither
+    # surface ships an authored ``research_generation_affordances[]``
+    # list. This is the G-L4-AFFORDANCE-PRESENT-BUT-EMPTY anti-pattern
+    # documented in reports/skill_quality_alignment_audit.md §4.9 — the
+    # boolean surface advertises an affordance a downstream hypothesis
+    # loop can never bind to.
+    affordances_flag_count_mismatch = bool(
+        affordances_flag_present
+        and not (has_meta_affordance_list or has_skill_fm_affordance_list)
+    )
     boilerplate = False
     if has_section:
         sec_low = sec.lower()
@@ -541,11 +590,21 @@ def _layer4_signal(body, meta, skill_fm):
         pts += 5
     if boilerplate:
         pts = max(0, pts - 3)
+    if affordances_flag_count_mismatch:
+        # Dock the per-entry score so the boolean-only credit (+5 above)
+        # is fully neutralized. The entry still scores on section
+        # presence / length, but it no longer gets list-style affordance
+        # credit while declaring `_present: true` without a list.
+        pts = max(0, pts - 5)
     return min(pts, WEIGHT_LAYER4), {
         "has_section": has_section,
         "long_enough": long_enough,
         "has_meta_affordances": has_meta_affordances,
         "has_skill_fm_affordances": has_skill_fm_affordances,
+        "has_meta_affordance_list": has_meta_affordance_list,
+        "has_skill_fm_affordance_list": has_skill_fm_affordance_list,
+        "affordances_flag_present": affordances_flag_present,
+        "affordances_flag_count_mismatch": affordances_flag_count_mismatch,
         "boilerplate": boilerplate,
     }
 
@@ -684,6 +743,28 @@ def _summarize(rows):
     for r in rows:
         by_batch[r["batch"]].append(r["score"])
         by_quality[r["quality_level"] or "<unknown>"].append(r["score"])
+
+    # Corpus-wide anti-pattern counts (G-* labels in reports/
+    # skill_quality_alignment_audit.md §4.9). Each is a per-entry
+    # component bit; exposing the corpus-wide count here lets
+    # validate.sh / curators see drift without grepping the row dump.
+    def _bit(r, layer, key):
+        return r["components"][layer]["bits"].get(key, False)
+
+    l1_boiler = sum(1 for r in rows if _bit(r, "layer1_claim", "boilerplate"))
+    l2_boiler = sum(
+        1
+        for r in rows
+        if _bit(r, "layer2_protocol", "boilerplate")
+        or _bit(r, "layer2_protocol", "layer2_stub_flag")
+    )
+    l4_boiler = sum(1 for r in rows if _bit(r, "layer4_affordance", "boilerplate"))
+    l4_mismatch = sum(
+        1
+        for r in rows
+        if _bit(r, "layer4_affordance", "affordances_flag_count_mismatch")
+    )
+
     return {
         "total_entries": n,
         "active_entries": len(active_rows),
@@ -710,6 +791,12 @@ def _summarize(rows):
         )
         if active_rows
         else None,
+        "anti_pattern_counts": {
+            "layer1_boilerplate": l1_boiler,
+            "layer2_boilerplate_or_stub_flag": l2_boiler,
+            "layer4_boilerplate": l4_boiler,
+            "layer4_affordances_flag_count_mismatch": l4_mismatch,
+        },
     }
 
 
@@ -751,6 +838,27 @@ def _render_human(rows, summary, top_n):
     out.append("  per-quality_level mean (ascending):")
     for q, m in summary["by_quality_mean"].items():
         out.append(f"    {q:<48s} {m}")
+
+    ap = summary.get("anti_pattern_counts") or {}
+    if ap:
+        out.append("")
+        out.append("  anti-pattern counts (per-entry bit fires; see reports/skill_quality_alignment_audit.md §4.9):")
+        out.append(
+            f"    L1 boilerplate (\"pending full-text verification\")           : "
+            f"{ap.get('layer1_boilerplate', 0)}"
+        )
+        out.append(
+            f"    L2 boilerplate or layer2_stub flag                          : "
+            f"{ap.get('layer2_boilerplate_or_stub_flag', 0)}"
+        )
+        out.append(
+            f"    L4 boilerplate (promotion-plan-only / adapter-empty)        : "
+            f"{ap.get('layer4_boilerplate', 0)}"
+        )
+        out.append(
+            f"    L4 affordances flag/count mismatch (present:true, no list)  : "
+            f"{ap.get('layer4_affordances_flag_count_mismatch', 0)}"
+        )
 
     out.append("")
     out.append(f"  worst-debt entries (lowest score first, top {top_n}):")

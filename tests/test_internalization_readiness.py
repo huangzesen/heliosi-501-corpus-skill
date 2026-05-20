@@ -373,6 +373,104 @@ class TestScoringSignals(unittest.TestCase):
         self.assertNotIn("stub", self.mod.ACTIVE_QUALITIES)
         self.assertNotIn("paper-grounded-pending-full-text", self.mod.ACTIVE_QUALITIES)
 
+    def test_layer1_boilerplate_docks_score(self):
+        # Body that authors L1 *and* trips the pending-full-text marker
+        # should still outscore an L1 with the marker and nothing else,
+        # but it should also score strictly below an equivalent body
+        # that omits the marker — confirming the L1 boilerplate bit
+        # fires and docks points (G-L2-BOILER on the L1 surface).
+        good_body = textwrap.dedent(
+            """\
+            ## Layer 1 — Scientific invariant
+
+            ### Claim (narrow form)
+
+            The paper claims X scales as r^-1.5 under condition C, bounded
+            to 0.3-1 au in PSP encounter 1. Verifiable.
+
+            ### Failure modes (skill memory)
+
+            - Mis-identification of the dissipation scale.
+            - Aliasing if cadence drops.
+
+            ### Figure / numerical targets
+
+            Paper Table 1 reports K = 0.42 +/- 0.05 over CR 2282.
+            """
+        )
+        boiler_body = good_body + textwrap.dedent(
+            """\
+
+            **Out-of-evidence-boundary (still pending full-text verification):**
+
+            - The exact dispersion solver remains TODO_verify_with_full_text.
+            """
+        )
+        s_good, bits_good = self.mod._layer1_signal(good_body, {})
+        s_boiler, bits_boiler = self.mod._layer1_signal(boiler_body, {})
+        self.assertFalse(bits_good["boilerplate"])
+        self.assertTrue(bits_boiler["boilerplate"])
+        self.assertLess(s_boiler, s_good,
+                        "L1 boilerplate bit must dock score relative to "
+                        "an otherwise-equivalent authored body")
+
+    def test_layer4_promote_to_method_ready_is_boilerplate(self):
+        body = textwrap.dedent(
+            """\
+            ## Layer 4 — Research-generation affordances
+
+            - type: hypothesis
+              statement: "Author the gap as a follow-up entry."
+              proposed_action: "Promote to method-ready by populating
+                §3/§4/§5 against the full text of the primary source."
+            """
+        )
+        s, bits = self.mod._layer4_signal(body, {}, {})
+        self.assertTrue(
+            bits["boilerplate"],
+            "L4 promotion-plan-only template must trip the boilerplate bit",
+        )
+
+    def test_layer4_affordances_flag_count_mismatch_fires(self):
+        # Metadata declares present:true but neither surface ships a list.
+        meta = {"research_generation_affordances_present": True}
+        skill_fm = {}
+        body = "## Layer 4\nNothing meaningful here.\n"
+        s, bits = self.mod._layer4_signal(body, meta, skill_fm)
+        self.assertTrue(bits["affordances_flag_present"])
+        self.assertTrue(bits["affordances_flag_count_mismatch"])
+        self.assertFalse(bits["has_meta_affordance_list"])
+        self.assertFalse(bits["has_skill_fm_affordance_list"])
+
+    def test_layer4_affordances_flag_count_mismatch_clears_when_list_present(self):
+        meta = {
+            "research_generation_affordances_present": True,
+            "research_generation_affordances": [
+                {"type": "hypothesis", "statement": "real one"},
+            ],
+        }
+        body = "## Layer 4\nReal affordance content authored.\n"
+        s, bits = self.mod._layer4_signal(body, meta, {})
+        self.assertTrue(bits["affordances_flag_present"])
+        self.assertFalse(
+            bits["affordances_flag_count_mismatch"],
+            "mismatch must clear when a real affordance list is authored",
+        )
+        self.assertTrue(bits["has_meta_affordance_list"])
+
+    def test_layer4_mismatch_score_lower_than_authored_list(self):
+        # Same prose, different metadata — confirms the dock applies.
+        body = "## Layer 4\nSection present.\nMore text here.\n"
+        meta_bad = {"research_generation_affordances_present": True}
+        meta_good = dict(meta_bad)
+        meta_good["research_generation_affordances"] = [
+            {"type": "gap", "statement": "real gap"}
+        ]
+        s_bad, _ = self.mod._layer4_signal(body, meta_bad, {})
+        s_good, _ = self.mod._layer4_signal(body, meta_good, {})
+        self.assertLess(s_bad, s_good,
+                        "flag-without-list must score below flag-plus-list")
+
 
 # --- Fixture-driven end-to-end ---------------------------------------------
 
@@ -559,6 +657,71 @@ class TestLiveCorpusInvariants(unittest.TestCase):
         ]
         self.assertGreaterEqual(len(active_pilots), 5)
 
+    def test_summary_exposes_anti_pattern_counts(self):
+        # The audit's manifest-level summary must expose the four
+        # anti-pattern counts catalogued in
+        # reports/skill_quality_alignment_audit.md §4.9, so curators can
+        # see drift on these specific debts without grepping the row
+        # dump. Counts are non-negative; the specific values are not
+        # pinned (they will drift as curation progresses).
+        ap = self.summary.get("anti_pattern_counts")
+        self.assertIsInstance(ap, dict)
+        for key in (
+            "layer1_boilerplate",
+            "layer2_boilerplate_or_stub_flag",
+            "layer4_boilerplate",
+            "layer4_affordances_flag_count_mismatch",
+        ):
+            self.assertIn(key, ap)
+            self.assertIsInstance(ap[key], int, msg=key)
+            self.assertGreaterEqual(ap[key], 0, msg=key)
+
+    def test_layer4_affordances_flag_count_mismatch_present_in_corpus(self):
+        # G-L4-AFFORDANCE-PRESENT-BUT-EMPTY is documented as a
+        # corpus-wide debt class (reports/skill_quality_alignment_audit.md
+        # §4.9 / §7). If this drops to zero the rubric's signal is
+        # exhausted; if it grows wildly the curation lane needs to
+        # know. Pin a coarse non-zero floor here so accidental detector
+        # regression (e.g. a refactor that always returns False) is
+        # caught. The current count at audit creation was ~136.
+        ap = self.summary["anti_pattern_counts"]
+        self.assertGreater(
+            ap["layer4_affordances_flag_count_mismatch"], 50,
+            "G-L4-AFFORDANCE-PRESENT-BUT-EMPTY detector appears to have "
+            "regressed -- expected ~136 entries today, see report §4.9",
+        )
+
+    def test_layer4_promotion_plan_boilerplate_present_in_corpus(self):
+        # The "promote to method-ready by populating ..." affordance
+        # template (~42 entries) must be picked up by the L4 boilerplate
+        # detector for at least the stub-tier ML batch. If this regresses
+        # to zero we are no longer surfacing the §4.7-style empty
+        # affordance pattern.
+        l4_boiler = sum(
+            1 for r in self.rows
+            if r["components"]["layer4_affordance"]["bits"]["boilerplate"]
+        )
+        self.assertGreater(
+            l4_boiler, 20,
+            "L4 boilerplate detector regressed -- expected dozens of "
+            "promotion-plan-only L4 sections, see report §4.9",
+        )
+
+    def test_layer1_boilerplate_detector_finds_pending_fulltext_phrase(self):
+        # G-L2-BOILER on the L1 surface: at least some entries should
+        # carry the "pending full-text verification" marker inside their
+        # Layer-1 section. Sanity floor only -- a coarse non-zero check.
+        l1_boiler = sum(
+            1 for r in self.rows
+            if r["components"]["layer1_claim"]["bits"].get("boilerplate")
+        )
+        self.assertGreater(
+            l1_boiler, 0,
+            "L1 boilerplate detector found zero entries -- did the "
+            "LAYER1_BOILERPLATE phrase drift out of the corpus, or has "
+            "the detector regressed?",
+        )
+
     def test_human_mode_emits_legend_and_ranking(self):
         proc = subprocess.run(
             [sys.executable, str(SCRIPT), "--top", "5"],
@@ -572,6 +735,10 @@ class TestLiveCorpusInvariants(unittest.TestCase):
         self.assertIn("worst-debt entries", proc.stdout)
         self.assertIn("legend:", proc.stdout)
         self.assertIn("L1=Layer-1 claim", proc.stdout)
+        # The anti-pattern counts block must surface in human mode so
+        # validate.sh / curators see the G-* signal counts inline.
+        self.assertIn("anti-pattern counts", proc.stdout)
+        self.assertIn("flag/count mismatch", proc.stdout)
 
     def test_output_flag_writes_file(self):
         with tempfile.NamedTemporaryFile(
