@@ -1,16 +1,33 @@
 slug: paper-coronal-plume-substructure-eui-high-cadence
-title: "Coronal Plume Substructure / Plumelets at EUI High Cadence"
-authors: []
-authors_verified: false
-year: TODO_verify
-journal: TODO_verify_with_full_text
-doi: TODO_verify_with_full_text
-arxiv: TODO_verify
-theme: solar_corona_cme_remote_sensing
+title: "Plumelets: Dynamic Filamentary Structures in Solar Coronal Plumes (Uritsky et al. 2021 ApJ)"
+authors:
+  - "V. M. Uritsky"
+  - "C. E. DeForest"
+  - "J. T. Karpen"
+  - "C. R. DeVore"
+  - "P. Kumar"
+  - "N. E. Raouafi"
+  - "P. F. Wyper"
+authors_verified: true
+year: 2021
+journal: "The Astrophysical Journal"
+volume: "907"
+article_id: "1"
+doi: "10.3847/1538-4357/abd186"
+arxiv: "2012.05728"
+ads_bibcode: null
+primary_theme: solar_corona_cme_remote_sensing
 secondary_themes:
   - coronal_holes
   - plumes
   - euv_high_cadence
+  - p_mode_coupling
+  - propagating_disturbances
+missions:
+  - SDO (AIA)
+  - Solar Orbiter (EUI HRI, optional)
+regime:
+  - polar_or_low_latitude_coronal_hole
 quality_level: paper-grounded-pending-full-text
 executable_status: pipeline-specified-not-yet-runnable
 harness_agnostic: true
@@ -20,25 +37,69 @@ layers:
   adapter_binding_examples: true
   research_generation_affordance: true
 required_data:
-  - EUI HRI 174 Å L2 sequence
-  - Co-temporal AIA / EUI FSI context
+  - "SDO/AIA 171 Å (and/or 193 Å) L1 cube at native 12 s cadence over the target window"
+  - "Solar Orbiter EUI HRI 174 Å L2 sequence (optional, for SO campaigns)"
+  - "Co-temporal AIA / EUI FSI context channels (rotation tracking)"
+  - "Multiscale Gaussian Normalization or equivalent multi-scale contrast filter"
 methods:
-  - Unsharp-mask substructure isolation
-  - Plumelet tracking
-  - Population statistics
+  - high_cadence_euv_imaging
+  - multiscale_gaussian_normalization
+  - time_distance_slit_extraction
+  - phase_speed_fit_from_diagonal_stripes
+  - temporal_power_spectrum_p_mode_band_check
+  - cross_section_width_distribution
+companion_papers:
+  - arxiv: "2204.13871"
+    citation: "Kumar et al. 2022, Quasiperiodic Energy Release and Jets at the Base of Solar Coronal Plumes"
+    role: "driver-side companion (reconnection-driven base jets); supplies an explicit alternative driver picture to the p-mode interpretation"
 validation_targets:
-  - Match published plumelet size/lifetime distributions (TODO verify)
+  - "Plumelet cross-section ~10 Mm in the published event (2016-07-02/03 SDO/AIA window)"
+  - "Propagating-disturbance phase speed along plume axis in the band 190–260 km/s"
+  - "Dominant disturbance frequency coincident with the photospheric p-mode 5-min band (~3.3 mHz)"
+  - "Per-plumelet lifetime percentiles and full width distribution: TODO_verify (readable from paper figures/tables)"
 trigger_keywords:
   - coronal plume
   - plumelet
   - EUI HRI substructure
   - high cadence corona
+  - propagating disturbances
+  - p-mode driving
+  - MGN multiscale gaussian normalization
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/extended_search.md
-related_local_skills: []
+related_local_skills:
+  - paper-eui-fsi-hri-coronal-bright-points-statistics
+  - paper-coronal-hole-jet-population-statistics-aia
+  - paper-coronal-hole-pseudostreamer-boundary-classification
+  - paper-bale-2021-solar-source-switchbacks-magnetic-funnels
+research_generation_affordances_present: true
+verification_flags:
+  - "arXiv 2012.05728 confirmed via arxiv.org/abs (2026-05-19): title 'Plumelets: Dynamic Filamentary Structures in Solar Coronal Plumes', authors V.M. Uritsky, C.E. DeForest, J.T. Karpen, C.R. DeVore, P. Kumar, N.E. Raouafi, P.F. Wyper."
+  - "Published ApJ DOI 10.3847/1538-4357/abd186 reported on the arXiv abs page; full CrossRef confirmation TODO (publisher DOI was reported via the arXiv page metadata, not directly re-fetched via api.crossref.org at this pass)."
+  - "Companion paper arXiv 2204.13871 (Kumar et al. 2022) confirmed via arxiv search (2026-05-19): title 'Quasiperiodic Energy Release and Jets at the Base of Solar Coronal Plumes'."
+  - "Berghmans+ 2021 campfires anchor (arXiv 2104.03382; DOI 10.1051/0004-6361/202140380) verified independently in this pass and referenced as the EUI HRI high-cadence-EUV instrument anchor."
+  - "Per-plumelet lifetime/width distributions and the count of identified plumelets in the published window: TODO_verify (would require reading paper figures/tables in full)."
 provenance:
   generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
   generated_at: 2026-05-18T00:00:00Z
   source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
-  verified_by: null
-  verified_at: null
+  verified_by: heliosi-solar-corona-cme-internalization-batch1
+  verified_at: 2026-05-19T17:30:00Z
+  id_verifications:
+    - arxiv_id: "2012.05728"
+      url: "https://arxiv.org/abs/2012.05728"
+      http_status: 200
+      fetched_title: "Plumelets: Dynamic Filamentary Structures in Solar Coronal Plumes"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T17:10:00Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://arxiv.org/abs/2204.13871"
+      status: companion-paper-arxiv-title-match
+      fetched_at: "2026-05-19T17:11:00Z"
+      notes: "Companion paper Kumar et al. 2022 'Quasiperiodic Energy Release and Jets at the Base of Solar Coronal Plumes'; arXiv title matched on live fetch."
+    - artifact_url: "https://arxiv.org/abs/2104.03382"
+      status: instrument-context-anchor-arxiv-title-match
+      fetched_at: "2026-05-19T17:12:00Z"
+      notes: "Instrument-context anchor Berghmans et al. 2021 'Extreme UV quiet Sun brightenings observed by Solar Orbiter/EUI'; arXiv title matched on live fetch."

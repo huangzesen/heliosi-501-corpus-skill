@@ -1,15 +1,30 @@
 slug: paper-eui-fsi-hri-coronal-bright-points-statistics
-title: "EUI HRI Coronal Bright Points / Campfires"
-authors: []
-authors_verified: false
+title: "Extreme UV quiet Sun brightenings observed by Solar Orbiter/EUI — campfire-class coronal bright points (Berghmans et al. 2021 A&A)"
+authors:
+  - "D. Berghmans"
+  - "F. Auchère"
+  - "D. M. Long"
+  - "E. Soubrié"
+  - "M. Mierla"
+authors_verified: true
+authors_completeness_note: "Lead five authors only are tracked at this slug; the published A&A paper has a longer collaboration author list. Full list is recoverable from the DOI."
 year: 2021
-journal: TODO_verify_with_full_text
-doi: TODO_verify_with_full_text
-arxiv: TODO_verify
-theme: solar_corona_cme_remote_sensing
+journal: "Astronomy & Astrophysics"
+volume: "656"
+article_id: "L4"
+doi: "10.1051/0004-6361/202140380"
+arxiv: "2104.03382"
+ads_bibcode: null
+primary_theme: solar_corona_cme_remote_sensing
 secondary_themes:
   - euv_high_cadence
   - bright_points
+  - campfires
+  - quiet_sun_heating
+missions:
+  - Solar Orbiter (EUI HRI)
+regime:
+  - inner_heliosphere_0.5_to_0.6_au_discovery
 quality_level: paper-grounded-pending-full-text
 executable_status: pipeline-specified-not-yet-runnable
 harness_agnostic: true
@@ -19,25 +34,73 @@ layers:
   adapter_binding_examples: true
   research_generation_affordance: true
 required_data:
-  - EUI HRI 174 Å L2 sequence
-  - HMI LOS magnetogram (co-spatial)
+  - "Solar Orbiter EUI HRI 174 Å L2 sequence (discovery encounter and follow-on encounters)"
+  - "SDO/AIA 171 Å (cross-instrument triangulation when EUI-SDO geometry is non-degenerate)"
+  - "SDO/HMI LOS magnetogram (mixed-polarity cross-reference)"
+  - "Solar Orbiter SPICE EUV spectroscopy (optional follow-on, Huang+ 2023)"
 methods:
-  - Threshold + persistence event detection
-  - Size/lifetime distribution fitting
+  - eui_hri_174a_high_cadence_imaging
+  - cosmic_ray_and_pointing_jitter_masking
+  - threshold_plus_persistence_event_detection
+  - size_lifetime_distribution_fitting
+  - stereoscopic_triangulation_eui_aia_baseline
+  - dem_inference_multi_channel
+  - mixed_polarity_cross_reference
+companion_papers:
+  - arxiv: "2505.03656"
+    citation: "Narang et al. 2025, Extreme-ultraviolet transient brightenings in the quiet-Sun corona, A&A 699, A138"
+    role: "population refinement over multiple encounters"
+  - arxiv: "2303.15979"
+    citation: "Huang et al. 2023, Imaging and spectroscopic observations of EUV brightenings using EUI and SPICE on board Solar Orbiter, A&A 673, A82"
+    role: "spectroscopic follow-on with SPICE"
 validation_targets:
-  - Reproduce ~1 event Mm^-2 hr^-1 (TODO verify)
+  - "Campfire size envelope ~400–4000 km (anchored)"
+  - "Duration envelope ~10–200 s (anchored)"
+  - "Height above photosphere ~1000–5000 km from EUI-AIA triangulation (anchored)"
+  - "DEM-peak temperature log T ~ 6.1–6.15 (~1.3–1.4 MK) (anchored)"
+  - "Exact detection density (events Mm⁻² hr⁻¹) at the discovery operating point: TODO_verify"
+  - "Exact k·σ detection threshold and persistence-frame count: TODO_verify"
 trigger_keywords:
   - campfires
   - EUI HRI bright points
   - Berghmans 2021
   - coronal bright point
+  - EUV transient brightenings
+  - Solar Orbiter quiet-Sun
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/extended_search.md
-related_local_skills: []
+related_local_skills:
+  - paper-coronal-plume-substructure-eui-high-cadence
+  - paper-magnetogram-noise-floor-quiet-sun-disambiguation
+  - paper-cranmer-2017-coronal-hole-acceleration-alfven-wave-pressure
+  - paper-microflare-stix-nonthermal-electron-spectra
+verification_flags:
+  - "arXiv 2104.03382 confirmed via arxiv.org/abs (2026-05-19): title 'Extreme UV quiet Sun brightenings observed by Solar Orbiter/EUI', authors D. Berghmans, F. Auchere, D. M. Long, E. Soubrie, M. Mierla, et al."
+  - "Published A&A DOI 10.1051/0004-6361/202140380 reported on the arXiv abs page (volume 656 L4, 2021). CrossRef double-confirmation: TODO."
+  - "Companion papers arXiv 2505.03656 (Narang+ 2025) and arXiv 2303.15979 (Huang+ 2023) verified via arXiv search at the same pass (2026-05-19)."
+  - "Exact campfire detection density and threshold operating point are paper-readable but TODO_verify at this slug pass."
+research_generation_affordances_present: true
 provenance:
   generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
   generated_at: 2026-05-18T00:00:00Z
   source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
-  verified_by: null
-  verified_at: null
-research_generation_affordances_present: true
+  verified_by: heliosi-solar-corona-cme-internalization-batch1
+  verified_at: 2026-05-19T17:30:00Z
+  id_verifications:
+    - arxiv_id: "2104.03382"
+      url: "https://arxiv.org/abs/2104.03382"
+      http_status: 200
+      fetched_title: "Extreme UV quiet Sun brightenings observed by Solar Orbiter/EUI"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T17:12:00Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://arxiv.org/abs/2505.03656"
+      status: companion-paper-arxiv-title-match
+      fetched_at: "2026-05-19T17:13:00Z"
+      notes: "Companion paper Narang et al. 2025 'Extreme-ultraviolet transient brightenings in the quiet-Sun corona' (A&A 699, A138); arXiv title matched on live fetch."
+    - artifact_url: "https://arxiv.org/abs/2303.15979"
+      status: companion-paper-arxiv-title-match
+      fetched_at: "2026-05-19T17:13:30Z"
+      notes: "Companion paper Huang et al. 2023 'Imaging and spectroscopic observations of EUV brightenings using EUI and SPICE on board Solar Orbiter' (A&A 673, A82); arXiv title matched on live fetch."

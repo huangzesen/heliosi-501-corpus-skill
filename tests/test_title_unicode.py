@@ -133,14 +133,15 @@ class TestTitleUnicodeAudit(unittest.TestCase):
 
     def test_headline_counts(self):
         """The headline numbers pinned by ``corpus_qa_report_v2.md``
-        §11 (95 entries, 11 unique chars) must match the live audit.
-        If the corpus changes, update §11 to match the audit
-        (not the other way round)."""
+        §10 must match the live audit. The 2026-05-19 corona/CME
+        internalization batch promoted two manifest titles to anchor
+        form with U+2014 EM DASH, raising the count from 96 to 98 / 501.
+        If the corpus changes again, update §10 + this test together."""
         m = self.summary["manifest"]
-        self.assertEqual(m["entries_with_non_ascii_title"], 96)
+        self.assertEqual(m["entries_with_non_ascii_title"], 98)
         self.assertEqual(m["unique_non_ascii_chars"], 11)
         md = self.summary["metadata_yaml"]
-        self.assertEqual(md["entries_with_non_ascii_title"], 96)
+        self.assertEqual(md["entries_with_non_ascii_title"], 98)
         self.assertEqual(md["unique_non_ascii_chars"], 11)
 
     def test_qa_report_section_10_present(self):

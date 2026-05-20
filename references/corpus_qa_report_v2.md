@@ -356,10 +356,14 @@ surfaces as a test failure in CI rather than silent doc drift.
 ## 10. Title-unicode audit (issue #59)
 
 Issue #59 flagged that 95 / 501 manifest entries carried non-ASCII characters
-at the time the audit was first pinned; the live count is now **96 / 501**
-after a turbulence-batch enrichment promoted the Sioulas 2022 manifest title
-to its full journal form (which contains `Alfvén` ⟶ adds one entry to the
-U+00E9 column). The framing below is unchanged: the corpus paraphrases
+at the time the audit was first pinned; the live count is now **98 / 501**
+after (a) a turbulence-batch enrichment promoted the Sioulas 2022 manifest
+title to its full journal form (which contains `Alfvén` ⟶ adds one entry
+to the U+00E9 column) and (b) the 2026-05-19 corona/CME internalization
+batch promoted two `wave500_solar_corona_cme_flares_045` manifest titles
+to their journal/anchor form, each of which contains a U+2014 EM DASH
+(`paper-gong-network-synoptic-magnetogram-product`,
+`paper-eui-fsi-hri-coronal-bright-points-statistics`). The framing below is unchanged: the corpus paraphrases
 third-party paper titles whose typography is intentional. The remainder of
 the section still describes that non-ASCII characters
 in their `title` field (e.g. `'SunPy — Python for Solar Physics'` with a
@@ -379,14 +383,14 @@ bidi-control character. The numbers below are computed by
 
 | Metric | Value |
 |---|---:|
-| Entries with non-ASCII title | **96 / 501** |
+| Entries with non-ASCII title | **98 / 501** |
 | Unique non-ASCII code points | **11 unique non-ASCII** |
 | Suspicious (U+FFFD / Cc / Cf / Co / Cs) | **0** |
 | NFC-drifted titles | **0** |
 | Non-ASCII code points outside the expected allowlist | **0** |
 
 The `metadata.yaml` top-level `title:` surface independently shows the same
-96 / 501 entries with non-ASCII titles and the same 11 unique code points;
+98 / 501 entries with non-ASCII titles and the same 11 unique code points;
 the audit also confirms there are 0 unicode-set divergences between the two
 surfaces, so the 96-entry headline is honest across surfaces. Three entries
 (`bale-2016-fields-instrument-suite-psp`,
@@ -410,8 +414,8 @@ audit.
 | U+03B1 | α | GREEK SMALL LETTER ALPHA | 1 | physics parameter |
 | U+03B2 | β | GREEK SMALL LETTER BETA | 2 | physics parameter |
 | U+03B4 | δ | GREEK SMALL LETTER DELTA | 1 | physics parameter |
-| U+2013 | – | EN DASH | 11 | typographic ranges |
-| U+2014 | — | EM DASH | 31 | title separator |
+| U+2013 | – | EN DASH | 10 | typographic ranges |
+| U+2014 | — | EM DASH | 34 | title separator |
 
 The allowlist is intentionally narrow: a new code point requires a
 deliberate update to `EXPECTED_ALLOWLIST` in
@@ -422,7 +426,7 @@ confirming the new glyph is intentional.
 
 **How to read these numbers:**
 
-- The 96-entry count is **expected**, not a defect. The corpus paraphrases
+- The 98-entry count is **expected**, not a defect. The corpus paraphrases
   third-party papers whose titles legitimately use scientific typography;
   forcing ASCII would silently mis-cite "Alfvénic" as "Alfvenic" and the
   ISʘIS instrument as ISIS (a different mission).

@@ -85,7 +85,16 @@ EXPECTED_BATCH_FAMILIES = {
         "numbered_layer_v0_2_explicit": 45,
     },
     "wave500_solar_corona_cme_flares_045": {
-        "prose_pfss_layered": 45,
+        # Hybrid after the 2026-05-19 corona/CME internalization batch:
+        # 41 entries still carry the original "## Layer 1" prose form;
+        # 4 entries (paper-so-phi-hrt-vector-magnetogram-radial-distance,
+        # paper-coronal-plume-substructure-eui-high-cadence,
+        # paper-gong-network-synoptic-magnetogram-product,
+        # paper-eui-fsi-hri-coronal-bright-points-statistics) were
+        # rewritten to the numbered-executable-workflow form for
+        # internalization debt reduction.
+        "prose_pfss_layered": 41,
+        "numbered_executable_workflow_v1": 4,
     },
     "wave500_sw_classification_ml_foundation_045": {
         "numbered_layer_v0_2_explicit": 45,

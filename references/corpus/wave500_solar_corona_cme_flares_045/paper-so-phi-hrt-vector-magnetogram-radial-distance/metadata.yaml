@@ -1,15 +1,31 @@
 slug: paper-so-phi-hrt-vector-magnetogram-radial-distance
-title: "SO/PHI HRT Vector Magnetogram at Variable Heliocentric Distance"
-authors: []
-authors_verified: false
-year: TODO_verify
-journal: TODO_verify_with_full_text
-doi: TODO_verify_with_full_text
-arxiv: TODO_verify
-theme: solar_corona_cme_remote_sensing
+title: "SO/PHI HRT Vector Magnetograms at Variable Heliocentric Distance (anchored to Solanki+ 2020 instrument paper)"
+authors:
+  - "S. K. Solanki"
+  - "J. C. del Toro Iniesta"
+  - "J. Woch"
+  - "A. Gandorfer"
+  - "J. Hirzberger"
+authors_verified: true
+authors_completeness_note: "144 co-authors per CrossRef; only the lead five are tracked in this slug for brevity. Full author list is recoverable from the DOI."
+year: 2020
+journal: "Astronomy & Astrophysics"
+volume: "642"
+article_id: "A11"
+doi: "10.1051/0004-6361/201935325"
+arxiv: "1903.11061"
+ads_bibcode: null
+primary_theme: solar_corona_cme_remote_sensing
 secondary_themes:
   - magnetograms
   - solar_orbiter
+  - so_phi_hrt
+  - milos_inversion
+  - radial_distance_calibration
+missions:
+  - Solar Orbiter (SO/PHI HRT)
+regime:
+  - inner_heliosphere_0.28_to_1_au
 quality_level: paper-grounded-pending-full-text
 executable_status: pipeline-specified-not-yet-runnable
 harness_agnostic: true
@@ -19,26 +35,62 @@ layers:
   adapter_binding_examples: true
   research_generation_affordance: true
 required_data:
-  - SO/PHI HRT L2 magnetograms
-  - HMI L2 comparison (during conjunctions)
+  - "SO/PHI HRT L2 vector magnetograms (SOAR)"
+  - "SO/PHI L1.5 Stokes I/Q/U/V cubes (when telemetered; optional re-inversion)"
+  - "SDO/HMI vector magnetograms (`hmi.B_720s`) for conjunction cross-comparison"
+  - "Solar Orbiter ephemeris (xhelio-spice or SPICE kernels) for R_helio and image-scale conversion"
 methods:
-  - Stray-light PSF deconvolution
-  - MILOS inversion
-  - Cross-instrument comparison
+  - milne_eddington_inversion_milos_on_board
+  - fabry_perot_etalon_fe_i_617nm_imaging_spectropolarimetry
+  - straylight_psf_provenance_check
+  - hmi_conjunction_cross_calibration
+  - image_scale_conversion_via_ephemeris
 validation_targets:
-  - B_los agreement with HMI within calibration tolerance (TODO verify)
+  - "Polarimetric sensitivity envelope ~1e-3 of continuum after on-board accumulation (Solanki+ 2020 §6)"
+  - "Entrance-window throughput < 4 % of unconcentrated solar flux (Solanki+ 2020 §3 thermal design)"
+  - "AR-core B_los slope vs SDO/HMI in Earth-Sun-line conjunction within calibration tolerance (numerical tolerance TODO_verify against a per-encounter cross-calibration paper not anchored at this slug)"
+  - "Per-encounter stray-light residual after in-flight PSF correction (TODO_verify; candidate anchor is the Sinjan+ stray-light line referenced elsewhere in the corpus but not verified here)"
 trigger_keywords:
   - SO/PHI HRT
   - Solar Orbiter magnetograph
   - MILOS inversion
   - stray light deconvolution
   - PHI vector magnetogram
+  - Fe I 617.3 nm
+  - Solanki 2020 SO/PHI
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/extended_search.md
-related_local_skills: []
+related_local_skills:
+  - paper-hmi-vector-magnetogram-disambiguation-acute-angle
+  - paper-amari-2014-nlfff-vector-magnetogram-extrapolation
+  - paper-mdi-hmi-cross-calibration-synoptic-flux
+research_generation_affordances_present: true
+verification_flags:
+  - "arXiv 1903.11061 confirmed via arxiv.org/abs (2026-05-19): title 'The Polarimetric and Helioseismic Imager on Solar Orbiter', first author S.K. Solanki, A&A 642, A11."
+  - "DOI 10.1051/0004-6361/201935325 confirmed via CrossRef (2026-05-19): journal A&A, volume 642, article A11, 144 co-authors, accepted 2019-03-16, published 2020-09-30."
+  - "Sinjan+ stray-light line referenced in earlier scaffold is NOT verified at this pass — slug 'sinjan-2026-solo-phi-hrt-stray-light-calibration' exists in batch_mission_instruments_data_products at lower readiness; its arXiv/DOI is TODO_verify."
+  - "Per-encounter HMI ↔ HRT cross-calibration tolerance is TODO_verify — no specific paper anchored at this slug."
 provenance:
   generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
   generated_at: 2026-05-18T00:00:00Z
   source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
-  verified_by: null
-  verified_at: null
+  verified_by: heliosi-solar-corona-cme-internalization-batch1
+  verified_at: 2026-05-19T17:30:00Z
+  id_verifications:
+    - arxiv_id: "1903.11061"
+      url: "https://arxiv.org/abs/1903.11061"
+      http_status: 200
+      fetched_title: "The Polarimetric and Helioseismic Imager on Solar Orbiter"
+      title_match: true
+      status: arxiv-http-title-match
+      fetched_at: "2026-05-19T17:00:00Z"
+      source: live
+  supplementary_verifications:
+    - artifact_url: "https://api.crossref.org/works/10.1051/0004-6361/201935325"
+      status: crossref-doi-confirmed
+      fetched_at: "2026-05-19T17:05:00Z"
+      notes: "CrossRef confirms DOI 10.1051/0004-6361/201935325 -> journal A&A, volume 642, article A11, published 2020-09-30, 144 co-authors, title 'The Polarimetric and Helioseismic Imager on Solar Orbiter'."
+    - artifact_url: "https://soar.esac.esa.int/"
+      status: portal-publicly-accessible-specific-product-handle-TODO
+      fetched_at: null
+      notes: "SOAR is the canonical SO/PHI HRT L2 archive; the per-encounter product handle is observing-programme dependent and not anchored at this slug."

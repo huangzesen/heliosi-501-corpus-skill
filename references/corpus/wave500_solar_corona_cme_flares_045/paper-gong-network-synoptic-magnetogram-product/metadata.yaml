@@ -1,15 +1,42 @@
 slug: paper-gong-network-synoptic-magnetogram-product
-title: "GONG Network Synoptic Magnetogram Product"
-authors: []
-authors_verified: false
-year: TODO_verify
-journal: TODO_verify_with_full_text
-doi: TODO_verify_with_full_text
-arxiv: TODO_verify
-theme: solar_corona_cme_remote_sensing
+title: "The Global Oscillation Network Group (GONG) Project (Harvey et al. 1996 Science) — anchor for the GONG synoptic magnetogram product line"
+authors:
+  - "J. W. Harvey"
+  - "F. Hill"
+  - "R. P. Hubbard"
+  - "J. R. Kennedy"
+  - "J. W. Leibacher"
+  - "J. A. Pintar"
+  - "P. A. Gilman"
+  - "R. W. Noyes"
+  - "A. M. Title"
+  - "J. Toomre"
+  - "R. K. Ulrich"
+  - "A. Bhatnagar"
+  - "J. A. Kennewell"
+  - "W. Marquette"
+  - "J. Patrón"
+  - "O. Saá"
+  - "E. Yasukawa"
+authors_verified: true
+year: 1996
+journal: "Science"
+volume: "272"
+issue: "5266"
+pages: "1284-1286"
+doi: "10.1126/science.272.5266.1284"
+arxiv: null
+ads_bibcode: null
+primary_theme: solar_corona_cme_remote_sensing
 secondary_themes:
   - magnetograms
   - synoptic_products
+  - ground_based_helioseismology
+  - pfss_boundary_condition
+missions:
+  - GONG ground-based six-station network (NSO Integrated Synoptic Program)
+regime:
+  - long_baseline_solar_cycle
 quality_level: paper-grounded-pending-full-text
 executable_status: pipeline-specified-not-yet-runnable
 harness_agnostic: true
@@ -19,23 +46,59 @@ layers:
   adapter_binding_examples: true
   research_generation_affordance: true
 required_data:
-  - GONG synoptic Br products (NSO ISP)
+  - "GONG end-of-rotation Carrington synoptic Br map (NSO GONG portal)"
+  - "GONG daily updated synoptic Br map (near-real-time alternative)"
+  - "SDO/HMI synoptic Br (overlap-CR comparison)"
+  - "SOHO/MDI synoptic Br (overlap-CR comparison, 1996–2010)"
 methods:
-  - Synoptic Br fetch + resampling
-  - Polar fill-in QA
+  - synoptic_br_fetch_from_nso_gong_portal
+  - grid_resampling_area_weighted_for_pfss_ingest
+  - unsigned_total_flux_check
+  - polar_fill_in_provenance_check
+  - cross_observatory_unsigned_flux_comparison
+referenced_calibration_papers_TODO_verify:
+  - "Petrie et al. 2014 — GONG / MDI / HMI cross-calibration (anchor TODO_verify)"
+  - "Riley et al. 2014 multi-observatory magnetogram comparison (anchor TODO_verify)"
+  - "Bertello et al. 2014 / Hughes et al. 2016 NSO ISP synoptic-product series (anchor TODO_verify)"
 validation_targets:
-  - Unsigned-flux agreement with HMI ~10% (TODO verify)
+  - "Network design: six-station ground network, ~93 % network duty cycle (Harvey+ 1996 anchored)"
+  - "Sign-balanced synoptic Br within map noise (integrity check, not a paper-specific number)"
+  - "Unsigned-flux agreement vs HMI synoptic ~10 %–30 % per CR (TODO_verify against Petrie+ 2014 / Riley+ 2014 calibration papers; folk-knowledge guidance only at this slug)"
+  - "Polar Br fill-in reliability near solar minimum (TODO_verify — the polar-fill-in scheme is an NSO ISP product spec not anchored here)"
 trigger_keywords:
   - GONG synoptic
   - NSO Integrated Synoptic Program
-  - Harvey 1996
+  - Harvey 1996 GONG
   - ground-based magnetogram
+  - PFSS boundary condition
+  - daily synoptic
+  - polar fill-in
 source_inventory:
   - sioulas-reproduction/results/arxiv_papers/extended_search.md
-related_local_skills: []
+related_local_skills:
+  - paper-mdi-hmi-cross-calibration-synoptic-flux
+  - paper-open-flux-problem-in-situ-vs-pfss-discrepancy
+  - paper-source-surface-radius-optimization-eclipse-streamer
+  - paper-csss-current-sheet-source-surface-non-radial-open-flux
+  - paper-arge-2003-wsa-model-source-surface-wind-prediction
+research_generation_affordances_present: true
+verification_flags:
+  - "DOI 10.1126/science.272.5266.1284 confirmed via CrossRef (2026-05-19): title 'The Global Oscillation Network Group (GONG) Project', Science vol 272 issue 5266 pp 1284–1286, published 1996-05-31, 17 co-authors."
+  - "No arXiv ID for Harvey+ 1996 (Science predates routine arXiv solar-physics deposition); arXiv field set to null intentionally."
+  - "Modern GONG synoptic magnetogram product line is operated by NSO Integrated Synoptic Program; per-product calibration numerical targets are TODO_verify against the Petrie+ 2014 / Riley+ 2014 calibration paper line, which is NOT anchored at this slug."
+  - "10 %–30 % unsigned-flux agreement band vs HMI is folk-knowledge guidance until a specific calibration paper is anchored."
 provenance:
   generated_by: paper-to-skill-factory @ 2026-05-18 (HelioSI paper-to-skill factory)
   generated_at: 2026-05-18T00:00:00Z
   source_record: sioulas-reproduction/results/arxiv_papers/extended_search.md
-  verified_by: null
-  verified_at: null
+  verified_by: heliosi-solar-corona-cme-internalization-batch1
+  verified_at: 2026-05-19T17:30:00Z
+  supplementary_verifications:
+    - artifact_url: "https://api.crossref.org/works/10.1126/science.272.5266.1284"
+      status: crossref-doi-confirmed
+      fetched_at: "2026-05-19T17:15:00Z"
+      notes: "CrossRef confirms DOI 10.1126/science.272.5266.1284 -> Harvey, Hill, Hubbard et al. 1996, Science 272 (5266) pp 1284-1286, 'The Global Oscillation Network Group (GONG) Project', 17 co-authors, published 1996-05-31."
+    - artifact_url: "https://gong.nso.edu/data/"
+      status: portal-publicly-accessible-specific-product-handle-TODO
+      fetched_at: null
+      notes: "NSO GONG data portal is publicly accessible; the canonical product handles for the daily/CR synoptic Br products are NSO ISP conventions and were not re-verified at this pass."

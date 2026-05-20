@@ -3,22 +3,22 @@
   "summary": {
     "total_entries": 501,
     "active_entries": 45,
-    "mean_score": 63.1,
-    "median_score": 62.33,
+    "mean_score": 63.27,
+    "median_score": 62.66,
     "min_score": 42.43,
     "max_score": 92.0,
     "histogram": {
       "0-24": 0,
-      "25-49": 6,
-      "50-69": 411,
-      "70-84": 76,
+      "25-49": 4,
+      "50-69": 410,
+      "70-84": 79,
       "85-100": 8
     },
     "by_batch_mean": {
       "wave500_inner_heliosphere_psp_solo_045": 55.37,
-      "wave500_solar_corona_cme_flares_045": 57.16,
       "batch_turbulence_heating_apj": 57.56,
       "pilot_2026_and_runtime": 58.34,
+      "wave500_solar_corona_cme_flares_045": 59.09,
       "wave500_sw_classification_ml_foundation_045": 60.35,
       "batch_heliophysics_software_infrastructure": 61.05,
       "batch_solar_wind_segmentation_ml": 62.41,
@@ -41,7 +41,7 @@
       "stub-historical-anchor": 62.0,
       "stub": 62.11,
       "positioning-skill-not-executable-science": 63.24,
-      "paper-grounded-pending-full-text": 63.63,
+      "paper-grounded-pending-full-text": 63.99,
       "stub-infrastructure": 64.33,
       "method-ready": 66.07,
       "link-only-cross-batch": 69.41,
@@ -27123,73 +27123,73 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 9,
-      "score": 49.04,
-      "raw_score": 55,
-      "todo_penalty": 5.96,
+      "n_todo": 7,
+      "score": 81.04,
+      "raw_score": 82,
+      "todo_penalty": 0.96,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 16,
           "max": 25,
           "bits": {
-            "arxiv": false,
-            "doi": false,
+            "arxiv": true,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 4,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
-            "year": false,
-            "venue": false
+            "year": true,
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 25,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": true,
-            "has_targets": false,
+            "has_failure_modes": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
-            "has_numeric_reference": false,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -27447,61 +27447,61 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 8,
-      "score": 62.18,
-      "raw_score": 68,
-      "todo_penalty": 5.82,
+      "n_todo": 11,
+      "score": 76.7,
+      "raw_score": 82,
+      "todo_penalty": 5.3,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 16,
           "max": 25,
           "bits": {
-            "arxiv": false,
-            "doi": false,
+            "arxiv": true,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 7,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
             "year": true,
-            "venue": false
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 25,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": true,
-            "has_targets": false,
+            "has_failure_modes": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 6,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
             "boilerplate": false
@@ -27771,17 +27771,17 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 10,
-      "score": 50.15,
-      "raw_score": 58,
-      "todo_penalty": 7.85,
+      "n_todo": 18,
+      "score": 64.6,
+      "raw_score": 72,
+      "todo_penalty": 7.4,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 6,
           "max": 25,
           "bits": {
             "arxiv": false,
-            "doi": false,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
             "id_verifications": false,
@@ -27789,55 +27789,55 @@
           }
         },
         "identity": {
-          "score": 4,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
-            "year": false,
-            "venue": false
+            "year": true,
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 25,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": true,
-            "has_targets": false,
+            "has_failure_modes": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 6,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
             "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }
@@ -28905,73 +28905,73 @@
       "pending": null,
       "tier_class": null,
       "layer2_stub": null,
-      "n_todo": 10,
-      "score": 48.2,
-      "raw_score": 55,
-      "todo_penalty": 6.8,
+      "n_todo": 19,
+      "score": 74.3,
+      "raw_score": 82,
+      "todo_penalty": 7.7,
       "components": {
         "bibliographic_anchor": {
-          "score": 0,
+          "score": 16,
           "max": 25,
           "bits": {
-            "arxiv": false,
-            "doi": false,
+            "arxiv": true,
+            "doi": true,
             "ads": false,
             "url_or_code": false,
-            "id_verifications": false,
+            "id_verifications": true,
             "external_links": false
           }
         },
         "identity": {
-          "score": 4,
+          "score": 10,
           "max": 10,
           "bits": {
             "title": true,
-            "year": false,
-            "venue": false
+            "year": true,
+            "venue": true
           }
         },
         "layer1_claim": {
-          "score": 25,
+          "score": 21,
           "max": 25,
           "bits": {
             "has_section": true,
             "long_enough": true,
             "has_claim": true,
-            "has_failure_modes": true,
-            "has_targets": false,
+            "has_failure_modes": false,
+            "has_targets": true,
             "todo_dense": false
           }
         },
         "layer2_protocol": {
-          "score": 20,
+          "score": 15,
           "max": 20,
           "bits": {
             "has_section": true,
             "long_enough": true,
-            "has_capabilities": true,
+            "has_capabilities": false,
             "has_procedure": true,
             "boilerplate": false,
             "layer2_stub_flag": false
           }
         },
         "validation_target": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
-            "has_meta_validation_targets": false,
+            "has_meta_validation_targets": true,
             "has_section": true,
-            "has_numeric_reference": false,
+            "has_numeric_reference": true,
             "boilerplate": false
           }
         },
         "layer4_affordance": {
-          "score": 3,
+          "score": 10,
           "max": 10,
           "bits": {
             "has_section": true,
-            "long_enough": false,
-            "has_meta_affordances": false,
+            "long_enough": true,
+            "has_meta_affordances": true,
             "has_skill_fm_affordances": false,
             "boilerplate": false
           }

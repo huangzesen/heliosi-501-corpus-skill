@@ -1,20 +1,20 @@
 internalization-readiness audit — 501 entries scanned (45 active)
 ========================================================================
-  mean score   : 63.1/100   median: 62.33   min: 42.43   max: 92.0
+  mean score   : 63.27/100   median: 62.66   min: 42.43   max: 92.0
   active mean  : 63.64   active min: 50.5
 
   score histogram (lower = more internalization debt):
     0-24       0  
-    25-49      6  ##
-    50-69    411  ############################################################
-    70-84     76  ####################
+    25-49      4  ##
+    50-69    410  ############################################################
+    70-84     79  ####################
     85-100     8  ###
 
   per-batch mean (ascending — worst-debt batch first):
     wave500_inner_heliosphere_psp_solo_045               55.37
-    wave500_solar_corona_cme_flares_045                  57.16
     batch_turbulence_heating_apj                         57.56
     pilot_2026_and_runtime                               58.34
+    wave500_solar_corona_cme_flares_045                  59.09
     wave500_sw_classification_ml_foundation_045          60.35
     batch_heliophysics_software_infrastructure           61.05
     batch_solar_wind_segmentation_ml                     62.41
@@ -37,7 +37,7 @@ internalization-readiness audit — 501 entries scanned (45 active)
     stub-historical-anchor                           62.0
     stub                                             62.11
     positioning-skill-not-executable-science         63.24
-    paper-grounded-pending-full-text                 63.63
+    paper-grounded-pending-full-text                 63.99
     stub-infrastructure                              64.33
     method-ready                                     66.07
     link-only-cross-batch                            69.41
@@ -48,10 +48,7 @@ internalization-readiness audit — 501 entries scanned (45 active)
     42.43  25  15   0   3   0   7    10          wave500_waves_instabilities_reconnection_045/klein-2018-multispecies-stability-anisotropy
     47.67  25   8   0   8   0  10     8          wave500_inner_heliosphere_psp_solo_045/damicis-2026-alfvenic-slow-wind-parcels-psp-solo-wind
     48.02  25   8   0   8   0  10     6          wave500_inner_heliosphere_psp_solo_045/schwadron-2022-switchback-deflections-beyond-early-encounters
-     48.2  25  20   3   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-so-phi-hrt-vector-magnetogram-radial-distance
     48.61  25  15   5   5   0   7    11          wave500_waves_instabilities_reconnection_045/hcs-reconnection-statistics-psp-encounter-2025
-    49.04  25  20   3   3   0   4     9          wave500_solar_corona_cme_flares_045/paper-coronal-plume-substructure-eui-high-cadence
-    50.15  25  20   6   3   0   4    10          wave500_solar_corona_cme_flares_045/paper-gong-network-synoptic-magnetogram-product
     50.34  25   8   0  10   0  10     7          wave500_inner_heliosphere_psp_solo_045/bandyopadhyay-2025-helios-mission-archival-reanalysis
      50.4  25   8   0  10   0  10     6          wave500_inner_heliosphere_psp_solo_045/halekas-2024-coronal-heating-switchback-budget-ruled-out
      50.5  21  15   6   5   6   7    25   *      batch_solar_wind_segmentation_ml/paper-grajeda-2025-acwe-magnetic-constrained-ch-segmentation
@@ -75,6 +72,9 @@ internalization-readiness audit — 501 entries scanned (45 active)
      51.9  21  20   1  10   0   7    17          wave500_sw_classification_ml_foundation_045/paper-pal-2024-cir-stream-interaction-region-ml
      52.0  16  11   6   3   6  10     0   *      batch_heliophysics_software_infrastructure/paper-cdflib-cdf-reader
      52.0  16  11   6   3   6  10     0          batch_heliophysics_software_infrastructure/paper-plasmapy-plasma-physics-python
+     52.3  21  15   6   0   6   7     9          batch_mission_instruments_data_products/damicis-2025-solo-swa-alfvenic-streams-validation
+    52.74  21  15   6   0   6   7     7   *      pilot_turbulence/sioulas-2024-higher-order-3d-anisotropy
+     52.8  21  15  10   0   6   7    14   *      batch_turbulence_heating_apj/martinovic-2024-slow-wind-imbalanced-alfven-wave-heating
 
   legend: L1=Layer-1 claim, L2=Layer-2 protocol, Val=validation,
           L4=Layer-4 affordance, Bib=bibliographic anchor,

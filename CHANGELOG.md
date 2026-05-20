@@ -331,6 +331,67 @@ the structural manifest invariants are unchanged (501 entries, 18 batches,
   provide the reproducible audit (`--json`, `--strict`) and pin the doc ↔
   corpus consistency checks. Closes #58.
 
+### Wave500 solar-corona / CME / flares batch 1 — internalization of 4 high-debt entries (2026-05-19)
+
+Drains content debt on four entries under
+`references/corpus/wave500_solar_corona_cme_flares_045/` by internalizing
+verified bibliographic anchors, narrow-form scientific claims,
+executable-protocol contracts, validation targets, and failure modes
+sourced from arXiv-confirmed primary papers. Pattern is the same as the
+two prior internalization waves (turbulence / ML-foundation /
+segmentation-ml): structural manifest invariants are unchanged
+(501 entries, 18 batches, `totals.duplicate_slugs == {}`).
+
+- `paper-so-phi-hrt-vector-magnetogram-radial-distance` — anchored to
+  **Solanki, del Toro Iniesta, Woch, Gandorfer, Hirzberger, et al.
+  (2020)**, "The Polarimetric and Helioseismic Imager on Solar Orbiter",
+  *A&A* 642, A11, doi:10.1051/0004-6361/201935325, arXiv:1903.11061
+  (CrossRef-confirmed, 144 co-authors). The per-encounter Sinjan+
+  stray-light line referenced in earlier scaffolding is preserved as
+  TODO_verify (no specific arXiv/DOI anchored at this pass). Score
+  48.20 → 74.30.
+- `paper-coronal-plume-substructure-eui-high-cadence` — anchored to
+  **Uritsky, DeForest, Karpen, DeVore, Kumar, Raouafi, Wyper (2021)**,
+  "Plumelets: Dynamic Filamentary Structures in Solar Coronal Plumes",
+  *ApJ* 907, 1, doi:10.3847/1538-4357/abd186, arXiv:2012.05728. The
+  companion driver-side paper Kumar et al. 2022 (arXiv:2204.13871) is
+  recorded in `supplementary_verifications` as an explicit
+  driver-degeneracy alternative to the p-mode picture. Score
+  49.04 → 81.04.
+- `paper-gong-network-synoptic-magnetogram-product` — anchored to
+  **Harvey, Hill, Hubbard, Kennedy, Leibacher, et al. (1996)**, "The
+  Global Oscillation Network Group (GONG) Project", *Science* 272,
+  1284–1286, doi:10.1126/science.272.5266.1284 (CrossRef-confirmed,
+  17 co-authors). The downstream NSO ISP synoptic-magnetogram
+  calibration line (Petrie+ 2014, Riley+ 2014, Bertello+ 2014) is
+  acknowledged and explicitly tracked as TODO_verify for follow-on
+  anchoring. Score 50.15 → 64.60 (limited by no-arXiv ceiling).
+- `paper-eui-fsi-hri-coronal-bright-points-statistics` — anchored to
+  **Berghmans, Auchère, Long, Soubrié, Mierla, et al. (2021)**, "Extreme
+  UV quiet Sun brightenings observed by Solar Orbiter/EUI", *A&A* 656,
+  L4, doi:10.1051/0004-6361/202140380, arXiv:2104.03382. Companion
+  papers Narang+ 2025 (arXiv:2505.03656) and Huang+ 2023
+  (arXiv:2303.15979) are recorded under `supplementary_verifications`
+  as population-refinement and EUI+SPICE spectroscopic follow-ons.
+  Score 62.18 → 76.70.
+
+Additional integration changes:
+
+- `tests/test_layer_schemas.py` — `EXPECTED_BATCH_FAMILIES` entry for
+  `wave500_solar_corona_cme_flares_045` updated to hybrid
+  `{prose_pfss_layered: 41, numbered_executable_workflow_v1: 4}` to
+  match the post-internalization rendering distribution (same pattern
+  the turbulence-batch internalization established).
+- `tests/test_title_unicode.py` — headline-count expectations updated
+  from 96 → 98 entries with non-ASCII titles (two additional U+2014 EM
+  DASH manifest titles after journal/anchor promotion).
+- `references/corpus_qa_report_v2.md` §10 — headline counts updated to
+  match: 98 / 501 entries, EM DASH count 31 → 34, EN DASH 11 → 10.
+- `references/corpus_manifest_v2.json` — `title`, `first_author`,
+  `year`, `venue`, `doi`, `arxiv`, and `research_generation_affordances_*`
+  fields updated for the four internalized entries.
+- Per-batch corona/CME mean score 57.16 → 59.09 (+1.93).
+
 ### Wave500 ML-foundation batch 1 — Layer-1 internalization for 3 high-debt entries (2026-05-19)
 
 Drains content debt on three entries under
