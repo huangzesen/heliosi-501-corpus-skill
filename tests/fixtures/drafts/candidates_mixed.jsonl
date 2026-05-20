@@ -1,0 +1,20 @@
+# Fixture for scripts/draft_paper_skill_from_candidates.py tests.
+#
+# Each non-comment line is a candidate record in the *output* shape produced
+# by scripts/discover_heliophysics_literature.py (i.e. after normalisation +
+# novelty join). The mix below intentionally covers every corpus_status the
+# scaffold has to decide on:
+#
+#   - line 1: new_candidate  -> drafted by default
+#   - line 2: new_candidate  -> drafted by default; tests slug + provenance
+#   - line 3: unjoined       -> SKIPPED unless --include-unjoined
+#   - line 4: already_curated -> SKIPPED unless --include-all-statuses
+#   - line 5: new_candidate  -> drafted; same first author as line 2 (slug
+#                                 collision-avoidance check via id hash suffix)
+#
+# Lines starting with "#" and blank lines are ignored.
+{"id": "doi:10.9999/new.psp.alfven.2025", "source": "arxiv", "title": "A new Parker Solar Probe Alfvenic turbulence diagnostic near perihelion", "year": 2025, "doi": "10.9999/new.psp.alfven.2025", "arxiv_id": "2501.11111", "bibcode": null, "url": "https://arxiv.org/abs/2501.11111", "authors": ["Q. Newauthor", "R. Junior"], "abstract": "We propose a new diagnostic for Alfvenic turbulence in the inner heliosphere using PSP FIELDS magnetic-field data.", "topic_tags": ["alfven-waves", "parker-solar-probe", "turbulence"], "query": "Parker Solar Probe switchbacks", "discovered_at_utc": "2026-05-19T12:00:00Z", "corpus_status": "new_candidate", "corpus_match_via": null, "corpus_match_slugs": [], "corpus_match_titles": []}
+{"id": "arxiv:2503.22222", "source": "openalex", "title": "Open-flux estimates from non-spherical PFSS variants", "year": 2025, "doi": null, "arxiv_id": "2503.22222", "bibcode": null, "url": "https://openalex.org/W500000001", "authors": ["S. Stranger"], "abstract": "We revisit open-flux estimates from PFSS variants and compare to in-situ measurements.", "topic_tags": ["pfss", "corona", "heliosphere"], "query": "PFSS open flux", "discovered_at_utc": "2026-05-19T12:00:00Z", "corpus_status": "new_candidate", "corpus_match_via": null, "corpus_match_slugs": [], "corpus_match_titles": []}
+{"id": "title:abc1234567890def", "source": "openalex", "title": "Mystery solar wind study with no identifiers", "year": 2024, "doi": null, "arxiv_id": null, "bibcode": null, "url": "https://openalex.org/W500000002", "authors": [], "abstract": "An unjoined candidate (novelty join disabled).", "topic_tags": ["solar-wind"], "query": "solar wind turbulence", "discovered_at_utc": "2026-05-19T12:00:00Z", "corpus_status": "unjoined", "corpus_match_via": null, "corpus_match_slugs": [], "corpus_match_titles": []}
+{"id": "doi:10.3847/1538-4365/ab5dae", "source": "openalex", "title": "Enhanced Energy Transfer Rate in Solar Wind Turbulence near the Sun", "year": 2020, "doi": "10.3847/1538-4365/ab5dae", "arxiv_id": "1912.02959", "bibcode": "2020apjs..246...48b", "url": "https://openalex.org/W3000000001", "authors": ["R. Bandyopadhyay"], "abstract": "Already curated entry; novelty join hit.", "topic_tags": ["psp", "turbulence"], "query": "solar wind turbulence", "discovered_at_utc": "2026-05-19T12:00:00Z", "corpus_status": "already_curated", "corpus_match_via": "doi", "corpus_match_slugs": ["bandyopadhyay-2020-energy-transfer-psp"], "corpus_match_titles": ["Enhanced Energy Transfer Rate in Solar Wind Turbulence Observed near the Sun from Parker Solar Probe"]}
+{"id": "arxiv:2504.33333", "source": "arxiv", "title": "Another PFSS extension applied to high-latitude open flux", "year": 2025, "doi": null, "arxiv_id": "2504.33333", "bibcode": null, "url": "https://arxiv.org/abs/2504.33333", "authors": ["S. Stranger", "T. Otheruser"], "abstract": "A second 2025 paper by the same first author; tests that slugs do not collide.", "topic_tags": ["pfss", "corona"], "query": "PFSS open flux", "discovered_at_utc": "2026-05-19T12:00:00Z", "corpus_status": "new_candidate", "corpus_match_via": null, "corpus_match_slugs": [], "corpus_match_titles": []}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "discovery-run-bundle/1.0",
+  "script_version": "0.1.0",
+  "git_commit": "fixturefixturefixturefixturefixture0000",
+  "discovered_at_utc": "2026-05-19T12:00:00Z",
+  "mode": "dry-run",
+  "queries": [
+    {"q": "Parker Solar Probe switchbacks", "tag": "core-helio"},
+    {"q": "PFSS open flux", "tag": "core-helio"}
+  ],
+  "query_count": 2,
+  "backends": ["arxiv", "openalex"],
+  "candidate_counts_by_corpus_status": {
+    "already_curated": 1,
+    "new_candidate": 3,
+    "unjoined": 1
+  },
+  "framing": "frontier seed-expansion sample; not a complete survey of the heliophysics literature",
+  "limits": "Fixture run-bundle for draft-scaffold tests. Not a real discovery run."
+}

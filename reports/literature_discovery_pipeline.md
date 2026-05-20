@@ -360,6 +360,127 @@ After the second run, `queue/run-b/run_metadata.json` carries
 `candidate_counts_by_prior_run.seen_in_prior_run` is non-zero, while
 `queue/run-a` is untouched.
 
+### 3.6 Draft paper-skill scaffold (quarantined drafts)
+
+`scripts/draft_paper_skill_from_candidates.py` is the next stage after
+discovery: it consumes a candidate JSONL (or a run-bundle directory
+produced via `--run-dir`) and emits one **quarantined draft paper-skill
+scaffold** per selected candidate. The script is offline by construction
+— it never makes network calls.
+
+The scaffold is **not** a corpus entry. Every visible surface of every
+draft is marked as quarantined:
+
+- per-draft directory name is prefixed with `draft__` so it can never be
+  mistaken for the `paper-…` naming convention of curated entries;
+- `SKILL.md` frontmatter carries `kind: discovery-draft`,
+  `promotion_status: unreviewed`, `verified: false`,
+  `maturity: candidate`, `quality_level: unverified-candidate`,
+  `executable_status: unverified-draft`, `authors_verified: false`;
+- `SKILL.md` body opens with a **DRAFT — UNVERIFIED CANDIDATE —
+  NOT A CORPUS ENTRY** banner that explicitly disclaims promotion;
+- `metadata.yaml` mirrors the same fields and adds a
+  `promotion_gate:` checklist (`bibliographic_identity_verified`,
+  `provenance_checked`, `title_authors_year_conflicts_resolved`,
+  `abstract_or_full_text_inspected`, `claims_evidence_extracted`,
+  `data_tool_contracts_defined`, `validation_target_recorded`,
+  `failure_modes_recorded`, `maturity_tier_assigned`) — every item
+  starts as `false`;
+- the per-run aggregate `draft_manifest.json` + `draft_report.md` at
+  the drafts-dir root carry the same disclosure.
+
+The script refuses to write under `references/corpus/` so the curated
+501-entry invariants enforced by `scripts/validate.sh` cannot be
+silently broken by a draft.
+
+#### 3.6.1 CLI
+
+| Flag                       | Purpose                                                                                                       |
+|----------------------------|---------------------------------------------------------------------------------------------------------------|
+| `--drafts-dir PATH`        | Directory to write per-draft subdirectories + the manifest/report. Required. Must be outside `references/corpus/`. |
+| `--from-candidates PATH`   | Candidate JSONL (the discovery script's `--output` shape). Mutually exclusive with `--from-run-dir`.          |
+| `--from-run-dir PATH`      | Discovery run-bundle directory (reads `PATH/candidates.jsonl`). Mutually exclusive with `--from-candidates`.  |
+| `--include-unjoined`       | Also draft rows with `corpus_status == "unjoined"`. Off by default.                                            |
+| `--include-all-statuses`   | Also draft rows with `corpus_status == "already_curated"` (loud opt-in; intended for audit only).             |
+| `--overwrite`              | Replace existing per-draft directories. Off by default; the script never silently clobbers prior drafts.       |
+
+By default the script drafts **only `corpus_status == "new_candidate"`**
+rows. `already_curated` candidates are never drafted unless
+`--include-all-statuses` is passed.
+
+Each per-draft directory is::
+
+    <drafts-dir>/draft__<author>__<year>__<title-tokens>__<id-hash6>/
+        SKILL.md
+        metadata.yaml
+
+The slug is deterministic: same candidate input ⇒ same slug. The trailing
+six-hex-char hash is derived from the candidate's discovery dedupe id, so
+two candidates that share a first author + year + similar title still get
+distinct slugs.
+
+#### 3.6.2 Output shape
+
+At `<drafts-dir>/`:
+
+- `draft_manifest.json` — schema-versioned
+  (`"draft-scaffold-manifest/1.0"`). Carries the input kind + path, the
+  CLI args, `selected_count`, `skipped_count`,
+  `selected_counts_by_corpus_status`, `skipped_counts_by_corpus_status`,
+  the list of `promotion_gate_keys`, a per-draft summary list
+  (`slug`, `path`, `corpus_status`, `dedupe_id`, `title`, `year`, `doi`,
+  `arxiv_id`, `source`), the quarantine disclosure, and an explicit
+  `limits` paragraph.
+- `draft_report.md` — short Markdown summary with the same headline
+  disclosure and counts.
+
+#### 3.6.3 Examples
+
+```sh
+# Default: read a candidate JSONL, write drafts for new_candidate rows only.
+python3 scripts/draft_paper_skill_from_candidates.py \
+    --from-candidates /tmp/cand.jsonl --drafts-dir /tmp/drafts
+
+# Read from a discovery run bundle (no live network in either step).
+python3 scripts/discover_heliophysics_literature.py \
+    --dry-run --run-dir /tmp/run-a
+python3 scripts/draft_paper_skill_from_candidates.py \
+    --from-run-dir /tmp/run-a --drafts-dir /tmp/drafts
+
+# Also draft unjoined rows (novelty join disabled at discovery time).
+python3 scripts/draft_paper_skill_from_candidates.py \
+    --from-candidates /tmp/cand.jsonl --drafts-dir /tmp/drafts \
+    --include-unjoined
+
+# Audit mode: also draft already_curated rows (loud opt-in).
+python3 scripts/draft_paper_skill_from_candidates.py \
+    --from-candidates /tmp/cand.jsonl --drafts-dir /tmp/drafts \
+    --include-all-statuses
+```
+
+#### 3.6.4 Limits (honest framing)
+
+- **Drafts are not corpus entries.** A draft only repeats what the
+  discovery backend returned (title, year, DOI, arXiv, abstract, authors,
+  URL, query, dedupe id) plus the `corpus_status` annotation from the
+  novelty join. Every other section of the draft `SKILL.md` is a `TODO`
+  pending the promotion-gate evidence review.
+- **The promotion gate is the contract.** A draft must not be moved into
+  `references/corpus/` until every `promotion_gate` item in
+  `metadata.yaml` has been flipped to `true` with the corresponding
+  evidence recorded in `SKILL.md`. After the move, the curated entry
+  must still pass `bash scripts/validate.sh` and the existing test
+  gauntlet — this script does not bypass any of that.
+- **No live network.** The script is offline. DOI resolution, arXiv
+  title verification, and full-text fetches are intentionally out of
+  scope. Use `scripts/verify_arxiv_ids.py` and the S4d / S4e / S4f gates
+  in `scripts/validate.sh` as the live verification path.
+- **Slug collisions.** Two candidates with the same author + year +
+  title-prefix still get distinct slugs via the trailing six-hex-char
+  id-hash suffix. A pathological collision still in the same run
+  triggers a `SystemExit` rather than overwriting; `--overwrite` is
+  required to replace existing per-draft directories.
+
 ## 4. Relationship to the curated 501-skill corpus
 
 The new pipeline is **strictly additive**. The curated corpus retains its
@@ -375,13 +496,25 @@ gauntlet (`bash scripts/validate.sh`), and its `search_corpus.py` surface.
   |  Touches: tests/fixtures/...       |        |          references/corpus/   |
   +--------------+---------------------+        +---------------+---------------+
                  |                                              ^
-                 |  (manual / future-agent triage)              |
+                 v                                              |
+  +------------------------------------+                        |
+  | draft_paper_skill_from_candidates  |                        |
+  |  (offline; per-candidate scaffold) |                        |
+  |  Emits: <drafts-dir>/draft__*/     |                        |
+  |          + draft_manifest.json     |                        |
+  |          + draft_report.md         |                        |
+  |  Refuses to write under            |                        |
+  |   references/corpus/.              |                        |
+  +--------------+---------------------+                        |
+                 |  (promotion-gate evidence review;            |
+                 |   four-layer authoring model)                |
                  v                                              |
    +------------------------------------+                       |
-   | Author paper-skill (4-layer model) |-----------------------+
-   | -> new entry in references/corpus/ |   (only after passing
-   |                                    |    the existing test
-   +------------------------------------+    + validate.sh gates)
+   | Promote draft -> paper-skill       |-----------------------+
+   | -> new entry in references/corpus/ |   (only after every
+   |                                    |    promotion_gate item
+   +------------------------------------+    flips to true AND
+                                             validate.sh passes)
 ```
 
 A candidate cannot enter `references/corpus/` until it goes through the
@@ -428,7 +561,7 @@ Done in earlier increment (§3.4):
 - [x] Offline unit tests for DOI / arXiv / title+year / bibcode-priority
       / non-match / sentinel-arxiv / disabled-join paths.
 
-Done in this increment (§3.5):
+Done in earlier increment (§3.5):
 
 - [x] Persistent run-bundle artifact convention: `--run-dir PATH`
       writes `candidates.jsonl`, `run_metadata.json`, and
@@ -450,6 +583,38 @@ Done in this increment (§3.5):
       Markdown report counts, prior-run dedupe semantics, and the
       "disabled manifest stays `unjoined`, not `new_candidate`" guard.
 
+Done in this increment (§3.6):
+
+- [x] Per-candidate quarantined draft scaffold generator
+      (`scripts/draft_paper_skill_from_candidates.py`) consuming either
+      a candidate JSONL or a run-bundle directory.
+- [x] Default filter on `corpus_status == "new_candidate"`;
+      `--include-unjoined` and `--include-all-statuses` opt-ins;
+      `already_curated` never drafted by default.
+- [x] Deterministic, filesystem-safe, collision-aware `draft__` slugs
+      with a six-hex-char id-hash suffix.
+- [x] Per-draft `SKILL.md` with DRAFT/UNVERIFIED/NOT-A-CORPUS-ENTRY
+      banner, four-layer scaffold (Layer 1/2/3/4), candidate provenance
+      block, candidate abstract block, validation-TODO checklist, and a
+      promotion-gate disclosure.
+- [x] Per-draft `metadata.yaml` with quarantine frontmatter
+      (`kind: discovery-draft`, `promotion_status: unreviewed`,
+      `verified: false`, `maturity: candidate`,
+      `quality_level: unverified-candidate`,
+      `executable_status: unverified-draft`,
+      `authors_verified: false`) and a machine-readable
+      `promotion_gate:` checklist.
+- [x] Aggregate `draft_manifest.json`
+      (schema `"draft-scaffold-manifest/1.0"`) +
+      `draft_report.md` at the drafts-dir root, with selected/skipped
+      counts by `corpus_status` and explicit quarantine framing.
+- [x] Hard rail: the script refuses to write under
+      `references/corpus/`, preserving the 501-entry invariants
+      enforced by `scripts/validate.sh`.
+- [x] Offline unit + CLI tests for include filters, collision/overwrite
+      behaviour, slug determinism + safety, manifest/report content,
+      and the run-bundle input path.
+
 Not done (explicit future work — do **not** claim these are present):
 
 - [ ] Multi-match / disambiguation policy when title+year collapses
@@ -459,7 +624,10 @@ Not done (explicit future work — do **not** claim these are present):
       (currently only the manifest top-level is read; identifiers that
       live only in the per-entry frontmatter are invisible to the join).
 - [ ] Full-text fetch and section extraction.
-- [ ] Automated four-layer paper-skill drafting from a candidate.
+- [ ] Automated population of the four-layer scaffold sections from the
+      full text (the §3.6 scaffold leaves Layer 1-4 as explicit TODOs;
+      a downstream pass — human or agent — fills them in only after the
+      full text has been read and the promotion gate cleared).
 - [ ] Drift detection (a candidate that contradicts an existing T1 / T2
       entry's claim boundary).
 - [ ] Scheduling, observability, and rate-limit budget enforcement for
