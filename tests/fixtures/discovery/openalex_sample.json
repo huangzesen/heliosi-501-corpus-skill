@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "id": "https://openalex.org/W4000000004",
+      "doi": "https://doi.org/10.1234/PSP.Switchback.2024",
+      "title": "Parker Solar Probe switchbacks near perihelion (OpenAlex)",
+      "display_name": "Parker Solar Probe switchbacks near perihelion (OpenAlex)",
+      "publication_year": 2024,
+      "ids": {"openalex": "https://openalex.org/W4000000004"},
+      "authorships": [
+        {"author": {"display_name": "A. Author"}}
+      ],
+      "abstract_inverted_index": {
+        "Parker": [0],
+        "Solar": [1],
+        "Probe": [2],
+        "switchbacks": [3]
+      }
+    },
+    {
+      "id": "https://openalex.org/W4000000003",
+      "doi": null,
+      "title": "Machine learning classification of solar wind types from Wind spacecraft data",
+      "display_name": "Machine learning classification of solar wind types from Wind spacecraft data",
+      "publication_year": 2022,
+      "ids": {"openalex": "https://openalex.org/W4000000003"},
+      "authorships": [
+        {"author": {"display_name": "E. Engineer"}}
+      ],
+      "abstract_inverted_index": {
+        "We": [0], "train": [1], "a": [2], "neural": [3], "network": [4],
+        "classifier": [5], "on": [6], "Wind": [7], "spacecraft": [8],
+        "solar": [9], "wind": [10], "plasma": [11], "data.": [12]
+      }
+    }
+  ]
+}

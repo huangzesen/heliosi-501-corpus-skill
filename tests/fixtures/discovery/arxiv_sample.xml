@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:arxiv="http://arxiv.org/schemas/atom">
+  <title>arXiv Query: search_query=all:solar wind turbulence</title>
+  <id>http://arxiv.org/api/query?fixture</id>
+  <updated>2026-05-19T00:00:00Z</updated>
+  <entry>
+    <id>https://arxiv.org/abs/2401.00001v1</id>
+    <updated>2024-01-02T12:00:00Z</updated>
+    <published>2024-01-01T08:00:00Z</published>
+    <title>Parker Solar Probe observations of solar wind switchbacks near perihelion</title>
+    <summary>We present Parker Solar Probe observations of switchbacks in the inner heliosphere and the associated solar wind turbulence.</summary>
+    <author><name>A. Author</name></author>
+    <author><name>B. Coauthor</name></author>
+    <arxiv:doi>10.1234/psp.switchback.2024</arxiv:doi>
+    <link href="https://arxiv.org/abs/2401.00001v1" rel="alternate" type="text/html"/>
+    <link href="https://doi.org/10.1234/psp.switchback.2024" rel="related" title="doi"/>
+  </entry>
+  <entry>
+    <id>https://arxiv.org/abs/2403.04567v1</id>
+    <updated>2024-03-06T12:00:00Z</updated>
+    <published>2024-03-05T08:00:00Z</published>
+    <title>Coronal mass ejection reconnection signatures observed by Solar Orbiter</title>
+    <summary>Solar Orbiter EUI and MAG observations show reconnection signatures during a coronal mass ejection eruption.</summary>
+    <author><name>C. Coauthor</name></author>
+    <link href="https://arxiv.org/abs/2403.04567v1" rel="alternate" type="text/html"/>
+  </entry>
+</feed>
