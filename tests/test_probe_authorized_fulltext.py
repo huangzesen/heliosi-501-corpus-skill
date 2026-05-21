@@ -647,6 +647,238 @@ class TestCliRetryFlag(unittest.TestCase):
                 paf.run_probe = orig
 
 
+class TestDoiPrefixFilter(unittest.TestCase):
+    """``--doi-prefix`` restricts selection to DOI-bearing rows whose
+    ``preferred_identifier`` lives under one of the named registrant prefixes.
+
+    The motivation is operational: we want to retry only the 10.2172 (OSTI)
+    rows after wiring up the OSTI API tier, without re-running the broad
+    authorized probe across every terminal failure in the queue.
+    """
+
+    def test_single_prefix_filters_to_matching_doi(self):
+        rows = [
+            _row("a", "10.2172/abc"),
+            _row("b", "10.1029/xyz"),
+            _row("c", "10.2172/def"),
+        ]
+        picked = paf.select_failed(rows, limit=10, doi_prefixes={"10.2172"})
+        self.assertEqual([r["candidate_id"] for r in picked], ["a", "c"])
+
+    def test_multiple_prefixes_are_unioned(self):
+        rows = [
+            _row("a", "10.2172/abc"),
+            _row("b", "10.1029/xyz"),
+            _row("c", "10.5194/foo"),
+        ]
+        picked = paf.select_failed(
+            rows, limit=10, doi_prefixes={"10.2172", "10.1029"}
+        )
+        self.assertEqual([r["candidate_id"] for r in picked], ["a", "b"])
+
+    def test_match_is_case_insensitive(self):
+        rows = [
+            _row("a", "10.2172/Abc"),
+            _row("b", "10.2172/DEF"),
+        ]
+        picked = paf.select_failed(rows, limit=10, doi_prefixes={"10.2172"})
+        self.assertEqual([r["candidate_id"] for r in picked], ["a", "b"])
+        # Prefix supplied in mixed case still matches.
+        picked2 = paf.select_failed(rows, limit=10, doi_prefixes={"10.2172"})
+        self.assertEqual([r["candidate_id"] for r in picked2], ["a", "b"])
+
+    def test_prefix_must_be_full_registrant_not_partial(self):
+        # ``10.21`` must NOT pretend-match ``10.2172`` / ``10.21273``.
+        # Matching is on the full registrant segment (the part before the
+        # first ``/``), so a substring like ``10.21`` only matches a DOI whose
+        # registrant is exactly ``10.21``.
+        rows = [
+            _row("a", "10.2172/abc"),
+            _row("b", "10.21273/xyz"),
+            _row("c", "10.21/legit"),
+        ]
+        picked = paf.select_failed(rows, limit=10, doi_prefixes={"10.21"})
+        self.assertEqual([r["candidate_id"] for r in picked], ["c"])
+
+    def test_empty_set_keeps_legacy_behavior(self):
+        rows = [
+            _row("a", "10.2172/abc"),
+            _row("b", "10.1029/xyz"),
+        ]
+        picked_none = paf.select_failed(rows, limit=10, doi_prefixes=None)
+        picked_empty = paf.select_failed(rows, limit=10, doi_prefixes=set())
+        self.assertEqual([r["candidate_id"] for r in picked_none], ["a", "b"])
+        self.assertEqual([r["candidate_id"] for r in picked_empty], ["a", "b"])
+
+    def test_prefix_excludes_arxiv_rows_even_when_set(self):
+        # arXiv rows have no DOI registrant so the prefix can never apply.
+        rows = [
+            _row("a", "10.2172/abc"),
+            {**_row("b", "arxiv:2301.00001", kind="arxiv"), "doi": None},
+        ]
+        picked = paf.select_failed(rows, limit=10, doi_prefixes={"10.2172"})
+        self.assertEqual([r["candidate_id"] for r in picked], ["a"])
+
+    def test_prefix_with_retry_does_not_broaden_to_other_prefixes(self):
+        # SAFETY: ``--retry-previous-attempts`` together with --doi-prefix
+        # must only retry rows that match the prefix. A 10.1029 row with a
+        # prior terminal failure must still be skipped when the prefix is
+        # 10.2172, even with retry enabled.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [
+                _row("osti", "10.2172/abc"),
+                _row("wiley", "10.1029/xyz"),
+            ]
+            _write_attempt_file(store, "osti", paf.STATUS_NO_LINK)
+            _write_attempt_file(store, "wiley", paf.STATUS_NO_LINK)
+            picked = paf.select_failed(
+                rows,
+                limit=10,
+                store=store,
+                retry_previous_attempts=True,
+                doi_prefixes={"10.2172"},
+            )
+            self.assertEqual([r["candidate_id"] for r in picked], ["osti"])
+
+    def test_prefix_without_retry_still_skips_prior_terminal_failures(self):
+        # The prefix is purely additive over the existing terminal-failure
+        # guard. Without --retry-previous-attempts the prior-failure rule
+        # still wins so the same row is not re-probed.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [
+                _row("osti1", "10.2172/abc"),
+                _row("osti2", "10.2172/def"),
+            ]
+            _write_attempt_file(store, "osti1", paf.STATUS_NO_LINK)
+            picked = paf.select_failed(
+                rows,
+                limit=10,
+                store=store,
+                doi_prefixes={"10.2172"},
+            )
+            self.assertEqual([r["candidate_id"] for r in picked], ["osti2"])
+
+    def test_run_probe_threads_prefix_through(self):
+        # End-to-end via run_probe: only the 10.2172 row should be probed,
+        # the 10.1029 row must not be touched.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [
+                _row("osti", "10.2172/abc"),
+                _row("agu", "10.1029/xyz"),
+            ])
+            calls: list[str] = []
+            base_router = make_router({
+                "https://doi.org/10.2172/abc": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b"<html><body>No PDF here</body></html>",
+                    "https://doi.org/10.2172/abc",
+                ),
+            })
+
+            def recording(url, **kwargs):
+                calls.append(url)
+                return base_router(url, **kwargs)
+
+            paf._http_get = recording
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+                doi_prefixes={"10.2172"},
+            )
+
+            self.assertEqual(summary["selected"], 1)
+            self.assertTrue(
+                all("10.1029" not in u for u in calls),
+                f"non-matching prefix should not be probed; calls={calls}",
+            )
+            # Surfaced in the summary options for run reproducibility.
+            self.assertEqual(
+                sorted(summary["options"].get("doi_prefixes") or []),
+                ["10.2172"],
+            )
+
+
+class TestCliDoiPrefixFlag(unittest.TestCase):
+    """The CLI exposes --doi-prefix; repeatable and comma-separated allowed."""
+
+    def _run_and_capture(self, argv):
+        captured: dict = {}
+
+        def fake_run_probe(**kwargs):
+            captured.update(kwargs)
+            return {"selected": 0, "by_status": {}, "attempts": [], "run_id": "x",
+                    "schema_version": paf.SCHEMA_VERSION, "options": {}}
+
+        orig = paf.run_probe
+        paf.run_probe = fake_run_probe
+        try:
+            paf.main(argv)
+        finally:
+            paf.run_probe = orig
+        return captured
+
+    def test_repeatable_flag_collects_set(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [])
+            captured = self._run_and_capture([
+                "--store", str(store),
+                "--doi-prefix", "10.2172",
+                "--doi-prefix", "10.1029",
+            ])
+            self.assertEqual(captured.get("doi_prefixes"), {"10.2172", "10.1029"})
+
+    def test_comma_separated_value_is_split(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [])
+            captured = self._run_and_capture([
+                "--store", str(store),
+                "--doi-prefix", "10.2172,10.1029",
+            ])
+            self.assertEqual(captured.get("doi_prefixes"), {"10.2172", "10.1029"})
+
+    def test_default_is_no_prefix_filter(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [])
+            captured = self._run_and_capture(["--store", str(store)])
+            self.assertIn("doi_prefixes", captured)
+            self.assertIsNone(captured["doi_prefixes"])
+
+    def test_prefix_with_retry_flag_combines_safely(self):
+        # The two CLI flags must be combinable: --doi-prefix narrows what
+        # --retry-previous-attempts reselects. The captured kwargs should
+        # carry both, not silently drop one.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [])
+            captured = self._run_and_capture([
+                "--store", str(store),
+                "--retry-previous-attempts",
+                "--doi-prefix", "10.2172",
+            ])
+            self.assertTrue(captured.get("retry_previous_attempts"))
+            self.assertEqual(captured.get("doi_prefixes"), {"10.2172"})
+
+    def test_whitespace_around_comma_is_tolerated(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [])
+            captured = self._run_and_capture([
+                "--store", str(store),
+                "--doi-prefix", " 10.2172 , 10.1029 ",
+            ])
+            self.assertEqual(captured.get("doi_prefixes"), {"10.2172", "10.1029"})
+
+
 class TestNormalizeProbeDoi(unittest.TestCase):
     """The probe strips the parasitic ``/pdf`` suffix that some discovery-time
     URL-to-DOI extractors glue onto A&A rows (observed on ~17 queue rows)."""

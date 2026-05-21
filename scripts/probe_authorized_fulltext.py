@@ -217,6 +217,7 @@ def select_failed(
     year_max: Optional[int] = None,
     store: Optional[Path] = None,
     retry_previous_attempts: bool = False,
+    doi_prefixes: Optional[set[str]] = None,
 ) -> list[dict]:
     """Return up to ``limit`` DOI-bearing rows in ``fetch_failed`` status.
 
@@ -227,7 +228,22 @@ def select_failed(
     same network authorization. Prior ``probe_only`` records are not
     skipped: the canonical workflow runs a dry-run probe first and then
     re-runs with ``--download`` against the same rows.
+
+    When ``doi_prefixes`` is a non-empty set, selection is further
+    restricted to rows whose ``preferred_identifier`` DOI registrant
+    (the part before the first ``/``) matches one of the supplied
+    prefixes, case-insensitively. ``None`` or an empty set disables the
+    filter (legacy behaviour). The prefix filter is additive: it never
+    broadens selection — in particular, combining it with
+    ``retry_previous_attempts=True`` only retries rows that *also* match
+    the prefix.
     """
+    prefix_filter: Optional[set[str]] = None
+    if doi_prefixes:
+        prefix_filter = {p.strip().lower() for p in doi_prefixes if p and p.strip()}
+        if not prefix_filter:
+            prefix_filter = None
+
     out = []
     for row in rows:
         if row.get("status") != STATUS_FETCH_FAILED:
@@ -238,6 +254,10 @@ def select_failed(
             continue
         if not row.get("preferred_identifier"):
             continue
+        if prefix_filter is not None:
+            row_prefix = _doi_prefix(row.get("preferred_identifier") or "")
+            if row_prefix is None or row_prefix not in prefix_filter:
+                continue
         if year_min is not None or year_max is not None:
             year = row.get("year")
             if year is None:
@@ -1118,6 +1138,7 @@ def run_probe(
     queue_name: str = DEFAULT_QUEUE_NAME,
     csv_name: str = DEFAULT_CSV_NAME,
     retry_previous_attempts: bool = False,
+    doi_prefixes: Optional[set[str]] = None,
 ) -> dict:
     queue_path = store / queue_name
     csv_path = store / csv_name
@@ -1132,6 +1153,7 @@ def run_probe(
         year_max=year_max,
         store=store,
         retry_previous_attempts=retry_previous_attempts,
+        doi_prefixes=doi_prefixes,
     )
 
     run_id = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:6]
@@ -1198,6 +1220,7 @@ def run_probe(
             "per_request_pause": per_request_pause,
             "email_provided": bool(email),
             "retry_previous_attempts": retry_previous_attempts,
+            "doi_prefixes": sorted(doi_prefixes) if doi_prefixes else None,
         },
     }
     (run_dir / "summary.json").write_text(
@@ -1280,6 +1303,24 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     p.add_argument(
+        "--doi-prefix",
+        action="append",
+        default=[],
+        metavar="PREFIX",
+        help=(
+            "restrict selection to DOI-bearing rows whose "
+            "preferred_identifier registrant (the part before the first "
+            "'/') matches one of these prefixes, e.g. '10.2172' for OSTI. "
+            "Repeatable, and each value may be a comma-separated list "
+            "(e.g. --doi-prefix 10.2172,10.1029). Matching is "
+            "case-insensitive and on the full registrant only (no partial "
+            "match: '10.21' does NOT match '10.2172'). Combine with "
+            "--retry-previous-attempts to retry ONLY rows of the named "
+            "prefix(es); the prefix is additive and never broadens "
+            "selection."
+        ),
+    )
+    p.add_argument(
         "--classify-off-topic-preview",
         action="store_true",
         help=(
@@ -1331,6 +1372,16 @@ def main(argv: list[str] | None = None) -> int:
                 )))
         return 0
 
+    doi_prefixes: Optional[set[str]] = None
+    if args.doi_prefix:
+        collected: set[str] = set()
+        for raw in args.doi_prefix:
+            for part in raw.split(","):
+                part = part.strip().lower()
+                if part:
+                    collected.add(part)
+        doi_prefixes = collected or None
+
     try:
         summary = run_probe(
             store=args.store,
@@ -1343,6 +1394,7 @@ def main(argv: list[str] | None = None) -> int:
             http_timeout=args.http_timeout,
             queue_name=args.queue_name,
             retry_previous_attempts=args.retry_previous_attempts,
+            doi_prefixes=doi_prefixes,
         )
     except FileNotFoundError as exc:
         print(f"error: {exc}", file=sys.stderr)
