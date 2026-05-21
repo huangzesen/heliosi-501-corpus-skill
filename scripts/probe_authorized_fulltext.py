@@ -554,6 +554,164 @@ def _publisher_landing_override(doi: str) -> Optional[str]:
     return template.format(doi=doi)
 
 
+# OSTI (Office of Scientific and Technical Information, US DOE) registers
+# DOIs under the ``10.2172`` prefix. The DOI proxy redirects to
+# ``www.osti.gov/biblio/<suffix>``, which is a landing page that does NOT
+# expose a citation_pdf_url meta tag in the rendered HTML (the PDF link is
+# JavaScript-rendered). OSTI also publishes a public, no-auth records API:
+#
+#     https://www.osti.gov/api/v1/records?identifier=<suffix>
+#
+# returning a JSON array of records. Each record may carry a ``links`` array
+# with objects like ``{"rel": "fulltext", "href": "..."}`` and/or top-level
+# ``product_url`` / ``media`` fields. We accept the first PDF-ish or
+# fulltext-tagged link as the candidate URL. The downstream fetch path still
+# validates HTTP 200 + ``application/pdf`` content-type + ``%PDF-`` magic +
+# same-host final URL, so a misparse cannot cause an HTML paywall to be
+# written as ``paper.pdf``.
+_OSTI_PREFIX = "10.2172"
+_OSTI_RECORDS_API = "https://www.osti.gov/api/v1/records?identifier={suffix}"
+
+
+def _is_osti_doi(doi: str) -> bool:
+    """True iff the DOI is registered under the OSTI ``10.2172`` prefix."""
+    if not doi:
+        return False
+    return doi.strip().lower().startswith(_OSTI_PREFIX + "/")
+
+
+def _extract_osti_pdf_url(payload: object) -> Optional[str]:
+    """Best-effort extraction of a fulltext/PDF URL from an OSTI API payload.
+
+    The OSTI v1 records API returns either a JSON array of records or a
+    single record object. Each record may carry:
+      * a ``links`` array of ``{rel, href}`` objects (canonical shape);
+      * top-level URL-like fields (``product_url``, ``url``, ``media_url``);
+      * a ``media`` array whose items carry ``url`` / ``mediaFileFormat``.
+
+    Preference order:
+      1. ``links[]`` entries with ``rel`` in {fulltext, file, pdf} or ``href``
+         ending in ``.pdf`` (case-insensitive);
+      2. ``media[]`` entries whose URL/format suggests a PDF;
+      3. plain string URL-like top-level fields ending in ``.pdf``.
+
+    Returns ``None`` when no candidate URL can be extracted. Robust to:
+      * missing keys, ``None`` values, unexpected types;
+      * the payload being a single record or a list of records.
+    """
+    if payload is None:
+        return None
+    records: list[dict] = []
+    if isinstance(payload, list):
+        records = [r for r in payload if isinstance(r, dict)]
+    elif isinstance(payload, dict):
+        # Some API variants wrap the array under a ``records`` key.
+        inner = payload.get("records") if isinstance(payload.get("records"), list) else None
+        if inner:
+            records = [r for r in inner if isinstance(r, dict)]
+        else:
+            records = [payload]
+    if not records:
+        return None
+
+    def _href_is_pdf_ish(href: object) -> bool:
+        if not isinstance(href, str) or not href:
+            return False
+        h = href.split("#", 1)[0].split("?", 1)[0].lower()
+        return h.endswith(".pdf")
+
+    fulltext_rels = {"fulltext", "file", "pdf", "fulltext-file"}
+
+    # Pass 1: explicit links[] arrays.
+    for rec in records:
+        links = rec.get("links")
+        if not isinstance(links, list):
+            continue
+        # First: prefer rel=fulltext (and friends).
+        for entry in links:
+            if not isinstance(entry, dict):
+                continue
+            rel = entry.get("rel")
+            href = entry.get("href") or entry.get("url")
+            if isinstance(rel, str) and rel.lower() in fulltext_rels and isinstance(href, str) and href:
+                return href
+        # Second: any links[] entry whose URL ends in .pdf.
+        for entry in links:
+            if not isinstance(entry, dict):
+                continue
+            href = entry.get("href") or entry.get("url")
+            if _href_is_pdf_ish(href):
+                return href  # type: ignore[return-value]
+
+    # Pass 2: media[] arrays.
+    for rec in records:
+        media = rec.get("media")
+        if not isinstance(media, list):
+            continue
+        for entry in media:
+            if not isinstance(entry, dict):
+                continue
+            url = entry.get("url") or entry.get("media_url") or entry.get("href")
+            fmt = (entry.get("mediaFileFormat") or entry.get("format") or "")
+            if isinstance(url, str) and url:
+                if isinstance(fmt, str) and fmt.lower() == "pdf":
+                    return url
+                if _href_is_pdf_ish(url):
+                    return url
+
+    # Pass 3: top-level URL-like fields. Only accept .pdf URLs here -- a bare
+    # landing page (product_url) is what we already have via doi.org, so
+    # returning it would give us no signal beyond the default path.
+    for rec in records:
+        for key in ("media_url", "product_url", "url", "fulltext_url"):
+            value = rec.get(key)
+            if _href_is_pdf_ish(value):
+                return value  # type: ignore[return-value]
+
+    return None
+
+
+def _osti_api_pdf_url(
+    doi: str,
+    *,
+    timeout: float,
+    user_agent: str,
+) -> Optional[str]:
+    """Query the OSTI records API for a candidate fulltext/PDF URL.
+
+    Returns ``None`` for any non-OSTI DOI, on any HTTP/JSON error, or when
+    the response carries no plausible fulltext link. The caller falls back
+    to the standard landing-page path in that case. Never raises.
+
+    This helper only fetches the JSON API response; it does NOT download
+    the PDF itself. Downstream ``_probe_one`` runs the same content-type /
+    PDF-magic / final-host validation that gates every other tier.
+    """
+    if not _is_osti_doi(doi):
+        return None
+    suffix = doi.strip().split("/", 1)[1]
+    if not suffix:
+        return None
+    api_url = _OSTI_RECORDS_API.format(suffix=suffix)
+    try:
+        resp = _http_get(
+            api_url,
+            timeout=timeout,
+            user_agent=user_agent,
+            accept="application/json",
+            max_bytes=MAX_HTML_BYTES,
+        )
+    except Exception:
+        return None
+    if resp.status != 200 or not resp.body:
+        return None
+    try:
+        payload = json.loads(resp.body.decode("utf-8", errors="replace"))
+    except (ValueError, UnicodeDecodeError):
+        return None
+    return _extract_osti_pdf_url(payload)
+
+
 # DOI shapes that we know correspond to non-paper artefacts and so cannot be
 # acquired as a publisher PDF. Today this is exclusively Copernicus
 # ``egusphere-egu*`` meeting-abstract DOIs, which are short conference
@@ -571,6 +729,178 @@ def _is_non_article_doi(doi: str) -> bool:
     if not doi:
         return False
     return bool(_EGU_ABSTRACT_PATTERN.match(doi.strip()))
+
+
+# R6: off-topic / non-article DOI + title shapes (see acquisition audit
+# Section 6). Two confidence tiers:
+#
+#   (a) Definitively off-topic DOI prefixes -- a row with this prefix is
+#       classified out regardless of title:
+#         10.3406 (Persée, French humanities)
+#         10.21273 (ASHS, horticulture)
+#         10.5962 (BHL, Biodiversity Heritage Library)
+#         10.5040 (Bloomsbury)
+#         10.7287 (PeerJ Preprints review threads -- not articles)
+#
+#   (b) Conservative / mixed prefixes -- classified ONLY when the title
+#       additionally matches a lexical boilerplate shape:
+#         10.2307 (JSTOR; covers many heliophysics-relevant articles)
+#         10.21236 (DTIC; covers atmospheric/ionospheric tech reports)
+#
+# Lexical boilerplate (any prefix): journal correction / front-matter shapes
+# whose presence makes the row a non-article regardless of registrant.
+#
+# This is a *preview* predicate -- it powers the read-only
+# ``--classify-off-topic-preview`` CLI mode for human review. Normal probe
+# operation does NOT consult it yet (the task explicitly defers any queue
+# status mutation until parent review).
+_OFF_TOPIC_PREFIXES_DEFINITIVE: frozenset[str] = frozenset({
+    "10.3406",
+    "10.21273",
+    "10.5962",
+    "10.5040",
+    "10.7287",
+})
+
+_OFF_TOPIC_PREFIXES_MIXED: frozenset[str] = frozenset({
+    "10.2307",
+    "10.21236",
+})
+
+# Lexical boilerplate shapes. Two categories:
+#
+#   STRONG: title starts with the keyword AND the keyword is a paper-form
+#     marker that almost never opens a real heliophysics title. Match the
+#     keyword as a word-boundary prefix ("Corrigendum to: ...", "Erratum: ..."
+#     "Acknowledgments to the editorial team").
+#   EXACT/PHRASE: the keyword IS the title (case-insensitive) or the title
+#     starts with the keyword followed by punctuation. Used for ambiguous
+#     short words ("Editorial" alone is boilerplate, "Editorial perspective
+#     on solar wind" is a real paper).
+_BOILERPLATE_STRONG_PREFIXES = (
+    "corrigendum",
+    "erratum",
+    "table of contents",
+    "front matter",
+    "back matter",
+    "list of contributors",
+    "author index",
+    "subject index",
+    "issue information",
+    "editorial board",
+    "acknowledgments",
+    "acknowledgements",
+)
+
+_BOILERPLATE_EXACT_OR_PUNCT = (
+    "editorial",
+    "index",
+)
+
+
+def _doi_prefix(doi: str) -> Optional[str]:
+    if not doi:
+        return None
+    s = doi.strip()
+    if "/" not in s:
+        return None
+    return s.split("/", 1)[0].lower()
+
+
+def _title_is_boilerplate(title: str) -> Optional[str]:
+    """Return the matched boilerplate keyword, or None if no match.
+
+    Matches at the start of the title (after optional whitespace) so that
+    ``Erratum: Foo`` and ``Corrigendum to: Bar`` are classified while a real
+    title like ``Index of refraction in the heliosphere`` is not.
+    """
+    if not title or not isinstance(title, str):
+        return None
+    norm = title.strip().lower()
+    if not norm:
+        return None
+
+    # STRONG prefixes: keyword at title start, followed by either end-of-title
+    # or a word boundary (whitespace or punctuation). Words like "corrigendum"
+    # and "erratum" do not occur as substrings of real heliophysics titles.
+    for kw in _BOILERPLATE_STRONG_PREFIXES:
+        if norm == kw:
+            return kw
+        if norm.startswith(kw):
+            nxt = norm[len(kw)]
+            if not nxt.isalnum():
+                return kw
+
+    # EXACT or punctuation-suffixed prefixes: short ambiguous words. Match
+    # only when the title equals the keyword OR the keyword is immediately
+    # followed by punctuation. "Editorial" matches; "Editorial Board" already
+    # matched above as a strong prefix; "Editorial perspective on the solar
+    # wind" does NOT match (next char is whitespace, not punctuation).
+    for kw in _BOILERPLATE_EXACT_OR_PUNCT:
+        if norm == kw:
+            return kw
+        if norm.startswith(kw):
+            nxt = norm[len(kw)]
+            if nxt in (":", ".", ";", ",", "-", "—"):
+                return kw
+
+    return None
+
+
+def _classify_off_topic(doi: Optional[str], title: Optional[str]) -> tuple[bool, Optional[str]]:
+    """Classify a (doi, title) pair as off-topic / non-article.
+
+    Returns ``(matched, reason)``. ``reason`` is a short human-readable string
+    describing why the row was flagged -- the preview CLI surfaces it for
+    human review. Returns ``(False, None)`` when no rule fires.
+    """
+    prefix = _doi_prefix(doi or "")
+    boilerplate = _title_is_boilerplate(title or "")
+
+    if prefix in _OFF_TOPIC_PREFIXES_DEFINITIVE:
+        return True, f"off_topic_prefix:{prefix}"
+    if boilerplate:
+        return True, f"boilerplate_title:{boilerplate}"
+    if prefix in _OFF_TOPIC_PREFIXES_MIXED:
+        # Mixed prefix without a boilerplate title -- conservative: do not
+        # classify.
+        return False, None
+    return False, None
+
+
+def _is_off_topic_doi(doi: Optional[str], title: Optional[str]) -> bool:
+    """Predicate companion to ``_classify_off_topic``; True iff classified."""
+    matched, _ = _classify_off_topic(doi, title)
+    return matched
+
+
+def preview_off_topic_rows(rows: list[dict]) -> list[dict]:
+    """Return the off-topic preview records for ``fetch_failed`` DOI rows.
+
+    Each record carries the fields the preview CLI emits (candidate_id, doi,
+    prefix, year, title, reason). The function is pure: it does not touch the
+    queue, the filesystem, or the network.
+    """
+    out: list[dict] = []
+    for row in rows:
+        if row.get("status") != STATUS_FETCH_FAILED:
+            continue
+        if row.get("identifier_kind") != "doi":
+            continue
+        doi = row.get("preferred_identifier") or ""
+        title = row.get("title") or ""
+        matched, reason = _classify_off_topic(doi, title)
+        if not matched:
+            continue
+        out.append({
+            "candidate_id": row.get("candidate_id"),
+            "doi": doi,
+            "prefix": _doi_prefix(doi),
+            "year": row.get("year"),
+            "title": title,
+            "reason": reason,
+        })
+    return out
 
 
 # ──────────────────────────────────────────────────────────
@@ -619,6 +949,14 @@ def _probe_one(
     # redirect to under a browser UA; downstream same-host PDF checks are
     # unchanged.
     copernicus_pdf = _copernicus_preprint_pdf(doi)
+    # OSTI (10.2172) landing pages don't expose ``citation_pdf_url``, but the
+    # public records API does return a fulltext link. Query it before the
+    # landing-page fetch; downstream same-host / content-type / %PDF-magic
+    # validation against the landing host is unchanged.
+    osti_api_pdf = (
+        _osti_api_pdf_url(doi, timeout=http_timeout, user_agent=user_agent)
+        if _is_osti_doi(doi) else None
+    )
     override = _publisher_landing_override(doi)
     if override:
         landing_entry_url = override
@@ -671,6 +1009,12 @@ def _probe_one(
     # Step 2: extract candidate PDF link from same publisher host.
     pdf_url = extract_pdf_link(landing.body, landing_url=landing.final_url)
     pdf_url_source: Optional[str] = "landing_page_link" if pdf_url else None
+    if not pdf_url and osti_api_pdf:
+        # OSTI biblio landing pages do not surface citation_pdf_url; the
+        # public records API does. Use that URL as the candidate while still
+        # validating content-type / %PDF-magic / final same-host downstream.
+        pdf_url = osti_api_pdf
+        pdf_url_source = "osti_api"
     if not pdf_url and copernicus_pdf:
         # Historical Copernicus discussion-preprint pages have deterministic
         # same-host PDF URLs. Live pages may omit the citation_pdf_url meta tag,
@@ -935,7 +1279,57 @@ def main(argv: list[str] | None = None) -> int:
             "first, then re-runs with --download)."
         ),
     )
+    p.add_argument(
+        "--classify-off-topic-preview",
+        action="store_true",
+        help=(
+            "READ-ONLY preview mode: scan the queue for DOI-bearing "
+            "fetch_failed rows that match the off-topic / non-article "
+            "predicate (audit Section 6) and print a TSV (or JSONL with "
+            "--format jsonl) of candidate_id, doi, prefix, year, title, "
+            "reason. Does NOT mutate queue.jsonl, does NOT touch the "
+            "filesystem outside stdout, and does NOT issue any HTTP "
+            "request. Intended for human review before any predicate is "
+            "promoted into the normal acquisition path."
+        ),
+    )
+    p.add_argument(
+        "--format",
+        choices=("tsv", "jsonl"),
+        default="tsv",
+        help=(
+            "output format for --classify-off-topic-preview (default: tsv). "
+            "Ignored in normal probe mode."
+        ),
+    )
     args = p.parse_args(argv)
+
+    if args.classify_off_topic_preview:
+        queue_path = args.store / args.queue_name
+        if not queue_path.exists():
+            print(f"error: queue not found at {queue_path}", file=sys.stderr)
+            return 2
+        rows = read_queue(queue_path)
+        preview = preview_off_topic_rows(rows)
+        if args.format == "jsonl":
+            for rec in preview:
+                print(json.dumps(rec, ensure_ascii=False))
+        else:
+            print("\t".join(
+                ("candidate_id", "doi", "prefix", "year", "title", "reason")
+            ))
+            for rec in preview:
+                year = rec.get("year")
+                title = (rec.get("title") or "").replace("\t", " ").replace("\n", " ")
+                print("\t".join((
+                    str(rec.get("candidate_id") or ""),
+                    str(rec.get("doi") or ""),
+                    str(rec.get("prefix") or ""),
+                    "" if year is None else str(year),
+                    title,
+                    str(rec.get("reason") or ""),
+                )))
+        return 0
 
     try:
         summary = run_probe(

@@ -1389,5 +1389,898 @@ class TestCopernicusPreprintFallback(unittest.TestCase):
             )
 
 
+class TestIsOffTopicDoi(unittest.TestCase):
+    """R6: off-topic / non-article queue-side predicate.
+
+    Per the audit (Section 6), seven DOI prefixes plus a set of lexical
+    boilerplate title shapes account for ~240 rows that should be classified
+    out of the active retry pool rather than reprobed. This predicate is the
+    classifier; it must not mutate any queue, and must not download anything
+    by itself — the dry-run preview CLI consumes it.
+
+    Confidence tiers (audit Section 6):
+      - definitively off-topic: 10.3406 (Persée), 10.21273 (ASHS),
+        10.5962 (BHL), 10.5040 (Bloomsbury)
+      - off-topic review threads: 10.7287 (PeerJ Preprints reviews)
+      - mixed/conservative (must require lexical boilerplate match): 10.2307
+        (JSTOR), 10.21236 (DTIC)
+      - lexical boilerplate (any prefix): Corrigendum, Erratum, Editorial
+        Board, Acknowledgments, Table of Contents, etc.
+    """
+
+    OFF_TOPIC_PREFIXES = (
+        "10.3406",   # Persée
+        "10.21273",  # ASHS horticulture
+        "10.5962",   # BHL
+        "10.5040",   # Bloomsbury
+        "10.7287",   # PeerJ preprints (review threads)
+    )
+
+    MIXED_PREFIXES = ("10.2307", "10.21236")
+
+    BOILERPLATE_TITLES = (
+        "Corrigendum",
+        "Corrigendum to: Some Paper",
+        "Erratum",
+        "Erratum: Title Here",
+        "Editorial Board",
+        "Acknowledgments",
+        "Acknowledgements",  # British spelling
+        "Table of Contents",
+        "Front Matter",
+        "Back Matter",
+        "Index",
+        "List of Contributors",
+        "Author Index",
+        "Subject Index",
+        "Issue Information",
+    )
+
+    HELIOPHYSICS_TITLES = (
+        "Magnetic reconnection in the solar corona",
+        "Solar wind turbulence at 1 AU",
+        "Switchbacks observed by Parker Solar Probe",
+        "Three-dimensional MHD simulation of CMEs",
+    )
+
+    def test_definitively_off_topic_prefixes(self):
+        for prefix in self.OFF_TOPIC_PREFIXES:
+            with self.subTest(prefix=prefix):
+                self.assertTrue(
+                    paf._is_off_topic_doi(f"{prefix}/foo", "Some Title")
+                )
+
+    def test_mixed_prefix_without_boilerplate_is_not_classified(self):
+        # Conservative: 10.2307 (JSTOR) and 10.21236 (DTIC) cover real
+        # heliophysics-relevant content too. Without an obvious boilerplate
+        # title we must not classify them.
+        for prefix in self.MIXED_PREFIXES:
+            with self.subTest(prefix=prefix):
+                self.assertFalse(
+                    paf._is_off_topic_doi(
+                        f"{prefix}/foo",
+                        "Plasma observations of the heliosphere",
+                    )
+                )
+
+    def test_mixed_prefix_with_boilerplate_is_classified(self):
+        for prefix in self.MIXED_PREFIXES:
+            with self.subTest(prefix=prefix):
+                self.assertTrue(
+                    paf._is_off_topic_doi(
+                        f"{prefix}/foo", "Editorial Board"
+                    )
+                )
+
+    def test_lexical_boilerplate_any_prefix(self):
+        for title in self.BOILERPLATE_TITLES:
+            with self.subTest(title=title):
+                self.assertTrue(
+                    paf._is_off_topic_doi("10.1029/2023ja031603", title)
+                )
+
+    def test_boilerplate_case_insensitive(self):
+        self.assertTrue(
+            paf._is_off_topic_doi("10.1029/foo", "CORRIGENDUM")
+        )
+        self.assertTrue(
+            paf._is_off_topic_doi("10.1029/foo", "corrigendum to: paper")
+        )
+
+    def test_heliophysics_titles_on_normal_prefix_not_classified(self):
+        for title in self.HELIOPHYSICS_TITLES:
+            with self.subTest(title=title):
+                self.assertFalse(
+                    paf._is_off_topic_doi("10.1029/2023ja031603", title)
+                )
+
+    def test_empty_doi_returns_false(self):
+        # Defensive: no DOI means we cannot classify by prefix; if title is
+        # also empty/unremarkable, return False (do not classify).
+        self.assertFalse(paf._is_off_topic_doi("", ""))
+        self.assertFalse(paf._is_off_topic_doi(None, None))
+
+    def test_empty_title_with_off_topic_prefix_still_classified(self):
+        # An off-topic prefix alone is enough — title may be missing.
+        self.assertTrue(paf._is_off_topic_doi("10.3406/foo", ""))
+        self.assertTrue(paf._is_off_topic_doi("10.3406/foo", None))
+
+    def test_boilerplate_word_not_classified_in_substring(self):
+        # We match boilerplate as the dominant title shape, not as a substring
+        # of a longer real title. "Index of refraction" should NOT match.
+        # We accept a leading boilerplate keyword (e.g. "Erratum: ...") as a
+        # match because that is how journals title corrections.
+        self.assertFalse(
+            paf._is_off_topic_doi(
+                "10.1029/foo",
+                "Index of refraction of the interplanetary plasma",
+            )
+        )
+
+    def test_returns_classification_reason(self):
+        # _classify_off_topic returns (matched: bool, reason: str|None) so the
+        # preview CLI can surface why each row was flagged.
+        matched, reason = paf._classify_off_topic(
+            "10.3406/abcd", "Some Title"
+        )
+        self.assertTrue(matched)
+        self.assertIn("10.3406", reason)
+
+        matched, reason = paf._classify_off_topic(
+            "10.1029/foo", "Erratum: Solar Wind Paper"
+        )
+        self.assertTrue(matched)
+        self.assertIn("Erratum".lower(), reason.lower())
+
+        matched, reason = paf._classify_off_topic(
+            "10.1029/foo", "Solar wind turbulence at 1 AU"
+        )
+        self.assertFalse(matched)
+        self.assertIsNone(reason)
+
+
+class TestClassifyOffTopicPreviewCli(unittest.TestCase):
+    """The --classify-off-topic-preview CLI mode must be read-only:
+    - it must scan the queue and print candidate rows;
+    - it MUST NOT rewrite queue.jsonl or queue.csv;
+    - it MUST NOT make any HTTP call.
+    Output format: TSV by default; JSONL when --format jsonl is passed.
+    """
+
+    def _make_queue(self, store: Path) -> None:
+        rows = [
+            # Off-topic by prefix.
+            {**_row("a", "10.3406/persee-fr-article"), "title": "L'histoire de France"},
+            # Off-topic by lexical boilerplate.
+            {**_row("b", "10.1029/2023ja031603"), "title": "Corrigendum to: prior paper"},
+            # Normal heliophysics row — must NOT be in preview.
+            {**_row("c", "10.1029/2023ja031604"), "title": "Solar wind at 1 AU"},
+            # Mixed-prefix without boilerplate — must NOT be classified.
+            {**_row("d", "10.2307/abcd"), "title": "Plasma waves in the heliosphere"},
+            # Mixed prefix WITH boilerplate — should be classified.
+            {**_row("e", "10.2307/efgh"), "title": "Editorial Board"},
+            # ASHS horticulture — off-topic prefix.
+            {**_row("f", "10.21273/HORTSCI"), "title": "Strawberry cultivars"},
+        ]
+        # Add a fetched row (already done) and a no_supported_identifier row;
+        # they must be ignored by the preview (only fetch_failed is in scope).
+        rows.append({**_row("g", "10.3406/already_fetched", status="fetched"),
+                     "title": "off-topic but already fetched"})
+        _seed_queue(store, rows)
+
+    def test_preview_prints_only_flagged_candidates_tsv(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            self._make_queue(store)
+
+            # Capture stdout.
+            import io as _io
+            import contextlib
+
+            buf = _io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                rc = paf.main(
+                    ["--store", str(store), "--classify-off-topic-preview"]
+                )
+            self.assertEqual(rc, 0)
+            out = buf.getvalue()
+
+            # TSV format: header + flagged rows.
+            lines = [ln for ln in out.splitlines() if ln.strip()]
+            # Header line.
+            self.assertTrue(lines[0].startswith("candidate_id\t"))
+            # Flagged candidate_ids appear; non-flagged do not.
+            flagged_ids = []
+            for line in lines[1:]:
+                cols = line.split("\t")
+                flagged_ids.append(cols[0])
+            self.assertIn("a", flagged_ids)  # 10.3406 prefix
+            self.assertIn("b", flagged_ids)  # Corrigendum
+            self.assertIn("e", flagged_ids)  # 10.2307 + Editorial Board
+            self.assertIn("f", flagged_ids)  # 10.21273 ASHS
+            # Non-flagged must not appear.
+            self.assertNotIn("c", flagged_ids)  # normal helio row
+            self.assertNotIn("d", flagged_ids)  # 10.2307 w/o boilerplate
+            self.assertNotIn("g", flagged_ids)  # status != fetch_failed
+
+    def test_preview_does_not_mutate_queue(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            self._make_queue(store)
+
+            queue_path = store / "queue.jsonl"
+            before_mtime = queue_path.stat().st_mtime_ns
+            before_bytes = queue_path.read_bytes()
+
+            import io as _io
+            import contextlib
+
+            with contextlib.redirect_stdout(_io.StringIO()):
+                rc = paf.main(
+                    ["--store", str(store), "--classify-off-topic-preview"]
+                )
+            self.assertEqual(rc, 0)
+
+            # File untouched.
+            after_bytes = queue_path.read_bytes()
+            self.assertEqual(before_bytes, after_bytes)
+
+            # The rows in the queue still all have their original status.
+            rows = paf.read_queue(queue_path)
+            statuses = {r["candidate_id"]: r["status"] for r in rows}
+            self.assertEqual(statuses["a"], "fetch_failed")
+            self.assertEqual(statuses["b"], "fetch_failed")
+            self.assertEqual(statuses["g"], "fetched")
+
+    def test_preview_does_not_call_http_get(self):
+        # Preview must NOT make any HTTP call. We sabotage _http_get to
+        # raise if called.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            self._make_queue(store)
+
+            def explode(url, **kw):
+                raise AssertionError(
+                    f"preview must not call _http_get; got {url}"
+                )
+
+            paf._http_get = explode
+
+            import io as _io
+            import contextlib
+
+            with contextlib.redirect_stdout(_io.StringIO()):
+                rc = paf.main(
+                    ["--store", str(store), "--classify-off-topic-preview"]
+                )
+            self.assertEqual(rc, 0)
+
+    def test_preview_jsonl_format(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            self._make_queue(store)
+
+            import io as _io
+            import contextlib
+
+            buf = _io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                rc = paf.main(
+                    ["--store", str(store),
+                     "--classify-off-topic-preview",
+                     "--format", "jsonl"]
+                )
+            self.assertEqual(rc, 0)
+            out = buf.getvalue()
+
+            records = [json.loads(ln) for ln in out.splitlines() if ln.strip()]
+            ids = [r["candidate_id"] for r in records]
+            self.assertIn("a", ids)
+            self.assertNotIn("c", ids)
+            self.assertNotIn("g", ids)
+            # Each JSONL record carries the documented fields.
+            for r in records:
+                self.assertIn("candidate_id", r)
+                self.assertIn("doi", r)
+                self.assertIn("prefix", r)
+                self.assertIn("year", r)
+                self.assertIn("title", r)
+                self.assertIn("reason", r)
+
+    def test_preview_does_not_classify_arxiv_only_rows(self):
+        # Preview is scoped to DOI-bearing rows in fetch_failed (the active
+        # retry surface). An arxiv-only row should not appear even if its
+        # title is "Corrigendum" (defensive: avoids over-broad flagging).
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            rows = [
+                {**_row("ax", "arxiv:2301.00001", kind="arxiv"),
+                 "title": "Corrigendum",
+                 "doi": None},
+                {**_row("dx", "10.1029/foo"), "title": "Corrigendum"},
+            ]
+            _seed_queue(store, rows)
+
+            import io as _io
+            import contextlib
+
+            buf = _io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                rc = paf.main(
+                    ["--store", str(store),
+                     "--classify-off-topic-preview"]
+                )
+            self.assertEqual(rc, 0)
+            out = buf.getvalue()
+            self.assertNotIn("ax", out)
+            self.assertIn("dx", out)
+
+
+class TestIsOstiDoi(unittest.TestCase):
+    """The OSTI tier only fires for DOIs registered under ``10.2172``."""
+
+    def test_canonical_osti_doi(self):
+        self.assertTrue(paf._is_osti_doi("10.2172/1234567"))
+
+    def test_case_insensitive(self):
+        self.assertTrue(paf._is_osti_doi("10.2172/AbCdEf"))
+
+    def test_with_leading_whitespace(self):
+        self.assertTrue(paf._is_osti_doi("  10.2172/abc  "))
+
+    def test_non_osti_doi(self):
+        for doi in (
+            "10.1029/2023ja031603",
+            "10.1051/0004-6361/202039407",
+            "10.5194/acpd-11-14003-2011",
+            "10.21726/bar",  # prefix that *contains* "2172" as substring
+        ):
+            with self.subTest(doi=doi):
+                self.assertFalse(paf._is_osti_doi(doi))
+
+    def test_empty_or_none(self):
+        self.assertFalse(paf._is_osti_doi(""))
+        self.assertFalse(paf._is_osti_doi(None))
+
+
+class TestExtractOstiPdfUrl(unittest.TestCase):
+    """JSON-payload-only tests for the OSTI fulltext-link extractor.
+
+    No HTTP. The extractor is robust to schema variants: array vs single
+    record, ``links[]`` with ``rel=fulltext``, ``media[]`` with format=pdf,
+    plain top-level ``.pdf`` URL fields. Bare landing-page URLs (no .pdf
+    suffix) must not be returned, since downstream content-type validation
+    would simply reject an HTML response.
+    """
+
+    def test_links_rel_fulltext_wins(self):
+        payload = [
+            {
+                "osti_id": 12345,
+                "title": "DOE technical report",
+                "links": [
+                    {"rel": "citation", "href": "https://www.osti.gov/biblio/12345"},
+                    {"rel": "fulltext", "href": "https://www.osti.gov/servlets/purl/12345"},
+                ],
+            }
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/servlets/purl/12345",
+        )
+
+    def test_links_rel_fulltext_case_insensitive(self):
+        payload = [
+            {
+                "links": [
+                    {"rel": "Fulltext", "href": "https://www.osti.gov/x"},
+                ]
+            }
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/x",
+        )
+
+    def test_links_pdf_suffix_when_no_fulltext_rel(self):
+        payload = [
+            {
+                "links": [
+                    {"rel": "citation", "href": "https://www.osti.gov/biblio/9"},
+                    {"rel": "other", "href": "https://www.osti.gov/servlets/purl/9.pdf"},
+                ]
+            }
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/servlets/purl/9.pdf",
+        )
+
+    def test_single_record_object_not_array(self):
+        payload = {
+            "osti_id": 1,
+            "links": [{"rel": "fulltext", "href": "https://www.osti.gov/x"}],
+        }
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/x",
+        )
+
+    def test_records_wrapper_object(self):
+        payload = {
+            "records": [
+                {"links": [{"rel": "fulltext", "href": "https://www.osti.gov/y"}]}
+            ]
+        }
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/y",
+        )
+
+    def test_media_array_pdf_format(self):
+        payload = [
+            {
+                "media": [
+                    {"url": "https://www.osti.gov/servlets/purl/42", "mediaFileFormat": "PDF"},
+                ]
+            }
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/servlets/purl/42",
+        )
+
+    def test_media_array_url_with_pdf_suffix(self):
+        payload = [
+            {
+                "media": [
+                    {"url": "https://www.osti.gov/foo/42.pdf"},
+                ]
+            }
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/foo/42.pdf",
+        )
+
+    def test_top_level_pdf_url_field(self):
+        payload = [
+            {
+                "media_url": "https://www.osti.gov/foo/9.pdf",
+            }
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/foo/9.pdf",
+        )
+
+    def test_top_level_product_url_without_pdf_is_ignored(self):
+        # A bare landing page is what we already get via doi.org -- so the
+        # extractor must NOT return it as a "PDF" candidate.
+        payload = [
+            {
+                "product_url": "https://www.osti.gov/biblio/12345",
+            }
+        ]
+        self.assertIsNone(paf._extract_osti_pdf_url(payload))
+
+    def test_no_links_no_media_returns_none(self):
+        payload = [{"osti_id": 1, "title": "no fulltext exposed"}]
+        self.assertIsNone(paf._extract_osti_pdf_url(payload))
+
+    def test_empty_list_returns_none(self):
+        self.assertIsNone(paf._extract_osti_pdf_url([]))
+
+    def test_none_payload_returns_none(self):
+        self.assertIsNone(paf._extract_osti_pdf_url(None))
+
+    def test_malformed_record_ignored(self):
+        # Mixed garbage: a string, a None, then a real record.
+        payload = [
+            "not a record",
+            None,
+            {"links": [{"rel": "fulltext", "href": "https://www.osti.gov/z"}]},
+        ]
+        self.assertEqual(
+            paf._extract_osti_pdf_url(payload),
+            "https://www.osti.gov/z",
+        )
+
+    def test_links_with_unexpected_types(self):
+        # ``links`` is the right key but its entries are malformed -- the
+        # extractor must not crash; it returns None.
+        payload = [
+            {"links": ["string entry", None, {"rel": None, "href": None}]}
+        ]
+        self.assertIsNone(paf._extract_osti_pdf_url(payload))
+
+
+class TestOstiApiPdfUrl(unittest.TestCase):
+    """The HTTP-facing helper. Monkeypatch ``_http_get`` to return canned JSON.
+    Live network is forbidden in tests.
+    """
+
+    def test_non_osti_doi_short_circuits(self):
+        # Sentinel: any _http_get call would fail the test.
+        def explode(url, **kw):
+            raise AssertionError(f"non-OSTI DOI must not call API; got {url}")
+        paf._http_get = explode
+        for doi in (
+            "10.1029/2023ja031603",
+            "10.5194/acpd-11-14003-2011",
+            "",
+            None,
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(
+                    paf._osti_api_pdf_url(doi, timeout=5.0, user_agent="UA")
+                )
+
+    def test_successful_api_returns_pdf_url(self):
+        body = json.dumps([
+            {
+                "osti_id": 12345,
+                "links": [
+                    {"rel": "fulltext",
+                     "href": "https://www.osti.gov/servlets/purl/12345"},
+                ],
+            }
+        ]).encode("utf-8")
+        api_url = (
+            "https://www.osti.gov/api/v1/records?identifier=12345"
+        )
+        table = {
+            api_url: FakeResponse(
+                200, {"content-type": "application/json"}, body, api_url,
+            ),
+        }
+        calls: list[str] = []
+        base = make_router(table)
+
+        def recording(url, **kw):
+            calls.append(url)
+            return base(url, **kw)
+
+        paf._http_get = recording
+
+        result = paf._osti_api_pdf_url(
+            "10.2172/12345", timeout=5.0, user_agent="UA",
+        )
+        self.assertEqual(result, "https://www.osti.gov/servlets/purl/12345")
+        self.assertEqual(calls, [api_url])
+
+    def test_api_http_error_returns_none(self):
+        api_url = "https://www.osti.gov/api/v1/records?identifier=99"
+        table = {
+            api_url: FakeResponse(
+                500, {"content-type": "text/plain"}, b"server error", api_url,
+            ),
+        }
+        paf._http_get = make_router(table)
+        self.assertIsNone(
+            paf._osti_api_pdf_url("10.2172/99", timeout=5.0, user_agent="UA")
+        )
+
+    def test_api_404_returns_none(self):
+        # Unknown identifier -> the router's default 404 with empty body.
+        paf._http_get = make_router({})
+        self.assertIsNone(
+            paf._osti_api_pdf_url("10.2172/missing", timeout=5.0, user_agent="UA")
+        )
+
+    def test_api_malformed_json_returns_none(self):
+        api_url = "https://www.osti.gov/api/v1/records?identifier=bad"
+        table = {
+            api_url: FakeResponse(
+                200, {"content-type": "application/json"},
+                b"{not json", api_url,
+            ),
+        }
+        paf._http_get = make_router(table)
+        self.assertIsNone(
+            paf._osti_api_pdf_url("10.2172/bad", timeout=5.0, user_agent="UA")
+        )
+
+    def test_api_no_link_returns_none(self):
+        api_url = "https://www.osti.gov/api/v1/records?identifier=barerec"
+        body = json.dumps([{"osti_id": 1, "title": "no fulltext"}]).encode("utf-8")
+        table = {
+            api_url: FakeResponse(
+                200, {"content-type": "application/json"}, body, api_url,
+            ),
+        }
+        paf._http_get = make_router(table)
+        self.assertIsNone(
+            paf._osti_api_pdf_url(
+                "10.2172/barerec", timeout=5.0, user_agent="UA"
+            )
+        )
+
+    def test_api_raises_exception_is_swallowed(self):
+        def boom(url, **kw):
+            raise RuntimeError("network down")
+        paf._http_get = boom
+        # Helper must never raise; it falls back to the standard path.
+        self.assertIsNone(
+            paf._osti_api_pdf_url("10.2172/x", timeout=5.0, user_agent="UA")
+        )
+
+
+class TestOstiWiringEndToEnd(unittest.TestCase):
+    """End-to-end: a 10.2172 row queries the OSTI API, then uses the returned
+    URL as the PDF candidate; downstream content-type / %PDF-magic / same-host
+    validation still gates the actual download.
+    """
+
+    LANDING = "https://www.osti.gov/biblio/12345"
+    PDF_URL = "https://www.osti.gov/servlets/purl/12345"
+    API_URL = "https://www.osti.gov/api/v1/records?identifier=12345"
+
+    def _api_body(self) -> bytes:
+        return json.dumps([
+            {
+                "osti_id": 12345,
+                "links": [
+                    {"rel": "fulltext", "href": self.PDF_URL},
+                ],
+            }
+        ]).encode("utf-8")
+
+    def test_probe_only_uses_osti_api_candidate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.2172/12345")])
+
+            table = {
+                self.API_URL: FakeResponse(
+                    200, {"content-type": "application/json"},
+                    self._api_body(), self.API_URL,
+                ),
+                "https://doi.org/10.2172/12345": FakeResponse(
+                    302,
+                    {"location": self.LANDING, "content-type": "text/html"},
+                    b"", "https://doi.org/10.2172/12345",
+                ),
+                self.LANDING: FakeResponse(
+                    200, {"content-type": "text/html; charset=utf-8"},
+                    # OSTI landing pages do not expose citation_pdf_url and
+                    # the PDF link is JS-rendered; the extractor must rely on
+                    # the API.
+                    b"<html><body>JS-rendered landing</body></html>",
+                    self.LANDING,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(summary["selected"], 1)
+            self.assertEqual(summary["by_status"].get("probe_only"), 1)
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "probe_only")
+            self.assertEqual(attempt["pdf_url"], self.PDF_URL)
+            self.assertEqual(attempt.get("pdf_url_source"), "osti_api")
+
+    def test_download_uses_osti_api_candidate(self):
+        pdf_bytes = b"%PDF-1.4 fake osti bytes\n%%EOF"
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.2172/12345")])
+
+            table = {
+                self.API_URL: FakeResponse(
+                    200, {"content-type": "application/json"},
+                    self._api_body(), self.API_URL,
+                ),
+                "https://doi.org/10.2172/12345": FakeResponse(
+                    302,
+                    {"location": self.LANDING, "content-type": "text/html"},
+                    b"", "https://doi.org/10.2172/12345",
+                ),
+                self.LANDING: FakeResponse(
+                    200, {"content-type": "text/html; charset=utf-8"},
+                    b"<html><body>JS-rendered</body></html>",
+                    self.LANDING,
+                ),
+                self.PDF_URL: FakeResponse(
+                    200, {"content-type": "application/pdf"},
+                    pdf_bytes, self.PDF_URL,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(summary["by_status"].get("fetched"), 1)
+            written = list((store / "papers").glob("*/paper.pdf"))
+            self.assertEqual(len(written), 1)
+            self.assertEqual(written[0].read_bytes(), pdf_bytes)
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "fetched")
+            self.assertEqual(attempt["pdf_url"], self.PDF_URL)
+            self.assertEqual(attempt.get("pdf_url_source"), "osti_api")
+
+    def test_api_returns_no_link_falls_back_to_no_link(self):
+        # API returns 200 with a record but no fulltext link; landing page
+        # also exposes no PDF -> ``no_official_pdf_link``.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.2172/77")])
+
+            empty_body = json.dumps([{"osti_id": 77, "title": "no fulltext"}]).encode("utf-8")
+            table = {
+                "https://www.osti.gov/api/v1/records?identifier=77": FakeResponse(
+                    200, {"content-type": "application/json"},
+                    empty_body,
+                    "https://www.osti.gov/api/v1/records?identifier=77",
+                ),
+                "https://doi.org/10.2172/77": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b"<html><body>JS-rendered</body></html>",
+                    "https://www.osti.gov/biblio/77",
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "no_official_pdf_link")
+
+    def test_api_error_falls_back_to_landing_page(self):
+        # If the API errors out, the probe still tries the landing-page
+        # extractor. Seed a landing page that exposes citation_pdf_url so
+        # the fallback succeeds and the attempt is recorded with
+        # ``pdf_url_source='landing_page_link'``.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.2172/88")])
+
+            html = (
+                b'<html><head>'
+                b'<meta name="citation_pdf_url" '
+                b'content="https://www.osti.gov/biblio/88.pdf" />'
+                b'</head></html>'
+            )
+            table = {
+                "https://www.osti.gov/api/v1/records?identifier=88": FakeResponse(
+                    500, {"content-type": "text/plain"}, b"oops",
+                    "https://www.osti.gov/api/v1/records?identifier=88",
+                ),
+                "https://doi.org/10.2172/88": FakeResponse(
+                    302,
+                    {"location": "https://www.osti.gov/biblio/88",
+                     "content-type": "text/html"},
+                    b"", "https://doi.org/10.2172/88",
+                ),
+                "https://www.osti.gov/biblio/88": FakeResponse(
+                    200, {"content-type": "text/html"}, html,
+                    "https://www.osti.gov/biblio/88",
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "probe_only")
+            self.assertEqual(
+                attempt["pdf_url"], "https://www.osti.gov/biblio/88.pdf",
+            )
+            self.assertEqual(
+                attempt.get("pdf_url_source"), "landing_page_link",
+            )
+
+    def test_non_osti_doi_does_not_query_api(self):
+        # An AGU row must never produce a request to www.osti.gov.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1029/2023ja031603")])
+
+            calls: list[str] = []
+            table = {
+                "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023ja031603": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b"<html></html>",
+                    "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023ja031603",
+                ),
+            }
+            base = make_router(table)
+
+            def recording(url, **kw):
+                calls.append(url)
+                return base(url, **kw)
+
+            paf._http_get = recording
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertFalse(
+                any("osti.gov" in u for u in calls),
+                f"non-OSTI DOI must not hit osti.gov; got {calls}",
+            )
+
+    def test_off_host_pdf_redirect_still_rejected(self):
+        # The OSTI API points us at a same-host PDF, but a redirect chain
+        # takes the final response off osti.gov -- the existing safety rail
+        # must still reject the download.
+        off_host_pdf = "https://other-host.example/file.pdf"
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.2172/12345")])
+
+            table = {
+                self.API_URL: FakeResponse(
+                    200, {"content-type": "application/json"},
+                    self._api_body(), self.API_URL,
+                ),
+                "https://doi.org/10.2172/12345": FakeResponse(
+                    302,
+                    {"location": self.LANDING, "content-type": "text/html"},
+                    b"", "https://doi.org/10.2172/12345",
+                ),
+                self.LANDING: FakeResponse(
+                    200, {"content-type": "text/html; charset=utf-8"},
+                    b"<html></html>",
+                    self.LANDING,
+                ),
+                self.PDF_URL: FakeResponse(
+                    302,
+                    {"location": off_host_pdf, "content-type": "text/html"},
+                    b"", self.PDF_URL,
+                ),
+                off_host_pdf: FakeResponse(
+                    200, {"content-type": "application/pdf"},
+                    b"%PDF-1.4 off-host", off_host_pdf,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(list((store / "papers").glob("*/paper.pdf")), [])
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "rejected_not_pdf")
+            self.assertEqual(
+                attempt.get("error"), "pdf_final_url_off_publisher_host",
+            )
+
+
 if __name__ == "__main__":
     unittest.main()
