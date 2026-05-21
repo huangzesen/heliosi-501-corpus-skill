@@ -398,5 +398,254 @@ class TestSourceHygiene(unittest.TestCase):
             self.assertNotIn(term, text, f"forbidden term {term!r} found in script")
 
 
+def _write_attempt_file(store: Path, candidate_id: str, last_result: str) -> Path:
+    """Drop a minimal prior-attempt record under authorized_attempts/."""
+    attempts_dir = store / "authorized_attempts"
+    attempts_dir.mkdir(parents=True, exist_ok=True)
+    path = attempts_dir / f"{candidate_id}.json"
+    path.write_text(json.dumps({
+        "schema_version": paf.SCHEMA_VERSION,
+        "candidate_id": candidate_id,
+        "last_result": last_result,
+        "attempted_at_utc": "2026-05-19T00:00:00Z",
+    }) + "\n")
+    return path
+
+
+class TestSkipPreviousAttempts(unittest.TestCase):
+    """Repeat runs must not reselect candidates with prior terminal attempts.
+
+    The parent driver re-invokes this probe repeatedly; without this guard,
+    each run reselects the same failing candidates and burns publisher fetches
+    on landing pages we already know never yielded an official PDF.
+    """
+
+    TERMINAL_FAILURE_RESULTS = (
+        paf.STATUS_HTTP_ERROR,
+        paf.STATUS_NO_LINK,
+        paf.STATUS_REJECTED_NOT_PDF,
+    )
+
+    def test_default_skips_rows_with_existing_failure_attempt(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [_row("a", "10.1/a"), _row("b", "10.1/b"), _row("c", "10.1/c")]
+            # 'a' previously failed (no_official_pdf_link) -> skip;
+            # 'b' previously errored (http_error) -> skip;
+            # 'c' has never been attempted -> select.
+            _write_attempt_file(store, "a", paf.STATUS_NO_LINK)
+            _write_attempt_file(store, "b", paf.STATUS_HTTP_ERROR)
+            picked = paf.select_failed(rows, limit=10, store=store)
+            self.assertEqual([r["candidate_id"] for r in picked], ["c"])
+
+    def test_default_skips_for_each_terminal_failure_result_value(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = []
+            for i, result in enumerate(self.TERMINAL_FAILURE_RESULTS):
+                cid = f"x{i}"
+                rows.append(_row(cid, f"10.1/{cid}"))
+                _write_attempt_file(store, cid, result)
+            # Plus one fresh row with no prior attempt.
+            rows.append(_row("fresh", "10.1/fresh"))
+            picked = paf.select_failed(rows, limit=10, store=store)
+            self.assertEqual([r["candidate_id"] for r in picked], ["fresh"])
+
+    def test_default_does_not_skip_probe_only_records(self):
+        # ``probe_only`` is not a terminal failure: the standard workflow is to
+        # run a dry-run probe first (which records last_result=probe_only and a
+        # discovered pdf_url) and then re-run with --download. The second run
+        # must still see those rows.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [_row("a", "10.1/a"), _row("b", "10.1/b")]
+            _write_attempt_file(store, "a", paf.STATUS_PROBE_ONLY)
+            _write_attempt_file(store, "b", paf.STATUS_NO_LINK)
+            picked = paf.select_failed(rows, limit=10, store=store)
+            self.assertEqual([r["candidate_id"] for r in picked], ["a"])
+
+    def test_retry_flag_reselects_previously_attempted_rows(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [_row("a", "10.1/a"), _row("b", "10.1/b")]
+            _write_attempt_file(store, "a", paf.STATUS_HTTP_ERROR)
+            _write_attempt_file(store, "b", paf.STATUS_REJECTED_NOT_PDF)
+            picked = paf.select_failed(
+                rows, limit=10, store=store, retry_previous_attempts=True
+            )
+            self.assertEqual([r["candidate_id"] for r in picked], ["a", "b"])
+
+    def test_attempt_file_with_null_last_result_is_not_a_completed_attempt(self):
+        # Defensive: a partially-written record without a last_result should
+        # not block reselection. We only skip when an authorized attempt
+        # actually concluded with a terminal status.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [_row("a", "10.1/a")]
+            (store / "authorized_attempts").mkdir(parents=True, exist_ok=True)
+            (store / "authorized_attempts" / "a.json").write_text(json.dumps({
+                "schema_version": paf.SCHEMA_VERSION,
+                "candidate_id": "a",
+                "last_result": None,
+            }) + "\n")
+            picked = paf.select_failed(rows, limit=10, store=store)
+            self.assertEqual([r["candidate_id"] for r in picked], ["a"])
+
+    def test_no_store_keeps_legacy_behavior(self):
+        # Backward compat: existing callers that don't pass store= must still
+        # get the old selection semantics.
+        rows = [_row("a", "10.1/a"), _row("b", "10.1/b")]
+        picked = paf.select_failed(rows, limit=10)
+        self.assertEqual([r["candidate_id"] for r in picked], ["a", "b"])
+
+    def test_run_probe_skips_previously_attempted_by_default(self):
+        # End-to-end check via run_probe: prior attempt file present, the
+        # queue still has fetch_failed status, but the row should NOT be
+        # probed again unless retry is requested.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1/a"), _row("b", "10.1/b")])
+            _write_attempt_file(store, "a", paf.STATUS_NO_LINK)
+
+            calls: list[str] = []
+            base_router = make_router({
+                "https://doi.org/10.1/b": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b"<html><body>No PDF here</body></html>",
+                    "https://doi.org/10.1/b",
+                ),
+            })
+
+            def recording_fake(url, **kwargs):
+                calls.append(url)
+                return base_router(url, **kwargs)
+
+            paf._http_get = recording_fake
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            # Only 'b' was selected; 'a' was skipped because of its prior attempt.
+            self.assertEqual(summary["selected"], 1)
+            self.assertTrue(all("10.1/a" not in u for u in calls),
+                            f"unexpected refetch of skipped row: {calls}")
+            # 'a' attempt file was NOT overwritten (timestamp from seed remains).
+            a_record = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(a_record["attempted_at_utc"], "2026-05-19T00:00:00Z")
+
+    def test_run_probe_probe_only_record_can_proceed_to_download(self):
+        # End-to-end: a previous dry-run left a ``probe_only`` record. A
+        # follow-up --download run (no --retry flag) must still pick the row
+        # up and actually fetch the PDF.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1/a")])
+            _write_attempt_file(store, "a", paf.STATUS_PROBE_ONLY)
+
+            pdf_bytes = b"%PDF-1.4 fake bytes\n%%EOF"
+            table = {
+                "https://doi.org/10.1/a": FakeResponse(
+                    302, {"location": "https://publisher.example.org/article/a",
+                          "content-type": "text/html"},
+                    b"", "https://doi.org/10.1/a",
+                ),
+                "https://publisher.example.org/article/a": FakeResponse(
+                    200, {"content-type": "text/html; charset=utf-8"},
+                    b'<html><head><meta name="citation_pdf_url" '
+                    b'content="https://publisher.example.org/article/a.pdf" /></head></html>',
+                    "https://publisher.example.org/article/a",
+                ),
+                "https://publisher.example.org/article/a.pdf": FakeResponse(
+                    200, {"content-type": "application/pdf"}, pdf_bytes,
+                    "https://publisher.example.org/article/a.pdf",
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(summary["selected"], 1)
+            self.assertEqual(summary["by_status"].get("fetched"), 1)
+            # Queue row promoted; PDF written.
+            rows = paf.read_queue(store / "queue.jsonl")
+            self.assertEqual(rows[0]["status"], "fetched")
+            self.assertEqual(list((store / "papers").glob("*/paper.pdf"))[0].read_bytes(),
+                             pdf_bytes)
+            # Attempt record was updated from probe_only -> fetched.
+            a_record = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(a_record["last_result"], "fetched")
+
+    def test_run_probe_retry_flag_reprobes_previously_attempted(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1/a")])
+            _write_attempt_file(store, "a", paf.STATUS_NO_LINK)
+
+            table = {
+                "https://doi.org/10.1/a": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b'<html><head><meta name="citation_pdf_url" '
+                    b'content="https://doi.org/10.1/a.pdf" /></head></html>',
+                    "https://doi.org/10.1/a",
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+                retry_previous_attempts=True,
+            )
+
+            self.assertEqual(summary["selected"], 1)
+            # Prior attempt was overwritten with a fresh record.
+            a_record = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertNotEqual(a_record["attempted_at_utc"], "2026-05-19T00:00:00Z")
+            self.assertEqual(a_record["last_result"], paf.STATUS_PROBE_ONLY)
+
+
+class TestCliRetryFlag(unittest.TestCase):
+    """The CLI must expose --retry-previous-attempts (default false)."""
+
+    def test_cli_flag_propagates_to_run_probe(self):
+        captured: dict = {}
+
+        def fake_run_probe(**kwargs):
+            captured.update(kwargs)
+            return {"selected": 0, "by_status": {}, "attempts": [], "run_id": "x",
+                    "schema_version": paf.SCHEMA_VERSION, "options": {}}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [])
+            orig = paf.run_probe
+            paf.run_probe = fake_run_probe
+            try:
+                # Default: flag absent -> retry disabled.
+                paf.main(["--store", str(store)])
+                self.assertIn("retry_previous_attempts", captured)
+                self.assertFalse(captured["retry_previous_attempts"])
+
+                # Explicit opt-in.
+                captured.clear()
+                paf.main(["--store", str(store), "--retry-previous-attempts"])
+                self.assertTrue(captured["retry_previous_attempts"])
+            finally:
+                paf.run_probe = orig
+
+
 if __name__ == "__main__":
     unittest.main()

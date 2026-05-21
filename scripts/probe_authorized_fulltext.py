@@ -160,13 +160,67 @@ def write_csv_mirror(rows: list[dict], path: Path) -> None:
 #  Row selection
 # ──────────────────────────────────────────────────────────
 
+# Terminal *failure* outcomes from a prior authorized probe. These mean the
+# publisher landing page resolved but did not yield a usable official PDF
+# under the host's current authorization; reprobing is wasted unless the
+# user explicitly opts in (e.g. because the network identity has changed).
+#
+# Note: ``probe_only`` is NOT in this set. A probe_only record means dry-run
+# discovery succeeded (a candidate PDF URL was found); the normal workflow is
+# to re-run with --download afterward, and that second run must still pick
+# the row up.
+TERMINAL_FAILURE_RESULTS: frozenset[str] = frozenset({
+    STATUS_HTTP_ERROR,
+    STATUS_NO_LINK,
+    STATUS_REJECTED_NOT_PDF,
+})
+
+
+def _has_terminal_authorized_failure(store: Path, candidate_id: str) -> bool:
+    """True iff a prior authorized-probe attempt ended in a terminal failure.
+
+    Looking at ``store/authorized_attempts/<candidate_id>.json``: if the file
+    exists and ``last_result`` is one of the terminal failure outcomes
+    (``http_error``, ``no_official_pdf_link``, ``rejected_not_pdf``), the
+    candidate has already been probed under the host's current authorization
+    and reprobing won't change the outcome unless something external (network
+    identity, paywall rules) has changed. Callers can opt back in via
+    ``retry_previous_attempts``.
+
+    Successful or in-progress outcomes (``fetched``, ``probe_only``) are
+    NOT terminal failures and do not block reselection here -- ``fetched``
+    rows are already filtered out by queue status, and ``probe_only`` rows
+    are expected to be re-run under ``--download``.
+    """
+    path = store / ATTEMPTS_DIR / f"{candidate_id}.json"
+    if not path.exists():
+        return False
+    try:
+        record = json.loads(path.read_text())
+    except (OSError, ValueError):
+        # Unreadable or malformed record: don't block reselection.
+        return False
+    return record.get("last_result") in TERMINAL_FAILURE_RESULTS
+
+
 def select_failed(
     rows: list[dict],
     limit: int,
     year_min: Optional[int] = None,
     year_max: Optional[int] = None,
+    store: Optional[Path] = None,
+    retry_previous_attempts: bool = False,
 ) -> list[dict]:
-    """Return up to ``limit`` DOI-bearing rows in ``fetch_failed`` status."""
+    """Return up to ``limit`` DOI-bearing rows in ``fetch_failed`` status.
+
+    When ``store`` is provided and ``retry_previous_attempts`` is false,
+    candidates that already have a prior authorized-probe attempt with a
+    terminal *failure* result on disk are skipped — repeated runs of the
+    probe should not keep reselecting rows that already failed under the
+    same network authorization. Prior ``probe_only`` records are not
+    skipped: the canonical workflow runs a dry-run probe first and then
+    re-runs with ``--download`` against the same rows.
+    """
     out = []
     for row in rows:
         if row.get("status") != STATUS_FETCH_FAILED:
@@ -185,6 +239,12 @@ def select_failed(
                 continue
             if year_max is not None and year > year_max:
                 continue
+        if (
+            store is not None
+            and not retry_previous_attempts
+            and _has_terminal_authorized_failure(store, row.get("candidate_id", ""))
+        ):
+            continue
         out.append(row)
         if len(out) >= limit:
             break
@@ -474,6 +534,7 @@ def run_probe(
     http_timeout: float,
     queue_name: str = DEFAULT_QUEUE_NAME,
     csv_name: str = DEFAULT_CSV_NAME,
+    retry_previous_attempts: bool = False,
 ) -> dict:
     queue_path = store / queue_name
     csv_path = store / csv_name
@@ -481,7 +542,14 @@ def run_probe(
         raise FileNotFoundError(f"queue not found at {queue_path}")
 
     rows = read_queue(queue_path)
-    picked = select_failed(rows, limit=limit, year_min=year_min, year_max=year_max)
+    picked = select_failed(
+        rows,
+        limit=limit,
+        year_min=year_min,
+        year_max=year_max,
+        store=store,
+        retry_previous_attempts=retry_previous_attempts,
+    )
 
     run_id = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:6]
     run_dir = store / RUNS_DIR / f"{run_id}-authorized-probe"
@@ -546,6 +614,7 @@ def run_probe(
             "http_timeout": http_timeout,
             "per_request_pause": per_request_pause,
             "email_provided": bool(email),
+            "retry_previous_attempts": retry_previous_attempts,
         },
     }
     (run_dir / "summary.json").write_text(
@@ -614,6 +683,19 @@ def main(argv: list[str] | None = None) -> int:
         default=DEFAULT_QUEUE_NAME,
         help=f"queue JSONL filename inside --store (default: {DEFAULT_QUEUE_NAME})",
     )
+    p.add_argument(
+        "--retry-previous-attempts",
+        action="store_true",
+        help=(
+            "reselect candidates whose prior authorized attempt ended in a "
+            "terminal failure (http_error / no_official_pdf_link / "
+            "rejected_not_pdf). Default: skip them, so repeated runs don't "
+            "keep reprobing rows that already failed under the same "
+            "authorization. Prior ``probe_only`` records are always eligible "
+            "for reselection (the standard workflow runs a dry-run probe "
+            "first, then re-runs with --download)."
+        ),
+    )
     args = p.parse_args(argv)
 
     try:
@@ -627,6 +709,7 @@ def main(argv: list[str] | None = None) -> int:
             per_request_pause=args.per_request_pause,
             http_timeout=args.http_timeout,
             queue_name=args.queue_name,
+            retry_previous_attempts=args.retry_previous_attempts,
         )
     except FileNotFoundError as exc:
         print(f"error: {exc}", file=sys.stderr)
