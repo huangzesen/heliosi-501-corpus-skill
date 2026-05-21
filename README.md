@@ -334,6 +334,19 @@ The bundle ships two offline-by-default scripts that extend the corpus
 - `scripts/draft_paper_skill_from_candidates.py` — offline scaffolding
   of **quarantined draft paper-skills** from candidate JSONL or a
   discovery run bundle; refuses to write under `references/corpus/`.
+- `scripts/select_promotion_candidates.py` — read-only triage over an
+  external acquisition store (`queue.jsonl` + `attempts/` +
+  `authorized_attempts/` + `papers/<id-or-slug>/paper.pdf`). It emits a
+  Markdown and/or JSON report that ranks `status: fetched` rows with
+  transparent additive heuristics (recent year, arXiv/DOI presence,
+  official-PDF route, PDF on disk, title keywords) and lists honest
+  summary counts for the rest of the queue. The acquisition store lives
+  **outside** this repo by policy; pass its path with `--store
+  <acquisition-store>`. The script writes report files only when
+  `--output-md` / `--output-json` are given, never touches the queue or
+  PDFs, and never makes network calls. A row in the top-N table is a
+  "look at this first" signal — promotion still requires the per-draft
+  `promotion_gate` checklist below.
 
 For a reproducible offline walk-through of the full lifecycle —
 discovery → run bundle → quarantined draft → manual promotion gate —
