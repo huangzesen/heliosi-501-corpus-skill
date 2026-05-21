@@ -84,7 +84,7 @@ import uuid
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import quote, urljoin, urlparse
 
 
 SCHEMA_VERSION = "heliosi-authorized-probe/1.0"
@@ -578,19 +578,29 @@ def _publisher_landing_override(doi: str) -> Optional[str]:
 # DOIs under the ``10.2172`` prefix. The DOI proxy redirects to
 # ``www.osti.gov/biblio/<suffix>``, which is a landing page that does NOT
 # expose a citation_pdf_url meta tag in the rendered HTML (the PDF link is
-# JavaScript-rendered). OSTI also publishes a public, no-auth records API:
+# JavaScript-rendered). OSTI also publishes a public, no-auth records API.
 #
-#     https://www.osti.gov/api/v1/records?identifier=<suffix>
+# We query by full DOI rather than by bare identifier:
 #
-# returning a JSON array of records. Each record may carry a ``links`` array
-# with objects like ``{"rel": "fulltext", "href": "..."}`` and/or top-level
-# ``product_url`` / ``media`` fields. We accept the first PDF-ish or
-# fulltext-tagged link as the candidate URL. The downstream fetch path still
-# validates HTTP 200 + ``application/pdf`` content-type + ``%PDF-`` magic +
-# same-host final URL, so a misparse cannot cause an HTML paywall to be
-# written as ``paper.pdf``.
+#     https://www.osti.gov/api/v1/records?doi=<percent-encoded-doi>&format=json
+#
+# Why: the bare ``?identifier=<suffix>`` query is matched against OSTI's
+# internal id space, not the DOI suffix, so for some 10.2172 records it
+# returns an unrelated record whose ``purl`` points to a different document
+# (e.g. a patent, a materials-project entry, or a BNL record). The DOI
+# query is exact and returns the correct record's fulltext purl.
+#
+# Each record may carry a ``links`` array with objects like
+# ``{"rel": "fulltext", "href": "..."}`` and/or top-level ``product_url`` /
+# ``media`` fields. We accept the first PDF-ish or fulltext-tagged link as
+# the candidate URL. The downstream fetch path still validates HTTP 200 +
+# ``application/pdf`` content-type + ``%PDF-`` magic + same-host final URL,
+# so a misparse cannot cause an HTML paywall to be written as
+# ``paper.pdf``.
 _OSTI_PREFIX = "10.2172"
-_OSTI_RECORDS_API = "https://www.osti.gov/api/v1/records?identifier={suffix}"
+_OSTI_RECORDS_API = (
+    "https://www.osti.gov/api/v1/records?doi={doi_encoded}&format=json"
+)
 
 
 def _is_osti_doi(doi: str) -> bool:
@@ -709,10 +719,14 @@ def _osti_api_pdf_url(
     """
     if not _is_osti_doi(doi):
         return None
-    suffix = doi.strip().split("/", 1)[1]
+    doi_clean = doi.strip()
+    suffix = doi_clean.split("/", 1)[1]
     if not suffix:
         return None
-    api_url = _OSTI_RECORDS_API.format(suffix=suffix)
+    # Percent-encode the full DOI so it survives transit as a query value
+    # (the literal ``/`` must become ``%2F``). ``safe=""`` ensures no
+    # reserved characters leak through unencoded.
+    api_url = _OSTI_RECORDS_API.format(doi_encoded=quote(doi_clean, safe=""))
     try:
         resp = _http_get(
             api_url,
@@ -1080,7 +1094,20 @@ def _probe_one(
 
     # Step 4: same-host check on the FINAL pdf URL (redirects may have
     # taken us off the publisher host).
-    if not _same_host(landing.final_url, pdf_resp.final_url):
+    #
+    # Safety anchor selection: when the candidate URL came from the OSTI
+    # records API (``osti_api``), the landing page may have redirected
+    # off-host (e.g. to an institutional SSO such as auth.fnal.gov) even
+    # though the official OSTI purl is still on www.osti.gov. In that case
+    # anchoring the same-host check on ``landing.final_url`` would
+    # incorrectly reject a legitimate same-host PDF. The osti_api candidate
+    # URL ITSELF is the publisher anchor here -- it was produced by an OSTI
+    # API call, not by following the landing redirect chain.
+    if pdf_url_source == "osti_api":
+        host_anchor_url = pdf_url
+    else:
+        host_anchor_url = landing.final_url
+    if not _same_host(host_anchor_url, pdf_resp.final_url):
         attempt["last_result"] = STATUS_REJECTED_NOT_PDF
         attempt["error"] = "pdf_final_url_off_publisher_host"
         return attempt

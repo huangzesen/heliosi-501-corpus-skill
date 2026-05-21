@@ -2159,7 +2159,8 @@ class TestOstiApiPdfUrl(unittest.TestCase):
             }
         ]).encode("utf-8")
         api_url = (
-            "https://www.osti.gov/api/v1/records?identifier=12345"
+            "https://www.osti.gov/api/v1/records?"
+            "doi=10.2172%2F12345&format=json"
         )
         table = {
             api_url: FakeResponse(
@@ -2182,7 +2183,10 @@ class TestOstiApiPdfUrl(unittest.TestCase):
         self.assertEqual(calls, [api_url])
 
     def test_api_http_error_returns_none(self):
-        api_url = "https://www.osti.gov/api/v1/records?identifier=99"
+        api_url = (
+            "https://www.osti.gov/api/v1/records?"
+            "doi=10.2172%2F99&format=json"
+        )
         table = {
             api_url: FakeResponse(
                 500, {"content-type": "text/plain"}, b"server error", api_url,
@@ -2201,7 +2205,10 @@ class TestOstiApiPdfUrl(unittest.TestCase):
         )
 
     def test_api_malformed_json_returns_none(self):
-        api_url = "https://www.osti.gov/api/v1/records?identifier=bad"
+        api_url = (
+            "https://www.osti.gov/api/v1/records?"
+            "doi=10.2172%2Fbad&format=json"
+        )
         table = {
             api_url: FakeResponse(
                 200, {"content-type": "application/json"},
@@ -2214,7 +2221,10 @@ class TestOstiApiPdfUrl(unittest.TestCase):
         )
 
     def test_api_no_link_returns_none(self):
-        api_url = "https://www.osti.gov/api/v1/records?identifier=barerec"
+        api_url = (
+            "https://www.osti.gov/api/v1/records?"
+            "doi=10.2172%2Fbarerec&format=json"
+        )
         body = json.dumps([{"osti_id": 1, "title": "no fulltext"}]).encode("utf-8")
         table = {
             api_url: FakeResponse(
@@ -2246,7 +2256,10 @@ class TestOstiWiringEndToEnd(unittest.TestCase):
 
     LANDING = "https://www.osti.gov/biblio/12345"
     PDF_URL = "https://www.osti.gov/servlets/purl/12345"
-    API_URL = "https://www.osti.gov/api/v1/records?identifier=12345"
+    API_URL = (
+        "https://www.osti.gov/api/v1/records?"
+        "doi=10.2172%2F12345&format=json"
+    )
 
     def _api_body(self) -> bytes:
         return json.dumps([
@@ -2354,11 +2367,15 @@ class TestOstiWiringEndToEnd(unittest.TestCase):
             _seed_queue(store, [_row("a", "10.2172/77")])
 
             empty_body = json.dumps([{"osti_id": 77, "title": "no fulltext"}]).encode("utf-8")
+            api_url_77 = (
+                "https://www.osti.gov/api/v1/records?"
+                "doi=10.2172%2F77&format=json"
+            )
             table = {
-                "https://www.osti.gov/api/v1/records?identifier=77": FakeResponse(
+                api_url_77: FakeResponse(
                     200, {"content-type": "application/json"},
                     empty_body,
-                    "https://www.osti.gov/api/v1/records?identifier=77",
+                    api_url_77,
                 ),
                 "https://doi.org/10.2172/77": FakeResponse(
                     200, {"content-type": "text/html"},
@@ -2394,10 +2411,14 @@ class TestOstiWiringEndToEnd(unittest.TestCase):
                 b'content="https://www.osti.gov/biblio/88.pdf" />'
                 b'</head></html>'
             )
+            api_url_88 = (
+                "https://www.osti.gov/api/v1/records?"
+                "doi=10.2172%2F88&format=json"
+            )
             table = {
-                "https://www.osti.gov/api/v1/records?identifier=88": FakeResponse(
+                api_url_88: FakeResponse(
                     500, {"content-type": "text/plain"}, b"oops",
-                    "https://www.osti.gov/api/v1/records?identifier=88",
+                    api_url_88,
                 ),
                 "https://doi.org/10.2172/88": FakeResponse(
                     302,
@@ -2461,6 +2482,57 @@ class TestOstiWiringEndToEnd(unittest.TestCase):
                 any("osti.gov" in u for u in calls),
                 f"non-OSTI DOI must not hit osti.gov; got {calls}",
             )
+
+    def test_off_host_landing_with_osti_api_purl_is_accepted(self):
+        # Live-observed case: a 10.2172 row's doi.org landing redirects off
+        # osti.gov (e.g. through Fermilab SSO at auth.fnal.gov), but the
+        # official OSTI API still returns a same-host PDF purl. The
+        # ``osti_api`` candidate must be accepted because its host (osti.gov)
+        # IS the publisher safety anchor, not the off-host landing final URL.
+        pdf_bytes = b"%PDF-1.4 fnal-routed osti bytes\n%%EOF"
+        off_host_landing = "https://auth.fnal.gov/Login"
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.2172/12345")])
+
+            table = {
+                self.API_URL: FakeResponse(
+                    200, {"content-type": "application/json"},
+                    self._api_body(), self.API_URL,
+                ),
+                "https://doi.org/10.2172/12345": FakeResponse(
+                    302,
+                    {"location": off_host_landing, "content-type": "text/html"},
+                    b"", "https://doi.org/10.2172/12345",
+                ),
+                off_host_landing: FakeResponse(
+                    200, {"content-type": "text/html; charset=utf-8"},
+                    b"<html><body>FNAL SSO login</body></html>",
+                    off_host_landing,
+                ),
+                self.PDF_URL: FakeResponse(
+                    200, {"content-type": "application/pdf"},
+                    pdf_bytes, self.PDF_URL,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            written = list((store / "papers").glob("*/paper.pdf"))
+            self.assertEqual(len(written), 1)
+            self.assertEqual(written[0].read_bytes(), pdf_bytes)
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "fetched")
+            self.assertEqual(attempt["pdf_url"], self.PDF_URL)
+            self.assertEqual(attempt.get("pdf_url_source"), "osti_api")
 
     def test_off_host_pdf_redirect_still_rejected(self):
         # The OSTI API points us at a same-host PDF, but a redirect chain
