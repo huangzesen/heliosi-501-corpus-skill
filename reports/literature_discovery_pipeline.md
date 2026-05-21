@@ -615,6 +615,27 @@ Done in a subsequent increment (1950-present envelope, §10 of
       bundle is self-describing. The script never echoes ADS tokens
       or other secret material; an email is a deliberate, in-band
       audit signal here.
+- [x] Source / credential preflight in `run_metadata.json`
+      (`source_preflight` + `source_preflight_summary`) and a matching
+      `## Source / credential preflight` section in `run_report.md`.
+      Per selected backend the preflight records `mode`,
+      `credential_required`, the names of the env vars consulted
+      (e.g. `ADS_API_TOKEN`/`NASA_ADS_TOKEN`/`ADS_TOKEN`),
+      `credential_present` (a boolean — token *values* are never
+      echoed), the resolved year bounds, a `claim_status` of
+      `ok` / `blocked` / `fixture_only` / `no_key_public`, a
+      `limitations[]` list, and a `forbidden_claims[]` list. The
+      rollup names every blocking backend and unions the forbidden
+      claims so a run bundle is self-evidencing about what it can and
+      cannot assert: a dry-run cannot be passed off as live coverage,
+      a live ADS run without a token is `blocked` and explicitly
+      forbids `pre-1990 coverage` / `1950-present coverage`, and any
+      no-key live run without ADS in the slate forbids those same
+      claims at the run level. Pure-function (`compute_source_preflight`)
+      so the claim machinery is testable offline; the four offline test
+      classes (`TestSourcePreflightPure` /
+      `TestSourcePreflightWiredIntoRun`) pin every claim_status and the
+      no-secret-leak invariant.
 
 Done in an earlier increment (§3.6):
 

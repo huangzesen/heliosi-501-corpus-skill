@@ -1578,5 +1578,314 @@ class TestRunBundleCli(unittest.TestCase):
             self.assertEqual(json.loads(ln)["corpus_status"], "unjoined")
 
 
+class TestSourcePreflightPure(unittest.TestCase):
+    """``compute_source_preflight`` is the heart of the credential /
+    coverage accounting. Pin its row shape and the claim_status / forbidden
+    classes for every (mode, backend, credential, year-bound) combination
+    that the 1950-present plan and DISCOVERY_POLICY actually rely on.
+
+    The honesty boundary this guards: a run cannot accidentally claim
+    pre-1990 or 1950-present coverage without ADS, and dry-run runs cannot
+    be presented as live source coverage of any kind.
+    """
+
+    def test_dry_run_marks_every_backend_fixture_only(self):
+        pf = discover.compute_source_preflight(
+            backends=["arxiv", "openalex"],
+            mode="dry-run",
+            ads_token_present=False,
+            year_from=None,
+            year_until=None,
+        )
+        self.assertEqual(pf["mode"], "dry-run")
+        rows = {r["backend"]: r for r in pf["backends"]}
+        self.assertEqual(set(rows), {"arxiv", "openalex"})
+        for r in rows.values():
+            self.assertEqual(r["mode"], "dry-run")
+            self.assertEqual(r["claim_status"], "fixture_only")
+            self.assertFalse(r["credential_present"])
+        # Forbidden union must include the "live source coverage" framing
+        # so a dry-run bundle cannot be re-marketed as a real survey.
+        self.assertIn(
+            "live source coverage of any kind",
+            pf["summary"]["forbidden_claims"],
+        )
+        self.assertEqual(pf["summary"]["blocking_backends"], [])
+
+    def test_live_ads_no_token_is_blocked_and_forbids_pre_1990(self):
+        pf = discover.compute_source_preflight(
+            backends=["ads"],
+            mode="live",
+            ads_token_present=False,
+            year_from=1950,
+            year_until=None,
+        )
+        ads = next(r for r in pf["backends"] if r["backend"] == "ads")
+        self.assertTrue(ads["credential_required"])
+        self.assertFalse(ads["credential_present"])
+        self.assertEqual(ads["claim_status"], "blocked")
+        # The two coverage claims the 1950-present plan calls out by name
+        # MUST appear explicitly when ADS is missing.
+        self.assertIn("pre-1990 coverage", ads["forbidden_claims"])
+        self.assertIn("1950-present coverage", ads["forbidden_claims"])
+        # And they propagate to the run-level rollup.
+        self.assertIn("pre-1990 coverage", pf["summary"]["forbidden_claims"])
+        self.assertIn(
+            "1950-present coverage", pf["summary"]["forbidden_claims"]
+        )
+        self.assertIn("ads", pf["summary"]["blocking_backends"])
+        # The env var names must be advertised so the reader knows which
+        # variable to set, but no secret value can appear here.
+        self.assertIn("ADS_API_TOKEN", ads["credential_env_vars"])
+
+    def test_live_ads_with_token_marks_ok_with_limitations(self):
+        pf = discover.compute_source_preflight(
+            backends=["ads"],
+            mode="live",
+            ads_token_present=True,
+            year_from=1950,
+            year_until=None,
+        )
+        ads = next(r for r in pf["backends"] if r["backend"] == "ads")
+        self.assertTrue(ads["credential_present"])
+        self.assertEqual(ads["claim_status"], "ok")
+        # Even with a token, ADS is not a census; the limitations must say so.
+        self.assertTrue(any("census" in s.lower() or "index" in s.lower()
+                            for s in ads["limitations"]))
+        # ADS no longer blocks anything, so the rollup must be empty of
+        # ADS-credential-driven forbidden claims.
+        self.assertNotIn("ads", pf["summary"]["blocking_backends"])
+        self.assertNotIn(
+            "pre-1990 coverage", pf["summary"]["forbidden_claims"]
+        )
+        self.assertNotIn(
+            "1950-present coverage", pf["summary"]["forbidden_claims"]
+        )
+
+    def test_live_no_key_backends_are_public_not_complete_coverage(self):
+        pf = discover.compute_source_preflight(
+            backends=["arxiv", "openalex", "crossref"],
+            mode="live",
+            ads_token_present=False,
+            year_from=None,
+            year_until=None,
+        )
+        rows = {r["backend"]: r for r in pf["backends"]}
+        for name in ("arxiv", "openalex", "crossref"):
+            r = rows[name]
+            self.assertFalse(r["credential_required"])
+            self.assertEqual(r["claim_status"], "no_key_public")
+            self.assertTrue(r["limitations"],
+                            msg=f"{name} must document its limits")
+        # arXiv specifically has no first-class pre-1991 coverage; that
+        # must be in its forbidden_claims so a no-key live run can't be
+        # passed off as a 1950-present sweep.
+        self.assertIn(
+            "complete pre-1991 coverage",
+            rows["arxiv"]["forbidden_claims"],
+        )
+        # And because ADS is NOT in the backend slate, the run-level rollup
+        # must forbid the headline 1950-present + pre-1990 claims.
+        self.assertIn(
+            "1950-present coverage", pf["summary"]["forbidden_claims"]
+        )
+        self.assertIn(
+            "pre-1990 coverage", pf["summary"]["forbidden_claims"]
+        )
+
+    def test_live_modern_year_window_without_ads_does_not_claim_pre_1990(self):
+        # 2010-2024 window: no pre-1990 claim is being made, so the
+        # rollup should not synthesise a forbidden "pre-1990 coverage"
+        # warning -- the test guards against false-positive warnings.
+        pf = discover.compute_source_preflight(
+            backends=["arxiv", "openalex"],
+            mode="live",
+            ads_token_present=False,
+            year_from=2010,
+            year_until=2024,
+        )
+        self.assertNotIn(
+            "pre-1990 coverage", pf["summary"]["forbidden_claims"]
+        )
+        self.assertNotIn(
+            "1950-present coverage", pf["summary"]["forbidden_claims"]
+        )
+
+
+class TestSourcePreflightWiredIntoRun(unittest.TestCase):
+    """The preflight must appear on both summary and metadata, and be
+    rendered by render_run_report so a run bundle is self-evidencing."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="hsi-preflight-"))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_run_discovery_dry_run_emits_preflight_in_summary(self):
+        _candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=None,
+        )
+        self.assertIn("source_preflight", summary)
+        pf = summary["source_preflight"]
+        self.assertEqual(pf["mode"], "dry-run")
+        names = sorted(r["backend"] for r in pf["backends"])
+        self.assertEqual(names, ["arxiv", "openalex"])
+
+    def test_build_run_metadata_carries_preflight_block(self):
+        _candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=None,
+        )
+        run_dir = self.tmp / "run-pf"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        meta = discover.build_run_metadata(
+            summary=summary,
+            candidates=[],
+            cli_args={"mode": "dry-run"},
+            prior_index=discover.scan_prior_runs(None),
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        self.assertIn("source_preflight", meta)
+        self.assertIn("source_preflight_summary", meta)
+        self.assertEqual(meta["source_preflight"]["mode"], "dry-run")
+
+    def test_render_run_report_includes_preflight_section_dry_run(self):
+        _candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=None,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=None,
+        )
+        run_dir = self.tmp / "run-pf2"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        meta = discover.build_run_metadata(
+            summary=summary,
+            candidates=[],
+            cli_args={"mode": "dry-run"},
+            prior_index=discover.scan_prior_runs(None),
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        report = discover.render_run_report(meta)
+        self.assertIn("## Source / credential preflight", report)
+        # Dry-run: each backend row labels itself fixture_only.
+        self.assertIn("fixture_only", report)
+        # The dry-run framing forbids re-marketing as live coverage.
+        self.assertIn("live source coverage of any kind", report)
+
+    def test_render_run_report_warns_when_ads_credential_missing(self):
+        # Construct a synthetic summary with a preflight that simulates a
+        # live ADS run with no token (the CLI currently aborts before
+        # writing a bundle in that case, but the Python API must still
+        # surface the forbidden claims so any future code path that does
+        # build metadata can do so honestly).
+        pf = discover.compute_source_preflight(
+            backends=["ads"],
+            mode="live",
+            ads_token_present=False,
+            year_from=1950,
+            year_until=None,
+        )
+        summary = {
+            "mode": "live",
+            "queries": ["solar wind"],
+            "backends": ["ads"],
+            "year_from": 1950,
+            "year_until": None,
+            "raw_candidate_count": 0,
+            "deduped_candidate_count": 0,
+            "per_backend_counts": {"ads": 0},
+            "per_query_counts": {"solar wind": 0},
+            "errors": [],
+            "novelty_join": {"enabled": False, "manifest_path": None,
+                             "manifest_entry_count": 0,
+                             "already_curated_count": 0,
+                             "new_candidate_count": 0, "unjoined_count": 0,
+                             "match_priority": [], "limits": ""},
+            "polite_http": {"user_agent": discover.USER_AGENT,
+                            "max_retries": 0, "retry_base_seconds": 0,
+                            "retry_statuses": [], "mailto_polite_pool": False},
+            "framing": "live",
+            "discovered_at_utc": "2026-05-19T00:00:00Z",
+            "source_preflight": pf,
+        }
+        run_dir = self.tmp / "run-ads-missing"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        meta = discover.build_run_metadata(
+            summary=summary,
+            candidates=[],
+            cli_args={"mode": "live", "enable_ads": True},
+            prior_index=discover.scan_prior_runs(None),
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        report = discover.render_run_report(meta)
+        self.assertIn("## Source / credential preflight", report)
+        self.assertIn("blocked", report)
+        self.assertIn("pre-1990 coverage", report)
+        self.assertIn("1950-present coverage", report)
+        # And the env-var hint must be visible so the reader knows which
+        # variable to set to unblock the next run.
+        self.assertIn("ADS_API_TOKEN", report)
+
+    def test_preflight_never_echoes_ads_token_value(self):
+        """``ads_token_present`` is a boolean. The token value must never
+        appear in summary, metadata, or the rendered report."""
+        secret = "SECRET-ADS-TOKEN-DO-NOT-LEAK-abc123"
+        # Provide the token value through the env-var-shaped channel that
+        # the orchestrator already accepts, then render every artifact.
+        _candidates, summary = discover.run_discovery(
+            queries=discover.DEFAULT_QUERIES,
+            backends=["arxiv", "openalex"],
+            max_results=10,
+            live=False,
+            fixture_path=JSONL_FIXTURE,
+            timeout=5.0,
+            page_pause_seconds=0,
+            ads_token=secret,
+            now_iso="2026-05-19T00:00:00Z",
+            corpus_manifest_path=None,
+        )
+        run_dir = self.tmp / "run-secret"
+        discover._prepare_run_dir(run_dir, overwrite=False)
+        meta = discover.build_run_metadata(
+            summary=summary,
+            candidates=[],
+            cli_args={"mode": "dry-run"},
+            prior_index=discover.scan_prior_runs(None),
+            run_dir=run_dir,
+            git_commit=None,
+        )
+        report = discover.render_run_report(meta)
+        self.assertNotIn(secret, json.dumps(summary))
+        self.assertNotIn(secret, json.dumps(meta))
+        self.assertNotIn(secret, report)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -402,6 +402,21 @@ silently widen the curated corpus's claim surface:
   echo secret values; the existing `run_metadata.json` records the
   *names* of the resolved CLI knobs, not the resolved token values.
   A 1950-present sweep does not relax that policy.
+- **Source / credential preflight is mechanical, not aspirational.**
+  Every run records a `source_preflight` block in
+  `run_metadata.json` and a `## Source / credential preflight`
+  section in `run_report.md` that names each selected backend, its
+  `claim_status` (`ok` / `blocked` / `fixture_only` /
+  `no_key_public`), its limitations, and the coverage claims it
+  forbids. A live ADS run with no token is `blocked` and the
+  rollup explicitly forbids `pre-1990 coverage` and
+  `1950-present coverage`; a live run with no ADS in the slate
+  forbids those same claims at the run level regardless of which
+  no-key backends are present; a dry-run is `fixture_only` and
+  cannot be re-marketed as live coverage of any kind. Only the
+  *names* of the env vars consulted (e.g. `ADS_API_TOKEN`) are
+  recorded; `credential_present` is a boolean — token values
+  never appear in any artifact.
 
 ## 9. Bounded pilot design (3 cells)
 

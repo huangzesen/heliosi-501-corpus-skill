@@ -972,6 +972,221 @@ def annotate_candidate_with_corpus_status(
 # Orchestration
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Source / credential preflight
+#
+# A single discovery run can mix multiple backends with different coverage
+# envelopes and different credential requirements. The preflight is a
+# structured accounting of (a) what each selected backend can / cannot
+# claim to cover and (b) what aggregate coverage claims the run as a
+# whole must NOT make. It is consumed by run_metadata.json and the
+# rendered run_report.md so that a run bundle is self-evidencing about
+# its own limits -- e.g. an ADS-less live run cannot be passed off as
+# pre-1990 or 1950-present coverage.
+#
+# We only record ``credential_present: bool`` and the names of the env
+# vars the script consults. Token values never appear in any artifact.
+#
+# Honesty rules encoded here (mirrors reports/1950_present_literature_
+# acquisition_plan.md and DISCOVERY_POLICY §5.2):
+#   - dry-run is always fixture-only; never a substitute for live coverage.
+#   - live ADS with no token is BLOCKED; pre-1990 + 1950-present claims
+#     are forbidden at the run level.
+#   - live no-key backends are real, but their coverage is limited:
+#     arXiv lacks pre-1991 coverage; OpenAlex/Crossref are DOI-registered
+#     only and sparse before 1990.
+#   - Without ADS in the slate, the run rollup forbids 1950-present /
+#     pre-1990 claims regardless of which no-key backends are selected.
+# ---------------------------------------------------------------------------
+
+ADS_CREDENTIAL_ENV_VARS: Tuple[str, ...] = (
+    "ADS_API_TOKEN",
+    "NASA_ADS_TOKEN",
+    "ADS_TOKEN",
+)
+
+_FORBIDDEN_DRY_RUN_LIVE_COVERAGE = "live source coverage of any kind"
+_FORBIDDEN_PRE_1990 = "pre-1990 coverage"
+_FORBIDDEN_1950_PRESENT = "1950-present coverage"
+_FORBIDDEN_ARXIV_PRE_1991 = "complete pre-1991 coverage"
+
+
+def _year_window_touches_pre_1990(
+    year_from: Optional[int], year_until: Optional[int]
+) -> bool:
+    """True when the requested window includes any year <= 1990.
+
+    Used to decide whether the run is even attempting to claim pre-1990
+    coverage; a 2010-2024 window without ADS does NOT warrant a
+    pre-1990-claim warning.
+    """
+    if year_until is not None and year_until < 1950:
+        # Window ends before the heliophysics era we care about; not a
+        # pre-1990 claim in any practical sense, but still touches the
+        # pre-1990 era. Treat as "touches".
+        return True
+    if year_from is None:
+        return True
+    return year_from <= 1990
+
+
+def compute_source_preflight(
+    *,
+    backends: Sequence[str],
+    mode: str,
+    ads_token_present: bool,
+    year_from: Optional[int],
+    year_until: Optional[int],
+) -> Dict:
+    """Return the per-run source / credential preflight summary.
+
+    Pure function: no I/O, no env access, no clock. The caller is
+    expected to resolve the ADS token presence (and any other future
+    credential) up front and pass only the booleans.
+
+    Returns a dict with:
+
+      - ``mode``         : same as the input ``mode`` ("live" | "dry-run").
+      - ``backends``     : list of per-backend rows (see below).
+      - ``summary``      : run-level rollup with ``blocking_backends`` and
+                            ``forbidden_claims`` (deduped union).
+
+    Per-backend row shape::
+
+        {
+          "backend": "ads" | "arxiv" | "openalex" | "crossref",
+          "mode": "live" | "dry-run",
+          "credential_required": bool,
+          "credential_env_vars": ["ADS_API_TOKEN", ...] or [],
+          "credential_present": bool,
+          "year_from": int | None,
+          "year_until": int | None,
+          "claim_status": "ok" | "blocked" | "fixture_only" | "no_key_public",
+          "limitations": [str, ...],
+          "forbidden_claims": [str, ...],
+        }
+    """
+    rows: List[Dict] = []
+    rollup_forbidden: List[str] = []
+    blocking: List[str] = []
+
+    dry_run = mode == "dry-run"
+    touches_pre_1990 = _year_window_touches_pre_1990(year_from, year_until)
+    ads_in_slate = "ads" in backends
+
+    for backend in backends:
+        row: Dict = {
+            "backend": backend,
+            "mode": mode,
+            "credential_required": False,
+            "credential_env_vars": [],
+            "credential_present": False,
+            "year_from": year_from,
+            "year_until": year_until,
+            "claim_status": "ok",
+            "limitations": [],
+            "forbidden_claims": [],
+        }
+
+        if dry_run:
+            row["claim_status"] = "fixture_only"
+            row["limitations"].append(
+                "dry-run reads only the local JSONL fixture; not a "
+                "substitute for live backend coverage of any kind"
+            )
+            row["forbidden_claims"].append(
+                _FORBIDDEN_DRY_RUN_LIVE_COVERAGE
+            )
+            rows.append(row)
+            continue
+
+        # ---- live mode ---------------------------------------------------
+        if backend == "ads":
+            row["credential_required"] = True
+            row["credential_env_vars"] = list(ADS_CREDENTIAL_ENV_VARS)
+            row["credential_present"] = bool(ads_token_present)
+            if not ads_token_present:
+                row["claim_status"] = "blocked"
+                row["limitations"].append(
+                    "live ADS requested but no ADS_API_TOKEN / "
+                    "NASA_ADS_TOKEN / ADS_TOKEN found in environment"
+                )
+                # ADS is the only backend with strong pre-1990 coverage;
+                # without it the headline claims the 1950-present plan
+                # is built on must be marked forbidden.
+                row["forbidden_claims"].append(_FORBIDDEN_PRE_1990)
+                row["forbidden_claims"].append(_FORBIDDEN_1950_PRESENT)
+                blocking.append("ads")
+            else:
+                row["claim_status"] = "ok"
+                row["limitations"].append(
+                    "ADS coverage reflects its own indexing decisions; "
+                    "not a census of the heliophysics literature"
+                )
+        elif backend == "arxiv":
+            row["claim_status"] = "no_key_public"
+            row["limitations"].append(
+                "arXiv launched in 1991; the API has no first-class "
+                "pre-1991 coverage and remains weak for heliophysics-"
+                "by-topic before ~2005"
+            )
+            if touches_pre_1990:
+                row["forbidden_claims"].append(_FORBIDDEN_ARXIV_PRE_1991)
+        elif backend == "openalex":
+            row["claim_status"] = "no_key_public"
+            row["limitations"].append(
+                "OpenAlex indexes DOI-registered works; coverage is "
+                "sparse for pre-1990 journal articles that pre-date "
+                "publisher DOIs"
+            )
+        elif backend == "crossref":
+            row["claim_status"] = "no_key_public"
+            row["limitations"].append(
+                "Crossref indexes DOI-registered works; useful for "
+                "filling DOI metadata but sparse for pre-1990 journals"
+            )
+        else:
+            # Unknown future backend: stay honest about the unknown.
+            row["claim_status"] = "ok"
+            row["limitations"].append(
+                f"backend {backend!r} has no preflight rule encoded; "
+                "coverage claims must be verified externally"
+            )
+
+        rows.append(row)
+
+    # ---- run-level rollup ----------------------------------------------
+    if dry_run:
+        rollup_forbidden.append(_FORBIDDEN_DRY_RUN_LIVE_COVERAGE)
+    else:
+        # Without ADS in the slate, no combination of no-key backends can
+        # honestly claim 1950-present or pre-1990 coverage.
+        if not ads_in_slate and touches_pre_1990:
+            rollup_forbidden.append(_FORBIDDEN_PRE_1990)
+            rollup_forbidden.append(_FORBIDDEN_1950_PRESENT)
+        # Carry every per-backend forbidden claim into the rollup so the
+        # union is the authoritative warning set.
+        for r in rows:
+            rollup_forbidden.extend(r["forbidden_claims"])
+
+    # Dedupe while preserving insertion order.
+    seen_f: Dict[str, None] = {}
+    for f in rollup_forbidden:
+        seen_f.setdefault(f, None)
+    seen_b: Dict[str, None] = {}
+    for b in blocking:
+        seen_b.setdefault(b, None)
+
+    return {
+        "mode": mode,
+        "backends": rows,
+        "summary": {
+            "blocking_backends": list(seen_b),
+            "forbidden_claims": list(seen_f),
+        },
+    }
+
+
 def normalise_candidate(
     record: Dict, *, query: Optional[str], now_iso: str
 ) -> Dict:
@@ -1251,6 +1466,13 @@ def run_discovery(
             "retry_statuses": sorted(_TRANSIENT_HTTP_STATUSES),
             "mailto_polite_pool": bool(mailto),
         },
+        "source_preflight": compute_source_preflight(
+            backends=backends,
+            mode="live" if live else "dry-run",
+            ads_token_present=bool(ads_token),
+            year_from=year_from,
+            year_until=year_until,
+        ),
         "framing": (
             "frontier seed-expansion sample; not a complete survey of the "
             "heliophysics literature"
@@ -1517,6 +1739,10 @@ def build_run_metadata(
         "novelty_join": dict(summary.get("novelty_join") or {}),
         "candidate_counts_by_corpus_status": _candidate_counts_by_corpus_status(candidates),
         "polite_http": dict(summary.get("polite_http") or {}),
+        "source_preflight": dict(summary.get("source_preflight") or {}),
+        "source_preflight_summary": dict(
+            (summary.get("source_preflight") or {}).get("summary") or {}
+        ),
         "framing": summary.get("framing"),
         "output_paths": {
             "candidates_jsonl": str(run_dir / RUN_BUNDLE_CANDIDATES_NAME),
@@ -1611,6 +1837,45 @@ def render_run_report(meta: Dict) -> str:
         lines.append(
             f"- Manifest entry count: {novelty.get('manifest_entry_count', 0)}"
         )
+    lines.append("")
+
+    preflight = meta.get("source_preflight") or {}
+    lines.append("## Source / credential preflight")
+    lines.append("")
+    pf_rows = preflight.get("backends") or []
+    if not pf_rows:
+        lines.append("- (no backends selected)")
+    else:
+        for r in pf_rows:
+            cred = ""
+            if r.get("credential_required"):
+                cred = (
+                    f" credential_present=**{bool(r.get('credential_present'))}**"
+                    f" (env: {', '.join(r.get('credential_env_vars') or [])})"
+                )
+            lines.append(
+                f"- `{r.get('backend')}` — mode=`{r.get('mode')}` "
+                f"claim_status=`{r.get('claim_status')}`{cred}"
+            )
+            for lim in r.get("limitations") or []:
+                lines.append(f"  - limitation: {lim}")
+            for fc in r.get("forbidden_claims") or []:
+                lines.append(f"  - forbidden claim: **{fc}**")
+    pf_summary = preflight.get("summary") or {}
+    blocking = pf_summary.get("blocking_backends") or []
+    forbidden = pf_summary.get("forbidden_claims") or []
+    if blocking or forbidden:
+        lines.append("")
+        lines.append("**Forbidden claims for this run (do not assert):**")
+        for fc in forbidden:
+            lines.append(f"- {fc}")
+        if blocking:
+            lines.append("")
+            lines.append(
+                "Blocking backend(s): "
+                + ", ".join(f"`{b}`" for b in blocking)
+                + " — missing credential(s) prevent the claims above."
+            )
     lines.append("")
 
     prior = meta.get("prior_runs") or {}
