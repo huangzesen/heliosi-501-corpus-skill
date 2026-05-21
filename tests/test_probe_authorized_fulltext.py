@@ -647,5 +647,747 @@ class TestCliRetryFlag(unittest.TestCase):
                 paf.run_probe = orig
 
 
+class TestNormalizeProbeDoi(unittest.TestCase):
+    """The probe strips the parasitic ``/pdf`` suffix that some discovery-time
+    URL-to-DOI extractors glue onto A&A rows (observed on ~17 queue rows)."""
+
+    def test_strips_trailing_pdf(self):
+        self.assertEqual(
+            paf._normalize_probe_doi("10.1051/0004-6361/202039407/pdf"),
+            "10.1051/0004-6361/202039407",
+        )
+
+    def test_case_insensitive_strip(self):
+        self.assertEqual(
+            paf._normalize_probe_doi("10.1051/0004-6361/202039407/PDF"),
+            "10.1051/0004-6361/202039407",
+        )
+
+    def test_leaves_clean_doi_alone(self):
+        clean = "10.1051/0004-6361/202039407"
+        self.assertEqual(paf._normalize_probe_doi(clean), clean)
+
+    def test_empty_input_passes_through(self):
+        self.assertEqual(paf._normalize_probe_doi(""), "")
+
+    def test_strip_is_idempotent(self):
+        # Defensive: even pathological double-suffixes should be normalised.
+        self.assertEqual(
+            paf._normalize_probe_doi("10.1051/0004-6361/202039407/pdf/pdf"),
+            "10.1051/0004-6361/202039407",
+        )
+
+    def test_probe_uses_normalised_doi(self):
+        # End-to-end: a queue row with /pdf suffix should be probed at the
+        # canonical doi.org URL, not the 404-prone /pdf form.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1051/0004-6361/202039407/pdf")])
+
+            calls: list[str] = []
+            table = {
+                "https://doi.org/10.1051/0004-6361/202039407": FakeResponse(
+                    200,
+                    {"content-type": "text/html"},
+                    b'<html><head><meta name="citation_pdf_url" '
+                    b'content="https://www.aanda.org/articles/aa/pdf/2021/06/aa39407-20.pdf" />'
+                    b'</head></html>',
+                    "https://www.aanda.org/articles/aa/full_html/2021/06/aa39407-20/aa39407-20.html",
+                ),
+            }
+            base = make_router(table)
+
+            def recording(url, **kwargs):
+                calls.append(url)
+                return base(url, **kwargs)
+
+            paf._http_get = recording
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            # The probe must call the normalised URL, never the /pdf form.
+            self.assertIn(
+                "https://doi.org/10.1051/0004-6361/202039407", calls
+            )
+            self.assertNotIn(
+                "https://doi.org/10.1051/0004-6361/202039407/pdf", calls
+            )
+
+            # Attempt record exposes the normalisation for auditability.
+            attempt = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(
+                attempt["preferred_identifier"],
+                "10.1051/0004-6361/202039407/pdf",
+            )
+            self.assertEqual(
+                attempt["doi_normalized"], "10.1051/0004-6361/202039407"
+            )
+
+
+class TestPublisherLandingOverride(unittest.TestCase):
+    """AGU (10.1029) and Wiley (10.1002) get a publisher-direct landing URL
+    because doi.org returned 403 to the probe's User-Agent in the live run.
+    Other registrants must continue to use the doi.org proxy unchanged.
+    """
+
+    def test_agu_routes_to_agupubs(self):
+        self.assertEqual(
+            paf._publisher_landing_override("10.1029/2023ja031603"),
+            "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023ja031603",
+        )
+
+    def test_wiley_routes_to_onlinelibrary(self):
+        self.assertEqual(
+            paf._publisher_landing_override("10.1002/2017ja024077"),
+            "https://onlinelibrary.wiley.com/doi/10.1002/2017ja024077",
+        )
+
+    def test_non_overridden_registrant_returns_none(self):
+        # IOPscience (10.1088), Springer (10.1007), Elsevier (10.1016),
+        # A&A (10.1051), OSTI (10.2172), Copernicus (10.5194), AAS legacy
+        # (10.1086) all stay on the proxy path -- their landing pages
+        # already work or have a different failure mode.
+        for prefix in (
+            "10.1088", "10.1007", "10.1016", "10.1051",
+            "10.2172", "10.5194", "10.1086", "10.3847", "10.1063",
+        ):
+            with self.subTest(prefix=prefix):
+                self.assertIsNone(
+                    paf._publisher_landing_override(f"{prefix}/example")
+                )
+
+    def test_empty_doi_returns_none(self):
+        self.assertIsNone(paf._publisher_landing_override(""))
+
+    def test_probe_uses_override_for_agu(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1029/2023ja031603")])
+
+            calls: list[str] = []
+            table = {
+                "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023ja031603": FakeResponse(
+                    200,
+                    {"content-type": "text/html"},
+                    b'<html><head><meta name="citation_pdf_url" '
+                    b'content="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2023ja031603" />'
+                    b'</head></html>',
+                    "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023ja031603",
+                ),
+            }
+            base = make_router(table)
+
+            def recording(url, **kwargs):
+                calls.append(url)
+                return base(url, **kwargs)
+
+            paf._http_get = recording
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            # Probe went directly to the AGU publisher landing, bypassing
+            # the 403-prone doi.org proxy.
+            self.assertIn(
+                "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023ja031603",
+                calls,
+            )
+            self.assertNotIn(
+                "https://doi.org/10.1029/2023ja031603", calls
+            )
+
+            attempt = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(attempt["landing_route"], "publisher_direct")
+
+    def test_probe_uses_proxy_for_non_overridden_registrant(self):
+        # Sanity check: registrants without an override (here Springer)
+        # still go through the doi.org proxy as before.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1007/s11207-023-02144-3")])
+
+            calls: list[str] = []
+            table = {
+                "https://doi.org/10.1007/s11207-023-02144-3": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b'<html><head></head></html>',
+                    "https://link.springer.com/article/10.1007/s11207-023-02144-3",
+                ),
+            }
+            base = make_router(table)
+
+            def recording(url, **kwargs):
+                calls.append(url)
+                return base(url, **kwargs)
+
+            paf._http_get = recording
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertIn(
+                "https://doi.org/10.1007/s11207-023-02144-3", calls
+            )
+            attempt = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(attempt["landing_route"], "doi_proxy")
+
+
+class TestIsNonArticleDoi(unittest.TestCase):
+    """EGU meeting-abstract DOIs (10.5194/egusphere-egu*) are conference
+    abstracts hosted on meetingorganizer.copernicus.org, not full papers.
+    They must short-circuit before any network call."""
+
+    def test_egu_abstract_doi_is_non_article(self):
+        for doi in (
+            "10.5194/egusphere-egu23-3939",
+            "10.5194/egusphere-egu24-7959",
+            "10.5194/egusphere-egu25-14351",
+        ):
+            with self.subTest(doi=doi):
+                self.assertTrue(paf._is_non_article_doi(doi))
+
+    def test_real_copernicus_journal_doi_is_article(self):
+        # ACP, ANGEO, etc. on Copernicus are real papers -- must NOT match.
+        for doi in (
+            "10.5194/acp-22-1-2022",
+            "10.5194/angeo-39-1085-2021",
+            "10.5194/wes-2023-62",
+        ):
+            with self.subTest(doi=doi):
+                self.assertFalse(paf._is_non_article_doi(doi))
+
+    def test_other_registrant_doi_is_article(self):
+        for doi in (
+            "10.1029/2023ja031603",
+            "10.1051/0004-6361/202039407",
+            "10.1088/0004-637x/718/1/251",
+            "10.3847/1538-4357/aa603f",
+        ):
+            with self.subTest(doi=doi):
+                self.assertFalse(paf._is_non_article_doi(doi))
+
+    def test_probe_short_circuits_on_egu_abstract(self):
+        # End-to-end: an EGU-abstract row must not make any HTTP call.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.5194/egusphere-egu23-3939")])
+
+            calls: list[str] = []
+
+            def recording(url, **kwargs):
+                calls.append(url)
+                return FakeResponse(
+                    500, {"content-type": "text/plain"},
+                    b"should-not-be-called", url,
+                )
+
+            paf._http_get = recording
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            # No HTTP calls were made.
+            self.assertEqual(calls, [])
+            # Attempt record uses the new terminal status.
+            attempt = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(attempt["last_result"], paf.STATUS_NON_ARTICLE)
+            self.assertEqual(summary["by_status"].get(paf.STATUS_NON_ARTICLE), 1)
+            # Queue row stays fetch_failed (we never promote a non-article).
+            rows = paf.read_queue(store / "queue.jsonl")
+            self.assertEqual(rows[0]["status"], "fetch_failed")
+
+    def test_non_article_terminal_status_skips_reprobe(self):
+        # Repeated runs must not reprobe an EGU abstract: STATUS_NON_ARTICLE
+        # is in the terminal-failure set, so select_failed should drop it.
+        self.assertIn(paf.STATUS_NON_ARTICLE, paf.TERMINAL_FAILURE_RESULTS)
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            store.mkdir(parents=True)
+            rows = [
+                _row("egu", "10.5194/egusphere-egu23-3939"),
+                _row("fresh", "10.5194/acp-22-1-2022"),
+            ]
+            _write_attempt_file(store, "egu", paf.STATUS_NON_ARTICLE)
+            picked = paf.select_failed(rows, limit=10, store=store)
+            self.assertEqual([r["candidate_id"] for r in picked], ["fresh"])
+
+
+class TestCopernicusPreprintLanding(unittest.TestCase):
+    """Copernicus ``<journal>d-<volume>-<page>-<year>`` discussion-paper DOIs
+    have a fully deterministic landing URL that we can construct without any
+    DOI-proxy negotiation. Only the ``d``-suffixed preprint shape should match;
+    final published articles and meeting abstracts must fall through to the
+    standard doi.org path (and EGU abstracts already short-circuit via
+    ``_is_non_article_doi``).
+    """
+
+    def test_acpd_landing_url(self):
+        # Parent task's canonical example, verified to serve application/pdf
+        # at the constructed .pdf sibling URL.
+        self.assertEqual(
+            paf._copernicus_preprint_landing("10.5194/acpd-11-14003-2011"),
+            "https://acp.copernicus.org/preprints/11/14003/2011/"
+            "acpd-11-14003-2011.html",
+        )
+
+    def test_other_journal_d_shapes(self):
+        # The pattern generalises across Copernicus journals that operate a
+        # discussion server (acp/acpd, gmd/gmdd, angeo/angeod, npg/npgd, ...).
+        cases = [
+            (
+                "10.5194/gmdd-7-3953-2014",
+                "https://gmd.copernicus.org/preprints/7/3953/2014/"
+                "gmdd-7-3953-2014.html",
+            ),
+            (
+                "10.5194/angeod-30-1689-2012",
+                "https://angeo.copernicus.org/preprints/30/1689/2012/"
+                "angeod-30-1689-2012.html",
+            ),
+        ]
+        for doi, expected in cases:
+            with self.subTest(doi=doi):
+                self.assertEqual(paf._copernicus_preprint_landing(doi), expected)
+
+    def test_final_article_shape_does_not_match(self):
+        # Final published articles (no trailing ``d`` on the journal slug)
+        # already work via the standard Unpaywall path; helper must not
+        # construct a guessed URL for them.
+        for doi in (
+            "10.5194/acp-22-1-2022",
+            "10.5194/angeo-39-1085-2021",
+            "10.5194/npg-3-247-1996",
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(paf._copernicus_preprint_landing(doi))
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+
+    def test_egusphere_abstracts_do_not_match(self):
+        # Meeting abstracts and modern egusphere preprints use entirely
+        # different URL schemes; we explicitly leave them to other paths.
+        for doi in (
+            "10.5194/egusphere-egu23-3939",
+            "10.5194/egusphere-egu2020-11425",
+            "10.5194/egusphere-2025-523",
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(paf._copernicus_preprint_landing(doi))
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+
+    def test_review_thread_shape_does_not_match(self):
+        # ``acp-2015-891`` is a review-thread anchor, not the preprint
+        # ``acpd-VOL-PAGE-YEAR`` shape. Helper must leave it alone.
+        self.assertIsNone(paf._copernicus_preprint_landing("10.5194/acp-2015-891"))
+        self.assertIsNone(paf._copernicus_preprint_pdf("10.5194/acp-2015-891"))
+
+    def test_non_copernicus_doi_does_not_match(self):
+        for doi in (
+            "10.1029/2023ja031603",
+            "10.1051/0004-6361/202039407",
+            "10.1088/0004-637x/718/1/251",
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(paf._copernicus_preprint_landing(doi))
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+
+    def test_empty_input(self):
+        self.assertIsNone(paf._copernicus_preprint_landing(""))
+        self.assertIsNone(paf._copernicus_preprint_landing(None))
+        self.assertIsNone(paf._copernicus_preprint_pdf(""))
+        self.assertIsNone(paf._copernicus_preprint_pdf(None))
+
+    def test_publisher_override_dispatches_to_copernicus(self):
+        # ``_publisher_landing_override`` is the integration seam used by the
+        # per-row probe -- it must dispatch the preprint shape to the
+        # Copernicus helper in preference to any prefix-only override.
+        self.assertEqual(
+            paf._publisher_landing_override("10.5194/acpd-11-14003-2011"),
+            "https://acp.copernicus.org/preprints/11/14003/2011/"
+            "acpd-11-14003-2011.html",
+        )
+
+    def test_probe_uses_copernicus_override_end_to_end(self):
+        # End-to-end: probe constructs the preprint URL, fetches it, finds
+        # the citation_pdf_url, and (in download mode) writes the PDF -- all
+        # without ever calling doi.org.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.5194/acpd-11-14003-2011")])
+
+            landing_url = (
+                "https://acp.copernicus.org/preprints/11/14003/2011/"
+                "acpd-11-14003-2011.html"
+            )
+            pdf_url = (
+                "https://acp.copernicus.org/preprints/11/14003/2011/"
+                "acpd-11-14003-2011.pdf"
+            )
+            pdf_bytes = b"%PDF-1.4 fake bytes\n%%EOF"
+            table = {
+                landing_url: FakeResponse(
+                    200,
+                    {"content-type": "text/html; charset=utf-8"},
+                    f'<html><head><meta name="citation_pdf_url" content="{pdf_url}" />'
+                    f'</head></html>'.encode(),
+                    landing_url,
+                ),
+                pdf_url: FakeResponse(
+                    200, {"content-type": "application/pdf"}, pdf_bytes, pdf_url,
+                ),
+            }
+            calls: list[str] = []
+            base = make_router(table)
+
+            def recording(url, **kwargs):
+                calls.append(url)
+                return base(url, **kwargs)
+
+            paf._http_get = recording
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            # Probe bypassed doi.org entirely.
+            self.assertNotIn(
+                "https://doi.org/10.5194/acpd-11-14003-2011", calls
+            )
+            self.assertIn(landing_url, calls)
+            self.assertIn(pdf_url, calls)
+
+            # PDF was written and queue promoted.
+            written = list((store / "papers").glob("*/paper.pdf"))
+            self.assertEqual(len(written), 1)
+            self.assertEqual(written[0].read_bytes(), pdf_bytes)
+            self.assertEqual(summary["by_status"].get("fetched"), 1)
+
+            attempt = json.loads((store / "authorized_attempts" / "a.json").read_text())
+            self.assertEqual(attempt["landing_route"], "publisher_direct")
+            self.assertEqual(attempt["last_result"], "fetched")
+
+
+class TestCopernicusPreprintPdf(unittest.TestCase):
+    """Companion to ``_copernicus_preprint_landing``: returns the deterministic
+    same-host PDF URL for the ``<journal>d-<volume>-<page>-<year>`` discussion
+    preprint shape. This exists because in the live observation the constructed
+    HTML landing page is a minimal stub without ``citation_pdf_url`` while the
+    sibling ``.pdf`` URL on the same host returns ``application/pdf``. The
+    helper lets the probe fall back to that deterministic candidate without any
+    network I/O of its own; downstream same-host / content-type / %PDF-magic
+    validation in ``_probe_one`` is unchanged.
+    """
+
+    def test_acpd_pdf_url(self):
+        self.assertEqual(
+            paf._copernicus_preprint_pdf("10.5194/acpd-11-14003-2011"),
+            "https://acp.copernicus.org/preprints/11/14003/2011/"
+            "acpd-11-14003-2011.pdf",
+        )
+
+    def test_other_journal_d_shapes(self):
+        cases = [
+            (
+                "10.5194/gmdd-7-3953-2014",
+                "https://gmd.copernicus.org/preprints/7/3953/2014/"
+                "gmdd-7-3953-2014.pdf",
+            ),
+            (
+                "10.5194/angeod-30-1689-2012",
+                "https://angeo.copernicus.org/preprints/30/1689/2012/"
+                "angeod-30-1689-2012.pdf",
+            ),
+        ]
+        for doi, expected in cases:
+            with self.subTest(doi=doi):
+                self.assertEqual(paf._copernicus_preprint_pdf(doi), expected)
+
+    def test_pdf_and_landing_share_host_and_stem(self):
+        # By construction the deterministic PDF must live on the same host
+        # as the landing URL and share its filename stem. This is what makes
+        # the downstream same-host validation pass without any extra logic.
+        from urllib.parse import urlparse
+        doi = "10.5194/acpd-11-14003-2011"
+        landing = paf._copernicus_preprint_landing(doi)
+        pdf = paf._copernicus_preprint_pdf(doi)
+        self.assertIsNotNone(landing)
+        self.assertIsNotNone(pdf)
+        self.assertEqual(urlparse(landing).hostname, urlparse(pdf).hostname)
+        self.assertTrue(landing.endswith(".html"))
+        self.assertTrue(pdf.endswith(".pdf"))
+        self.assertEqual(landing[: -len(".html")], pdf[: -len(".pdf")])
+
+    def test_final_article_shape_does_not_match(self):
+        for doi in (
+            "10.5194/acp-22-1-2022",
+            "10.5194/angeo-39-1085-2021",
+            "10.5194/npg-3-247-1996",
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+
+    def test_egusphere_does_not_match(self):
+        for doi in (
+            "10.5194/egusphere-egu23-3939",
+            "10.5194/egusphere-2025-523",
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+
+    def test_non_copernicus_does_not_match(self):
+        for doi in (
+            "10.1029/2023ja031603",
+            "10.1051/0004-6361/202039407",
+            "10.1088/0004-637x/718/1/251",
+        ):
+            with self.subTest(doi=doi):
+                self.assertIsNone(paf._copernicus_preprint_pdf(doi))
+
+    def test_empty_and_none_input(self):
+        self.assertIsNone(paf._copernicus_preprint_pdf(""))
+        self.assertIsNone(paf._copernicus_preprint_pdf(None))
+
+
+class TestCopernicusPreprintFallback(unittest.TestCase):
+    """End-to-end: for ``<journal>d-<volume>-<page>-<year>`` Copernicus DOIs,
+    when the constructed landing page is a stub without ``citation_pdf_url``
+    (the live-observed shape for acpd-11-14003-2011), the probe must fall back
+    to the deterministic same-host ``.pdf`` URL rather than recording
+    ``no_official_pdf_link``. Same-host / content-type / %PDF-magic / final-url
+    validation must still gate the download."""
+
+    LANDING_URL = (
+        "https://acp.copernicus.org/preprints/11/14003/2011/"
+        "acpd-11-14003-2011.html"
+    )
+    PDF_URL = (
+        "https://acp.copernicus.org/preprints/11/14003/2011/"
+        "acpd-11-14003-2011.pdf"
+    )
+
+    def _stub_landing_html(self) -> bytes:
+        # A minimal HTML stub without citation_pdf_url and without any
+        # same-host PDF anchor -- the live-observed shape that makes
+        # extract_pdf_link return None.
+        return (
+            b"<html><head><title>acpd-11-14003-2011</title></head>"
+            b"<body><p>Preprint metadata page.</p></body></html>"
+        )
+
+    def test_probe_only_uses_deterministic_pdf_fallback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.5194/acpd-11-14003-2011")])
+
+            table = {
+                self.LANDING_URL: FakeResponse(
+                    200,
+                    {"content-type": "text/html; charset=utf-8"},
+                    self._stub_landing_html(),
+                    self.LANDING_URL,
+                ),
+                # No HTTP call to the .pdf URL in dry-run mode; it must
+                # only appear as the discovered candidate.
+            }
+            paf._http_get = make_router(table)
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(summary["selected"], 1)
+            self.assertEqual(summary["by_status"].get("probe_only"), 1)
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "probe_only")
+            # The discovered candidate is the deterministic same-host PDF URL,
+            # not None (which would have produced no_official_pdf_link).
+            self.assertEqual(attempt["pdf_url"], self.PDF_URL)
+            # Audit field exposes that this was a deterministic fallback,
+            # not a citation_pdf_url discovered on the landing page.
+            self.assertEqual(
+                attempt.get("pdf_url_source"),
+                "copernicus_preprint_deterministic",
+            )
+
+    def test_probe_download_uses_deterministic_pdf_fallback(self):
+        pdf_bytes = b"%PDF-1.4 fake bytes\n%%EOF"
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.5194/acpd-11-14003-2011")])
+
+            table = {
+                self.LANDING_URL: FakeResponse(
+                    200,
+                    {"content-type": "text/html; charset=utf-8"},
+                    self._stub_landing_html(),
+                    self.LANDING_URL,
+                ),
+                self.PDF_URL: FakeResponse(
+                    200, {"content-type": "application/pdf"},
+                    pdf_bytes, self.PDF_URL,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            summary = paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(summary["by_status"].get("fetched"), 1)
+            written = list((store / "papers").glob("*/paper.pdf"))
+            self.assertEqual(len(written), 1)
+            self.assertEqual(written[0].read_bytes(), pdf_bytes)
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "fetched")
+            self.assertEqual(attempt["pdf_url"], self.PDF_URL)
+            self.assertEqual(
+                attempt.get("pdf_url_source"),
+                "copernicus_preprint_deterministic",
+            )
+
+    def test_landing_citation_pdf_url_still_wins_when_present(self):
+        # Defensive: if a future Copernicus landing page DOES expose a
+        # citation_pdf_url, we should keep using that path. The deterministic
+        # fallback only fires when extract_pdf_link returns None.
+        landing_pdf = (
+            "https://acp.copernicus.org/preprints/11/14003/2011/"
+            "different-name.pdf"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.5194/acpd-11-14003-2011")])
+
+            table = {
+                self.LANDING_URL: FakeResponse(
+                    200,
+                    {"content-type": "text/html; charset=utf-8"},
+                    (
+                        b'<html><head><meta name="citation_pdf_url" content="'
+                        + landing_pdf.encode()
+                        + b'" /></head></html>'
+                    ),
+                    self.LANDING_URL,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["pdf_url"], landing_pdf)
+            # When the link came from the landing HTML itself, the audit field
+            # must NOT mark it as a deterministic fallback.
+            self.assertNotEqual(
+                attempt.get("pdf_url_source"),
+                "copernicus_preprint_deterministic",
+            )
+
+    def test_non_copernicus_no_fallback_still_records_no_link(self):
+        # Sanity: the deterministic fallback is Copernicus-specific. A
+        # non-matching DOI whose landing page yields no PDF link must still
+        # record no_official_pdf_link, not silently pick up some other URL.
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.1051/0004-6361/202039407")])
+
+            table = {
+                "https://doi.org/10.1051/0004-6361/202039407": FakeResponse(
+                    200, {"content-type": "text/html"},
+                    b"<html><body>No PDF link here</body></html>",
+                    "https://www.aanda.org/articles/aa/full_html/2021/06/foo/foo.html",
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=False,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "no_official_pdf_link")
+            self.assertIsNone(attempt.get("pdf_url"))
+
+    def test_off_host_redirect_on_pdf_still_rejected(self):
+        # The deterministic candidate is same-host by construction, but if a
+        # 3xx chain redirects the actual PDF response off-host, the existing
+        # final-URL same-host check must still reject it. This is the safety
+        # rail the task asked us to preserve.
+        off_host_pdf = "https://other-host.example/something.pdf"
+        with tempfile.TemporaryDirectory() as tmp:
+            store = Path(tmp) / "store"
+            _seed_queue(store, [_row("a", "10.5194/acpd-11-14003-2011")])
+
+            table = {
+                self.LANDING_URL: FakeResponse(
+                    200,
+                    {"content-type": "text/html; charset=utf-8"},
+                    self._stub_landing_html(),
+                    self.LANDING_URL,
+                ),
+                self.PDF_URL: FakeResponse(
+                    302,
+                    {"location": off_host_pdf, "content-type": "text/html"},
+                    b"", self.PDF_URL,
+                ),
+                off_host_pdf: FakeResponse(
+                    200, {"content-type": "application/pdf"},
+                    b"%PDF-1.4 off-host", off_host_pdf,
+                ),
+            }
+            paf._http_get = make_router(table)
+
+            paf.run_probe(
+                store=store, limit=10, email="r@example.edu",
+                year_min=None, year_max=None, download=True,
+                per_request_pause=0.0, http_timeout=5.0,
+            )
+
+            self.assertEqual(list((store / "papers").glob("*/paper.pdf")), [])
+            attempt = json.loads(
+                (store / "authorized_attempts" / "a.json").read_text()
+            )
+            self.assertEqual(attempt["last_result"], "rejected_not_pdf")
+            self.assertEqual(
+                attempt.get("error"), "pdf_final_url_off_publisher_host",
+            )
+
+
 if __name__ == "__main__":
     unittest.main()

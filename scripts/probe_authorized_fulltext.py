@@ -74,6 +74,7 @@ import csv
 import datetime as dt
 import json
 import os
+import re
 import ssl
 import sys
 import time
@@ -94,6 +95,11 @@ STATUS_PROBE_ONLY = "probe_only"
 STATUS_NO_LINK = "no_official_pdf_link"
 STATUS_REJECTED_NOT_PDF = "rejected_not_pdf"
 STATUS_HTTP_ERROR = "http_error"
+# Identifier shape rules out a full-text PDF (e.g. EGU meeting abstracts on
+# Copernicus, registered as DOIs but corresponding to conference abstracts
+# rather than papers). Recording this as a distinct terminal status keeps the
+# probe from re-trying these rows on every run.
+STATUS_NON_ARTICLE = "non_article_doi"
 
 DEFAULT_QUEUE_NAME = "queue.jsonl"
 DEFAULT_CSV_NAME = "queue.csv"
@@ -173,6 +179,7 @@ TERMINAL_FAILURE_RESULTS: frozenset[str] = frozenset({
     STATUS_HTTP_ERROR,
     STATUS_NO_LINK,
     STATUS_REJECTED_NOT_PDF,
+    STATUS_NON_ARTICLE,
 })
 
 
@@ -384,6 +391,189 @@ def _http_get(
 
 
 # ──────────────────────────────────────────────────────────
+#  Source-specific routing (legal/authorized only)
+# ──────────────────────────────────────────────────────────
+#
+# These helpers are narrow, per-registrant adaptations that
+#   (a) clean malformed DOI strings observed in the queue, or
+#   (b) substitute the canonical publisher landing URL for a DOI proxy
+#       that demonstrably refuses the probe's User-Agent, or
+#   (c) classify a DOI shape as not-a-paper before any network I/O.
+#
+# All three operate purely on metadata. They do not add new authentication,
+# scrape login flows, or follow third-party redirects. The same-publisher-host
+# rule downstream in ``extract_pdf_link`` / ``_same_host`` still gates which
+# PDFs are actually saved.
+
+
+def _normalize_probe_doi(doi: str) -> str:
+    """Strip queue-side artefacts that make a DOI non-resolvable.
+
+    Observed in the live queue (see analysis_*.json): ~17 A&A rows carry a
+    parasitic ``/pdf`` suffix glued onto the DOI by a discovery-time
+    URL-to-DOI extractor (e.g. ``10.1051/0004-6361/202039407/pdf``). The
+    canonical DOI is the prefix without ``/pdf``; doi.org returns 404 for the
+    suffixed form. This is pure normalisation -- the canonical DOI is
+    unchanged by the strip.
+    """
+    if not doi:
+        return doi
+    s = doi.strip()
+    while s.lower().endswith("/pdf"):
+        s = s[: -len("/pdf")]
+    return s
+
+
+# Publisher-direct landing URLs. ONLY include registrants where:
+#   1. The DOI proxy (doi.org) reliably refuses the probe's User-Agent
+#      (HTTP 403 in the run we measured), so the probe never reaches the
+#      landing page at all; AND
+#   2. The publisher-direct URL is the documented canonical landing URL
+#      that the DOI proxy would itself redirect to under a browser UA.
+#
+# This is not credential evasion: the URL is what the publisher publishes
+# as the article's home, and the same authorization rules (institutional IP,
+# OA flag) apply to the request. The same-host PDF rule downstream is
+# unchanged, so widening the scope is impossible.
+#
+# Source registrants and their canonical landing pattern, from Crossref
+# member metadata (verifiable at api.crossref.org/works/<doi>.URL):
+#
+#   10.1029 (AGU)  -> https://agupubs.onlinelibrary.wiley.com/doi/<doi>
+#   10.1002 (Wiley)-> https://onlinelibrary.wiley.com/doi/<doi>
+#
+# We do NOT include 10.1016 (Elsevier) because the linkinghub redirect does
+# succeed (HTTP 200 in the run we measured); the failure there is the absence
+# of a PDF link in the rendered HTML, which is an extraction problem not a
+# routing problem (and the right fix is a Crossref ``link[].URL``
+# text-mining tier, not landing-URL substitution).
+
+_PUBLISHER_LANDING_OVERRIDES: dict[str, str] = {
+    "10.1029": "https://agupubs.onlinelibrary.wiley.com/doi/{doi}",
+    "10.1002": "https://onlinelibrary.wiley.com/doi/{doi}",
+}
+
+
+# Copernicus discussion-paper / preprint DOIs follow a fully deterministic
+# URL scheme that we can construct without any landing-page negotiation:
+#
+#   10.5194/<journal>d-<volume>-<page>-<year>
+#     -> https://<journal>.copernicus.org/preprints/<volume>/<page>/<year>/<doi-suffix>.html
+#
+# Example: 10.5194/acpd-11-14003-2011
+#       -> https://acp.copernicus.org/preprints/11/14003/2011/acpd-11-14003-2011.html
+#
+# The constructed landing page is the official article page. Some historical
+# pages also expose PDF metadata, but live checks in 2026 showed at least one
+# page had shrunk to a tiny HTML shell without ``citation_pdf_url`` while the
+# same deterministic same-host PDF URL remained valid. We therefore keep the
+# official landing URL for host/authorization checks and also construct the
+# matching official PDF URL for this narrow DOI shape.
+#
+# Restricted intentionally: this helper only handles the
+# ``<journal>d-<volume>-<page>-<year>`` shape (the historical preprint
+# server). It does NOT attempt to construct URLs for:
+#   * ``egusphere-egu*`` meeting abstracts (handled by ``_is_non_article_doi``);
+#   * ``egusphere-YYYY-NN`` modern preprints (different URL scheme);
+#   * ``acp-YYYY-NN`` review-thread anchors (different URL scheme);
+#   * Final published articles ``<journal>-<vol>-<page>-<year>`` (the standard
+#     DOI proxy + Unpaywall path already works for these -- 66/66 fetched in
+#     the live queue snapshot).
+#
+# Leaving unsupported shapes to the default doi.org-proxy path keeps the
+# helper deterministic and avoids inventing URLs for shapes we have not
+# verified end-to-end.
+_COPERNICUS_PREPRINT_PATTERN = re.compile(
+    r"^10\.5194/(?P<journal>[a-z]+)d-(?P<volume>\d+)-(?P<page>[A-Za-z0-9]+)-(?P<year>\d{4})$",
+    re.IGNORECASE,
+)
+
+
+def _copernicus_preprint_urls(doi: str) -> Optional[tuple[str, str]]:
+    """Construct official Copernicus landing and PDF URLs for matching DOIs.
+
+    Returns ``None`` for any DOI that does not match the
+    ``<journal>d-<volume>-<page>-<year>`` shape so the caller falls back to
+    the default DOI-proxy path.  Both returned URLs live on the same
+    Copernicus host: the HTML landing URL is used to establish the publisher
+    host, and the PDF URL is still validated by the normal PDF fetch, content
+    type, PDF magic, and final-URL same-host checks before any file is saved.
+    """
+    if not doi:
+        return None
+    s = doi.strip()
+    m = _COPERNICUS_PREPRINT_PATTERN.match(s)
+    if not m:
+        return None
+    journal = m.group("journal").lower()
+    volume = m.group("volume")
+    page = m.group("page")
+    year = m.group("year")
+    # The DOI suffix (everything after the ``10.5194/`` prefix) is also the
+    # filename stem on the Copernicus host. Preserve the original case of the
+    # suffix to match the on-disk filename exactly.
+    suffix = s.split("/", 1)[1]
+    base = f"https://{journal}.copernicus.org/preprints/{volume}/{page}/{year}/{suffix}"
+    return f"{base}.html", f"{base}.pdf"
+
+
+def _copernicus_preprint_landing(doi: str) -> Optional[str]:
+    """Construct the Copernicus preprint landing URL for matching DOIs."""
+    urls = _copernicus_preprint_urls(doi)
+    return urls[0] if urls else None
+
+
+def _copernicus_preprint_pdf(doi: str) -> Optional[str]:
+    """Construct the Copernicus preprint PDF URL for matching DOIs."""
+    urls = _copernicus_preprint_urls(doi)
+    return urls[1] if urls else None
+
+
+def _publisher_landing_override(doi: str) -> Optional[str]:
+    """Return a publisher-direct landing URL when one is preferable to doi.org.
+
+    Returns ``None`` for any registrant we do not have an explicit override
+    for, leaving the standard doi.org-proxy path intact.
+    """
+    if not doi:
+        return None
+    # Shape-specific overrides take precedence over prefix-only ones, because
+    # a single registrant (10.5194) covers both meeting abstracts, modern
+    # preprints, and journal articles -- only the preprint shape gets a
+    # constructed URL.
+    copernicus = _copernicus_preprint_landing(doi)
+    if copernicus:
+        return copernicus
+    prefix = doi.split("/", 1)[0].lower()
+    template = _PUBLISHER_LANDING_OVERRIDES.get(prefix)
+    if not template:
+        return None
+    # The Wiley landing URL expects the DOI in its original case after the
+    # ``/doi/`` segment. Use the supplied DOI as-is; doi.org canonicalisation
+    # is case-insensitive but Wiley accepts either form.
+    return template.format(doi=doi)
+
+
+# DOI shapes that we know correspond to non-paper artefacts and so cannot be
+# acquired as a publisher PDF. Today this is exclusively Copernicus
+# ``egusphere-egu*`` meeting-abstract DOIs, which are short conference
+# abstracts hosted on meetingorganizer.copernicus.org (no PDF, by design).
+_EGU_ABSTRACT_PATTERN = re.compile(r"^10\.5194/egusphere-egu\d{2,4}-", re.IGNORECASE)
+
+
+def _is_non_article_doi(doi: str) -> bool:
+    """True iff the DOI shape implies a non-paper (e.g. EGU meeting abstract).
+
+    Recording these as a distinct terminal status (``non_article_doi``) lets
+    repeated runs of the probe skip them deterministically and keeps the
+    failure-classification report clean.
+    """
+    if not doi:
+        return False
+    return bool(_EGU_ABSTRACT_PATTERN.match(doi.strip()))
+
+
+# ──────────────────────────────────────────────────────────
 #  Per-row probe
 # ──────────────────────────────────────────────────────────
 
@@ -397,19 +587,59 @@ def _probe_one(
 ) -> dict:
     """Probe a single fetch_failed row. Returns an attempt record dict."""
     cid = row["candidate_id"]
-    doi = row["preferred_identifier"]
-    doi_url = DOI_PROXY + doi.lstrip("/")
+    raw_doi = row["preferred_identifier"]
+    # Step 0: source-specific normalisation -- strip parasitic ``/pdf``
+    # suffixes observed on some A&A rows so the canonical DOI resolves.
+    doi = _normalize_probe_doi(raw_doi)
+    # If the DOI shape implies a non-paper artefact (EGU meeting abstracts),
+    # short-circuit before any network I/O so re-runs deterministically skip
+    # this row via the terminal-failure guard.
+    if _is_non_article_doi(doi):
+        return {
+            "schema_version": SCHEMA_VERSION,
+            "candidate_id": cid,
+            "preferred_identifier": raw_doi,
+            "doi_normalized": doi if doi != raw_doi else None,
+            "identifier_kind": row.get("identifier_kind"),
+            "title": row.get("title"),
+            "year": row.get("year"),
+            "doi_url": None,
+            "landing_url": None,
+            "pdf_url": None,
+            "http_status": None,
+            "content_type": None,
+            "source": "non_article_doi_shape",
+            "last_result": STATUS_NON_ARTICLE,
+            "attempted_at_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+
+    # Prefer publisher-direct landing URLs for registrants where doi.org
+    # refuses our User-Agent (Wiley/AGU returned 403 in the live run). The
+    # override URL is the canonical landing page that the proxy would itself
+    # redirect to under a browser UA; downstream same-host PDF checks are
+    # unchanged.
+    copernicus_pdf = _copernicus_preprint_pdf(doi)
+    override = _publisher_landing_override(doi)
+    if override:
+        landing_entry_url = override
+        landing_route = "publisher_direct"
+    else:
+        landing_entry_url = DOI_PROXY + doi.lstrip("/")
+        landing_route = "doi_proxy"
 
     attempt: dict = {
         "schema_version": SCHEMA_VERSION,
         "candidate_id": cid,
-        "preferred_identifier": doi,
+        "preferred_identifier": raw_doi,
+        "doi_normalized": doi if doi != raw_doi else None,
         "identifier_kind": row.get("identifier_kind"),
         "title": row.get("title"),
         "year": row.get("year"),
-        "doi_url": doi_url,
+        "doi_url": landing_entry_url,
+        "landing_route": landing_route,
         "landing_url": None,
         "pdf_url": None,
+        "pdf_url_source": None,
         "http_status": None,
         "content_type": None,
         "source": None,
@@ -420,7 +650,7 @@ def _probe_one(
     # Step 1: resolve DOI -> landing page.
     try:
         landing = _http_get(
-            doi_url,
+            landing_entry_url,
             timeout=http_timeout,
             user_agent=user_agent,
             accept="text/html,application/xhtml+xml",
@@ -440,10 +670,19 @@ def _probe_one(
 
     # Step 2: extract candidate PDF link from same publisher host.
     pdf_url = extract_pdf_link(landing.body, landing_url=landing.final_url)
+    pdf_url_source: Optional[str] = "landing_page_link" if pdf_url else None
+    if not pdf_url and copernicus_pdf:
+        # Historical Copernicus discussion-preprint pages have deterministic
+        # same-host PDF URLs. Live pages may omit the citation_pdf_url meta tag,
+        # so fall back to the deterministic URL for this narrow DOI shape while
+        # preserving all downstream PDF/content/final-host validation.
+        pdf_url = copernicus_pdf
+        pdf_url_source = "copernicus_preprint_deterministic"
     if not pdf_url:
         attempt["last_result"] = STATUS_NO_LINK
         return attempt
     attempt["pdf_url"] = pdf_url
+    attempt["pdf_url_source"] = pdf_url_source
     attempt["source"] = "publisher_institutional"
 
     if not download:
